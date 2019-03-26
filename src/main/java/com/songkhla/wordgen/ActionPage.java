@@ -32,22 +32,22 @@ public class ActionPage extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
+        AnswerSuspect = new javax.swing.JTextArea();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        AnswerAccuser = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        ActionDetail = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        ActionCrimes = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        ActionCode = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea4 = new javax.swing.JTextArea();
+        ActionNote = new javax.swing.JTextArea();
         jLabel7 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -61,17 +61,17 @@ public class ActionPage extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTextArea3.setColumns(20);
-        jTextArea3.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jTextArea3.setLineWrap(true);
-        jTextArea3.setRows(3);
-        jScrollPane1.setViewportView(jTextArea3);
+        AnswerSuspect.setColumns(20);
+        AnswerSuspect.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        AnswerSuspect.setLineWrap(true);
+        AnswerSuspect.setRows(3);
+        jScrollPane1.setViewportView(AnswerSuspect);
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jTextArea2.setLineWrap(true);
-        jTextArea2.setRows(3);
-        jScrollPane5.setViewportView(jTextArea2);
+        AnswerAccuser.setColumns(20);
+        AnswerAccuser.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        AnswerAccuser.setLineWrap(true);
+        AnswerAccuser.setRows(3);
+        jScrollPane5.setViewportView(AnswerAccuser);
 
         jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel1.setText("คำให้การผู้กล่าวหา");
@@ -79,19 +79,19 @@ public class ActionPage extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel3.setText("หมายเหตุ");
 
-        jTextArea1.setColumns(10);
-        jTextArea1.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(3);
-        jScrollPane4.setViewportView(jTextArea1);
+        ActionDetail.setColumns(10);
+        ActionDetail.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        ActionDetail.setLineWrap(true);
+        ActionDetail.setRows(3);
+        jScrollPane4.setViewportView(ActionDetail);
 
         jLabel2.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel2.setText("รายละเอียดพฤติการณ์คดี");
 
-        jTextField2.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        ActionCrimes.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        ActionCrimes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                ActionCrimesActionPerformed(evt);
             }
         });
 
@@ -101,10 +101,10 @@ public class ActionPage extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel5.setText("รหัสพฤติการณ์");
 
-        jTextField3.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        ActionCode.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        ActionCode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                ActionCodeActionPerformed(evt);
             }
         });
 
@@ -129,11 +129,11 @@ public class ActionPage extends javax.swing.JFrame {
             }
         });
 
-        jTextArea4.setColumns(20);
-        jTextArea4.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jTextArea4.setLineWrap(true);
-        jTextArea4.setRows(3);
-        jScrollPane2.setViewportView(jTextArea4);
+        ActionNote.setColumns(20);
+        ActionNote.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        ActionNote.setLineWrap(true);
+        ActionNote.setRows(3);
+        jScrollPane2.setViewportView(ActionNote);
 
         jLabel7.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel7.setText("คำให้การฝ่ายผู้ต้องหา");
@@ -154,11 +154,11 @@ public class ActionPage extends javax.swing.JFrame {
                                 .addGroup(jPanel2Layout.createSequentialGroup()
                                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(11, 11, 11)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(ActionCrimes, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel2Layout.createSequentialGroup()
                                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(ActionCode, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGap(18, 18, 18)
                             .addComponent(jButton2))
                         .addGroup(jPanel2Layout.createSequentialGroup()
@@ -178,11 +178,11 @@ public class ActionPage extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ActionCode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(9, 9, 9)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField2)
+                    .addComponent(ActionCrimes)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
@@ -250,17 +250,17 @@ public class ActionPage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void ActionCrimesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActionCrimesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_ActionCrimesActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void ActionCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActionCodeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_ActionCodeActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         ActionList actionList=new ActionList();
@@ -305,6 +305,12 @@ public class ActionPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField ActionCode;
+    private javax.swing.JTextField ActionCrimes;
+    private javax.swing.JTextArea ActionDetail;
+    private javax.swing.JTextArea ActionNote;
+    private javax.swing.JTextArea AnswerAccuser;
+    private javax.swing.JTextArea AnswerSuspect;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -320,11 +326,5 @@ public class ActionPage extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextArea jTextArea4;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }
