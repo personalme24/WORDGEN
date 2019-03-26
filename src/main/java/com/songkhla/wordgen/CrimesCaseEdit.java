@@ -87,7 +87,7 @@ public class CrimesCaseEdit extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         jTextField19 = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
-        jTextField20 = new javax.swing.JTextField();
+        Name = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
         jLabel26 = new javax.swing.JLabel();
         jTextField21 = new javax.swing.JTextField();
@@ -343,7 +343,7 @@ public class CrimesCaseEdit extends javax.swing.JFrame {
         jLabel25.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel25.setText("พยานและบุคคลอื่น");
 
-        jTextField20.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Name.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jButton7.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButton7.setText("เพิ่ม");
@@ -598,7 +598,7 @@ public class CrimesCaseEdit extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(13, 13, 13))
@@ -729,7 +729,7 @@ public class CrimesCaseEdit extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton8)
                     .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(EvidenceRecordNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -873,6 +873,7 @@ public class CrimesCaseEdit extends javax.swing.JFrame {
     private javax.swing.JTextField CrimeLocationProvince;
     private javax.swing.JTextField DailyNumber;
     private javax.swing.JTextField EvidenceRecordNumber;
+    private javax.swing.JTextField Name;
     private javax.swing.JTextField OccuredDate;
     private javax.swing.JTextField OccuredDateTime;
     private javax.swing.JTextField crimecaseno;
@@ -940,7 +941,6 @@ public class CrimesCaseEdit extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextField21;
     private javax.swing.JTextField jTextField22;
     private javax.swing.JTextField jTextField24;
