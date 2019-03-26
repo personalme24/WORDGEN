@@ -34,18 +34,18 @@ public class ChargePage extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
+        Note = new javax.swing.JTextArea();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        RateOfPenalty = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        Law = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        ChargeName = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        ChargeCode = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
@@ -80,15 +80,15 @@ public class ChargePage extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTextArea3.setColumns(20);
-        jTextArea3.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jTextArea3.setRows(5);
-        jScrollPane1.setViewportView(jTextArea3);
+        Note.setColumns(20);
+        Note.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Note.setRows(5);
+        jScrollPane1.setViewportView(Note);
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jTextArea2.setRows(5);
-        jScrollPane5.setViewportView(jTextArea2);
+        RateOfPenalty.setColumns(20);
+        RateOfPenalty.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        RateOfPenalty.setRows(5);
+        jScrollPane5.setViewportView(RateOfPenalty);
 
         jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel1.setText("อัตราโทษ");
@@ -96,18 +96,18 @@ public class ChargePage extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel3.setText("หมายเหตุ");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jTextArea1.setRows(5);
-        jScrollPane4.setViewportView(jTextArea1);
+        Law.setColumns(20);
+        Law.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Law.setRows(5);
+        jScrollPane4.setViewportView(Law);
 
         jLabel2.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel2.setText("กฎหมายที่อ้าง");
 
-        jTextField2.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        ChargeName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        ChargeName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                ChargeNameActionPerformed(evt);
             }
         });
 
@@ -117,10 +117,10 @@ public class ChargePage extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel5.setText("รหัสข้อหา");
 
-        jTextField3.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        ChargeCode.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        ChargeCode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                ChargeCodeActionPerformed(evt);
             }
         });
 
@@ -167,9 +167,9 @@ public class ChargePage extends javax.swing.JFrame {
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ChargeCode, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(ChargeName, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton2)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -180,12 +180,12 @@ public class ChargePage extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ChargeCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ChargeName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
@@ -223,17 +223,17 @@ public class ChargePage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void ChargeNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChargeNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_ChargeNameActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void ChargeCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChargeCodeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_ChargeCodeActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        ChargeList ChargeList=new ChargeList();
@@ -277,6 +277,11 @@ public class ChargePage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField ChargeCode;
+    private javax.swing.JTextField ChargeName;
+    private javax.swing.JTextArea Law;
+    private javax.swing.JTextArea Note;
+    private javax.swing.JTextArea RateOfPenalty;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -290,10 +295,5 @@ public class ChargePage extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }
