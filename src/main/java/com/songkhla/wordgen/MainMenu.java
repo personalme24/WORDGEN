@@ -59,7 +59,7 @@ public class MainMenu extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel2.setBackground(new java.awt.Color(255, 113, 16));
+        jPanel2.setBackground(new java.awt.Color(77, 0, 0));
 
         jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 48)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
