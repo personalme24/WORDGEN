@@ -7,18 +7,26 @@ package com.songkhla.wordgen;
 
 import java.awt.Dimension;
 import java.awt.Rectangle;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Matazz
  */
 public class ActionPage extends javax.swing.JFrame {
-
+    Connection con=null;
+    PreparedStatement pst=null;
+    
     /**
      * Creates new form ChangPage
      */
     public ActionPage() {
-        initComponents();
+        initComponents();         
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        con=ConnectDatabase.connect();
+
     }
 
     /**
@@ -44,7 +52,7 @@ public class ActionPage extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         ActionCode = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        ButtonAddAction = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         ActionNote = new javax.swing.JTextArea();
@@ -108,13 +116,13 @@ public class ActionPage extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(java.awt.SystemColor.windowText);
-        jButton1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("บันทึกข้อมูล");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        ButtonAddAction.setBackground(java.awt.SystemColor.windowText);
+        ButtonAddAction.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        ButtonAddAction.setForeground(new java.awt.Color(255, 255, 255));
+        ButtonAddAction.setText("บันทึกข้อมูล");
+        ButtonAddAction.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                ButtonAddActionActionPerformed(evt);
             }
         });
 
@@ -168,7 +176,7 @@ public class ActionPage extends javax.swing.JFrame {
                                 .addComponent(jScrollPane2)
                                 .addComponent(jScrollPane4)))
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 635, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addComponent(ButtonAddAction, javax.swing.GroupLayout.Alignment.TRAILING))
                     .addComponent(jLabel7))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
@@ -201,7 +209,7 @@ public class ActionPage extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ButtonAddAction, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(7, 7, 7))
         );
 
@@ -254,9 +262,27 @@ public class ActionPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ActionCrimesActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void ButtonAddActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAddActionActionPerformed
+        // TODO add your handling code here: 
+        String intAc="insert into Action(ActionCode,ActionCrimes,ActionDetail,ActionNote) values(?,?,?,?) ";
+          String intCr="insert into CrimesCase(AnswerSuspect,AnswerAccuse) values(?,?) ";
+        try {
+           
+           pst=con.prepareStatement(intAc);
+           pst.setString(1, ActionCode.getText());
+           pst.setString(2, ActionCrimes.getText());
+           pst.setString(3, ActionDetail.getText());
+           pst.setString(4, ActionNote.getText());
+            
+           pst.execute();
+           
+           pst.close();
+           JOptionPane.showMessageDialog(null, "Data Saved successfully");
+        } catch (Exception e) {
+          JOptionPane.showMessageDialog(null, "Cannot Saved successfully");
+            
+        }
+    }//GEN-LAST:event_ButtonAddActionActionPerformed
 
     private void ActionCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActionCodeActionPerformed
         // TODO add your handling code here:
@@ -311,7 +337,7 @@ public class ActionPage extends javax.swing.JFrame {
     private javax.swing.JTextArea ActionNote;
     private javax.swing.JTextArea AnswerAccuser;
     private javax.swing.JTextArea AnswerSuspect;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton ButtonAddAction;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

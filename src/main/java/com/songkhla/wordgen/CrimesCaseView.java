@@ -94,6 +94,11 @@ public class CrimesCaseView extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButton2.setText("เพิ่ม");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButton3.setText("แก้ไข");
@@ -128,6 +133,12 @@ public class CrimesCaseView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        CrimesCaseEdit cce =new CrimesCaseEdit();
+        cce.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -16,6 +16,7 @@ public class ChargeList extends javax.swing.JFrame {
      */
     public ChargeList() {
         initComponents();
+         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
     /**

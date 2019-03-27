@@ -22,233 +22,199 @@ public class CreateTable {
 	        
 	        // SQL statement for creating a new table
 	        String sqlPerson = "CREATE TABLE IF NOT EXISTS Person (\n"+
-	                 "	PeopleRegistrationID	VARCHAR(13)	Primary Key,	\n"+
-                "	StatusSuspect		,	\n"+
-                "	SuspectType		,	\n"+
-                "	Isforeigner		,	\n"+
+	        "	DateIdentify	DATETIME	Primary Key,	\n"+
+                "	PeopleRegistrationID	VARCHAR(13)	,	\n"+
+                "	IssueDate	DATETIME	,	\n"+
+                "	ExpiredDate	DATETIME	,	\n"+
+                "	IssuedBy	VARCHAR(100)	,	\n"+
+                "	PassportNumber	VARCHAR(100)	,	\n"+
                 "	FullNamePerson	VARCHAR(100)	,	\n"+
-                "	Age	VARCHAR(100)	,	\n"+
+                "	FullNamePersonEn	VARCHAR(100)	,	\n"+
+                "	OtherName	VARCHAR(100)	,	\n"+
+                "	OtherSurname	VARCHAR(100)	,	\n"+
+                "	BirthDay	DATETIME	,	\n"+
+                "	Gender	DATETIME	,	\n"+
+                "	Age	DATETIME	,	\n"+
                 "	Race	VARCHAR(100)	,	\n"+
                 "	Nationality	VARCHAR(100)	,	\n"+
                 "	Religion	VARCHAR(100)	,	\n"+
                 "	Occupation	VARCHAR(100)	,	\n"+
-                "	PersonType		,	\n"+
-                "	IssueDate	DATETIME	,	\n"+
-                "	ExpiredDate	DATETIME	,	\n"+
-                "	IssuedBy	VARCHAR(100)	,	\n"+
+                "	Height	VARCHAR(100)	,	\n"+
+                "	Weight	VARCHAR(100)	,	\n"+
+                "	BloodGroup	VARCHAR(100)	,	\n"+
+                "	Related	VARCHAR(100)	,	\n"+
                 "	HouseNumber	VARCHAR(100)	,	\n"+
                 "	Moo	VARCHAR(100)	,	\n"+
                 "	Tambon	VARCHAR(100)	,	\n"+
                 "	Amphur	VARCHAR(100)	,	\n"+
                 "	Province	VARCHAR(100)	,	\n"+
+                "	ZipCode	VARCHAR(100)	,	\n"+
+                "	PhonePerson	VARCHAR(100)	,	\n"+
                 "	HeadmanName	VARCHAR(100)	,	\n"+
                 "	SubHeadmanName	VARCHAR(100)	,	\n"+
                 "	FatherFullName	VARCHAR(100)	,	\n"+
                 "	MotherFullName	VARCHAR(100)	,	\n"+
-                "	Relative	VARCHAR(100)	,	\n"+
                 "	TambonBirthday	VARCHAR(100)	,	\n"+
                 "	AmphurBirthday	VARCHAR(100)	,	\n"+
                 "	ProvinceBirthday	VARCHAR(100)	,	\n"+
+                "	NoImprison	VARCHAR(100)	,	\n"+
+                "	CauseImprison	VARCHAR(100)	,	\n"+
+                "	DateSendInjured	VARCHAR(100)	,	\n"+
+                "	NameSendInjured	VARCHAR(100)	,	\n"+
+                "	PlaceBorn	VARCHAR(100)	,	\n"+
                 "	DateOfDie	DATETIME	,	\n"+
-                "	DateOfFoundCorpse	DATETIME	,	\n"+
-                "	PlaceOfDie	VARCHAR(100)	,	\n"+
-                "	PlaceOfFoundCorpse	VARCHAR(100)	,	\n"+
-                "	NameOfFoundCorpse	VARCHAR(100)	,	\n"+
-                "	Gender	VARCHAR(100)	,	\n"+
-                "	HeightFoot	Boolean	,	\n"+
-                "	HeightInch	Boolean	,	\n"+
-                "	HeightMeters	Boolean	,	\n"+
-                "	Shape	Boolean	,	\n"+
-                "	Skin	Boolean	,	\n"+
-                "	Face	Boolean	,	\n"+
-                "	Hair	Boolean	,	\n"+
-                "	Beard	Boolean	,	\n"+
-                "	Eyebrow	Boolean	,	\n"+
-                "	Eye	Boolean	,	\n"+
-                "	Head	Boolean	,	\n"+
-                "	Forehead	Boolean	,	\n"+
-                "	Nose	Boolean	,	\n"+
-                "	Mouth	Boolean	,	\n"+
-                "	Neck	Boolean	,	\n"+
-                "	Chin	Boolean	,	\n"+
-                "	Teeth	Boolean	,	\n"+
-                "	Ear	Boolean	,	\n"+
-                "	Hand	Boolean	,	\n"+
-                "	Scar	Boolean	,	\n"+
-                "	Tattoo	Boolean	,	\n"+
-                "	Dress	Boolean	,	\n"+
-                "	SpecialCharacter	VARCHAR(100)	,	\n"+
-                "	CauseFoundBody	VARCHAR(100)	,	\n"+
-                "	CauseOfDeath	VARCHAR(100)	,	\n"+
-                "	FullNamePersonEn	VARCHAR(100)	,	\n"+
-                "	PassportNumber	VARCHAR(100)	,	\n"+
-                "	OtherName	VARCHAR(100)	,	\n"+
-                "	OtherSurname	VARCHAR(100)	,	\n"+
-                "	BirthDay	DATE	,	\n"+
-                "	FatherAddress	VARCHAR(100)	,	\n"+
-                "	MotherAddress	VARCHAR(100)	,	\n"+
-                "	SpouseFullName	VARCHAR(100)	,	\n"+
-                "	SpouseAddress	VARCHAR(100)	,	\n"+
-                "	RelativeFriend	VARCHAR(100)	,	\n"+
-                "	RelativeFriendAddress	VARCHAR(100)	,	\n"+
-                "	workplace	VARCHAR(100)	,	\n"+
-                "	LastAddress	VARCHAR(100)	,	\n"+
-                "	Domicile	VARCHAR(100)	,	\n"+
-                "	FavouritePlace	VARCHAR(100)	,	\n"+
-                "	Gang	VARCHAR(100)	,	\n"+
-                "	NamePeopleInTheGang	VARCHAR(100)	,	\n"+
-                "	Height	VARCHAR(100)	,	\n"+
-                "	Weight	VARCHAR(100)	,	\n"+
-                "	BloodGroup	VARCHAR(100)	,	\n"+
-                "	Disability	VARCHAR(100)	,	\n"+
-                "	HeirName	VARCHAR(100)	,	\n"+
-                "	DangerouspersonName	VARCHAR(100)	,	\n"+
-                "	DriverName	VARCHAR(100)	,	\n"+
-                "	RegistrationNumber	VARCHAR(100)	,	\n"+
-                "	NoPlate_number	VARCHAR(100)	,	\n"+
-                "	TravelDate	DATETIME	,	\n"+
-                "	Vehicle	VARCHAR(100)	,	\n"+
-                "	FlightNo	VARCHAR(100)	,	\n"+
-                "	BossName	VARCHAR(100)	,	\n"+
+                "	BodyFoundDate	DATETIME	,	\n"+
+                "	DeathLocation	VARCHAR(100)	,	\n"+
+                "	TambomDie	VARCHAR(100)	,	\n"+
+                "	AmphurDie	VARCHAR(100)	,	\n"+
+                "	ProvinceDie	VARCHAR(100)	,	\n"+
+                "	PlaceOfFoundBody	VARCHAR(100)	,	\n"+
+                "	TambomFoundBody	VARCHAR(100)	,	\n"+
+                "	AmphurFoundBody	VARCHAR(100)	,	\n"+
+                "	ProvinceFoundBody	VARCHAR(100)	,	\n"+
+                "	CircumstancesOfDeath	VARCHAR(100)	,	\n"+
+                "	ArrestDate	VARCHAR(100)	,	\n"+
+                "	PlaceArrest	VARCHAR(100)	,	\n"+
                 "	Country	VARCHAR(100)	,	\n"+
-                "	MissingPersonNo	VARCHAR(100)	,	\n"+
-                "	InformerName	VARCHAR(100)	,	\n"+
-                "	InformerHouseNo	VARCHAR(100)	,	\n"+
-                "	InformerMoo	VARCHAR(100)	,	\n"+
-                "	InformerRoad	VARCHAR(100)	,	\n"+
-                "	InformerTambon	VARCHAR(100)	,	\n"+
-                "	InformerAmphur	VARCHAR(100)	,	\n"+
-                "	InformerProvince	VARCHAR(100)	,	\n"+
-                "	TitleName	VARCHAR(100)	,	\n"+
-                "	AliasName	VARCHAR(100)	,	\n"+
-                "	DomicileHouseNo	VARCHAR(100)	,	\n"+
-                "	DomicileMoo	VARCHAR(100)	,	\n"+
-                "	DomicileRoad	VARCHAR(100)	,	\n"+
-                "	DomicileTambon	VARCHAR(100)	,	\n"+
-                "	DomicileAmphur	VARCHAR(100)	,	\n"+
-                "	DomicileProvince	VARCHAR(100)	,	\n"+
-                "	WhenLostHouseNo	VARCHAR(100)	,	\n"+
-                "	WhenLostMoo	VARCHAR(100)	,	\n"+
-                "	WhenLostRoad	VARCHAR(100)	,	\n"+
-                "	WhenLostTambon	VARCHAR(100)	,	\n"+
-                "	WhenLostAumphur	VARCHAR(100)	,	\n"+
-                "	WhenLostProvince	VARCHAR(100)	,	\n"+
-                "	CauseOfLost	VARCHAR(100)	,	\n"+
-                "	PlaceFindOut	VARCHAR(100)	,	\n"+
-                "	LostDateCostume	VARCHAR(100)	,	\n"+
-                "	CarryOnAsset	VARCHAR(100)	,	\n"+
-                "	PresumptionOfLost	VARCHAR(100)	,	\n"+
-                "	ConsignTo	VARCHAR(100)	,	\n"+
-                "	FollowName	VARCHAR(100)	,	\n"+
-                "	DateOfVisit	VARCHAR(100)	,	\n"+
+                "	DoctorCheckฺBodyID	VARCHAR(100)	,	\n"+
+                "	DoctorCheckฺBody	VARCHAR(100)	,	\n"+
+                "	FatherAge	VARCHAR(100)	,	\n"+
+                "	FatherCareer	VARCHAR(100)	,	\n"+
+                "	FatherIdCard	VARCHAR(100)	,	\n"+
+                "	FatherAddress	VARCHAR(100)	,	\n"+
+                "	FatherPhone	VARCHAR(100)	,	\n"+
+                "	MotherAge	VARCHAR(100)	,	\n"+
+                "	MotherCareer	VARCHAR(100)	,	\n"+
+                "	MotherIdCard	VARCHAR(100)	,	\n"+
+                "	MotherAddress	VARCHAR(100)	,	\n"+
+                "	MotherPhone	VARCHAR(100)	,	\n"+
+                "	ParentName	VARCHAR(100)	,	\n"+
+                "	ParentAge	VARCHAR(100)	,	\n"+
+                "	ParentCareer	VARCHAR(100)	,	\n"+
+                "	ParentIdCard	VARCHAR(100)	,	\n"+
+                "	ParentAddress	VARCHAR(100)	,	\n"+
+                "	ParentPhone	VARCHAR(100)	,	\n"+
+                "	TypePerson	VARCHAR(100)	,	\n"+		
                 "	caseno	integer	,	\n"+
                 "	 FOREIGN KEY (caseno) REFERENCES CrimeCase (caseno)\n"+
                 "	);	";	
 
                        
                   String sqlCrimeCase ="CREATE TABLE IF NOT EXISTS CrimeCase (\n"+
-	                 "	caseno	integer	Primary Key Not Null,	\n"+
-                "	caseyear	integer	not null,	\n"+
-                "	DisplayCharge	VARCHAR(100)	,	\n"+
-                "	OccuredDateTime	DATETIME	,	\n"+
-                "	CaseRequestDateTime	DATETIME	,	\n"+
-                "	CaseAcceptDateTime	DATETIME	,	\n"+
-                "	Obstruction	VARCHAR(100)	,	\n"+
-                "	RecordCheckDate	DATETIME	,	\n"+
-                "	RecordCheck	VARCHAR(100)	,	\n"+
-                "	RecordCheckEdit	VARCHAR(100)	,	\n"+
-                "	AmountCopyInvestigate	integer	,	\n"+
-                "	ComplainDateTime	DATETIME	,	\n"+
-                "	FactAndComment	VARCHAR(100)	,	\n"+
-                "	BecauseNonNatureOfDeath	VARCHAR(100)	,	\n"+
-                "	BodyFoundDate	DATETIME	,	\n"+
-                "	DoctorCheckฺBodyID	VARCHAR(100)	,	\n"+
-                "	DoctorCheckฺBody	VARCHAR(100)	,	\n"+
-                "	DoctorCheckฺBodyDate	DATETIME	,	\n"+
-                "	DailyNumber	VARCHAR(100)	,	\n"+
-                "	CheckDate	DATETIME	,	\n"+
-                "	CheckDateTimeFrom	DATETIME	,	\n"+
-                "	CheckDateTimeTo	DATETIME	,	\n"+
-                "	CrimeLocation	VARCHAR(100)	,	\n"+
-                "	CrimeLocationMoo	VARCHAR(100)	,	\n"+
-                "	CrimeLocationSoi	VARCHAR(100)	,	\n"+
-                "	CrimeLocationRoad	VARCHAR(100)	,	\n"+
-                "	CrimeLocationDistrict	VARCHAR(100)	,	\n"+
-                "	CrimeLocationAmphur	VARCHAR(100)	,	\n"+
-                "	CrimeLocationProvince	VARCHAR(100)	,	\n"+
-                "	EvidenceFoundOfCrime	VARCHAR(100)	,	\n"+
-                "	CauseOfCrime	VARCHAR(100)	,	\n"+
-                "	DamageOfCrime	VARCHAR(100)	,	\n"+
-                "	StuffFromScence	VARCHAR(100)	,	\n"+
-                "	Presumption	VARCHAR(100)	,	\n"+
-                "	MaterialSkinTraffic	VARCHAR(100)	,	\n"+
-                "	QualiytSkinTraffic	VARCHAR(100)	,	\n"+
-                "	HumidityTraffic	VARCHAR(100)	,	\n"+
-                "	HumidityTrafficOccured	VARCHAR(100)	,	\n"+
-                "	HumidityTrafficChecking	VARCHAR(100)	,	\n"+
-                "	WidthSkinTraffic	VARCHAR(100)	,	\n"+
-                "	FoothpathTraffuc	VARCHAR(100)	,	\n"+
-                "	LevelOfFoothpath	VARCHAR(100)	,	\n"+
-                "	DirecStraightOrCurve	VARCHAR(100)	,	\n"+
-                "	Crossroad	VARCHAR(100)	,	\n"+
-                "	MasterRoad	VARCHAR(100)	,	\n"+
-                "	DividinglineRoad	VARCHAR(100)	,	\n"+
-                "	SignSpeed	VARCHAR(100)	,	\n"+
-                "	Municipality	VARCHAR(100)	,	\n"+
-                "	OtherSign	VARCHAR(100)	,	\n"+
-                "	MarksTier	VARCHAR(100)	,	\n"+
-                "	OrtherMark	VARCHAR(100)	,	\n"+
-                "	DescriptionMap	VARCHAR(100)		\n"+
-                "	);";
-      
+	             "	SendIDocDate	VARCHAR(100)	Primary Key,	\n"+
+                        "	crimecaseno	VARCHAR(100)	not null,	\n"+
+                        "	crimecaseyears	VARCHAR(100)	,	\n"+
+                        "	OccuredDate	VARCHAR(100)	,	\n"+
+                        "	CaseAcceptDateTime	VARCHAR(100)	,	\n"+
+                        "	CaseRequestDateTime	VARCHAR(100)	,	\n"+
+                        "	ChargeCode	VARCHAR(100)	,	\n"+
+                        "	CrimeLocation	VARCHAR(100)	,	\n"+
+                        "	CrimeLocationMoo	VARCHAR(100)	,	\n"+
+                        "	CrimeLocationSoi	VARCHAR(100)	,	\n"+
+                        "	CrimeLocationRoad	VARCHAR(100)	,	\n"+
+                        "	CrimeLocationDistrict	VARCHAR(100)	,	\n"+
+                        "	CrimeLocationAmphur	VARCHAR(100)	,	\n"+
+                        "	CrimeLocationProvince	VARCHAR(100)	,	\n"+
+                        "	DailyNumber	VARCHAR(100)	,	\n"+
+                        "	DocOrder	VARCHAR(100)	,	\n"+
+                        "	DocSlash	VARCHAR(100)	,	\n"+
+                        "	AmountCopyInvestigate	VARCHAR(100)	,	\n"+
+                        "	RecordDatePolice	VARCHAR(100)	,	\n"+
+                        "	RecordWorkPolice	VARCHAR(100)	,	\n"+
+                        "	CheckDateTime	VARCHAR(100)	,	\n"+
+                        "	CheckDateTimeTo	VARCHAR(100)	,	\n"+
+                        "	LawName	VARCHAR(100)	,	\n"+
+                        "	ActionCrimes	VARCHAR(100)	,	\n"+
+                        "	TypeCourt	VARCHAR(100)	,	\n"+
+                        "	BlackCaseNo	VARCHAR(100)	,	\n"+
+                        "	BlackCaseYear	VARCHAR(100)	,	\n"+
+                        "	RedCaseNo	VARCHAR(100)	,	\n"+
+                        "	RedCaseYear	VARCHAR(100)	,	\n"+
+                        "	AnswerSuspect	VARCHAR(100)	,	\n"+
+                        "	AnswerAccuser   	VARCHAR(100)		\n"+
+                         "	);";
           String sqlAsset ="CREATE TABLE IF NOT EXISTS Asset (\n"+
-	                 "	EvidenceRecordNumber	VARCHAR(100)	Primary Key Not Null,	\n"+
-                "	Isconflagration		,	\n"+
-                "	AssetType		,	\n"+
-                "	StatusAsset		,	\n"+
-                "	IsVehicle		,	\n"+
+                "	EvidenceRecordNumber	VARCHAR(100)	Primary Key,	\n"+
+                "	OrderAsset	VARCHAR(100)	,	\n"+
                 "	Name	VARCHAR(100)	,	\n"+
-                "	Amount	Integer	,	\n"+
-                "	Value	Double	,	\n"+
+                "	Amount	VARCHAR(100)	,	\n"+
+                "	Value	VARCHAR(100)	,	\n"+
                 "	OccupantName	VARCHAR(100)	,	\n"+
+                "	DateSequester	VARCHAR(100)	,	\n"+
                 "	Note	VARCHAR(100)	,	\n"+
-                "	NoPlateNumber	VARCHAR(100)	,	\n"+
-                "	NoPlateProvince	VARCHAR(100)	,	\n"+
-                "	NameCar	VARCHAR(100)	,	\n"+
-                "	VehicleDetail	VARCHAR(100)	,	\n"+
-                "	TypeName	VARCHAR(100)	,	\n"+
-                "	SpeicalDetail	VARCHAR(100)	,	\n"+
-                "	EstimatedValue	VARCHAR(100)	,	\n"+
-                "	FoundLocation	VARCHAR(100)	,	\n"+
-                "	FoundDate	DATETIME	,	\n"+
-                "	FoundMethod	VARCHAR(100)	,	\n"+
-                "	RegainAsset	VARCHAR(100)	,	\n"+
-                "	DetailAssetLost	VARCHAR(100)	,	\n"+
-                "	CauseAssetLost	VARCHAR(100)	,	\n"+
-                "	TotalAsset	Double	,	\n"+
-                "	ValueAsset	Double	,	\n"+
-                "	TotalRegainAsset	Double	,	\n"+
-                "	ValueRegainAsset	Double	,	\n"+
-                "	BehaviorAndFact	VARCHAR(100)	,	\n"+
                 "	PlaceFoundExhibit	VARCHAR(100)	,	\n"+
-                "	ListExhibit	VARCHAR(100)	,	\n"+
-                "	PurposeCheck	VARCHAR(100)	,	\n"+
+                "	DefectMark	VARCHAR(100)	,	\n"+
+                "	PointFoundCheck	VARCHAR(100)	,	\n"+
                 "	caseno	integer	,	\n"+
                 "	 FOREIGN KEY (caseno) REFERENCES CrimeCase (caseno)\n"+
                 "	);";
-          String sqlTest ="CREATE TABLE IF NOT EXISTS Test (\n"+
-	                 "	id	int	Primary Key Not Null,	\n"+
-                "	name	varchar(100)		\n"+         
-                "	);";
-	        
+          
+          
+          String sqlPolice ="CREATE TABLE IF NOT EXISTS Police (\n"+
+	                "	IdCardPolice	VARCHAR(13)	Primary Key,	\n"+
+                        "	RankPolice	VARCHAR(100)	,	\n"+
+                        "	FirstName	VARCHAR(100)	,	\n"+
+                        "	LastName	VARCHAR(100)	,	\n"+
+                        "	Position	VARCHAR(100)		\n"+
+                         "	);";
+	  String sqlPoliceStat ="CREATE TABLE IF NOT EXISTS PoliceStation (\n"+
+	              "	PoliceStartionCode	VARCHAR(100)	Primary Key,	\n"+
+                        "	PoliceStaionName	VARCHAR(100)	,	\n"+
+                        "	PoliceStaionShort	VARCHAR(100)	,	\n"+
+                        "	StationAddress	VARCHAR(100)	,	\n"+
+                        "	StationAmphur	VARCHAR(100)	,	\n"+
+                        "	StationProvince	VARCHAR(100)	,	\n"+
+                        "	KK	VARCHAR(100)	,	\n"+
+                        "	BK	VARCHAR(100)	,	\n"+
+                        "	BH	VARCHAR(100)	,	\n"+
+                        "	TelStation	VARCHAR(100)	,	\n"+
+                        "	PhonePolice	VARCHAR(100)	,	\n"+
+                        "	Fax	VARCHAR(100)	,	\n"+
+                        "	HeadName	VARCHAR(100)	,	\n"+
+                        "	HeadPosition	VARCHAR(100)	,	\n"+
+                        "	HeadWorkName	VARCHAR(100)	,	\n"+
+                        "	HeadWorkPosition	VARCHAR(100)	,	\n"+
+                        "	CriminalCourt	VARCHAR(100)	,	\n"+
+                        "	JuvenileCourt	VARCHAR(100)	,	\n"+
+                        "	DistrictCourt	VARCHAR(100)	,	\n"+
+                        "	MilitaryCourt	VARCHAR(100)	,	\n"+
+                        "	AssetCourt	VARCHAR(100)	,	\n"+
+                        "	LocationOfDrug 	VARCHAR(100)	,	\n"+
+                        "	CheckGun	VARCHAR(100)	,	\n"+
+                        "	CheckDrug	VARCHAR(100)	,	\n"+
+                        "	CheckOtherExhibit	VARCHAR(100)	,	\n"+
+                        "	CauseSerious	VARCHAR(100)	,	\n"+
+                        "	ProvincProsecutor	VARCHAR(100)	,	\n"+
+                        "	ProvincProsecutorCh	VARCHAR(100)	,	\n"+
+                        "	THNumBook	VARCHAR(100)	,	\n"+
+                        "	ProtectChild	VARCHAR(100)		\n"+
+                         "	);";       
+           String sqlCharge ="CREATE TABLE IF NOT EXISTS Charge (\n"+
+	            "	ChargeCode	VARCHAR(100)	Primary Key,	\n"+
+                    "	ChargeName	VARCHAR(100)	,	\n"+
+                    "	Law	VARCHAR(100)	,	\n"+
+                    "	RateOfPenalty	VARCHAR(100)	,	\n"+
+                    "	Note	VARCHAR(100)		\n"+
+                         "	);";      
+           
+            String sqlAction ="CREATE TABLE IF NOT EXISTS Action (\n"+
+                    "	ActionCode	VARCHAR(100)	Primary Key,	\n"+
+                    "	ActionCrimes	VARCHAR(100)	,	\n"+
+                    "	ActionDetail	VARCHAR(100)	,	\n"+
+                    "	ActionNote	VARCHAR(100)		\n"+
+                    "	);";    
 	        try ( 
                         Statement stmt = cc.createStatement()) {
 	            // create a new table
                    
-	            stmt.execute(sqlPerson);
-                     stmt.execute(sqlCrimeCase); 
-                     stmt.execute(sqlAsset); 
-                     stmt.execute(sqlTest); 
+	              stmt.execute(sqlPerson);
+                      stmt.execute(sqlCrimeCase); 
+                      stmt.execute(sqlAsset); 
+                      stmt.execute(sqlPolice); 
+                      stmt.execute(sqlPoliceStat); 
+                      stmt.execute(sqlCharge); 
+                       stmt.execute(sqlAction); 
+                       stmt.close();
                     System.out.println("Create Table Complete");
 	        } catch (SQLException e) {
 	            System.out.println(e.getMessage());

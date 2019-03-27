@@ -9,12 +9,12 @@ package com.songkhla.wordgen;
  *
  * @author Computer
  */
-public class ListAccused extends javax.swing.JFrame {
+public class ListWitness extends javax.swing.JFrame {
 
     /**
      * Creates new form ListAccused
      */
-    public ListAccused() {
+    public ListWitness() {
         initComponents();
          setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
@@ -47,7 +47,7 @@ public class ListAccused extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "เลขประจำตัวประชาชน", "ชื่อ-นามสกุล", "อายุ", "เชื่อชาติ"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -139,8 +139,8 @@ public class ListAccused extends javax.swing.JFrame {
 
     private void AddAccusedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddAccusedActionPerformed
         // TODO add your handling code here:
-        AccusedForm accusedF=new AccusedForm();
-        accusedF.setVisible(true);
+        WitnessForm witnessF=new WitnessForm();
+        witnessF.setVisible(true);
     }//GEN-LAST:event_AddAccusedActionPerformed
 
     /**
@@ -160,20 +160,21 @@ public class ListAccused extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ListAccused.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListWitness.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ListAccused.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListWitness.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ListAccused.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListWitness.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ListAccused.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListWitness.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ListAccused().setVisible(true);
+                new ListWitness().setVisible(true);
             }
         });
     }

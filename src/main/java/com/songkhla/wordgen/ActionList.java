@@ -16,6 +16,7 @@ public class ActionList extends javax.swing.JFrame {
      */
     public ActionList() {
         initComponents();
+         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
     /**

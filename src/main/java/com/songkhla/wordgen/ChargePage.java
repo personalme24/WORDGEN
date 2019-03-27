@@ -19,6 +19,7 @@ public class ChargePage extends javax.swing.JFrame {
      */
     public ChargePage() {
         initComponents();
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -272,6 +273,7 @@ public class ChargePage extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
              public void run() {
              new ChargePage().setVisible(true);
+                 
             }
         });
     }

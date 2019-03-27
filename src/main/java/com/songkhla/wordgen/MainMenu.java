@@ -7,18 +7,20 @@ package com.songkhla.wordgen;
 
 import java.awt.Dimension;
 import java.awt.Rectangle;
+import java.sql.Connection;
 
 /**
  *
  * @author Computer
  */
 public class MainMenu extends javax.swing.JFrame {
-
+    Connection con=null;
     /**
      * Creates new form MainMenu
      */
     public MainMenu() {
         initComponents();
+       con=ConnectDatabase.connect();
     }
 
     /**
@@ -174,6 +176,12 @@ public class MainMenu extends javax.swing.JFrame {
                 .addGap(26, 26, 26))
         );
 
+        jPanel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel8MouseClicked(evt);
+            }
+        });
+
         jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 24)); // NOI18N
         jLabel8.setText("คดีอาญา");
 
@@ -272,6 +280,12 @@ public class MainMenu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jPanel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel8MouseClicked
+        // TODO add your handling code here:
+        CrimesCaseView ccv =new CrimesCaseView();
+        ccv.setVisible(true);
+    }//GEN-LAST:event_jPanel8MouseClicked
 
     /**
      * @param args the command line arguments

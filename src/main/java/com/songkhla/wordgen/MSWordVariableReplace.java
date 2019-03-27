@@ -9,6 +9,10 @@ package com.songkhla.wordgen;
  *
  * @author Computer
  */
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -33,13 +37,31 @@ import org.json.simple.JSONObject;
 
 public class MSWordVariableReplace {
 	public static void main(String args[]) {
-		JSONObject bookmarkvalue = new JSONObject();
-		bookmarkvalue.put("First_Name", "ขุนพล");
+            Connection conn=null;
+            conn=ConnectDatabase.connect();
+            PreparedStatement pst=null;
+            
+            try {
+//                String ch;
+                   String sql="SELECT * from CrimeCase ";
+//                   pst=conn.prepareStatement(sql);
+//           pst=PreparedStatement(sql);
+                Statement st = conn.createStatement();
+            ResultSet s=st.executeQuery(sql); 
+                System.out.println(sql);
+            while((s!=null) && (s.next()))
+            {  String  cs =s.getString("ChargeCode");
+//                System.out.print("ข้อหา :: "+s.getString("ChargeCode"));
+//                System.out.print(" - ");
+                 JSONObject bookmarkvalue = new JSONObject();
+		bookmarkvalue.put("First_Name",cs);
 		bookmarkvalue.put("Last_Name", "เมฆทรัพย์");
 		bookmarkvalue.put("test01", "พ.ต.อ.");
 		bookmarkvalue.put("test02", "พนักงานสอบสวน");
 		bookmarkvalue.put("test03", "สน.ดอนเมือง");
                 bookmarkvalue.put("test04", "สน.ดอนเมือง5");
+		
+    
 			JSONArray tablecolumn = new JSONArray();
 			tablecolumn.add("CRIMESNO");
 			tablecolumn.add("DESCRIPTION");
@@ -81,6 +103,12 @@ public class MSWordVariableReplace {
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
+            }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        
+              
 	}
 	
 	public static void processVariable(JSONObject inputdata,WordprocessingMLPackage wordMLPackage) throws Exception {
