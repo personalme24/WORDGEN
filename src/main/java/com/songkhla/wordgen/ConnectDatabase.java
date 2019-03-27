@@ -8,17 +8,20 @@ package com.songkhla.wordgen;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Computer
  */
 public class ConnectDatabase {
-      public static  Connection connect() {
+      public static  Connection connect() 
+      {
         Connection conn = null;
         try {
-            
-            String url = "jdbc:sqlite:D://db/DocElec.db";
+             Class.forName("org.sqlite.JDBC");
+            String url = "jdbc:sqlite:D://db/WordGen.db";
             // connection database
             conn = DriverManager.getConnection(url);
              System.out.println("Create Database has been Complete.");
@@ -26,7 +29,9 @@ public class ConnectDatabase {
             
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-        } 
+        } catch (ClassNotFoundException ex) { 
+              Logger.getLogger(ConnectDatabase.class.getName()).log(Level.SEVERE, null, ex);
+          }
         
          return conn;
     }
