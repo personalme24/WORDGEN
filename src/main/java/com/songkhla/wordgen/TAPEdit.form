@@ -108,7 +108,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="crimecaseno1" alignment="0" min="-2" pref="142" max="-2" attributes="0"/>
-                              <Component id="crimecaseno" alignment="0" min="-2" pref="142" max="-2" attributes="0"/>
+                              <Component id="ProvinceCode" alignment="0" min="-2" pref="142" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -166,7 +166,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="crimecaseno" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ProvinceCode" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel5" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="jLabel6" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="CourtType" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -221,7 +221,7 @@
             <Property name="text" type="java.lang.String" value="&#xe23;&#xe2b;&#xe31;&#xe2a;&#xe08;&#xe31;&#xe07;&#xe2b;&#xe27;&#xe31;&#xe14;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="crimecaseno">
+        <Component class="javax.swing.JTextField" name="ProvinceCode">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>
