@@ -7,19 +7,26 @@ package com.songkhla.wordgen;
 
 import java.awt.Dimension;
 import java.awt.Rectangle;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Computer
  */
 public class AccusedForm extends javax.swing.JFrame {
-
+    Connection con=null;
+     PreparedStatement pst=null;
     /**
      * Creates new form AccusedForm
      */
     public AccusedForm() {
         initComponents();
          setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+       DataCase dcc=new DataCase();
+       labelCaseNo.setText(dcc.getCaseno());
+       labelCaseNo.setVisible(false);
     }
 
     /**
@@ -93,6 +100,7 @@ public class AccusedForm extends javax.swing.JFrame {
         Amphur = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
         ZipCode = new javax.swing.JTextField();
+        labelCaseNo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1024, 768));
@@ -522,29 +530,40 @@ public class AccusedForm extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jPanel2);
         jPanel2.getAccessibleContext().setAccessibleDescription("");
 
+        labelCaseNo.setText("jLabel19");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(35, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 948, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(labelCaseNo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(TypePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 948, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(TypePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(35, 35, 35))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TypePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(TypePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(labelCaseNo)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(134, Short.MAX_VALUE))
@@ -596,6 +615,26 @@ public class AccusedForm extends javax.swing.JFrame {
 
     private void BtSaveAccusedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSaveAccusedActionPerformed
         // TODO add your handling code here:
+               con=ConnectDatabase.connect();
+        String sql="INSERT INTO Person (crimecaseno,crimecaseyears,ChargeCode,ActionCrimes,CaseRequestDateTime,"+
+                   "CaseAcceptDateTime,DailyNumber,OccuredDate,CrimeLocation,CrimeLocationDistrict,CrimeLocationAmphur,"+
+                   "CrimeLocationProvince,TypeCourt) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+//        String sql2="INSERT INTO Person()";
+       
+        try {
+            pst=con.prepareStatement(sql);
+
+            pst.execute();
+                    JOptionPane.showMessageDialog(null, "Data Saved successfully");
+                   
+            pst.close();
+           
+        } catch (Exception e) {
+             JOptionPane.showMessageDialog(null, e); 
+             System.out.println("SQL : "+pst);
+        }
+        
+        
     }//GEN-LAST:event_BtSaveAccusedActionPerformed
 
     private void PassportNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PassportNumberActionPerformed
@@ -650,6 +689,8 @@ public class AccusedForm extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+//        DataCase dcc=new DataCase();
+//        labelCaseNo.setText("dfv");
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
              AccusedForm aa=  new AccusedForm();
@@ -657,7 +698,7 @@ public class AccusedForm extends javax.swing.JFrame {
                     aa.setSize ( 1024, 728 );
                     aa.setMinimumSize ( new Dimension ( 1024, 728 ) );
                     aa.setMaximizedBounds ( new Rectangle ( 1024, 728 ) );
-
+                    
             }
         });
     }
@@ -725,5 +766,6 @@ public class AccusedForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel labelCaseNo;
     // End of variables declaration//GEN-END:variables
 }

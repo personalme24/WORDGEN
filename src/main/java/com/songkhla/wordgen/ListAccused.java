@@ -17,6 +17,8 @@ public class ListAccused extends javax.swing.JFrame {
     public ListAccused() {
         initComponents();
          setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+       DataCase dcc=new DataCase();
+       jLabel2.setText(dcc.getCaseno());
     }
 
     /**
@@ -34,6 +36,7 @@ public class ListAccused extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         AddAccused = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -63,6 +66,8 @@ public class ListAccused extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setText("jLabel2");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -76,7 +81,9 @@ public class ListAccused extends javax.swing.JFrame {
                         .addGap(33, 33, 33)
                         .addComponent(jButton2)
                         .addGap(39, 39, 39)
-                        .addComponent(jButton3)))
+                        .addComponent(jButton3)
+                        .addGap(28, 28, 28)
+                        .addComponent(jLabel2)))
                 .addContainerGap(134, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -86,7 +93,8 @@ public class ListAccused extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AddAccused)
                     .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(jButton3)
+                    .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(214, Short.MAX_VALUE))
@@ -96,7 +104,7 @@ public class ListAccused extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("ข้อมูลผู้ต้องหา");
+        jLabel1.setText("ข้อมูลผู้กล่าวหา");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -183,6 +191,7 @@ public class ListAccused extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
