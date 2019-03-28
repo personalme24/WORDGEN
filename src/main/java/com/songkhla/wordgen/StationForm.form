@@ -26,11 +26,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-          </Group>
+          <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -115,7 +111,7 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="StationProvince" pref="218" max="32767" attributes="0"/>
-                                          <Component id="TelStation18" max="32767" attributes="0"/>
+                                          <Component id="THNumBook" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
@@ -135,9 +131,9 @@
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="TelStation5" pref="310" max="32767" attributes="0"/>
-                                          <Component id="TelStation3" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="StationAddress2" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="CriminalCourt" pref="310" max="32767" attributes="0"/>
+                                          <Component id="HeadWorkName" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="HeadName" alignment="1" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -145,18 +141,18 @@
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Component id="jLabel22" min="-2" pref="136" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="TelStation2" min="-2" pref="405" max="-2" attributes="0"/>
+                                                  <Component id="HeadPosition" min="-2" pref="405" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="1" attributes="0">
                                                   <Component id="jLabel24" min="-2" pref="136" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="TelStation4" min="-2" pref="405" max="-2" attributes="0"/>
+                                                  <Component id="HeadWorkPosition" min="-2" pref="405" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
                                               <Component id="jLabel26" min="-2" pref="136" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="TelStation6" min="-2" pref="405" max="-2" attributes="0"/>
+                                              <Component id="JuvenileCourt" min="-2" pref="405" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -165,55 +161,55 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel30" min="-2" pref="144" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="TelStation10" min="-2" pref="291" max="-2" attributes="0"/>
+                                      <Component id="LocationOfD" min="-2" pref="291" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="jLabel31" pref="167" max="32767" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="TelStation11" min="-2" pref="332" max="-2" attributes="0"/>
+                                      <Component id="CheckGun" min="-2" pref="332" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel29" min="-2" pref="289" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="TelStation9" max="32767" attributes="0"/>
+                                      <Component id="AssetCourt" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel27" min="-2" pref="95" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="TelStation7" min="-2" pref="310" max="-2" attributes="0"/>
+                                      <Component id="DistrictCourt" min="-2" pref="310" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jLabel28" min="-2" pref="136" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="TelStation8" min="-2" pref="405" max="-2" attributes="0"/>
+                                      <Component id="MilitaryCourt" min="-2" pref="405" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel34" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="TelStation14" max="32767" attributes="0"/>
+                                      <Component id="CauseSerious" max="32767" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jLabel35" min="-2" pref="194" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="TelStation15" min="-2" pref="332" max="-2" attributes="0"/>
+                                      <Component id="ProtectChild" min="-2" pref="332" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel32" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="TelStation12" min="-2" pref="291" max="-2" attributes="0"/>
+                                      <Component id="CheckDrug" min="-2" pref="291" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="jLabel33" min="-2" pref="167" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="TelStation13" min="-2" pref="332" max="-2" attributes="0"/>
+                                      <Component id="CheckOtherExhibit" min="-2" pref="332" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel36" min="-2" pref="92" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="TelStation16" min="-2" pref="310" max="-2" attributes="0"/>
+                                  <Component id="ProvincProsecutor" min="-2" pref="310" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jLabel37" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="TelStation17" min="-2" pref="395" max="-2" attributes="0"/>
+                                  <Component id="ProvincProsecutorCh" min="-2" pref="395" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -222,7 +218,7 @@
                           <Component id="jButton1" min="-2" pref="92" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="238" max="32767" attributes="0"/>
+                  <EmptySpace pref="262" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -267,69 +263,69 @@
                       <Component id="TelStation" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="PhonePolice" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel20" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="TelStation18" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="THNumBook" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel38" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel21" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="StationAddress2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="HeadName" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel22" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="TelStation2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="HeadPosition" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel23" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="TelStation3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="HeadWorkName" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel24" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="TelStation4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="HeadWorkPosition" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel25" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="TelStation5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="CriminalCourt" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel26" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="TelStation6" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="JuvenileCourt" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel27" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="TelStation7" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="DistrictCourt" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel28" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="TelStation8" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="MilitaryCourt" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel29" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="TelStation9" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="AssetCourt" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel30" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="TelStation10" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="LocationOfD" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel31" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="TelStation11" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="CheckGun" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel32" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="TelStation12" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="CheckDrug" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel33" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="TelStation13" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="CheckOtherExhibit" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel34" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="TelStation14" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="CauseSerious" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel35" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="TelStation15" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ProtectChild" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel36" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="TelStation16" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ProvincProsecutor" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel37" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="TelStation17" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ProvincProsecutorCh" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                   <Component id="jButton1" min="-2" max="-2" attributes="0"/>
@@ -589,7 +585,7 @@
             <Property name="text" type="java.lang.String" value="&#xe0a;&#xe37;&#xe48;&#xe2d;&#xe2b;&#xe31;&#xe27;&#xe2b;&#xe19;&#xe49;&#xe32;&#xe2b;&#xe19;&#xe48;&#xe27;&#xe22;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="StationAddress2">
+        <Component class="javax.swing.JTextField" name="HeadName">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>
@@ -604,7 +600,7 @@
             <Property name="text" type="java.lang.String" value="&#xe15;&#xe33;&#xe41;&#xe2b;&#xe19;&#xe48;&#xe07;&#xe2b;&#xe31;&#xe27;&#xe2b;&#xe19;&#xe49;&#xe32;&#xe2b;&#xe19;&#xe48;&#xe27;&#xe22;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="TelStation2">
+        <Component class="javax.swing.JTextField" name="HeadPosition">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>
@@ -619,7 +615,7 @@
             <Property name="text" type="java.lang.String" value="&#xe0a;&#xe37;&#xe48;&#xe2d;&#xe2b;&#xe31;&#xe27;&#xe2b;&#xe19;&#xe49;&#xe32;&#xe07;&#xe32;&#xe19;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="TelStation3">
+        <Component class="javax.swing.JTextField" name="HeadWorkName">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>
@@ -634,7 +630,7 @@
             <Property name="text" type="java.lang.String" value="&#xe15;&#xe33;&#xe41;&#xe2b;&#xe19;&#xe48;&#xe07;&#xe2b;&#xe31;&#xe27;&#xe2b;&#xe19;&#xe49;&#xe32;&#xe07;&#xe32;&#xe19;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="TelStation4">
+        <Component class="javax.swing.JTextField" name="HeadWorkPosition">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>
@@ -649,14 +645,14 @@
             <Property name="text" type="java.lang.String" value="&#xe28;&#xe32;&#xe25;&#xe08;&#xe31;&#xe07;&#xe2b;&#xe27;&#xe31;&#xe14;&#xe2d;&#xe32;&#xe0d;&#xe32;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="TelStation5">
+        <Component class="javax.swing.JTextField" name="CriminalCourt">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="TelStation6">
+        <Component class="javax.swing.JTextField" name="JuvenileCourt">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>
@@ -679,7 +675,7 @@
             <Property name="text" type="java.lang.String" value="&#xe28;&#xe32;&#xe25;&#xe41;&#xe02;&#xe27;&#xe07;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="TelStation7">
+        <Component class="javax.swing.JTextField" name="DistrictCourt">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>
@@ -694,7 +690,7 @@
             <Property name="text" type="java.lang.String" value="&#xe28;&#xe32;&#xe25;&#xe17;&#xe2b;&#xe32;&#xe23;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="TelStation8">
+        <Component class="javax.swing.JTextField" name="MilitaryCourt">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>
@@ -709,7 +705,7 @@
             <Property name="text" type="java.lang.String" value="&#xe28;&#xe32;&#xe25;&#xe17;&#xe23;&#xe31;&#xe1e;&#xe22;&#xe4c;&#xe2a;&#xe34;&#xe19;&#xe17;&#xe32;&#xe07;&#xe1b;&#xe31;&#xe0d;&#xe0d;&#xe32;&#xe41;&#xe25;&#xe30;&#xe01;&#xe32;&#xe23;&#xe04;&#xe49;&#xe32;&#xe23;&#xe30;&#xe2b;&#xe27;&#xe48;&#xe32;&#xe07;&#xe1b;&#xe23;&#xe30;&#xe40;&#xe17;&#xe28;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="TelStation9">
+        <Component class="javax.swing.JTextField" name="AssetCourt">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>
@@ -724,12 +720,15 @@
             <Property name="text" type="java.lang.String" value="&#xe2a;&#xe16;&#xe32;&#xe19;&#xe17;&#xe35;&#xe48;&#xe2a;&#xe48;&#xe07;&#xe22;&#xe32;&#xe40;&#xe2a;&#xe1e;&#xe15;&#xe34;&#xe14;&#xe15;&#xe23;&#xe27;&#xe08;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="TelStation10">
+        <Component class="javax.swing.JTextField" name="LocationOfD">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LocationOfDActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel31">
           <Properties>
@@ -739,7 +738,7 @@
             <Property name="text" type="java.lang.String" value="&#xe2a;&#xe16;&#xe32;&#xe19;&#xe17;&#xe35;&#xe48;&#xe35;&#xe48;&#xe15;&#xe23;&#xe27;&#xe08;&#xe1b;&#xe37;&#xe19;&#xe01;&#xe23;&#xe30;&#xe2a;&#xe38;&#xe19; &#xe23;&#xe30;&#xe40;&#xe1a;&#xe34;&#xe14;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="TelStation11">
+        <Component class="javax.swing.JTextField" name="CheckGun">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>
@@ -754,7 +753,7 @@
             <Property name="text" type="java.lang.String" value="&#xe2a;&#xe16;&#xe32;&#xe19;&#xe17;&#xe35;&#xe48;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe32;&#xe23;&#xe04;&#xe31;&#xe14;&#xe2b;&#xe25;&#xe31;&#xe48;&#xe07;&#xe43;&#xe19;&#xe23;&#xe48;&#xe32;&#xe07;&#xe01;&#xe32;&#xe22;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2b;&#xe32;&#xe2a;&#xe32;&#xe23;&#xe40;&#xe2a;&#xe1e;&#xe15;&#xe34;&#xe14;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="TelStation12">
+        <Component class="javax.swing.JTextField" name="CheckDrug">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>
@@ -769,7 +768,7 @@
             <Property name="text" type="java.lang.String" value="&#xe2a;&#xe16;&#xe32;&#xe19;&#xe17;&#xe35;&#xe48;&#xe2a;&#xe48;&#xe48;&#xe07;&#xe15;&#xe23;&#xe27;&#xe08;&#xe02;&#xe2d;&#xe07;&#xe01;&#xe25;&#xe32;&#xe07;&#xe2d;&#xe37;&#xe48;&#xe19;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="TelStation13">
+        <Component class="javax.swing.JTextField" name="CheckOtherExhibit">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>
@@ -784,7 +783,7 @@
             <Property name="text" type="java.lang.String" value="&#xe23;&#xe32;&#xe22;&#xe07;&#xe32;&#xe19;&#xe40;&#xe2b;&#xe15;&#xe38;&#xe2d;&#xe38;&#xe01;&#xe09;&#xe01;&#xe23;&#xe23;&#xe08;&#xe4c;&#xe2b;&#xe23;&#xe37;&#xe2d;&#xe40;&#xe2b;&#xe15;&#xe38;&#xe17;&#xe35;&#xe48;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe23;&#xe32;&#xe22;&#xe07;&#xe32;&#xe19; &#xe44;&#xe1b;&#xe22;&#xe31;&#xe07;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="TelStation14">
+        <Component class="javax.swing.JTextField" name="CauseSerious">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>
@@ -799,7 +798,7 @@
             <Property name="text" type="java.lang.String" value="&#xe2a;&#xe16;&#xe32;&#xe19;&#xe1e;&#xe34;&#xe19;&#xe34;&#xe08;&#xe04;&#xe38;&#xe49;&#xe21;&#xe04;&#xe23;&#xe2d;&#xe07;&#xe40;&#xe14;&#xe47;&#xe01;&#xe41;&#xe25;&#xe30;&#xe40;&#xe22;&#xe32;&#xe27;&#xe0a;&#xe19;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="TelStation15">
+        <Component class="javax.swing.JTextField" name="ProtectChild">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>
@@ -814,7 +813,7 @@
             <Property name="text" type="java.lang.String" value="&#xe2d;&#xe31;&#xe22;&#xe01;&#xe32;&#xe23;&#xe08;&#xe31;&#xe07;&#xe2b;&#xe27;&#xe31;&#xe14;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="TelStation16">
+        <Component class="javax.swing.JTextField" name="ProvincProsecutor">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>
@@ -829,7 +828,7 @@
             <Property name="text" type="java.lang.String" value="&#xe2d;&#xe31;&#xe22;&#xe01;&#xe32;&#xe23;&#xe08;&#xe31;&#xe07;&#xe2b;&#xe27;&#xe31;&#xe14;(&#xe04;&#xe14;&#xe35;&#xe40;&#xe22;&#xe32;&#xe27;&#xe0a;&#xe19;)"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="TelStation17">
+        <Component class="javax.swing.JTextField" name="ProvincProsecutorCh">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>
@@ -844,7 +843,7 @@
             <Property name="text" type="java.lang.String" value="&#xe15;&#xe0a; &#xe40;&#xe25;&#xe02;&#xe2b;&#xe19;&#xe31;&#xe07;&#xe2a;&#xe37;&#xe2d;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="TelStation18">
+        <Component class="javax.swing.JTextField" name="THNumBook">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>
