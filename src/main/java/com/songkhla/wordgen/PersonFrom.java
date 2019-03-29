@@ -52,43 +52,43 @@ public class PersonFrom extends javax.swing.JFrame {
         Office = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        PoliceStationCode9 = new javax.swing.JTextField();
+        HouseNumber = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        PoliceStationCode10 = new javax.swing.JTextField();
+        Moo = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
-        PoliceStationCode11 = new javax.swing.JTextField();
+        Tambon = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
-        PoliceStationCode12 = new javax.swing.JTextField();
+        Amphur = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
-        PoliceStationCode13 = new javax.swing.JTextField();
+        Province = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
-        PoliceStationCode14 = new javax.swing.JTextField();
+        PhonePerson = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
-        PoliceStationCode15 = new javax.swing.JTextField();
+        FatherFullName = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
-        PoliceStationCode16 = new javax.swing.JTextField();
+        MotherFullName = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
-        PoliceStationCode17 = new javax.swing.JTextField();
+        Adress = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
-        PoliceStationCode18 = new javax.swing.JTextField();
+        OtherName = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
-        PoliceStationCode19 = new javax.swing.JTextField();
+        SpouseFullName = new javax.swing.JTextField();
         jLabel29 = new javax.swing.JLabel();
-        PoliceStationCode20 = new javax.swing.JTextField();
+        Education = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
         PoliceStationCode21 = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
-        PoliceStationCode22 = new javax.swing.JTextField();
+        Note = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
-        PoliceStationCode23 = new javax.swing.JTextField();
+        WarrantList = new javax.swing.JTextField();
         jLabel33 = new javax.swing.JLabel();
-        PoliceStationCode24 = new javax.swing.JTextField();
+        Identification = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
-        PoliceStationCode25 = new javax.swing.JTextField();
+        FatherAddress = new javax.swing.JTextField();
         jLabel35 = new javax.swing.JLabel();
-        PoliceStationCode26 = new javax.swing.JTextField();
+        FriendAddress = new javax.swing.JTextField();
         jLabel36 = new javax.swing.JLabel();
-        PoliceStationCode27 = new javax.swing.JTextField();
+        FavouritePlace = new javax.swing.JTextField();
         jLabel37 = new javax.swing.JLabel();
         PoliceStationCode28 = new javax.swing.JTextField();
 
@@ -175,62 +175,62 @@ public class PersonFrom extends javax.swing.JFrame {
         jLabel18.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel18.setText("ภูมิลำเนา เลขที่");
 
-        PoliceStationCode9.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        HouseNumber.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel19.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel19.setText("หมู่");
 
-        PoliceStationCode10.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Moo.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel20.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel20.setText("ตำบล/แขวง");
 
-        PoliceStationCode11.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Tambon.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel21.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel21.setText("อำเภอ/เขต");
 
-        PoliceStationCode12.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Amphur.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel22.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel22.setText("จังหวัด");
 
-        PoliceStationCode13.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Province.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel23.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel23.setText("โทรศัพท์");
 
-        PoliceStationCode14.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        PhonePerson.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel24.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel24.setText("ชื่อบิดา");
 
-        PoliceStationCode15.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        FatherFullName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel25.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel25.setText("ชื่อมารดา");
 
-        PoliceStationCode16.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        MotherFullName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel26.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel26.setText("ที่อยู่ปัจจุบัน");
 
-        PoliceStationCode17.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Adress.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel27.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel27.setText("ชื่อรอง-นามแฝง-ฉายา");
 
-        PoliceStationCode18.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        OtherName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel28.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel28.setText("สามี/ภรรยา");
 
-        PoliceStationCode19.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        SpouseFullName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel29.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel29.setText("การศึกษา");
 
-        PoliceStationCode20.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Education.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel30.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel30.setText("เคยต้องโทษ ต้องหา");
@@ -240,32 +240,37 @@ public class PersonFrom extends javax.swing.JFrame {
         jLabel31.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel31.setText("หมายเหตุ");
 
-        PoliceStationCode22.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Note.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Note.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NoteActionPerformed(evt);
+            }
+        });
 
         jLabel32.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel32.setText("รายการประวัติ หมายจับ");
 
-        PoliceStationCode23.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        WarrantList.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel33.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel33.setText("ตำหนิรูปพรรณ");
 
-        PoliceStationCode24.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Identification.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel34.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel34.setText("ที่อยู่บิดามารดา");
 
-        PoliceStationCode25.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        FatherAddress.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel35.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel35.setText("ที่อยู่เพื่อน");
 
-        PoliceStationCode26.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        FriendAddress.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel36.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel36.setText("สถานที่ที่ชอบไป");
 
-        PoliceStationCode27.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        FavouritePlace.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel37.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel37.setText("รถที่ใช้");
@@ -291,11 +296,11 @@ public class PersonFrom extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(PoliceStationCode13, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Province, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel23)
                                 .addGap(18, 18, 18)
-                                .addComponent(PoliceStationCode14, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(PhonePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
@@ -306,19 +311,19 @@ public class PersonFrom extends javax.swing.JFrame {
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(PoliceStationCode11, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(Tambon, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel21)
                                         .addGap(3, 3, 3)
-                                        .addComponent(PoliceStationCode12, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(Amphur, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel18)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(PoliceStationCode9, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(HouseNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(PoliceStationCode10, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(Moo, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(Office, javax.swing.GroupLayout.Alignment.LEADING))
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -355,27 +360,27 @@ public class PersonFrom extends javax.swing.JFrame {
                         .addGap(24, 24, 24)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel26)
-                            .addComponent(PoliceStationCode17)
+                            .addComponent(Adress)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(PoliceStationCode15, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(FatherFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(PoliceStationCode16, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(MotherFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PoliceStationCode23)
-                    .addComponent(PoliceStationCode24)
+                    .addComponent(WarrantList)
+                    .addComponent(Identification)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(PoliceStationCode25, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(FatherAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(PoliceStationCode26))
+                        .addComponent(FriendAddress))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -386,15 +391,15 @@ public class PersonFrom extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel27)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(PoliceStationCode18, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(OtherName, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jLabel28)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(PoliceStationCode19, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(SpouseFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel29)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(PoliceStationCode20, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Education, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jLabel30)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -402,12 +407,12 @@ public class PersonFrom extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(PoliceStationCode22))
+                                    .addComponent(Note))
                                 .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(PoliceStationCode27)))
+                                    .addComponent(FavouritePlace)))
                             .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -423,9 +428,9 @@ public class PersonFrom extends javax.swing.JFrame {
                     .addComponent(FullNamePerson, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PoliceStationCode18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(OtherName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PoliceStationCode19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(SpouseFullName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -462,21 +467,21 @@ public class PersonFrom extends javax.swing.JFrame {
                                 .addGap(9, 9, 9)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(PoliceStationCode9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(HouseNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(PoliceStationCode10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(Moo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(PoliceStationCode20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Education, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(PoliceStationCode21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(PoliceStationCode25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(FatherAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(PoliceStationCode26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(FriendAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -487,48 +492,48 @@ public class PersonFrom extends javax.swing.JFrame {
                                         .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(7, 7, 7)
-                                        .addComponent(PoliceStationCode27, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(FavouritePlace, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(PoliceStationCode11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Tambon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(PoliceStationCode12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Amphur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(PoliceStationCode13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Province, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(PoliceStationCode14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(PhonePerson, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(PoliceStationCode15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(FatherFullName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(PoliceStationCode16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(MotherFullName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGap(37, 37, 37)
-                                .addComponent(PoliceStationCode24, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(Identification, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(PoliceStationCode17, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(Adress, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                     .addGap(150, 150, 150)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(PoliceStationCode22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(Note, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGap(5, 5, 5)
                                     .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(PoliceStationCode23, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(WarrantList, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addGap(0, 105, Short.MAX_VALUE))
         );
 
@@ -545,6 +550,10 @@ public class PersonFrom extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void NoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NoteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NoteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -582,36 +591,36 @@ public class PersonFrom extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Adress;
     private javax.swing.JTextField Age;
+    private javax.swing.JTextField Amphur;
     private javax.swing.JTextField BirthDay;
+    private javax.swing.JTextField Education;
+    private javax.swing.JTextField FatherAddress;
+    private javax.swing.JTextField FatherFullName;
+    private javax.swing.JTextField FavouritePlace;
+    private javax.swing.JTextField FriendAddress;
     private javax.swing.JTextField FullNamePerson;
+    private javax.swing.JTextField HouseNumber;
+    private javax.swing.JTextField Identification;
+    private javax.swing.JTextField Moo;
+    private javax.swing.JTextField MotherFullName;
     private javax.swing.JTextField Nationality;
+    private javax.swing.JTextField Note;
     private javax.swing.JTextField Occupation;
     private javax.swing.JTextField Office;
+    private javax.swing.JTextField OtherName;
     private javax.swing.JTextField PeopleRegistrationID;
-    private javax.swing.JTextField PoliceStationCode10;
-    private javax.swing.JTextField PoliceStationCode11;
-    private javax.swing.JTextField PoliceStationCode12;
-    private javax.swing.JTextField PoliceStationCode13;
-    private javax.swing.JTextField PoliceStationCode14;
-    private javax.swing.JTextField PoliceStationCode15;
-    private javax.swing.JTextField PoliceStationCode16;
-    private javax.swing.JTextField PoliceStationCode17;
-    private javax.swing.JTextField PoliceStationCode18;
-    private javax.swing.JTextField PoliceStationCode19;
-    private javax.swing.JTextField PoliceStationCode20;
+    private javax.swing.JTextField PhonePerson;
     private javax.swing.JTextField PoliceStationCode21;
-    private javax.swing.JTextField PoliceStationCode22;
-    private javax.swing.JTextField PoliceStationCode23;
-    private javax.swing.JTextField PoliceStationCode24;
-    private javax.swing.JTextField PoliceStationCode25;
-    private javax.swing.JTextField PoliceStationCode26;
-    private javax.swing.JTextField PoliceStationCode27;
     private javax.swing.JTextField PoliceStationCode28;
-    private javax.swing.JTextField PoliceStationCode9;
+    private javax.swing.JTextField Province;
     private javax.swing.JTextField Race;
     private javax.swing.JTextField Religion;
+    private javax.swing.JTextField SpouseFullName;
+    private javax.swing.JTextField Tambon;
     private javax.swing.JComboBox<String> TypePerson;
+    private javax.swing.JTextField WarrantList;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
