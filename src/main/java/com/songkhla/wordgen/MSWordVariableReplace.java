@@ -99,7 +99,7 @@ public class MSWordVariableReplace {
 					.load(new java.io.File("D:/TEMPLATE3.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/OUTPUT3.docx"));
+			wordMLPackage.save(new java.io.File("D:/คำให้การผู้ต้องหา.docx"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

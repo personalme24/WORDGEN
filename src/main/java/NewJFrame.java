@@ -26,25 +26,37 @@ public class NewJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jCalendar1 = new com.toedter.calendar.JCalendar();
+        swingTimerTimingSource1 = new org.jdesktop.swing.animation.timing.sources.SwingTimerTimingSource();
+        swingTimerTimingSource2 = new org.jdesktop.swing.animation.timing.sources.SwingTimerTimingSource();
+        swingTimerTimingSource3 = new org.jdesktop.swing.animation.timing.sources.SwingTimerTimingSource();
+        swingTimerTimingSource4 = new org.jdesktop.swing.animation.timing.sources.SwingTimerTimingSource();
+        rSButtonCustom1 = new rsbuttoncustom.RSButtonCustom();
+        scheduledExecutorTimingSource1 = new org.jdesktop.core.animation.timing.sources.ScheduledExecutorTimingSource();
+        scheduledExecutorTimingSource2 = new org.jdesktop.core.animation.timing.sources.ScheduledExecutorTimingSource();
+        swingTimerTimingSource5 = new org.jdesktop.swing.animation.timing.sources.SwingTimerTimingSource();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+
+        rSButtonCustom1.setText("rSButtonCustom1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jDateChooser1.setDateFormatString("MM/d/yyyy");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(181, Short.MAX_VALUE)
-                .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                .addContainerGap(247, Short.MAX_VALUE)
+                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(269, Short.MAX_VALUE))
         );
 
         pack();
@@ -86,6 +98,14 @@ public class NewJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.toedter.calendar.JCalendar jCalendar1;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private rsbuttoncustom.RSButtonCustom rSButtonCustom1;
+    private org.jdesktop.core.animation.timing.sources.ScheduledExecutorTimingSource scheduledExecutorTimingSource1;
+    private org.jdesktop.core.animation.timing.sources.ScheduledExecutorTimingSource scheduledExecutorTimingSource2;
+    private org.jdesktop.swing.animation.timing.sources.SwingTimerTimingSource swingTimerTimingSource1;
+    private org.jdesktop.swing.animation.timing.sources.SwingTimerTimingSource swingTimerTimingSource2;
+    private org.jdesktop.swing.animation.timing.sources.SwingTimerTimingSource swingTimerTimingSource3;
+    private org.jdesktop.swing.animation.timing.sources.SwingTimerTimingSource swingTimerTimingSource4;
+    private org.jdesktop.swing.animation.timing.sources.SwingTimerTimingSource swingTimerTimingSource5;
     // End of variables declaration//GEN-END:variables
 }
