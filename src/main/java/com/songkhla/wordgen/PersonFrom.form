@@ -51,7 +51,7 @@
                           <Component id="jLabel8" min="-2" pref="73" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="CourtType" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                              <Component id="TypePerson" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
                               <Component id="jTextField1" alignment="0" min="-2" pref="219" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="92" pref="92" max="-2" attributes="0"/>
@@ -70,7 +70,7 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabel9" min="-2" pref="68" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="PoliceStationCode" min="-2" pref="356" max="-2" attributes="0"/>
+                                          <Component id="FullNamePerson" min="-2" pref="356" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
@@ -92,7 +92,7 @@
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="PoliceStationCode10" min="-2" pref="141" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="PoliceStationCode8" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="Office" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
@@ -103,7 +103,7 @@
                               <Group type="102" attributes="0">
                                   <Component id="jLabel10" min="-2" pref="137" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="PoliceStationCode1" min="-2" pref="230" max="-2" attributes="0"/>
+                                  <Component id="PeopleRegistrationID" min="-2" pref="230" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -114,25 +114,25 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="PoliceStationCode2" min="-2" pref="106" max="-2" attributes="0"/>
+                                          <Component id="Race" min="-2" pref="106" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="jLabel12" min="-2" pref="55" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="PoliceStationCode3" max="32767" attributes="0"/>
+                                          <Component id="Nationality" max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
-                                          <Component id="PoliceStationCode4" min="-2" pref="106" max="-2" attributes="0"/>
+                                          <Component id="Religion" min="-2" pref="106" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="jLabel14" min="-2" pref="55" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="PoliceStationCode5" max="32767" attributes="0"/>
+                                          <Component id="Occupation" max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
-                                          <Component id="PoliceStationCode6" min="-2" pref="106" max="-2" attributes="0"/>
+                                          <Component id="BirthDay" min="-2" pref="106" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="jLabel16" min="-2" pref="55" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="PoliceStationCode7" max="32767" attributes="0"/>
+                                          <Component id="Age" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -220,8 +220,8 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel8" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="CourtType" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="PoliceStationCode" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="TypePerson" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="FullNamePerson" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel9" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="jLabel27" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="PoliceStationCode18" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -235,27 +235,27 @@
                           <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel10" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="PoliceStationCode1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="PeopleRegistrationID" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="PoliceStationCode2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="Race" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel11" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="PoliceStationCode3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="Nationality" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel12" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="PoliceStationCode4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="Religion" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel13" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="PoliceStationCode5" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="Occupation" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel14" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="PoliceStationCode6" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="BirthDay" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel15" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="PoliceStationCode7" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="Age" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel16" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -265,7 +265,7 @@
                                   <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                                   <Component id="jLabel17" min="-2" pref="30" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="PoliceStationCode8" min="-2" pref="85" max="-2" attributes="0"/>
+                                  <Component id="Office" min="-2" pref="85" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel18" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
@@ -421,14 +421,14 @@
             <Property name="text" type="java.lang.String" value="&#xe1b;&#xe23;&#xe30;&#xe40;&#xe20;&#xe17;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="PoliceStationCode">
+        <Component class="javax.swing.JTextField" name="FullNamePerson">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="CourtType">
+        <Component class="javax.swing.JComboBox" name="TypePerson">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="1"/>
@@ -466,7 +466,7 @@
             <Property name="text" type="java.lang.String" value="&#xe40;&#xe25;&#xe02;&#xe1b;&#xe23;&#xe30;&#xe08;&#xe33;&#xe15;&#xe31;&#xe27;&#xe1b;&#xe23;&#xe30;&#xe0a;&#xe32;&#xe0a;&#xe19;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="PoliceStationCode1">
+        <Component class="javax.swing.JTextField" name="PeopleRegistrationID">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>
@@ -481,7 +481,7 @@
             <Property name="text" type="java.lang.String" value="&#xe40;&#xe0a;&#xe37;&#xe49;&#xe2d;&#xe0a;&#xe32;&#xe15;&#xe34;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="PoliceStationCode2">
+        <Component class="javax.swing.JTextField" name="Race">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>
@@ -496,7 +496,7 @@
             <Property name="text" type="java.lang.String" value="&#xe2a;&#xe31;&#xe0d;&#xe0a;&#xe32;&#xe15;&#xe34;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="PoliceStationCode3">
+        <Component class="javax.swing.JTextField" name="Nationality">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>
@@ -511,7 +511,7 @@
             <Property name="text" type="java.lang.String" value="&#xe28;&#xe32;&#xe2a;&#xe19;&#xe32;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="PoliceStationCode4">
+        <Component class="javax.swing.JTextField" name="Religion">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>
@@ -526,7 +526,7 @@
             <Property name="text" type="java.lang.String" value="&#xe2d;&#xe32;&#xe0a;&#xe35;&#xe1e;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="PoliceStationCode5">
+        <Component class="javax.swing.JTextField" name="Occupation">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>
@@ -541,7 +541,7 @@
             <Property name="text" type="java.lang.String" value="&#xe27;/&#xe14;/&#xe1b;&#xe35; &#xe40;&#xe01;&#xe34;&#xe14;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="PoliceStationCode6">
+        <Component class="javax.swing.JTextField" name="BirthDay">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>
@@ -556,14 +556,14 @@
             <Property name="text" type="java.lang.String" value="&#xe2d;&#xe32;&#xe22;&#xe38;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="PoliceStationCode7">
+        <Component class="javax.swing.JTextField" name="Age">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="PoliceStationCode8">
+        <Component class="javax.swing.JTextField" name="Office">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>
