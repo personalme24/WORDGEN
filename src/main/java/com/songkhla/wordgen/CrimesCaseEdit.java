@@ -39,6 +39,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         super(parrent,true);
         initComponents();
         if(datain!=null){
+            
             crimecaseno.setText(datain.get("crimecaseno")+"");
             isInsert=false;
            
@@ -838,13 +839,33 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
     private void jButtonSaveCaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveCaseActionPerformed
         // TODO add your handling code here:
         con=ConnectDatabase.connect();
+      
         String sql="INSERT INTO CrimeCase (crimecaseno,crimecaseyears,ChargeCode,ActionCrimes,CaseRequestDateTime,"+
                    "CaseAcceptDateTime,DailyNumber,OccuredDate,CrimeLocation,CrimeLocationDistrict,CrimeLocationAmphur,"+
                    "CrimeLocationProvince,TypeCourt) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sqlUpdate="UPDATE CrimeCase SET crimecaseno = ?,"
+                         +"crimecaseyears = ?,"
+                         +"ChargeCode = ?,"
+                         +"ActionCrimes = ?,"
+                         +"CaseRequestDateTime = ?,"
+                         +"CaseAcceptDateTime = ?,"
+                         +"DailyNumber = ?,"
+                         +"OccuredDate = ?,"
+                         +"CrimeLocation = ?,"
+                         +"CrimeLocationDistrict = ?,"
+                         +"CrimeLocationAmphur = ?,"
+                         +"CrimeLocationProvince = ?,"
+                         +"TypeCourt = ?"
+                         +"Where  crimecaseno = ?";
+
+      
 //        String sql2="INSERT INTO Person()";
        
         try {
+            if( isInsert=true){
             pst=con.prepareStatement(sql);
+            }
+            
             pst.setString(1,crimecaseno.getText());
             pst.setString(2,crimecaseyear.getText());
             pst.setString(3,jLabelCodeCharge.getText());
@@ -871,7 +892,6 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         
         if(jCheckBox9.isSelected()){
 //            MSWordVariableReplace.CallW5();
-            System.out.println("dcscscscsc");
         }
         
         setVisible(false);
