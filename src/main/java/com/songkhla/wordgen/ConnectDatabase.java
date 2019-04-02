@@ -16,23 +16,28 @@ import java.util.logging.Logger;
  * @author Computer
  */
 public class ConnectDatabase {
+    private static Connection conn = null;
       public static  Connection connect() 
       {
-        Connection conn = null;
-        try {
-             Class.forName("org.sqlite.JDBC");
-            String url = "jdbc:sqlite:D://db/WordGen.db";
-            // connection database
-            conn = DriverManager.getConnection(url);
-             System.out.println("Create Database has been Complete.");
-            System.out.println("Connection to Database has been Complete.");
-            
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        } catch (ClassNotFoundException ex) { 
-              Logger.getLogger(ConnectDatabase.class.getName()).log(Level.SEVERE, null, ex);
+          if(conn==null){
+            //Connection conn = null;
+            try {
+                 Class.forName("org.sqlite.JDBC");
+                String url = "jdbc:sqlite:D://db/WordGen.db";
+                // connection database
+                conn = DriverManager.getConnection(url);
+                 System.out.println("Create Database has been Complete.");
+                System.out.println("Connection to Database has been Complete.");
+
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            } catch (ClassNotFoundException ex) { 
+                  Logger.getLogger(ConnectDatabase.class.getName()).log(Level.SEVERE, null, ex);
+              }
+
+             return conn;
+          }else{
+              return conn;
           }
-        
-         return conn;
     }
 }

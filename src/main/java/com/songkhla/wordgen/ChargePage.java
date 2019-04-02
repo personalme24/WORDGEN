@@ -7,6 +7,7 @@ package com.songkhla.wordgen;
 
 import java.awt.Dimension;
 import java.awt.Rectangle;
+import java.sql.Connection;
 
 /**
  *
@@ -47,7 +48,7 @@ public class ChargePage extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         ChargeCode = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jButtonSaveCharge = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -126,13 +127,13 @@ public class ChargePage extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(java.awt.SystemColor.windowText);
-        jButton1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("บันทึกข้อมูล");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSaveCharge.setBackground(java.awt.SystemColor.windowText);
+        jButtonSaveCharge.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jButtonSaveCharge.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonSaveCharge.setText("บันทึกข้อมูล");
+        jButtonSaveCharge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonSaveChargeActionPerformed(evt);
             }
         });
 
@@ -155,7 +156,7 @@ public class ChargePage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jButton1)
+                        .addComponent(jButtonSaveCharge)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel3)
                             .addComponent(jLabel1)
@@ -202,7 +203,7 @@ public class ChargePage extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonSaveCharge, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
@@ -229,9 +230,12 @@ public class ChargePage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ChargeNameActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonSaveChargeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveChargeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        Connection conn=null;
+        
+        
+    }//GEN-LAST:event_jButtonSaveChargeActionPerformed
 
     private void ChargeCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChargeCodeActionPerformed
         // TODO add your handling code here:
@@ -285,8 +289,8 @@ public class ChargePage extends javax.swing.JFrame {
     private javax.swing.JTextArea Law;
     private javax.swing.JTextArea Note;
     private javax.swing.JTextArea RateOfPenalty;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButtonSaveCharge;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -275,7 +275,7 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void jPanel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel8MouseClicked
         // TODO add your handling code here:
-        CrimesCaseView ccv =new CrimesCaseView();
+        CrimesCaseOverView ccv =new CrimesCaseOverView();
         ccv.setVisible(true);
     }//GEN-LAST:event_jPanel8MouseClicked
 
