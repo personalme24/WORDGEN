@@ -19,6 +19,7 @@ public class ListAccused extends javax.swing.JFrame {
          setDefaultCloseOperation(DISPOSE_ON_CLOSE);
        DataCase dcc=new DataCase();
        jLabel2.setText(dcc.getCaseno());
+       Function.setList("");
     }
 
     /**

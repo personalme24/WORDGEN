@@ -6,6 +6,7 @@
 package com.songkhla.wordgen;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -18,6 +19,27 @@ import javax.swing.table.DefaultTableModel;
  * @author Computer
  */
 public class Function {
+     
+    public static boolean isRegister(Sentencies s) {
+        Connection conn=null;
+        PreparedStatement ps=null;
+        String sql=Sentencies.AddAccured;
+        conn=ConnectDatabase.connect();
+        try {
+            ps=conn.prepareStatement(sql);
+            ps.setString(1, s.getPeopleRegistrationID());
+            ps.setString(2, s.getFullNamePerson());
+            ps.setString(3, s.getTypePerson());
+            ps.setString(4, s.getCrimecaseno());
+            ps.executeUpdate();
+         return true;   
+        } catch (SQLException ex) {
+            return false;
+//            Logger.getLogger(Function.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }
     public static void setList(String buc){
         Connection conn=null;
         conn=ConnectDatabase.connect();
@@ -27,7 +49,7 @@ public class Function {
         }
         String sql="";
         if(buc.equals("")){
-            sql=Sentencies.List;
+            sql=Sentencies.ListAccured;
             
         }else{
             sql="Select * from Person WHERE("
@@ -38,10 +60,10 @@ public class Function {
                Statement st=conn.createStatement();
         ResultSet rs=st.executeQuery(sql);
         while(rs.next()){
-            datos[0]=rs.getString("FullNamePerson");
+            datos[0]=rs.getString("PeopleRegistrationID");
             datos[1]=rs.getString("FullNamePerson");
-            datos[2]=rs.getString("FullNamePerson");
-            datos[3]=rs.getString("FullNamePerson");
+            datos[2]=rs.getString("TypePerson");
+            datos[3]=rs.getString("crimecaseno");
             mo.addRow(datos);
         }
         } catch (SQLException ex) {

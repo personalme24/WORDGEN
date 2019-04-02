@@ -854,6 +854,12 @@ public class CrimesCaseEdit extends javax.swing.JFrame {
              JOptionPane.showMessageDialog(null, e); 
              System.out.println("SQL : "+pst);
         }
+        
+        if(jCheckBox9.isSelected()){
+//            MSWordVariableReplace.CallW5();
+            System.out.println("dcscscscsc");
+        }
+        
     }//GEN-LAST:event_jButtonSaveCaseActionPerformed
 
     private void jButtonSuspectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSuspectActionPerformed

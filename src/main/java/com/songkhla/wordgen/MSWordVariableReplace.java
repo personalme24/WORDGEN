@@ -43,47 +43,47 @@ public class MSWordVariableReplace {
             
             try {
 //                String ch;
-                   String sql="SELECT * from CrimeCase ";
+                   String sql="SELECT * from CrimeCase Where crimecaseno = '3'";
 //                   pst=conn.prepareStatement(sql);
 //           pst=PreparedStatement(sql);
                 Statement st = conn.createStatement();
             ResultSet s=st.executeQuery(sql); 
                 System.out.println(sql);
             while((s!=null) && (s.next()))
-            {  String  cs =s.getString("ChargeCode");
+            {  String  cs =s.getString("crimecaseno");
 //                System.out.print("ข้อหา :: "+s.getString("ChargeCode"));
 //                System.out.print(" - ");
                  JSONObject bookmarkvalue = new JSONObject();
-		bookmarkvalue.put("First_Name",cs);
-		bookmarkvalue.put("Last_Name", "เมฆทรัพย์");
-		bookmarkvalue.put("test01", "พ.ต.อ.");
-		bookmarkvalue.put("test02", "พนักงานสอบสวน");
-		bookmarkvalue.put("test03", "สน.ดอนเมือง");
-                bookmarkvalue.put("test04", "สน.ดอนเมือง5");
+		bookmarkvalue.put("C2",cs);
+//		bookmarkvalue.put("Last_Name", "เมฆทรัพย์");
+//		bookmarkvalue.put("test01", "พ.ต.อ.");
+//		bookmarkvalue.put("test02", "พนักงานสอบสวน");
+//		bookmarkvalue.put("test03", "สน.ดอนเมือง");
+//                bookmarkvalue.put("test04", "สน.ดอนเมือง5");
 		
     
 			JSONArray tablecolumn = new JSONArray();
-			tablecolumn.add("CRIMESNO");
-			tablecolumn.add("DESCRIPTION");
-			tablecolumn.add("SUSPECT");
-			tablecolumn.add("VICTIM");
-			tablecolumn.add("REMARK");
+			tablecolumn.add("C2");
+//			tablecolumn.add("DESCRIPTION");
+//			tablecolumn.add("SUSPECT");
+//			tablecolumn.add("VICTIM");
+//			tablecolumn.add("REMARK");
 			JSONArray table1 = new JSONArray();
 			JSONObject row1 = new JSONObject();
-			row1.put("CRIMESNO", "function1");
-			row1.put("DESCRIPTION", "desc1");
-			row1.put("SUSPECT", "period1");
-			row1.put("VICTIM", "period1");
-			row1.put("REMARK", "period1");
+			row1.put("C2",cs);
+//			row1.put("DESCRIPTION", "desc1");
+//			row1.put("SUSPECT", "period1");
+//			row1.put("VICTIM", "period1");
+//			row1.put("REMARK", "period1");
 			table1.add(row1);
 			
-			JSONObject repl2 = new JSONObject();
-			repl2.put("CRIMESNO", "function1");
-			repl2.put("DESCRIPTION", "desc1");
-			repl2.put("SUSPECT", "period1");
-			repl2.put("VICTIM", "period1");
-			repl2.put("REMARK", "period1");
-			table1.add(repl2);
+//			JSONObject repl2 = new JSONObject();
+//			repl2.put("CRIMESNO", "function1");
+//			repl2.put("DESCRIPTION", "desc1");
+//			repl2.put("SUSPECT", "period1");
+//			repl2.put("VICTIM", "period1");
+//			repl2.put("REMARK", "period1");
+//			table1.add(repl2);
 		JSONObject tableobj = new JSONObject();
 		tableobj.put("COLUMNS", tablecolumn);
 		tableobj.put("TABLEDATA", table1);
@@ -96,10 +96,10 @@ public class MSWordVariableReplace {
 		
 		try {
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("D:/TEMPLATE3.docx"));
+					.load(new java.io.File("D:/W5.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/คำให้การผู้ต้องหา.docx"));
+			wordMLPackage.save(new java.io.File("D://รายงานการสอบสวน.docx"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

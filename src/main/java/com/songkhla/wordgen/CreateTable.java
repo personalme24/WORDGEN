@@ -95,8 +95,7 @@ public class CreateTable {
                 "	ParentAddress	VARCHAR(100)	,	\n"+
                 "	ParentPhone	VARCHAR(100)	,	\n"+
                 "	TypePerson	VARCHAR(100)	,	\n"+		
-                "	caseno	integer	,	\n"+
-                "	 FOREIGN KEY (caseno) REFERENCES CrimeCase (caseno)\n"+
+                "	crimecaseno	VARCHAR(100)	not null	\n"+
                 "	);	";	
 
                        
@@ -145,8 +144,7 @@ public class CreateTable {
                 "	PlaceFoundExhibit	VARCHAR(100)	,	\n"+
                 "	DefectMark	VARCHAR(100)	,	\n"+
                 "	PointFoundCheck	VARCHAR(100)	,	\n"+
-                "	caseno	integer	,	\n"+
-                "	 FOREIGN KEY (caseno) REFERENCES CrimeCase (caseno)\n"+
+                "	crimecaseno	VARCHAR(100)	not null	\n"+
                 "	);";
           
           

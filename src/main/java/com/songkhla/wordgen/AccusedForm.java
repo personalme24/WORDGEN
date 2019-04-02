@@ -26,7 +26,11 @@ public class AccusedForm extends javax.swing.JFrame {
          setDefaultCloseOperation(DISPOSE_ON_CLOSE);
        DataCase dcc=new DataCase();
        labelCaseNo.setText(dcc.getCaseno());
-       labelCaseNo.setVisible(false);
+       labelCaseNo.setVisible(true);
+    }
+
+    AccusedForm(ListAccused aThis, boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -109,7 +113,7 @@ public class AccusedForm extends javax.swing.JFrame {
 
         TypePerson.setEditable(false);
         TypePerson.setFont(new java.awt.Font("TH SarabunPSK", 0, 18)); // NOI18N
-        TypePerson.setText("ผู้เสียหาย");
+        TypePerson.setText("ผู้กล่าวหา");
         TypePerson.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TypePersonActionPerformed(evt);
@@ -615,24 +619,38 @@ public class AccusedForm extends javax.swing.JFrame {
 
     private void BtSaveAccusedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSaveAccusedActionPerformed
         // TODO add your handling code here:
-               con=ConnectDatabase.connect();
-        String sql="INSERT INTO Person (crimecaseno,crimecaseyears,ChargeCode,ActionCrimes,CaseRequestDateTime,"+
-                   "CaseAcceptDateTime,DailyNumber,OccuredDate,CrimeLocation,CrimeLocationDistrict,CrimeLocationAmphur,"+
-                   "CrimeLocationProvince,TypeCourt) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
-//        String sql2="INSERT INTO Person()";
-       
-        try {
-            pst=con.prepareStatement(sql);
-
-            pst.execute();
-                    JOptionPane.showMessageDialog(null, "Data Saved successfully");
-                   
-            pst.close();
-           
-        } catch (Exception e) {
-             JOptionPane.showMessageDialog(null, e); 
-             System.out.println("SQL : "+pst);
+        Sentencies s=new Sentencies();
+        s.setPeopleRegistrationID(this.PeopleRegistrationID.getText());
+        s.setCrimecaseno(this.labelCaseNo.getText());
+        s.setFullNamePerson(this.FullNamePerson.getText());
+        s.setTypePerson(this.TypePerson.getText());
+        
+        if(Function.isRegister(s))
+        {  Function.setList("");
+            JOptionPane.showMessageDialog(this, "Save","INFORMATION",JOptionPane.INFORMATION_MESSAGE);
+          
         }
+        else {
+             JOptionPane.showMessageDialog(this, "ERROR","ERROR",JOptionPane.ERROR_MESSAGE);
+        }
+//               con=ConnectDatabase.connect();
+//        String sql="INSERT INTO Person (crimecaseno,crimecaseyears,ChargeCode,ActionCrimes,CaseRequestDateTime,"+
+//                   "CaseAcceptDateTime,DailyNumber,OccuredDate,CrimeLocation,CrimeLocationDistrict,CrimeLocationAmphur,"+
+//                   "CrimeLocationProvince,TypeCourt) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+//        String sql2="INSERT INTO Person()";
+//       
+//      try {
+//            pst=con.prepareStatement(sql);
+//
+//            pst.execute();
+//                    JOptionPane.showMessageDialog(null, "Data Saved successfully");
+//                   
+//            pst.close();
+//           
+//        } catch (Exception e) {
+//             JOptionPane.showMessageDialog(null, e); 
+//             System.out.println("SQL : "+pst);
+//        }
         
         
     }//GEN-LAST:event_BtSaveAccusedActionPerformed
