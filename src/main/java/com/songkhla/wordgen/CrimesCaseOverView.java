@@ -189,7 +189,7 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
         if(jTable1.getSelectedRow()>=0){
             try{
             String crimecaseno = jTable1.getModel().getValueAt(jTable1.getSelectedRow(), 0)+"";
-            String sql = "select crimecaseno,crimecaseyears,ChargeCode,ActionCrimes,CaseRequestDateTime,"+
+            String sql = "select CaseId,crimecaseno,crimecaseyears,ChargeCode,ActionCrimes,CaseRequestDateTime,"+
                    "CaseAcceptDateTime,DailyNumber,OccuredDate,CrimeLocation,CrimeLocationDistrict,CrimeLocationAmphur,"+
                    "CrimeLocationProvince,TypeCourt from crimecase where crimecaseno='"+crimecaseno+"'";
             Connection con = ConnectDatabase.connect();
@@ -197,6 +197,7 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
             ResultSet rs = stmt.executeQuery(sql);
             if(rs.next()){
                 JSONObject data = new JSONObject();
+                data.put("CaseId", rs.getString("CaseId"));
                 data.put("crimecaseno", rs.getString("crimecaseno"));
                 data.put("crimecaseyears", rs.getString("crimecaseyears"));
                 data.put("ChargeCode", rs.getString("ChargeCode"));

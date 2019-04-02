@@ -100,7 +100,8 @@ public class CreateTable {
 
                        
                   String sqlCrimeCase ="CREATE TABLE IF NOT EXISTS CrimeCase (\n"+
-	             "	SendIDocDate	VARCHAR(100)	Primary Key,	\n"+
+                         " CaseId INTEGER Primary Key AUTOINCREMENT,                \n"+
+	             "	SendIDocDate	VARCHAR(100),	\n"+
                         "	crimecaseno	VARCHAR(100)	not null,	\n"+
                         "	crimecaseyears	VARCHAR(100)	,	\n"+
                         "	OccuredDate	VARCHAR(100)	,	\n"+

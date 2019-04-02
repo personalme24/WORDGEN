@@ -23,7 +23,7 @@ public class ConnectDatabase {
             //Connection conn = null;
             try {
                  Class.forName("org.sqlite.JDBC");
-                String url = "jdbc:sqlite:D://db/WordGen.db";
+                String url = "jdbc:sqlite:D://WordGen.db";
                 // connection database
                 conn = DriverManager.getConnection(url);
                  System.out.println("Create Database has been Complete.");

@@ -838,6 +838,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
 
     private void jButtonSaveCaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveCaseActionPerformed
         // TODO add your handling code here:
+       
         con=ConnectDatabase.connect();
       
         String sql="INSERT INTO CrimeCase (crimecaseno,crimecaseyears,ChargeCode,ActionCrimes,CaseRequestDateTime,"+
@@ -856,15 +857,15 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
                          +"CrimeLocationAmphur = ?,"
                          +"CrimeLocationProvince = ?,"
                          +"TypeCourt = ?"
-                         +"Where  crimecaseno = ?";
+                         +" WHERE  CaseId = ?";
 
       
 //        String sql2="INSERT INTO Person()";
        
         try {
-            if( isInsert=true){
+  
             pst=con.prepareStatement(sql);
-            }
+ 
             
             pst.setString(1,crimecaseno.getText());
             pst.setString(2,crimecaseyear.getText());
@@ -879,21 +880,17 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
             pst.setString(11,CrimeLocationAmphur.getText());
             pst.setString(12,CrimeLocationProvince.getText());
             pst.setString(13,CourtType.getSelectedItem().toString());
-            pst.execute();
+            pst.setString(14,crimecaseno.getText());
+            pst.executeUpdate();
                     JOptionPane.showMessageDialog(null, "Data Saved successfully");
+                       System.out.println("SQL : "+sqlUpdate);
             pst.close();
            
         } catch (Exception e) {
              JOptionPane.showMessageDialog(null, e); 
              System.out.println("SQL : "+pst);
         }
-        
-        
-        
-        if(jCheckBox9.isSelected()){
-//            MSWordVariableReplace.CallW5();
-        }
-        
+       
         setVisible(false);
     }//GEN-LAST:event_jButtonSaveCaseActionPerformed
 
