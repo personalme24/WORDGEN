@@ -28,9 +28,9 @@ import org.json.simple.JSONObject;
  */
 public class CrimesCaseEdit extends javax.swing.JDialog {
     Connection con=null;
-    PreparedStatement pst=null;
-    DataCase dc =new DataCase();
-    boolean isInsert=true;
+    PreparedStatement pst=null;;
+    boolean isInsert;
+    String caseid;
    
     /**
      * Creates new form CrimesCaseEdit
@@ -39,8 +39,9 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         super(parrent,true);
         initComponents();
         if(datain!=null){
-            
+            caseid= "" + datain.get("CaseId"); 
             crimecaseno.setText(datain.get("crimecaseno")+"");
+            crimecaseyear.setText(datain.get("crimecaseyear")+"");
             isInsert=false;
            
         }else{
@@ -830,7 +831,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
 
     private void jButtonAccuredActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccuredActionPerformed
         // TODO add your handling code here:
-        dc.setCaseno(crimecaseno.getText());
+;
         ListAccused la =new ListAccused();
         la.setVisible(true);
              
@@ -840,29 +841,11 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         // TODO add your handling code here:
        
         con=ConnectDatabase.connect();
-      
+      if(isInsert){
         String sql="INSERT INTO CrimeCase (crimecaseno,crimecaseyears,ChargeCode,ActionCrimes,CaseRequestDateTime,"+
                    "CaseAcceptDateTime,DailyNumber,OccuredDate,CrimeLocation,CrimeLocationDistrict,CrimeLocationAmphur,"+
                    "CrimeLocationProvince,TypeCourt) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
-        String sqlUpdate="UPDATE CrimeCase SET crimecaseno = ?,"
-                         +"crimecaseyears = ?,"
-                         +"ChargeCode = ?,"
-                         +"ActionCrimes = ?,"
-                         +"CaseRequestDateTime = ?,"
-                         +"CaseAcceptDateTime = ?,"
-                         +"DailyNumber = ?,"
-                         +"OccuredDate = ?,"
-                         +"CrimeLocation = ?,"
-                         +"CrimeLocationDistrict = ?,"
-                         +"CrimeLocationAmphur = ?,"
-                         +"CrimeLocationProvince = ?,"
-                         +"TypeCourt = ?"
-                         +" WHERE  CaseId = ?";
-
-      
-//        String sql2="INSERT INTO Person()";
-       
-        try {
+         try {
   
             pst=con.prepareStatement(sql);
  
@@ -880,9 +863,55 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
             pst.setString(11,CrimeLocationAmphur.getText());
             pst.setString(12,CrimeLocationProvince.getText());
             pst.setString(13,CourtType.getSelectedItem().toString());
-            pst.setString(14,crimecaseno.getText());
+//          pst.setString(14,caseid);
+         
             pst.executeUpdate();
                     JOptionPane.showMessageDialog(null, "Data Saved successfully");
+                       System.out.println("SQL : "+sql);
+            pst.close();
+           
+        } catch (Exception e) {
+             JOptionPane.showMessageDialog(null, e); 
+             System.out.println("SQL : "+pst);
+        }
+      }
+      else{
+        String sqlUpdate="UPDATE CrimeCase SET crimecaseno = ?,"
+                         +"crimecaseyears = ?,"
+                         +"ChargeCode = ?,"
+                         +"ActionCrimes = ?,"
+                         +"CaseRequestDateTime = ?,"
+                         +"CaseAcceptDateTime = ?,"
+                         +"DailyNumber = ?,"
+                         +"OccuredDate = ?,"
+                         +"CrimeLocation = ?,"
+                         +"CrimeLocationDistrict = ?,"
+                         +"CrimeLocationAmphur = ?,"
+                         +"CrimeLocationProvince = ?,"
+                         +"TypeCourt = ?"
+                         +" WHERE  CaseId = ?";
+         try {
+  
+            pst=con.prepareStatement(sqlUpdate);
+ 
+            
+            pst.setString(1,crimecaseno.getText());
+            pst.setString(2,crimecaseyear.getText());
+            pst.setString(3,jLabelCodeCharge.getText());
+            pst.setString(4,ActionCrimes.getText());
+            pst.setString(5,CaseRequestDateTime.getText()+" "+CaseRequestTimee.getText());
+            pst.setString(6,CaseAcceptDateTime.getText()+" "+CaseAcceptTimee.getText());
+            pst.setString(7,DailyNumber.getText());
+            pst.setString(8,OccuredDate.getText()+" "+OccuredDateTime.getText());
+            pst.setString(9,CrimeLocation.getText());
+            pst.setString(10,CrimeLocationDistrict.getText());
+            pst.setString(11,CrimeLocationAmphur.getText());
+            pst.setString(12,CrimeLocationProvince.getText());
+            pst.setString(13,CourtType.getSelectedItem().toString());
+           pst.setString(14,caseid);
+          
+            pst.executeUpdate();
+                    JOptionPane.showMessageDialog(null, "บันทึกข้อมูล");
                        System.out.println("SQL : "+sqlUpdate);
             pst.close();
            
@@ -890,6 +919,11 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
              JOptionPane.showMessageDialog(null, e); 
              System.out.println("SQL : "+pst);
         }
+      }
+      
+//        String sql2="INSERT INTO Person()";
+       
+       
        
         setVisible(false);
     }//GEN-LAST:event_jButtonSaveCaseActionPerformed

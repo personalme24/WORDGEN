@@ -24,9 +24,8 @@ public class AccusedForm extends javax.swing.JFrame {
     public AccusedForm() {
         initComponents();
          setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-       DataCase dcc=new DataCase();
-       labelCaseNo.setText(dcc.getCaseno());
-       labelCaseNo.setVisible(true);
+
+      
     }
 
     AccusedForm(ListAccused aThis, boolean b) {
