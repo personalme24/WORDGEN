@@ -8,6 +8,8 @@ package com.songkhla.wordgen;
 import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -232,7 +234,30 @@ public class ChargePage extends javax.swing.JFrame {
 
     private void jButtonSaveChargeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveChargeActionPerformed
         // TODO add your handling code here:
-        Connection conn=null;
+       Connection con = ConnectDatabase.connect();
+        PreparedStatement pst=null;
+        String sql="INSERT INTO Charge (ChargeCode,ChargeName,Law,RateOfPenalty,Note)"+
+                   "VALUES (?,?,?,?,?)";
+         try {
+  
+            pst=con.prepareStatement(sql);
+ 
+            
+            pst.setString(1,ChargeCode.getText());
+            pst.setString(2,ChargeName.getText());
+            pst.setString(3,Law.getText());
+            pst.setString(4,RateOfPenalty.getText());
+             pst.setString(5,Note.getText());
+         
+            pst.executeUpdate();
+                    JOptionPane.showMessageDialog(null, "Data Saved successfully");
+                       System.out.println("SQL : "+sql);
+            pst.close();
+           
+        } catch (Exception e) {
+             JOptionPane.showMessageDialog(null, e); 
+             System.out.println("SQL : "+pst);
+        }
         
         
     }//GEN-LAST:event_jButtonSaveChargeActionPerformed

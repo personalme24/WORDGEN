@@ -49,7 +49,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         }
             
     }
-
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -852,7 +852,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
             
             pst.setString(1,crimecaseno.getText());
             pst.setString(2,crimecaseyear.getText());
-            pst.setString(3,jLabelCodeCharge.getText());
+            pst.setString(3,ChargeName.getText());
             pst.setString(4,ActionCrimes.getText());
             pst.setString(5,CaseRequestDateTime.getText()+" "+CaseRequestTimee.getText());
             pst.setString(6,CaseAcceptDateTime.getText()+" "+CaseAcceptTimee.getText());

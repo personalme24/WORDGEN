@@ -60,7 +60,7 @@ public class Function {
                Statement st=conn.createStatement();
         ResultSet rs=st.executeQuery(sql);
         while(rs.next()){
-            datos[0]=rs.getString("PeopleRegistrationID");
+            datos[0]=rs.getString("PeopleRegistrationID")+rs.getString("FullNamePerson");
             datos[1]=rs.getString("FullNamePerson");
             datos[2]=rs.getString("TypePerson");
             datos[3]=rs.getString("crimecaseno");
