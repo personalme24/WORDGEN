@@ -831,10 +831,11 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
 
     private void jButtonAccuredActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccuredActionPerformed
         // TODO add your handling code here:
-;
+        
         ListAccused la =new ListAccused();
         la.setVisible(true);
-             
+        
+          
     }//GEN-LAST:event_jButtonAccuredActionPerformed
 
     private void jButtonSaveCaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveCaseActionPerformed
@@ -862,7 +863,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
             pst.setString(10,CrimeLocationDistrict.getText());
             pst.setString(11,CrimeLocationAmphur.getText());
             pst.setString(12,CrimeLocationProvince.getText());
-            pst.setString(13,CourtType.getSelectedItem().toString());
+                pst.setString(13,CourtType.getSelectedItem().toString());
 //          pst.setString(14,caseid);
          
             pst.executeUpdate();
@@ -974,7 +975,6 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
     }//GEN-LAST:event_jButtonActionActionPerformed
  public static JComponent makeExamplePane() {
      JPanel text = new JPanel();
- 
     JScrollPane scroll = new JScrollPane(text);
     return scroll;
   }
