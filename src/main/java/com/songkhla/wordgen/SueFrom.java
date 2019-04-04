@@ -37,55 +37,55 @@ public class SueFrom extends javax.swing.JFrame {
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
-        Nationality = new javax.swing.JTextField();
-        Nationality1 = new javax.swing.JTextField();
-        Nationality2 = new javax.swing.JTextField();
-        Nationality3 = new javax.swing.JTextField();
-        Nationality4 = new javax.swing.JTextField();
-        Nationality7 = new javax.swing.JTextField();
-        Nationality8 = new javax.swing.JTextField();
-        Nationality9 = new javax.swing.JTextField();
-        Nationality10 = new javax.swing.JTextField();
-        Nationality14 = new javax.swing.JTextField();
-        Nationality12 = new javax.swing.JTextField();
-        Nationality15 = new javax.swing.JTextField();
-        Nationality16 = new javax.swing.JTextField();
-        Nationality17 = new javax.swing.JTextField();
-        Nationality18 = new javax.swing.JTextField();
-        Nationality21 = new javax.swing.JTextField();
-        Nationality22 = new javax.swing.JTextField();
-        Nationality23 = new javax.swing.JTextField();
-        Nationality24 = new javax.swing.JTextField();
-        Nationality25 = new javax.swing.JTextField();
-        CourtType = new javax.swing.JComboBox<>();
-        CourtType2 = new javax.swing.JComboBox<>();
-        CourtType3 = new javax.swing.JComboBox<>();
-        CourtType4 = new javax.swing.JComboBox<>();
-        Nationality5 = new javax.swing.JTextField();
-        Nationality6 = new javax.swing.JTextField();
-        Nationality11 = new javax.swing.JTextField();
-        Nationality13 = new javax.swing.JTextField();
-        Nationality26 = new javax.swing.JTextField();
-        Nationality27 = new javax.swing.JTextField();
-        Nationality28 = new javax.swing.JTextField();
-        Nationality29 = new javax.swing.JTextField();
-        Nationality30 = new javax.swing.JTextField();
-        Nationality19 = new javax.swing.JTextField();
-        CourtType8 = new javax.swing.JComboBox<>();
-        Nationality31 = new javax.swing.JTextField();
-        Nationality32 = new javax.swing.JTextField();
-        Nationality33 = new javax.swing.JTextField();
-        Nationality34 = new javax.swing.JTextField();
-        Nationality35 = new javax.swing.JTextField();
-        Nationality20 = new javax.swing.JTextField();
-        CourtType9 = new javax.swing.JComboBox<>();
-        Nationality36 = new javax.swing.JTextField();
-        Nationality37 = new javax.swing.JTextField();
-        Nationality38 = new javax.swing.JTextField();
-        Nationality39 = new javax.swing.JTextField();
-        Nationality40 = new javax.swing.JTextField();
-        Nationality41 = new javax.swing.JTextField();
-        CourtType10 = new javax.swing.JComboBox<>();
+        Number1 = new javax.swing.JTextField();
+        Datedeposit1 = new javax.swing.JTextField();
+        Since1 = new javax.swing.JTextField();
+        Todeposit1 = new javax.swing.JTextField();
+        Total1 = new javax.swing.JTextField();
+        Number2 = new javax.swing.JTextField();
+        Datedeposit2 = new javax.swing.JTextField();
+        Since2 = new javax.swing.JTextField();
+        Todeposit2 = new javax.swing.JTextField();
+        Total2 = new javax.swing.JTextField();
+        Number3 = new javax.swing.JTextField();
+        Datedeposit3 = new javax.swing.JTextField();
+        Since3 = new javax.swing.JTextField();
+        Todeposit3 = new javax.swing.JTextField();
+        Total3 = new javax.swing.JTextField();
+        Number4 = new javax.swing.JTextField();
+        Datedeposit4 = new javax.swing.JTextField();
+        Since4 = new javax.swing.JTextField();
+        Todeposit4 = new javax.swing.JTextField();
+        Total4 = new javax.swing.JTextField();
+        CauseImprison4 = new javax.swing.JComboBox<>();
+        CauseImprison3 = new javax.swing.JComboBox<>();
+        CauseImprison2 = new javax.swing.JComboBox<>();
+        CauseImprison1 = new javax.swing.JComboBox<>();
+        NamePolis1 = new javax.swing.JTextField();
+        NamePolis2 = new javax.swing.JTextField();
+        NamePolis3 = new javax.swing.JTextField();
+        NamePolis4 = new javax.swing.JTextField();
+        Number5 = new javax.swing.JTextField();
+        Datedeposit5 = new javax.swing.JTextField();
+        Since5 = new javax.swing.JTextField();
+        Todeposit5 = new javax.swing.JTextField();
+        Total5 = new javax.swing.JTextField();
+        NamePolis5 = new javax.swing.JTextField();
+        CauseImprison5 = new javax.swing.JComboBox<>();
+        Number6 = new javax.swing.JTextField();
+        Datedeposit6 = new javax.swing.JTextField();
+        Since6 = new javax.swing.JTextField();
+        Todeposit6 = new javax.swing.JTextField();
+        Total6 = new javax.swing.JTextField();
+        NamePolis6 = new javax.swing.JTextField();
+        CauseImprison6 = new javax.swing.JComboBox<>();
+        Number7 = new javax.swing.JTextField();
+        Datedeposit7 = new javax.swing.JTextField();
+        Since7 = new javax.swing.JTextField();
+        Todeposit7 = new javax.swing.JTextField();
+        Total7 = new javax.swing.JTextField();
+        NamePolis7 = new javax.swing.JTextField();
+        CauseImprison7 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -135,110 +135,110 @@ public class SueFrom extends javax.swing.JFrame {
         jLabel29.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel29.setText("                                          เหตุผัดฟ้องฝากขัง");
 
-        Nationality.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Number1.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Nationality1.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Datedeposit1.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Nationality2.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Since1.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Nationality3.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Todeposit1.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Nationality4.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Total1.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Nationality7.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Number2.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Nationality8.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Datedeposit2.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Nationality9.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Since2.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Nationality10.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Todeposit2.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Nationality14.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Total2.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Nationality12.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Number3.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Nationality15.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Datedeposit3.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Nationality16.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Since3.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Nationality17.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Todeposit3.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Nationality18.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Total3.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Nationality21.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Number4.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Nationality22.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Datedeposit4.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Nationality23.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Since4.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Nationality24.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Todeposit4.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Nationality25.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Total4.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        CourtType.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        CourtType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
+        CauseImprison4.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        CauseImprison4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
 
-        CourtType2.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        CourtType2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
+        CauseImprison3.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        CauseImprison3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
 
-        CourtType3.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        CourtType3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
+        CauseImprison2.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        CauseImprison2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
 
-        CourtType4.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        CourtType4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
+        CauseImprison1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        CauseImprison1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
 
-        Nationality5.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        NamePolis1.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Nationality6.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        NamePolis2.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Nationality11.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        NamePolis3.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Nationality13.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        NamePolis4.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Nationality26.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Number5.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Nationality27.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Datedeposit5.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Nationality28.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Since5.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Nationality29.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Todeposit5.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Nationality30.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Total5.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Nationality19.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        NamePolis5.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        CourtType8.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        CourtType8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
+        CauseImprison5.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        CauseImprison5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
 
-        Nationality31.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Number6.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Nationality32.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Datedeposit6.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Nationality33.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Since6.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Nationality34.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Todeposit6.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Nationality35.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Total6.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Nationality20.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        NamePolis6.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        CourtType9.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        CourtType9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
+        CauseImprison6.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        CauseImprison6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
 
-        Nationality36.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Number7.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Nationality37.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Datedeposit7.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Nationality38.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Since7.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Nationality39.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Todeposit7.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Nationality40.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Total7.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Nationality41.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        NamePolis7.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        CourtType10.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        CourtType10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
+        CauseImprison7.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        CauseImprison7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -248,85 +248,85 @@ public class SueFrom extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(52, 52, 52)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Nationality36)
-                    .addComponent(Nationality31)
-                    .addComponent(Nationality26)
-                    .addComponent(Nationality21)
-                    .addComponent(Nationality12)
-                    .addComponent(Nationality)
+                    .addComponent(Number7)
+                    .addComponent(Number6)
+                    .addComponent(Number5)
+                    .addComponent(Number4)
+                    .addComponent(Number3)
+                    .addComponent(Number1)
                     .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
-                    .addComponent(Nationality7))
+                    .addComponent(Number2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Nationality37)
-                    .addComponent(Nationality32)
-                    .addComponent(Nationality27)
-                    .addComponent(Nationality22)
-                    .addComponent(Nationality15)
-                    .addComponent(Nationality8)
+                    .addComponent(Datedeposit7)
+                    .addComponent(Datedeposit6)
+                    .addComponent(Datedeposit5)
+                    .addComponent(Datedeposit4)
+                    .addComponent(Datedeposit3)
+                    .addComponent(Datedeposit2)
                     .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
-                    .addComponent(Nationality1))
+                    .addComponent(Datedeposit1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Nationality38)
-                    .addComponent(Nationality33)
-                    .addComponent(Nationality28)
-                    .addComponent(Nationality23)
-                    .addComponent(Nationality16)
-                    .addComponent(Nationality9)
+                    .addComponent(Since7)
+                    .addComponent(Since6)
+                    .addComponent(Since5)
+                    .addComponent(Since4)
+                    .addComponent(Since3)
+                    .addComponent(Since2)
                     .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
-                    .addComponent(Nationality2))
+                    .addComponent(Since1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Nationality39)
-                    .addComponent(Nationality34)
-                    .addComponent(Nationality29)
-                    .addComponent(Nationality24)
-                    .addComponent(Nationality17)
-                    .addComponent(Nationality10)
+                    .addComponent(Todeposit7)
+                    .addComponent(Todeposit6)
+                    .addComponent(Todeposit5)
+                    .addComponent(Todeposit4)
+                    .addComponent(Todeposit3)
+                    .addComponent(Todeposit2)
                     .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
-                    .addComponent(Nationality3))
+                    .addComponent(Todeposit1))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Nationality35)
-                            .addComponent(Nationality30)
-                            .addComponent(Nationality25)
-                            .addComponent(Nationality18)
-                            .addComponent(Nationality14)
+                            .addComponent(Total6)
+                            .addComponent(Total5)
+                            .addComponent(Total4)
+                            .addComponent(Total3)
+                            .addComponent(Total2)
                             .addComponent(jLabel27, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
-                            .addComponent(Nationality4)))
+                            .addComponent(Total1)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(11, 11, 11)
-                        .addComponent(Nationality40)))
+                        .addComponent(Total7)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Nationality19)
+                            .addComponent(NamePolis5)
                             .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Nationality11)
-                            .addComponent(Nationality13)
-                            .addComponent(Nationality5)
-                            .addComponent(Nationality6))
+                            .addComponent(NamePolis3)
+                            .addComponent(NamePolis4)
+                            .addComponent(NamePolis1)
+                            .addComponent(NamePolis2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(CourtType4, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(CourtType3, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(CauseImprison1, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(CauseImprison2, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(CourtType8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CourtType2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CourtType, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(CauseImprison5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CauseImprison3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CauseImprison4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Nationality41)
-                            .addComponent(Nationality20))
+                            .addComponent(NamePolis7)
+                            .addComponent(NamePolis6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CourtType9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CourtType10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(CauseImprison6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CauseImprison7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -344,70 +344,70 @@ public class SueFrom extends javax.swing.JFrame {
                     .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Nationality, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Nationality1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Nationality2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Nationality3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Nationality4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CourtType4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Nationality5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Number1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Datedeposit1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Since1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Todeposit1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Total1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CauseImprison1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NamePolis1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(Nationality8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Nationality9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Nationality10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Nationality14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(CourtType3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Nationality6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(Nationality7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Datedeposit2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Since2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Todeposit2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Total2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(CauseImprison2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(NamePolis2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Number2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(Nationality12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Nationality15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Nationality16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Nationality17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Nationality18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Nationality11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(CourtType2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Number3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Datedeposit3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Since3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Todeposit3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Total3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(NamePolis3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CauseImprison3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(Nationality21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Nationality22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Nationality23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Nationality24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Nationality25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Nationality13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(CourtType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Number4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Datedeposit4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Since4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Todeposit4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Total4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(NamePolis4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CauseImprison4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Nationality26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Nationality27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Nationality28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Nationality29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Nationality30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CourtType8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Nationality19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Number5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Datedeposit5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Since5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Todeposit5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Total5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CauseImprison5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NamePolis5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Nationality31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Nationality32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Nationality33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Nationality34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Nationality35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CourtType9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Nationality20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Number6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Datedeposit6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Since6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Todeposit6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Total6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CauseImprison6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NamePolis6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Nationality36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Nationality37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Nationality38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Nationality39, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Nationality40, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CourtType10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Nationality41, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Number7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Datedeposit7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Since7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Todeposit7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Total7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CauseImprison7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NamePolis7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 173, Short.MAX_VALUE))
         );
 
@@ -464,55 +464,55 @@ public class SueFrom extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> CourtType;
-    private javax.swing.JComboBox<String> CourtType10;
-    private javax.swing.JComboBox<String> CourtType2;
-    private javax.swing.JComboBox<String> CourtType3;
-    private javax.swing.JComboBox<String> CourtType4;
-    private javax.swing.JComboBox<String> CourtType8;
-    private javax.swing.JComboBox<String> CourtType9;
-    private javax.swing.JTextField Nationality;
-    private javax.swing.JTextField Nationality1;
-    private javax.swing.JTextField Nationality10;
-    private javax.swing.JTextField Nationality11;
-    private javax.swing.JTextField Nationality12;
-    private javax.swing.JTextField Nationality13;
-    private javax.swing.JTextField Nationality14;
-    private javax.swing.JTextField Nationality15;
-    private javax.swing.JTextField Nationality16;
-    private javax.swing.JTextField Nationality17;
-    private javax.swing.JTextField Nationality18;
-    private javax.swing.JTextField Nationality19;
-    private javax.swing.JTextField Nationality2;
-    private javax.swing.JTextField Nationality20;
-    private javax.swing.JTextField Nationality21;
-    private javax.swing.JTextField Nationality22;
-    private javax.swing.JTextField Nationality23;
-    private javax.swing.JTextField Nationality24;
-    private javax.swing.JTextField Nationality25;
-    private javax.swing.JTextField Nationality26;
-    private javax.swing.JTextField Nationality27;
-    private javax.swing.JTextField Nationality28;
-    private javax.swing.JTextField Nationality29;
-    private javax.swing.JTextField Nationality3;
-    private javax.swing.JTextField Nationality30;
-    private javax.swing.JTextField Nationality31;
-    private javax.swing.JTextField Nationality32;
-    private javax.swing.JTextField Nationality33;
-    private javax.swing.JTextField Nationality34;
-    private javax.swing.JTextField Nationality35;
-    private javax.swing.JTextField Nationality36;
-    private javax.swing.JTextField Nationality37;
-    private javax.swing.JTextField Nationality38;
-    private javax.swing.JTextField Nationality39;
-    private javax.swing.JTextField Nationality4;
-    private javax.swing.JTextField Nationality40;
-    private javax.swing.JTextField Nationality41;
-    private javax.swing.JTextField Nationality5;
-    private javax.swing.JTextField Nationality6;
-    private javax.swing.JTextField Nationality7;
-    private javax.swing.JTextField Nationality8;
-    private javax.swing.JTextField Nationality9;
+    private javax.swing.JComboBox<String> CauseImprison1;
+    private javax.swing.JComboBox<String> CauseImprison2;
+    private javax.swing.JComboBox<String> CauseImprison3;
+    private javax.swing.JComboBox<String> CauseImprison4;
+    private javax.swing.JComboBox<String> CauseImprison5;
+    private javax.swing.JComboBox<String> CauseImprison6;
+    private javax.swing.JComboBox<String> CauseImprison7;
+    private javax.swing.JTextField Datedeposit1;
+    private javax.swing.JTextField Datedeposit2;
+    private javax.swing.JTextField Datedeposit3;
+    private javax.swing.JTextField Datedeposit4;
+    private javax.swing.JTextField Datedeposit5;
+    private javax.swing.JTextField Datedeposit6;
+    private javax.swing.JTextField Datedeposit7;
+    private javax.swing.JTextField NamePolis1;
+    private javax.swing.JTextField NamePolis2;
+    private javax.swing.JTextField NamePolis3;
+    private javax.swing.JTextField NamePolis4;
+    private javax.swing.JTextField NamePolis5;
+    private javax.swing.JTextField NamePolis6;
+    private javax.swing.JTextField NamePolis7;
+    private javax.swing.JTextField Number1;
+    private javax.swing.JTextField Number2;
+    private javax.swing.JTextField Number3;
+    private javax.swing.JTextField Number4;
+    private javax.swing.JTextField Number5;
+    private javax.swing.JTextField Number6;
+    private javax.swing.JTextField Number7;
+    private javax.swing.JTextField Since1;
+    private javax.swing.JTextField Since2;
+    private javax.swing.JTextField Since3;
+    private javax.swing.JTextField Since4;
+    private javax.swing.JTextField Since5;
+    private javax.swing.JTextField Since6;
+    private javax.swing.JTextField Since7;
+    private javax.swing.JTextField Todeposit1;
+    private javax.swing.JTextField Todeposit2;
+    private javax.swing.JTextField Todeposit3;
+    private javax.swing.JTextField Todeposit4;
+    private javax.swing.JTextField Todeposit5;
+    private javax.swing.JTextField Todeposit6;
+    private javax.swing.JTextField Todeposit7;
+    private javax.swing.JTextField Total1;
+    private javax.swing.JTextField Total2;
+    private javax.swing.JTextField Total3;
+    private javax.swing.JTextField Total4;
+    private javax.swing.JTextField Total5;
+    private javax.swing.JTextField Total6;
+    private javax.swing.JTextField Total7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
