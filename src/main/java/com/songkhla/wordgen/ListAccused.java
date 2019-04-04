@@ -5,6 +5,15 @@
  */
 package com.songkhla.wordgen;
 
+import com.songkhla.wordgen.*;
+import static com.songkhla.wordgen.ListAccused.jTableAccure;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.HashMap;
+import java.util.Vector;
+import org.json.simple.JSONObject;
+
 /**
  *
  * @author Computer
@@ -17,9 +26,10 @@ public class ListAccused extends javax.swing.JFrame {
     public ListAccused() {
         initComponents();
          setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+         RefreshData();
 //       DataCase dcc=new DataCase();
 //       jLabel2.setText(dcc.getCaseno());
-       Function.setList("");
+   // Function.setList("");
     }
 
     /**
@@ -37,34 +47,52 @@ public class ListAccused extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         AddAccused = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        txtCaseNO = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jTableAccure.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         jTableAccure.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ชื่อ-นามสกุล", "เลขบัตรประชน", "เลขคดี"
             }
         ));
         jScrollPane1.setViewportView(jTableAccure);
 
-        jButton2.setText("jButton2");
+        jButton2.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        jButton2.setText("แก้ไข");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("jButton3");
+        jButton3.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        jButton3.setText("ลบ");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
-        AddAccused.setText("Add");
+        AddAccused.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        AddAccused.setText("เพิ่ม");
         AddAccused.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AddAccusedActionPerformed(evt);
             }
         });
 
-        jLabel2.setText("jLabel2");
+        txtCaseNO.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+
+        jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        jLabel3.setText("เลขคดี");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -76,12 +104,14 @@ public class ListAccused extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 769, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(AddAccused)
-                        .addGap(33, 33, 33)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton2)
-                        .addGap(39, 39, 39)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton3)
-                        .addGap(28, 28, 28)
-                        .addComponent(jLabel2)))
+                        .addGap(42, 42, 42)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtCaseNO, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(134, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -92,10 +122,11 @@ public class ListAccused extends javax.swing.JFrame {
                     .addComponent(AddAccused)
                     .addComponent(jButton2)
                     .addComponent(jButton3)
-                    .addComponent(jLabel2))
+                    .addComponent(txtCaseNO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(214, Short.MAX_VALUE))
+                .addContainerGap(202, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 51, 0));
@@ -147,7 +178,62 @@ public class ListAccused extends javax.swing.JFrame {
         // TODO add your handling code here:
         AccusedForm accusedF=new AccusedForm();
         accusedF.setVisible(true);
+        RefreshData();
     }//GEN-LAST:event_AddAccusedActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    if(jTableAccure.getSelectedRow()>=0){
+            try{
+                String crimecaseno = jTableAccure.getModel().getValueAt(jTableAccure.getSelectedRow(), 0)+"";
+                String PeopleRegistrationID = jTableAccure.getModel().getValueAt(jTableAccure.getSelectedRow(), 2)+"";
+                String sql = "select Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
+                        "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
+                        "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,crimecaseno from person where PeopleRegistrationID="+PeopleRegistrationID+ "and  crimecaseno='"+crimecaseno+"'";
+                Connection con = ConnectDatabase.connect();
+                Statement stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery(sql);
+                if(rs.next()){
+                    JSONObject data = new JSONObject();
+                    data.put("PeopleRegistrationID", rs.getString("PeopleRegistrationID"));
+                    data.put("crimecaseno", rs.getString("crimecaseno"));
+                    data.put("crimecaseno", rs.getString("FullNamePerson"));
+                            AccusedForm accusedF=new AccusedForm();
+                            accusedF.setVisible(true);    		
+                }
+                
+                rs.close();
+                stmt.close();
+                RefreshData();
+            }catch(Exception ex){
+                ex.printStackTrace();
+            }
+        }else{
+
+        }
+                                              
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+              if(jTableAccure.getSelectedRow()>=0){
+                  
+            try{
+                String crimecaseno = jTableAccure.getModel().getValueAt(jTableAccure.getSelectedRow(), 0)+"";
+                String PeopleRegistrationID = jTableAccure.getModel().getValueAt(jTableAccure.getSelectedRow(), 2)+"";
+                String sql = "Delete from person WHERE PeopleRegistrationID='"+PeopleRegistrationID+ "'and  crimecaseno='"+crimecaseno+"'";
+                Connection con = ConnectDatabase.connect();
+                Statement stmt = con.createStatement();
+                stmt.executeUpdate(sql);
+                
+
+                     System.out.println("SQL : "+sql);
+                stmt.close();
+                RefreshData();
+            }catch(Exception ex){
+                ex.printStackTrace();
+            }
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,16 +269,82 @@ public class ListAccused extends javax.swing.JFrame {
             }
         });
     }
+     public void RefreshData(){
+        try{
+        Connection con = ConnectDatabase.connect();
+        Statement stmt = con.createStatement();
+        String sql = "select Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
+                        "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
+                        "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,crimecaseno from person  "+getFilterCondition();
+         
+        ResultSet rs = stmt.executeQuery(sql);
+        Vector<Vector> tabledata = new Vector<Vector>();
+        while(rs.next()){
+            Vector<String> row = new Vector<String>();
+            row.add(rs.getString("crimecaseno"));
+            row.add(rs.getString("FullNamePerson"));
+            row.add(rs.getString("PeopleRegistrationID"));
+            tabledata.add(row);
+        }
+        rs.close();
+        stmt.close();
+        Vector ColumnName = new Vector();
+        ColumnName.add("เลขคดี");
+        ColumnName.add("ชื่อ-นามสุกล");
+        ColumnName.add("เลขบัตรประชาชน");
+  
+    
+        jTableAccure.setModel(new javax.swing.table.DefaultTableModel(
+            tabledata,
+            ColumnName
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+                             System.out.println("SQL : "+sql);
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
+      private String getFilterCondition(){
+        HashMap<String,String> filter = new HashMap<String,String>();
+        if(txtCaseNO.getText().trim().length()>0){
+            filter.put("crimecaseno", txtCaseNO.getText().trim());
+        }
+        
+        String[] key = filter.keySet().toArray(new String[0]);
+        String result="";
+        for(int i=0;i<key.length;i++){
+            if(i==0){
+                result=" where ";
+            }
+            if(i==key.length-1){
+                result+= " "+key[i]+" LIKE '%"+filter.get(key[i])+"%'";
+            }else{
+                result+= " "+key[i]+" LIKE "+filter.get(key[i])+" and TypePerson='ผู้กล่าวหา' ";
+            }
+            System.out.println(result);
+        }
+        
+        return result;
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddAccused;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JTable jTableAccure;
+    private javax.swing.JTextField txtCaseNO;
     // End of variables declaration//GEN-END:variables
 }

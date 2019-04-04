@@ -273,7 +273,7 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
         cce.setVisible(true);
         RefreshData();
     }//GEN-LAST:event_jButtonAddActionPerformed
-
+ 
     private void jButtonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchActionPerformed
         // TODO add your handling code here:
         RefreshData();
