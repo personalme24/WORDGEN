@@ -9,21 +9,35 @@ import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import org.json.simple.JSONObject;
 
 /**
  *
  * @author Matazz
  */
-public class ChargePage extends javax.swing.JFrame {
+public class ChargePage extends javax.swing.JDialog {
 
     /**
      * Creates new form ChangPage
      */
-    public ChargePage() {
+   
+    public ChargePage(JFrame parrent,JSONObject datain) {
+        super(parrent,true);
+
         initComponents();
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+
+            DataCase dcc=new DataCase();
+      caseno.setText(dcc.getCaseno());
+     
     }
+
+//    ChargePage(CrimesCaseEdit aThis, Object object) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -52,8 +66,9 @@ public class ChargePage extends javax.swing.JFrame {
         ChargeCode = new javax.swing.JTextField();
         jButtonSaveCharge = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        caseno = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("ข้อมูลข้อหา");
         setAlwaysOnTop(true);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -150,6 +165,8 @@ public class ChargePage extends javax.swing.JFrame {
             }
         });
 
+        caseno.setText("jLabel7");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -172,12 +189,15 @@ public class ChargePage extends javax.swing.JFrame {
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ChargeCode, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(ChargeCode, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(caseno))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(ChargeName, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton2)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,7 +205,8 @@ public class ChargePage extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(ChargeCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ChargeCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(caseno))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
@@ -234,6 +255,7 @@ public class ChargePage extends javax.swing.JFrame {
 
     private void jButtonSaveChargeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveChargeActionPerformed
         // TODO add your handling code here:
+   
        Connection con = ConnectDatabase.connect();
         PreparedStatement pst=null;
         String sql="INSERT INTO Charge (ChargeCode,ChargeName,Law,RateOfPenalty,Note)"+
@@ -241,34 +263,43 @@ public class ChargePage extends javax.swing.JFrame {
          try {
   
             pst=con.prepareStatement(sql);
- 
+            
             
             pst.setString(1,ChargeCode.getText());
             pst.setString(2,ChargeName.getText());
             pst.setString(3,Law.getText());
             pst.setString(4,RateOfPenalty.getText());
              pst.setString(5,Note.getText());
-         
+//          JSONObject data = new JSONObject();
+//          data.put("ChargeName", ChargeName.getText());
+//          data.put("ChargeCode", ChargeCode.getText());
+          
             pst.executeUpdate();
-                    JOptionPane.showMessageDialog(null, "Data Saved successfully");
+                   
                        System.out.println("SQL : "+sql);
             pst.close();
+            JOptionPane.showMessageDialog(null, "Data Saved successfully");
            
         } catch (Exception e) {
              JOptionPane.showMessageDialog(null, e); 
              System.out.println("SQL : "+pst);
         }
+
+           CrimesCaseEdit.ChargeNameCase.setText(ChargeName.getText());
+           CrimesCaseEdit.jLabelChargeCode.setText(ChargeCode.getText());
+           setVisible(false);
         
         
     }//GEN-LAST:event_jButtonSaveChargeActionPerformed
 
     private void ChargeCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChargeCodeActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_ChargeCodeActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       ChargeList ChargeList=new ChargeList();
-        ChargeList.setVisible(true);        // TODO add your handling code here:
+//       ChargeList ChargeList=new ChargeList();
+//        ChargeList.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -302,18 +333,20 @@ public class ChargePage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
              public void run() {
-             new ChargePage().setVisible(true);
+//              new ChargePage().setVisible(true);
+
                  
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField ChargeCode;
-    private javax.swing.JTextField ChargeName;
+    public static javax.swing.JTextField ChargeCode;
+    public static javax.swing.JTextField ChargeName;
     private javax.swing.JTextArea Law;
     private javax.swing.JTextArea Note;
     private javax.swing.JTextArea RateOfPenalty;
+    private javax.swing.JLabel caseno;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonSaveCharge;
     private javax.swing.JLabel jLabel1;

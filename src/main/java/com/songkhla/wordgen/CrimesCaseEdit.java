@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import javax.swing.JComponent;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -77,7 +78,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
         CourtType = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
-        ChargeName = new javax.swing.JTextField();
+        ChargeNameCase = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         ActionCrimes = new javax.swing.JTextField();
@@ -148,7 +149,8 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         jTextArea1 = new javax.swing.JTextArea();
         jLabel37 = new javax.swing.JLabel();
         jTextField28 = new javax.swing.JTextField();
-        jLabelCodeCharge = new javax.swing.JLabel();
+        jLabelChargeCode = new javax.swing.JLabel();
+        jLabelActionCode = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
@@ -256,7 +258,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel6.setText("ข้อหา");
 
-        ChargeName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        ChargeNameCase.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jButton1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButton1.setText("ต/อ/จ");
@@ -498,7 +500,9 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
 
         jTextField28.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        jLabelCodeCharge.setText("CodeCharge");
+        jLabelChargeCode.setText("CodeCharge");
+
+        jLabelActionCode.setText("jLabel30");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -675,7 +679,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(CourtType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabelCodeCharge))
+                                        .addComponent(jLabelChargeCode))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -683,10 +687,13 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(ChargeName, javax.swing.GroupLayout.PREFERRED_SIZE, 611, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(ChargeNameCase, javax.swing.GroupLayout.PREFERRED_SIZE, 611, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButtonCharge)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jButtonCharge)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabelActionCode))
                                     .addComponent(jButtonAction))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
@@ -695,19 +702,22 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(crimecaseno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(crimecaseyear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(CourtType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabelCodeCharge, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ChargeName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonCharge))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(crimecaseno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(crimecaseyear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(CourtType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabelChargeCode, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ChargeNameCase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonCharge)))
+                    .addComponent(jLabelActionCode, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -852,7 +862,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
             
             pst.setString(1,crimecaseno.getText());
             pst.setString(2,crimecaseyear.getText());
-            pst.setString(3,ChargeName.getText());
+            pst.setString(3,ChargeNameCase.getText());
             pst.setString(4,ActionCrimes.getText());
             pst.setString(5,CaseRequestDateTime.getText()+" "+CaseRequestTimee.getText());
             pst.setString(6,CaseAcceptDateTime.getText()+" "+CaseAcceptTimee.getText());
@@ -897,7 +907,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
             
             pst.setString(1,crimecaseno.getText());
             pst.setString(2,crimecaseyear.getText());
-            pst.setString(3,jLabelCodeCharge.getText());
+            pst.setString(3,jLabelChargeCode.getText());
             pst.setString(4,ActionCrimes.getText());
             pst.setString(5,CaseRequestDateTime.getText()+" "+CaseRequestTimee.getText());
             pst.setString(6,CaseAcceptDateTime.getText()+" "+CaseAcceptTimee.getText());
@@ -962,8 +972,16 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
 
     private void jButtonChargeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChargeActionPerformed
         // TODO add your handling code here:
-      ChargePage cp=new ChargePage();
-      cp.setVisible(true);
+        //  Convert CrimcaseEdit to JFrame   
+    JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+    JFrame f = (JFrame)(dialog.getParent());
+//OR
+//JFrame parentOfDialog = (JFrame)(dialog.getOwner());
+    f.removeAll();
+    ChargePage d = new ChargePage(f,null);
+//      ChargePage cp=new ChargePage();
+      d.setVisible(true);
     }//GEN-LAST:event_jButtonChargeActionPerformed
 
     private void jButtonActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActionActionPerformed
@@ -1027,12 +1045,12 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField ActionCrimes;
+    public static javax.swing.JTextField ActionCrimes;
     private javax.swing.JTextField CaseAcceptDateTime;
     private javax.swing.JTextField CaseAcceptTimee;
     private javax.swing.JTextField CaseRequestDateTime;
     private javax.swing.JTextField CaseRequestTimee;
-    private javax.swing.JTextField ChargeName;
+    public static javax.swing.JTextField ChargeNameCase;
     private javax.swing.JComboBox<String> CourtType;
     private javax.swing.JTextField CrimeLocation;
     private javax.swing.JTextField CrimeLocationAmphur;
@@ -1099,7 +1117,8 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel jLabelCodeCharge;
+    public static javax.swing.JLabel jLabelActionCode;
+    public static javax.swing.JLabel jLabelChargeCode;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

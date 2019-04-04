@@ -25,6 +25,25 @@ public class Sentencies {
     private String TypePerson;
     private String FullNamePerson;
     private String crimecaseno;
+    private String ChargeName;
+    private String ChargeCode;
+
+    public String getChargeName() {
+        return ChargeName;
+    }
+
+    public void setChargeName(String ChargeName) {
+        this.ChargeName = ChargeName;
+    }
+
+    public String getChargeCode() {
+        return ChargeCode;
+    }
+
+    public void setChargeCode(String ChargeCode) {
+        this.ChargeCode = ChargeCode;
+    }
+    
 
     public String getCrimecaseno() {
         return crimecaseno;

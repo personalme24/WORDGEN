@@ -24,7 +24,7 @@ public class ActionPage extends javax.swing.JFrame {
      */
     public ActionPage() {
         initComponents();         
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+     
         con=ConnectDatabase.connect();
 
     }
@@ -60,7 +60,7 @@ public class ActionPage extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("ข้อมูลข้อหา");
         setAlwaysOnTop(true);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -266,7 +266,7 @@ public class ActionPage extends javax.swing.JFrame {
     private void ButtonAddActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAddActionActionPerformed
         // TODO add your handling code here: 
         String intAc="insert into Action(ActionCode,ActionCrimes,ActionDetail,ActionNote) values(?,?,?,?) ";
-          String intCr="insert into CrimesCase(AnswerSuspect,AnswerAccuse) values(?,?) ";
+//          String intCr="insert into CrimesCase(AnswerSuspect,AnswerAccuse) values(?,?) ";
         try {
            
            pst=con.prepareStatement(intAc);
@@ -283,6 +283,9 @@ public class ActionPage extends javax.swing.JFrame {
           JOptionPane.showMessageDialog(null, "Cannot Saved successfully");
             
         }
+        CrimesCaseEdit.ActionCrimes.setText(ActionCrimes.getText());
+        CrimesCaseEdit.jLabelActionCode.setText(ActionCode.getText());
+        setVisible(false);
     }//GEN-LAST:event_ButtonAddActionActionPerformed
 
     private void ActionCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActionCodeActionPerformed

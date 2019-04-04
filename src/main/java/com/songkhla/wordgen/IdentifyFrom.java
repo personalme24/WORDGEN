@@ -787,7 +787,7 @@ public class IdentifyFrom extends javax.swing.JFrame {
 
     private void jButtonChargeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChargeActionPerformed
         // TODO add your handling code here:
-        ChargePage cp=new ChargePage();
+        ChargePage cp=new ChargePage(this,null);
         cp.setVisible(true);
     }//GEN-LAST:event_jButtonChargeActionPerformed
 
