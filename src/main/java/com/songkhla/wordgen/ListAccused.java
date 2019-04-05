@@ -53,6 +53,7 @@ public class ListAccused extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
 
         jTableAccure.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         jTableAccure.setModel(new javax.swing.table.DefaultTableModel(

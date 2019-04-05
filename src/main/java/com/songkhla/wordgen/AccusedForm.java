@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  * @author Computer
  */
 public class AccusedForm extends javax.swing.JFrame {
-    Connection con=null;
+   Connection con=null;
      PreparedStatement pst=null;
     /**
      * Creates new form AccusedForm
