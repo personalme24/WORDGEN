@@ -26,12 +26,8 @@ public class ListAccused extends javax.swing.JDialog {
     public ListAccused() {
         initComponents();
          txtCaseNO.setText(CrimesCaseEdit.crimecaseno.getText());
-         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
          RefreshData();
-         
-//       DataCase dcc=new DataCase();
-//       jLabel2.setText(dcc.getCaseno());
-   // Function.setList("");
+
     }
 
     /**
@@ -53,7 +49,7 @@ public class ListAccused extends javax.swing.JDialog {
         txtCaseNO = new javax.swing.JLabel();
         AddAccused = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
 
         jTableAccure.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
