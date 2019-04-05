@@ -23,14 +23,23 @@ public class ChargePage extends javax.swing.JDialog {
     /**
      * Creates new form ChangPage
      */
-   
+      boolean isInsert;
     public ChargePage(JFrame parrent,JSONObject datain) {
         super(parrent,true);
 
         initComponents();
 
-            DataCase dcc=new DataCase();
-      caseno.setText(dcc.getCaseno());
+            if(datain!=null){
+//            caseid= "" + datain.get("CaseId"); 
+            ChargeCode.setText(datain.get("ChargeCode")+"");
+            ChargeName.setText(datain.get("ChargeName")+"");
+             Law.setText(datain.get("Law")+"");
+            
+            isInsert=false;
+           
+        }else{
+            isInsert=true;
+        }
      
     }
 
@@ -278,7 +287,11 @@ public class ChargePage extends javax.swing.JDialog {
                    
                        System.out.println("SQL : "+sql);
             pst.close();
-            JOptionPane.showMessageDialog(null, "Data Saved successfully");
+//            JOptionPane.showMessageDialog(null, "Data Saved successfully");
+  JOptionPane.showConfirmDialog(null,
+                        "บันทึกข้อมูล.",
+                        "Data Saved successfully",
+                        JOptionPane.WARNING_MESSAGE);
            
         } catch (Exception e) {
              JOptionPane.showMessageDialog(null, e); 

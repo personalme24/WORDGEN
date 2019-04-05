@@ -27,7 +27,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
         super(parrent,true);
         initComponents();
         if(datain!=null){
-           caseid= "" + datain.get("CaseId"); 
+ 
             crimecaseno.setText(datain.get("crimecaseno")+"");
             EvidenceRecordNumber.setText(datain.get("EvidenceRecordNumber")+"");
             Name.setText(datain.get("Name")+"");
@@ -74,7 +74,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
         PlaceFoundExhibit = new javax.swing.JTextField();
         EvidenceRecordNumber = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel4.setBackground(new java.awt.Color(77, 0, 0));
 
@@ -315,6 +315,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
              con=ConnectDatabase.connect();
+        
         String sql="INSERT INTO Asset (EvidenceRecordNumber,Amount,DateSequester,DefectMark,PlaceFoundExhibit,Name,Note,OccupantName,OrderAsset,PointFoundCheck,Value,crimecaseno) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
         
         String sqlUpdate="Update Asset set EvidenceRecordNumber=?,Amount=?,DateSequester=?,\n" +

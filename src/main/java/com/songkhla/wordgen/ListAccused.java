@@ -18,15 +18,17 @@ import org.json.simple.JSONObject;
  *
  * @author Computer
  */
-public class ListAccused extends javax.swing.JFrame {
+public class ListAccused extends javax.swing.JDialog {
 
     /**
      * Creates new form ListAccused
      */
     public ListAccused() {
         initComponents();
+         txtCaseNO.setText(CrimesCaseEdit.crimecaseno.getText());
          setDefaultCloseOperation(DISPOSE_ON_CLOSE);
          RefreshData();
+         
 //       DataCase dcc=new DataCase();
 //       jLabel2.setText(dcc.getCaseno());
    // Function.setList("");
@@ -44,13 +46,12 @@ public class ListAccused extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableAccure = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        AddAccused = new javax.swing.JButton();
-        txtCaseNO = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        txtCaseNO = new javax.swing.JLabel();
+        AddAccused = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -64,15 +65,34 @@ public class ListAccused extends javax.swing.JFrame {
                 "ชื่อ-นามสกุล", "เลขบัตรประชน", "เลขคดี"
             }
         ));
+        jTableAccure.setGridColor(new java.awt.Color(255, 255, 255));
+        jTableAccure.setRowHeight(25);
+        jTableAccure.setRowMargin(2);
+        jTableAccure.setSelectionBackground(new java.awt.Color(77, 0, 0));
         jScrollPane1.setViewportView(jTableAccure);
 
-        jButton2.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jButton2.setText("แก้ไข");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 880, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(256, Short.MAX_VALUE))
+        );
+
+        jPanel2.setBackground(new java.awt.Color(77, 0, 0));
+
+        jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("ข้อมูลผู้กล่าวหา");
 
         jButton3.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         jButton3.setText("ลบ");
@@ -82,6 +102,17 @@ public class ListAccused extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        jButton2.setText("แก้ไข");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        txtCaseNO.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        txtCaseNO.setText("เลขคดี");
+
         AddAccused.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         AddAccused.setText("เพิ่ม");
         AddAccused.addActionListener(new java.awt.event.ActionListener() {
@@ -90,67 +121,36 @@ public class ListAccused extends javax.swing.JFrame {
             }
         });
 
-        txtCaseNO.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-
-        jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jLabel3.setText("เลขคดี");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 769, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(AddAccused)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3)
-                        .addGap(42, 42, 42)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtCaseNO, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(134, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AddAccused)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(txtCaseNO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(202, Short.MAX_VALUE))
-        );
-
-        jPanel2.setBackground(new java.awt.Color(255, 51, 0));
-
-        jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("ข้อมูลผู้กล่าวหา");
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
+                .addGap(37, 37, 37)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(AddAccused, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtCaseNO)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(28, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AddAccused)
+                    .addComponent(jButton2)
+                    .addComponent(jButton3)
+                    .addComponent(txtCaseNO))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -161,13 +161,13 @@ public class ListAccused extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -178,6 +178,7 @@ public class ListAccused extends javax.swing.JFrame {
     private void AddAccusedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddAccusedActionPerformed
         // TODO add your handling code here:
         AccusedForm accusedF=new AccusedForm();
+        accusedF.setModal(true);
         accusedF.setVisible(true);
         RefreshData();
     }//GEN-LAST:event_AddAccusedActionPerformed
@@ -197,7 +198,7 @@ public class ListAccused extends javax.swing.JFrame {
                     JSONObject data = new JSONObject();
                     data.put("PeopleRegistrationID", rs.getString("PeopleRegistrationID"));
                     data.put("crimecaseno", rs.getString("crimecaseno"));
-                    data.put("crimecaseno", rs.getString("FullNamePerson"));
+                    data.put("FullNamePerson", rs.getString("FullNamePerson"));
                             AccusedForm accusedF=new AccusedForm();
                             accusedF.setVisible(true);    		
                 }
@@ -267,17 +268,20 @@ public class ListAccused extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ListAccused().setVisible(true);
+  
             }
         });
     }
      public void RefreshData(){
         try{
+        
         Connection con = ConnectDatabase.connect();
         Statement stmt = con.createStatement();
+        String a=txtCaseNO.getText();
         String sql = "select Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                        "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,crimecaseno from person  "+getFilterCondition();
-         
+                        "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,crimecaseno from person where crimecaseno= "+a+getFilterCondition();
+       
         ResultSet rs = stmt.executeQuery(sql);
         Vector<Vector> tabledata = new Vector<Vector>();
         while(rs.next()){
@@ -293,8 +297,6 @@ public class ListAccused extends javax.swing.JFrame {
         ColumnName.add("เลขคดี");
         ColumnName.add("ชื่อ-นามสุกล");
         ColumnName.add("เลขบัตรประชาชน");
-  
-    
         jTableAccure.setModel(new javax.swing.table.DefaultTableModel(
             tabledata,
             ColumnName
@@ -322,7 +324,7 @@ public class ListAccused extends javax.swing.JFrame {
         String result="";
         for(int i=0;i<key.length;i++){
             if(i==0){
-                result=" where ";
+                result=" and ";
             }
             if(i==key.length-1){
                 result+= " "+key[i]+" LIKE '%"+filter.get(key[i])+"%'";
@@ -341,11 +343,10 @@ public class ListAccused extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JTable jTableAccure;
-    private javax.swing.JTextField txtCaseNO;
+    private javax.swing.JLabel txtCaseNO;
     // End of variables declaration//GEN-END:variables
 }

@@ -13,6 +13,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import javax.swing.JComponent;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -39,11 +41,27 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
     public CrimesCaseEdit(JFrame parrent,JSONObject datain) {
         super(parrent,true);
         initComponents();
+       
         if(datain!=null){
+            isInsert=false;
             caseid= "" + datain.get("CaseId"); 
             crimecaseno.setText(datain.get("crimecaseno")+"");
             crimecaseyear.setText(datain.get("crimecaseyear")+"");
-            isInsert=false;
+            jLabelChargeCode.setText(datain.get("ChargeCodeCase")+"");
+            ChargeNameCase.setText(datain.get("ChargeName")+"");
+            CaseRequestDateTime.setText(datain.get("CaseRequestDate")+"");
+   
+
+
+//                    data.put("CaseRequestTime", rs.getString("CaseRequestTime"));
+//                    data.put("CaseAcceptDate", rs.getString("CaseAcceptDate"));
+//                    data.put("CaseAcceptTime", rs.getString("CaseAcceptTime"));
+//                    data.put("DailyNumber", rs.getString("DailyNumber"));
+//                    data.put("CrimeLocation", rs.getString("CrimeLocation"));
+//                    data.put("CrimeLocationDistrict", rs.getString("CrimeLocationDistrict"));
+//                    data.put("CrimeLocationAmphur", rs.getString("CrimeLocationAmphur"));
+//                    data.put("CrimeLocationProvince", rs.getString("CrimeLocationProvince"));
+            
            
         }else{
             isInsert=true;
@@ -100,7 +118,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         jLabel15 = new javax.swing.JLabel();
         CrimeLocation = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        jTextField13 = new javax.swing.JTextField();
+        jTextAccused = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         CrimeLocationAmphur = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
@@ -152,12 +170,14 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         jLabelChargeCode = new javax.swing.JLabel();
         jLabelActionCode = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel3.setBackground(new java.awt.Color(0, 153, 255));
+        jPanel3.setBackground(new java.awt.Color(77, 0, 0));
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel3.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 28)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("บันทึก/แก้ไข ข้อมูลคดีอาญา");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -175,6 +195,8 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
                 .addComponent(jLabel1)
                 .addGap(0, 15, Short.MAX_VALUE))
         );
+
+        jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -258,6 +280,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel6.setText("ข้อหา");
 
+        ChargeNameCase.setEditable(false);
         ChargeNameCase.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jButton1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
@@ -266,6 +289,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         jLabel7.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel7.setText("พฤติการณ์คดี");
 
+        ActionCrimes.setEditable(false);
         ActionCrimes.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jButtonAction.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
@@ -319,7 +343,8 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         jLabel16.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel16.setText("ตำบล");
 
-        jTextField13.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        jTextAccused.setEditable(false);
+        jTextAccused.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel17.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel17.setText("อำเภอ");
@@ -355,6 +380,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         jLabel20.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel20.setText("จำนวนผู้กล่าวหา");
 
+        jTextField17.setEditable(false);
         jTextField17.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jButtonSaveCase.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
@@ -368,6 +394,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         jLabel22.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel22.setText("ผู้ต้องหา");
 
+        jTextField18.setEditable(false);
         jTextField18.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jButtonSuspect.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
@@ -381,6 +408,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         jLabel23.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel23.setText("จำนวนผู้กล่าวหา");
 
+        jTextField19.setEditable(false);
         jTextField19.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel25.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
@@ -400,6 +428,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         jLabel26.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel26.setText("จำนวนผู้กล่าวหา");
 
+        jTextField21.setEditable(false);
         jTextField21.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel27.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
@@ -414,6 +443,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         jLabel28.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel28.setText("รายการทรัพย์");
 
+        jTextField22.setEditable(false);
         jTextField22.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jButton8.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
@@ -587,7 +617,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jTextAccused, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -757,7 +787,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextAccused, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonAccured)
                     .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -825,7 +855,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -842,6 +872,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         // TODO add your handling code here:
         
         ListAccused la =new ListAccused();
+        la.setModal(true);
         la.setVisible(true);
         
           
@@ -852,9 +883,10 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
        
         con=ConnectDatabase.connect();
       if(isInsert){
-        String sql="INSERT INTO CrimeCase (crimecaseno,crimecaseyears,ChargeCode,ActionCrimes,CaseRequestDateTime,"+
-                   "CaseAcceptDateTime,DailyNumber,OccuredDate,CrimeLocation,CrimeLocationDistrict,CrimeLocationAmphur,"+
-                   "CrimeLocationProvince,TypeCourt) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql="INSERT INTO CrimeCase (crimecaseno,crimecaseyears,ChargeCode,ActionCrimes,CaseRequestDate,CaseRequestTime,"+
+                   "CaseAcceptDate,CaseAcceptTime,DailyNumber,OccuredDate,OccuredTime,CrimeLocation,CrimeLocationDistrict,CrimeLocationAmphur,"+
+                   "CrimeLocationProvince,TypeCourt) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+          System.out.println(sql);
          try {
   
             pst=con.prepareStatement(sql);
@@ -862,17 +894,20 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
             
             pst.setString(1,crimecaseno.getText());
             pst.setString(2,crimecaseyear.getText());
-            pst.setString(3,ChargeNameCase.getText());
-            pst.setString(4,ActionCrimes.getText());
-            pst.setString(5,CaseRequestDateTime.getText()+" "+CaseRequestTimee.getText());
-            pst.setString(6,CaseAcceptDateTime.getText()+" "+CaseAcceptTimee.getText());
-            pst.setString(7,DailyNumber.getText());
-            pst.setString(8,OccuredDate.getText()+" "+OccuredDateTime.getText());
-            pst.setString(9,CrimeLocation.getText());
-            pst.setString(10,CrimeLocationDistrict.getText());
-            pst.setString(11,CrimeLocationAmphur.getText());
-            pst.setString(12,CrimeLocationProvince.getText());
-                pst.setString(13,CourtType.getSelectedItem().toString());
+            pst.setString(3,jLabelChargeCode.getText());
+            pst.setString(4,jLabelActionCode.getText());
+            pst.setString(5,CaseRequestDateTime.getText());
+            pst.setString(6,CaseRequestTimee.getText());
+            pst.setString(7,CaseAcceptDateTime.getText());
+            pst.setString(8,CaseAcceptTimee.getText());
+            pst.setString(9,DailyNumber.getText());
+            pst.setString(10,OccuredDate.getText());
+            pst.setString(11,OccuredDateTime.getText());
+            pst.setString(12,CrimeLocation.getText());
+            pst.setString(13,CrimeLocationDistrict.getText());
+            pst.setString(14,CrimeLocationAmphur.getText());
+            pst.setString(15,CrimeLocationProvince.getText());
+            pst.setString(16,CourtType.getSelectedItem().toString());
 //          pst.setString(14,caseid);
          
             pst.executeUpdate();
@@ -890,10 +925,13 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
                          +"crimecaseyears = ?,"
                          +"ChargeCode = ?,"
                          +"ActionCrimes = ?,"
-                         +"CaseRequestDateTime = ?,"
-                         +"CaseAcceptDateTime = ?,"
+                         +"CaseRequestDate = ?,"
+                         +"CaseRequestTime = ?,"
+                         +"CaseAcceptDate = ?,"
+                         +"CaseAcceptTime = ?,"
                          +"DailyNumber = ?,"
                          +"OccuredDate = ?,"
+                         +"OccuredTime = ?,"
                          +"CrimeLocation = ?,"
                          +"CrimeLocationDistrict = ?,"
                          +"CrimeLocationAmphur = ?,"
@@ -907,16 +945,19 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
             pst.setString(2,crimecaseyear.getText());
             pst.setString(3,jLabelChargeCode.getText());
             pst.setString(4,ActionCrimes.getText());
-            pst.setString(5,CaseRequestDateTime.getText()+" "+CaseRequestTimee.getText());
-            pst.setString(6,CaseAcceptDateTime.getText()+" "+CaseAcceptTimee.getText());
-            pst.setString(7,DailyNumber.getText());
-            pst.setString(8,OccuredDate.getText()+" "+OccuredDateTime.getText());
-            pst.setString(9,CrimeLocation.getText());
-            pst.setString(10,CrimeLocationDistrict.getText());
-            pst.setString(11,CrimeLocationAmphur.getText());
-            pst.setString(12,CrimeLocationProvince.getText());
-            pst.setString(13,CourtType.getSelectedItem().toString());
-           pst.setString(14,caseid);
+            pst.setString(5,CaseRequestDateTime.getText());
+            pst.setString(6,CaseRequestTimee.getText());
+            pst.setString(7,CaseAcceptDateTime.getText());
+            pst.setString(8,CaseAcceptTimee.getText());
+            pst.setString(9,DailyNumber.getText());
+            pst.setString(10,OccuredDate.getText());
+            pst.setString(11,OccuredDateTime.getText());
+            pst.setString(12,CrimeLocation.getText());
+            pst.setString(13,CrimeLocationDistrict.getText());
+            pst.setString(14,CrimeLocationAmphur.getText());
+            pst.setString(15,CrimeLocationProvince.getText());
+            pst.setString(16,CourtType.getSelectedItem().toString());
+           pst.setString(17,caseid);
           
             pst.executeUpdate();
                     JOptionPane.showMessageDialog(null, "บันทึกข้อมูล");
@@ -970,21 +1011,60 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
 
     private void jButtonChargeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChargeActionPerformed
         // TODO add your handling code here:
-        //  Convert CrimcaseEdit to JFrame   
-    JFrame frame = new JFrame();
-        JDialog dialog = new JDialog(frame);//frame is owner
-    JFrame f = (JFrame)(dialog.getParent());
-//OR
-//JFrame parentOfDialog = (JFrame)(dialog.getOwner());
-    f.removeAll();
-    ChargePage d = new ChargePage(f,null);
-//      ChargePage cp=new ChargePage();
-      d.setVisible(true);
+             JFrame frame = new JFrame();
+             JDialog dialog = new JDialog(frame);//frame is owner
+             JFrame f = (JFrame)(dialog.getParent());               
+             f.removeAll();
+            if(ChargeNameCase.getText().length()==0 || ChargeNameCase.getText()==null|| ChargeNameCase.getText().equals(" ")){
+            
+                 ChargePage d = new ChargePage(f,null);
+                 d.setVisible(true);
+            }
+            else {
+
+                     try{
+//                String crimecaseno = jTable1.getModel().getValueAt(jTable1.getSelectedRow(), 0)+"";     
+                String chargeCode=jLabelChargeCode.getText();
+                String sql="select * From Charge where Charge.ChargeCode ='"+chargeCode+"'";      
+                System.out.println("ExSql : "+sql);
+                Connection con = ConnectDatabase.connect();
+                    Statement stmt = con.createStatement();
+                    ResultSet rs = stmt.executeQuery(sql);
+         
+                if(rs.next()){
+                    JSONObject data = new JSONObject();
+                    data.put("ChargeCode", rs.getString("ChargeCode"));
+                    data.put("ChargeName", rs.getString("ChargeName"));
+                    data.put("Law", rs.getString("Law"));
+                    data.put("RateOfPenalty", rs.getString("RateOfPenalty"));
+                    data.put("Note", rs.getString("Note"));
+                    
+                   ChargePage d = new ChargePage(f,data);
+                    d.setVisible(true);
+
+                }
+         
+                rs.close();
+                stmt.close();
+       
+            }catch(Exception ex){
+                ex.printStackTrace();
+
+            }
+                 
+            }
+        
+      
     }//GEN-LAST:event_jButtonChargeActionPerformed
 
     private void jButtonActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActionActionPerformed
         // TODO add your handling code here: 
+         JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+    JFrame fr = (JFrame)(dialog.getParent());
+    fr.removeAll();
         ActionPage ap =new ActionPage();
+        ap.setModal(true);
         ap.setVisible(true);
         
     }//GEN-LAST:event_jButtonActionActionPerformed
@@ -1059,7 +1139,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
     private javax.swing.JTextField Name;
     private javax.swing.JTextField OccuredDate;
     private javax.swing.JTextField OccuredDateTime;
-    private javax.swing.JTextField crimecaseno;
+    public static javax.swing.JTextField crimecaseno;
     private javax.swing.JTextField crimecaseyear;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton8;
@@ -1122,8 +1202,8 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    public static javax.swing.JTextField jTextAccused;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField19;

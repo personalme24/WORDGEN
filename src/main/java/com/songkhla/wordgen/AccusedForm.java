@@ -15,15 +15,16 @@ import javax.swing.JOptionPane;
  *
  * @author Computer
  */
-public class AccusedForm extends javax.swing.JFrame {
-   Connection con=null;
+public class AccusedForm extends javax.swing.JDialog {
+    Connection con=null;
      PreparedStatement pst=null;
     /**
      * Creates new form AccusedForm
      */
     public AccusedForm() {
         initComponents();
-         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        crimecaseno.setText(CrimesCaseEdit.crimecaseno.getText());
+         
 
       
     }
@@ -103,10 +104,9 @@ public class AccusedForm extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         ZipCode = new javax.swing.JTextField();
         Province = new javax.swing.JTextField();
-        crimecaseno = new javax.swing.JTextField();
-        jLabel19 = new javax.swing.JLabel();
+        crimecaseno = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(249, 249, 249));
 
@@ -541,14 +541,7 @@ public class AccusedForm extends javax.swing.JFrame {
         jPanel2.getAccessibleContext().setAccessibleDescription("");
 
         crimecaseno.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        crimecaseno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                crimecasenoActionPerformed(evt);
-            }
-        });
-
-        jLabel19.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel19.setText("เลขคดี");
+        crimecaseno.setText("เลขคดี");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -560,10 +553,8 @@ public class AccusedForm extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(jLabel19)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(crimecaseno, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(521, 521, 521)
+                        .addComponent(crimecaseno)
+                        .addGap(656, 656, 656)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(TypePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -578,8 +569,7 @@ public class AccusedForm extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TypePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
-                    .addComponent(crimecaseno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel19))
+                    .addComponent(crimecaseno))
                 .addGap(23, 23, 23)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(121, Short.MAX_VALUE))
@@ -632,6 +622,7 @@ public class AccusedForm extends javax.swing.JFrame {
     private void BtSaveAccusedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSaveAccusedActionPerformed
         // TODO add your handling code here:
                con=ConnectDatabase.connect();
+            
         String sql="INSERT INTO Person (Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
                         "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,crimecaseno) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -715,10 +706,6 @@ public class AccusedForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ZipCodeActionPerformed
 
-    private void crimecasenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crimecasenoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_crimecasenoActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -755,7 +742,7 @@ public class AccusedForm extends javax.swing.JFrame {
                     aa.setVisible(true);
                     aa.setSize ( 1024, 728 );
                     aa.setMinimumSize ( new Dimension ( 1024, 728 ) );
-                    aa.setMaximizedBounds ( new Rectangle ( 1024, 728 ) );
+//                    aa.setMaximizedBounds ( new Rectangle ( 1024, 728 ) );
                     
             }
         });
@@ -791,7 +778,7 @@ public class AccusedForm extends javax.swing.JFrame {
     private javax.swing.JTextField Weight;
     private javax.swing.JTextField ZipCode;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JTextField crimecaseno;
+    private javax.swing.JLabel crimecaseno;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -802,7 +789,6 @@ public class AccusedForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;

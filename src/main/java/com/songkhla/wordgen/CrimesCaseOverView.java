@@ -35,24 +35,9 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
         jTable1.setOpaque(false);
         jTable1.getTableHeader().setBackground(new Color(77,0,0));
         RefreshData();
-       System.out.println("image : "+getClass().getResource("/image/question-speech-bubble.png"));
+ 
     }
-    public String[] getImages()
-    {
-    
-        File file=new File(getClass().getResource("/com.songkhla.img/image").getFile());
-        String[] imageList =file.list();
-        return imageList;
-        
-    
-    }
-    public void showImage(int index){
-        String[] imagesList=getImages();
-        String imageName = imagesList[index];
-        ImageIcon icon =new ImageIcon(getClass().getResource("/com.songkhla.img/image/"+imageName));
-        
-//        Image image=icon.getImage().getScaledInstance(jLabel_Image.getWidth(), jLabel_Image.getHeight(), jLabel_Image.getWidth(),Image.SCALE_SMOOTH);
-    }
+ 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -234,20 +219,30 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
         if(jTable1.getSelectedRow()>=0){
             try{
                 String crimecaseno = jTable1.getModel().getValueAt(jTable1.getSelectedRow(), 0)+"";
-                String sql = "select CaseId,crimecaseno,crimecaseyears,ChargeCode,ActionCrimes,CaseRequestDateTime,"+
-                "CaseAcceptDateTime,DailyNumber,OccuredDate,CrimeLocation,CrimeLocationDistrict,CrimeLocationAmphur,"+
-                "CrimeLocationProvince,TypeCourt from crimecase where crimecaseno='"+crimecaseno+"'";
+//                String sql = "select crimecase.CaseId,crimecase.crimecaseno,crimecase.crimecaseyears,crimecase.ChargeCode as ChargeCodeCase"
+//                        + ",Charge.ChargeName,crimecase.CaseRequestDate,crimecase.CaseRequestTime,crimecase.CaseAcceptDate,crimecase.CaseAcceptTime"
+//                        + ",crimecase.DailyNumber,crimecase.CrimeLocation,crimecase.CrimeLocationDistrict,crimecase.CrimeLocationAmphur,crimecase.CrimeLocationProvince"
+//                        + "from crimecase left join Charge on "
+//                           + "crimecase.ChargeCode=Charge.ChargeCode where crimecase.crimecaseno='"+crimecaseno+"'";
+String sql="select crimecase.CaseId,crimecase.crimecaseno,crimecase.crimecaseyears,crimecase.ChargeCode as ChargeCodeCase\n" +
+",Charge.ChargeName,crimecase.CaseRequestDate,crimecase.DailyNumber,crimecase.CaseRequestTime,crimecase.CaseAcceptDate,crimecase.CaseAcceptTime\n" +
+        ",crimecase.CrimeLocation,crimecase.CrimeLocationDistrict,crimecase.CrimeLocationAmphur,crimecase.CrimeLocationProvince\n" +
+        "from crimecase left join Charge on crimecase.ChargeCode=Charge.ChargeCode where crimecase.crimecaseno='"+crimecaseno+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);
+//                System.out.println("ExSql : "+sql);
                 if(rs.next()){
                     JSONObject data = new JSONObject();
                     data.put("CaseId", rs.getString("CaseId"));
                     data.put("crimecaseno", rs.getString("crimecaseno"));
                     data.put("crimecaseyears", rs.getString("crimecaseyears"));
-                    data.put("ChargeCode", rs.getString("ChargeCode"));
-                    data.put("CaseRequestDateTime", rs.getString("CaseRequestDateTime"));
-                    data.put("CaseAcceptDateTime", rs.getString("CaseAcceptDateTime"));
+                    data.put("ChargeCodeCase", rs.getString("ChargeCodeCase"));
+                    data.put("ChargeName", rs.getString("ChargeName"));
+                    data.put("CaseRequestDate", rs.getString("CaseRequestDate"));
+                    data.put("CaseRequestTime", rs.getString("CaseRequestTime"));
+                    data.put("CaseAcceptDate", rs.getString("CaseAcceptDate"));
+                    data.put("CaseAcceptTime", rs.getString("CaseAcceptTime"));
                     data.put("DailyNumber", rs.getString("DailyNumber"));
                     data.put("CrimeLocation", rs.getString("CrimeLocation"));
                     data.put("CrimeLocationDistrict", rs.getString("CrimeLocationDistrict"));
@@ -256,11 +251,13 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
                     CrimesCaseEdit cce =new CrimesCaseEdit(this,data);
                     cce.setVisible(true);
                 }
+
                 rs.close();
                 stmt.close();
                 RefreshData();
             }catch(Exception ex){
                 ex.printStackTrace();
+
             }
         }else{
 
@@ -326,18 +323,18 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
         try{
         Connection con = ConnectDatabase.connect();
         Statement stmt = con.createStatement();
-        String sql = "select * from crimecase "+getFilterCondition();
+        String sql = "select crimecase.*,Charge.* from crimecase left join Charge on Charge.ChargeCode=crimecase.ChargeCode "+getFilterCondition();
         ResultSet rs = stmt.executeQuery(sql);
         Vector<Vector> tabledata = new Vector<Vector>();
         while(rs.next()){
             Vector<String> row = new Vector<String>();
             row.add(rs.getString("crimecaseno"));
-            row.add(rs.getString("ChargeCode"));
             row.add("-");
             row.add("-");
+            row.add(rs.getString("ChargeName"));
             row.add("-");
-            row.add(rs.getString("CaseAcceptDateTime"));
-            row.add(rs.getString("CaseRequestDateTime"));
+            row.add(rs.getString("CaseAcceptDate"));
+            row.add(rs.getString("CaseRequestDate"));
             tabledata.add(row);
         }
         rs.close();
