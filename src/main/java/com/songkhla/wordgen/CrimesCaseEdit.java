@@ -903,8 +903,6 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
          try {
   
             pst=con.prepareStatement(sqlUpdate);
- 
-            
             pst.setString(1,crimecaseno.getText());
             pst.setString(2,crimecaseyear.getText());
             pst.setString(3,jLabelChargeCode.getText());
