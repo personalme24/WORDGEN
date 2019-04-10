@@ -22,19 +22,19 @@ public class CreateTable {
 	        
 	        // SQL statement for creating a new table
 	        String sqlPerson = "CREATE TABLE IF NOT EXISTS Person (\n"+
-	        "	DateIdentify	DATETIME	Primary Key,	\n"+
+	        "	DateIdentify	DATE	Primary Key,	\n"+
                 "	PeopleRegistrationID	VARCHAR(13)	,	\n"+
-                "	IssueDate	DATETIME	,	\n"+
-                "	ExpiredDate	DATETIME	,	\n"+
+                "	IssueDate	DATE	,	\n"+
+                "	ExpiredDate	DATE	,	\n"+
                 "	IssuedBy	VARCHAR(100)	,	\n"+
                 "	PassportNumber	VARCHAR(100)	,	\n"+
                 "	FullNamePerson	VARCHAR(100)	,	\n"+
                 "	FullNamePersonEn	VARCHAR(100)	,	\n"+
                 "	OtherName	VARCHAR(100)	,	\n"+
                 "	OtherSurname	VARCHAR(100)	,	\n"+
-                "	BirthDay	DATETIME	,	\n"+
-                "	Gender	DATETIME	,	\n"+
-                "	Age	DATETIME	,	\n"+
+                "	BirthDay	DATE	,	\n"+
+                "	Gender	VARCHAR(100)	,	\n"+
+                "	Age	VARCHAR(100)	,	\n"+
                 "	Race	VARCHAR(100)	,	\n"+
                 "	Nationality	VARCHAR(100)	,	\n"+
                 "	Religion	VARCHAR(100)	,	\n"+
@@ -100,14 +100,18 @@ public class CreateTable {
 
                        
                   String sqlCrimeCase ="CREATE TABLE IF NOT EXISTS CrimeCase (\n"+
-                         " CaseId INTEGER Primary Key AUTOINCREMENT,                \n"+
-	             "	SendIDocDate	VARCHAR(100),	\n"+
+                       "	CaseId	INTEGER	Primary Key AUTOINCREMENT,	\n"+
+                        "	CaseType	VARCHAR(100)	,	\n"+
+                        "	SendIDocDate	DATE	,	\n"+
                         "	crimecaseno	VARCHAR(100)	not null,	\n"+
                         "	crimecaseyears	VARCHAR(100)	,	\n"+
-                        "	OccuredDate	VARCHAR(100)	,	\n"+
-                        "	CaseAcceptDateTime	VARCHAR(100)	,	\n"+
-                        "	CaseRequestDateTime	VARCHAR(100)	,	\n"+
-                        "	ChargeCode	VARCHAR(100)	,	\n"+
+                        "	OccuredDate	DATE	,	\n"+
+                        "	CaseAcceptDate	DATE	,	\n"+
+                        "	CaseRequestDate	DATE	,	\n"+
+                        "	OccuredTime	TIME	,	\n"+
+                        "	CaseAccepTime	TIME	,	\n"+
+                        "	CaseRequestTime	TIME	,	\n"+
+                        "	ChargeCodeCase	VARCHAR(100)	,	\n"+
                         "	CrimeLocation	VARCHAR(100)	,	\n"+
                         "	CrimeLocationMoo	VARCHAR(100)	,	\n"+
                         "	CrimeLocationSoi	VARCHAR(100)	,	\n"+
@@ -131,7 +135,15 @@ public class CreateTable {
                         "	RedCaseNo	VARCHAR(100)	,	\n"+
                         "	RedCaseYear	VARCHAR(100)	,	\n"+
                         "	AnswerSuspect	VARCHAR(100)	,	\n"+
-                        "	AnswerAccuser   	VARCHAR(100)		\n"+
+                        "	AnswerAccuser   	VARCHAR(100)	,	\n"+
+                        "	Investigator_Result	VARCHAR(100)	,	\n"+
+                        "	Invest_SendtoDepartment	VARCHAR(100)	,	\n"+
+                        "	Investigator_Number	VARCHAR(100)	,	\n"+
+                        "	Invest_SendCaseDate	VARCHAR(100)	,	\n"+
+                        "	Prosecutor_Result	VARCHAR(100)	,	\n"+
+                        "	CourtResult	VARCHAR(100)	,	\n"+
+                        "	CapitalCrimeCaseNumber	VARCHAR(100),		\n"+
+                          "	AccureandOther	VARCHAR(100)		\n"+
                          "	);";
           String sqlAsset ="CREATE TABLE IF NOT EXISTS Asset (\n"+
                 "	EvidenceRecordNumber	VARCHAR(100)	Primary Key,	\n"+
@@ -202,6 +214,11 @@ public class CreateTable {
                     "	ActionDetail	VARCHAR(100)	,	\n"+
                     "	ActionNote	VARCHAR(100)		\n"+
                     "	);";    
+            
+            String sqlAlter ="ALTER TABLE CrimeCase \n"+
+                    "Add	SuspectandOther	VARCHAR(100),	\n"+
+                    "	WitnessandOther	VARCHAR(100);";
+                      
 	        try ( 
                         Statement stmt = cc.createStatement()) {
 	            // create a new table
@@ -213,6 +230,7 @@ public class CreateTable {
                       stmt.execute(sqlPoliceStat); 
                       stmt.execute(sqlCharge); 
                        stmt.execute(sqlAction); 
+                       stmt.execute(sqlAlter); 
                        stmt.close();
                     System.out.println("Create Table Complete");
 	        } catch (SQLException e) {

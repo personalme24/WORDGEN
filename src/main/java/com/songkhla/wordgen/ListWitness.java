@@ -115,13 +115,14 @@ public class ListWitness extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AddAccused)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtCaseNO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel3)))
+                        .addComponent(jLabel3))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(AddAccused)
+                        .addComponent(jButton2)
+                        .addComponent(jButton3)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(207, Short.MAX_VALUE))
@@ -195,8 +196,8 @@ public class ListWitness extends javax.swing.JFrame {
                     data.put("PeopleRegistrationID", rs.getString("PeopleRegistrationID"));
                     data.put("crimecaseno", rs.getString("crimecaseno"));
                     data.put("crimecaseno", rs.getString("FullNamePerson"));
-                            AccusedForm accusedF=new AccusedForm();
-                            accusedF.setVisible(true);    		
+//                            AccusedForm accusedF=new AccusedForm();
+//                            accusedF.setVisible(true);    		
                 }
                 
                 rs.close();

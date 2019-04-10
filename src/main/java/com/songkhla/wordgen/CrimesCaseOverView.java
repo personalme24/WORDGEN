@@ -224,30 +224,29 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
 //                        + ",crimecase.DailyNumber,crimecase.CrimeLocation,crimecase.CrimeLocationDistrict,crimecase.CrimeLocationAmphur,crimecase.CrimeLocationProvince"
 //                        + "from crimecase left join Charge on "
 //                           + "crimecase.ChargeCode=Charge.ChargeCode where crimecase.crimecaseno='"+crimecaseno+"'";
-String sql="select crimecase.CaseId,crimecase.crimecaseno,crimecase.crimecaseyears,crimecase.ChargeCode as ChargeCodeCase\n" +
-",Charge.ChargeName,crimecase.CaseRequestDate,crimecase.DailyNumber,crimecase.CaseRequestTime,crimecase.CaseAcceptDate,crimecase.CaseAcceptTime\n" +
-        ",crimecase.CrimeLocation,crimecase.CrimeLocationDistrict,crimecase.CrimeLocationAmphur,crimecase.CrimeLocationProvince\n" +
-        "from crimecase left join Charge on crimecase.ChargeCode=Charge.ChargeCode where crimecase.crimecaseno='"+crimecaseno+"'";
+                String sql="select crimecase.*,charge.* from crimecase left join charge on crimecase.ChargeCodeCase=charge.ChargeCode where crimecaseno='"+crimecaseno+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);
-//                System.out.println("ExSql : "+sql);
+                System.out.println("ExSql : "+sql);
                 if(rs.next()){
                     JSONObject data = new JSONObject();
                     data.put("CaseId", rs.getString("CaseId"));
                     data.put("crimecaseno", rs.getString("crimecaseno"));
                     data.put("crimecaseyears", rs.getString("crimecaseyears"));
-                    data.put("ChargeCodeCase", rs.getString("ChargeCodeCase"));
+                    data.put("ChargeCode", rs.getString("ChargeCode"));
                     data.put("ChargeName", rs.getString("ChargeName"));
                     data.put("CaseRequestDate", rs.getString("CaseRequestDate"));
                     data.put("CaseRequestTime", rs.getString("CaseRequestTime"));
                     data.put("CaseAcceptDate", rs.getString("CaseAcceptDate"));
-                    data.put("CaseAcceptTime", rs.getString("CaseAcceptTime"));
+                    data.put("CaseAcceptTime", rs.getString("CaseAccepTime"));
                     data.put("DailyNumber", rs.getString("DailyNumber"));
                     data.put("CrimeLocation", rs.getString("CrimeLocation"));
                     data.put("CrimeLocationDistrict", rs.getString("CrimeLocationDistrict"));
                     data.put("CrimeLocationAmphur", rs.getString("CrimeLocationAmphur"));
                     data.put("CrimeLocationProvince", rs.getString("CrimeLocationProvince"));
+                     data.put("AccureandOther", rs.getString("AccureandOther"));
+                     data.put("TypeCourt", rs.getString("TypeCourt"));
                     CrimesCaseEdit cce =new CrimesCaseEdit(this,data);
                     cce.setVisible(true);
                 }
@@ -323,14 +322,14 @@ String sql="select crimecase.CaseId,crimecase.crimecaseno,crimecase.crimecaseyea
         try{
         Connection con = ConnectDatabase.connect();
         Statement stmt = con.createStatement();
-        String sql = "select crimecase.*,Charge.* from crimecase left join Charge on Charge.ChargeCode=crimecase.ChargeCode "+getFilterCondition();
+        String sql = "select crimecase.*,Charge.* from crimecase left join Charge on Charge.ChargeCode=crimecase.ChargeCodeCase "+getFilterCondition();
         ResultSet rs = stmt.executeQuery(sql);
         Vector<Vector> tabledata = new Vector<Vector>();
         while(rs.next()){
             Vector<String> row = new Vector<String>();
             row.add(rs.getString("crimecaseno"));
             row.add("-");
-            row.add("-");
+            row.add(rs.getString("AccureandOther"));
             row.add(rs.getString("ChargeName"));
             row.add("-");
             row.add(rs.getString("CaseAcceptDate"));

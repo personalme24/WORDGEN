@@ -1,33 +1,39 @@
-package com.songkhla.wordgen;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package com.songkhla.wordgen;
 
 import com.songkhla.wordgen.*;
-import static com.songkhla.wordgen.ListAccused.jTableAccure;
+import static com.songkhla.wordgen.CrimesCaseEdit.jTextAccused;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Vector;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 import org.json.simple.JSONObject;
+import static com.songkhla.wordgen.ListSuspect.jTableSuspect;
 
 /**
  *
  * @author Computer
  */
-public class ListSuspect extends javax.swing.JFrame {
+public class ListSuspect extends javax.swing.JDialog {
 
     /**
      * Creates new form ListAccused
      */
+   
     public ListSuspect() {
-        initComponents(); 
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        RefreshData();
+        initComponents();
+         
+        txtCaseNO.setText(CrimesCaseEdit.crimecaseno.getText());
+         RefreshData();
+      
+
     }
 
     /**
@@ -40,47 +46,17 @@ public class ListSuspect extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        AddAccused = new javax.swing.JButton();
-        txtCaseNO = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableSuspect = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jButtonDeleteAccured = new javax.swing.JButton();
+        jButtonEditAccured = new javax.swing.JButton();
+        txtCaseNO = new javax.swing.JLabel();
+        jButtonAddAccused = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jButton2.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButton2.setText("แก้ไข");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        jButton3.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButton3.setText("ลบ");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
-        AddAccused.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        AddAccused.setText("เพิ่ม");
-        AddAccused.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddAccusedActionPerformed(evt);
-            }
-        });
-
-        txtCaseNO.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        txtCaseNO.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCaseNOActionPerformed(evt);
-            }
-        });
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setAlwaysOnTop(true);
 
         jTableSuspect.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         jTableSuspect.setModel(new javax.swing.table.DefaultTableModel(
@@ -91,6 +67,10 @@ public class ListSuspect extends javax.swing.JFrame {
                 "ชื่อ-นามสกุล", "เลขบัตรประชน", "เลขคดี"
             }
         ));
+        jTableSuspect.setGridColor(new java.awt.Color(255, 255, 255));
+        jTableSuspect.setRowHeight(25);
+        jTableSuspect.setRowMargin(2);
+        jTableSuspect.setSelectionBackground(new java.awt.Color(77, 0, 0));
         jScrollPane1.setViewportView(jTableSuspect);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -99,53 +79,80 @@ public class ListSuspect extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 769, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(AddAccused)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtCaseNO, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(134, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 880, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AddAccused)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(txtCaseNO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(219, Short.MAX_VALUE))
+                .addContainerGap(256, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(255, 51, 0));
+        jPanel2.setBackground(new java.awt.Color(77, 0, 0));
 
         jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("ข้อมูลผู้ต้องหา");
+
+        jButtonDeleteAccured.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        jButtonDeleteAccured.setText("ลบ");
+        jButtonDeleteAccured.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteAccuredActionPerformed(evt);
+            }
+        });
+
+        jButtonEditAccured.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        jButtonEditAccured.setText("แก้ไข");
+        jButtonEditAccured.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEditAccuredActionPerformed(evt);
+            }
+        });
+
+        txtCaseNO.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        txtCaseNO.setText("เลขคดี");
+
+        jButtonAddAccused.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        jButtonAddAccused.setText("เพิ่ม");
+        jButtonAddAccused.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddAccusedActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
+                .addGap(37, 37, 37)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButtonAddAccused, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonEditAccured, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonDeleteAccured, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtCaseNO)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(28, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonAddAccused)
+                    .addComponent(jButtonEditAccured)
+                    .addComponent(jButtonDeleteAccured)
+                    .addComponent(txtCaseNO))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -156,13 +163,13 @@ public class ListSuspect extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -170,25 +177,27 @@ public class ListSuspect extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void AddAccusedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddAccusedActionPerformed
+    private void jButtonAddAccusedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddAccusedActionPerformed
         // TODO add your handling code here:
-        SuspectForm suspectF=new SuspectForm();
-        suspectF.setVisible(true);
+        SuspectForm sf=new SuspectForm(null,null);
+        sf.setVisible(true);
         RefreshData();
-    }//GEN-LAST:event_AddAccusedActionPerformed
+       
+    }//GEN-LAST:event_jButtonAddAccusedActionPerformed
 
-    private void txtCaseNOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCaseNOActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCaseNOActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
- if(jTableSuspect.getSelectedRow()>=0){
+    private void jButtonEditAccuredActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditAccuredActionPerformed
+          JFrame frame = new JFrame();
+             JDialog dialog = new JDialog(frame);//frame is owner
+             JFrame f = (JFrame)(dialog.getParent());               
+             f.removeAll();
+          String crimecaseno = txtCaseNO.getText();
+        if(jTableSuspect.getSelectedRow()>=0){
+           
             try{
-                String crimecaseno = jTableSuspect.getModel().getValueAt(jTableSuspect.getSelectedRow(), 0)+"";
-                String PeopleRegistrationID = jTableSuspect.getModel().getValueAt(jTableSuspect.getSelectedRow(), 2)+"";
+                String PeopleRegistrationID = jTableSuspect.getModel().getValueAt(jTableSuspect.getSelectedRow(), 0)+"";            
                 String sql = "select Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
-                        "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                        "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,crimecaseno from person where TypePerson="+PeopleRegistrationID+ "and  crimecaseno='"+crimecaseno+"'";
+                        "Height,Weight,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
+                        "PhonePerson,Province,Race,Religion,Tambon,TypePerson,ZipCode,crimecaseno from person where PeopleRegistrationID='"+PeopleRegistrationID+ "' and  crimecaseno='"+crimecaseno+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);
@@ -196,8 +205,30 @@ public class ListSuspect extends javax.swing.JFrame {
                     JSONObject data = new JSONObject();
                     data.put("PeopleRegistrationID", rs.getString("PeopleRegistrationID"));
                     data.put("crimecaseno", rs.getString("crimecaseno"));
-                    data.put("crimecaseno", rs.getString("FullNamePerson"));
-                            AccusedForm accusedF=new AccusedForm();
+                    data.put("Age", rs.getString("Age"));
+                    data.put("Amphur", rs.getString("Amphur"));
+                    data.put("BirthDay", rs.getString("BirthDay"));
+                    data.put("BloodGroup", rs.getString("BloodGroup"));
+                    data.put("ExpiredDate", rs.getString("ExpiredDate"));
+                    data.put("FatherFullName", rs.getString("FatherFullName"));
+                    data.put("FullNamePerson", rs.getString("FullNamePerson"));
+                    data.put("FullNamePersonEn", rs.getString("FullNamePersonEn"));
+                    data.put("Gender", rs.getString("Gender"));
+                    data.put("Height", rs.getString("Height"));
+                    data.put("Weight", rs.getString("Weight"));
+                    data.put("HouseNumber", rs.getString("HouseNumber"));
+                    data.put("IssueDate", rs.getString("IssueDate"));
+                    data.put("Moo", rs.getString("Moo"));
+                    data.put("MotherFullName", rs.getString("MotherFullName"));
+                    data.put("Nationality", rs.getString("Nationality"));
+                    data.put("Occupation", rs.getString("Occupation"));
+                    data.put("PassportNumber", rs.getString("PassportNumber"));
+                    data.put("PhonePerson", rs.getString("PhonePerson"));
+                    data.put("Province", rs.getString("Province"));
+                    data.put("Race", rs.getString("Race"));
+                    data.put("Religion", rs.getString("Religion"));
+                    data.put("Tambon", rs.getString("Tambon"));
+                            AccusedForm accusedF=new AccusedForm(f,data);
                             accusedF.setVisible(true);    		
                 }
                 
@@ -207,13 +238,18 @@ public class ListSuspect extends javax.swing.JFrame {
             }catch(Exception ex){
                 ex.printStackTrace();
             }
+            
+        
+       
         }else{
 
-        }        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        }
+                                              
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonEditAccuredActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:  if(jTableAccure.getSelectedRow()>=0){
+    private void jButtonDeleteAccuredActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteAccuredActionPerformed
+              if(jTableSuspect.getSelectedRow()>=0){
                   
             try{
                 String crimecaseno = jTableSuspect.getModel().getValueAt(jTableSuspect.getSelectedRow(), 0)+"";
@@ -224,14 +260,14 @@ public class ListSuspect extends javax.swing.JFrame {
                 stmt.executeUpdate(sql);
                 
 
-                     System.out.println("SQL : "+sql);
+                System.out.println("SQL : "+sql);
                 stmt.close();
                 RefreshData();
             }catch(Exception ex){
                 ex.printStackTrace();
             }
-        
-    }//GEN-LAST:event_jButton3ActionPerformed
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonDeleteAccuredActionPerformed
 
     /**
      * @param args the command line arguments
@@ -264,35 +300,45 @@ public class ListSuspect extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ListSuspect().setVisible(true);
+//                new ListAccused().setVisible(true);
+
+  
             }
         });
     }
      public void RefreshData(){
         try{
+              
         Connection con = ConnectDatabase.connect();
         Statement stmt = con.createStatement();
+        String a=txtCaseNO.getText();
         String sql = "select Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
-                        "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                        "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,crimecaseno from person  "+getFilterCondition();
-         
+                     "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
+                     "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,crimecaseno from person where TypePerson='ผู้ต้องหา' and crimecaseno="+a+getFilterCondition();
+      
         ResultSet rs = stmt.executeQuery(sql);
         Vector<Vector> tabledata = new Vector<Vector>();
         while(rs.next()){
             Vector<String> row = new Vector<String>();
-            row.add(rs.getString("crimecaseno"));
-            row.add(rs.getString("FullNamePerson"));
             row.add(rs.getString("PeopleRegistrationID"));
+            row.add(rs.getString("FullNamePerson"));
+            row.add(rs.getString("Age"));
+            row.add(rs.getString("Race"));
+            row.add(rs.getString("Nationality"));
+            row.add(rs.getString("Religion"));
             tabledata.add(row);
         }
         rs.close();
         stmt.close();
         Vector ColumnName = new Vector();
-        ColumnName.add("เลขคดี");
+         ColumnName.add("เลขบัตรประชาชน");
         ColumnName.add("ชื่อ-นามสุกล");
-        ColumnName.add("เลขบัตรประชาชน");
-  
-    
+        ColumnName.add("อายุ");
+        ColumnName.add("เชื้อชาติ");
+        ColumnName.add("สัญชาติ");
+        ColumnName.add("ศาสนา");
+       
+     
         jTableSuspect.setModel(new javax.swing.table.DefaultTableModel(
             tabledata,
             ColumnName
@@ -305,7 +351,19 @@ public class ListSuspect extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-                            
+                             System.out.println("SQL : "+sql);
+        if(jTableSuspect != null || jTableSuspect.getModel() !=null){
+            if(jTableSuspect.getRowCount()>1){
+//             int rows = jTableAccure.getRowCount();
+          CrimesCaseEdit.jTextSuspect.setText(jTableSuspect.getValueAt(0, 1).toString()+"และพวก");
+            }
+            else {
+                CrimesCaseEdit.jTextSuspect.setText(jTableSuspect.getValueAt(0, 1).toString());   
+                
+            }
+    
+        }
+        
         }catch(Exception ex){
             ex.printStackTrace();
         }
@@ -320,28 +378,29 @@ public class ListSuspect extends javax.swing.JFrame {
         String result="";
         for(int i=0;i<key.length;i++){
             if(i==0){
-                result=" where ";
+                result=" and ";
             }
             if(i==key.length-1){
                 result+= " "+key[i]+" LIKE '%"+filter.get(key[i])+"%'";
             }else{
-                result+= " "+key[i]+" LIKE "+filter.get(key[i])+" and TypePerson='ผู้ต้องหา ";
+                result+= " "+key[i]+" LIKE "+filter.get(key[i])+" and TypePerson='ผู้ต้องหา' ";
             }
             System.out.println(result);
-             
         }
-
+        
         return result;
     }
+    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AddAccused;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButtonAddAccused;
+    private javax.swing.JButton jButtonDeleteAccured;
+    private javax.swing.JButton jButtonEditAccured;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JTable jTableSuspect;
-    private javax.swing.JTextField txtCaseNO;
+    private javax.swing.JLabel txtCaseNO;
     // End of variables declaration//GEN-END:variables
 }
