@@ -824,7 +824,7 @@ public class IdentifyFrom extends javax.swing.JFrame {
 
     private void jButtonAccuredActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccuredActionPerformed
         // TODO add your handling code here:
-        ;
+
         ListAccused la =new ListAccused();
         la.setVisible(true);
 

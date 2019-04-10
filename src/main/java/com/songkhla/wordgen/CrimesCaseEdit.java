@@ -1015,7 +1015,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
              JDialog dialog = new JDialog(frame);//frame is owner
              JFrame f = (JFrame)(dialog.getParent());               
              f.removeAll();
-            if(ChargeNameCase.getText().length()==0 || ChargeNameCase.getText()==null|| ChargeNameCase.getText().equals(" ")){
+            if(ChargeNameCase.getText().length()==0 || ChargeNameCase.getText()==null|| ChargeNameCase.getText().isEmpty()){
             
                  ChargePage d = new ChargePage(f,null);
                  d.setVisible(true);
