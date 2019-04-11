@@ -143,7 +143,9 @@ public class CreateTable {
                         "	Prosecutor_Result	VARCHAR(100)	,	\n"+
                         "	CourtResult	VARCHAR(100)	,	\n"+
                         "	CapitalCrimeCaseNumber	VARCHAR(100),		\n"+
-                          "	AccureandOther	VARCHAR(100)		\n"+
+                          "	AccureandOther	VARCHAR(100),		\n"+
+                        "	SuspectandOther	VARCHAR(100),	\n"+
+                        "	WitnessandOther	VARCHAR(100)   \n"+
                          "	);";
           String sqlAsset ="CREATE TABLE IF NOT EXISTS Asset (\n"+
                 "	EvidenceRecordNumber	VARCHAR(100)	Primary Key,	\n"+
@@ -215,9 +217,7 @@ public class CreateTable {
                     "	ActionNote	VARCHAR(100)		\n"+
                     "	);";    
             
-            String sqlAlter ="ALTER TABLE CrimeCase \n"+
-                    "Add	SuspectandOther	VARCHAR(100),	\n"+
-                    "	WitnessandOther	VARCHAR(100);";
+        
                       
 	        try ( 
                         Statement stmt = cc.createStatement()) {
@@ -230,7 +230,7 @@ public class CreateTable {
                       stmt.execute(sqlPoliceStat); 
                       stmt.execute(sqlCharge); 
                        stmt.execute(sqlAction); 
-                       stmt.execute(sqlAlter); 
+                     
                        stmt.close();
                     System.out.println("Create Table Complete");
 	        } catch (SQLException e) {

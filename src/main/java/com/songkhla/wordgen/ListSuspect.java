@@ -352,7 +352,7 @@ public class ListSuspect extends javax.swing.JDialog {
             }
         });
                              System.out.println("SQL : "+sql);
-        if(jTableSuspect != null || jTableSuspect.getModel() !=null){
+       
             if(jTableSuspect.getRowCount()>1){
 //             int rows = jTableAccure.getRowCount();
           CrimesCaseEdit.jTextSuspect.setText(jTableSuspect.getValueAt(0, 1).toString()+"และพวก");
@@ -362,7 +362,7 @@ public class ListSuspect extends javax.swing.JDialog {
                 
             }
     
-        }
+        
         
         }catch(Exception ex){
             ex.printStackTrace();

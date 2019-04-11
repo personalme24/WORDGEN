@@ -43,7 +43,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
     public CrimesCaseEdit(JFrame parrent,JSONObject datain) {
         super(parrent,true);
         initComponents();
-       
+       jLabelActionCode.setVisible(false);
         if(datain!=null){
             
             
@@ -52,7 +52,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
 //            ID.setText(datain.get("CaseId")+"");
             crimecaseno.setText(datain.get("crimecaseno")+"");
             crimecaseyear.setText(datain.get("crimecaseyears")+"");
-            jLabelChargeCode.setText(datain.get("ChargeCodeCase")+"");
+            jLabelChargeCode.setText(datain.get("ChargeCode")+"");
             ChargeNameCase.setText(datain.get("ChargeName")+"");
 //             SimpleDateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
             CaseRequestDateTime.setText(datain.get("CaseRequestDate")+"");
@@ -889,7 +889,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
       if(isInsert){
         String sql="INSERT INTO CrimeCase (CaseType,crimecaseno,crimecaseyears,ChargeCodeCase,ActionCrimes,CaseRequestDate,CaseRequestTime,"+
                    "CaseAcceptDate,CaseAccepTime,DailyNumber,OccuredDate,OccuredTime,CrimeLocation,CrimeLocationDistrict,CrimeLocationAmphur,"+
-                   "CrimeLocationProvince,TypeCourt,AccureandOther) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                   "CrimeLocationProvince,TypeCourt,AccureandOther,SuspectandOther,WitnessandOther) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
           System.out.println(sql);
          try {
   
@@ -913,6 +913,8 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
             pst.setString(16,CrimeLocationProvince.getText());
             pst.setString(17,CourtType.getSelectedItem().toString());
             pst.setString(18,jTextAccused.getText());
+             pst.setString(19,jTextSuspect.getText());
+              pst.setString(20,jTextWitness.getText());
 //          pst.setString(14,caseid);
          
             pst.executeUpdate();

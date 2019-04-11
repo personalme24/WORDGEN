@@ -256,7 +256,7 @@ public class ListAccused extends javax.swing.JDialog {
             try{
                 String crimecaseno = jTableAccure.getModel().getValueAt(jTableAccure.getSelectedRow(), 0)+"";
                 String PeopleRegistrationID = jTableAccure.getModel().getValueAt(jTableAccure.getSelectedRow(), 2)+"";
-                String sql = "Delete from person WHERE PeopleRegistrationID='"+PeopleRegistrationID+ "'and  crimecaseno='"+crimecaseno+"'";
+                String sql = "Delete from person WHERE PeopleRegistrationID='"+PeopleRegistrationID+ "' and  crimecaseno='"+crimecaseno+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 stmt.executeUpdate(sql);
@@ -316,8 +316,9 @@ public class ListAccused extends javax.swing.JDialog {
         String sql = "select Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                      "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
                      "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,crimecaseno from person where TypePerson='ผู้กล่าวหา' and crimecaseno="+a+getFilterCondition();
-      
+        System.out.println("SQL : "+sql);
         ResultSet rs = stmt.executeQuery(sql);
+          System.out.println("SQL : "+sql);
         Vector<Vector> tabledata = new Vector<Vector>();
         while(rs.next()){
             Vector<String> row = new Vector<String>();
@@ -338,7 +339,7 @@ public class ListAccused extends javax.swing.JDialog {
         ColumnName.add("เชื้อชาติ");
         ColumnName.add("สัญชาติ");
         ColumnName.add("ศาสนา");
-       
+         System.out.println("SQL : "+sql);
      
         jTableAccure.setModel(new javax.swing.table.DefaultTableModel(
             tabledata,
@@ -353,17 +354,17 @@ public class ListAccused extends javax.swing.JDialog {
             }
         });
                              System.out.println("SQL : "+sql);
-        if(jTableAccure != null || jTableAccure.getModel() !=null){
-            if(jTableAccure.getRowCount()>1){
+        
+            if(jTableAccure.getRowCount()==1){
 //             int rows = jTableAccure.getRowCount();
-          CrimesCaseEdit.jTextAccused.setText(jTableAccure.getValueAt(0, 1).toString()+"และคนอื่นๆ");
+            CrimesCaseEdit.jTextAccused.setText(jTableAccure.getValueAt(0, 1).toString());      
             }
             else {
-                CrimesCaseEdit.jTextAccused.setText(jTableAccure.getValueAt(0, 1).toString());   
+                   CrimesCaseEdit.jTextAccused.setText(jTableAccure.getValueAt(0, 1).toString()+"และคนอื่นๆ");
                 
             }
     
-        }
+        
         
         }catch(Exception ex){
             ex.printStackTrace();
