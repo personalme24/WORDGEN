@@ -19,13 +19,16 @@ public class PolisForm extends javax.swing.JFrame {
    Connection con=null;
     PreparedStatement pst=null;
     DataCase dc =new DataCase();
-    boolean isInsert=true;
+
     /**
      * Creates new form PolisForm
      */
     public PolisForm() {
         initComponents();
+     
         data();
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        
     }
 
     /**
@@ -195,6 +198,7 @@ public class PolisForm extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 con=ConnectDatabase.connect();
+
         String sql="INSERT INTO Police (IdCardPolice,RankPolice,FirstName,LastName,Position) VALUES (?,?,?,?,?)";
         String sqlUpdate= "UPDATE PoliceStation Set\n "
         + "IdCardPolice=?,"
@@ -220,17 +224,18 @@ con=ConnectDatabase.connect();
             System.out.println("SQL : "+pst);
         }
 
-        setVisible(false);
+        
                                                      
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 private void data() 
-{
+{       String a;
             String sql= "select * from Police";
             Connection con = ConnectDatabase.connect();
           
-            try {  Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
+            try { 
+                Statement stmt = con.createStatement();
+                 ResultSet rs = stmt.executeQuery(sql);
               if(rs.next()){
                
                             IdCardPolice.setText(rs.getString("IdCardPolice"));
@@ -238,9 +243,14 @@ private void data()
                             FirstName.setText(rs.getString("FirstName"));
                             LastName.setText(rs.getString("LastName"));
                             Position.setText(rs.getString("Position"));
-                        
+                      
+                            Data d =new Data();
+                            a=rs.getString("FirstName");
+                            System.out.print(a);
+        d.setPolicName(a); 
                 
             }
+             
     } catch (Exception e) {
     }
 

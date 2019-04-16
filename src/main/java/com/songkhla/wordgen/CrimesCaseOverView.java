@@ -258,6 +258,7 @@ jTable1.setOpaque(false);
                     data.put("CrimeLocationProvince", rs.getString("CrimeLocationProvince"));
                      data.put("AccureandOther", rs.getString("AccureandOther"));
                      data.put("TypeCourt", rs.getString("TypeCourt"));
+                          data.put("PoliceNameCase", rs.getString("PoliceNameCase"));
                     CrimesCaseEdit cce =new CrimesCaseEdit(this,data);
                     cce.setVisible(true);
                 }

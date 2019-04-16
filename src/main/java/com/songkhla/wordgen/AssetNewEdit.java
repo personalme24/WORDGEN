@@ -26,6 +26,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
     public AssetNewEdit(JFrame parrent,JSONObject datain) {
         super(parrent,true);
         initComponents();
+             crimecaseno.setText(CrimesCaseEdit.crimecaseno.getText());
         if(datain!=null){
  
             crimecaseno.setText(datain.get("crimecaseno")+"");
@@ -69,10 +70,11 @@ public class AssetNewEdit extends javax.swing.JDialog {
         Amount = new javax.swing.JTextField();
         Note = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        crimecaseno = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         PlaceFoundExhibit = new javax.swing.JTextField();
         EvidenceRecordNumber = new javax.swing.JTextField();
+        crimecaseno = new javax.swing.JLabel();
+        jRecord = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -90,7 +92,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(219, Short.MAX_VALUE))
+                .addContainerGap(272, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,7 +117,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
         jLabel4.setText("ราคา(บาท)");
 
         jLabel5.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel5.setText("ยึกจาก");
+        jLabel5.setText("ยึดจาก");
 
         jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel6.setText("วัน เดือน ปี ที่ยึด");
@@ -167,8 +169,6 @@ public class AssetNewEdit extends javax.swing.JDialog {
             }
         });
 
-        crimecaseno.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-
         jLabel11.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel11.setText("ตำหนิ");
 
@@ -180,6 +180,15 @@ public class AssetNewEdit extends javax.swing.JDialog {
         });
 
         EvidenceRecordNumber.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        EvidenceRecordNumber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EvidenceRecordNumberActionPerformed(evt);
+            }
+        });
+
+        crimecaseno.setText("ccno");
+
+        jRecord.setText("สมุดบัญชีเลขที่");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -208,11 +217,13 @@ public class AssetNewEdit extends javax.swing.JDialog {
                                     .addComponent(Value, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(Amount, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(OrderAsset, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(OrderAsset, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jRecord)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(EvidenceRecordNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(crimecaseno, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(crimecaseno)))
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -238,8 +249,9 @@ public class AssetNewEdit extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(OrderAsset, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(crimecaseno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(EvidenceRecordNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EvidenceRecordNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(crimecaseno)
+                    .addComponent(jRecord))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -315,7 +327,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
              con=ConnectDatabase.connect();
-        
+       
         String sql="INSERT INTO Asset (EvidenceRecordNumber,Amount,DateSequester,DefectMark,PlaceFoundExhibit,Name,Note,OccupantName,OrderAsset,PointFoundCheck,Value,crimecaseno) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
         
         String sqlUpdate="Update Asset set EvidenceRecordNumber=?,Amount=?,DateSequester=?,\n" +
@@ -349,6 +361,10 @@ public class AssetNewEdit extends javax.swing.JDialog {
         }
                 // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void EvidenceRecordNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EvidenceRecordNumberActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EvidenceRecordNumberActionPerformed
 
     /**
      * @param args the command line arguments
@@ -399,7 +415,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
     private javax.swing.JTextField PlaceFoundExhibit;
     private javax.swing.JTextField PointFoundCheck;
     private javax.swing.JTextField Value;
-    private javax.swing.JTextField crimecaseno;
+    private javax.swing.JLabel crimecaseno;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -414,5 +430,6 @@ public class AssetNewEdit extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel jRecord;
     // End of variables declaration//GEN-END:variables
 }

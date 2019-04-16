@@ -20,13 +20,13 @@ import org.json.simple.JSONObject;
  *
  * @author Matazz
  */
-public class AssetOverView extends javax.swing.JFrame {
+public class AssetOverView extends javax.swing.JDialog {
 
 
     /** Creates new form Asset */
     public AssetOverView() {
         initComponents();
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+     
         RefreshData();
     }
 
@@ -52,7 +52,7 @@ public class AssetOverView extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableAsset = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(77, 0, 0));
@@ -215,9 +215,9 @@ public class AssetOverView extends javax.swing.JFrame {
     }//GEN-LAST:event_EvidenceRecordNumberActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         AssetNewEdit  AssetAdd=new AssetNewEdit(this,null);
+         AssetNewEdit  AssetAdd=new AssetNewEdit(null,null);
          AssetAdd.setVisible(true);        
-          RefreshData();
+         RefreshData();
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -256,22 +256,18 @@ public class AssetOverView extends javax.swing.JFrame {
                 Statement stmt = con.createStatement();
                ResultSet rs = stmt.executeQuery(sql);
                        //  Convert CrimcaseEdit to JFrame   
-                     JFrame frame = new JFrame();
-                     JDialog dialog = new JDialog(frame);//frame is owner
-                    JFrame f = (JFrame)(dialog.getParent());
-                     f.removeAll();
+                    
                 if(rs.next()){
                     JSONObject data = new JSONObject();
                     data.put("EvidenceRecordNumber", rs.getString("EvidenceRecordNumber"));
                     data.put("crimecaseno", rs.getString("crimecaseno"));
                     data.put("Name", rs.getString("Name"));
                              //  Convert CrimcaseEdit to JFrame   
-                    //  JFrame frame = new JFrame();
-                   //   JDialog dialog = new JDialog(frame);//frame is owner
-                   //   JFrame f = (JFrame)(dialog.getParent());
-                   //   f.removeAll();
-                      
-                            AssetNewEdit af=new AssetNewEdit(this,data);
+                       JFrame frame = new JFrame();
+                     JDialog dialog = new JDialog(frame);//frame is owner
+                    JFrame f = (JFrame)(dialog.getParent());
+                     f.removeAll();
+                            AssetNewEdit af=new AssetNewEdit(f,data);
                             af.setVisible(true);    		
                 }
               

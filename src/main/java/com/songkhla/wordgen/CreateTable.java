@@ -145,7 +145,10 @@ public class CreateTable {
                         "	CapitalCrimeCaseNumber	VARCHAR(100),		\n"+
                           "	AccureandOther	VARCHAR(100),		\n"+
                         "	SuspectandOther	VARCHAR(100),	\n"+
-                        "	WitnessandOther	VARCHAR(100)   \n"+
+                        "	WitnessandOther	VARCHAR(100),   \n"+
+                          "	PoliceNameCase	VARCHAR(100)	,	\n"+
+                        "	AssetCode	VARCHAR(100)	,	\n"+
+                        "	AssetList	VARCHAR(100)		\n"+
                          "	);";
           String sqlAsset ="CREATE TABLE IF NOT EXISTS Asset (\n"+
                 "	EvidenceRecordNumber	VARCHAR(100)	Primary Key,	\n"+

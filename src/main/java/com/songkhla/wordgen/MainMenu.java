@@ -21,9 +21,16 @@ public class MainMenu extends javax.swing.JFrame {
     /**
      * Creates new form MainMenu
      */
+     private String name;
     public MainMenu() {
         initComponents();
+       data();
+//         Data d=new Data();
+//    name=d.getPolicName();
+//        System.out.println("fgbbbbbb : "+name);
+//        UserName.setText(name); 
        con=ConnectDatabase.connect();
+     
         CreateTable.createNewTable();
        
     }
@@ -386,7 +393,30 @@ public class MainMenu extends javax.swing.JFrame {
                pf.setVisible(true);
 // TODO add your handling code here:
     }//GEN-LAST:event_jPanel10MouseClicked
+private void data() 
+{       String a;
+            String sql= "select * from Police";
+            Connection con = ConnectDatabase.connect();
+          
+            try { 
+                Statement stmt = con.createStatement();
+                 ResultSet rs = stmt.executeQuery(sql);
+              if(rs.next()){
+               
+                            UserName.setText(rs.getString("FirstName"));
+        
+                      
+                            Data d =new Data();
+                            a=rs.getString("FirstName");
+                            System.out.print(a);
+        d.setPolicName(a); 
+                
+            }
+             
+    } catch (Exception e) {
+    }
 
+}
     /**
      * @param args the command line arguments
      */
