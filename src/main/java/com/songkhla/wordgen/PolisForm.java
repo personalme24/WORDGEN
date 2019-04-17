@@ -197,18 +197,15 @@ public class PolisForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-con=ConnectDatabase.connect();
-
-        String sql="INSERT INTO Police (IdCardPolice,RankPolice,FirstName,LastName,Position) VALUES (?,?,?,?,?)";
-        String sqlUpdate= "UPDATE PoliceStation Set\n "
-        + "IdCardPolice=?,"
-        + "RankPolice=?,"
-        + "FirstName=?,"
-        + "LastName=?,"
-        + "Position=?,"
-        + "Where IdCardPolice=?";
-        try {
-            pst=con.prepareStatement(sql);
+        con=ConnectDatabase.connect();
+        String sql2= "select * from Police";
+        
+         try {  
+             Statement stmt = con.createStatement();
+         ResultSet rs = stmt.executeQuery(sql2);
+         if(!rs.next()){
+                 String sql="INSERT INTO Police (IdCardPolice,RankPolice,FirstName,LastName,Position) VALUES (?,?,?,?,?)";
+                         pst=con.prepareStatement(sql);
             pst.setString(1,IdCardPolice.getText());
             pst.setString(2,RankPolice.getText());
             pst.setString(3,FirstName.getText());
@@ -216,16 +213,32 @@ con=ConnectDatabase.connect();
             pst.setString(5,Position.getText());
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null, "Data Saved successfully");
+             pst.close(); 
+         }else{
+        String sqlUpdate= "UPDATE Police Set\n "
+        + "IdCardPolice=?,"
+        + "RankPolice=?,"
+        + "FirstName=?,"
+        + "LastName=?,"
+        + "Position=?"
+        + "Where IdCardPolice=?";
+            pst=con.prepareStatement(sqlUpdate);
+            pst.setString(1,IdCardPolice.getText());
+            pst.setString(2,RankPolice.getText());
+            pst.setString(3,FirstName.getText());
+            pst.setString(4,LastName.getText());
+            pst.setString(5,Position.getText());
+            pst.setString(6,IdCardPolice.getText());
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Data Saved successfully");
             System.out.println("SQL : "+sqlUpdate);
-            pst.close();
-
-        } catch (Exception e) {
+        }
+        } 
+         catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
             System.out.println("SQL : "+pst);
         }
-
-        
-                                                     
+ setVisible(false);                                                      
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 private void data() 
