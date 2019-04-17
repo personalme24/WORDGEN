@@ -584,46 +584,16 @@ public class StationForm extends javax.swing.JFrame {
 
     private void jButtonSaveStationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveStationActionPerformed
         con=ConnectDatabase.connect();
+              String sql2= "select * from PoliceStation";
+           //Connection con = ConnectDatabase.connect();
+            try {  Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(sql2);
+              if(!rs.next()){
         String sql="INSERT INTO PoliceStation (PoliceStartionCode,PoliceStaionName,PoliceStaionShort,StationAddress,StationAmphur,StationProvince,BK," +
         "BH,TelStation,PhonePolice,Fax,HeadName,HeadPosition,HeadWorkName,HeadWorkPosition,CriminalCourt,JuvenileCourt,DistrictCourt," +
         "MilitaryCourt,AssetCourt,LocationOfDrug,CheckGun,CheckDrug,CheckOtherExhibit,CauseSerious,ProvincProsecutor,ProvincProsecutorCh," +
         "THNumBook,ProtectChild,StationTambon,StationMoo,Postcode) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-        String sqlUpdate= "UPDATE PoliceStation Set\n "
-        + "PoliceStartionCode=?,"
-        + "PoliceStaionName=?,"
-        + "PoliceStaionShort=?,"
-        + "StationAddress=?,"
-        + "StationAmphur=?,"
-        + "StationProvince=?,"
-        + "BK=?,"
-        + "BH=?,"
-        + "TelStation=?,"
-        + "PhonePolice=?,"
-        + "Fax=?,"
-        + "HeadName=?,"
-        + "HeadPosition=?,"
-        + "HeadWorkName=?,"
-        + "HeadWorkPosition=?,"
-        + "CriminalCourt=?,"
-        + "JuvenileCourt=?,"
-        + "DistrictCourt=?,"
-        + "MilitaryCourt=?,"
-        + "AssetCourt=?,"
-        + "LocationOfDrug=?"
-        + "CheckGun=?,"
-        + "CheckDrug=?,"
-        + "CheckOtherExhibit=?,"
-        + "CauseSerious=?,"
-        + "ProvincProsecutor=?,"
-        + "ProvincProsecutorCh=?,"
-        + "THNumBook=?,"
-        + "ProtectChild=?,"
-        + "StationTambon=?,"
-        + "StationMoo=?,"
-        + "Postcode=? "
-        + "Where PoliceStartionCode=?";
-        try {
-            pst=con.prepareStatement(sql);
+   pst=con.prepareStatement(sql);
             pst.setString(1,PoliceStationCode.getText());
             pst.setString(2,PoliceStationName.getText());
             pst.setString(3,PoliceStationShort.getText());
@@ -656,18 +626,99 @@ public class StationForm extends javax.swing.JFrame {
             pst.setString(30,StationTambon.getText());
             pst.setString(31,StationMoo.getText());
             pst.setString(32,Postcode.getText());
-
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Data Saved successfully");
-            System.out.println("SQL : "+sqlUpdate);
             pst.close();
+            JOptionPane.showMessageDialog(null, "Data Saved successfully");
 
-        } catch (Exception e) {
+
+       
+              }
+              else{
+         String sqlUpdate= "UPDATE PoliceStation Set\n "
+        + "PoliceStartionCode=?,"
+        + "PoliceStaionName=?,"
+        + "PoliceStaionShort=?,"
+        + "StationAddress=?,"
+        + "StationAmphur=?,"
+        + "StationProvince=?,"
+        + "BK=?,"
+        + "BH=?,"
+        + "TelStation=?,"
+        + "PhonePolice=?,"
+        + "Fax=?,"
+        + "HeadName=?,"
+        + "HeadPosition=?,"
+        + "HeadWorkName=?,"
+        + "HeadWorkPosition=?,"
+        + "CriminalCourt=?,"
+        + "JuvenileCourt=?,"
+        + "DistrictCourt=?,"
+        + "MilitaryCourt=?,"
+        + "AssetCourt=?,"
+        + "LocationOfDrug=?,"
+        + "CheckGun=?,"
+        + "CheckDrug=?,"
+        + "CheckOtherExhibit=?,"
+        + "CauseSerious=?,"
+        + "ProvincProsecutor=?,"
+        + "ProvincProsecutorCh=?,"
+        + "THNumBook=?,"
+        + "ProtectChild=?,"
+        + "StationTambon=?,"
+        + "StationMoo=?,"
+        + "Postcode=? "
+        + "Where PoliceStartionCode=?";
+      
+            pst=con.prepareStatement(sqlUpdate);
+            pst.setString(1,PoliceStationCode.getText());
+            pst.setString(2,PoliceStationName.getText());
+            pst.setString(3,PoliceStationShort.getText());
+            pst.setString(4,StationAddress.getText());
+            pst.setString(5,StationAmphur.getText());
+            pst.setString(6,StationProvince.getText());
+            pst.setString(7,BK.getText());
+            pst.setString(8,BH.getText());
+            pst.setString(9,TelStation.getText());
+            pst.setString(10,PhonePolice.getText());
+            pst.setString(11,Fax.getText());
+            pst.setString(12,HeadName.getText());
+            pst.setString(13,HeadPosition.getText());
+            pst.setString(14,HeadWorkName.getText());
+            pst.setString(15,HeadWorkPosition.getText());
+            pst.setString(16,CriminalCourt.getText());
+            pst.setString(17,JuvenileCourt.getText());
+            pst.setString(18,DistrictCourt.getText());
+            pst.setString(19,MilitaryCourt.getText());
+            pst.setString(20,AssetCourt.getText());
+            pst.setString(21,LocationOfD.getText());
+            pst.setString(22,CheckGun.getText());
+            pst.setString(23,CheckDrug.getText());
+            pst.setString(24,CheckOtherExhibit.getText());
+            pst.setString(25,CauseSerious.getText());
+            pst.setString(26,ProvincProsecutor.getText());
+            pst.setString(27,ProvincProsecutorCh.getText());
+            pst.setString(28,THNumBook.getText());
+            pst.setString(29,ProtectChild.getText());
+            pst.setString(30,StationTambon.getText());
+            pst.setString(31,StationMoo.getText());
+            pst.setString(32,Postcode.getText());
+             pst.setString(33,PoliceStationCode.getText());
+            pst.executeUpdate();
+            pst.close();
+              System.out.println("SQL : "+sqlUpdate);
+                    }
+            }
+             catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
             System.out.println("SQL : "+pst);
         }
+            
+        
+        
+        
 
         setVisible(false);
+        
     }//GEN-LAST:event_jButtonSaveStationActionPerformed
 
     private void LocationOfDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LocationOfDActionPerformed
@@ -677,10 +728,10 @@ private void data()
 {
             String sql= "select * from PoliceStation";
             Connection con = ConnectDatabase.connect();
-          
             try {  Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
               if(rs.next()){
+                  
                
                             PoliceStationCode.setText(rs.getString("PoliceStartionCode"));
                             PoliceStationName.setText(rs.getString("PoliceStaionName"));
