@@ -5,10 +5,14 @@
  */
 package com.songkhla.wordgen;
 
+import static com.songkhla.wordgen.CrimesCaseEdit.ChargeNameCase;
+import static com.songkhla.wordgen.CrimesCaseEdit.jLabelChargeCode;
 import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -19,23 +23,24 @@ import org.json.simple.JSONObject;
  * @author Matazz
  */
 public class ChargePage extends javax.swing.JDialog {
-
+   Connection con=null;
+    PreparedStatement pst=null;;
+    boolean isInsert;
+    String caseid;
     /**
      * Creates new form ChangPage
      */
-      boolean isInsert;
+     
     public ChargePage(JFrame parrent,JSONObject datain) {
         super(parrent,true);
-
         initComponents();
-
             if(datain!=null){
 //            caseid= "" + datain.get("CaseId"); 
             ChargeCode.setText(datain.get("ChargeCode")+"");
             ChargeName.setText(datain.get("ChargeName")+"");
              Law.setText(datain.get("Law")+"");
             
-            isInsert=false;
+           isInsert=false;
            
         }else{
             isInsert=true;
@@ -260,6 +265,7 @@ public class ChargePage extends javax.swing.JDialog {
 
     private void ChargeNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChargeNameActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_ChargeNameActionPerformed
 
     private void jButtonSaveChargeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveChargeActionPerformed
@@ -311,8 +317,23 @@ public class ChargePage extends javax.swing.JDialog {
     }//GEN-LAST:event_ChargeCodeActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-//       ChargeList ChargeList=new ChargeList();
-//        ChargeList.setVisible(true);        // TODO add your handling code here:
+
+             JFrame frame = new JFrame();
+             JDialog dialog = new JDialog(frame);//frame is owner
+             JFrame f = (JFrame)(dialog.getParent());               
+             f.removeAll();
+                   ChargeOverView d = new ChargeOverView(f,null);
+                   
+                    d.setVisible(true);
+
+             
+         
+              //  rs.close();
+             
+       
+          
+                 
+            
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

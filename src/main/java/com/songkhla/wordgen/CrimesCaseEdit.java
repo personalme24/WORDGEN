@@ -331,6 +331,11 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
 
         jButton1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButton1.setText("ต/อ/จ");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel7.setText("พฤติการณ์คดี");
@@ -865,7 +870,8 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -923,7 +929,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
          
             pst.executeUpdate();
                     JOptionPane.showMessageDialog(null, "Data Saved successfully");
-                       System.out.println("SQL : "+sql);
+                    System.out.println("SQL : "+sql);
             pst.close();
            
         } catch (Exception e) {
@@ -1100,6 +1106,10 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
     private void jCheckBox12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox12ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox12ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
  public static JComponent makeExamplePane() {
      JPanel text = new JPanel();
     JScrollPane scroll = new JScrollPane(text);

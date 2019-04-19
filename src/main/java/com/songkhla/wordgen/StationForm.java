@@ -112,7 +112,7 @@ public class StationForm extends javax.swing.JFrame {
         jLabel40 = new javax.swing.JLabel();
         Fax = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1264, 726));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -712,11 +712,6 @@ public class StationForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
             System.out.println("SQL : "+pst);
         }
-            
-        
-        
-        
-
         setVisible(false);
         
     }//GEN-LAST:event_jButtonSaveStationActionPerformed
