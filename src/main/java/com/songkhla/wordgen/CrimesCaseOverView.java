@@ -35,12 +35,11 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
     
     public CrimesCaseOverView() {
         initComponents();
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 //     jTable1.setBackground(Color.RED);
-jTable1.setOpaque(false);
+        jTable1.setOpaque(false);
 
 //        jTable1.getTableHeader().setFont(new Font("TH SarabunPSK",Font.BOLD,16));
-   
-   
         RefreshData();
  
     }
