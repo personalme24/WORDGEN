@@ -5,18 +5,25 @@
  */
 package com.songkhla.wordgen;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.HashMap;
+import java.util.Vector;
+
 /**
  *
  * @author Matazz
  */
-public class ActionList extends javax.swing.JFrame {
+public class ActionList extends javax.swing.JDialog {
 
     /**
      * Creates new form ActionList
      */
     public ActionList() {
         initComponents();
-         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        RefreshData();
+       
     }
 
     /**
@@ -36,12 +43,12 @@ public class ActionList extends javax.swing.JFrame {
         ActionCrimes = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableAction = new javax.swing.JTable();
         jButton4 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -73,8 +80,8 @@ public class ActionList extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableAction.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jTableAction.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -85,7 +92,12 @@ public class ActionList extends javax.swing.JFrame {
                 "รหัสพฤติการณ์คดี", "พฤติการณ์คดี"
             }
         ));
-        jScrollPane3.setViewportView(jTable1);
+        jTableAction.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableActionMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(jTableAction);
 
         jButton4.setBackground(java.awt.SystemColor.windowText);
         jButton4.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
@@ -208,6 +220,75 @@ public class ActionList extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jTableActionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableActionMouseClicked
+        // TODO add your handling code here:
+        int number=jTableAction.getSelectedRow();
+        ActionPage.ActionCode.setText(jTableAction.getValueAt(number, 0).toString());
+        ActionPage.ActionCrimes.setText(jTableAction.getValueAt(number, 1).toString());
+        ActionPage.ActionDetail.setText(jTableAction.getValueAt(number, 2).toString());
+        ActionPage.ActionNote.setText(jTableAction.getValueAt(number, 3).toString());
+    }//GEN-LAST:event_jTableActionMouseClicked
+ public void RefreshData(){
+        try{
+        Connection con = ConnectDatabase.connect();
+        Statement stmt = con.createStatement();
+        String sql = "select * from Action "+ getFilterCondition();
+        ResultSet rs = stmt.executeQuery(sql);
+        Vector<Vector> tabledata = new Vector<Vector>();
+        while(rs.next()){
+            Vector<String> row = new Vector<String>();
+            row.add(rs.getString("ActionCode"));
+            row.add(rs.getString("ActionCrimes"));
+             row.add(rs.getString("ActionDetail"));
+              row.add(rs.getString("ActionNote"));
+            tabledata.add(row);
+        }
+        rs.close();
+        stmt.close();
+        Vector ColumnName = new Vector();
+        ColumnName.add("รหัส");
+        ColumnName.add("พฤติการณ์");
+        ColumnName.add("รายละเอียด");
+        ColumnName.add("หมายเหตุ");
+        jTableAction.setModel(new javax.swing.table.DefaultTableModel(
+            tabledata,
+            ColumnName
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
+ private String getFilterCondition(){
+        HashMap<String,String> filter = new HashMap<String,String>();
+        if(ActionCrimes.getText().trim().length()>0){
+            filter.put("ActionCrimes", ActionCrimes.getText().trim());
+        }
+        
+        String[] key = filter.keySet().toArray(new String[0]);
+        String result="";
+        for(int i=0;i<key.length;i++){
+            if(i==0){
+                result=" where ";
+            }
+            if(i==key.length-1){
+                result+= " "+key[i]+" LIKE '%"+filter.get(key[i])+"%'";
+            }else{
+                result+= " "+key[i]+" LIKE "+filter.get(key[i])+" and ";
+            }
+            System.out.println(result);
+        }
+        
+        return result;
+    }
     /**
      * @param args the command line arguments
      */
@@ -242,6 +323,7 @@ public class ActionList extends javax.swing.JFrame {
             }
         });
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ActionCode;
@@ -255,6 +337,6 @@ public class ActionList extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableAction;
     // End of variables declaration//GEN-END:variables
 }

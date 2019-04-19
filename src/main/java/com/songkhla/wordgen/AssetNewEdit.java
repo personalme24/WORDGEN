@@ -7,6 +7,8 @@ package com.songkhla.wordgen;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.json.simple.JSONObject;
@@ -20,17 +22,39 @@ public class AssetNewEdit extends javax.swing.JDialog {
      PreparedStatement pst=null;
        boolean isInsert;
         String caseid;
+   
     /**
      * Creates new form AssetNewEdit
      */
     public AssetNewEdit(JFrame parrent,JSONObject datain) {
         super(parrent,true);
         initComponents();
-             crimecaseno.setText(CrimesCaseEdit.crimecaseno.getText());
+          crimecaseno.setText(CrimesCaseEdit.crimecaseno.getText());
+        try { Connection con = ConnectDatabase.connect();
+            Statement stmt = con.createStatement();
+             int id=0;
+          String cc=crimecaseno.getText();   
+          String orderid="Select MAX(OrderAsset) FROM Asset where crimecaseno ='"+cc+"'";
+          System.out.print(orderid);
+            ResultSet rs = stmt.executeQuery(orderid);
+       
+            if(rs.next()){
+                id=rs.getInt(1);
+                System.out.println(id);
+            }
+            if(id==0){
+                id=1;
+            }
+            else
+            { id=id+1;}
+          
+        } catch (Exception e) {
+        }
+     
         if(datain!=null){
  
             crimecaseno.setText(datain.get("crimecaseno")+"");
-            EvidenceRecordNumber.setText(datain.get("EvidenceRecordNumber")+"");
+            OrderAsset.setText(datain.get("EvidenceRecordNumber")+"");
             Name.setText(datain.get("Name")+"");
             isInsert=false;
            
@@ -60,7 +84,6 @@ public class AssetNewEdit extends javax.swing.JDialog {
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        OrderAsset = new javax.swing.JTextField();
         Name = new javax.swing.JTextField();
         OccupantName = new javax.swing.JTextField();
         DateSequester = new javax.swing.JTextField();
@@ -72,9 +95,10 @@ public class AssetNewEdit extends javax.swing.JDialog {
         jButton1 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         PlaceFoundExhibit = new javax.swing.JTextField();
-        EvidenceRecordNumber = new javax.swing.JTextField();
+        OrderAsset = new javax.swing.JTextField();
         crimecaseno = new javax.swing.JLabel();
         jRecord = new javax.swing.JLabel();
+        EvidenceRecordNumber1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -131,8 +155,6 @@ public class AssetNewEdit extends javax.swing.JDialog {
         jLabel10.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel10.setText("สถานที่พบ");
 
-        OrderAsset.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-
         Name.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         OccupantName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
@@ -179,16 +201,23 @@ public class AssetNewEdit extends javax.swing.JDialog {
             }
         });
 
-        EvidenceRecordNumber.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        EvidenceRecordNumber.addActionListener(new java.awt.event.ActionListener() {
+        OrderAsset.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        OrderAsset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EvidenceRecordNumberActionPerformed(evt);
+                OrderAssetActionPerformed(evt);
             }
         });
 
         crimecaseno.setText("ccno");
 
         jRecord.setText("สมุดบัญชีเลขที่");
+
+        EvidenceRecordNumber1.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        EvidenceRecordNumber1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EvidenceRecordNumber1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -217,12 +246,10 @@ public class AssetNewEdit extends javax.swing.JDialog {
                                     .addComponent(Value, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(Amount, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(OrderAsset, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(OrderAsset, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jRecord)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(EvidenceRecordNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGap(79, 79, 79)
                                         .addComponent(crimecaseno)))
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -238,6 +265,11 @@ public class AssetNewEdit extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
                 .addGap(24, 24, 24))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap(276, Short.MAX_VALUE)
+                    .addComponent(EvidenceRecordNumber1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(241, 241, 241)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -249,7 +281,6 @@ public class AssetNewEdit extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(OrderAsset, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(EvidenceRecordNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(crimecaseno)
                     .addComponent(jRecord))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -289,6 +320,11 @@ public class AssetNewEdit extends javax.swing.JDialog {
                     .addComponent(Note, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
                 .addGap(44, 44, 44))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(10, 10, 10)
+                    .addComponent(EvidenceRecordNumber1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(363, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -327,16 +363,18 @@ public class AssetNewEdit extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
              con=ConnectDatabase.connect();
+               
+      
        
-        String sql="INSERT INTO Asset (EvidenceRecordNumber,Amount,DateSequester,DefectMark,PlaceFoundExhibit,Name,Note,OccupantName,OrderAsset,PointFoundCheck,Value,crimecaseno) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-        
-        String sqlUpdate="Update Asset set EvidenceRecordNumber=?,Amount=?,DateSequester=?,\n" +
-                                    "DefectMark=?,PlaceFoundExhibit=?,Name=?,Note=?,OccupantName=?,\n" +
-                                    "OrderAsset=?,PointFoundCheck=?,Value=?,crimecaseno=? where crimecaseno=? and EvidenceRecordNumber=? and name=?  ";
-    
-      try {
+
+        if (isInsert) {
+              String sql="INSERT INTO Asset (EvidenceRecordNumber,Amount,DateSequester,DefectMark,PlaceFoundExhibit,"
+                      + "Name,Note,OccupantName,OrderAsset,PointFoundCheck,Value,crimecaseno) "           
+                      + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+              
+               try {
             pst=con.prepareStatement(sql);
-                              pst.setString(1,EvidenceRecordNumber.getText());
+                              pst.setString(1,OrderAsset.getText());
                               pst.setString(2,Amount.getText());
                               pst.setString(3,DateSequester.getText());
                               pst.setString(4,DefectMark.getText());
@@ -348,9 +386,37 @@ public class AssetNewEdit extends javax.swing.JDialog {
                               pst.setString(10,PointFoundCheck.getText());
                               pst.setString(11,Value.getText());
                               pst.setString(12,crimecaseno.getText());
+
+                              pst.executeUpdate();
                               
-                              
-                              
+                             JOptionPane.showMessageDialog(null, "Data Saved successfully");
+                             pst.close();
+                        
+        } catch (Exception e) {
+             JOptionPane.showMessageDialog(null, e); 
+             System.out.println("SQL : "+pst);
+        }
+              
+        }
+      
+        else{
+        String sqlUpdate="Update Asset set EvidenceRecordNumber=?,Amount=?,DateSequester=?,\n" +
+                                    "DefectMark=?,PlaceFoundExhibit=?,Name=?,Note=?,OccupantName=?,\n" +
+                                    "OrderAsset=?,PointFoundCheck=?,Value=?,crimecaseno=? where crimecaseno=? and EvidenceRecordNumber=? and name=?  ";
+                 try {
+            pst=con.prepareStatement(sqlUpdate);
+                              pst.setString(1,OrderAsset.getText());
+                              pst.setString(2,Amount.getText());
+                              pst.setString(3,DateSequester.getText());
+                              pst.setString(4,DefectMark.getText());
+                              pst.setString(5,PlaceFoundExhibit.getText());
+                              pst.setString(6,Name.getText());
+                              pst.setString(7,Note.getText());
+                              pst.setString(8,OccupantName.getText());
+                              pst.setString(9,OrderAsset.getText());
+                              pst.setString(10,PointFoundCheck.getText());
+                              pst.setString(11,Value.getText());
+                              pst.setString(12,crimecaseno.getText());
                               pst.executeUpdate();
 
                              JOptionPane.showMessageDialog(null, "Data Saved successfully");
@@ -359,12 +425,20 @@ public class AssetNewEdit extends javax.swing.JDialog {
              JOptionPane.showMessageDialog(null, e); 
              System.out.println("SQL : "+pst);
         }
+        }
+     
+        setVisible(false);
+      
                 // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void EvidenceRecordNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EvidenceRecordNumberActionPerformed
+    private void OrderAssetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OrderAssetActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_EvidenceRecordNumberActionPerformed
+    }//GEN-LAST:event_OrderAssetActionPerformed
+
+    private void EvidenceRecordNumber1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EvidenceRecordNumber1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EvidenceRecordNumber1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -407,7 +481,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
     private javax.swing.JTextField Amount;
     private javax.swing.JTextField DateSequester;
     private javax.swing.JTextField DefectMark;
-    private javax.swing.JTextField EvidenceRecordNumber;
+    private javax.swing.JTextField EvidenceRecordNumber1;
     private javax.swing.JTextField Name;
     private javax.swing.JTextField Note;
     private javax.swing.JTextField OccupantName;

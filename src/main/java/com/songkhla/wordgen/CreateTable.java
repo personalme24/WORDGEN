@@ -22,7 +22,8 @@ public class CreateTable {
 	        
 	        // SQL statement for creating a new table
 	        String sqlPerson = "CREATE TABLE IF NOT EXISTS Person (\n"+
-	        "	DateIdentify	DATE	Primary Key,	\n"+
+                "	NoPerson	INTEGER	Primary Key AUTOINCREMENT,	\n"+        
+	        "	DateIdentify	DATE	,	\n"+
                 "	PeopleRegistrationID	VARCHAR(13)	,	\n"+
                 "	IssueDate	DATE	,	\n"+
                 "	ExpiredDate	DATE	,	\n"+
@@ -150,9 +151,10 @@ public class CreateTable {
                         "	AssetCode	VARCHAR(100)	,	\n"+
                         "	AssetList	VARCHAR(100)		\n"+
                          "	);";
-          String sqlAsset ="CREATE TABLE IF NOT EXISTS Asset (\n"+
-                "	EvidenceRecordNumber	VARCHAR(100)	Primary Key,	\n"+
-                "	OrderAsset	VARCHAR(100)	,	\n"+
+          String sqlAsset ="CREATE TABLE IF NOT EXISTS Asset (\n"+                 
+                "	NoAsset	INTEGER	Primary Key AUTOINCREMENT,	\n"+        
+                "	EvidenceRecordNumber	VARCHAR(100),	\n"+
+                "	OrderAsset	INTEGER	,	\n"+
                 "	Name	VARCHAR(100)	,	\n"+
                 "	Amount	VARCHAR(100)	,	\n"+
                 "	Value	VARCHAR(100)	,	\n"+
