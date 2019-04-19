@@ -21,20 +21,29 @@ public class MainMenu extends javax.swing.JFrame {
     /**
      * Creates new form MainMenu
      */
-     private String name;
+  
     public MainMenu() {
-        initComponents();
-       data();
-//         Data d=new Data();
-//    name=d.getPolicName();
-//        System.out.println("fgbbbbbb : "+name);
-//        UserName.setText(name); 
-       con=ConnectDatabase.connect();
-     
-        CreateTable.createNewTable();
-       
-    }
+        
+        initComponents();   
+        con=ConnectDatabase.connect();
+        CreateTable.createNewTable();      
+             String sql= "select * from Police";
+            Connection con = ConnectDatabase.connect();
+            try { 
+                Statement stmt = con.createStatement();
+                 ResultSet rs = stmt.executeQuery(sql);
+              if(rs.next()){
+                            
+                            String name=rs.getString("FirstName")+" "+rs.getString("LastName");
+                            Data.setPolicName(name);
+                
+            }
+             
+            } catch (Exception e) {
+            }
 
+    }
+	  
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -281,8 +290,6 @@ public class MainMenu extends javax.swing.JFrame {
 
         jLabel2.setText("ชื่อผู้ใช้");
 
-        UserName.setText("jLabel9");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -394,7 +401,7 @@ public class MainMenu extends javax.swing.JFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_jPanel10MouseClicked
 private void data() 
-{       String a;
+{      
             String sql= "select * from Police";
             Connection con = ConnectDatabase.connect();
           
@@ -402,14 +409,9 @@ private void data()
                 Statement stmt = con.createStatement();
                  ResultSet rs = stmt.executeQuery(sql);
               if(rs.next()){
-               
-                            UserName.setText(rs.getString("FirstName"));
-        
-                      
-                            Data d =new Data();
-                            a=rs.getString("FirstName");
-                            System.out.print(a);
-        d.setPolicName(a); 
+                  Data d=new Data();
+                  d.setPolicName(rs.getString("FirstName"));
+                UserName.setText(rs.getString("FirstName")+" "+rs.getString("LastName"));
                 
             }
              

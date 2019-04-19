@@ -256,8 +256,12 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
                     data.put("CrimeLocationAmphur", rs.getString("CrimeLocationAmphur"));
                     data.put("CrimeLocationProvince", rs.getString("CrimeLocationProvince"));
                      data.put("AccureandOther", rs.getString("AccureandOther"));
+                     data.put("SuspectandOther", rs.getString("SuspectandOther")); 
+                     data.put("WitnessandOther", rs.getString("WitnessandOther"));
+                     data.put("Investigator_Result", rs.getString("Investigator_Result"));
                      data.put("TypeCourt", rs.getString("TypeCourt"));
-                          data.put("PoliceNameCase", rs.getString("PoliceNameCase"));
+                    data.put("PoliceNameCase", rs.getString("PoliceNameCase"));
+                     data.put("AssetList", rs.getString("AssetList"));
                     CrimesCaseEdit cce =new CrimesCaseEdit(this,data);
                     cce.setVisible(true);
                 }

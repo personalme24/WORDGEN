@@ -10,13 +10,13 @@ package com.songkhla.wordgen;
  * @author DELL
  */
 public class Data {
-    private String policName;
+    private static String policName;
     
- public void setPolicName(String policName) {
-        this.policName = policName;
+ public static void setPolicName(String policNamea) {
+        policName = policNamea;
     }
 
-    public String getPolicName() {
+    public static String getPolicName() {
         return policName;
     }
 

@@ -297,6 +297,7 @@ public class ActionPage extends javax.swing.JDialog {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         ActionList actionList=new ActionList();
+        actionList.setModal(true);
         actionList.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -338,12 +339,12 @@ public class ActionPage extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField ActionCode;
-    private javax.swing.JTextField ActionCrimes;
-    private javax.swing.JTextArea ActionDetail;
-    private javax.swing.JTextArea ActionNote;
+    public static javax.swing.JTextField ActionCode;
+    public static javax.swing.JTextField ActionCrimes;
+    public static javax.swing.JTextArea ActionDetail;
+    public static javax.swing.JTextArea ActionNote;
     private javax.swing.JTextArea AnswerAccuser;
-    private javax.swing.JTextArea AnswerSuspect;
+    public static javax.swing.JTextArea AnswerSuspect;
     private javax.swing.JButton ButtonAddAction;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
