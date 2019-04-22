@@ -143,6 +143,12 @@ public class MainMenu extends javax.swing.JFrame {
             .addGap(0, 21, Short.MAX_VALUE)
         );
 
+        jPanel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel6MouseClicked(evt);
+            }
+        });
+
         jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 24)); // NOI18N
         jLabel1.setText("ชันสูตร");
 
@@ -163,6 +169,12 @@ public class MainMenu extends javax.swing.JFrame {
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
+        jPanel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel7MouseClicked(evt);
+            }
+        });
+
         jLabel7.setFont(new java.awt.Font("TH SarabunPSK", 1, 24)); // NOI18N
         jLabel7.setText("ข้อมูลบุคคล");
 
@@ -182,6 +194,12 @@ public class MainMenu extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addContainerGap(34, Short.MAX_VALUE))
         );
+
+        jPanel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel5MouseClicked(evt);
+            }
+        });
 
         jLabel12.setFont(new java.awt.Font("TH SarabunPSK", 1, 24)); // NOI18N
         jLabel12.setText("แบบฟอร์ม");
@@ -230,6 +248,11 @@ public class MainMenu extends javax.swing.JFrame {
         );
 
         jPanel9.setPreferredSize(new java.awt.Dimension(174, 86));
+        jPanel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel9MouseClicked(evt);
+            }
+        });
 
         jLabel13.setFont(new java.awt.Font("TH SarabunPSK", 1, 24)); // NOI18N
         jLabel13.setText("ข้อมูลสถานีตำรวจ");
@@ -244,7 +267,7 @@ public class MainMenu extends javax.swing.JFrame {
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addContainerGap(45, Short.MAX_VALUE)
+                .addContainerGap(43, Short.MAX_VALUE)
                 .addComponent(jLabel13)
                 .addContainerGap())
         );
@@ -276,7 +299,7 @@ public class MainMenu extends javax.swing.JFrame {
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                .addContainerGap(100, Short.MAX_VALUE)
+                .addContainerGap(98, Short.MAX_VALUE)
                 .addComponent(jLabel14)
                 .addContainerGap())
         );
@@ -400,6 +423,30 @@ public class MainMenu extends javax.swing.JFrame {
                pf.setVisible(true);
 // TODO add your handling code here:
     }//GEN-LAST:event_jPanel10MouseClicked
+
+    private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
+        // TODO add your handling code here:
+        IdentityView idt = new IdentityView();
+        idt.setVisible(true);
+    }//GEN-LAST:event_jPanel6MouseClicked
+
+    private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
+        // TODO add your handling code here:
+        PersonFrom ps = new PersonFrom();
+        ps.setVisible(true);
+    }//GEN-LAST:event_jPanel7MouseClicked
+
+    private void jPanel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseClicked
+        // TODO add your handling code here:
+        ReportAllForm raf = new ReportAllForm();
+        raf.setVisible(true);
+    }//GEN-LAST:event_jPanel5MouseClicked
+
+    private void jPanel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel9MouseClicked
+        // TODO add your handling code here:
+        StationForm sf = new StationForm();
+        sf.setVisible(true);
+    }//GEN-LAST:event_jPanel9MouseClicked
 private void data() 
 {      
             String sql= "select * from Police";
