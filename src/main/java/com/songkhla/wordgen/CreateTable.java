@@ -215,7 +215,7 @@ public class CreateTable {
                     "	Note	VARCHAR(100)		\n"+
                          "	);";      
            
-            String sqlAction ="CREATE TABLE IF NOT EXISTS Action (\n"+
+            String sqlAction ="CREATE TABLE IF NOT EXISTS ActionsCase (\n"+
                     "	ActionCode	VARCHAR(100)	Primary Key,	\n"+
                     "	ActionCrimes	VARCHAR(100)	,	\n"+
                     "	ActionDetail	VARCHAR(100)	,	\n"+
@@ -241,6 +241,7 @@ public class CreateTable {
 	        } catch (SQLException e) {
 	            System.out.println(e.getMessage());
 	        }
+                
 	    }
 	 
 	    /**

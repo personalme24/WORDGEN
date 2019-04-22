@@ -41,10 +41,21 @@ public class W5 {
             Connection conn=null;
             conn=ConnectDatabase.connect();
             PreparedStatement pst=null;
-            
+            String ccYear;
             try {
 //                String ch;
-                   String sql="SELECT * from CrimeCase Where crimecaseno = '"+cc+"'";
+//                   String sql="SELECT * from CrimeCase Where crimecaseno = '"+cc+"'";
+                   String sql="select crimecase.*,Charge.*,P1.*,P2.*\n" +
+                                "from crimecase inner join(\n" +
+                              "SELECT  min(Person.NoPerson),Person.FullNamePerson AccuredName,Person.Age AgeAccured FROM Person where Person.TypePerson='ผู้กล่าวหา'\n" +
+                              ")P1\n" +
+                              "inner join(\n" +
+                                "SELECT min(Person.NoPerson),Person.FullNamePerson suspectName FROM Person where Person.TypePerson='ผู้ต้องหา'\n" +
+                                ")P2\n" +
+                                "left join Charge on crimecase.ChargeCodeCase=Charge.ChargeCode\n" +
+                                "left join Person on crimecase.crimecaseno=Person.crimecaseno\n" +
+                                "where crimecase.crimecaseno='"+cc+"'\n"+
+                                "group by crimecase.crimecaseno";
 //                   pst=conn.prepareStatement(sql);
 //           pst=PreparedStatement(sql);
                 Statement st = conn.createStatement();
@@ -52,11 +63,36 @@ public class W5 {
                 System.out.println(sql);
             while((s!=null) && (s.next()))
             {  String  cs =s.getString("crimecaseno");
+            ccYear=s.getString("crimecaseyears");
 //                System.out.print("ข้อหา :: "+s.getString("ChargeCode"));
 //                System.out.print(" - ");
                  JSONObject bookmarkvalue = new JSONObject();
+//                 bookmarkvalue.put("C1","Date");
+//                 bookmarkvalue.put("S27","-");
 		bookmarkvalue.put("C2",cs);
-//                bookmarkvalue.put("C3", s.getString("crimecaseyears"));
+                bookmarkvalue.put("C3", ccYear);
+//                 bookmarkvalue.put("S2", "สถานีตำรวจ");
+//                  bookmarkvalue.put("S5", "เขต/แขวง");
+//                   bookmarkvalue.put("S6", " ");
+                 bookmarkvalue.put("PA7",s.getString("AccureandOther"));
+                  bookmarkvalue.put("PA13", s.getString("AgeAccured"));
+//                   bookmarkvalue.put("P14", "-");
+//                    bookmarkvalue.put("PA15", "-"); 
+//                     bookmarkvalue.put("P15", "-"); 
+//                    bookmarkvalue.put("PA75", "-"); 
+//                    bookmarkvalue.put("PS7", "-"); 
+//                    bookmarkvalue.put("PS13", "-");
+//                     bookmarkvalue.put("PA14", "-");
+//                         bookmarkvalue.put("PS15", "-");
+//                      bookmarkvalue.put("B2", "-");
+//                       bookmarkvalue.put("C4", "-");
+//                        bookmarkvalue.put("C8", "-");
+//                         bookmarkvalue.put("C5", "-");
+                    
+                    
+                    
+                    
+                 
 //		bookmarkvalue.put("P7", s.getString("AccureandOther"));
 //                bookmarkvalue.put("P13", s.getString("AccureandOther"));
 //		bookmarkvalue.put("test01", "พ.ต.อ.");
@@ -67,14 +103,14 @@ public class W5 {
     
 			JSONArray tablecolumn = new JSONArray();
 			tablecolumn.add("C2");
-//			tablecolumn.add("DESCRIPTION");
+			tablecolumn.add("C3");
 //			tablecolumn.add("SUSPECT");
 //			tablecolumn.add("VICTIM");
 //			tablecolumn.add("REMARK");
 			JSONArray table1 = new JSONArray();
 			JSONObject row1 = new JSONObject();
 			row1.put("C2",cs);
-//			row1.put("DESCRIPTION", "desc1");
+			row1.put("C3", ccYear);
 //			row1.put("SUSPECT", "period1");
 //			row1.put("VICTIM", "period1");
 //			row1.put("REMARK", "period1");
@@ -98,11 +134,12 @@ public class W5 {
 		
 		
 		try {
+                  
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("D:/W5.docx"));
+					.load(new java.io.File("D:/TEMPLATE/W5.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D://รายงานการสอบสวน.doc"));
+			wordMLPackage.save(new java.io.File("D:/เอกสารสำนวนคดี "+cc+"/คำบันทึกให้การผู้กล่าวหา "+cc+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -194,6 +231,7 @@ public class W5 {
 		}
 		return result;
 	}
+        
 	private static void replaceTable(JSONArray placeholders, JSONArray data,
 			WordprocessingMLPackage template) throws Docx4JException, JAXBException {
 		List<Object> tables = getAllElementFromObject(template.getMainDocumentPart(), Tbl.class);

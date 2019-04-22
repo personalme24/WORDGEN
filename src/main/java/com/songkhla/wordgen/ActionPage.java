@@ -9,6 +9,7 @@ import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.json.simple.JSONObject;
@@ -56,12 +57,12 @@ public class ActionPage extends javax.swing.JDialog {
         ActionCrimes = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        ActionCode = new javax.swing.JTextField();
         ButtonAddAction = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         ActionNote = new javax.swing.JTextArea();
         jLabel7 = new javax.swing.JLabel();
+        ActionCode = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("ข้อมูลข้อหา");
@@ -119,13 +120,6 @@ public class ActionPage extends javax.swing.JDialog {
         jLabel5.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel5.setText("รหัสพฤติการณ์");
 
-        ActionCode.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        ActionCode.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ActionCodeActionPerformed(evt);
-            }
-        });
-
         ButtonAddAction.setBackground(java.awt.SystemColor.windowText);
         ButtonAddAction.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         ButtonAddAction.setForeground(new java.awt.Color(255, 255, 255));
@@ -156,6 +150,8 @@ public class ActionPage extends javax.swing.JDialog {
         jLabel7.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel7.setText("คำให้การฝ่ายผู้ต้องหา");
 
+        ActionCode.setText("actioncode");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -176,7 +172,7 @@ public class ActionPage extends javax.swing.JDialog {
                                 .addGroup(jPanel2Layout.createSequentialGroup()
                                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(ActionCode, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(ActionCode)))
                             .addGap(18, 18, 18)
                             .addComponent(jButton2))
                         .addGroup(jPanel2Layout.createSequentialGroup()
@@ -193,11 +189,11 @@ public class ActionPage extends javax.swing.JDialog {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(14, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(ActionCode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(9, 9, 9)
+                    .addComponent(ActionCode))
+                .addGap(12, 12, 12)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(ActionCrimes)
@@ -291,14 +287,13 @@ public class ActionPage extends javax.swing.JDialog {
         setVisible(false);
     }//GEN-LAST:event_ButtonAddActionActionPerformed
 
-    private void ActionCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActionCodeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ActionCodeActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        ActionList actionList=new ActionList();
-        actionList.setModal(true);
-        actionList.setVisible(true);
+        JFrame frame = new JFrame();
+             JDialog dialog = new JDialog(frame);//frame is owner
+             JFrame f = (JFrame)(dialog.getParent());               
+             f.removeAll();
+                   ActionList d = new ActionList(f);
+                    d.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -339,7 +334,7 @@ public class ActionPage extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JTextField ActionCode;
+    public static javax.swing.JLabel ActionCode;
     public static javax.swing.JTextField ActionCrimes;
     public static javax.swing.JTextArea ActionDetail;
     public static javax.swing.JTextArea ActionNote;

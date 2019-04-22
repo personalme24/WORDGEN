@@ -38,6 +38,7 @@ public class AccusedForm extends javax.swing.JDialog {
             
             isInsert=false;
             crimecaseno.setText(datain.get("crimecaseno")+"");
+            PeopleRegistrationID.setText(datain.get("PeopleRegistrationID")+"");
             FullNamePerson.setText(datain.get("FullNamePerson")+"");
             
             

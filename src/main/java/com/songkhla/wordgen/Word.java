@@ -6,6 +6,7 @@
 package com.songkhla.wordgen;
 
 import com.songkhla.document.W5;
+import java.io.File;
 import javax.swing.JOptionPane;
 
 /**
@@ -186,11 +187,14 @@ public class Word extends javax.swing.JDialog {
     }//GEN-LAST:event_jCheckBox12ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String no=crimecaseno.getText();
+          String no=crimecaseno.getText();
+        File f3=new File("D:/เอกสารสำนวนคดี "+no);
+        f3.mkdir();
+        System.out.print("folder created");
         if(jCheckW5.isSelected()){
             W5.w5(no);
         }
-//        JOptionPane.showMessageDialog(null, "Export successfully");
+        JOptionPane.showMessageDialog(null, "Export successfully");
 // TODO add your handling code here:
         
     }//GEN-LAST:event_jButton1ActionPerformed
