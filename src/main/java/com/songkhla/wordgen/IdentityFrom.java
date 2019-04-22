@@ -9,12 +9,12 @@ package com.songkhla.wordgen;
  *
  * @author Petpilin
  */
-public class IdentifyFrom extends javax.swing.JFrame {
+public class IdentityFrom extends javax.swing.JFrame {
 
     /**
      * Creates new form IdentifyFrom
      */
-    public IdentifyFrom() {
+    public IdentityFrom() {
         initComponents();
     }
 
@@ -953,20 +953,21 @@ public class IdentifyFrom extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(IdentifyFrom.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IdentityFrom.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(IdentifyFrom.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IdentityFrom.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(IdentifyFrom.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IdentityFrom.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(IdentifyFrom.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IdentityFrom.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new IdentifyFrom().setVisible(true);
+                new IdentityFrom().setVisible(true);
             }
         });
     }
