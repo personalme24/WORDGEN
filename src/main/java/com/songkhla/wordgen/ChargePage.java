@@ -23,23 +23,26 @@ import org.json.simple.JSONObject;
  * @author Matazz
  */
 public class ChargePage extends javax.swing.JDialog {
-   Connection con=null;
-    PreparedStatement pst=null;;
+ 
+    Connection con=null;
+    PreparedStatement pst=null;
     boolean isInsert;
-    String caseid;
+    
     /**
      * Creates new form ChangPage
      */
      
     public ChargePage(JFrame parrent,JSONObject datain) {
-        super(parrent,true);
+        //super(parrent,true);
         initComponents();
             if(datain!=null){
 //            caseid= "" + datain.get("CaseId"); 
             ChargeCode.setText(datain.get("ChargeCode")+"");
             ChargeName.setText(datain.get("ChargeName")+"");
              Law.setText(datain.get("Law")+"");
-            
+              RateOfPenalty.setText(datain.get("RateOfPenalty")+"");
+             Note.setText(datain.get("Note")+"");
+                 
            isInsert=false;
            
         }else{
@@ -317,15 +320,9 @@ public class ChargePage extends javax.swing.JDialog {
     }//GEN-LAST:event_ChargeCodeActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
-             JFrame frame = new JFrame();
-             JDialog dialog = new JDialog(frame);//frame is owner
-             JFrame f = (JFrame)(dialog.getParent());               
-             f.removeAll();
-                   ChargeOverView d = new ChargeOverView(f,null);
-                   
-                    d.setVisible(true);
-
+       ChargeOverView coList=new ChargeOverView();
+        coList.setModal(true);
+        coList.setVisible(true);
              
          
               //  rs.close();
@@ -377,9 +374,9 @@ public class ChargePage extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JTextField ChargeCode;
     public static javax.swing.JTextField ChargeName;
-    private javax.swing.JTextArea Law;
-    private javax.swing.JTextArea Note;
-    private javax.swing.JTextArea RateOfPenalty;
+    public static javax.swing.JTextArea Law;
+    public static javax.swing.JTextArea Note;
+    public static javax.swing.JTextArea RateOfPenalty;
     private javax.swing.JLabel caseno;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonSaveCharge;

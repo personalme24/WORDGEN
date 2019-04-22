@@ -22,17 +22,17 @@ import org.json.simple.JSONObject;
 public class ChargeOverView extends javax.swing.JDialog {
     
   
-    boolean isInsert;
+    Connection con=null;
+    PreparedStatement pst=null;
  
     /**
      * Creates new form ChargeList
      */
     
     // boolean isInsert;
-    public ChargeOverView(JFrame parrent,JSONObject datain) {
-        super(parrent,true);
+    public ChargeOverView() {
+      
         initComponents();
-    
         RefreshData();
     }
 
@@ -154,6 +154,11 @@ public class ChargeOverView extends javax.swing.JDialog {
         jTable1.setRowHeight(25);
         jTable1.setSelectionBackground(new java.awt.Color(77, 0, 0));
         jTable1.getTableHeader().setReorderingAllowed(false);
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -256,6 +261,16 @@ public class ChargeOverView extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+         int number=jTable1.getSelectedRow();
+        ChargePage.ChargeCode.setText(jTable1.getValueAt(number, 0).toString());
+        ChargePage.ChargeName.setText(jTable1.getValueAt(number, 1).toString());
+        ChargePage.Law.setText(jTable1.getValueAt(number, 2).toString());
+        ChargePage.RateOfPenalty.setText(jTable1.getValueAt(number, 3).toString());
+         ChargePage.Note.setText(jTable1.getValueAt(number, 3).toString());
+    }//GEN-LAST:event_jTable1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -340,6 +355,6 @@ public class ChargeOverView extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    public static javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

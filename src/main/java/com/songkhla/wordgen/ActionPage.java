@@ -27,7 +27,6 @@ public class ActionPage extends javax.swing.JDialog {
     public ActionPage() {
 //        super(parrent,true);
         initComponents();         
-     
         con=ConnectDatabase.connect();
 
     }
