@@ -836,7 +836,7 @@ public class IdentityFrom extends javax.swing.JFrame {
 
     private void jButtonActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActionActionPerformed
         // TODO add your handling code here:
-        ActionPage ap =new ActionPage();
+        ActionPage ap =new ActionPage(this,null);
         ap.setVisible(true);
 
     }//GEN-LAST:event_jButtonActionActionPerformed

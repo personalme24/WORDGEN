@@ -5,6 +5,11 @@
  */
 package com.songkhla.wordgen;
 
+import static com.songkhla.wordgen.ChargePage.ChargeCode;
+import static com.songkhla.wordgen.ChargePage.ChargeName;
+import static com.songkhla.wordgen.ChargePage.Law;
+import static com.songkhla.wordgen.ChargePage.Note;
+import static com.songkhla.wordgen.ChargePage.RateOfPenalty;
 import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.sql.Connection;
@@ -25,11 +30,21 @@ public class ActionPage extends javax.swing.JDialog {
     /**
      * Creates new form ChangPage
      */
-    public ActionPage() {
-//        super(parrent,true);
+//    String chargeNo; 
+    public ActionPage(JFrame parrent,JSONObject datain) {
+        super(parrent,true);
         initComponents();         
         con=ConnectDatabase.connect();
+                    if(datain!=null){
+//            caseid= "" + datain.get("CaseId"); 
+//            chargeNo=datain.get("ActionCode")+"";
+            ActionCode.setText(datain.get("ActionCode")+"");
+            ActionCrimes.setText(datain.get("ActionCrimes")+"");
+             ActionDetail.setText(datain.get("ActionDetail")+"");
+              ActionNote.setText(datain.get("ActionNote")+"");
 
+
+    }
     }
 
     /**
@@ -44,11 +59,6 @@ public class ActionPage extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        AnswerSuspect = new javax.swing.JTextArea();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        AnswerAccuser = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         ActionDetail = new javax.swing.JTextArea();
@@ -60,8 +70,7 @@ public class ActionPage extends javax.swing.JDialog {
         jButton2 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         ActionNote = new javax.swing.JTextArea();
-        jLabel7 = new javax.swing.JLabel();
-        ActionCode = new javax.swing.JLabel();
+        ActionCode = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("ข้อมูลข้อหา");
@@ -78,21 +87,6 @@ public class ActionPage extends javax.swing.JDialog {
         jLabel6.setText("พฤติการณ์คดี");
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-
-        AnswerSuspect.setColumns(20);
-        AnswerSuspect.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        AnswerSuspect.setLineWrap(true);
-        AnswerSuspect.setRows(3);
-        jScrollPane1.setViewportView(AnswerSuspect);
-
-        AnswerAccuser.setColumns(20);
-        AnswerAccuser.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        AnswerAccuser.setLineWrap(true);
-        AnswerAccuser.setRows(3);
-        jScrollPane5.setViewportView(AnswerAccuser);
-
-        jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel1.setText("คำให้การผู้กล่าวหา");
 
         jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel3.setText("หมายเหตุ");
@@ -146,52 +140,41 @@ public class ActionPage extends javax.swing.JDialog {
         ActionNote.setRows(3);
         jScrollPane2.setViewportView(ActionNote);
 
-        jLabel7.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel7.setText("คำให้การฝ่ายผู้ต้องหา");
-
-        ActionCode.setText("actioncode");
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(38, 38, 38)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane4)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel1)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel2)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(11, 11, 11)
-                                    .addComponent(ActionCrimes, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(ActionCode)))
-                            .addGap(18, 18, 18)
-                            .addComponent(jButton2))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jScrollPane1)
-                                .addComponent(jScrollPane2)
-                                .addComponent(jScrollPane4)))
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 635, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(ButtonAddAction, javax.swing.GroupLayout.Alignment.TRAILING))
-                    .addComponent(jLabel7))
-                .addContainerGap(60, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jScrollPane2)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ButtonAddAction, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(11, 11, 11)
+                                        .addComponent(ActionCrimes, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(ActionCode, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton2)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(ActionCode))
+                    .addComponent(ActionCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -201,21 +184,13 @@ public class ActionPage extends javax.swing.JDialog {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(ButtonAddAction, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7))
+                .addGap(238, 238, 238))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -237,8 +212,8 @@ public class ActionPage extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(183, 183, 183))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -249,9 +224,9 @@ public class ActionPage extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 202, Short.MAX_VALUE))
         );
 
         pack();
@@ -263,7 +238,7 @@ public class ActionPage extends javax.swing.JDialog {
 
     private void ButtonAddActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAddActionActionPerformed
         // TODO add your handling code here: 
-        String intAc="insert into Action(ActionCode,ActionCrimes,ActionDetail,ActionNote) values(?,?,?,?) ";
+        String intAc="INSERT into ActionsCase(ActionCode,ActionCrimes,ActionDetail,ActionNote) values(?,?,?,?) ";
 //          String intCr="insert into CrimesCase(AnswerSuspect,AnswerAccuse) values(?,?) ";
         try {
            
@@ -274,8 +249,9 @@ public class ActionPage extends javax.swing.JDialog {
            pst.setString(4, ActionNote.getText());
             
            pst.execute();
-           
+           System.out.println("SQLLLLL : "+intAc);
            pst.close();
+           
            JOptionPane.showMessageDialog(null, "Data Saved successfully");
         } catch (Exception e) {
           JOptionPane.showMessageDialog(null, "Cannot Saved successfully");
@@ -333,26 +309,20 @@ public class ActionPage extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JLabel ActionCode;
+    public static javax.swing.JTextField ActionCode;
     public static javax.swing.JTextField ActionCrimes;
     public static javax.swing.JTextArea ActionDetail;
     public static javax.swing.JTextArea ActionNote;
-    private javax.swing.JTextArea AnswerAccuser;
-    public static javax.swing.JTextArea AnswerSuspect;
     private javax.swing.JButton ButtonAddAction;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
     // End of variables declaration//GEN-END:variables
 }

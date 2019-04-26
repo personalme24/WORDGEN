@@ -6,7 +6,9 @@
 package com.songkhla.wordgen;
 
 import com.songkhla.wordgen.*;
+import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseid;
 import static com.songkhla.wordgen.CrimesCaseEdit.jTextAccused;
+import static com.songkhla.wordgen.ListWitness.jTableAccure;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -15,7 +17,6 @@ import java.util.Vector;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import org.json.simple.JSONObject;
-import static com.songkhla.wordgen.ListWitness.jTableSuspect;
 
 /**
  *
@@ -26,14 +27,15 @@ public class ListWitness extends javax.swing.JDialog {
     /**
      * Creates new form ListAccused
      */
-   
+Connection con=null;
     public ListWitness() {
-        initComponents();
-         
-        txtCaseNO.setText(CrimesCaseEdit.crimecaseno.getText());
+        
+        initComponents();  
+       
+        txtCaseNO.setText(CrimesCaseEdit.crimecaseid.getText());
          RefreshData();
       
-
+       
     }
 
     /**
@@ -47,7 +49,7 @@ public class ListWitness extends javax.swing.JDialog {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableSuspect = new javax.swing.JTable();
+        jTableAccure = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButtonDeleteAccured = new javax.swing.JButton();
@@ -58,8 +60,8 @@ public class ListWitness extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
 
-        jTableSuspect.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jTableSuspect.setModel(new javax.swing.table.DefaultTableModel(
+        jTableAccure.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        jTableAccure.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -67,11 +69,11 @@ public class ListWitness extends javax.swing.JDialog {
                 "ชื่อ-นามสกุล", "เลขบัตรประชน", "เลขคดี"
             }
         ));
-        jTableSuspect.setGridColor(new java.awt.Color(255, 255, 255));
-        jTableSuspect.setRowHeight(25);
-        jTableSuspect.setRowMargin(2);
-        jTableSuspect.setSelectionBackground(new java.awt.Color(77, 0, 0));
-        jScrollPane1.setViewportView(jTableSuspect);
+        jTableAccure.setGridColor(new java.awt.Color(255, 255, 255));
+        jTableAccure.setRowHeight(25);
+        jTableAccure.setRowMargin(2);
+        jTableAccure.setSelectionBackground(new java.awt.Color(77, 0, 0));
+        jScrollPane1.setViewportView(jTableAccure);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -94,7 +96,7 @@ public class ListWitness extends javax.swing.JDialog {
 
         jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("ข้อมูลพยานและบุคคลอื่น");
+        jLabel1.setText("ข้อมูลพยานและบุคคลอื่นๆ");
 
         jButtonDeleteAccured.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         jButtonDeleteAccured.setText("ลบ");
@@ -113,7 +115,7 @@ public class ListWitness extends javax.swing.JDialog {
         });
 
         txtCaseNO.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        txtCaseNO.setText("เลขคดี");
+        txtCaseNO.setText("No");
 
         jButtonAddAccused.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         jButtonAddAccused.setText("เพิ่ม");
@@ -179,8 +181,9 @@ public class ListWitness extends javax.swing.JDialog {
 
     private void jButtonAddAccusedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddAccusedActionPerformed
         // TODO add your handling code here:
-        WitnessForm sf=new WitnessForm(null,null);
-        sf.setVisible(true);
+        WitnessForm wf=new WitnessForm(null,null);
+//        accusedF.setModal(true);
+        wf.setVisible(true);
         RefreshData();
        
     }//GEN-LAST:event_jButtonAddAccusedActionPerformed
@@ -191,20 +194,21 @@ public class ListWitness extends javax.swing.JDialog {
              JFrame f = (JFrame)(dialog.getParent());               
              f.removeAll();
           String crimecaseno = txtCaseNO.getText();
-        if(jTableSuspect.getSelectedRow()>=0){
+        if(jTableAccure.getSelectedRow()>=0){
            
             try{
-                String PeopleRegistrationID = jTableSuspect.getModel().getValueAt(jTableSuspect.getSelectedRow(), 0)+"";            
+                String PeopleRegistrationID = jTableAccure.getModel().getValueAt(jTableAccure.getSelectedRow(), 0)+"";            
                 String sql = "select Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,Weight,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                        "PhonePerson,Province,Race,Religion,Tambon,TypePerson,ZipCode,crimecaseno from person where PeopleRegistrationID='"+PeopleRegistrationID+ "' and  crimecaseno='"+crimecaseno+"'";
+                        "PhonePerson,Province,Race,Religion,Tambon,TypePerson,ZipCode,caseIdPerson from person where PeopleRegistrationID='"+PeopleRegistrationID+ "' and caseIdPerson='"+crimecaseno+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);
+//                System.out.println("dddddddddddddd:"+sql);
                 if(rs.next()){
                     JSONObject data = new JSONObject();
                     data.put("PeopleRegistrationID", rs.getString("PeopleRegistrationID"));
-                    data.put("crimecaseno", rs.getString("crimecaseno"));
+                    data.put("crimecaseno", rs.getString("caseIdPerson"));
                     data.put("Age", rs.getString("Age"));
                     data.put("Amphur", rs.getString("Amphur"));
                     data.put("BirthDay", rs.getString("BirthDay"));
@@ -228,8 +232,8 @@ public class ListWitness extends javax.swing.JDialog {
                     data.put("Race", rs.getString("Race"));
                     data.put("Religion", rs.getString("Religion"));
                     data.put("Tambon", rs.getString("Tambon"));
-                            WitnessForm witF=new WitnessForm(f,data);
-                            witF.setVisible(true);    		
+                            AccusedForm accusedF=new AccusedForm(f,data);
+                            accusedF.setVisible(true);    		
                 }
                 
                 rs.close();
@@ -249,12 +253,12 @@ public class ListWitness extends javax.swing.JDialog {
     }//GEN-LAST:event_jButtonEditAccuredActionPerformed
 
     private void jButtonDeleteAccuredActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteAccuredActionPerformed
-              if(jTableSuspect.getSelectedRow()>=0){
+              if(jTableAccure.getSelectedRow()>=0){
                   
             try{
-                String crimecaseno = jTableSuspect.getModel().getValueAt(jTableSuspect.getSelectedRow(), 0)+"";
-                String PeopleRegistrationID = jTableSuspect.getModel().getValueAt(jTableSuspect.getSelectedRow(), 2)+"";
-                String sql = "Delete from person WHERE PeopleRegistrationID='"+PeopleRegistrationID+ "'and  crimecaseno='"+crimecaseno+"'";
+                String crimecaseno = jTableAccure.getModel().getValueAt(jTableAccure.getSelectedRow(), 0)+"";
+                String PeopleRegistrationID = jTableAccure.getModel().getValueAt(jTableAccure.getSelectedRow(), 2)+"";
+                String sql = "Delete from person WHERE PeopleRegistrationID='"+PeopleRegistrationID+ "' and  caseIdPerson='"+crimecaseno+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 stmt.executeUpdate(sql);
@@ -296,8 +300,6 @@ public class ListWitness extends javax.swing.JDialog {
         }
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -316,9 +318,10 @@ public class ListWitness extends javax.swing.JDialog {
         String a=txtCaseNO.getText();
         String sql = "select Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                      "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                     "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,crimecaseno from person where TypePerson='พยาน' and crimecaseno="+a+getFilterCondition();
+                     "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,caseIdPerson from person where TypePerson='พยานและบุคคลอื่นๆ' and caseIdPerson="+a+getFilterCondition();
       
         ResultSet rs = stmt.executeQuery(sql);
+          System.out.println("SQL : "+sql);
         Vector<Vector> tabledata = new Vector<Vector>();
         while(rs.next()){
             Vector<String> row = new Vector<String>();
@@ -339,9 +342,9 @@ public class ListWitness extends javax.swing.JDialog {
         ColumnName.add("เชื้อชาติ");
         ColumnName.add("สัญชาติ");
         ColumnName.add("ศาสนา");
-       
+         System.out.println("SQL : "+sql);
      
-        jTableSuspect.setModel(new javax.swing.table.DefaultTableModel(
+        jTableAccure.setModel(new javax.swing.table.DefaultTableModel(
             tabledata,
             ColumnName
         ) {
@@ -354,13 +357,13 @@ public class ListWitness extends javax.swing.JDialog {
             }
         });
                              System.out.println("SQL : "+sql);
-       
-            if(jTableSuspect.getRowCount()>1){
+        
+            if(jTableAccure.getRowCount()==1){
 //             int rows = jTableAccure.getRowCount();
-          CrimesCaseEdit.jTextWitness.setText(jTableSuspect.getValueAt(0, 1).toString()+"และคนอื่นๆ");
+            CrimesCaseEdit.jTextAccused.setText(jTableAccure.getValueAt(0, 1).toString());      
             }
-            else {
-                CrimesCaseEdit.jTextWitness.setText(jTableSuspect.getValueAt(0, 1).toString());   
+            if(jTableAccure.getRowCount()>1){
+                   CrimesCaseEdit.jTextAccused.setText(jTableAccure.getValueAt(0, 1).toString()+"และคนอื่นๆ");
                 
             }
     
@@ -373,7 +376,7 @@ public class ListWitness extends javax.swing.JDialog {
       private String getFilterCondition(){
         HashMap<String,String> filter = new HashMap<String,String>();
         if(txtCaseNO.getText().trim().length()>0){
-            filter.put("crimecaseno", txtCaseNO.getText().trim());
+            filter.put("caseIdPerson", txtCaseNO.getText().trim());
         }
         
         String[] key = filter.keySet().toArray(new String[0]);
@@ -385,14 +388,40 @@ public class ListWitness extends javax.swing.JDialog {
             if(i==key.length-1){
                 result+= " "+key[i]+" LIKE '%"+filter.get(key[i])+"%'";
             }else{
-                result+= " "+key[i]+" LIKE "+filter.get(key[i])+" and TypePerson='พยาน' ";
+                result+= " "+key[i]+" LIKE "+filter.get(key[i])+" and TypePerson='ผู้กล่าวหา' ";
             }
             System.out.println(result);
         }
         
         return result;
     }
+      public static String IdCase(){
+         Connection c=null;
+         c=ConnectDatabase.connect();
+            String sqlId="Select max(CaseId) caseid from CrimeCase";
+        int id=0;
+        try {
+            Statement s=c.createStatement();
+            ResultSet rs=s.executeQuery(sqlId);
+            
+            if (rs.next()) {
+                id=rs.getInt("caseid"); 
+            }
+            
+            if(id==0){
+                id=1;
+            }
+            else{
+                id=id+1;
+            }
+             return String.valueOf(id);
+        
+        } catch (Exception e) {
+            return null;
+//            System.out.println(e);
+        } 
     
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAddAccused;
@@ -402,7 +431,7 @@ public class ListWitness extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    public static javax.swing.JTable jTableSuspect;
+    public static javax.swing.JTable jTableAccure;
     private javax.swing.JLabel txtCaseNO;
     // End of variables declaration//GEN-END:variables
 }

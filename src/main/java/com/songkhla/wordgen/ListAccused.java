@@ -6,6 +6,7 @@
 package com.songkhla.wordgen;
 
 import com.songkhla.wordgen.*;
+import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseid;
 import static com.songkhla.wordgen.CrimesCaseEdit.jTextAccused;
 import static com.songkhla.wordgen.ListAccused.jTableAccure;
 import java.sql.Connection;
@@ -26,14 +27,15 @@ public class ListAccused extends javax.swing.JDialog {
     /**
      * Creates new form ListAccused
      */
-   
+Connection con=null;
     public ListAccused() {
-        initComponents();
-         
-        txtCaseNO.setText(CrimesCaseEdit.crimecaseno.getText());
+        
+        initComponents();  
+       
+        txtCaseNO.setText(CrimesCaseEdit.crimecaseid.getText());
          RefreshData();
       
-
+       
     }
 
     /**
@@ -113,7 +115,7 @@ public class ListAccused extends javax.swing.JDialog {
         });
 
         txtCaseNO.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        txtCaseNO.setText("เลขคดี");
+        txtCaseNO.setText("No");
 
         jButtonAddAccused.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         jButtonAddAccused.setText("เพิ่ม");
@@ -198,15 +200,15 @@ public class ListAccused extends javax.swing.JDialog {
                 String PeopleRegistrationID = jTableAccure.getModel().getValueAt(jTableAccure.getSelectedRow(), 0)+"";            
                 String sql = "select Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,Weight,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                        "PhonePerson,Province,Race,Religion,Tambon,TypePerson,ZipCode,crimecaseno from person where PeopleRegistrationID='"+PeopleRegistrationID+ "' and crimecaseno='"+crimecaseno+"'";
+                        "PhonePerson,Province,Race,Religion,Tambon,TypePerson,ZipCode,caseIdPerson from person where PeopleRegistrationID='"+PeopleRegistrationID+ "' and caseIdPerson='"+crimecaseno+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);
-                System.out.println("dddddddddddddd:"+sql);
+//                System.out.println("dddddddddddddd:"+sql);
                 if(rs.next()){
                     JSONObject data = new JSONObject();
                     data.put("PeopleRegistrationID", rs.getString("PeopleRegistrationID"));
-                    data.put("crimecaseno", rs.getString("crimecaseno"));
+                    data.put("crimecaseno", rs.getString("caseIdPerson"));
                     data.put("Age", rs.getString("Age"));
                     data.put("Amphur", rs.getString("Amphur"));
                     data.put("BirthDay", rs.getString("BirthDay"));
@@ -256,7 +258,7 @@ public class ListAccused extends javax.swing.JDialog {
             try{
                 String crimecaseno = jTableAccure.getModel().getValueAt(jTableAccure.getSelectedRow(), 0)+"";
                 String PeopleRegistrationID = jTableAccure.getModel().getValueAt(jTableAccure.getSelectedRow(), 2)+"";
-                String sql = "Delete from person WHERE PeopleRegistrationID='"+PeopleRegistrationID+ "' and  crimecaseno='"+crimecaseno+"'";
+                String sql = "Delete from person WHERE PeopleRegistrationID='"+PeopleRegistrationID+ "' and  caseIdPerson='"+crimecaseno+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 stmt.executeUpdate(sql);
@@ -315,8 +317,8 @@ public class ListAccused extends javax.swing.JDialog {
         String a=txtCaseNO.getText();
         String sql = "select Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                      "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                     "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,crimecaseno from person where TypePerson='ผู้กล่าวหา' and crimecaseno="+a+getFilterCondition();
-        System.out.println("SQL : "+sql);
+                     "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,caseIdPerson from person where TypePerson='ผู้กล่าวหา' and caseIdPerson="+a+getFilterCondition();
+      
         ResultSet rs = stmt.executeQuery(sql);
           System.out.println("SQL : "+sql);
         Vector<Vector> tabledata = new Vector<Vector>();
@@ -359,7 +361,7 @@ public class ListAccused extends javax.swing.JDialog {
 //             int rows = jTableAccure.getRowCount();
             CrimesCaseEdit.jTextAccused.setText(jTableAccure.getValueAt(0, 1).toString());      
             }
-            else {
+            if(jTableAccure.getRowCount()>1){
                    CrimesCaseEdit.jTextAccused.setText(jTableAccure.getValueAt(0, 1).toString()+"และคนอื่นๆ");
                 
             }
@@ -373,7 +375,7 @@ public class ListAccused extends javax.swing.JDialog {
       private String getFilterCondition(){
         HashMap<String,String> filter = new HashMap<String,String>();
         if(txtCaseNO.getText().trim().length()>0){
-            filter.put("crimecaseno", txtCaseNO.getText().trim());
+            filter.put("caseIdPerson", txtCaseNO.getText().trim());
         }
         
         String[] key = filter.keySet().toArray(new String[0]);
@@ -392,7 +394,33 @@ public class ListAccused extends javax.swing.JDialog {
         
         return result;
     }
+      public static String IdCase(){
+         Connection c=null;
+         c=ConnectDatabase.connect();
+            String sqlId="Select max(CaseId) caseid from CrimeCase";
+        int id=0;
+        try {
+            Statement s=c.createStatement();
+            ResultSet rs=s.executeQuery(sqlId);
+            
+            if (rs.next()) {
+                id=rs.getInt("caseid"); 
+            }
+            
+            if(id==0){
+                id=1;
+            }
+            else{
+                id=id+1;
+            }
+             return String.valueOf(id);
+        
+        } catch (Exception e) {
+            return null;
+//            System.out.println(e);
+        } 
     
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAddAccused;

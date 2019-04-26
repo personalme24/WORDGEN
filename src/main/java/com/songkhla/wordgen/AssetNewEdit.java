@@ -29,12 +29,12 @@ public class AssetNewEdit extends javax.swing.JDialog {
     public AssetNewEdit(JFrame parrent,JSONObject datain) {
         super(parrent,true);
         initComponents();
-          crimecaseno.setText(CrimesCaseEdit.crimecaseno.getText());
+          crimecaseno.setText(CrimesCaseEdit.crimecaseid.getText());
         try { Connection con = ConnectDatabase.connect();
             Statement stmt = con.createStatement();
              int id=0;
           String cc=crimecaseno.getText();   
-          String orderid="Select MAX(OrderAsset) FROM Asset where crimecaseno ='"+cc+"'";
+          String orderid="Select MAX(OrderAsset) FROM Asset where caseIdAsset ='"+cc+"'";
           System.out.print(orderid);
             ResultSet rs = stmt.executeQuery(orderid);
        
@@ -249,9 +249,11 @@ public class AssetNewEdit extends javax.swing.JDialog {
                                         .addComponent(OrderAsset, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jRecord)
-                                        .addGap(79, 79, 79)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(EvidenceRecordNumber1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(crimecaseno)))
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                .addGap(0, 118, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
@@ -265,11 +267,6 @@ public class AssetNewEdit extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
                 .addGap(24, 24, 24))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(276, Short.MAX_VALUE)
-                    .addComponent(EvidenceRecordNumber1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(241, 241, 241)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -282,7 +279,8 @@ public class AssetNewEdit extends javax.swing.JDialog {
                     .addComponent(jLabel1)
                     .addComponent(OrderAsset, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(crimecaseno)
-                    .addComponent(jRecord))
+                    .addComponent(jRecord)
+                    .addComponent(EvidenceRecordNumber1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -320,11 +318,6 @@ public class AssetNewEdit extends javax.swing.JDialog {
                     .addComponent(Note, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
                 .addGap(44, 44, 44))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(10, 10, 10)
-                    .addComponent(EvidenceRecordNumber1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(363, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -369,7 +362,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
 
         if (isInsert) {
               String sql="INSERT INTO Asset (EvidenceRecordNumber,Amount,DateSequester,DefectMark,PlaceFoundExhibit,"
-                      + "Name,Note,OccupantName,OrderAsset,PointFoundCheck,Value,crimecaseno) "           
+                      + "Name,Note,OccupantName,OrderAsset,PointFoundCheck,Value,caseIdAsset) "           
                       + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
               
                try {
@@ -402,7 +395,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
         else{
         String sqlUpdate="Update Asset set EvidenceRecordNumber=?,Amount=?,DateSequester=?,\n" +
                                     "DefectMark=?,PlaceFoundExhibit=?,Name=?,Note=?,OccupantName=?,\n" +
-                                    "OrderAsset=?,PointFoundCheck=?,Value=?,crimecaseno=? where crimecaseno=? and EvidenceRecordNumber=? and name=?  ";
+                                    "OrderAsset=?,PointFoundCheck=?,Value=?,caseIdAsset=? where caseIdAsset=? and EvidenceRecordNumber=? and name=?  ";
                  try {
             pst=con.prepareStatement(sqlUpdate);
                               pst.setString(1,OrderAsset.getText());

@@ -30,8 +30,8 @@ public class ChargeOverView extends javax.swing.JDialog {
      */
     
     // boolean isInsert;
-    public ChargeOverView() {
-      
+    public ChargeOverView(JFrame parrent) {
+      super(parrent,true);
         initComponents();
         RefreshData();
     }
@@ -259,6 +259,8 @@ public class ChargeOverView extends javax.swing.JDialog {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        
+        setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
@@ -268,7 +270,7 @@ public class ChargeOverView extends javax.swing.JDialog {
         ChargePage.ChargeName.setText(jTable1.getValueAt(number, 1).toString());
         ChargePage.Law.setText(jTable1.getValueAt(number, 2).toString());
         ChargePage.RateOfPenalty.setText(jTable1.getValueAt(number, 3).toString());
-         ChargePage.Note.setText(jTable1.getValueAt(number, 3).toString());
+         ChargePage.Note.setText(jTable1.getValueAt(number, 4).toString());
     }//GEN-LAST:event_jTable1MouseClicked
 
     /**
@@ -317,6 +319,9 @@ public class ChargeOverView extends javax.swing.JDialog {
             Vector<String> row = new Vector<String>();
             row.add(rs.getString("ChargeCode"));
             row.add(rs.getString("ChargeName"));
+             row.add(rs.getString("Law"));
+              row.add(rs.getString("RateOfPenalty"));
+              row.add(rs.getString("Note"));
             tabledata.add(row);
         }
         rs.close();
@@ -324,7 +329,9 @@ public class ChargeOverView extends javax.swing.JDialog {
         Vector ColumnName = new Vector();
         ColumnName.add("รหัสข้อหา");
         ColumnName.add("ข้อหา");
-    
+        ColumnName.add("กฏหมาย");
+        ColumnName.add("อัตราโทษ");
+        ColumnName.add("หมายเหตุ");
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             tabledata,
             ColumnName

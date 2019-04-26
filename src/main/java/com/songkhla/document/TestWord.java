@@ -36,84 +36,41 @@ import org.docx4j.wml.Tr;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-public class W5 {
-	public static void w5(String cc) {
+public class TestWord {
+	public static void T1() {
             Connection conn=null;
             conn=ConnectDatabase.connect();
             PreparedStatement pst=null;
             String ccYear;
-            try {
-//                String ch;
-//                   String sql="SELECT * from CrimeCase Where crimecaseno = '"+cc+"'";
-                   String sql="select crimecase.*,Charge.*,P1.*,P2.*\n" +
-                                "from crimecase inner join(\n" +
-                              "SELECT  min(Person.NoPerson),Person.FullNamePerson AccuredName,Person.Age AgeAccured,Person.Race AccuredRace,Person.Nationality AccuredNati "
-                           + "  FROM Person where Person.TypePerson='ผู้กล่าวหา'\n" +
-                              ")P1\n" +
-                              "inner join(\n" +
-                                "SELECT min(Person.NoPerson),Person.FullNamePerson suspectName,Person.Age suspectAge,Person.Amphur suspectAmp,Person.Race suspectRace,\n"+
-                                "Person.Nationality suspectNati,Person.Religion suspectRel,Person.Occupation suspectOc,Person.HouseNumber suspectHouse FROM Person where Person.TypePerson='ผู้ต้องหา'\n" +
-                                ")P2\n" +
-                                "left join Charge on crimecase.ChargeCodeCase=Charge.ChargeCode\n" +
-                                "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
-                                "where crimecase.CaseId='"+cc+"'\n"+
-                                "group by crimecase.CaseId";
-//                   pst=conn.prepareStatement(sql);
-//           pst=PreparedStatement(sql);
-                Statement st = conn.createStatement();
-            ResultSet s=st.executeQuery(sql); 
-                System.out.println(sql);
-            while((s!=null) && (s.next()))
-            {  String  cs =s.getString("crimecaseno");
-            ccYear=s.getString("crimecaseyears");
+       
+//               
 //                System.out.print("ข้อหา :: "+s.getString("ChargeCode"));
 //                System.out.print(" - ");
                  JSONObject bookmarkvalue = new JSONObject();
 //                 bookmarkvalue.put("C1","Date");
 //                 bookmarkvalue.put("S27","-");
-		bookmarkvalue.put("C2",cs);
-                bookmarkvalue.put("C3", ccYear);
-                 bookmarkvalue.put("S2", "สถานีตำรวจบางบัว");
-                  bookmarkvalue.put("S5", "เขตบางปี");
-                   bookmarkvalue.put("S6", " ");
-                 bookmarkvalue.put("PS7",s.getString("AccureandOther"));
-                  bookmarkvalue.put("PS13", s.getString("AgeAccured"));
-                   bookmarkvalue.put("PS14", s.getString("AccuredRace"));
-                    bookmarkvalue.put("PS15", s.getString("AccuredNati")); 
-//                     bookmarkvalue.put("P15", "-"); 
-//                    bookmarkvalue.put("PA75", "-"); 
-                    bookmarkvalue.put("PA7",  s.getString("SuspectandOther")); 
-                    bookmarkvalue.put("PA13",  s.getString("suspectAge"));
-                     bookmarkvalue.put("PA14", s.getString("suspectRace"));
-                         bookmarkvalue.put("PA15",  s.getString("suspectNati"));
-                         
-                      bookmarkvalue.put("B2", s.getString("ChargeName"));
-                       bookmarkvalue.put("C4", s.getString("OccuredDate"));
-                        bookmarkvalue.put("C8", s.getString("CrimeLocationDistrict"));
-                         bookmarkvalue.put("C5", s.getString("CaseAcceptDate"));
-                    
-                    
-                    
+//		bookmarkvalue.put("C2","---------------");
+
                     
                  
-//		bookmarkvalue.put("P7", s.getString("AccureandOther"));
-//                bookmarkvalue.put("P13", s.getString("AccureandOther"));
-//		bookmarkvalue.put("test01", "พ.ต.อ.");
-//		bookmarkvalue.put("test02", "พนักงานสอบสวน");
-//		bookmarkvalue.put("test03", "สน.ดอนเมือง");
+		bookmarkvalue.put("PA7", "aaaaaaaaaaaaa");
+                bookmarkvalue.put("PA13", "ddddddddddddddddd");
+		bookmarkvalue.put("PS7", "พ.ต.อ.");
+		bookmarkvalue.put("PS13", "พนักงานสอบสวน");
+		bookmarkvalue.put("PS14", "สน.ดอนเมือง");
 //                bookmarkvalue.put("test04", "สน.ดอนเมือง5");
 		
     
 			JSONArray tablecolumn = new JSONArray();
-			tablecolumn.add("C2");
-			tablecolumn.add("C3");
+//			tablecolumn.add("PS7");
+//			tablecolumn.add("C3");
 //			tablecolumn.add("SUSPECT");
 //			tablecolumn.add("VICTIM");
 //			tablecolumn.add("REMARK");
 			JSONArray table1 = new JSONArray();
 			JSONObject row1 = new JSONObject();
-			row1.put("C2",cs);
-			row1.put("C3", ccYear);
+//			row1.put("PS7","period1");
+//			row1.put("C3", ccYear);
 //			row1.put("SUSPECT", "period1");
 //			row1.put("VICTIM", "period1");
 //			row1.put("REMARK", "period1");
@@ -127,29 +84,27 @@ public class W5 {
 //			repl2.put("REMARK", "period1");
 //			table1.add(repl2);
 		JSONObject tableobj = new JSONObject();
-		tableobj.put("COLUMNS", tablecolumn);
-		tableobj.put("TABLEDATA", table1);
+//		tableobj.put("COLUMNS", tablecolumn);
+//		tableobj.put("TABLEDATA", table1);
 			
-		JSONArray TABLES = new JSONArray();
-		TABLES.add(tableobj);
-		bookmarkvalue.put("TABLES", TABLES);
+//		JSONArray TABLES = new JSONArray();
+//		TABLES.add(tableobj);
+//		bookmarkvalue.put("TABLES", TABLES);
 		System.out.println(bookmarkvalue.toJSONString());
 		
 		
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("D:/TEMPLATE/w5.docx"));
+					.load(new java.io.File("D:/TEMPLATE/w9.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
-			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/เอกสารสำนวนคดี "+cc+"/รายงานการสอบสวน "+cc+".doc"));
+//			processTABLE(bookmarkvalue,wordMLPackage);
+			wordMLPackage.save(new java.io.File("D:/รายงานเทสสสสสสส3.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
-            }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            
+           
         
               
 	}

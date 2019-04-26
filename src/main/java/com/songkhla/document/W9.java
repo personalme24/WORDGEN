@@ -36,23 +36,21 @@ import org.docx4j.wml.Tr;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-public class W5 {
-	public static void w5(String cc) {
+public class W9 {
+	public static void w9(String cc) {
             Connection conn=null;
             conn=ConnectDatabase.connect();
             PreparedStatement pst=null;
-            String ccYear;
+            String ccYear,NameSus;
             try {
 //                String ch;
 //                   String sql="SELECT * from CrimeCase Where crimecaseno = '"+cc+"'";
                    String sql="select crimecase.*,Charge.*,P1.*,P2.*\n" +
                                 "from crimecase inner join(\n" +
-                              "SELECT  min(Person.NoPerson),Person.FullNamePerson AccuredName,Person.Age AgeAccured,Person.Race AccuredRace,Person.Nationality AccuredNati "
-                           + "  FROM Person where Person.TypePerson='ผู้กล่าวหา'\n" +
+                              "SELECT  min(Person.NoPerson),Person.FullNamePerson AccuredName,Person.Age AgeAccured FROM Person where Person.TypePerson='ผู้กล่าวหา'\n" +
                               ")P1\n" +
                               "inner join(\n" +
-                                "SELECT min(Person.NoPerson),Person.FullNamePerson suspectName,Person.Age suspectAge,Person.Amphur suspectAmp,Person.Race suspectRace,\n"+
-                                "Person.Nationality suspectNati,Person.Religion suspectRel,Person.Occupation suspectOc,Person.HouseNumber suspectHouse FROM Person where Person.TypePerson='ผู้ต้องหา'\n" +
+                                "SELECT min(Person.NoPerson),Person.FullNamePerson suspectName FROM Person where Person.TypePerson='ผู้ต้องหา'\n" +
                                 ")P2\n" +
                                 "left join Charge on crimecase.ChargeCodeCase=Charge.ChargeCode\n" +
                                 "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
@@ -65,32 +63,58 @@ public class W5 {
                 System.out.println(sql);
             while((s!=null) && (s.next()))
             {  String  cs =s.getString("crimecaseno");
-            ccYear=s.getString("crimecaseyears");
+                 ccYear=s.getString("crimecaseyears");
+                 NameSus=s.getString("suspectName");
 //                System.out.print("ข้อหา :: "+s.getString("ChargeCode"));
 //                System.out.print(" - ");
                  JSONObject bookmarkvalue = new JSONObject();
 //                 bookmarkvalue.put("C1","Date");
 //                 bookmarkvalue.put("S27","-");
-		bookmarkvalue.put("C2",cs);
-                bookmarkvalue.put("C3", ccYear);
-                 bookmarkvalue.put("S2", "สถานีตำรวจบางบัว");
-                  bookmarkvalue.put("S5", "เขตบางปี");
+                 bookmarkvalue.put("S2", "สถานีตำรวจ");
+                  bookmarkvalue.put("S5", "เขต/แขวง");
                    bookmarkvalue.put("S6", " ");
-                 bookmarkvalue.put("PS7",s.getString("AccureandOther"));
-                  bookmarkvalue.put("PS13", s.getString("AgeAccured"));
-                   bookmarkvalue.put("PS14", s.getString("AccuredRace"));
-                    bookmarkvalue.put("PS15", s.getString("AccuredNati")); 
+                   bookmarkvalue.put("S7", "สถานีตำรวจ");
+                   
+//                   ----------------------------ผู้กล่าวหา--------------------
+                 bookmarkvalue.put("PA7",s.getString("AccureandOther"));
+                  bookmarkvalue.put("PA13", s.getString("AgeAccured"));
+                   bookmarkvalue.put("PA14", "-");
+                    bookmarkvalue.put("PA15", "-"); 
 //                     bookmarkvalue.put("P15", "-"); 
 //                    bookmarkvalue.put("PA75", "-"); 
-                    bookmarkvalue.put("PA7",  s.getString("SuspectandOther")); 
-                    bookmarkvalue.put("PA13",  s.getString("suspectAge"));
-                     bookmarkvalue.put("PA14", s.getString("suspectRace"));
-                         bookmarkvalue.put("PA15",  s.getString("suspectNati"));
-                         
-                      bookmarkvalue.put("B2", s.getString("ChargeName"));
-                       bookmarkvalue.put("C4", s.getString("OccuredDate"));
-                        bookmarkvalue.put("C8", s.getString("CrimeLocationDistrict"));
-                         bookmarkvalue.put("C5", s.getString("CaseAcceptDate"));
+//                   ----------------------------ผู้ต้องหา--------------------
+                    bookmarkvalue.put("PS2", "-"); 
+                    bookmarkvalue.put("PS3", "-"); 
+                    bookmarkvalue.put("PS4", "-"); 
+                    bookmarkvalue.put("PS5", "-"); 
+                    bookmarkvalue.put("PS7", "-"); 
+                    bookmarkvalue.put("PS13", "-");
+                     bookmarkvalue.put("PS14", "-");
+                     bookmarkvalue.put("PS15", "-");
+                     bookmarkvalue.put("PS16", "-");
+                     bookmarkvalue.put("PS22", "-");
+                     bookmarkvalue.put("PS23", "-");
+                     bookmarkvalue.put("PS24", "-");
+                     bookmarkvalue.put("PS25", "-");
+                     bookmarkvalue.put("PS26", "-");
+                     bookmarkvalue.put("PS29", "-");
+                     bookmarkvalue.put("PS30", "-");
+                     bookmarkvalue.put("PS31", "-");
+                     bookmarkvalue.put("PS32", "-");
+                     bookmarkvalue.put("PS33", "-");
+                     bookmarkvalue.put("PS34", "-");
+                     bookmarkvalue.put("PS35", "-");
+                     
+                      bookmarkvalue.put("B2", "-");
+                     bookmarkvalue.put("C4", "-");
+                     bookmarkvalue.put("C8", "-");
+                     bookmarkvalue.put("C5", "-");
+//                     ---------------------------------------ตำรวจ-------------------------------------
+                     bookmarkvalue.put("P02", "-");
+                     bookmarkvalue.put("P03", "-");
+                     bookmarkvalue.put("P04", "-");
+                     bookmarkvalue.put("P05", "-");
+                               
                     
                     
                     
@@ -139,10 +163,10 @@ public class W5 {
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("D:/TEMPLATE/w5.docx"));
+					.load(new java.io.File("D:/TEMPLATE/w9.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/เอกสารสำนวนคดี "+cc+"/รายงานการสอบสวน "+cc+".doc"));
+			wordMLPackage.save(new java.io.File("D:/เอกสารสำนวนคดี "+cc+"/คำให้การผู้ต้องหา "+NameSus+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

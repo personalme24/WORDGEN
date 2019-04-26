@@ -6,6 +6,7 @@
 package com.songkhla.wordgen;
 
 import static com.songkhla.wordgen.CrimesCaseEdit.ChargeNameCase;
+import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseid;
 import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseno;
 import static com.songkhla.wordgen.CrimesCaseEdit.jLabelChargeCode;
 import static com.songkhla.wordgen.CrimesCaseEdit.jTextAccused;
@@ -13,6 +14,8 @@ import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.json.simple.JSONObject;
@@ -23,6 +26,7 @@ import org.json.simple.JSONObject;
  */
 public class SuspectForm extends javax.swing.JDialog {
     Connection con=null;
+    Connection con2=null;
      PreparedStatement pst=null;
      boolean isInsert;
     /**
@@ -30,30 +34,40 @@ public class SuspectForm extends javax.swing.JDialog {
      */
     public SuspectForm(JFrame parrent,JSONObject datain) {
         super(parrent,true);
-        initComponents();
-        crimecaseno.setText(CrimesCaseEdit.crimecaseno.getText());
-        
+        initComponents();  
+     
           if(datain!=null){
-            
-            
             isInsert=false;
-            crimecaseno.setText(datain.get("crimecaseno")+"");
+            crimecaseno.setText(datain.get("caseIdPerson")+"");
+            PeopleRegistrationID.setText(datain.get("PeopleRegistrationID")+"");
             FullNamePerson.setText(datain.get("FullNamePerson")+"");
-            
-            
-        
-            
+            Age.setText(datain.get("Age")+"");
+            Amphur.setText(datain.get("Amphur")+"");
+            BirthDay.setText(datain.get("BirthDay")+"");
+            BloodGroup.setText(datain.get("BloodGroup")+"");
+            ExpiredDate.setText(datain.get("ExpiredDate")+"");
+            FatherFullName.setText(datain.get("FatherFullName")+"");
+            FullNamePersonEn.setText(datain.get("FullNamePersonEn")+"");
+            Height.setText(datain.get("Height")+"");
+            Weight.setText(datain.get("Weight")+"");
+            HouseNumber.setText(datain.get("HouseNumber")+"");
+            IssueDate.setText(datain.get("IssueDate")+"");
+            Moo.setText(datain.get("Moo")+"");
+            MotherFullName.setText(datain.get("MotherFullName")+"");
+            Nationality.setText(datain.get("Nationality")+"");
+            Occupation.setText(datain.get("Occupation")+"");
+            PassportNumber.setText(datain.get("PassportNumber")+"");
+            Province.setText(datain.get("Province")+"");
+            Race.setText(datain.get("Race")+"");
+            Religion.setText(datain.get("Religion")+"");
+            Tambon.setText(datain.get("Tambon")+"");
+     
 
-//                    data.put("CaseRequestTime", rs.getString("CaseRequestTime"));
-//                    data.put("CaseAcceptDate", rs.getString("CaseAcceptDate"));
-//                    data.put("CaseAcceptTime", rs.getString("CaseAcceptTime"));
-//                    data.put("DailyNumber", rs.getString("DailyNumber"));
+//                    data.put("Gender", rs.getString("Gender"));
 
 
-            
-           
         }else{
-          crimecaseno.setText(CrimesCaseEdit.crimecaseno.getText());
+           crimecaseno.setText(CrimesCaseEdit.crimecaseid.getText());
             isInsert=true;
           
         }
@@ -74,10 +88,7 @@ public class SuspectForm extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        TypePerson = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -142,18 +153,6 @@ public class SuspectForm extends javax.swing.JDialog {
         setAlwaysOnTop(true);
 
         jPanel1.setBackground(new java.awt.Color(249, 249, 249));
-
-        TypePerson.setEditable(false);
-        TypePerson.setFont(new java.awt.Font("TH SarabunPSK", 0, 18)); // NOI18N
-        TypePerson.setText("ผู้ต้องหา");
-        TypePerson.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TypePersonActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel4.setText("ประเภทบุคคล");
 
         jPanel3.setBackground(new java.awt.Color(77, 0, 0));
 
@@ -586,11 +585,7 @@ public class SuspectForm extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(crimecaseno)
-                        .addGap(656, 656, 656)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(TypePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(crimecaseno))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 948, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35))
         );
@@ -598,12 +593,9 @@ public class SuspectForm extends javax.swing.JDialog {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TypePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(crimecaseno))
-                .addGap(23, 23, 23)
+                .addGap(21, 21, 21)
+                .addComponent(crimecaseno)
+                .addGap(27, 27, 27)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(121, Short.MAX_VALUE))
         );
@@ -623,6 +615,18 @@ public class SuspectForm extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ZipCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ZipCodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ZipCodeActionPerformed
+
+    private void TambonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TambonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TambonActionPerformed
+
+    private void MooActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MooActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MooActionPerformed
 
     private void WeightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WeightActionPerformed
         // TODO add your handling code here:
@@ -654,105 +658,109 @@ public class SuspectForm extends javax.swing.JDialog {
 
     private void BtSaveAccusedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSaveAccusedActionPerformed
         // TODO add your handling code here:
-               con=ConnectDatabase.connect();
-        if(isInsert){    
-        String sql="INSERT INTO Person (Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
-                        "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                        "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,crimecaseno) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        con=ConnectDatabase.connect();
+        if(isInsert){
+            String sql="INSERT INTO Person (Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
+            "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
+            "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,caseIdPerson) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-         System.out.println("SQL : "+sql);
-      try {
-            pst=con.prepareStatement(sql);
-                              pst.setString(1,Age.getText());
-                              pst.setString(2,Amphur.getText());
-                              pst.setString(3,BirthDay.getText());
-                              pst.setString(4,BloodGroup.getText());
-                              pst.setString(5,ExpiredDate.getText());
-                              pst.setString(6,FatherFullName.getText());
-                              pst.setString(7,FullNamePerson.getText());
-                              pst.setString(8,FullNamePersonEn.getText());
-                              pst.setString(9,Gender.getSelectedItem().toString());
-                              pst.setString(10,Height.getText());
-                              pst.setString(11,HouseNumber.getText());
-                              pst.setString(12,IssueDate.getText());
-                              pst.setString(13,Moo.getText());
-                              pst.setString(14,MotherFullName.getText());
-                              pst.setString(15,Nationality.getText());
-                              pst.setString(16,Occupation.getText());
-                              pst.setString(17,OtherName.getText());
-                              pst.setString(18,PassportNumber.getText());
-                              pst.setString(19,PeopleRegistrationID.getText());
-                              pst.setString(20,PhonePerson.getText());
-                              pst.setString(21,Province.getText());
-                              pst.setString(22,Race.getText());
-                              pst.setString(23,Religion.getText());
-                              pst.setString(24,Tambon.getText());
-                              pst.setString(25,TypePerson.getText());
-                              pst.setString(26,Weight.getText());
-                              pst.setString(27,ZipCode.getText());
-                              pst.setString(28,crimecaseno.getText());
-                              pst.executeUpdate();
-
-                             JOptionPane.showConfirmDialog(null,"Data,Saved successfully");
-                             pst.close();
-                              System.out.println("SQL : "+sql);
-        } catch (Exception e) {
-             JOptionPane.showMessageDialog(null, e); 
-             System.out.println("SQL : "+pst);
-        }
+            System.out.println("SQL : "+sql);
+            try {
+                pst=con.prepareStatement(sql);
+                pst.setString(1,Age.getText());
+                pst.setString(2,Amphur.getText());
+                pst.setString(3,BirthDay.getText());
+                pst.setString(4,BloodGroup.getText());
+                pst.setString(5,ExpiredDate.getText());
+                pst.setString(6,FatherFullName.getText());
+                pst.setString(7,FullNamePerson.getText());
+                pst.setString(8,FullNamePersonEn.getText());
+                pst.setString(9,Gender.getSelectedItem().toString());
+                pst.setString(10,Height.getText());
+                pst.setString(11,HouseNumber.getText());
+                pst.setString(12,IssueDate.getText());
+                pst.setString(13,Moo.getText());
+                pst.setString(14,MotherFullName.getText());
+                pst.setString(15,Nationality.getText());
+                pst.setString(16,Occupation.getText());
+                pst.setString(17,OtherName.getText());
+                pst.setString(18,PassportNumber.getText());
+                pst.setString(19,PeopleRegistrationID.getText());
+                pst.setString(20,PhonePerson.getText());
+                pst.setString(21,Province.getText());
+                pst.setString(22,Race.getText());
+                pst.setString(23,Religion.getText());
+                pst.setString(24,Tambon.getText());
+                pst.setString(25,"ผู้ต้องหา");
+                pst.setString(26,Weight.getText());
+                pst.setString(27,ZipCode.getText());
+                pst.setString(28,crimecaseno.getText());
+                pst.executeUpdate();
+                pst.close();
+                System.out.println("SQL : "+sql);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+                System.out.println("SQL : "+pst);
+            }
         }
         else{
-             String sqlUpdate="Update Person set Age=?,Amphur=?,BirthDay=?,\n" +
-                                    "BloodGroup=?,ExpiredDate=?,FatherFullName=?,FullNamePerson=?,FullNamePersonEn=?,\n" +
-                                    "Gender=?,Height=?,HouseNumber=?,IssueDate=?,Moo=?,MotherFullName=?,Nationality=?,Occupation=?,\n" +
-                                    "OtherName=?,PassportNumber=?,PeopleRegistrationID=?,PhonePerson=?,Province=?,Race=?,Religion=?,\n" +
-                                    "Tambon=?,TypePerson=?,Weight=?,ZipCode=? ,crimecaseno=? where PeopleRegistrationID=? and TypePerson=?   ";
-       
-         try {
-            pst=con.prepareStatement(sqlUpdate);
-                              pst.setString(1,Age.getText());
-                              pst.setString(2,Amphur.getText());
-                              pst.setString(3,BirthDay.getText());
-                              pst.setString(4,BloodGroup.getText());
-                              pst.setString(5,ExpiredDate.getText());
-                              pst.setString(6,FatherFullName.getText());
-                              pst.setString(7,FullNamePerson.getText());
-                              pst.setString(8,FullNamePersonEn.getText());
-                              pst.setString(9,Gender.getSelectedItem().toString());
-                              pst.setString(10,Height.getText());
-                              pst.setString(11,HouseNumber.getText());
-                              pst.setString(12,IssueDate.getText());
-                              pst.setString(13,Moo.getText());
-                              pst.setString(14,MotherFullName.getText());
-                              pst.setString(15,Nationality.getText());
-                              pst.setString(16,Occupation.getText());
-                              pst.setString(17,OtherName.getText());
-                              pst.setString(18,PassportNumber.getText());
-                              pst.setString(19,PeopleRegistrationID.getText());
-                              pst.setString(20,PhonePerson.getText());
-                              pst.setString(21,Province.getText());
-                              pst.setString(22,Race.getText());
-                              pst.setString(23,Religion.getText());
-                              pst.setString(24,Tambon.getText());
-                              pst.setString(25,TypePerson.getText());
-                              pst.setString(26,Weight.getText());
-                              pst.setString(27,ZipCode.getText());
-                              pst.setString(28,crimecaseno.getText());
-                              pst.setString(29,PeopleRegistrationID.getText());
-                              pst.setString(30,TypePerson.getText());
-                              pst.executeUpdate();
+            String sqlUpdate="Update Person set Age=?,Amphur=?,BirthDay=?,\n" +
+            "BloodGroup=?,ExpiredDate=?,FatherFullName=?,FullNamePerson=?,FullNamePersonEn=?,\n" +
+            "Gender=?,Height=?,HouseNumber=?,IssueDate=?,Moo=?,MotherFullName=?,Nationality=?,Occupation=?,\n" +
+            "OtherName=?,PassportNumber=?,PeopleRegistrationID=?,PhonePerson=?,Province=?,Race=?,Religion=?,\n" +
+            "Tambon=?,TypePerson=?,Weight=?,ZipCode=? ,caseIdPerson=? where PeopleRegistrationID=? and TypePerson=?   ";
 
-                             JOptionPane.showConfirmDialog(null,"Data,Saved successfully");
-                             pst.close();
-                              System.out.println("SQL : "+sqlUpdate);
-        } catch (Exception e) {
-             JOptionPane.showMessageDialog(null, e); 
-             System.out.println("SQL : "+pst);
+            try {
+                pst=con.prepareStatement(sqlUpdate);
+                pst.setString(1,Age.getText());
+                pst.setString(2,Amphur.getText());
+                pst.setString(3,BirthDay.getText());
+                pst.setString(4,BloodGroup.getText());
+                pst.setString(5,ExpiredDate.getText());
+                pst.setString(6,FatherFullName.getText());
+                pst.setString(7,FullNamePerson.getText());
+                pst.setString(8,FullNamePersonEn.getText());
+                pst.setString(9,Gender.getSelectedItem().toString());
+                pst.setString(10,Height.getText());
+                pst.setString(11,HouseNumber.getText());
+                pst.setString(12,IssueDate.getText());
+                pst.setString(13,Moo.getText());
+                pst.setString(14,MotherFullName.getText());
+                pst.setString(15,Nationality.getText());
+                pst.setString(16,Occupation.getText());
+                pst.setString(17,OtherName.getText());
+                pst.setString(18,PassportNumber.getText());
+                pst.setString(19,PeopleRegistrationID.getText());
+                pst.setString(20,PhonePerson.getText());
+                pst.setString(21,Province.getText());
+                pst.setString(22,Race.getText());
+                pst.setString(23,Religion.getText());
+                pst.setString(24,Tambon.getText());
+                pst.setString(25,"ผู้ต้องหา");
+                pst.setString(26,Weight.getText());
+                pst.setString(27,ZipCode.getText());
+                pst.setString(28,crimecaseno.getText());
+                pst.setString(29,PeopleRegistrationID.getText());
+                pst.setString(30,"ผู้ต้องหา");
+                pst.executeUpdate();
+
+                //                             JOptionPane.showMessageDialog(null, "Data Saved successfully");
+                pst.close();
+                System.out.println("SQL : "+sqlUpdate);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+                System.out.println("SQL : "+pst);
+            }
+
         }
-        
-        
-        
-        }
+
+        JFrame frame = new JFrame("JOptionPane showMessageDialog example");
+
+        // show a joptionpane dialog using showMessageDialog
+        JOptionPane.showMessageDialog(frame,
+            "Your RSS feed has been published",
+            "RSS Feed Published",
+            JOptionPane.INFORMATION_MESSAGE);
         setVisible(false);
     }//GEN-LAST:event_BtSaveAccusedActionPerformed
 
@@ -767,22 +775,6 @@ public class SuspectForm extends javax.swing.JDialog {
     private void PeopleRegistrationIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PeopleRegistrationIDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_PeopleRegistrationIDActionPerformed
-
-    private void MooActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MooActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MooActionPerformed
-
-    private void TambonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TambonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TambonActionPerformed
-
-    private void TypePersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TypePersonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TypePersonActionPerformed
-
-    private void ZipCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ZipCodeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ZipCodeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -827,7 +819,33 @@ public class SuspectForm extends javax.swing.JDialog {
             }
         });
     }
-
+  public static String IdCase(){
+         Connection c=null;
+         c=ConnectDatabase.connect();
+            String sqlId="Select max(CaseId) caseid from CrimeCase";
+        int id=0;
+        try {
+            Statement s=c.createStatement();
+            ResultSet rs=s.executeQuery(sqlId);
+            
+            if (rs.next()) {
+                id=rs.getInt("caseid"); 
+            }
+            
+            if(id==0){
+                id=1;
+            }
+            else{
+                id=id+1;
+            }
+             return String.valueOf(id);
+        
+        } catch (Exception e) {
+            return null;
+//            System.out.println(e);
+        } 
+    
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Age;
     private javax.swing.JTextField Amphur;
@@ -854,10 +872,8 @@ public class SuspectForm extends javax.swing.JDialog {
     private javax.swing.JTextField Race;
     private javax.swing.JTextField Religion;
     private javax.swing.JTextField Tambon;
-    private javax.swing.JTextField TypePerson;
     private javax.swing.JTextField Weight;
     private javax.swing.JTextField ZipCode;
-    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel crimecaseno;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -882,7 +898,6 @@ public class SuspectForm extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

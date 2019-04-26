@@ -64,7 +64,6 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1264, 726));
 
         jPanel1.setBackground(new java.awt.Color(77, 0, 0));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -130,7 +129,7 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
                         .addComponent(txtCaseNO, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(620, Short.MAX_VALUE))
+                .addContainerGap(622, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,6 +170,7 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        jTable1.setCellSelectionEnabled(true);
         jTable1.setFocusable(false);
         jTable1.setGridColor(new java.awt.Color(255, 255, 255));
         jTable1.setIntercellSpacing(new java.awt.Dimension(0, 0));
@@ -186,7 +186,7 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1247, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 989, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -228,13 +228,16 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(jTable1.getSelectedRow()>=0){
             try{
-                String crimecaseno = jTable1.getModel().getValueAt(jTable1.getSelectedRow(), 0)+"";
+                String crimecaseid = jTable1.getModel().getValueAt(jTable1.getSelectedRow(), 0)+"";
 //                String sql = "select crimecase.CaseId,crimecase.crimecaseno,crimecase.crimecaseyears,crimecase.ChargeCode as ChargeCodeCase"
 //                        + ",Charge.ChargeName,crimecase.CaseRequestDate,crimecase.CaseRequestTime,crimecase.CaseAcceptDate,crimecase.CaseAcceptTime"
 //                        + ",crimecase.DailyNumber,crimecase.CrimeLocation,crimecase.CrimeLocationDistrict,crimecase.CrimeLocationAmphur,crimecase.CrimeLocationProvince"
 //                        + "from crimecase left join Charge on "
 //                           + "crimecase.ChargeCode=Charge.ChargeCode where crimecase.crimecaseno='"+crimecaseno+"'";
-                String sql="select crimecase.*,charge.* from crimecase left join charge on crimecase.ChargeCodeCase=charge.ChargeCode where crimecaseno='"+crimecaseno+"'";
+                String sql="select crimecase.*,charge.*,ActionsCase.* from crimecase "
+                        + "left join charge on crimecase.ChargeCodeCase=charge.ChargeCode "
+                        + "left join ActionsCase on crimecase.ActionCodeCase=ActionsCase.ActionCode "
+                        + "where CaseId='"+crimecaseid+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);
@@ -255,13 +258,17 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
                     data.put("CrimeLocationDistrict", rs.getString("CrimeLocationDistrict"));
                     data.put("CrimeLocationAmphur", rs.getString("CrimeLocationAmphur"));
                     data.put("CrimeLocationProvince", rs.getString("CrimeLocationProvince"));
-                     data.put("AccureandOther", rs.getString("AccureandOther"));
-                     data.put("SuspectandOther", rs.getString("SuspectandOther")); 
-                     data.put("WitnessandOther", rs.getString("WitnessandOther"));
+                    data.put("AccureandOther", rs.getString("AccureandOther"));
+                    data.put("SuspectandOther", rs.getString("SuspectandOther")); 
+                    data.put("WitnessandOther", rs.getString("WitnessandOther"));
                      data.put("Investigator_Result", rs.getString("Investigator_Result"));
                      data.put("TypeCourt", rs.getString("TypeCourt"));
                     data.put("PoliceNameCase", rs.getString("PoliceNameCase"));
                      data.put("AssetList", rs.getString("AssetList"));
+                     data.put("ActionCrimes", rs.getString("ActionCrimes"));
+                     data.put("ActionCode", rs.getString("ActionCode"));
+                      data.put("OccuredDate", rs.getString("OccuredDate"));
+                     data.put("OccuredTime", rs.getString("OccuredTime"));
                     CrimesCaseEdit cce =new CrimesCaseEdit(this,data);
                     cce.setVisible(true);
                 }
@@ -342,11 +349,12 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
         Vector<Vector> tabledata = new Vector<Vector>();
         while(rs.next()){
             Vector<String> row = new Vector<String>();
+            row.add(rs.getString("CaseId"));
             row.add(rs.getString("crimecaseno"));
-            row.add("-");
             row.add(rs.getString("AccureandOther"));
+            row.add(rs.getString("SuspectandOther"));
             row.add(rs.getString("ChargeName"));
-            row.add("-");
+//            row.add("-");
             row.add(rs.getString("CaseAcceptDate"));
             row.add(rs.getString("CaseRequestDate"));
             tabledata.add(row);
@@ -354,11 +362,12 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
         rs.close();
         stmt.close();
         Vector ColumnName = new Vector();
+        ColumnName.add("ลำดับ");
         ColumnName.add("เลขที่คดี");
         ColumnName.add("ผู้ร้องทุกข์");
         ColumnName.add("ผู้ต้องหา");
         ColumnName.add("ข้อหา");
-        ColumnName.add("สถานะผู้ต้องหา");
+//        ColumnName.add("สถานะผู้ต้องหา");
         ColumnName.add("วันที่รับคำร้องทุกข์");
         ColumnName.add("วันที่รับแจ้งเหตุ");
         jTable1.setModel(new javax.swing.table.DefaultTableModel(

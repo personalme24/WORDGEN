@@ -31,23 +31,27 @@ public class ChargePage extends javax.swing.JDialog {
     /**
      * Creates new form ChangPage
      */
-     
+    String chargeNo; 
     public ChargePage(JFrame parrent,JSONObject datain) {
         //super(parrent,true);
         initComponents();
+        
             if(datain!=null){
+                
 //            caseid= "" + datain.get("CaseId"); 
+            chargeNo=datain.get("ChargeCode")+"";
             ChargeCode.setText(datain.get("ChargeCode")+"");
             ChargeName.setText(datain.get("ChargeName")+"");
              Law.setText(datain.get("Law")+"");
               RateOfPenalty.setText(datain.get("RateOfPenalty")+"");
              Note.setText(datain.get("Note")+"");
                  
-           isInsert=false;
+//           isInsert=false;
            
-        }else{
-            isInsert=true;
         }
+//            else{
+//            isInsert=true;
+//        }
      
     }
 
@@ -276,8 +280,13 @@ public class ChargePage extends javax.swing.JDialog {
    
        Connection con = ConnectDatabase.connect();
         PreparedStatement pst=null;
-        String sql="INSERT INTO Charge (ChargeCode,ChargeName,Law,RateOfPenalty,Note)"+
-                   "VALUES (?,?,?,?,?)";
+        String sql="UPDATE Charge SET "
+                + "ChargeCode=?,"
+                + "ChargeName=?,"
+                + "Law=?,"
+                + "RateOfPenalty=?,"
+                + "Note=?"
+                 + "Where ChargeCode=?";
          try {
   
             pst=con.prepareStatement(sql);
@@ -288,6 +297,7 @@ public class ChargePage extends javax.swing.JDialog {
             pst.setString(3,Law.getText());
             pst.setString(4,RateOfPenalty.getText());
              pst.setString(5,Note.getText());
+             pst.setString(6,chargeNo);
 //          JSONObject data = new JSONObject();
 //          data.put("ChargeName", ChargeName.getText());
 //          data.put("ChargeCode", ChargeCode.getText());
@@ -320,8 +330,12 @@ public class ChargePage extends javax.swing.JDialog {
     }//GEN-LAST:event_ChargeCodeActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       ChargeOverView coList=new ChargeOverView();
-        coList.setModal(true);
+       JFrame frame = new JFrame();
+             JDialog dialog = new JDialog(frame);//frame is owner
+             JFrame f = (JFrame)(dialog.getParent());               
+             f.removeAll();
+        ChargeOverView coList=new ChargeOverView(f);
+//        coList.setModal(true);
         coList.setVisible(true);
              
          

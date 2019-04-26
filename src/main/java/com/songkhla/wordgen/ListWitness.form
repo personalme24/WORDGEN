@@ -74,7 +74,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="jTableSuspect">
+            <Component class="javax.swing.JTable" name="jTableAccure">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="TH SarabunPSK" size="20" style="0"/>
@@ -179,7 +179,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&#xe02;&#xe49;&#xe2d;&#xe21;&#xe39;&#xe25;&#xe1e;&#xe22;&#xe32;&#xe19;&#xe41;&#xe25;&#xe30;&#xe1a;&#xe38;&#xe04;&#xe04;&#xe25;&#xe2d;&#xe37;&#xe48;&#xe19;"/>
+            <Property name="text" type="java.lang.String" value="&#xe02;&#xe49;&#xe2d;&#xe21;&#xe39;&#xe25;&#xe1e;&#xe22;&#xe32;&#xe19;&#xe41;&#xe25;&#xe30;&#xe1a;&#xe38;&#xe04;&#xe04;&#xe25;&#xe2d;&#xe37;&#xe48;&#xe19;&#xe46;"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonDeleteAccured">
@@ -209,7 +209,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&#xe40;&#xe25;&#xe02;&#xe04;&#xe14;&#xe35;"/>
+            <Property name="text" type="java.lang.String" value="No"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonAddAccused">

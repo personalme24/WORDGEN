@@ -6,6 +6,7 @@
 package com.songkhla.wordgen;
 
 import static com.songkhla.wordgen.CrimesCaseEdit.ChargeNameCase;
+import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseid;
 import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseno;
 import static com.songkhla.wordgen.CrimesCaseEdit.jLabelChargeCode;
 import static com.songkhla.wordgen.CrimesCaseEdit.jTextAccused;
@@ -13,6 +14,8 @@ import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.json.simple.JSONObject;
@@ -23,6 +26,7 @@ import org.json.simple.JSONObject;
  */
 public class AccusedForm extends javax.swing.JDialog {
     Connection con=null;
+    Connection con2=null;
      PreparedStatement pst=null;
      boolean isInsert;
     /**
@@ -30,31 +34,40 @@ public class AccusedForm extends javax.swing.JDialog {
      */
     public AccusedForm(JFrame parrent,JSONObject datain) {
         super(parrent,true);
-        initComponents();
-        crimecaseno.setText(CrimesCaseEdit.crimecaseno.getText());
-        
+        initComponents();  
+     
           if(datain!=null){
-            
-            
             isInsert=false;
-            crimecaseno.setText(datain.get("crimecaseno")+"");
+            crimecaseno.setText(datain.get("caseIdPerson")+"");
             PeopleRegistrationID.setText(datain.get("PeopleRegistrationID")+"");
             FullNamePerson.setText(datain.get("FullNamePerson")+"");
-            
-            
-        
-            
+            Age.setText(datain.get("Age")+"");
+            Amphur.setText(datain.get("Amphur")+"");
+            BirthDay.setText(datain.get("BirthDay")+"");
+            BloodGroup.setText(datain.get("BloodGroup")+"");
+            ExpiredDate.setText(datain.get("ExpiredDate")+"");
+            FatherFullName.setText(datain.get("FatherFullName")+"");
+            FullNamePersonEn.setText(datain.get("FullNamePersonEn")+"");
+            Height.setText(datain.get("Height")+"");
+            Weight.setText(datain.get("Weight")+"");
+            HouseNumber.setText(datain.get("HouseNumber")+"");
+            IssueDate.setText(datain.get("IssueDate")+"");
+            Moo.setText(datain.get("Moo")+"");
+            MotherFullName.setText(datain.get("MotherFullName")+"");
+            Nationality.setText(datain.get("Nationality")+"");
+            Occupation.setText(datain.get("Occupation")+"");
+            PassportNumber.setText(datain.get("PassportNumber")+"");
+            Province.setText(datain.get("Province")+"");
+            Race.setText(datain.get("Race")+"");
+            Religion.setText(datain.get("Religion")+"");
+            Tambon.setText(datain.get("Tambon")+"");
+     
 
-//                    data.put("CaseRequestTime", rs.getString("CaseRequestTime"));
-//                    data.put("CaseAcceptDate", rs.getString("CaseAcceptDate"));
-//                    data.put("CaseAcceptTime", rs.getString("CaseAcceptTime"));
-//                    data.put("DailyNumber", rs.getString("DailyNumber"));
+//                    data.put("Gender", rs.getString("Gender"));
 
 
-            
-           
         }else{
-          crimecaseno.setText(CrimesCaseEdit.crimecaseno.getText());
+           crimecaseno.setText(CrimesCaseEdit.crimecaseid.getText());
             isInsert=true;
           
         }
@@ -75,7 +88,6 @@ public class AccusedForm extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         TypePerson = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -633,10 +645,6 @@ public class AccusedForm extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_ReligionActionPerformed
 
-    private void GenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenderActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_GenderActionPerformed
-
     private void RaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RaceActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_RaceActionPerformed
@@ -659,7 +667,7 @@ public class AccusedForm extends javax.swing.JDialog {
         if(isInsert){    
         String sql="INSERT INTO Person (Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                        "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,crimecaseno) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                        "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,caseIdPerson) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
          System.out.println("SQL : "+sql);
       try {
@@ -693,9 +701,7 @@ public class AccusedForm extends javax.swing.JDialog {
                               pst.setString(27,ZipCode.getText());
                               pst.setString(28,crimecaseno.getText());
                               pst.executeUpdate();
-
-                             JOptionPane.showConfirmDialog(null,"Data,Saved successfully");
-                             pst.close();
+                              pst.close();
                               System.out.println("SQL : "+sql);
         } catch (Exception e) {
              JOptionPane.showMessageDialog(null, e); 
@@ -707,7 +713,7 @@ public class AccusedForm extends javax.swing.JDialog {
                                     "BloodGroup=?,ExpiredDate=?,FatherFullName=?,FullNamePerson=?,FullNamePersonEn=?,\n" +
                                     "Gender=?,Height=?,HouseNumber=?,IssueDate=?,Moo=?,MotherFullName=?,Nationality=?,Occupation=?,\n" +
                                     "OtherName=?,PassportNumber=?,PeopleRegistrationID=?,PhonePerson=?,Province=?,Race=?,Religion=?,\n" +
-                                    "Tambon=?,TypePerson=?,Weight=?,ZipCode=? ,crimecaseno=? where PeopleRegistrationID=? and TypePerson=?   ";
+                                    "Tambon=?,TypePerson=?,Weight=?,ZipCode=? ,caseIdPerson=? where PeopleRegistrationID=? and TypePerson=?   ";
        
          try {
             pst=con.prepareStatement(sqlUpdate);
@@ -743,7 +749,7 @@ public class AccusedForm extends javax.swing.JDialog {
                               pst.setString(30,TypePerson.getText());
                               pst.executeUpdate();
 
-                             JOptionPane.showConfirmDialog(null,"Data,Saved successfully");
+//                             JOptionPane.showMessageDialog(null, "Data Saved successfully");
                              pst.close();
                               System.out.println("SQL : "+sqlUpdate);
         } catch (Exception e) {
@@ -754,6 +760,14 @@ public class AccusedForm extends javax.swing.JDialog {
         
         
         }
+        
+                            JFrame frame = new JFrame("JOptionPane showMessageDialog example");
+
+    // show a joptionpane dialog using showMessageDialog
+    JOptionPane.showMessageDialog(frame, 
+        "Your RSS feed has been published", 
+        "RSS Feed Published", 
+        JOptionPane.INFORMATION_MESSAGE);
         setVisible(false);
     }//GEN-LAST:event_BtSaveAccusedActionPerformed
 
@@ -784,6 +798,10 @@ public class AccusedForm extends javax.swing.JDialog {
     private void ZipCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ZipCodeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ZipCodeActionPerformed
+
+    private void GenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GenderActionPerformed
 
     /**
      * @param args the command line arguments
@@ -827,7 +845,33 @@ public class AccusedForm extends javax.swing.JDialog {
             }
         });
     }
-
+  public static String IdCase(){
+         Connection c=null;
+         c=ConnectDatabase.connect();
+            String sqlId="Select max(CaseId) caseid from CrimeCase";
+        int id=0;
+        try {
+            Statement s=c.createStatement();
+            ResultSet rs=s.executeQuery(sqlId);
+            
+            if (rs.next()) {
+                id=rs.getInt("caseid"); 
+            }
+            
+            if(id==0){
+                id=1;
+            }
+            else{
+                id=id+1;
+            }
+             return String.valueOf(id);
+        
+        } catch (Exception e) {
+            return null;
+//            System.out.println(e);
+        } 
+    
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Age;
     private javax.swing.JTextField Amphur;
@@ -857,7 +901,6 @@ public class AccusedForm extends javax.swing.JDialog {
     private javax.swing.JTextField TypePerson;
     private javax.swing.JTextField Weight;
     private javax.swing.JTextField ZipCode;
-    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel crimecaseno;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

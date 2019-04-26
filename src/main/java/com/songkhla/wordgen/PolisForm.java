@@ -205,7 +205,7 @@ public class PolisForm extends javax.swing.JFrame {
          ResultSet rs = stmt.executeQuery(sql2);
          if(!rs.next()){
                  String sql="INSERT INTO Police (IdCardPolice,RankPolice,FirstName,LastName,Position) VALUES (?,?,?,?,?)";
-                         pst=con.prepareStatement(sql);
+            pst=con.prepareStatement(sql);
             pst.setString(1,IdCardPolice.getText());
             pst.setString(2,RankPolice.getText());
             pst.setString(3,FirstName.getText());

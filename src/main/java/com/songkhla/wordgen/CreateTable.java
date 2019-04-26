@@ -5,9 +5,13 @@
  */
 package com.songkhla.wordgen;
 
+import static com.songkhla.wordgen.ChargePage.ChargeCode;
+import static com.songkhla.wordgen.ChargePage.ChargeName;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -96,7 +100,7 @@ public class CreateTable {
                 "	ParentAddress	VARCHAR(100)	,	\n"+
                 "	ParentPhone	VARCHAR(100)	,	\n"+
                 "	TypePerson	VARCHAR(100)	,	\n"+		
-                "	crimecaseno	VARCHAR(100)	not null	\n"+
+                "	caseIdPerson	INTEGER	not null	\n"+
                 "	);	";	
 
                        
@@ -129,7 +133,7 @@ public class CreateTable {
                         "	CheckDateTime	VARCHAR(100)	,	\n"+
                         "	CheckDateTimeTo	VARCHAR(100)	,	\n"+
                         "	LawName	VARCHAR(100)	,	\n"+
-                        "	ActionCrimes	VARCHAR(100)	,	\n"+
+                        "	ActionCodeCase	VARCHAR(100)	,	\n"+
                         "	TypeCourt	VARCHAR(100)	,	\n"+
                         "	BlackCaseNo	VARCHAR(100)	,	\n"+
                         "	BlackCaseYear	VARCHAR(100)	,	\n"+
@@ -164,7 +168,7 @@ public class CreateTable {
                 "	PlaceFoundExhibit	VARCHAR(100)	,	\n"+
                 "	DefectMark	VARCHAR(100)	,	\n"+
                 "	PointFoundCheck	VARCHAR(100)	,	\n"+
-                "	crimecaseno	VARCHAR(100)	not null	\n"+
+                "	caseIdAsset	INTEGER	not null	\n"+
                 "	);";
           
           
@@ -241,6 +245,24 @@ public class CreateTable {
 	        } catch (SQLException e) {
 	            System.out.println(e.getMessage());
 	        }
+                
+                
+//                String intCharge="INSERT INTO Charge (ChargeCode,ChargeName,Law,RateOfPenalty,Note) VALUES ('1','ลักทรัพย์','dsfdfs','asdasdsadda','');\n"+
+//                                 "INSERT INTO Charge (ChargeCode,ChargeName,Law,RateOfPenalty,Note) VALUES ('2','ค้ายา','','','');\n"+
+//                                 "INSERT INTO Charge (ChargeCode,ChargeName,Law,RateOfPenalty,Note) VALUES ('3','ฆ่าผู้อื่นโดยเจตนา','','','');";
+//                 System.out.println("insert completely : "+intCharge);
+//        PreparedStatement pst=null;
+//         try { 
+//            pst=cc.prepareStatement(intCharge);
+//            pst.executeUpdate();
+//            pst.close();
+//            System.out.println("insert completely : "+intCharge);
+//           
+//        } catch (Exception e) {
+//             JOptionPane.showMessageDialog(null, e); 
+//             System.out.println("SQL : "+pst);
+//        }
+
                 
 	    }
 	 

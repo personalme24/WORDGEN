@@ -35,7 +35,7 @@ public class AssetOverView extends javax.swing.JDialog {
         jScrollPane2.setRowHeaderView(rowTable);
         jScrollPane2.setCorner(JScrollPane.UPPER_LEFT_CORNER,
          rowTable.getTableHeader());
-        txtCaseno.setText(CrimesCaseEdit.crimecaseno.getText());
+        txtCaseno.setText(CrimesCaseEdit.crimecaseid.getText());
     
         RefreshData();     
 //        JScrollPane scrollPane = new JScrollPane(jTableAsset);
@@ -213,8 +213,8 @@ public class AssetOverView extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         AssetNewEdit  AssetAdd=new AssetNewEdit(null,null);
-         AssetAdd.setVisible(true);        
+         AssetNewEdit  assetAdd=new AssetNewEdit(null,null);
+         assetAdd.setVisible(true);        
          RefreshData();
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -225,7 +225,7 @@ public class AssetOverView extends javax.swing.JDialog {
                 String crimecaseno = txtCaseno.getText();
 //                String EvidenceRecordNumber = jTableAsset.getModel().getValueAt(jTableAsset.getSelectedRow(), 1)+"";
                 String nameAsset = jTableAsset.getModel().getValueAt(jTableAsset.getSelectedRow(), 0)+"";
-                String sql = "Delete from Asset WHERE Name='"+nameAsset+"' and crimecaseno='"+crimecaseno+"'";
+                String sql = "Delete from Asset WHERE Name='"+nameAsset+"' and caseIdAsset='"+crimecaseno+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 stmt.executeUpdate(sql);
@@ -247,16 +247,16 @@ public class AssetOverView extends javax.swing.JDialog {
                 String crimecaseno = txtCaseno.getText();
 //                String EvidenceRecordNumber = jTableAsset.getModel().getValueAt(jTableAsset.getSelectedRow(), 1)+"";
                 String nameAsset = jTableAsset.getModel().getValueAt(jTableAsset.getSelectedRow(), 0)+"";
-                String sql = "select * from Asset where WHERE Name='"+nameAsset+"' and crimecaseno='"+crimecaseno+"'";
+                String sql = "select * from Asset where WHERE Name='"+nameAsset+"' and caseIdAsset='"+crimecaseno+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                ResultSet rs = stmt.executeQuery(sql);
                        //  Convert CrimcaseEdit to JFrame   
                     System.out.println("Delete : "+sql);
                 if(rs.next()){
-                    JSONObject data = new JSONObject();
+                    JSONObject data = new JSONObject(); 
                     data.put("EvidenceRecordNumber", rs.getString("EvidenceRecordNumber"));
-                    data.put("crimecaseno", rs.getString("crimecaseno"));
+                    data.put("crimecaseno", rs.getString("caseIdAsset"));
                     data.put("Name", rs.getString("Name"));
                              //  Convert CrimcaseEdit to JFrame   
                        JFrame frame = new JFrame();
@@ -326,7 +326,7 @@ public class AssetOverView extends javax.swing.JDialog {
         String crimecaseno = txtCaseno.getText();
         String sql = "select EvidenceRecordNumber,Amount,DateSequester,DefectMark,"
                      + "PlaceFoundExhibit,Name,Note,OccupantName,OrderAsset,PointFoundCheck,"
-                     + "Value,crimecaseno from Asset where crimecaseno='"+crimecaseno+"' and "+getFilterCondition();
+                     + "Value,crimecaseno from Asset where caseIdAsset='"+crimecaseno+"' and "+getFilterCondition();
         ResultSet rs = stmt.executeQuery(sql);
         Vector<Vector> tabledata = new Vector<Vector>();
         while(rs.next()){
