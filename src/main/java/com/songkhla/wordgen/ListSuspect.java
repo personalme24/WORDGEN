@@ -32,7 +32,7 @@ Connection con=null;
         
         initComponents();  
        
-        txtCaseNO.setText(CrimesCaseEdit.crimecaseno.getText());
+        txtCaseNO.setText(CrimesCaseEdit.crimecaseid.getText());
          RefreshData();
       
        

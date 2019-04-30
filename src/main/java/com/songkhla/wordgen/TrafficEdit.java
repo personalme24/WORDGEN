@@ -749,7 +749,7 @@ public class TrafficEdit extends javax.swing.JFrame {
         JDialog dialog = new JDialog(frame);//frame is owner
         JFrame fr = (JFrame)(dialog.getParent());
         fr.removeAll();
-        ActionPage ap =new ActionPage();
+        ActionPage ap =new ActionPage(fr,null);
         ap.setModal(true);
         ap.setVisible(true);
 

@@ -36,10 +36,11 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
     public CrimesCaseOverView() {
         initComponents();
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-//     jTable1.setBackground(Color.RED);
+ 
         jTable1.setOpaque(false);
+        jTable1.getTableHeader().setFont(new Font("TH SarabunPSK",Font.BOLD,20));
 
-//        jTable1.getTableHeader().setFont(new Font("TH SarabunPSK",Font.BOLD,16));
+
         RefreshData();
  
     }
@@ -150,27 +151,26 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
         jTable1.setForeground(new java.awt.Color(51, 51, 51));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "เลขที่คดี", "ผู้ร้องทุกข์", "ผู้ต้องหา", "ข้อหา", "สถานะผู้ต้องหา", "วันที่รับคำร้องทุกข์", "วันที่รับแจ้งเหตุ"
+                "เลขที่คดี", "ผู้ร้องทุกข์", "ผู้ต้องหา", "ข้อหา", "สถานะผู้ต้องหา", "วันที่รับคำร้องทุกข์", "วันที่รับแจ้งเหตุ", "Title 8"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jTable1.setCellSelectionEnabled(true);
         jTable1.setFocusable(false);
         jTable1.setGridColor(new java.awt.Color(255, 255, 255));
         jTable1.setIntercellSpacing(new java.awt.Dimension(0, 0));

@@ -394,33 +394,7 @@ Connection con=null;
         
         return result;
     }
-      public static String IdCase(){
-         Connection c=null;
-         c=ConnectDatabase.connect();
-            String sqlId="Select max(CaseId) caseid from CrimeCase";
-        int id=0;
-        try {
-            Statement s=c.createStatement();
-            ResultSet rs=s.executeQuery(sqlId);
-            
-            if (rs.next()) {
-                id=rs.getInt("caseid"); 
-            }
-            
-            if(id==0){
-                id=1;
-            }
-            else{
-                id=id+1;
-            }
-             return String.valueOf(id);
-        
-        } catch (Exception e) {
-            return null;
-//            System.out.println(e);
-        } 
-    
-    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAddAccused;

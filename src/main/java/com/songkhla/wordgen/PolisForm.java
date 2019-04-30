@@ -259,7 +259,7 @@ private void data()
                       
                             Data d =new Data();
                             a=rs.getString("FirstName");
-                            System.out.print(a);
+//                            System.out.print(a);
         d.setPolicName(a); 
                 
             }
