@@ -28,13 +28,16 @@ public class ListAccused extends javax.swing.JDialog {
      * Creates new form ListAccused
      */
 Connection con=null;
-    public ListAccused() {
-        
+String typeC;
+    public ListAccused(JFrame parrent,JSONObject datain) {
+        super(parrent,true);
+
         initComponents();  
-       
-        txtCaseNO.setText(CrimesCaseEdit.crimecaseid.getText());
+        txtCaseNO.setText(datain.get("CaseIdAcc")+"");
+         typeC=datain.get("TypeCase")+"";
          RefreshData();
-      
+          
+    
        
     }
 
@@ -181,7 +184,13 @@ Connection con=null;
 
     private void jButtonAddAccusedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddAccusedActionPerformed
         // TODO add your handling code here:
-        AccusedForm accusedF=new AccusedForm(null,null);
+       
+       JFrame frame = new JFrame();
+             JDialog dialog = new JDialog(frame);//frame is owner
+             JFrame facc = (JFrame)(dialog.getParent());               
+             facc.removeAll();
+       
+        AccusedForm accusedF=new AccusedForm(facc,null);
 //        accusedF.setModal(true);
         accusedF.setVisible(true);
         RefreshData();
@@ -355,19 +364,30 @@ Connection con=null;
                 return types [columnIndex];
             }
         });
-                             System.out.println("SQL : "+sql);
-        
-            if(jTableAccure.getRowCount()==1){
+         if(jTableAccure.getRowCount()==1){
 //             int rows = jTableAccure.getRowCount();
-            CrimesCaseEdit.jTextAccused.setText(jTableAccure.getValueAt(0, 1).toString());      
+            if(typeC.equals("อาญา")){
+            CrimesCaseEdit.jTextAccused.setText(jTableAccure.getValueAt(0, 1).toString()); 
+            }
+            if(typeC.equals("จราจร")){
+            TrafficEdit.jTextAccused.setText(jTableAccure.getValueAt(0, 1).toString()); 
+            }
+              if(typeC.equals("ชันสูตร")){
+            IdentityFrom.jTextAccused.setText(jTableAccure.getValueAt(0, 1).toString()); 
+            }
             }
             if(jTableAccure.getRowCount()>1){
-                   CrimesCaseEdit.jTextAccused.setText(jTableAccure.getValueAt(0, 1).toString()+"และคนอื่นๆ");
-                
+            
+            if(typeC.equals("อาญา")){
+            CrimesCaseEdit.jTextAccused.setText(jTableAccure.getValueAt(0, 1).toString()+"และคนอื่นๆ"); 
             }
-    
-        
-        
+            if(typeC.equals("จราจร")){
+            TrafficEdit.jTextAccused.setText(jTableAccure.getValueAt(0, 1).toString()+"และคนอื่นๆ"); 
+            }
+              if(typeC.equals("ชันสูตร")){
+            IdentityFrom.jTextAccused.setText(jTableAccure.getValueAt(0, 1).toString()+"และคนอื่นๆ"); 
+            }
+            }
         }catch(Exception ex){
             ex.printStackTrace();
         }
@@ -405,6 +425,6 @@ Connection con=null;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JTable jTableAccure;
-    private javax.swing.JLabel txtCaseNO;
+    public static javax.swing.JLabel txtCaseNO;
     // End of variables declaration//GEN-END:variables
 }

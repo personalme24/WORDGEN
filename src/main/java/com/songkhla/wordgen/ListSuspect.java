@@ -8,7 +8,7 @@ package com.songkhla.wordgen;
 import com.songkhla.wordgen.*;
 import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseid;
 import static com.songkhla.wordgen.CrimesCaseEdit.jTextAccused;
-import static com.songkhla.wordgen.ListSuspect.jTableAccure;
+import static com.songkhla.wordgen.ListAccused.jTableAccure;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -17,6 +17,7 @@ import java.util.Vector;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import org.json.simple.JSONObject;
+import static com.songkhla.wordgen.ListSuspect.jTableSuspect;
 
 /**
  *
@@ -28,11 +29,12 @@ public class ListSuspect extends javax.swing.JDialog {
      * Creates new form ListAccused
      */
 Connection con=null;
-    public ListSuspect() {
-        
+String typeC;
+    public ListSuspect(JFrame parrent,JSONObject datain) {
+        super(parrent,true);
         initComponents();  
-       
-        txtCaseNO.setText(CrimesCaseEdit.crimecaseid.getText());
+       txtCaseNO.setText(datain.get("CaseIdSus")+"");
+        typeC=datain.get("TypeCaseS")+"";
          RefreshData();
       
        
@@ -49,7 +51,7 @@ Connection con=null;
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableAccure = new javax.swing.JTable();
+        jTableSuspect = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButtonDeleteAccured = new javax.swing.JButton();
@@ -60,8 +62,8 @@ Connection con=null;
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
 
-        jTableAccure.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jTableAccure.setModel(new javax.swing.table.DefaultTableModel(
+        jTableSuspect.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        jTableSuspect.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -69,11 +71,11 @@ Connection con=null;
                 "ชื่อ-นามสกุล", "เลขบัตรประชน", "เลขคดี"
             }
         ));
-        jTableAccure.setGridColor(new java.awt.Color(255, 255, 255));
-        jTableAccure.setRowHeight(25);
-        jTableAccure.setRowMargin(2);
-        jTableAccure.setSelectionBackground(new java.awt.Color(77, 0, 0));
-        jScrollPane1.setViewportView(jTableAccure);
+        jTableSuspect.setGridColor(new java.awt.Color(255, 255, 255));
+        jTableSuspect.setRowHeight(25);
+        jTableSuspect.setRowMargin(2);
+        jTableSuspect.setSelectionBackground(new java.awt.Color(77, 0, 0));
+        jScrollPane1.setViewportView(jTableSuspect);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -181,6 +183,7 @@ Connection con=null;
 
     private void jButtonAddAccusedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddAccusedActionPerformed
         // TODO add your handling code here:
+        
         SuspectForm susF=new SuspectForm(null,null);
 //        accusedF.setModal(true);
         susF.setVisible(true);
@@ -194,10 +197,10 @@ Connection con=null;
              JFrame f = (JFrame)(dialog.getParent());               
              f.removeAll();
           String crimecaseno = txtCaseNO.getText();
-        if(jTableAccure.getSelectedRow()>=0){
+        if(jTableSuspect.getSelectedRow()>=0){
            
             try{
-                String PeopleRegistrationID = jTableAccure.getModel().getValueAt(jTableAccure.getSelectedRow(), 0)+"";            
+                String PeopleRegistrationID = jTableSuspect.getModel().getValueAt(jTableSuspect.getSelectedRow(), 0)+"";            
                 String sql = "select Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,Weight,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
                         "PhonePerson,Province,Race,Religion,Tambon,TypePerson,ZipCode,caseIdPerson from person where PeopleRegistrationID='"+PeopleRegistrationID+ "' and caseIdPerson='"+crimecaseno+"'";
@@ -253,11 +256,11 @@ Connection con=null;
     }//GEN-LAST:event_jButtonEditAccuredActionPerformed
 
     private void jButtonDeleteAccuredActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteAccuredActionPerformed
-              if(jTableAccure.getSelectedRow()>=0){
+              if(jTableSuspect.getSelectedRow()>=0){
             String aa=txtCaseNO.getText();      
             try{
-                String crimecaseno = jTableAccure.getModel().getValueAt(jTableAccure.getSelectedRow(), 0)+"";
-                String PeopleRegistrationID = jTableAccure.getModel().getValueAt(jTableAccure.getSelectedRow(), 2)+"";
+                String crimecaseno = jTableSuspect.getModel().getValueAt(jTableSuspect.getSelectedRow(), 0)+"";
+                String PeopleRegistrationID = jTableSuspect.getModel().getValueAt(jTableSuspect.getSelectedRow(), 2)+"";
                 String sql = "Delete from person WHERE PeopleRegistrationID='"+PeopleRegistrationID+ "' and  caseIdPerson='"+aa+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
@@ -343,7 +346,7 @@ Connection con=null;
         ColumnName.add("ศาสนา");
          System.out.println("SQL : "+sql);
      
-        jTableAccure.setModel(new javax.swing.table.DefaultTableModel(
+        jTableSuspect.setModel(new javax.swing.table.DefaultTableModel(
             tabledata,
             ColumnName
         ) {
@@ -357,15 +360,31 @@ Connection con=null;
         });
                              System.out.println("SQL : "+sql);
         
-            if(jTableAccure.getRowCount()==1){
+   
+    if(jTableSuspect.getRowCount()==1){
 //             int rows = jTableAccure.getRowCount();
-            CrimesCaseEdit.jTextAccused.setText(jTableAccure.getValueAt(0, 1).toString());      
+            if(typeC.equals("อาญา")){
+            CrimesCaseEdit.jTextSuspect.setText(jTableSuspect.getValueAt(0, 1).toString()); 
             }
-            if(jTableAccure.getRowCount()>1){
-                   CrimesCaseEdit.jTextAccused.setText(jTableAccure.getValueAt(0, 1).toString()+"และคนอื่นๆ");
-                
+            if(typeC.equals("จราจร")){
+            TrafficEdit.jTextSuspect.setText(jTableSuspect.getValueAt(0, 1).toString()); 
             }
-    
+              if(typeC.equals("ชันสูตร")){
+            IdentityFrom.jTextSuspect.setText(jTableSuspect.getValueAt(0, 1).toString()); 
+            }
+            }
+            if(jTableSuspect.getRowCount()>1){
+            
+            if(typeC.equals("อาญา")){
+            CrimesCaseEdit.jTextSuspect.setText(jTableSuspect.getValueAt(0, 1).toString()+"และพวก"); 
+            }
+            if(typeC.equals("จราจร")){
+            TrafficEdit.jTextSuspect.setText(jTableSuspect.getValueAt(0, 1).toString()+"และพวก"); 
+            }
+              if(typeC.equals("ชันสูตร")){
+            IdentityFrom.jTextSuspect.setText(jTableSuspect.getValueAt(0, 1).toString()+"และพวก"); 
+            }
+            }
         
         
         }catch(Exception ex){
@@ -430,7 +449,7 @@ Connection con=null;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    public static javax.swing.JTable jTableAccure;
-    private javax.swing.JLabel txtCaseNO;
+    public static javax.swing.JTable jTableSuspect;
+    public static javax.swing.JLabel txtCaseNO;
     // End of variables declaration//GEN-END:variables
 }

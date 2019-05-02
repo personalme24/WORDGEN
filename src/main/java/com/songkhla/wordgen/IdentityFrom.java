@@ -7,9 +7,14 @@ package com.songkhla.wordgen;
 
 
 
+import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseid;
+import static com.songkhla.wordgen.TrafficEdit.crimecaseid;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import org.json.simple.JSONObject;
 
 /**
  *
@@ -26,6 +31,7 @@ public class IdentityFrom extends javax.swing.JFrame {
      */
     public IdentityFrom() {
         initComponents();
+        
     }
 
     /**
@@ -40,6 +46,7 @@ public class IdentityFrom extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        crimecaseid = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         crimecaseno = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -86,13 +93,13 @@ public class IdentityFrom extends javax.swing.JFrame {
         CrimeLocationProvince = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
-        jTextField13 = new javax.swing.JTextField();
+        jTextAccused = new javax.swing.JTextField();
         jButtonAccured = new javax.swing.JButton();
         jButtonSuspect = new javax.swing.JButton();
-        jTextField18 = new javax.swing.JTextField();
+        jTextSuspect = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
-        jTextField22 = new javax.swing.JTextField();
+        jTextWitness = new javax.swing.JTextField();
         jButtonWitness = new javax.swing.JButton();
         jLabel30 = new javax.swing.JLabel();
         EvidenceRecordNumber = new javax.swing.JTextField();
@@ -138,18 +145,24 @@ public class IdentityFrom extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("คดีชันสูตร");
 
+        crimecaseid.setText("jLabel2");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addGap(0, 1233, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(crimecaseid)
+                .addGap(0, 1181, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel1)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(crimecaseid))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -315,7 +328,7 @@ public class IdentityFrom extends javax.swing.JFrame {
         jLabel21.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel21.setText("ผู้กล่าวหา");
 
-        jTextField13.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        jTextAccused.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jButtonAccured.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButtonAccured.setText("เพิ่ม");
@@ -333,7 +346,12 @@ public class IdentityFrom extends javax.swing.JFrame {
             }
         });
 
-        jTextField18.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        jTextSuspect.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        jTextSuspect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextSuspectActionPerformed(evt);
+            }
+        });
 
         jLabel26.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel26.setText("ผู้ต้องหา");
@@ -341,7 +359,7 @@ public class IdentityFrom extends javax.swing.JFrame {
         jLabel27.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel27.setText("พยานและบุคคลอื่น");
 
-        jTextField22.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        jTextWitness.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jButtonWitness.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButtonWitness.setText("เพิ่ม");
@@ -525,7 +543,7 @@ public class IdentityFrom extends javax.swing.JFrame {
                                             .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jTextField13)
+                                            .addComponent(jTextAccused)
                                             .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addComponent(CrimeLocationDistrict, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -546,8 +564,8 @@ public class IdentityFrom extends javax.swing.JFrame {
                                                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                         .addComponent(CaseRequestTimee, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                                    .addComponent(jTextField18, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField22, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jTextSuspect, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextWitness, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -743,18 +761,18 @@ public class IdentityFrom extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextAccused, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonAccured))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextSuspect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonSuspect))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonWitness)
-                    .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextWitness, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -856,21 +874,52 @@ public class IdentityFrom extends javax.swing.JFrame {
 
     private void jButtonAccuredActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccuredActionPerformed
         // TODO add your handling code here:
-
-        ListAccused la =new ListAccused();
+        String aa=crimecaseid.getText();
+        String type="ชันสูตร";
+        JSONObject data = new JSONObject();
+        data.put("CaseIdAcc",aa );
+        data.put("TypeCase",type );
+        JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame facc = (JFrame)(dialog.getParent());
+        facc.removeAll();
+        ListAccused la =new ListAccused(facc,data);
+        la.setModal(true);
         la.setVisible(true);
+
+      
 
     }//GEN-LAST:event_jButtonAccuredActionPerformed
 
     private void jButtonSuspectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSuspectActionPerformed
         // TODO add your handling code here:
-        ListSuspect ls=new ListSuspect();
+         String idSus=crimecaseid.getText();
+         String typeS="ชันสูตร";
+        JSONObject s = new JSONObject();
+       s.put("CaseIdSus",idSus );
+        s.put("TypeCaseS",typeS );
+       JFrame frame = new JFrame();
+             JDialog dialog = new JDialog(frame);//frame is owner
+             JFrame facc = (JFrame)(dialog.getParent());               
+             facc.removeAll();
+        ListSuspect ls=new ListSuspect(facc,s);
+          ls.setModal(true);
         ls.setVisible(true);
     }//GEN-LAST:event_jButtonSuspectActionPerformed
 
     private void jButtonWitnessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonWitnessActionPerformed
         // TODO add your handling code here:
-        ListWitness lw=new ListWitness();
+         String idWit=crimecaseid.getText();
+        String typeW="ชันสูตร";
+        JSONObject s = new JSONObject();
+       s.put("CaseIdWit",idWit );
+        s.put("TypeCaseW",typeW );
+       JFrame frame = new JFrame();
+             JDialog dialog = new JDialog(frame);//frame is owner
+             JFrame fwit = (JFrame)(dialog.getParent());               
+             fwit.removeAll();
+        ListWitness lw=new ListWitness(fwit,s);     
+          lw.setModal(true);
         lw.setVisible(true);
     }//GEN-LAST:event_jButtonWitnessActionPerformed
 
@@ -901,8 +950,7 @@ public class IdentityFrom extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        ListWitness lw=new ListWitness();
-        lw.setVisible(true);
+      
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButtonSaveCaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveCaseActionPerformed
@@ -1041,6 +1089,10 @@ public class IdentityFrom extends javax.swing.JFrame {
         ri.setVisible(true);
 // TODO add your handling code here:
     }//GEN-LAST:event_jButtonAddInvestActionPerformed
+
+    private void jTextSuspectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextSuspectActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextSuspectActionPerformed
     
     /**
      * @param args the command line arguments
@@ -1096,6 +1148,7 @@ public class IdentityFrom extends javax.swing.JFrame {
     private javax.swing.JTextField Name;
     private javax.swing.JTextField OccuredDate;
     private javax.swing.JTextField OccuredDateTime;
+    private javax.swing.JLabel crimecaseid;
     private javax.swing.JTextField crimecaseno;
     private javax.swing.JTextField crimecaseyear;
     private javax.swing.JButton jButton1;
@@ -1156,16 +1209,16 @@ public class IdentityFrom extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton6;
     private javax.swing.JRadioButton jRadioButton7;
     private javax.swing.JScrollPane jScrollPane1;
+    public static javax.swing.JTextField jTextAccused;
     private javax.swing.JTextArea jTextCourtResult;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField22;
     private javax.swing.JTextField jTextField25;
     private javax.swing.JTextField jTextField26;
     private javax.swing.JTextField jTextField28;
     private javax.swing.JTextField jTextInvestSendtoDepartment;
     private javax.swing.JTextField jTextInvestigatorResult;
     private javax.swing.JTextField jTextPoliceName;
+    public static javax.swing.JTextField jTextSuspect;
+    public static javax.swing.JTextField jTextWitness;
     // End of variables declaration//GEN-END:variables
 }

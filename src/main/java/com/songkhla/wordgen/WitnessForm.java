@@ -67,7 +67,7 @@ public class WitnessForm extends javax.swing.JDialog {
 
 
         }else{
-           crimecaseno.setText(CrimesCaseEdit.crimecaseid.getText());
+           crimecaseno.setText(ListWitness.txtCaseNO.getText());
             isInsert=true;
           
         }

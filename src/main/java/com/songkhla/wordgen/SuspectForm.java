@@ -67,7 +67,7 @@ public class SuspectForm extends javax.swing.JDialog {
 
 
         }else{
-           crimecaseno.setText(CrimesCaseEdit.crimecaseid.getText());
+           crimecaseno.setText(ListSuspect.txtCaseNO.getText());
             isInsert=true;
           
         }

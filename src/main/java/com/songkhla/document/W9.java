@@ -71,13 +71,13 @@ public class W9 {
 //                 bookmarkvalue.put("C1","Date");
 //                 bookmarkvalue.put("S27","-");
                  bookmarkvalue.put("S2", "สถานีตำรวจ");
-                  bookmarkvalue.put("S5", "เขต/แขวง");
+                  bookmarkvalue.put("S5", "-");
                    bookmarkvalue.put("S6", " ");
-                   bookmarkvalue.put("S7", "สถานีตำรวจ");
+//                   bookmarkvalue.put("S7", "สถานีตำรวจ");
                    
 //                   ----------------------------ผู้กล่าวหา--------------------
-                 bookmarkvalue.put("PA7",s.getString("AccureandOther"));
-                  bookmarkvalue.put("PA13", s.getString("AgeAccured"));
+                 bookmarkvalue.put("PA7","-");
+                  bookmarkvalue.put("PA13", "-");
                    bookmarkvalue.put("PA14", "-");
                     bookmarkvalue.put("PA15", "-"); 
 //                     bookmarkvalue.put("P15", "-"); 
@@ -92,6 +92,7 @@ public class W9 {
                      bookmarkvalue.put("PS14", "-");
                      bookmarkvalue.put("PS15", "-");
                      bookmarkvalue.put("PS16", "-");
+                      bookmarkvalue.put("PS17", "-");
                      bookmarkvalue.put("PS22", "-");
                      bookmarkvalue.put("PS23", "-");
                      bookmarkvalue.put("PS24", "-");
@@ -105,15 +106,15 @@ public class W9 {
                      bookmarkvalue.put("PS34", "-");
                      bookmarkvalue.put("PS35", "-");
                      
-                      bookmarkvalue.put("B2", "-");
-                     bookmarkvalue.put("C4", "-");
-                     bookmarkvalue.put("C8", "-");
-                     bookmarkvalue.put("C5", "-");
+//                      bookmarkvalue.put("B2", "-");
+//                     bookmarkvalue.put("C4", "-");
+//                     bookmarkvalue.put("C8", "-");
+//                     bookmarkvalue.put("C5", "-");
 //                     ---------------------------------------ตำรวจ-------------------------------------
                      bookmarkvalue.put("P02", "-");
                      bookmarkvalue.put("P03", "-");
                      bookmarkvalue.put("P04", "-");
-                     bookmarkvalue.put("P05", "-");
+//                     bookmarkvalue.put("P05", "-");
                                
                     
                     
@@ -129,15 +130,15 @@ public class W9 {
 		
     
 			JSONArray tablecolumn = new JSONArray();
-			tablecolumn.add("C2");
-			tablecolumn.add("C3");
+//			tablecolumn.add("P03");
+//			tablecolumn.add("P02");
 //			tablecolumn.add("SUSPECT");
 //			tablecolumn.add("VICTIM");
 //			tablecolumn.add("REMARK");
 			JSONArray table1 = new JSONArray();
 			JSONObject row1 = new JSONObject();
-			row1.put("C2",cs);
-			row1.put("C3", ccYear);
+//			row1.put("P03","-");
+//			row1.put("P02", ccYear);
 //			row1.put("SUSPECT", "period1");
 //			row1.put("VICTIM", "period1");
 //			row1.put("REMARK", "period1");
@@ -151,12 +152,12 @@ public class W9 {
 //			repl2.put("REMARK", "period1");
 //			table1.add(repl2);
 		JSONObject tableobj = new JSONObject();
-		tableobj.put("COLUMNS", tablecolumn);
-		tableobj.put("TABLEDATA", table1);
+//		tableobj.put("COLUMNS", tablecolumn);
+//		tableobj.put("TABLEDATA", table1);
 			
-		JSONArray TABLES = new JSONArray();
-		TABLES.add(tableobj);
-		bookmarkvalue.put("TABLES", TABLES);
+//		JSONArray TABLES = new JSONArray();
+//		TABLES.add(tableobj);
+//		bookmarkvalue.put("TABLES", TABLES);
 		System.out.println(bookmarkvalue.toJSONString());
 		
 		
@@ -166,7 +167,7 @@ public class W9 {
 					.load(new java.io.File("D:/TEMPLATE/w9.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/เอกสารสำนวนคดี "+cc+"/คำให้การผู้ต้องหา "+NameSus+".doc"));
+			wordMLPackage.save(new java.io.File("D:/เอกสารสำนวนคดี.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

@@ -38,7 +38,7 @@ public class AccusedForm extends javax.swing.JDialog {
      
           if(datain!=null){
             isInsert=false;
-            crimecaseno.setText(datain.get("caseIdPerson")+"");
+            crimecaseno.setText(datain.get("crimecaseno")+"");
             PeopleRegistrationID.setText(datain.get("PeopleRegistrationID")+"");
             FullNamePerson.setText(datain.get("FullNamePerson")+"");
             Age.setText(datain.get("Age")+"");
@@ -67,7 +67,7 @@ public class AccusedForm extends javax.swing.JDialog {
 
 
         }else{
-           crimecaseno.setText(CrimesCaseEdit.crimecaseid.getText());
+           crimecaseno.setText(ListAccused.txtCaseNO.getText());
             isInsert=true;
           
         }
