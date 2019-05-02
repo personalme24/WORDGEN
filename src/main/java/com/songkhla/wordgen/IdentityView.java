@@ -102,6 +102,7 @@ public class IdentityView extends javax.swing.JFrame {
         jButtonFind.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButtonFind.setText("ค้นหา");
 
+        txtCaseNO.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         txtCaseNO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCaseNOActionPerformed(evt);
@@ -145,7 +146,7 @@ public class IdentityView extends javax.swing.JFrame {
                     .addComponent(jButtonAdd))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 380, Short.MAX_VALUE))
+                .addGap(0, 381, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

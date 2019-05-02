@@ -124,6 +124,7 @@ public class IdentityFrom extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jButtonSaveCase = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButtonAddInvest = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -429,6 +430,7 @@ public class IdentityFrom extends javax.swing.JFrame {
         jTextInvestigatorResult.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jTextCourtResult.setColumns(20);
+        jTextCourtResult.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         jTextCourtResult.setRows(5);
         jScrollPane1.setViewportView(jTextCourtResult);
 
@@ -441,6 +443,7 @@ public class IdentityFrom extends javax.swing.JFrame {
         jLabel38.setText("หมายเหตุ");
 
         jTextPoliceName.setEditable(false);
+        jTextPoliceName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel40.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel40.setText("ชื่อพนักงานสอบสวน");
@@ -471,6 +474,15 @@ public class IdentityFrom extends javax.swing.JFrame {
             }
         });
 
+        jButtonAddInvest.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jButtonAddInvest.setText("เพิ่ม");
+        jButtonAddInvest.setActionCommand("พยาน");
+        jButtonAddInvest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddInvestActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -497,7 +509,9 @@ public class IdentityFrom extends javax.swing.JFrame {
                         .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonAddInvest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(157, 157, 157))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -780,8 +794,9 @@ public class IdentityFrom extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jTextPoliceName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonAddInvest, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonSaveCase)
                     .addComponent(jButton3))
@@ -1019,6 +1034,13 @@ public class IdentityFrom extends javax.swing.JFrame {
         }
       }
     }//GEN-LAST:event_jButtonSaveCaseActionPerformed
+
+    private void jButtonAddInvestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddInvestActionPerformed
+      
+         RecordInvestigatorForm ri =new RecordInvestigatorForm();
+        ri.setVisible(true);
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButtonAddInvestActionPerformed
     
     /**
      * @param args the command line arguments
@@ -1081,6 +1103,7 @@ public class IdentityFrom extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButtonAccured;
     private javax.swing.JButton jButtonAction;
+    private javax.swing.JButton jButtonAddInvest;
     private javax.swing.JButton jButtonCharge;
     private javax.swing.JButton jButtonSaveCase;
     private javax.swing.JButton jButtonSuspect;
