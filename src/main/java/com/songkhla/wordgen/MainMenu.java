@@ -123,17 +123,17 @@ public class MainMenu extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(96, 96, 96)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(101, Short.MAX_VALUE)
                 .addComponent(jLabel4)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addGap(33, 33, 33))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(36, Short.MAX_VALUE)
                 .addComponent(jLabel4)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGap(22, 22, 22))
         );
 
         jLabel11.setFont(new java.awt.Font("TH SarabunPSK", 1, 24)); // NOI18N
@@ -345,23 +345,23 @@ public class MainMenu extends javax.swing.JFrame {
                         .addGap(495, 495, 495))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(48, 48, 48)
-                            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(53, 53, 53))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(UserName)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel2)
-                            .addGap(180, 180, 180)))))
+                            .addGap(180, 180, 180))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(48, 48, 48)
+                            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(53, 53, 53)))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66)
-                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(125, 125, 125)
+                .addGap(365, 365, 365)
                 .addComponent(jLabel11)
                 .addGap(113, 113, 113))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -439,7 +439,41 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel14MouseClicked
 
     private void jPanel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel10MouseClicked
-               PolisForm pf=new  PolisForm();
+      String a;
+            String sql= "select * from Police";
+            Connection con = ConnectDatabase.connect();
+          
+            try { 
+                Statement stmt = con.createStatement();
+                 ResultSet rs = stmt.executeQuery(sql);
+              if(rs.next()){
+        
+                        JSONObject data = new JSONObject();
+                    data.put("IdCardPolice", rs.getString("IdCardPolice"));
+                    data.put("RankPolice", rs.getString("RankPolice"));
+                    data.put("FirstName", rs.getString("FirstName"));
+                    data.put("LastName", rs.getString("LastName"));
+                    data.put("Position", rs.getString("Position"));
+
+//                       PolisForm cce =new PolisForm(this,data);
+//                      cce.setVisible(true);
+                            Data d =new Data();
+                            a=rs.getString("FirstName");
+//                            System.out.print(a);
+                              d.setPolicName(a); 
+                
+        
+                }
+
+                rs.close();
+                stmt.close();
+     
+            }catch(Exception ex){
+                ex.printStackTrace();
+
+            }
+             
+        PolisForm pf=new  PolisForm();
                pf.setVisible(true);
                
 // TODO add your handling code here:

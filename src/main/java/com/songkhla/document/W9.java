@@ -70,7 +70,7 @@ public class W9 {
                  JSONObject bookmarkvalue = new JSONObject();
 //                 bookmarkvalue.put("C1","Date");
 //                 bookmarkvalue.put("S27","-");
-                 bookmarkvalue.put("S2", "สถานีตำรวจ");
+                 bookmarkvalue.put("S2", "-");
                   bookmarkvalue.put("S5", "-");
                    bookmarkvalue.put("S6", " ");
 //                   bookmarkvalue.put("S7", "สถานีตำรวจ");
@@ -80,8 +80,10 @@ public class W9 {
                   bookmarkvalue.put("PA13", "-");
                    bookmarkvalue.put("PA14", "-");
                     bookmarkvalue.put("PA15", "-"); 
-//                     bookmarkvalue.put("P15", "-"); 
-//                    bookmarkvalue.put("PA75", "-"); 
+                     bookmarkvalue.put("PA3", "-"); 
+                    bookmarkvalue.put("PA4", "-"); 
+                    bookmarkvalue.put("PA5", "-"); 
+                      bookmarkvalue.put("PA2", "-"); 
 //                   ----------------------------ผู้ต้องหา--------------------
                     bookmarkvalue.put("PS2", "-"); 
                     bookmarkvalue.put("PS3", "-"); 
@@ -164,10 +166,10 @@ public class W9 {
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("D:/TEMPLATE/w9.docx"));
+					.load(new java.io.File("D:/TEMPLATE/w81.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/เอกสารสำนวนคดี.doc"));
+			wordMLPackage.save(new java.io.File("D:/เอกสารสำนวนคดี2.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

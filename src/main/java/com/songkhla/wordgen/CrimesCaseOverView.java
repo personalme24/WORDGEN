@@ -59,7 +59,7 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
         jButtonSearch = new javax.swing.JButton();
         jButtonAdd = new javax.swing.JButton();
         jButtonEdit = new javax.swing.JButton();
-        txtCaseNO = new javax.swing.JTextField();
+        txtSearchCase = new javax.swing.JTextField();
         jButtonDelete = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -98,9 +98,9 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
             }
         });
 
-        txtCaseNO.addActionListener(new java.awt.event.ActionListener() {
+        txtSearchCase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCaseNOActionPerformed(evt);
+                txtSearchCaseActionPerformed(evt);
             }
         });
 
@@ -127,7 +127,7 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(txtCaseNO, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtSearchCase, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(622, Short.MAX_VALUE))
@@ -139,7 +139,7 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCaseNO, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSearchCase, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonSearch)
                     .addComponent(jButtonDelete)
                     .addComponent(jButtonEdit)
@@ -185,8 +185,8 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1247, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 989, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -220,9 +220,9 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonDeleteActionPerformed
 
-    private void txtCaseNOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCaseNOActionPerformed
+    private void txtSearchCaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchCaseActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCaseNOActionPerformed
+    }//GEN-LAST:event_txtSearchCaseActionPerformed
 
     private void jButtonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditActionPerformed
         // TODO add your handling code here:
@@ -390,20 +390,21 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
     
     private String getFilterCondition(){
         HashMap<String,String> filter = new HashMap<String,String>();
-        if(txtCaseNO.getText().trim().length()>0){
-            filter.put("crimecaseno", txtCaseNO.getText().trim());
+        if(txtSearchCase.getText().trim().length()>0){
+            filter.put("crimecaseno", txtSearchCase.getText().trim());
+//            filter.put("AccureandOther", txtSearchCase.getText().trim());
         }
         
         String[] key = filter.keySet().toArray(new String[0]);
         String result="";
         for(int i=0;i<key.length;i++){
             if(i==0){
-                result=" and ";
+                result=" or ";
             }
             if(i==key.length-1){
                 result+= " "+key[i]+" LIKE '%"+filter.get(key[i])+"%'";
             }else{
-                result+= " "+key[i]+" LIKE "+filter.get(key[i])+" and ";
+                result+= " "+key[i]+" LIKE "+filter.get(key[i])+" or ";
             }
             System.out.println(result);
         }
@@ -420,6 +421,6 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField txtCaseNO;
+    private javax.swing.JTextField txtSearchCase;
     // End of variables declaration//GEN-END:variables
 }
