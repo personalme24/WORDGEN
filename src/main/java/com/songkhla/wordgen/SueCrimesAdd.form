@@ -53,7 +53,7 @@
                       <Group type="102" attributes="0">
                           <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jTextField6" max="32767" attributes="0"/>
+                          <Component id="PoliceStationName" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -74,21 +74,21 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="crimecaseno" min="-2" pref="166" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jTextField2" alignment="0" min="-2" pref="153" max="-2" attributes="0"/>
+                              <Component id="NoImprison" alignment="0" min="-2" pref="153" max="-2" attributes="0"/>
                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="SuspectFullName" alignment="0" pref="540" max="32767" attributes="0"/>
-                                  <Component id="FullNamePerson1" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="ChargeName" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="jTextField7" min="-2" pref="153" max="-2" attributes="0"/>
+                                      <Component id="ToImprison" min="-2" pref="153" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                           <Group type="102" attributes="0">
                                               <Component id="jTextField3" max="32767" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="jTextField4" min="-2" pref="153" max="-2" attributes="0"/>
+                                          <Component id="SinceImprison" min="-2" pref="153" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
@@ -100,14 +100,14 @@
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jTextField5" min="-2" pref="153" max="-2" attributes="0"/>
-                                              <Component id="jTextField8" min="-2" pref="153" max="-2" attributes="0"/>
+                                              <Component id="SinceImprisonTime" min="-2" pref="153" max="-2" attributes="0"/>
+                                              <Component id="ToImprisonTime" min="-2" pref="153" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
                                           <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jTextField9" min="-2" pref="153" max="-2" attributes="0"/>
+                                          <Component id="TotalTime" min="-2" pref="153" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -123,8 +123,8 @@
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jComboBox1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="CauseImprison1" max="32767" attributes="0"/>
+                              <Component id="StatusSueAndPutInJail" alignment="0" max="32767" attributes="0"/>
+                              <Component id="CauseImprison" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -151,33 +151,33 @@
                       <Component id="crimecaseno" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="SuspectFullName" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel5" alignment="0" max="32767" attributes="0"/>
+                      <Component id="SuspectFullName" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel6" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="FullNamePerson1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="ChargeName" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="NoImprison" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="SinceImprison" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="SinceImprisonTime" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField7" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ToImprison" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField8" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ToImprisonTime" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -185,23 +185,23 @@
                       <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField9" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="TotalTime" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField6" min="-2" max="-2" attributes="0"/>
+                      <Component id="PoliceStationName" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="CauseImprison1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="CauseImprison" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="StatusSueAndPutInJail" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -277,7 +277,7 @@
             <Property name="text" type="java.lang.String" value="&#xe40;&#xe25;&#xe02;&#xe17;&#xe35;&#xe48;&#xe04;&#xe33;&#xe23;&#xe49;&#xe2d;&#xe07;&#xe1c;&#xe31;&#xe14;&#xe1f;&#xe49;&#xe2d;&#xe07;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField2">
+        <Component class="javax.swing.JTextField" name="NoImprison">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>
@@ -347,7 +347,7 @@
             <Property name="text" type="java.lang.String" value="&#xe02;&#xe49;&#xe2d;&#xe2b;&#xe32;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="FullNamePerson1">
+        <Component class="javax.swing.JTextField" name="ChargeName">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -358,7 +358,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FullNamePerson1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ChargeNameActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel13">
@@ -382,10 +382,10 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&#xe27;&#xe31;&#xe19;&#xe17;&#xe35;&#xe48;&#xe40;&#xe23;&#xe34;&#xe48;&#xe21;&#xe1c;&#xe31;&#xe14;&#xe1f;&#xe49;&#xe2d;&#xe07;"/>
+            <Property name="text" type="java.lang.String" value="&#xe27;&#xe31;&#xe19;&#xe17;&#xe35;&#xe48;&#xe40;&#xe23;&#xe34;&#xe48;&#xe21;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField4">
+        <Component class="javax.swing.JTextField" name="SinceImprison">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>
@@ -400,7 +400,7 @@
             <Property name="text" type="java.lang.String" value="&#xe40;&#xe27;&#xe25;&#xe32;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField5">
+        <Component class="javax.swing.JTextField" name="SinceImprisonTime">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>
@@ -423,7 +423,7 @@
             <Property name="text" type="java.lang.String" value="&#xe2a;&#xe16;&#xe32;&#xe19;&#xe17;&#xe35;&#xe48;&#xe04;&#xe27;&#xe1a;&#xe04;&#xe38;&#xe21;&#xe15;&#xe31;&#xe27;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField6">
+        <Component class="javax.swing.JTextField" name="PoliceStationName">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>
@@ -438,7 +438,7 @@
             <Property name="text" type="java.lang.String" value="&#xe40;&#xe2b;&#xe15;&#xe38;&#xe1c;&#xe31;&#xe14;&#xe1f;&#xe49;&#xe2d;&#xe07;&#xe1d;&#xe32;&#xe01;&#xe02;&#xe31;&#xe07;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="CauseImprison1">
+        <Component class="javax.swing.JComboBox" name="CauseImprison">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="1"/>
@@ -467,7 +467,7 @@
             <Property name="text" type="java.lang.String" value="&#xe2a;&#xe16;&#xe32;&#xe19;&#xe30;&#xe01;&#xe32;&#xe23;&#xe1c;&#xe31;&#xe14;&#xe1f;&#xe49;&#xe2d;&#xe07;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox1">
+        <Component class="javax.swing.JComboBox" name="StatusSueAndPutInJail">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>
@@ -498,10 +498,10 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&#xe27;&#xe31;&#xe19;&#xe17;&#xe35;&#xe48;&#xe40;&#xe23;&#xe34;&#xe48;&#xe21;&#xe1c;&#xe31;&#xe14;&#xe1f;&#xe49;&#xe2d;&#xe07;"/>
+            <Property name="text" type="java.lang.String" value="&#xe27;&#xe31;&#xe19;&#xe17;&#xe35;&#xe48;&#xe2a;&#xe34;&#xe49;&#xe19;&#xe2a;&#xe38;&#xe14;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField7">
+        <Component class="javax.swing.JTextField" name="ToImprison">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>
@@ -516,7 +516,7 @@
             <Property name="text" type="java.lang.String" value="&#xe40;&#xe27;&#xe25;&#xe32;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField8">
+        <Component class="javax.swing.JTextField" name="ToImprisonTime">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>
@@ -531,7 +531,7 @@
             <Property name="text" type="java.lang.String" value="&#xe23;&#xe27;&#xe21;&#xe40;&#xe27;&#xe25;&#xe32;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField9">
+        <Component class="javax.swing.JTextField" name="TotalTime">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>

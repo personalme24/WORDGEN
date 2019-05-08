@@ -32,33 +32,33 @@ public class SueCrimesAdd extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        NoImprison = new javax.swing.JTextField();
         NumberImprison = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
         crimecaseno = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         SuspectFullName = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        FullNamePerson1 = new javax.swing.JTextField();
+        ChargeName = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        SinceImprison = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        SinceImprisonTime = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        PoliceStationName = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        CauseImprison1 = new javax.swing.JComboBox<>();
+        CauseImprison = new javax.swing.JComboBox<>();
         jLabel20 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        StatusSueAndPutInJail = new javax.swing.JComboBox<>();
         jLabel21 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        ToImprison = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        ToImprisonTime = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        TotalTime = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -97,7 +97,7 @@ public class SueCrimesAdd extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel12.setText("เลขที่คำร้องผัดฟ้อง");
 
-        jTextField2.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        NoImprison.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         NumberImprison.setEditable(false);
         NumberImprison.setBorder(null);
@@ -134,12 +134,12 @@ public class SueCrimesAdd extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel6.setText("ข้อหา");
 
-        FullNamePerson1.setEditable(false);
-        FullNamePerson1.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        FullNamePerson1.setBorder(null);
-        FullNamePerson1.addActionListener(new java.awt.event.ActionListener() {
+        ChargeName.setEditable(false);
+        ChargeName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        ChargeName.setBorder(null);
+        ChargeName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FullNamePerson1ActionPerformed(evt);
+                ChargeNameActionPerformed(evt);
             }
         });
 
@@ -150,14 +150,14 @@ public class SueCrimesAdd extends javax.swing.JFrame {
         jTextField3.setText("6");
 
         jLabel14.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel14.setText("วันที่เริ่มผัดฟ้อง");
+        jLabel14.setText("วันที่เริ่ม");
 
-        jTextField4.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        SinceImprison.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel15.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel15.setText("เวลา");
 
-        jTextField5.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        SinceImprisonTime.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel16.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel16.setText("วัน");
@@ -165,34 +165,34 @@ public class SueCrimesAdd extends javax.swing.JFrame {
         jLabel18.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel18.setText("สถานที่ควบคุมตัว");
 
-        jTextField6.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        PoliceStationName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel19.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel19.setText("เหตุผัดฟ้องฝากขัง");
 
-        CauseImprison1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        CauseImprison1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
+        CauseImprison.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        CauseImprison.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
 
         jLabel20.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel20.setText("สถานะการผัดฟ้อง");
 
-        jComboBox1.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ควบคุมตัว", "ควบคุมตัว(กรณีเยาวชน)", "ขอควบคุมตัว", "ประกันตัว", "ขอประกันตัว", "ฝากขัง", "ผัดฟ้อง", "ผัดฟ้อง/ฝากขัง", "ส่งฟ้อง", "ปล่อยตัว", "ขอถอนประกันตัว", "ถอนประกันตัว" }));
+        StatusSueAndPutInJail.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        StatusSueAndPutInJail.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ควบคุมตัว", "ควบคุมตัว(กรณีเยาวชน)", "ขอควบคุมตัว", "ประกันตัว", "ขอประกันตัว", "ฝากขัง", "ผัดฟ้อง", "ผัดฟ้อง/ฝากขัง", "ส่งฟ้อง", "ปล่อยตัว", "ขอถอนประกันตัว", "ถอนประกันตัว" }));
 
         jLabel21.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel21.setText("วันที่เริ่มผัดฟ้อง");
+        jLabel21.setText("วันที่สิ้นสุด");
 
-        jTextField7.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        ToImprison.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel22.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel22.setText("เวลา");
 
-        jTextField8.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        ToImprisonTime.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel23.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel23.setText("รวมเวลา");
 
-        jTextField9.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        TotalTime.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel24.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel24.setText("ชั่วโมง");
@@ -224,7 +224,7 @@ public class SueCrimesAdd extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel18)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField6))
+                        .addComponent(PoliceStationName))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel12)
@@ -242,19 +242,19 @@ public class SueCrimesAdd extends javax.swing.JFrame {
                                 .addComponent(jLabel30)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(crimecaseno, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NoImprison, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(SuspectFullName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 540, Short.MAX_VALUE)
-                                .addComponent(FullNamePerson1, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addComponent(ChargeName, javax.swing.GroupLayout.Alignment.LEADING))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ToImprison, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                             .addComponent(jTextField3)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(jLabel16))
-                                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(SinceImprison, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(47, 47, 47)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -263,12 +263,12 @@ public class SueCrimesAdd extends javax.swing.JFrame {
                                             .addComponent(jLabel22))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(SinceImprisonTime, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(ToImprisonTime, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel23)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(TotalTime, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel24)))
                         .addGap(0, 14, Short.MAX_VALUE))
@@ -278,8 +278,8 @@ public class SueCrimesAdd extends javax.swing.JFrame {
                             .addComponent(jLabel20))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(CauseImprison1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(StatusSueAndPutInJail, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(CauseImprison, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(37, 37, 37))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(231, 231, 231)
@@ -299,49 +299,49 @@ public class SueCrimesAdd extends javax.swing.JFrame {
                     .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(crimecaseno, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SuspectFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(SuspectFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FullNamePerson1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ChargeName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(NoImprison, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SinceImprison, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(SinceImprisonTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ToImprison, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel21)
                     .addComponent(jLabel22)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ToImprisonTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13)
                     .addComponent(jLabel16)
                     .addComponent(jLabel23)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TotalTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel24))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel18)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(PoliceStationName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
-                    .addComponent(CauseImprison1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CauseImprison, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(StatusSueAndPutInJail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(66, 66, 66)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4)
@@ -375,9 +375,9 @@ public class SueCrimesAdd extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_SuspectFullNameActionPerformed
 
-    private void FullNamePerson1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FullNamePerson1ActionPerformed
+    private void ChargeNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChargeNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_FullNamePerson1ActionPerformed
+    }//GEN-LAST:event_ChargeNameActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
@@ -423,14 +423,21 @@ public class SueCrimesAdd extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> CauseImprison1;
-    private javax.swing.JTextField FullNamePerson1;
+    private javax.swing.JComboBox<String> CauseImprison;
+    private javax.swing.JTextField ChargeName;
+    private javax.swing.JTextField NoImprison;
     private javax.swing.JTextField NumberImprison;
+    private javax.swing.JTextField PoliceStationName;
+    private javax.swing.JTextField SinceImprison;
+    private javax.swing.JTextField SinceImprisonTime;
+    private javax.swing.JComboBox<String> StatusSueAndPutInJail;
     private javax.swing.JTextField SuspectFullName;
+    private javax.swing.JTextField ToImprison;
+    private javax.swing.JTextField ToImprisonTime;
+    private javax.swing.JTextField TotalTime;
     private javax.swing.JTextField crimecaseno;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -450,13 +457,6 @@ public class SueCrimesAdd extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
 }
