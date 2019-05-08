@@ -5,29 +5,62 @@
  */
 package com.songkhla.wordgen;
 
+import static com.songkhla.wordgen.CrimesCaseEdit.ActionCrimes;
+import static com.songkhla.wordgen.CrimesCaseEdit.ChargeNameCase;
+import static com.songkhla.wordgen.CrimesCaseEdit.ListAsset;
+import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseid;
+import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseno;
+import static com.songkhla.wordgen.CrimesCaseEdit.jLabelActionCode;
+import static com.songkhla.wordgen.CrimesCaseEdit.jLabelChargeCode;
+import static com.songkhla.wordgen.CrimesCaseEdit.jTextAccused;
+import static com.songkhla.wordgen.CrimesCaseEdit.jTextSuspect;
+import static com.songkhla.wordgen.CrimesCaseEdit.jTextWitness;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import org.json.simple.JSONObject;
 
 /**
  *
  * @author Petpilin
  */
-public class PolisForm extends javax.swing.JFrame {
+public class PolisForm extends javax.swing.JDialog {
    Connection con=null;
     PreparedStatement pst=null;
     DataCase dc =new DataCase();
+    boolean isInsert;
 
     /**
      * Creates new form PolisForm
      */
-    public PolisForm() {
+    public PolisForm(JFrame parrent,JSONObject datain) {
+         super(parrent,true);
         initComponents();
-     
-        data();
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+              
+        if(datain!=null){
+            try {
+             IdCardPolice.setText(datain.get("IdCardPolice")+"");
+             RankPolice.setText(datain.get("RankPolice")+"");
+             FirstName.setText(datain.get("FirstName")+"");
+             LastName.setText(datain.get("LastName")+"");
+             Position.setText(datain.get("Position")+"");
+                      
+            } catch (Exception ex) {
+                System.out.println(ex);
+            }
+
+        }
+        else{
+            isInsert=true;
+        }
         
     }
 
@@ -55,7 +88,7 @@ public class PolisForm extends javax.swing.JFrame {
         Position = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -198,12 +231,12 @@ public class PolisForm extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         con=ConnectDatabase.connect();
-        String sql2= "select * from Police";
-        
+       
+        if(isInsert){
          try {  
              Statement stmt = con.createStatement();
-         ResultSet rs = stmt.executeQuery(sql2);
-         if(!rs.next()){
+
+         
                  String sql="INSERT INTO Police (IdCardPolice,RankPolice,FirstName,LastName,Position) VALUES (?,?,?,?,?)";
             pst=con.prepareStatement(sql);
             pst.setString(1,IdCardPolice.getText());
@@ -212,9 +245,18 @@ public class PolisForm extends javax.swing.JFrame {
             pst.setString(4,LastName.getText());
             pst.setString(5,Position.getText());
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Data Saved successfully");
+            JOptionPane.showMessageDialog(null, "บันทึกข้อมูลเรียบร้อย");
              pst.close(); 
-         }else{
+         
+         }
+         catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+            System.out.println("SQL : "+pst);
+        }
+             setVisible(false);      
+        }
+         else{
+           try{
         String sqlUpdate= "UPDATE Police Set\n "
         + "IdCardPolice=?,"
         + "RankPolice=?,"
@@ -233,12 +275,14 @@ public class PolisForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Data Saved successfully");
             System.out.println("SQL : "+sqlUpdate);
         }
-        } 
+         
          catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
             System.out.println("SQL : "+pst);
         }
- setVisible(false);                                                      
+           
+        }
+                                                    
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 private void data() 
@@ -298,7 +342,7 @@ private void data()
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PolisForm().setVisible(true);
+//                new PolisForm().setVisible(true);
             }
         });
     }

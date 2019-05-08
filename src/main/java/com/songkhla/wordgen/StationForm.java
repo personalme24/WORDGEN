@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.json.simple.JSONObject;
 
@@ -17,7 +18,7 @@ import org.json.simple.JSONObject;
  *
  * @author Petpilin
  */
-public class StationForm extends javax.swing.JFrame {
+public class StationForm extends javax.swing.JDialog {
     
       Connection con=null;
     PreparedStatement pst=null;
@@ -27,10 +28,48 @@ public class StationForm extends javax.swing.JFrame {
     /**
      * Creates new form StationForm
      */
-    public StationForm() {
- 
+    public StationForm(JFrame parrent,JSONObject datain) {
+        super(parrent,true);
        initComponents();
-        data();
+       if(datain != null)
+       {
+           
+                            PoliceStationCode.setText(datain.get("PoliceStartionCode")+"");
+                            PoliceStationName.setText(datain.get("PoliceStaionName")+"");
+                            PoliceStationShort.setText(datain.get("PoliceStaionShort")+"");
+                            StationAddress.setText(datain.get("StationAddress")+"");
+                            StationAmphur.setText(datain.get("StationAmphur")+"");
+                            StationProvince.setText(datain.get("StationProvince")+"");
+                            BK.setText(datain.get("BK")+"");
+                            BH.setText(datain.get("BH")+"");
+                            Fax.setText(datain.get("Fax")+"");
+                            TelStation.setText(datain.get("TelStation")+"");
+                            PhonePolice.setText(datain.get("PhonePolice")+"");
+                            HeadName.setText(datain.get("HeadName")+"");
+                            HeadPosition.setText(datain.get("HeadPosition")+"");
+                            HeadWorkName.setText(datain.get("HeadWorkName")+"");
+                            HeadWorkPosition.setText(datain.get("HeadWorkPosition")+"");
+                            CriminalCourt.setText(datain.get("CriminalCourt")+"");
+                            JuvenileCourt.setText(datain.get("JuvenileCourt")+"");
+                            DistrictCourt.setText(datain.get("DistrictCourt")+"");
+                            MilitaryCourt.setText(datain.get("MilitaryCourt")+"");
+                            AssetCourt.setText(datain.get("AssetCourt")+"");
+                            LocationOfD.setText(datain.get("LocationOfDrug")+"");
+                            CheckGun.setText(datain.get("CheckGun")+"");
+                            CheckDrug.setText(datain.get("CheckDrug")+"");
+                            CheckOtherExhibit.setText(datain.get("CheckOtherExhibit")+"");
+                            CauseSerious.setText(datain.get("CauseSerious")+"");
+                            ProvincProsecutor.setText(datain.get("ProvincProsecutor")+"");
+                            ProvincProsecutorCh.setText(datain.get("ProvincProsecutorCh")+"");
+                            THNumBook.setText(datain.get("THNumBook")+"");
+                            ProtectChild.setText(datain.get("ProtectChild")+"");
+                            StationMoo.setText(datain.get("StationMoo")+"");
+                            StationTambon.setText(datain.get("StationTambon")+"");
+                            Postcode.setText(datain.get("Postcode")+"");
+       }
+       else{
+       isInsert=true;
+       }
         
     }
 
@@ -587,11 +626,12 @@ public class StationForm extends javax.swing.JFrame {
 
     private void jButtonSaveStationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveStationActionPerformed
         con=ConnectDatabase.connect();
-              String sql2= "select * from PoliceStation";
            //Connection con = ConnectDatabase.connect();
-            try {  Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery(sql2);
-              if(!rs.next()){
+      
+              if(isInsert){
+          try {  
+              Statement stmt = con.createStatement();
+     
         String sql="INSERT INTO PoliceStation (PoliceStartionCode,PoliceStaionName,PoliceStaionShort,StationAddress,StationAmphur,StationProvince,BK," +
         "BH,TelStation,PhonePolice,Fax,HeadName,HeadPosition,HeadWorkName,HeadWorkPosition,CriminalCourt,JuvenileCourt,DistrictCourt," +
         "MilitaryCourt,AssetCourt,LocationOfDrug,CheckGun,CheckDrug,CheckOtherExhibit,CauseSerious,ProvincProsecutor,ProvincProsecutorCh," +
@@ -633,10 +673,13 @@ public class StationForm extends javax.swing.JFrame {
             pst.close();
             JOptionPane.showMessageDialog(null, "Data Saved successfully");
 
-
-       
+              } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+            System.out.println("SQL : "+pst);
+        }
               }
               else{
+         try{
          String sqlUpdate= "UPDATE PoliceStation Set\n "
         + "PoliceStartionCode=?,"
         + "PoliceStaionName=?,"
@@ -710,11 +753,12 @@ public class StationForm extends javax.swing.JFrame {
             pst.close();
               System.out.println("SQL : "+sqlUpdate);
                     }
-            }
+            
              catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
             System.out.println("SQL : "+pst);
         }
+              }
         setVisible(false);
         
     }//GEN-LAST:event_jButtonSaveStationActionPerformed
@@ -800,7 +844,7 @@ private void data()
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new StationForm().setVisible(true);
+//                new StationForm().setVisible(true);
             }
         });
     }

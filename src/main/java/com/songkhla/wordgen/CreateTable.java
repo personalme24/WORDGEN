@@ -168,7 +168,8 @@ public class CreateTable {
                 "	PlaceFoundExhibit	VARCHAR(100)	,	\n"+
                 "	DefectMark	VARCHAR(100)	,	\n"+
                 "	PointFoundCheck	VARCHAR(100)	,	\n"+
-                "	caseIdAsset	INTEGER	not null	\n"+
+                "	StatusAsset	VARCHAR(100)	,	\n"+
+                "	caseIdAsset	INTEGER	not null	\n"+           
                 "	);";
           
           
@@ -186,6 +187,7 @@ public class CreateTable {
                         "	StationAddress	VARCHAR(100)	,	\n"+
                         "	StationAmphur	VARCHAR(100)	,	\n"+
                         "	StationProvince	VARCHAR(100)	,	\n"+
+                          "	StationTambon	VARCHAR(100)	,	\n"+
                         "	KK	VARCHAR(100)	,	\n"+
                         "	BK	VARCHAR(100)	,	\n"+
                         "	BH	VARCHAR(100)	,	\n"+

@@ -8,8 +8,12 @@ package com.songkhla.wordgen;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Rectangle;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import org.json.simple.JSONObject;
 
 /**
  *
@@ -20,12 +24,32 @@ public class MainMenuWord extends javax.swing.JFrame {
     /**
      * Creates new form MainMenuWord
      */
+    Connection con=null;
     JPanel [] panel1;
     public MainMenuWord() {
         initComponents();
         panel1 = new JPanel[]{personmenu,formmenu,howtomenu};
         setMaximumSize(new Dimension(960, 834));
         setMaximizedBounds ( new Rectangle ( 960, 834 ) );
+        data();
+           con=ConnectDatabase.connect();
+        CreateTable.createNewTable();      
+//             String sql= "select * from Police";
+//            Connection con = ConnectDatabase.connect();
+//            try { 
+//                Statement stmt = con.createStatement();
+//                 ResultSet rs = stmt.executeQuery(sql);
+//              if(rs.next()){
+//                            
+//                            String name=rs.getString("FirstName")+" "+rs.getString("LastName");
+//                            UserName.setText(name);
+//                            Data.setPolicName(name);
+//                
+//            }
+//             
+//            } catch (Exception e) {
+//            }
+
         
     }
 
@@ -43,7 +67,7 @@ public class MainMenuWord extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
+        UserName = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         policemenu = new javax.swing.JPanel();
@@ -92,9 +116,9 @@ public class MainMenuWord extends javax.swing.JFrame {
 
         jPanel6.setBackground(new java.awt.Color(77, 0, 0));
 
-        jLabel12.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel12.setText("Name");
+        UserName.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        UserName.setForeground(new java.awt.Color(153, 153, 153));
+        UserName.setText("Name");
 
         jLabel2.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -107,7 +131,7 @@ public class MainMenuWord extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel12)
+                .addComponent(UserName)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
@@ -115,7 +139,7 @@ public class MainMenuWord extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel12))
+                    .addComponent(UserName))
                 .addGap(0, 11, Short.MAX_VALUE))
         );
 
@@ -627,19 +651,133 @@ public class MainMenuWord extends javax.swing.JFrame {
 
     private void profilemenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profilemenuMouseClicked
         // TODO add your handling code here:
-            PolisForm pf=new  PolisForm();
-               pf.setVisible(true);
+            
+          try{
+             
+                String sql="select * from Police";
+                Connection con = ConnectDatabase.connect();
+                Statement stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery(sql);
+                System.out.println("ExSql : "+sql);
+                if(rs.next()){
+                    JSONObject data = new JSONObject();
+                    data.put("IdCardPolice", rs.getString("IdCardPolice"));
+                    data.put("RankPolice", rs.getString("RankPolice"));
+                    data.put("FirstName", rs.getString("FirstName"));
+                    data.put("LastName", rs.getString("LastName"));
+                    data.put("Position", rs.getString("Position"));
+                 
+                    PolisForm pf =new PolisForm(this,data);
+                    pf.setVisible(true);
+                }
+                else{
+                     PolisForm pf =new PolisForm(this,null);
+                    pf.setVisible(true);
+                }
+
+                rs.close();
+                stmt.close();
+  
+            }catch(Exception ex){
+                ex.printStackTrace();
+
+            }
+//      PolisForm pf =new PolisForm(this,null);
+//                    pf.setVisible(true);
         
     }//GEN-LAST:event_profilemenuMouseClicked
+    private void data() 
+{       String a;
+        String name="";
+            String sql= "select * from Police";
+            Connection con = ConnectDatabase.connect();
+          
+            try { 
+                Statement stmt = con.createStatement();
+                 ResultSet rs = stmt.executeQuery(sql);
+              if(rs.next()){
+               
+                      name=rs.getString("FirstName")+" "+rs.getString("LastName");
+                            
+                            Data d =new Data();
+                            a=rs.getString("FirstName");
+//                            System.out.print(a);
+        d.setPolicName(a); 
+                
+            }
+             
+    } catch (Exception e) {
+    }
+            UserName.setText(name);
 
+}
     private void policemenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_policemenuMouseClicked
         // TODO add your handling code here:
-         StationForm sf = new StationForm();
-        sf.setVisible(true);
+        
+                
+          try{
+             
+                String sql="select * from PoliceStation";
+                Connection con = ConnectDatabase.connect();
+                Statement stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery(sql);
+                System.out.println("ExSql : "+sql);
+                if(rs.next()){
+                    JSONObject data = new JSONObject();
+                    data.put("PoliceStartionCode", rs.getString("PoliceStartionCode"));
+                    data.put("PoliceStaionName", rs.getString("PoliceStaionName"));
+                    data.put("PoliceStaionShort", rs.getString("PoliceStaionShort"));
+                    data.put("StationAddress", rs.getString("StationAddress"));
+                    data.put("StationAmphur", rs.getString("StationAmphur"));
+                       data.put("StationProvince", rs.getString("StationProvince"));
+                    data.put("BK", rs.getString("BK"));
+                    data.put("BH", rs.getString("BH"));
+                    data.put("Fax", rs.getString("Fax"));
+                    data.put("TelStation", rs.getString("TelStation"));
+                       data.put("PhonePolice", rs.getString("PhonePolice"));
+                    data.put("HeadName", rs.getString("HeadName"));
+                    data.put("HeadPosition", rs.getString("HeadPosition"));
+                    data.put("HeadWorkName", rs.getString("HeadWorkName"));
+                    data.put("HeadWorkPosition", rs.getString("HeadWorkPosition"));
+                       data.put("CriminalCourt", rs.getString("CriminalCourt"));
+                    data.put("JuvenileCourt", rs.getString("JuvenileCourt"));
+                    data.put("DistrictCourt", rs.getString("DistrictCourt"));
+                    data.put("MilitaryCourt", rs.getString("MilitaryCourt"));
+                    data.put("AssetCourt", rs.getString("AssetCourt"));
+                       data.put("LocationOfDrug", rs.getString("LocationOfDrug"));
+                    data.put("CheckGun", rs.getString("CheckGun"));
+                    data.put("CheckDrug", rs.getString("CheckDrug"));
+                    data.put("CheckOtherExhibit", rs.getString("CheckOtherExhibit"));
+                    data.put("CauseSerious", rs.getString("CauseSerious"));
+                       data.put("ProvincProsecutor", rs.getString("ProvincProsecutor"));
+                    data.put("ProvincProsecutorCh", rs.getString("ProvincProsecutorCh"));
+                    data.put("THNumBook", rs.getString("THNumBook"));
+                    data.put("ProtectChild", rs.getString("ProtectChild"));
+                    data.put("StationMoo", rs.getString("StationMoo"));
+                    data.put("StationTambon", rs.getString("StationTambon"));
+                    data.put("Postcode", rs.getString("Postcode"));                 
+
+                            StationForm sf = new StationForm(this,data);
+                             sf.setVisible(true);
+                }
+                else{
+                     StationForm sf = new StationForm(this,null);
+                     sf.setVisible(true);
+                }
+
+                rs.close();
+                stmt.close();
+  
+            }catch(Exception ex){
+                ex.printStackTrace();
+
+            }
+
     }//GEN-LAST:event_policemenuMouseClicked
 
     private void personmenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_personmenuMouseClicked
         // TODO add your handling code here:
+        
          PersonFrom ps = new PersonFrom();
         ps.setVisible(true);
     }//GEN-LAST:event_personmenuMouseClicked
@@ -691,12 +829,12 @@ public class MainMenuWord extends javax.swing.JFrame {
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel UserName;
     private javax.swing.JPanel formmenu;
     private javax.swing.JPanel howtomenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
