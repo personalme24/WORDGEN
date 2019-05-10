@@ -326,7 +326,8 @@ public class AssetOverView extends javax.swing.JDialog {
         String crimecaseno = txtCaseno.getText();
         String sql = "select EvidenceRecordNumber,Amount,DateSequester,DefectMark,"
                      + "PlaceFoundExhibit,Name,Note,OccupantName,OrderAsset,PointFoundCheck,"
-                     + "Value,crimecaseno from Asset where caseIdAsset='"+crimecaseno+"' and "+getFilterCondition();
+                     + "Value from Asset where caseIdAsset='"+crimecaseno+"' and "+getFilterCondition();
+            System.out.println(sql);
         ResultSet rs = stmt.executeQuery(sql);
         Vector<Vector> tabledata = new Vector<Vector>();
         while(rs.next()){
@@ -382,7 +383,7 @@ public class AssetOverView extends javax.swing.JDialog {
       private String getFilterCondition(){
         HashMap<String,String> filter = new HashMap<String,String>();
         if(txtCaseno.getText().trim().length()>0){
-            filter.put("crimecaseno", txtCaseno.getText().trim());
+            filter.put("caseIdAsset", txtCaseno.getText().trim());
         }
         
         String[] key = filter.keySet().toArray(new String[0]);

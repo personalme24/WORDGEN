@@ -373,11 +373,11 @@ public class AssetNewEdit extends javax.swing.JDialog {
         if (isInsert) {
               String sql="INSERT INTO Asset (EvidenceRecordNumber,Amount,DateSequester,DefectMark,PlaceFoundExhibit,"
                       + "Name,Note,OccupantName,OrderAsset,PointFoundCheck,Value,caseIdAsset,StatusAsset) "           
-                      + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+                      + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
               
                try {
             pst=con.prepareStatement(sql);
-                              pst.setString(1,OrderAsset.getText());
+                              pst.setString(1,EvidenceRecordNumber1.getText());
                               pst.setString(2,Amount.getText());
                               pst.setString(3,DateSequester.getText());
                               pst.setString(4,DefectMark.getText());
@@ -390,7 +390,6 @@ public class AssetNewEdit extends javax.swing.JDialog {
                               pst.setString(11,Value.getText());
                               pst.setString(12,crimecaseno.getText());
                               pst.setString(13,StatusAsset.getSelectedItem().toString());
-
                               pst.executeUpdate();
                               
                              JOptionPane.showMessageDialog(null, "Data Saved successfully");
