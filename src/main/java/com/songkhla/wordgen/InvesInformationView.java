@@ -35,7 +35,7 @@ public class InvesInformationView extends javax.swing.JFrame {
         jButtonAdd = new javax.swing.JButton();
         jButtonEdit = new javax.swing.JButton();
         jButtonDelete = new javax.swing.JButton();
-        txtCaseNO = new javax.swing.JTextField();
+        txtFind = new javax.swing.JTextField();
         jButtonFind = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -69,6 +69,12 @@ public class InvesInformationView extends javax.swing.JFrame {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
                 {null, null, null, null, null, null}
             },
             new String [] {
@@ -99,10 +105,10 @@ public class InvesInformationView extends javax.swing.JFrame {
         jButtonDelete.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButtonDelete.setText("ลบ");
 
-        txtCaseNO.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        txtCaseNO.addActionListener(new java.awt.event.ActionListener() {
+        txtFind.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        txtFind.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCaseNOActionPerformed(evt);
+                txtFindActionPerformed(evt);
             }
         });
 
@@ -125,7 +131,7 @@ public class InvesInformationView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonDelete)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtCaseNO, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtFind, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonFind)))
                 .addContainerGap(38, Short.MAX_VALUE))
@@ -136,7 +142,7 @@ public class InvesInformationView extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCaseNO, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFind, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonFind)
                     .addComponent(jButtonDelete)
                     .addComponent(jButtonEdit)
@@ -167,9 +173,9 @@ public class InvesInformationView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonAddMouseClicked
 
-    private void txtCaseNOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCaseNOActionPerformed
+    private void txtFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFindActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCaseNOActionPerformed
+    }//GEN-LAST:event_txtFindActionPerformed
 
     /**
      * @param args the command line arguments
@@ -216,6 +222,6 @@ public class InvesInformationView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField txtCaseNO;
+    private javax.swing.JTextField txtFind;
     // End of variables declaration//GEN-END:variables
 }
