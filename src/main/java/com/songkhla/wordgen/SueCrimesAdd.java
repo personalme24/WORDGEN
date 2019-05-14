@@ -70,7 +70,7 @@ public class SueCrimesAdd extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         TotalTime = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+        jButtonSave = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -84,7 +84,7 @@ public class SueCrimesAdd extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 28)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("รายละเอียดการขออนุญาตผัดฟ้องฝากขัง");
+        jLabel1.setText("เพิ่ม/แก้ไขการขออนุญาตผัดฟ้องฝากขัง");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -207,11 +207,11 @@ public class SueCrimesAdd extends javax.swing.JFrame {
         jLabel24.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel24.setText("ชั่วโมง");
 
-        jButton4.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButton4.setText("บันทึก");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSave.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jButtonSave.setText("บันทึก");
+        jButtonSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                jButtonSaveActionPerformed(evt);
             }
         });
 
@@ -293,7 +293,7 @@ public class SueCrimesAdd extends javax.swing.JFrame {
                 .addGap(37, 37, 37))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(231, 231, 231)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -354,7 +354,7 @@ public class SueCrimesAdd extends javax.swing.JFrame {
                     .addComponent(StatusSueAndPutInJail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(66, 66, 66)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
+                    .addComponent(jButtonSave)
                     .addComponent(jButton5))
                 .addGap(0, 201, Short.MAX_VALUE))
         );
@@ -389,7 +389,7 @@ public class SueCrimesAdd extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ChargeNameActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
         // TODO add your handling code here:
         
         con=ConnectDatabase.connect();
@@ -462,7 +462,7 @@ public class SueCrimesAdd extends javax.swing.JFrame {
             System.out.println("SQL : "+pst);
         }
         setVisible(false);
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_jButtonSaveActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
@@ -518,8 +518,8 @@ public class SueCrimesAdd extends javax.swing.JFrame {
     private javax.swing.JTextField TotalDate;
     private javax.swing.JTextField TotalTime;
     private javax.swing.JTextField crimecaseno;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButtonSave;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

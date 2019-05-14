@@ -132,7 +132,7 @@
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="231" max="-2" attributes="0"/>
-                  <Component id="jButton4" min="-2" pref="85" max="-2" attributes="0"/>
+                  <Component id="jButtonSave" min="-2" pref="85" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButton5" min="-2" pref="85" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
@@ -205,7 +205,7 @@
                   </Group>
                   <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonSave" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButton5" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="0" pref="201" max="32767" attributes="0"/>
@@ -256,7 +256,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="&#xe23;&#xe32;&#xe22;&#xe25;&#xe30;&#xe40;&#xe2d;&#xe35;&#xe22;&#xe14;&#xe01;&#xe32;&#xe23;&#xe02;&#xe2d;&#xe2d;&#xe19;&#xe38;&#xe0d;&#xe32;&#xe15;&#xe1c;&#xe31;&#xe14;&#xe1f;&#xe49;&#xe2d;&#xe07;&#xe1d;&#xe32;&#xe01;&#xe02;&#xe31;&#xe07;"/>
+                <Property name="text" type="java.lang.String" value="&#xe40;&#xe1e;&#xe34;&#xe48;&#xe21;/&#xe41;&#xe01;&#xe49;&#xe44;&#xe02;&#xe01;&#xe32;&#xe23;&#xe02;&#xe2d;&#xe2d;&#xe19;&#xe38;&#xe0d;&#xe32;&#xe15;&#xe1c;&#xe31;&#xe14;&#xe1f;&#xe49;&#xe2d;&#xe07;&#xe1d;&#xe32;&#xe01;&#xe02;&#xe31;&#xe07;"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -546,7 +546,7 @@
             <Property name="text" type="java.lang.String" value="&#xe0a;&#xe31;&#xe48;&#xe27;&#xe42;&#xe21;&#xe07;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton4">
+        <Component class="javax.swing.JButton" name="jButtonSave">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="1"/>
@@ -554,7 +554,7 @@
             <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSaveActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton5">
