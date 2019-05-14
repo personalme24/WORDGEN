@@ -170,10 +170,10 @@ public class BailCrimesForm extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel9.setText("ผลอนุมัติการประกัน");
 
-        jRadioButton1.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        jRadioButton1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jRadioButton1.setText("อนุมัติ");
 
-        jRadioButton2.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        jRadioButton2.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jRadioButton2.setText("ไม่อนุมัติ");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);

@@ -249,13 +249,18 @@ public class InvesInformationFrom extends javax.swing.JFrame {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(sql2);
             if(!rs.next()){
-                String sql="INSERT INTO Police (IdCardPolice,RankPolice,FirstName,LastName,Position) VALUES (?,?,?,?,?)";
+                String sql="INSERT INTO Police (IdCardPolice,RankPolice,FirstName,LastName,Position,No,BirthDay,Age,Phone) VALUES (?,?,?,?,?,?,?,?,?)";
                 pst=con.prepareStatement(sql);
                 pst.setString(1,IdCardPolice.getText());
                 pst.setString(2,RankPolice.getText());
                 pst.setString(3,FirstName.getText());
                 pst.setString(4,LastName.getText());
                 pst.setString(5,Position.getText());
+                pst.setString(6,No.getText());
+                pst.setString(7,BirthDay.getText());
+                pst.setString(8,Age.getText());
+                pst.setString(9,Phone.getText());
+                
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Data Saved successfully");
                 pst.close();
@@ -266,6 +271,10 @@ public class InvesInformationFrom extends javax.swing.JFrame {
                 + "FirstName=?,"
                 + "LastName=?,"
                 + "Position=?"
+                + "No=?"
+                + "BirthDay=?"
+                + "Age=?"
+                + "Phone=?"          
                 + "Where IdCardPolice=?";
                 pst=con.prepareStatement(sqlUpdate);
                 pst.setString(1,IdCardPolice.getText());
@@ -273,7 +282,11 @@ public class InvesInformationFrom extends javax.swing.JFrame {
                 pst.setString(3,FirstName.getText());
                 pst.setString(4,LastName.getText());
                 pst.setString(5,Position.getText());
-                pst.setString(6,IdCardPolice.getText());
+                pst.setString(6,No.getText());
+                pst.setString(7,BirthDay.getText());
+                pst.setString(8,Age.getText());
+                pst.setString(9,Phone.getText());
+                
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Data Saved successfully");
                 System.out.println("SQL : "+sqlUpdate);
