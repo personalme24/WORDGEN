@@ -231,60 +231,41 @@ public class BailAssetAdd extends javax.swing.JFrame {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(sql2);
             if(!rs.next()){
-                String sql="INSERT INTO Person (CauseImprison,ChargeName,NoImprison,NumberImprison,SinceImprison,SinceImprisonTime,"
-                + "StatusSueAndPutInJail,SuspectFullName,ToImprison,ToImprisonTime,TotalTime,TotalDate) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+                String sql="INSERT INTO Person (AssetAmount,AssetsName,AssetsTotalValueBaht,AssetsTotalValueSatang,AssetsUnitValueBaht,AssetsUnitValueSatang,"
+                + "Remark) VALUES (?,?,?,?,?,?,?)";
                 pst=con.prepareStatement(sql);
-                /*
-                pst.setString(1,CauseImprison.getText());
-                pst.setString(2,ChargeName.getText());
-                pst.setString(3,NoImprison.getText());
-                pst.setString(4,NumberImprison.getText());
-                // pst.setString(5,PoliceStationName.getText());
-                pst.setString(6,SinceImprison.getText());
-                pst.setString(7,SinceImprisonTime.getText());
-                // pst.setString(8,StatusSueAndPutInJail.getText());
-                pst.setString(9,SuspectFullName.getText());
-                pst.setString(10,ToImprison.getText());
-                pst.setString(11,ToImprisonTime.getText());
-                pst.setString(12,TotalTime.getText());
-                pst.setString(13,TotalDate.getText());
-                //pst.setString(14,crimecaseno.getText());
-                */
+               
+                pst.setString(1,AssetAmount.getText());
+                pst.setString(2,AssetsName.getText());
+                pst.setString(3,AssetsTotalValueBaht.getText());
+                pst.setString(4,AssetsTotalValueSatang.getText());
+                pst.setString(5,AssetsUnitValueBaht.getText());
+                pst.setString(6,AssetsUnitValueSatang.getText());
+                pst.setString(7,Remark.getText());
+          
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Data Saved successfully");
                 pst.close();
             }else{
                 String sqlUpdate= "UPDATE Person Set\n "
-                + "CauseImprison=?,"
-                + "ChargeName=?,"
-                + "NoImprison=?,"
-                + "NumberImprison=?,"
-                + "SinceImprison=?"
-                + "SinceImprisonTime=?"
-                + "StatusSueAndPutInJail=?"
-                + "SuspectFullName=?"
-                + "ToImprison=?"
-                + "ToImprisonTime=?"
-                + "TotalTime=?"
-                + "TotalDate=?"
+                + "AssetAmount=?,"
+                + "AssetsName=?,"
+                + "AssetsTotalValueBaht=?,"
+                + "AssetsTotalValueSatang=?,"
+                + "AssetsUnitValueBaht=?"
+                + "AssetsUnitValueSatang=?"
+                + "Remark=?"
+                
                 + "Where IdCardPolice=?";
-                /*
+                
                 pst=con.prepareStatement(sqlUpdate);
-                //pst.setString(1,CauseImprison.getText());
-                pst.setString(2,ChargeName.getText());
-                pst.setString(3,NoImprison.getText());
-                pst.setString(4,NumberImprison.getText());
-                // pst.setString(5,PoliceStationName.getText());
-                pst.setString(6,SinceImprison.getText());
-                pst.setString(7,SinceImprisonTime.getText());
-                // pst.setString(8,StatusSueAndPutInJail.getText());
-                pst.setString(9,SuspectFullName.getText());
-                pst.setString(10,ToImprison.getText());
-                pst.setString(11,ToImprisonTime.getText());
-                pst.setString(12,TotalTime.getText());
-                pst.setString(13,TotalDate.getText());
-                //pst.setString(14,crimecaseno.getText());
-                */
+                pst.setString(1,AssetAmount.getText());
+                pst.setString(2,AssetsName.getText());
+                pst.setString(3,AssetsTotalValueBaht.getText());
+                pst.setString(4,AssetsTotalValueSatang.getText());
+                pst.setString(5,AssetsUnitValueBaht.getText());
+                pst.setString(6,AssetsUnitValueSatang.getText());
+                pst.setString(7,Remark.getText());
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Data Saved successfully");
                 System.out.println("SQL : "+sqlUpdate);

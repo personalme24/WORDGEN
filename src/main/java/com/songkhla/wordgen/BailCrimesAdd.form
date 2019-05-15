@@ -589,12 +589,11 @@
                       <Font name="TH SarabunPSK" size="20" style="0"/>
                     </Property>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="5" rowCount="12">
+                      <Table columnCount="4" rowCount="12">
                         <Column editable="true" title="&#xe04;&#xe23;&#xe31;&#xe49;&#xe07;&#xe17;&#xe35;&#xe48;" type="java.lang.String"/>
                         <Column editable="true" title="&#xe27;&#xe31;&#xe19;&#xe17;&#xe35;&#xe48;&#xe2a;&#xe48;&#xe07;&#xe15;&#xe31;&#xe27;" type="java.lang.String"/>
                         <Column editable="true" title="&#xe40;&#xe27;&#xe25;&#xe32;" type="java.lang.String"/>
                         <Column editable="true" title="&#xe2a;&#xe16;&#xe32;&#xe19;&#xe17;&#xe35;&#xe48;&#xe2a;&#xe48;&#xe07;&#xe15;&#xe31;&#xe27;" type="java.lang.String"/>
-                        <Column editable="true" title="&#xe25;&#xe32;&#xe22;&#xe21;&#xe37;&#xe2d;&#xe0a;&#xe37;&#xe48;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe1b;&#xe23;&#xe30;&#xe01;&#xe31;&#xe19;&#xe17;&#xe23;&#xe32;&#xe1a;&#xe27;&#xe31;&#xe19;&#xe19;&#xe31;&#xe14;" type="java.lang.String"/>
                       </Table>
                     </Property>
                   </Properties>

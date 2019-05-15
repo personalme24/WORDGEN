@@ -39,11 +39,11 @@ public class DeliverySuspect extends javax.swing.JFrame {
         No = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        AssetsName = new javax.swing.JTextField();
-        AssetAmount = new javax.swing.JTextField();
+        DueDate = new javax.swing.JTextField();
+        DueDateTime = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        AssetAmount1 = new javax.swing.JTextField();
+        HandOverLocation = new javax.swing.JTextField();
         jButtonSave = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -64,7 +64,7 @@ public class DeliverySuspect extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addGap(0, 411, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -81,9 +81,9 @@ public class DeliverySuspect extends javax.swing.JFrame {
         jLabel17.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel17.setText("วันเดือนปีที่ส่งตัว");
 
-        AssetsName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        DueDate.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        AssetAmount.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        DueDateTime.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel18.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel18.setText("เวลา");
@@ -91,7 +91,7 @@ public class DeliverySuspect extends javax.swing.JFrame {
         jLabel19.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel19.setText("สถานที่ส่งตัว");
 
-        AssetAmount1.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        HandOverLocation.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jButtonSave.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButtonSave.setText("บันทึก");
@@ -112,7 +112,7 @@ public class DeliverySuspect extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(AssetAmount1, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE))
+                        .addComponent(HandOverLocation, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -121,15 +121,14 @@ public class DeliverySuspect extends javax.swing.JFrame {
                                 .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(AssetsName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
+                            .addComponent(DueDate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
                             .addComponent(No, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(AssetAmount))))
+                            .addComponent(DueDateTime))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(275, 275, 275)
-                    .addComponent(jButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(275, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(280, Short.MAX_VALUE)
+                .addComponent(jButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(270, 270, 270))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,21 +141,18 @@ public class DeliverySuspect extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AssetsName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(DueDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AssetAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(DueDateTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AssetAmount1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 201, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(308, 308, 308)
-                    .addComponent(jButtonSave)
-                    .addContainerGap(309, Short.MAX_VALUE)))
+                    .addComponent(HandOverLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(69, 69, 69)
+                .addComponent(jButtonSave)
+                .addGap(0, 99, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -183,60 +179,29 @@ public class DeliverySuspect extends javax.swing.JFrame {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(sql2);
             if(!rs.next()){
-                String sql="INSERT INTO Person (CauseImprison,ChargeName,NoImprison,NumberImprison,SinceImprison,SinceImprisonTime,"
-                + "StatusSueAndPutInJail,SuspectFullName,ToImprison,ToImprisonTime,TotalTime,TotalDate) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+                String sql="INSERT INTO Person (DueDate,DueDateTime,HandOverLocation) VALUES (?,?,?)";
                 pst=con.prepareStatement(sql);
-                /*
-                pst.setString(1,CauseImprison.getText());
-                pst.setString(2,ChargeName.getText());
-                pst.setString(3,NoImprison.getText());
-                pst.setString(4,NumberImprison.getText());
-                // pst.setString(5,PoliceStationName.getText());
-                pst.setString(6,SinceImprison.getText());
-                pst.setString(7,SinceImprisonTime.getText());
-                // pst.setString(8,StatusSueAndPutInJail.getText());
-                pst.setString(9,SuspectFullName.getText());
-                pst.setString(10,ToImprison.getText());
-                pst.setString(11,ToImprisonTime.getText());
-                pst.setString(12,TotalTime.getText());
-                pst.setString(13,TotalDate.getText());
-                //pst.setString(14,crimecaseno.getText());
-                */
+               
+                pst.setString(1,DueDate.getText());
+                pst.setString(2,DueDateTime.getText());
+                pst.setString(3,HandOverLocation.getText());
+               
+                
+              
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Data Saved successfully");
                 pst.close();
             }else{
                 String sqlUpdate= "UPDATE Person Set\n "
-                + "CauseImprison=?,"
-                + "ChargeName=?,"
-                + "NoImprison=?,"
-                + "NumberImprison=?,"
-                + "SinceImprison=?"
-                + "SinceImprisonTime=?"
-                + "StatusSueAndPutInJail=?"
-                + "SuspectFullName=?"
-                + "ToImprison=?"
-                + "ToImprisonTime=?"
-                + "TotalTime=?"
-                + "TotalDate=?"
-                + "Where IdCardPolice=?";
-                /*
+                + "DueDate=?,"
+                + "DueDateTime=?,"
+                + "HandOverLocation=?,"
+                + "Where =?";
+                
                 pst=con.prepareStatement(sqlUpdate);
-                //pst.setString(1,CauseImprison.getText());
-                pst.setString(2,ChargeName.getText());
-                pst.setString(3,NoImprison.getText());
-                pst.setString(4,NumberImprison.getText());
-                // pst.setString(5,PoliceStationName.getText());
-                pst.setString(6,SinceImprison.getText());
-                pst.setString(7,SinceImprisonTime.getText());
-                // pst.setString(8,StatusSueAndPutInJail.getText());
-                pst.setString(9,SuspectFullName.getText());
-                pst.setString(10,ToImprison.getText());
-                pst.setString(11,ToImprisonTime.getText());
-                pst.setString(12,TotalTime.getText());
-                pst.setString(13,TotalDate.getText());
-                //pst.setString(14,crimecaseno.getText());
-                */
+                pst.setString(1,DueDate.getText());
+                pst.setString(2,DueDateTime.getText());
+                pst.setString(3,HandOverLocation.getText());
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Data Saved successfully");
                 System.out.println("SQL : "+sqlUpdate);
@@ -285,9 +250,9 @@ public class DeliverySuspect extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField AssetAmount;
-    private javax.swing.JTextField AssetAmount1;
-    private javax.swing.JTextField AssetsName;
+    private javax.swing.JTextField DueDate;
+    private javax.swing.JTextField DueDateTime;
+    private javax.swing.JTextField HandOverLocation;
     private javax.swing.JTextField No;
     private javax.swing.JButton jButtonSave;
     private javax.swing.JLabel jLabel1;
