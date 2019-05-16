@@ -4,13 +4,19 @@
  * and open the template in the editor.
  */
 package com.songkhla.wordgen;
-
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Petpilin
  */
 public class SueCrimesFrom extends javax.swing.JFrame {
-
+    Connection con=null;
+    PreparedStatement pst=null;
+    DataCase dc =new DataCase();
     /**
      * Creates new form SueCrimesFrom
      */

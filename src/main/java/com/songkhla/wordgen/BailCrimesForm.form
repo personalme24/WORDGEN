@@ -77,8 +77,8 @@
                       <Component id="jButtonDelete" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="318" max="-2" attributes="0"/>
-                  <EmptySpace pref="204" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="269" max="-2" attributes="0"/>
+                  <EmptySpace pref="253" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -144,7 +144,7 @@
                   <Font name="TH SarabunPSK" size="22" style="1"/>
                 </Property>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="15" rowCount="15">
+                  <Table columnCount="12" rowCount="15">
                     <Column editable="true" title="&#xe40;&#xe25;&#xe02;&#xe04;&#xe14;&#xe35;" type="java.lang.String"/>
                     <Column editable="true" title="&#xe04;&#xe14;&#xe35;" type="java.lang.String"/>
                     <Column editable="true" title="&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;" type="java.lang.String"/>
@@ -157,9 +157,6 @@
                     <Column editable="true" title="&#xe04;&#xe23;&#xe1a; 5 &#xe40;&#xe14;&#xe37;&#xe2d;&#xe19;" type="java.lang.String"/>
                     <Column editable="true" title="&#xe04;&#xe23;&#xe1a; 6 &#xe40;&#xe14;&#xe37;&#xe2d;&#xe19;" type="java.lang.String"/>
                     <Column editable="true" title="&#xe04;&#xe23;&#xe1a; 1 &#xe1b;&#xe35;" type="java.lang.String"/>
-                    <Column editable="true" title="&#xe2a;&#xe48;&#xe07;&#xe2a;&#xe33;&#xe19;&#xe27;&#xe19;&#xe43;&#xe2b;&#xe49;" type="java.lang.String"/>
-                    <Column editable="true" title="&#xe40;&#xe25;&#xe02;&#xe2a;&#xe48;&#xe07;" type="java.lang.String"/>
-                    <Column editable="true" title="&#xe27;&#xe31;&#xe19;&#xe17;&#xe35;&#xe48;&#xe2a;&#xe48;&#xe07;" type="java.lang.String"/>
                   </Table>
                 </Property>
                 <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
