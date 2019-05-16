@@ -5,16 +5,26 @@
  */
 package com.songkhla.wordgen;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Petpilin
  */
 public class SueCrimesAdd extends javax.swing.JFrame {
+    Connection con=null;
+    PreparedStatement pst=null;
+    DataCase dc =new DataCase();
 
     /**
      * Creates new form SueCrimesAdd
      */
     public SueCrimesAdd() {
+        
         initComponents();
     }
 
@@ -41,7 +51,7 @@ public class SueCrimesAdd extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         ChargeName = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        TotalDate = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         SinceImprison = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
@@ -60,7 +70,7 @@ public class SueCrimesAdd extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         TotalTime = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+        jButtonSave = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -74,7 +84,7 @@ public class SueCrimesAdd extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 28)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("รายละเอียดการขออนุญาตผัดฟ้องฝากขัง");
+        jLabel1.setText("เพิ่ม/แก้ไขการขออนุญาตผัดฟ้องฝากขัง");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -146,8 +156,8 @@ public class SueCrimesAdd extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel13.setText("จำนวน");
 
-        jTextField3.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jTextField3.setText("6");
+        TotalDate.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        TotalDate.setText("6");
 
         jLabel14.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel14.setText("วันที่เริ่ม");
@@ -197,11 +207,11 @@ public class SueCrimesAdd extends javax.swing.JFrame {
         jLabel24.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel24.setText("ชั่วโมง");
 
-        jButton4.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButton4.setText("บันทึก");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSave.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jButtonSave.setText("บันทึก");
+        jButtonSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                jButtonSaveActionPerformed(evt);
             }
         });
 
@@ -251,7 +261,7 @@ public class SueCrimesAdd extends javax.swing.JFrame {
                                     .addComponent(ToImprison, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jTextField3)
+                                            .addComponent(TotalDate)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(jLabel16))
                                         .addComponent(SinceImprison, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -283,7 +293,7 @@ public class SueCrimesAdd extends javax.swing.JFrame {
                 .addGap(37, 37, 37))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(231, 231, 231)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -324,7 +334,7 @@ public class SueCrimesAdd extends javax.swing.JFrame {
                     .addComponent(ToImprisonTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TotalDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13)
                     .addComponent(jLabel16)
                     .addComponent(jLabel23)
@@ -344,7 +354,7 @@ public class SueCrimesAdd extends javax.swing.JFrame {
                     .addComponent(StatusSueAndPutInJail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(66, 66, 66)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
+                    .addComponent(jButtonSave)
                     .addComponent(jButton5))
                 .addGap(0, 201, Short.MAX_VALUE))
         );
@@ -379,9 +389,80 @@ public class SueCrimesAdd extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ChargeNameActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+        
+        con=ConnectDatabase.connect();
+        String sql2= "select * from Person";
+
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(sql2);
+            if(!rs.next()){
+                String sql="INSERT INTO Person (CauseImprison,ChargeName,NoImprison,NumberImprison,SinceImprison,SinceImprisonTime,"
+                         + "StatusSueAndPutInJail,SuspectFullName,ToImprison,ToImprisonTime,TotalTime,TotalDate) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+                pst=con.prepareStatement(sql);
+                //pst.setString(1,CauseImprison.getText());
+                pst.setString(2,ChargeName.getText());
+                pst.setString(3,NoImprison.getText());
+                pst.setString(4,NumberImprison.getText());
+               // pst.setString(5,PoliceStationName.getText());
+                pst.setString(6,SinceImprison.getText());
+                pst.setString(7,SinceImprisonTime.getText());
+               // pst.setString(8,StatusSueAndPutInJail.getText());
+                pst.setString(9,SuspectFullName.getText());
+                pst.setString(10,ToImprison.getText());
+                pst.setString(11,ToImprisonTime.getText());
+                pst.setString(12,TotalTime.getText());
+                pst.setString(13,TotalDate.getText());
+                //pst.setString(14,crimecaseno.getText());
+              
+                pst.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Data Saved successfully");
+                pst.close();
+            }else{
+                String sqlUpdate= "UPDATE Person Set\n "
+                + "CauseImprison=?,"
+                + "ChargeName=?,"
+                + "NoImprison=?,"
+                + "NumberImprison=?,"
+                + "SinceImprison=?"
+                + "SinceImprisonTime=?"
+                + "StatusSueAndPutInJail=?"
+                + "SuspectFullName=?"
+                + "ToImprison=?"   
+                + "ToImprisonTime=?"
+                + "TotalTime=?"
+                + "TotalDate=?"          
+                + "Where IdCardPolice=?";
+                pst=con.prepareStatement(sqlUpdate);
+                //pst.setString(1,CauseImprison.getText());
+                pst.setString(2,ChargeName.getText());
+                pst.setString(3,NoImprison.getText());
+                pst.setString(4,NumberImprison.getText());
+               // pst.setString(5,PoliceStationName.getText());
+                pst.setString(6,SinceImprison.getText());
+                pst.setString(7,SinceImprisonTime.getText());
+               // pst.setString(8,StatusSueAndPutInJail.getText());
+                pst.setString(9,SuspectFullName.getText());
+                pst.setString(10,ToImprison.getText());
+                pst.setString(11,ToImprisonTime.getText());
+                pst.setString(12,TotalTime.getText());
+                pst.setString(13,TotalDate.getText());
+                //pst.setString(14,crimecaseno.getText());
+              
+                
+                pst.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Data Saved successfully");
+                System.out.println("SQL : "+sqlUpdate);
+            }
+        }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+            System.out.println("SQL : "+pst);
+        }
+        setVisible(false);
+    }//GEN-LAST:event_jButtonSaveActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
@@ -434,10 +515,11 @@ public class SueCrimesAdd extends javax.swing.JFrame {
     private javax.swing.JTextField SuspectFullName;
     private javax.swing.JTextField ToImprison;
     private javax.swing.JTextField ToImprisonTime;
+    private javax.swing.JTextField TotalDate;
     private javax.swing.JTextField TotalTime;
     private javax.swing.JTextField crimecaseno;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButtonSave;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -457,6 +539,5 @@ public class SueCrimesAdd extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }

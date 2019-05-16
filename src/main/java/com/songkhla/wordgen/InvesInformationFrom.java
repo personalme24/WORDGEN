@@ -54,7 +54,7 @@ public class InvesInformationFrom extends javax.swing.JFrame {
         Age = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         Phone = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jButtonSave = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         No = new javax.swing.JTextField();
 
@@ -123,11 +123,11 @@ public class InvesInformationFrom extends javax.swing.JFrame {
 
         Phone.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        jButton1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButton1.setText("บันทึก");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSave.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jButtonSave.setText("บันทึก");
+        jButtonSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonSaveActionPerformed(evt);
             }
         });
 
@@ -143,7 +143,7 @@ public class InvesInformationFrom extends javax.swing.JFrame {
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(268, 268, 268))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(51, 51, 51)
@@ -223,7 +223,7 @@ public class InvesInformationFrom extends javax.swing.JFrame {
                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Phone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
-                .addComponent(jButton1)
+                .addComponent(jButtonSave)
                 .addGap(0, 67, Short.MAX_VALUE))
         );
 
@@ -241,7 +241,7 @@ public class InvesInformationFrom extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
         con=ConnectDatabase.connect();
         String sql2= "select * from Police";
 
@@ -249,13 +249,18 @@ public class InvesInformationFrom extends javax.swing.JFrame {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(sql2);
             if(!rs.next()){
-                String sql="INSERT INTO Police (IdCardPolice,RankPolice,FirstName,LastName,Position) VALUES (?,?,?,?,?)";
+                String sql="INSERT INTO Police (IdCardPolice,RankPolice,FirstName,LastName,Position,No,BirthDay,Age,Phone) VALUES (?,?,?,?,?,?,?,?,?)";
                 pst=con.prepareStatement(sql);
                 pst.setString(1,IdCardPolice.getText());
                 pst.setString(2,RankPolice.getText());
                 pst.setString(3,FirstName.getText());
                 pst.setString(4,LastName.getText());
                 pst.setString(5,Position.getText());
+                pst.setString(6,No.getText());
+                pst.setString(7,BirthDay.getText());
+                pst.setString(8,Age.getText());
+                pst.setString(9,Phone.getText());
+                
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Data Saved successfully");
                 pst.close();
@@ -266,6 +271,10 @@ public class InvesInformationFrom extends javax.swing.JFrame {
                 + "FirstName=?,"
                 + "LastName=?,"
                 + "Position=?"
+                + "No=?"
+                + "BirthDay=?"
+                + "Age=?"
+                + "Phone=?"          
                 + "Where IdCardPolice=?";
                 pst=con.prepareStatement(sqlUpdate);
                 pst.setString(1,IdCardPolice.getText());
@@ -273,7 +282,11 @@ public class InvesInformationFrom extends javax.swing.JFrame {
                 pst.setString(3,FirstName.getText());
                 pst.setString(4,LastName.getText());
                 pst.setString(5,Position.getText());
-                pst.setString(6,IdCardPolice.getText());
+                pst.setString(6,No.getText());
+                pst.setString(7,BirthDay.getText());
+                pst.setString(8,Age.getText());
+                pst.setString(9,Phone.getText());
+                
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Data Saved successfully");
                 System.out.println("SQL : "+sqlUpdate);
@@ -285,7 +298,7 @@ public class InvesInformationFrom extends javax.swing.JFrame {
         }
         setVisible(false);
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonSaveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -332,7 +345,7 @@ public class InvesInformationFrom extends javax.swing.JFrame {
     private javax.swing.JTextField Phone;
     private javax.swing.JTextField Position;
     private javax.swing.JTextField RankPolice;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonSave;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
