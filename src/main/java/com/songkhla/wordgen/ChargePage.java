@@ -5,6 +5,10 @@
  */
 package com.songkhla.wordgen;
 
+import static com.songkhla.wordgen.ActionPage.ActionCode;
+import static com.songkhla.wordgen.ActionPage.ActionCrimes;
+import static com.songkhla.wordgen.ActionPage.ActionDetail;
+import static com.songkhla.wordgen.ActionPage.ActionNote;
 import static com.songkhla.wordgen.CrimesCaseEdit.ChargeNameCase;
 import static com.songkhla.wordgen.CrimesCaseEdit.jLabelChargeCode;
 import java.awt.Dimension;
@@ -35,7 +39,7 @@ public class ChargePage extends javax.swing.JDialog {
     public ChargePage(JFrame parrent,JSONObject datain) {
         //super(parrent,true);
         initComponents();
-        
+         con=ConnectDatabase.connect();
             if(datain!=null){
                 
 //            caseid= "" + datain.get("CaseId"); 
@@ -277,45 +281,64 @@ public class ChargePage extends javax.swing.JDialog {
 
     private void jButtonSaveChargeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveChargeActionPerformed
         // TODO add your handling code here:
-   
-       Connection con = ConnectDatabase.connect();
-        PreparedStatement pst=null;
-        String sql="UPDATE Charge SET "
-                + "ChargeCode=?,"
-                + "ChargeName=?,"
-                + "Law=?,"
-                + "RateOfPenalty=?,"
-                + "Note=?"
-                 + "Where ChargeCode=?";
-         try {
-  
-            pst=con.prepareStatement(sql);
-            
-            
-            pst.setString(1,ChargeCode.getText());
+    String intCh="INSERT into Charge(ChargeCode,ChargeName,Law,RateOfPenalty,Note) values(?,?,?,?,?) ";
+//          String intCr="insert into CrimesCase(AnswerSuspect,AnswerAccuse) values(?,?) ";
+        try {
+           
+           pst=con.prepareStatement(intCh);
+               pst.setString(1,ChargeCode.getText());
             pst.setString(2,ChargeName.getText());
             pst.setString(3,Law.getText());
             pst.setString(4,RateOfPenalty.getText());
              pst.setString(5,Note.getText());
-             pst.setString(6,chargeNo);
+            
+           pst.execute();
+           System.out.println("SQLLLLL : "+intCh);
+           pst.close();
+           
+           JOptionPane.showMessageDialog(null, "Data Saved successfully");
+        } catch (Exception e) {
+          JOptionPane.showMessageDialog(null, "Cannot Saved successfully");
+            
+        }
+//       Connection con = ConnectDatabase.connect();
+//        PreparedStatement pst=null;
+//        String sql="UPDATE Charge SET "
+//                + "ChargeCode=?,"
+//                + "ChargeName=?,"
+//                + "Law=?,"
+//                + "RateOfPenalty=?,"
+//                + "Note=?"
+//                 + "Where ChargeCode=?";
+//         try {
+//  
+//            pst=con.prepareStatement(sql);
+//            
+//            
+//            pst.setString(1,ChargeCode.getText());
+//            pst.setString(2,ChargeName.getText());
+//            pst.setString(3,Law.getText());
+//            pst.setString(4,RateOfPenalty.getText());
+//             pst.setString(5,Note.getText());
+//             pst.setString(6,chargeNo);
 //          JSONObject data = new JSONObject();
 //          data.put("ChargeName", ChargeName.getText());
 //          data.put("ChargeCode", ChargeCode.getText());
           
-            pst.executeUpdate();
-                   
-                       System.out.println("SQL : "+sql);
-            pst.close();
+//            pst.executeUpdate();
+//                   
+//                       System.out.println("SQL : "+sql);
+//            pst.close();
 //            JOptionPane.showMessageDialog(null, "Data Saved successfully");
-  JOptionPane.showConfirmDialog(null,
-                        "บันทึกข้อมูล.",
-                        "Data Saved successfully",
-                        JOptionPane.WARNING_MESSAGE);
-           
-        } catch (Exception e) {
-             JOptionPane.showMessageDialog(null, e); 
-             System.out.println("SQL : "+pst);
-        }
+//  JOptionPane.showConfirmDialog(null,
+//                        "บันทึกข้อมูล.",
+//                        "Data Saved successfully",
+//                        JOptionPane.WARNING_MESSAGE);
+//           
+//        } catch (Exception e) {
+//             JOptionPane.showMessageDialog(null, e); 
+//             System.out.println("SQL : "+pst);
+//        }
 
            CrimesCaseEdit.ChargeNameCase.setText(ChargeName.getText());
            CrimesCaseEdit.jLabelChargeCode.setText(ChargeCode.getText());

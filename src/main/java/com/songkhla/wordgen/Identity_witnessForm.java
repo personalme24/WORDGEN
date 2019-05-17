@@ -5,17 +5,63 @@
  */
 package com.songkhla.wordgen;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import org.json.simple.JSONObject;
+
 /**
  *
  * @author Petpilin
  */
-public class Identity_witnessForm extends javax.swing.JFrame {
+public class Identity_witnessForm extends javax.swing.JDialog {
+    Connection con=null;
+    PreparedStatement pst=null;;
+    boolean isInsert;
+    String caseid;
+    String noPerson;
 
     /**
      * Creates new form Identity_witnessForm
      */
-    public Identity_witnessForm() {
+    public Identity_witnessForm(JFrame parrent,JSONObject datain) {
+        super(parrent,true);
         initComponents();
+          if(datain != null){
+        isInsert=false;
+        noPerson=datain.get("NoPerson")+"";
+            crimecaseno.setText(datain.get("crimecaseno")+"");
+            PeopleRegistrationID.setText(datain.get("PeopleRegistrationID")+"");
+            FullNamePerson.setText(datain.get("FullNamePerson")+"");
+            Age.setText(datain.get("Age")+"");
+            Amphur.setText(datain.get("Amphur")+"");
+            BirthDay.setText(datain.get("BirthDay")+"");
+            BloodGroup.setText(datain.get("BloodGroup")+"");
+//            ExpiredDate.setText(datain.get("ExpiredDate")+"");
+            FatherFullName.setText(datain.get("FatherFullName")+"");
+//            FullNamePersonEn.setText(datain.get("FullNamePersonEn")+"");
+            Height.setText(datain.get("Height")+"");
+            Weight.setText(datain.get("Weight")+"");
+            HouseNumber.setText(datain.get("HouseNumber")+"");
+//            IssueDate.setText(datain.get("IssueDate")+"");
+            Moo.setText(datain.get("Moo")+"");
+            MotherFullName.setText(datain.get("MotherFullName")+"");
+            Nationality.setText(datain.get("Nationality")+"");
+            Occupation.setText(datain.get("Occupation")+"");
+//            PassportNumber.setText(datain.get("PassportNumber")+"");
+            Province.setText(datain.get("Province")+"");
+            Race.setText(datain.get("Race")+"");
+            Religion.setText(datain.get("Religion")+"");
+            Tambon.setText(datain.get("Tambon")+"");
+     
+        }
+        else{
+         crimecaseno.setText(ListWitness.txtCaseNO.getText());
+         isInsert=true;
+        }
+
+              
     }
 
     /**
@@ -74,12 +120,15 @@ public class Identity_witnessForm extends javax.swing.JFrame {
         HouseNumber = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
-        HouseNumber1 = new javax.swing.JTextField();
+        CurrentAddress = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         RelatedOfDie = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
+        crimecaseno = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setAlwaysOnTop(true);
 
         jPanel3.setBackground(new java.awt.Color(77, 0, 0));
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -267,7 +316,7 @@ public class Identity_witnessForm extends javax.swing.JFrame {
         jLabel33.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel33.setText("ที่อยู่ปัจจุบัน");
 
-        HouseNumber1.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        CurrentAddress.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel28.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel28.setText("เกี่ยวกับคดีโดยเป็น");
@@ -280,6 +329,13 @@ public class Identity_witnessForm extends javax.swing.JFrame {
         RelatedOfDie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RelatedOfDieActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("บันทึก");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -345,53 +401,55 @@ public class Identity_witnessForm extends javax.swing.JFrame {
                                 .addComponent(BloodGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel30)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(HouseNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(FatherFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel29)))
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGap(5, 5, 5)
-                                        .addComponent(MotherFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(Moo, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel22)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(Tambon, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel23)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(Amphur, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel27)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(Province, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel24)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ZipCode))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(Occupation, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel34)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Gender, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(HouseNumber1, javax.swing.GroupLayout.PREFERRED_SIZE, 644, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel28)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(RelatedOfDie, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel30)
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(HouseNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(FatherFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGap(18, 18, 18)
+                                            .addComponent(jLabel29)))
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                            .addGap(5, 5, 5)
+                                            .addComponent(MotherFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(Moo, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jLabel22)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(Tambon, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(jLabel23)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(Amphur, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jLabel27)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(Province, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jLabel24)))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(ZipCode))
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(Occupation, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jLabel34)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(Gender, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(CurrentAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 644, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jLabel28)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(RelatedOfDie, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(0, 89, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
@@ -461,11 +519,15 @@ public class Identity_witnessForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel33)
-                    .addComponent(HouseNumber1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CurrentAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel28)
                     .addComponent(RelatedOfDie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(200, Short.MAX_VALUE))
+                .addGap(46, 46, 46)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(118, Short.MAX_VALUE))
         );
+
+        crimecaseno.setText("เลขคดี");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -474,14 +536,18 @@ public class Identity_witnessForm extends javax.swing.JFrame {
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(crimecaseno)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addGap(18, 18, 18)
+                .addComponent(crimecaseno)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(147, 147, 147))
         );
@@ -548,6 +614,105 @@ public class Identity_witnessForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_RelatedOfDieActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+          con=ConnectDatabase.connect();
+        if(isInsert){    
+        String sql="INSERT INTO Person (PeopleRegistrationID,FullNamePerson,BirthDay,Age,BloodGroup,Religion"
+                + ",Nationality,Race,Height,Weight,Occupation,Gender,MotherFullName,FatherFullName,PhonePerson\n" +
+                    ",HouseNumber,Moo,Tambon,Amphur,Province,ZipCode,CurrentAddress,RelatedOfDie)"+
+                  " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+         System.out.println("SQL : "+sql);
+      try {
+            pst=con.prepareStatement(sql);
+                              pst.setString(1,PeopleRegistrationID.getText());
+                              pst.setString(2,FullNamePerson.getText());
+                              pst.setString(3,BirthDay.getText());
+                              pst.setString(4,Age.getText());
+                              pst.setString(5,BloodGroup.getText());
+                              pst.setString(6,Religion.getText());
+                              pst.setString(7,Nationality.getText());
+                              pst.setString(8,Race.getText());
+                              pst.setString(9,Height.getText());
+                              pst.setString(10,Weight.getText());
+                              pst.setString(11,Occupation.getText());
+                              pst.setString(12,Gender.getSelectedItem().toString());
+                              pst.setString(13,FatherFullName.getText());
+                              pst.setString(14,FatherFullName.getText());
+                              pst.setString(15,PhonePerson.getText());
+                              pst.setString(16,HouseNumber.getText());
+                              pst.setString(17,Moo.getText());
+                              pst.setString(18,Tambon.getText());
+                              pst.setString(19,Amphur.getText());
+                              pst.setString(20,Province.getText());
+                              pst.setString(21,ZipCode.getText());
+                              pst.setString(22,CurrentAddress.getText());
+                              pst.setString(23,RelatedOfDie.getSelectedItem().toString());
+                            
+                              pst.executeUpdate();
+
+                             JOptionPane.showConfirmDialog(null,"Data,Saved successfully");
+                             pst.close();
+                              System.out.println("SQL : "+sql);
+        } catch (Exception e) {
+             JOptionPane.showMessageDialog(null, e); 
+             System.out.println("SQL : "+pst);
+        }
+        }
+        else{
+     
+                    
+             String sqlUpdate="Update Person set PeopleRegistrationID=?,FullNamePerson=?,BirthDay=?,\n" +
+                                    "Age=?,BloodGroup=?,Religion=?,Nationality=?,\n" +
+                                    "Race=?,Height=?,Weight=?,Occupation=?,Gender=?,MotherFullName=?,FatherFullName=?,PhonePerson=?,\n" +
+                                    "HouseNumber=?,Moo=?,Tambon=?,Amphur=?,Province=?,ZipCode=?,CurrentAddress=?,\n" +
+                                    "RelatedOfDie=? where NoPerson=?  ";
+       
+         try {
+            pst=con.prepareStatement(sqlUpdate);
+                            pst.setString(1,PeopleRegistrationID.getText());
+                              pst.setString(2,FullNamePerson.getText());
+                              pst.setString(3,BirthDay.getText());
+                              pst.setString(4,Age.getText());
+                              pst.setString(5,BloodGroup.getText());
+                              pst.setString(6,Religion.getText());
+                              pst.setString(7,Nationality.getText());
+                              pst.setString(8,Race.getText());
+                              pst.setString(9,Height.getText());
+                              pst.setString(10,Weight.getText());
+                              pst.setString(11,Occupation.getText());
+                              pst.setString(12,Gender.getSelectedItem().toString());
+                              pst.setString(13,FatherFullName.getText());
+                              pst.setString(14,FatherFullName.getText());
+                              pst.setString(15,PhonePerson.getText());
+                              pst.setString(16,HouseNumber.getText());
+                              pst.setString(17,Moo.getText());
+                              pst.setString(18,Tambon.getText());
+                              pst.setString(19,Amphur.getText());
+                              pst.setString(20,Province.getText());
+                              pst.setString(21,ZipCode.getText());
+                              pst.setString(22,CurrentAddress.getText());
+                              pst.setString(23,RelatedOfDie.getSelectedItem().toString());
+                              pst.setString(24,noPerson);              
+                              pst.executeUpdate();
+
+                             JOptionPane.showConfirmDialog(null,"Data,Saved successfully");
+                             pst.close();
+                              System.out.println("SQL : "+sqlUpdate);
+        } catch (Exception e) {
+             JOptionPane.showMessageDialog(null, e); 
+             System.out.println("SQL : "+pst);
+        }
+        
+        
+        
+        }
+        setVisible(false);
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -578,7 +743,7 @@ public class Identity_witnessForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Identity_witnessForm().setVisible(true);
+        
             }
         });
     }
@@ -588,12 +753,12 @@ public class Identity_witnessForm extends javax.swing.JFrame {
     private javax.swing.JTextField Amphur;
     private javax.swing.JTextField BirthDay;
     private javax.swing.JTextField BloodGroup;
+    private javax.swing.JTextField CurrentAddress;
     private javax.swing.JTextField FatherFullName;
     private javax.swing.JTextField FullNamePerson;
     private javax.swing.JComboBox<String> Gender;
     private javax.swing.JTextField Height;
     private javax.swing.JTextField HouseNumber;
-    private javax.swing.JTextField HouseNumber1;
     private javax.swing.JTextField Moo;
     private javax.swing.JTextField MotherFullName;
     private javax.swing.JTextField Nationality;
@@ -607,6 +772,8 @@ public class Identity_witnessForm extends javax.swing.JFrame {
     private javax.swing.JTextField Tambon;
     private javax.swing.JTextField Weight;
     private javax.swing.JTextField ZipCode;
+    private javax.swing.JLabel crimecaseno;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;

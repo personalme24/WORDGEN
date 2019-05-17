@@ -29,6 +29,7 @@ public class AccusedForm extends javax.swing.JDialog {
     Connection con2=null;
      PreparedStatement pst=null;
      boolean isInsert;
+     String noPerson;
     /**
      * Creates new form AccusedForm
      */
@@ -38,6 +39,7 @@ public class AccusedForm extends javax.swing.JDialog {
      
           if(datain!=null){
             isInsert=false;
+            noPerson=datain.get("NoPerson")+"";
             crimecaseno.setText(datain.get("crimecaseno")+"");
             PeopleRegistrationID.setText(datain.get("PeopleRegistrationID")+"");
             FullNamePerson.setText(datain.get("FullNamePerson")+"");
@@ -713,7 +715,7 @@ public class AccusedForm extends javax.swing.JDialog {
                                     "BloodGroup=?,ExpiredDate=?,FatherFullName=?,FullNamePerson=?,FullNamePersonEn=?,\n" +
                                     "Gender=?,Height=?,HouseNumber=?,IssueDate=?,Moo=?,MotherFullName=?,Nationality=?,Occupation=?,\n" +
                                     "OtherName=?,PassportNumber=?,PeopleRegistrationID=?,PhonePerson=?,Province=?,Race=?,Religion=?,\n" +
-                                    "Tambon=?,TypePerson=?,Weight=?,ZipCode=? ,caseIdPerson=? where PeopleRegistrationID=? and TypePerson=?   ";
+                                    "Tambon=?,TypePerson=?,Weight=?,ZipCode=? ,caseIdPerson=? where NoPerson=? and TypePerson=?   ";
        
          try {
             pst=con.prepareStatement(sqlUpdate);
@@ -745,7 +747,7 @@ public class AccusedForm extends javax.swing.JDialog {
                               pst.setString(26,Weight.getText());
                               pst.setString(27,ZipCode.getText());
                               pst.setString(28,crimecaseno.getText());
-                              pst.setString(29,PeopleRegistrationID.getText());
+                              pst.setString(29,noPerson);
                               pst.setString(30,TypePerson.getText());
                               pst.executeUpdate();
 

@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
-  <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
-  </Properties>
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
@@ -62,7 +59,7 @@
                           <Component id="jLabel40" min="-2" pref="156" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jTextPoliceName" min="-2" pref="231" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                           <Component id="jLabel41" min="-2" pref="139" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jTextField1" min="-2" pref="532" max="-2" attributes="0"/>
@@ -74,48 +71,46 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                                  <Component id="jLabel18" max="32767" attributes="0"/>
-                                                  <Component id="jLabel15" alignment="0" pref="77" max="32767" attributes="0"/>
-                                                  <Component id="jLabel9" alignment="0" max="32767" attributes="0"/>
-                                              </Group>
-                                              <Component id="jLabel21" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="jLabel18" max="32767" attributes="0"/>
+                                          <Component id="jLabel15" alignment="0" pref="77" max="32767" attributes="0"/>
+                                          <Component id="jLabel9" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Component id="jLabel21" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
+                                      <Component id="jLabel26" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jTextSuspect" min="-2" pref="351" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="jTextAccused" max="32767" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="CrimeLocationDistrict" min="-2" pref="157" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jLabel19" min="-2" pref="83" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="CrimeLocationAmphur" pref="103" max="32767" attributes="0"/>
                                           </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="jTextAccused" max="32767" attributes="0"/>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="CrimeLocationDistrict" min="-2" pref="157" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="jLabel19" min="-2" pref="83" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="CrimeLocationAmphur" max="32767" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="CaseRequestDateTime" max="32767" attributes="0"/>
+                                                  <Component id="OccuredDate" pref="157" max="32767" attributes="0"/>
                                               </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="CaseRequestDateTime" max="32767" attributes="0"/>
-                                                      <Component id="OccuredDate" pref="157" max="32767" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="jLabel16" min="-2" pref="85" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="OccuredDateTime" min="-2" pref="101" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <Component id="jLabel16" min="-2" pref="85" max="-2" attributes="0"/>
-                                                          <EmptySpace max="-2" attributes="0"/>
-                                                          <Component id="OccuredDateTime" max="32767" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" attributes="0">
-                                                          <Component id="jLabel10" min="-2" pref="84" max="-2" attributes="0"/>
-                                                          <EmptySpace max="-2" attributes="0"/>
-                                                          <Component id="CaseRequestTimee" min="-2" pref="177" max="-2" attributes="0"/>
-                                                      </Group>
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="jLabel10" min="-2" pref="84" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="CaseRequestTimee" max="32767" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
                                       </Group>
-                                      <Component id="jTextSuspect" alignment="1" min="-2" pref="432" max="-2" attributes="0"/>
-                                      <Component id="jTextWitness" alignment="1" min="-2" pref="386" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -132,7 +127,7 @@
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="jLabel12" min="-2" pref="127" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="CaseAcceptTimee" min="-2" pref="137" max="-2" attributes="0"/>
+                                                  <Component id="CaseAcceptTimee" min="-2" pref="152" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="jLabel13" min="-2" pref="54" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
@@ -181,17 +176,17 @@
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Component id="jLabel34" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="jCheckBox4" min="-2" pref="153" max="-2" attributes="0"/>
+                                                  <Component id="jCheckDuringInvest" min="-2" pref="153" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="jCheckBox3" min="-2" pref="88" max="-2" attributes="0"/>
+                                                  <Component id="jCheckSue" min="-2" pref="88" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jCheckBox5" min="-2" pref="88" max="-2" attributes="0"/>
+                                          <Component id="jCheckNotSue" min="-2" pref="88" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jCheckBox7" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckNoInvest" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jCheckBox6" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckOtherInvest" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="jLabel32" min="-2" pref="88" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
@@ -260,8 +255,11 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <Component id="jLabel27" alignment="0" min="-2" pref="112" max="-2" attributes="0"/>
-                              <Component id="jLabel26" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabel27" min="-2" pref="112" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jTextWitness" min="-2" pref="316" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -321,22 +319,22 @@
                       <Component id="jLabel9" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="CaseRequestDateTime" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel10" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="CaseRequestTimee" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel13" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="DailyNumber" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel11" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="CaseAcceptDateTime" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel12" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="CaseAcceptTimee" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="CaseRequestTimee" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                      <Component id="CaseAcceptTimee" alignment="3" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel15" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="OccuredDate" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel16" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="OccuredDateTime" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel17" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="CrimeLocation" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="OccuredDateTime" alignment="3" pref="27" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -377,11 +375,11 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel34" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="jCheckBox4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBox3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBox5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBox7" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBox6" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckDuringInvest" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckSue" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckNotSue" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckNoInvest" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckOtherInvest" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel32" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="jTextInvestSendtoDepartment" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel33" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
@@ -407,15 +405,17 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel40" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel40" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="jTextPoliceName" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                           <Component id="jLabel41" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="jTextField1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="jButtonAddInvest" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="90" max="32767" attributes="0"/>
+                  <EmptySpace pref="86" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jButtonSaveCase" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -696,13 +696,6 @@
             <Property name="text" type="java.lang.String" value="&#xe40;&#xe27;&#xe25;&#xe32;&#xe23;&#xe31;&#xe1a;&#xe41;&#xe08;&#xe49;&#xe07;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="CaseRequestTimee">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="TH SarabunPSK" size="20" style="0"/>
-            </Property>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel11">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -724,13 +717,6 @@
               <Font name="TH SarabunPSK" size="20" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&#xe40;&#xe27;&#xe25;&#xe32;&#xe23;&#xe31;&#xe1a;&#xe04;&#xe33;&#xe23;&#xe49;&#xe2d;&#xe07;&#xe17;&#xe38;&#xe01;&#xe02;&#xe4c;"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="CaseAcceptTimee">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="TH SarabunPSK" size="20" style="0"/>
-            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel13">
@@ -784,13 +770,6 @@
               <Font name="TH SarabunPSK" size="20" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&#xe40;&#xe27;&#xe25;&#xe32;&#xe17;&#xe35;&#xe48;&#xe40;&#xe01;&#xe34;&#xe14;&#xe40;&#xe2b;&#xe15;&#xe38;"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="OccuredDateTime">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="TH SarabunPSK" size="20" style="0"/>
-            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel17">
@@ -1002,7 +981,7 @@
             <Property name="text" type="java.lang.String" value="&#xe1c;&#xe25;&#xe04;&#xe14;&#xe35;&#xe0a;&#xe31;&#xe49;&#xe19;&#xe1e;&#xe19;&#xe31;&#xe01;&#xe07;&#xe32;&#xe19;&#xe2a;&#xe2d;&#xe1a;&#xe2a;&#xe27;&#xe19;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBox4">
+        <Component class="javax.swing.JCheckBox" name="jCheckDuringInvest">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="1"/>
@@ -1010,7 +989,7 @@
             <Property name="text" type="java.lang.String" value="&#xe2d;&#xe22;&#xe39;&#xe48;&#xe23;&#xe30;&#xe2b;&#xe27;&#xe48;&#xe32;&#xe07;&#xe2a;&#xe2d;&#xe1a;&#xe2a;&#xe27;&#xe19;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBox3">
+        <Component class="javax.swing.JCheckBox" name="jCheckSue">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="1"/>
@@ -1018,10 +997,10 @@
             <Property name="text" type="java.lang.String" value="&#xe2a;&#xe31;&#xe48;&#xe07;&#xe1f;&#xe49;&#xe2d;&#xe07;"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckSueActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBox5">
+        <Component class="javax.swing.JCheckBox" name="jCheckNotSue">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="1"/>
@@ -1029,10 +1008,10 @@
             <Property name="text" type="java.lang.String" value="&#xe2a;&#xe31;&#xe48;&#xe07;&#xe44;&#xe21;&#xe48;&#xe1f;&#xe49;&#xe2d;&#xe07;"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox5ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckNotSueActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBox7">
+        <Component class="javax.swing.JCheckBox" name="jCheckNoInvest">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="1"/>
@@ -1040,10 +1019,10 @@
             <Property name="text" type="java.lang.String" value="&#xe07;&#xe14;&#xe01;&#xe32;&#xe23;&#xe2a;&#xe2d;&#xe1a;&#xe2a;&#xe27;&#xe19;"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox7ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckNoInvestActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBox6">
+        <Component class="javax.swing.JCheckBox" name="jCheckOtherInvest">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="1"/>
@@ -1051,7 +1030,7 @@
             <Property name="text" type="java.lang.String" value="&#xe2d;&#xe37;&#xe48;&#xe19;&#xe46;"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox6ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckOtherInvestActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel32">
@@ -1220,6 +1199,32 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAddInvestActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="CaseRequestTimee">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JSpinner(sm)"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="Date date=new Date();&#xa;&#xa;SpinnerDateModel sm=new SpinnerDateModel(date,null,null,Calendar.HOUR_OF_DAY);"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="JSpinner.DateEditor timeEditor = new JSpinner.DateEditor(CaseRequestTimee, &quot;HH:mm&quot;);&#xa;CaseRequestTimee.setEditor(timeEditor);&#xa;//jSpinner1.setValue(new Date());"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="CaseAcceptTimee">
+          <Properties>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[29, 25]"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JSpinner(sm2)"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="Date date2=new Date();&#xa;&#xa;SpinnerDateModel sm2=new SpinnerDateModel(date2,null,null,Calendar.HOUR_OF_DAY);"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="JSpinner.DateEditor te = new JSpinner.DateEditor(CaseAcceptTimee, &quot;HH:mm&quot;);&#xa;CaseAcceptTimee.setEditor(te);&#xa;//jSpinner1.setValue(new Date());"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="OccuredDateTime">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JSpinner(sm3)"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="Date date3=new Date();&#xa;&#xa;SpinnerDateModel sm3=new SpinnerDateModel(date3,null,null,Calendar.HOUR_OF_DAY);"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="JSpinner.DateEditor timeEditor3 = new JSpinner.DateEditor(OccuredDateTime, &quot;HH:mm&quot;);&#xa;OccuredDateTime.setEditor(timeEditor3);&#xa;//jSpinner1.setValue(new Date());"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

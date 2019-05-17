@@ -30,6 +30,7 @@ public class ListWitness extends javax.swing.JDialog {
      */
 Connection con=null;
 String typeC;
+String noPerson;
     public ListWitness(JFrame parrent,JSONObject datain) {
                 super(parrent,true);
 
@@ -185,9 +186,20 @@ String typeC;
 
     private void jButtonAddAccusedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddAccusedActionPerformed
         // TODO add your handling code here:
-        WitnessForm wf=new WitnessForm(null,null);
+            JFrame frame = new JFrame();
+             JDialog dialog = new JDialog(frame);//frame is owner
+             JFrame s = (JFrame)(dialog.getParent());               
+             s.removeAll();
+       if(typeC.equals("ชันสูตร")){        
+       Identity_witnessForm idw=new Identity_witnessForm(s,null);
+       idw.setVisible(true);   
+       }
+       else{         
+         WitnessForm wf=new WitnessForm(s,null);
 //        accusedF.setModal(true);
         wf.setVisible(true);
+       }
+
         RefreshData();
        
     }//GEN-LAST:event_jButtonAddAccusedActionPerformed
@@ -202,7 +214,7 @@ String typeC;
            
             try{
                 String PeopleRegistrationID = jTableWitness.getModel().getValueAt(jTableWitness.getSelectedRow(), 0)+"";            
-                String sql = "select Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
+                String sql = "select NoPerson,Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,Weight,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
                         "PhonePerson,Province,Race,Religion,Tambon,TypePerson,ZipCode,caseIdPerson from person where PeopleRegistrationID='"+PeopleRegistrationID+ "' and caseIdPerson='"+crimecaseno+"'";
                 Connection con = ConnectDatabase.connect();
@@ -211,6 +223,7 @@ String typeC;
 //                System.out.println("dddddddddddddd:"+sql);
                 if(rs.next()){
                     JSONObject data = new JSONObject();
+                      data.put("NoPerson", rs.getString("NoPerson"));
                     data.put("PeopleRegistrationID", rs.getString("PeopleRegistrationID"));
                     data.put("crimecaseno", rs.getString("caseIdPerson"));
                     data.put("Age", rs.getString("Age"));
@@ -360,18 +373,10 @@ String typeC;
                 return types [columnIndex];
             }
         });
-                             System.out.println("SQL : "+sql);
-        
-            if(jTableWitness.getRowCount()==1){
-//             int rows = jTableAccure.getRowCount();
-            CrimesCaseEdit.jTextAccused.setText(jTableWitness.getValueAt(0, 1).toString());      
-            }
-            if(jTableWitness.getRowCount()>1){
-                   CrimesCaseEdit.jTextAccused.setText(jTableWitness.getValueAt(0, 1).toString()+"และคนอื่นๆ");
-                
-            }
+                         
+   
     
-        if(jTableSuspect.getRowCount()==1){
+        if(jTableWitness.getRowCount()==1){
 //             int rows = jTableAccure.getRowCount();
             if(typeC.equals("อาญา")){
             CrimesCaseEdit.jTextWitness.setText(jTableWitness.getValueAt(0, 1).toString()); 
@@ -383,7 +388,7 @@ String typeC;
             IdentityFrom.jTextWitness.setText(jTableWitness.getValueAt(0, 1).toString()); 
             }
             }
-            if(jTableSuspect.getRowCount()>1){
+        if(jTableWitness.getRowCount()>1){
             
             if(typeC.equals("อาญา")){
             CrimesCaseEdit.jTextWitness.setText(jTableWitness.getValueAt(0, 1).toString()+"และพวก"); 

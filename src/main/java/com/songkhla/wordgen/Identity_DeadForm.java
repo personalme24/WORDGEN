@@ -9,11 +9,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 import javax.swing.JFrame;
+import org.json.simple.JSONObject;
 /**
  *
  * @author Petpilin
  */
-public class Identity_DeadForm extends javax.swing.JFrame {
+public class Identity_DeadForm extends javax.swing.JDialog {
  Connection con=null;
     PreparedStatement pst=null;;
     boolean isInsert;
@@ -22,8 +23,41 @@ public class Identity_DeadForm extends javax.swing.JFrame {
     /**
      * Creates new form Identity_DeadForm
      */
-    public Identity_DeadForm() {
-        initComponents();
+    public Identity_DeadForm(JFrame parrent,JSONObject datain) {
+       super(parrent,true);
+       initComponents();
+       if(datain != null){
+        isInsert=false;
+            crimecaseno.setText(datain.get("crimecaseno")+"");
+            PeopleRegistrationID.setText(datain.get("PeopleRegistrationID")+"");
+            FullNamePerson.setText(datain.get("FullNamePerson")+"");
+            Age.setText(datain.get("Age")+"");
+            Amphur.setText(datain.get("Amphur")+"");
+            BirthDay.setText(datain.get("BirthDay")+"");
+            BloodGroup.setText(datain.get("BloodGroup")+"");
+//            ExpiredDate.setText(datain.get("ExpiredDate")+"");
+            FatherFullName.setText(datain.get("FatherFullName")+"");
+//            FullNamePersonEn.setText(datain.get("FullNamePersonEn")+"");
+            Height.setText(datain.get("Height")+"");
+            Weight.setText(datain.get("Weight")+"");
+            HouseNumber.setText(datain.get("HouseNumber")+"");
+//            IssueDate.setText(datain.get("IssueDate")+"");
+            Moo.setText(datain.get("Moo")+"");
+            MotherFullName.setText(datain.get("MotherFullName")+"");
+            Nationality.setText(datain.get("Nationality")+"");
+            Occupation.setText(datain.get("Occupation")+"");
+            PassportNumber.setText(datain.get("PassportNumber")+"");
+            Province.setText(datain.get("Province")+"");
+            Race.setText(datain.get("Race")+"");
+            Religion.setText(datain.get("Religion")+"");
+            Tambon.setText(datain.get("Tambon")+"");
+     
+        }
+        else{
+         crimecaseno.setText(ListSuspect.txtCaseNO.getText());
+         isInsert=true;
+        }
+
     }
 
     /**
@@ -89,8 +123,10 @@ public class Identity_DeadForm extends javax.swing.JFrame {
         PassportNumber = new javax.swing.JTextField();
         BtSaveDead = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        crimecaseno = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setAlwaysOnTop(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -506,12 +542,16 @@ public class Identity_DeadForm extends javax.swing.JFrame {
                 .addContainerGap(132, Short.MAX_VALUE))
         );
 
+        crimecaseno.setText("เลขคดี");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(43, 43, 43)
+                .addComponent(crimecaseno)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -522,8 +562,13 @@ public class Identity_DeadForm extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(crimecaseno)))
                 .addContainerGap())
         );
 
@@ -734,7 +779,7 @@ public class Identity_DeadForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Identity_DeadForm().setVisible(true);
+            
             }
         });
     }
@@ -765,6 +810,7 @@ public class Identity_DeadForm extends javax.swing.JFrame {
     private javax.swing.JTextField Tambon;
     private javax.swing.JTextField Weight;
     private javax.swing.JTextField ZipCode;
+    private javax.swing.JLabel crimecaseno;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

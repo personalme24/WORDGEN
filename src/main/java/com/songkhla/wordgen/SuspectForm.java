@@ -29,6 +29,7 @@ public class SuspectForm extends javax.swing.JDialog {
     Connection con2=null;
      PreparedStatement pst=null;
      boolean isInsert;
+     String noPerson;
     /**
      * Creates new form AccusedForm
      */
@@ -38,6 +39,7 @@ public class SuspectForm extends javax.swing.JDialog {
      
           if(datain!=null){
             isInsert=false;
+            noPerson=datain.get("NoPerson")+"";
             crimecaseno.setText(datain.get("caseIdPerson")+"");
             PeopleRegistrationID.setText(datain.get("PeopleRegistrationID")+"");
             FullNamePerson.setText(datain.get("FullNamePerson")+"");
@@ -177,7 +179,7 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabel39 = new javax.swing.JLabel();
         BailDate1 = new javax.swing.JTextField();
         jLabel40 = new javax.swing.JLabel();
-        BailDate2 = new javax.swing.JTextField();
+        BailSendDate = new javax.swing.JTextField();
         jLabel41 = new javax.swing.JLabel();
         BailDate3 = new javax.swing.JTextField();
 
@@ -670,25 +672,26 @@ public class SuspectForm extends javax.swing.JDialog {
                         .addComponent(jLabel8)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Race, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(Race, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(Nationality, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel13)
                         .addComponent(jLabel18)
                         .addComponent(Religion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel12))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel16)
-                    .addComponent(Height, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17)
-                    .addComponent(Weight, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel20)
-                    .addComponent(BloodGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Gender, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel14)
-                    .addComponent(Occupation, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Occupation, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel16)
+                        .addComponent(Height, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel17)
+                        .addComponent(Weight, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel20)
+                        .addComponent(BloodGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Gender, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel15)
+                        .addComponent(jLabel14)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel26)
@@ -807,7 +810,7 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabel40.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel40.setText("วันที่ส่งตัว");
 
-        BailDate2.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        BailSendDate.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel41.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel41.setText("หลักประกัน");
@@ -859,7 +862,7 @@ public class SuspectForm extends javax.swing.JDialog {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jRadioButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jRadioButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BailDate2))))
+                            .addComponent(BailSendDate))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -893,7 +896,7 @@ public class SuspectForm extends javax.swing.JDialog {
                     .addComponent(BailDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(BailDate2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(BailSendDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1041,7 +1044,7 @@ public class SuspectForm extends javax.swing.JDialog {
             "BloodGroup=?,ExpiredDate=?,FatherFullName=?,FullNamePerson=?,FullNamePersonEn=?,\n" +
             "Gender=?,Height=?,HouseNumber=?,IssueDate=?,Moo=?,MotherFullName=?,Nationality=?,Occupation=?,\n" +
             "OtherName=?,PassportNumber=?,PeopleRegistrationID=?,PhonePerson=?,Province=?,Race=?,Religion=?,\n" +
-            "Tambon=?,TypePerson=?,Weight=?,ZipCode=? ,caseIdPerson=? where PeopleRegistrationID=? and TypePerson=?   ";
+            "Tambon=?,TypePerson=?,Weight=?,ZipCode=? ,caseIdPerson=? where NoPerson=? and TypePerson=?   ";
 
             try {
                 pst=con.prepareStatement(sqlUpdate);
@@ -1073,7 +1076,7 @@ public class SuspectForm extends javax.swing.JDialog {
                 pst.setString(26,Weight.getText());
                 pst.setString(27,ZipCode.getText());
                 pst.setString(28,crimecaseno.getText());
-                pst.setString(29,PeopleRegistrationID.getText());
+                pst.setString(29,noPerson);
                 pst.setString(30,"ผู้ต้องหา");
                 pst.executeUpdate();
 
@@ -1091,8 +1094,8 @@ public class SuspectForm extends javax.swing.JDialog {
 
         // show a joptionpane dialog using showMessageDialog
         JOptionPane.showMessageDialog(frame,
-            "Your RSS feed has been published",
-            "RSS Feed Published",
+            "Data Save",
+            "Data Save",
             JOptionPane.INFORMATION_MESSAGE);
         setVisible(false);
     }//GEN-LAST:event_BtSaveAccusedActionPerformed
@@ -1200,8 +1203,8 @@ public class SuspectForm extends javax.swing.JDialog {
     private javax.swing.JTextField Amphur;
     private javax.swing.JTextField BailDate;
     private javax.swing.JTextField BailDate1;
-    private javax.swing.JTextField BailDate2;
     private javax.swing.JTextField BailDate3;
+    private javax.swing.JTextField BailSendDate;
     private javax.swing.JTextField BirthDay;
     private javax.swing.JTextField BloodGroup;
     private javax.swing.JButton BtSaveAccused;

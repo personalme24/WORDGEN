@@ -23,7 +23,7 @@ public class StationForm extends javax.swing.JDialog {
       Connection con=null;
     PreparedStatement pst=null;
     DataCase dc =new DataCase();
-    boolean isInsert=true;
+    boolean isInsert;
 
     /**
      * Creates new form StationForm
@@ -714,7 +714,7 @@ public class StationForm extends javax.swing.JDialog {
         + "StationMoo=?,"
         + "Postcode=? "
         + "Where PoliceStartionCode=?";
-      
+      System.out.println("SQL : "+sqlUpdate);
             pst=con.prepareStatement(sqlUpdate);
             pst.setString(1,PoliceStationCode.getText());
             pst.setString(2,PoliceStationName.getText());
@@ -749,14 +749,16 @@ public class StationForm extends javax.swing.JDialog {
             pst.setString(31,StationMoo.getText());
             pst.setString(32,Postcode.getText());
              pst.setString(33,PoliceStationCode.getText());
+             System.out.println("SQL : "+sqlUpdate);
             pst.executeUpdate();
             pst.close();
-              System.out.println("SQL : "+sqlUpdate);
+              
                     }
             
              catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
+           JOptionPane.showMessageDialog(null, "บันทึกข้อมูลเรียบร้อยแล้ว");
             System.out.println("SQL : "+pst);
+            
         }
               }
         setVisible(false);

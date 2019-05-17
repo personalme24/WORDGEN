@@ -8,20 +8,55 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import org.json.simple.JSONObject;
 /**
  *
  * @author Petpilin
  */
-public class Identity_AccusedForm extends javax.swing.JFrame {
+public class Identity_AccusedForm extends javax.swing.JDialog {
     Connection con=null;
      PreparedStatement pst=null;
      boolean isInsert;
-
+     String noPerson;
     /**
      * Creates new form Identity_AccusedForm
      */
-    public Identity_AccusedForm() {
+    public Identity_AccusedForm(JFrame parrent,JSONObject datain) {
+                super(parrent,true);
+
         initComponents();
+        if(datain != null){
+          isInsert=false;
+          noPerson=datain.get("NoPerson")+"";
+            crimecaseno.setText(datain.get("crimecaseno")+"");
+            PeopleRegistrationID.setText(datain.get("PeopleRegistrationID")+"");
+            FullNamePerson.setText(datain.get("FullNamePerson")+"");
+            Age.setText(datain.get("Age")+"");
+            Amphur.setText(datain.get("Amphur")+"");
+            BirthDay.setText(datain.get("BirthDay")+"");
+            BloodGroup.setText(datain.get("BloodGroup")+"");
+            ExpiredDate.setText(datain.get("ExpiredDate")+"");
+            FatherFullName.setText(datain.get("FatherFullName")+"");
+            FullNamePersonEn.setText(datain.get("FullNamePersonEn")+"");
+            Height.setText(datain.get("Height")+"");
+            Weight.setText(datain.get("Weight")+"");
+            HouseNumber.setText(datain.get("HouseNumber")+"");
+            IssueDate.setText(datain.get("IssueDate")+"");
+            Moo.setText(datain.get("Moo")+"");
+            MotherFullName.setText(datain.get("MotherFullName")+"");
+            Nationality.setText(datain.get("Nationality")+"");
+            Occupation.setText(datain.get("Occupation")+"");
+            PassportNumber.setText(datain.get("PassportNumber")+"");
+            Province.setText(datain.get("Province")+"");
+            Race.setText(datain.get("Race")+"");
+            Religion.setText(datain.get("Religion")+"");
+            Tambon.setText(datain.get("Tambon")+"");
+     
+        }
+        else{
+         crimecaseno.setText(ListAccused.txtCaseNO.getText());
+         isInsert=true;
+        }
     }
 
     /**
@@ -96,11 +131,12 @@ public class Identity_AccusedForm extends javax.swing.JFrame {
         HouseNumber1 = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
-        Gender1 = new javax.swing.JComboBox<>();
+        RelatedOfDie = new javax.swing.JComboBox<>();
         jButtonSave = new javax.swing.JButton();
         TypePerson = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setAlwaysOnTop(true);
         setPreferredSize(new java.awt.Dimension(1264, 728));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -117,9 +153,10 @@ public class Identity_AccusedForm extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -347,11 +384,11 @@ public class Identity_AccusedForm extends javax.swing.JFrame {
         jLabel34.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel34.setText("เพศ");
 
-        Gender1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        Gender1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "บิดาผู้ตาย", "มารดาผู้ตาย", "สามีผู้ตาย", "ภรรยาผู้ตาย", "ผู้ปกครองผู้ตาย", "พี่ร่วมบิดามารดาของผู้ตาย", "พี่ร่วมบิดาของผู้ตาย", "พี่ร่วมมารดาของผู้ตาย", "น้องร่วมบิดามารดาของผู้ตาย", "น้องร่วมบิดาของผู้ตาย", "น้องร่วมมารดาของผู้ตาย", "ลุงผู้ตาย", "ป้าผู้ตาย", "น้าผู้ตาย", "อาผู้ตาย", "ปู่ผู้ตาย", "ย่าผู้ตาย", "ตาผู้ตาย", "ยายผู้ตาย", "หลานผู้ตาย", "เหลนผู้ตาย", "ผู้มีส่วนได้เสียกับผู้ตาย", "พนักงานสอบสวนในคดี", "ไม่ระบุ" }));
-        Gender1.addActionListener(new java.awt.event.ActionListener() {
+        RelatedOfDie.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        RelatedOfDie.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "บิดาผู้ตาย", "มารดาผู้ตาย", "สามีผู้ตาย", "ภรรยาผู้ตาย", "ผู้ปกครองผู้ตาย", "พี่ร่วมบิดามารดาของผู้ตาย", "พี่ร่วมบิดาของผู้ตาย", "พี่ร่วมมารดาของผู้ตาย", "น้องร่วมบิดามารดาของผู้ตาย", "น้องร่วมบิดาของผู้ตาย", "น้องร่วมมารดาของผู้ตาย", "ลุงผู้ตาย", "ป้าผู้ตาย", "น้าผู้ตาย", "อาผู้ตาย", "ปู่ผู้ตาย", "ย่าผู้ตาย", "ตาผู้ตาย", "ยายผู้ตาย", "หลานผู้ตาย", "เหลนผู้ตาย", "ผู้มีส่วนได้เสียกับผู้ตาย", "พนักงานสอบสวนในคดี", "ไม่ระบุ" }));
+        RelatedOfDie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Gender1ActionPerformed(evt);
+                RelatedOfDieActionPerformed(evt);
             }
         });
 
@@ -502,10 +539,10 @@ public class Identity_AccusedForm extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel28)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Gender1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(RelatedOfDie, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(515, 515, 515)
+                .addGap(504, 504, 504)
                 .addComponent(jButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -596,10 +633,10 @@ public class Identity_AccusedForm extends javax.swing.JFrame {
                     .addComponent(jLabel33)
                     .addComponent(HouseNumber1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel28)
-                    .addComponent(Gender1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
+                    .addComponent(RelatedOfDie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
                 .addComponent(jButtonSave)
-                .addGap(91, 91, 91))
+                .addGap(93, 93, 93))
         );
 
         TypePerson.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
@@ -721,9 +758,9 @@ public class Identity_AccusedForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TypePersonActionPerformed
 
-    private void Gender1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Gender1ActionPerformed
+    private void RelatedOfDieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RelatedOfDieActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Gender1ActionPerformed
+    }//GEN-LAST:event_RelatedOfDieActionPerformed
 
     private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
         // TODO add your handling code here:
@@ -731,7 +768,8 @@ public class Identity_AccusedForm extends javax.swing.JFrame {
         if(isInsert){    
         String sql="INSERT INTO Person (Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                        "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,crimecaseno) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                        "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,crimecaseno,RelatedOfDie)"+
+                        " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
          System.out.println("SQL : "+sql);
       try {
@@ -764,6 +802,7 @@ public class Identity_AccusedForm extends javax.swing.JFrame {
                               pst.setString(26,Weight.getText());
                               pst.setString(27,ZipCode.getText());
                               pst.setString(28,crimecaseno.getText());
+                              pst.setString(29,RelatedOfDie.getSelectedItem().toString());
                               pst.executeUpdate();
 
                              JOptionPane.showConfirmDialog(null,"Data,Saved successfully");
@@ -860,7 +899,8 @@ public class Identity_AccusedForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Identity_AccusedForm().setVisible(true);
+//                new Identity_AccusedForm().setVisible(true);
+                  Identity_AccusedForm aa=  new Identity_AccusedForm(null,null);
             }
         });
     }
@@ -875,7 +915,6 @@ public class Identity_AccusedForm extends javax.swing.JFrame {
     private javax.swing.JTextField FullNamePerson;
     private javax.swing.JTextField FullNamePersonEn;
     private javax.swing.JComboBox<String> Gender;
-    private javax.swing.JComboBox<String> Gender1;
     private javax.swing.JTextField Height;
     private javax.swing.JTextField HouseNumber;
     private javax.swing.JTextField HouseNumber1;
@@ -890,6 +929,7 @@ public class Identity_AccusedForm extends javax.swing.JFrame {
     private javax.swing.JTextField PhonePerson;
     private javax.swing.JTextField Province;
     private javax.swing.JTextField Race;
+    private javax.swing.JComboBox<String> RelatedOfDie;
     private javax.swing.JTextField Religion;
     private javax.swing.JTextField Tambon;
     private javax.swing.JTextField TypePerson;

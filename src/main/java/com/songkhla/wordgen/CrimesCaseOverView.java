@@ -229,11 +229,7 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
         if(jTable1.getSelectedRow()>=0){
             try{
                 String crimecaseid = jTable1.getModel().getValueAt(jTable1.getSelectedRow(), 0)+"";
-//                String sql = "select crimecase.CaseId,crimecase.crimecaseno,crimecase.crimecaseyears,crimecase.ChargeCode as ChargeCodeCase"
-//                        + ",Charge.ChargeName,crimecase.CaseRequestDate,crimecase.CaseRequestTime,crimecase.CaseAcceptDate,crimecase.CaseAcceptTime"
-//                        + ",crimecase.DailyNumber,crimecase.CrimeLocation,crimecase.CrimeLocationDistrict,crimecase.CrimeLocationAmphur,crimecase.CrimeLocationProvince"
-//                        + "from crimecase left join Charge on "
-//                           + "crimecase.ChargeCode=Charge.ChargeCode where crimecase.crimecaseno='"+crimecaseno+"'";
+
                 String sql="select crimecase.*,charge.*,ActionsCase.* from crimecase "
                         + "left join charge on crimecase.ChargeCodeCase=charge.ChargeCode "
                         + "left join ActionsCase on crimecase.ActionCodeCase=ActionsCase.ActionCode "
@@ -350,7 +346,7 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
         while(rs.next()){
             Vector<String> row = new Vector<String>();
             row.add(rs.getString("CaseId"));
-            row.add(rs.getString("crimecaseno"));
+            row.add(rs.getString("crimecasenoyear"));
             row.add(rs.getString("AccureandOther"));
             row.add(rs.getString("SuspectandOther"));
             row.add(rs.getString("ChargeName"));
@@ -364,7 +360,7 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
         stmt.close();
         Vector ColumnName = new Vector();
         ColumnName.add("ลำดับ");
-        ColumnName.add("เลขที่คดี");
+        ColumnName.add("คดีที่");
         ColumnName.add("ผู้ร้องทุกข์");
         ColumnName.add("ผู้ต้องหา");
         ColumnName.add("ข้อหา");     

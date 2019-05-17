@@ -7,6 +7,7 @@ package com.songkhla.wordgen;
 
 import java.util.Calendar;
 import java.util.Date;
+import javax.swing.JFrame;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
 
@@ -14,12 +15,14 @@ import javax.swing.SpinnerDateModel;
  *
  * @author Computer
  */
-public class NewJFrame extends javax.swing.JFrame {
+public class NewJFrame extends javax.swing.JDialog {
 
     /**
      * Creates new form NewJFrame
      */
-    public NewJFrame() {
+    public NewJFrame(JFrame parrent) {
+                        super(parrent,true);
+
         initComponents();
 
      
@@ -38,7 +41,7 @@ public class NewJFrame extends javax.swing.JFrame {
         SpinnerDateModel sm=new SpinnerDateModel(date,null,null,Calendar.HOUR_OF_DAY);
         jSpinner1 = new javax.swing.JSpinner(sm);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         JSpinner.DateEditor timeEditor = new JSpinner.DateEditor(jSpinner1, "HH:mm");
         jSpinner1.setEditor(timeEditor);
@@ -94,7 +97,7 @@ public class NewJFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NewJFrame().setVisible(true);
+//                new NewJFrame().setVisible(true);
 
             }
         });

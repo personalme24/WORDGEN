@@ -42,22 +42,21 @@ public class W5 {
             conn=ConnectDatabase.connect();
             PreparedStatement pst=null;
             String ccYear;
+            String policeStation="";
+             String policeStationProv="";
+            String policeStationTamb="";
             try {
 //                String ch;
 //                   String sql="SELECT * from CrimeCase Where crimecaseno = '"+cc+"'";
-                   String sql="select crimecase.*,Charge.*,P1.*,P2.*\n" +
-                                "from crimecase inner join(\n" +
-                              "SELECT  min(Person.NoPerson),Person.FullNamePerson AccuredName,Person.Age AgeAccured,Person.Race AccuredRace,Person.Nationality AccuredNati "
-                           + "  FROM Person where Person.TypePerson='ผู้กล่าวหา'\n" +
-                              ")P1\n" +
-                              "inner join(\n" +
-                                "SELECT min(Person.NoPerson),Person.FullNamePerson suspectName,Person.Age suspectAge,Person.Amphur suspectAmp,Person.Race suspectRace,\n"+
-                                "Person.Nationality suspectNati,Person.Religion suspectRel,Person.Occupation suspectOc,Person.HouseNumber suspectHouse FROM Person where Person.TypePerson='ผู้ต้องหา'\n" +
-                                ")P2\n" +
-                                "left join Charge on crimecase.ChargeCodeCase=Charge.ChargeCode\n" +
-                                "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
-                                "where crimecase.CaseId='"+cc+"'\n"+
-                                "group by crimecase.CaseId";
+                    String sqlDataPolice="SELECT * FROM PoliceStation";
+                      Statement sp = conn.createStatement();
+                  ResultSet rs=sp.executeQuery(sqlDataPolice); 
+                  while (rs.next()) {                    
+                         policeStation=rs.getString("PoliceStaionShort");
+                         policeStationProv=rs.getString("StationProvince");
+                         policeStationTamb=rs.getString("StationTambon");
+                      }
+                   String sql="SELECT * FROM CrimeCase";
 //                   pst=conn.prepareStatement(sql);
 //           pst=PreparedStatement(sql);
                 Statement st = conn.createStatement();
@@ -73,7 +72,7 @@ public class W5 {
 //                 bookmarkvalue.put("S27","-");
 		bookmarkvalue.put("C2",cs);
                 bookmarkvalue.put("C3", ccYear);
-                 bookmarkvalue.put("S2", "สถานีตำรวจบางบัว");
+                 bookmarkvalue.put("S2", policeStation);
                   bookmarkvalue.put("S5", "เขตบางปี");
                    bookmarkvalue.put("S6", " ");
                  bookmarkvalue.put("PS7",s.getString("AccureandOther"));

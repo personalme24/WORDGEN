@@ -35,6 +35,7 @@ String typeC;
         initComponents();  
         txtCaseNO.setText(datain.get("CaseIdAcc")+"");
          typeC=datain.get("TypeCase")+"";
+         System.out.println("saaaaaaaaa: "+typeC);
          RefreshData();
           
     
@@ -184,15 +185,20 @@ String typeC;
 
     private void jButtonAddAccusedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddAccusedActionPerformed
         // TODO add your handling code here:
-       
-       JFrame frame = new JFrame();
+          JFrame frame = new JFrame();
              JDialog dialog = new JDialog(frame);//frame is owner
              JFrame facc = (JFrame)(dialog.getParent());               
              facc.removeAll();
-       
+       if(typeC.equals("ชันสูตร")){
+       Identity_AccusedForm ida=new Identity_AccusedForm(facc,null);
+       ida.setVisible(true);
+       }  
+       else{  
         AccusedForm accusedF=new AccusedForm(facc,null);
-//        accusedF.setModal(true);
         accusedF.setVisible(true);
+        
+        
+       }
         RefreshData();
        
     }//GEN-LAST:event_jButtonAddAccusedActionPerformed
@@ -207,7 +213,7 @@ String typeC;
            
             try{
                 String PeopleRegistrationID = jTableAccure.getModel().getValueAt(jTableAccure.getSelectedRow(), 0)+"";            
-                String sql = "select Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
+                String sql = "select NoPerson,Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,Weight,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
                         "PhonePerson,Province,Race,Religion,Tambon,TypePerson,ZipCode,caseIdPerson from person where PeopleRegistrationID='"+PeopleRegistrationID+ "' and caseIdPerson='"+crimecaseno+"'";
                 Connection con = ConnectDatabase.connect();
@@ -216,6 +222,7 @@ String typeC;
 //                System.out.println("dddddddddddddd:"+sql);
                 if(rs.next()){
                     JSONObject data = new JSONObject();
+                      data.put("NoPerson", rs.getString("NoPerson"));
                     data.put("PeopleRegistrationID", rs.getString("PeopleRegistrationID"));
                     data.put("crimecaseno", rs.getString("caseIdPerson"));
                     data.put("Age", rs.getString("Age"));

@@ -99,7 +99,31 @@ public class CreateTable {
                 "	ParentIdCard	VARCHAR(100)	,	\n"+
                 "	ParentAddress	VARCHAR(100)	,	\n"+
                 "	ParentPhone	VARCHAR(100)	,	\n"+
-                "	TypePerson	VARCHAR(100)	,	\n"+		
+                "	TypePerson	VARCHAR(100)	,	\n"+
+                "	Office	VARCHAR(100)	,	\n"+
+                "	SpouseFullName	VARCHAR(100)	,	\n"+
+                "	Education	VARCHAR(100)	,	\n"+
+                "	FriendAddress	VARCHAR(100)	,	\n"+
+                "	FavouritePlace	VARCHAR(100)	,	\n"+
+                "	Identification	VARCHAR(100)	,	\n"+
+                "	AllVictim	VARCHAR(100)	,	\n"+
+                "	TimeOfDie	VARCHAR(100)	,	\n"+
+                "	BodyFoundTime	VARCHAR(100)	,	\n"+
+                "	RelatedOfDie	VARCHAR(100)	,	\n"+
+                "	InterrogateDate	VARCHAR(100)	,	\n"+
+                "	CurrentAddress	VARCHAR(100)	,	\n"+
+                "	ArrestDateTime	VARCHAR(100)	,	\n"+
+                "	StatusSueAndPutInJail	VARCHAR(100)	,	\n"+
+                "	NumberImprison	VARCHAR(100)	,	\n"+
+                "	SinceImprison	VARCHAR(100)	,	\n"+
+                "	SinceImprisonTime	VARCHAR(100)	,	\n"+
+                "	ToImprison	VARCHAR(100)	,	\n"+
+                "	ToImprisonTime	VARCHAR(100)	,	\n"+
+                "	TotalDate	VARCHAR(100)	,	\n"+
+                "	TotalTime	VARCHAR(100)	,	\n"+
+                "	StatusSuspect	VARCHAR(100)	,	\n"+
+                "	BailDate	VARCHAR(100)	,	\n"+
+                "	RestoreDate	VARCHAR(100)	,	\n"+ 
                 "	caseIdPerson	INTEGER	not null	\n"+
                 "	);	";	
 
@@ -110,6 +134,7 @@ public class CreateTable {
                         "	SendIDocDate	DATE	,	\n"+
                         "	crimecaseno	VARCHAR(100)	not null,	\n"+
                         "	crimecaseyears	VARCHAR(100)	,	\n"+
+                        "	crimecasenoyear	VARCHAR(100)	,	\n"+
                         "	OccuredDate	DATE	,	\n"+
                         "	CaseAcceptDate	DATE	,	\n"+
                         "	CaseRequestDate	DATE	,	\n"+
@@ -153,7 +178,8 @@ public class CreateTable {
                         "	WitnessandOther	VARCHAR(100),   \n"+
                           "	PoliceNameCase	VARCHAR(100)	,	\n"+
                         "	AssetCode	VARCHAR(100)	,	\n"+
-                        "	AssetList	VARCHAR(100)		\n"+
+                        "	AssetList	VARCHAR(100)	,	\n"+
+                       "	CauseDead	VARCHAR(100)		\n"+
                          "	);";
           String sqlAsset ="CREATE TABLE IF NOT EXISTS Asset (\n"+                 
                 "	NoAsset	INTEGER	Primary Key AUTOINCREMENT,	\n"+        
@@ -188,6 +214,8 @@ public class CreateTable {
                         "	StationAmphur	VARCHAR(100)	,	\n"+
                         "	StationProvince	VARCHAR(100)	,	\n"+
                           "	StationTambon	VARCHAR(100)	,	\n"+
+                          "	StationMoo	VARCHAR(100)	,	\n"+
+                          "	PostCode	VARCHAR(100)	,	\n"+
                         "	KK	VARCHAR(100)	,	\n"+
                         "	BK	VARCHAR(100)	,	\n"+
                         "	BH	VARCHAR(100)	,	\n"+

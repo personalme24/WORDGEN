@@ -42,14 +42,28 @@ public class TestWord {
             conn=ConnectDatabase.connect();
             PreparedStatement pst=null;
             String ccYear;
-       
-//               
+            String policeStation="";
+           
+
+
+
+            try {
+                  String sqlDataPolice="SELECT * FROM PoliceStation";
+                      Statement sp = conn.createStatement();
+                  ResultSet rs=sp.executeQuery(sqlDataPolice); 
+                  if (rs.next()) {                    
+                    policeStation=rs.getString("PoliceStaionShort");
+                  
+                      }
+            } catch (Exception e) {
+            }
+                    System.out.println("Police  : "+policeStation);
 //                System.out.print("ข้อหา :: "+s.getString("ChargeCode"));
 //                System.out.print(" - ");
                  JSONObject bookmarkvalue = new JSONObject();
 //                 bookmarkvalue.put("C1","Date");
 //                 bookmarkvalue.put("S27","-");
-		bookmarkvalue.put("C3","---------------");
+		bookmarkvalue.put("S2",policeStation);
 
                     
                  
@@ -63,7 +77,7 @@ public class TestWord {
     
 			JSONArray tablecolumn = new JSONArray();
 //			tablecolumn.add("PS7");
-			tablecolumn.add("C3");
+			tablecolumn.add("C1");
 //			tablecolumn.add("SUSPECT");
 //			tablecolumn.add("VICTIM");
 //			tablecolumn.add("REMARK");
@@ -71,14 +85,14 @@ public class TestWord {
                         
 			JSONObject row1 = new JSONObject();
 //			row1.put("PS7","period1");
-			row1.put("C3", "------");
+			row1.put("C1", "------");
 //			row1.put("SUSPECT", "period1");
 //			row1.put("VICTIM", "period1");
 //			row1.put("REMARK", "period1");
 			table1.add(row1);
 			
 			JSONObject repl2 = new JSONObject();
-			repl2.put("C3", "-----");
+			repl2.put("C1", "-----");
 //			repl2.put("DESCRIPTION", "desc1");
 //			repl2.put("SUSPECT", "period1");
 //			repl2.put("VICTIM", "period1");
@@ -97,12 +111,15 @@ public class TestWord {
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("D:/TEMPLATE/wt26.docx"));
+					.load(new java.io.File("D:/TEMPLATE/w5.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
+                          System.out.println("Error : "+wordMLPackage);
 			wordMLPackage.save(new java.io.File("D:/รายงานเทสสสสสสส3.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
+                          System.out.println("Error : "+ex);
+                      
 		}
             
            

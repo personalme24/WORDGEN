@@ -381,8 +381,8 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="Race" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="Race" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                               <Component id="Nationality" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                               <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -391,17 +391,19 @@
                           <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="Height" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="Weight" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="BloodGroup" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="Gender" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="Occupation" alignment="1" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="Height" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="Weight" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="BloodGroup" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="Gender" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -1076,7 +1078,7 @@
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jRadioButton4" max="32767" attributes="0"/>
                                   <Component id="jRadioButton7" max="32767" attributes="0"/>
-                                  <Component id="BailDate2" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="BailSendDate" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -1120,7 +1122,7 @@
                           <Component id="BailDate" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="jLabel40" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="BailDate2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="BailSendDate" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -1329,7 +1331,7 @@
                 <Property name="text" type="java.lang.String" value="&#xe27;&#xe31;&#xe19;&#xe17;&#xe35;&#xe48;&#xe2a;&#xe48;&#xe07;&#xe15;&#xe31;&#xe27;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="BailDate2">
+            <Component class="javax.swing.JTextField" name="BailSendDate">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="TH SarabunPSK" size="20" style="0"/>
