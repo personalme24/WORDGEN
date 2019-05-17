@@ -110,7 +110,7 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="PoliceStationCode" min="-2" pref="178" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel9" min="-2" pref="112" max="-2" attributes="0"/>
+                              <Component id="jLabel9" min="-2" pref="105" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="PoliceStationName" min="-2" pref="532" max="-2" attributes="0"/>
                           </Group>

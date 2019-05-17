@@ -325,7 +325,7 @@ public class Identity_witnessForm extends javax.swing.JDialog {
         jLabel34.setText("เพศ");
 
         RelatedOfDie.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        RelatedOfDie.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "พยาน", "ไม่ระบุ" }));
+        RelatedOfDie.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ผู้จับกุมผู้ต้องหา", "ผู้พบการกระทำผิด", "ผู้ตรวจยึดของกลาง", "บิดาผู้ต้องหา", "มารกาผู้ต้องหา", "ผู้ปกครองหรือผู้ดูแลผู้ต้องหา", "เจ้าหน้าที่สืบสวน", "ผู้เสียหาย", "ผู้ตาย", "บิดาผู้ตาย", "มารดาผู้ตาย", "ญาติผู้ตาย", "พยาน", "นายประกัน", "ไม่ระบุ" }));
         RelatedOfDie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RelatedOfDieActionPerformed(evt);

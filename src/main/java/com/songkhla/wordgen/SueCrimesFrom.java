@@ -4,13 +4,19 @@
  * and open the template in the editor.
  */
 package com.songkhla.wordgen;
-
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Petpilin
  */
 public class SueCrimesFrom extends javax.swing.JFrame {
-
+    Connection con=null;
+    PreparedStatement pst=null;
+    DataCase dc =new DataCase();
     /**
      * Creates new form SueCrimesFrom
      */
@@ -556,8 +562,8 @@ public class SueCrimesFrom extends javax.swing.JFrame {
                     .addComponent(jButtonEditSue)
                     .addComponent(jButtonDelete))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(153, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(157, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -568,7 +574,9 @@ public class SueCrimesFrom extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -631,7 +639,10 @@ public class SueCrimesFrom extends javax.swing.JFrame {
     }//GEN-LAST:event_TotalTimeActionPerformed
 
     private void jButtonAddSueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddSueActionPerformed
-        // TODO add your handling code here:
+         SueCrimesAdd ca =new SueCrimesAdd();
+        ca.setVisible(true);
+        
+// TODO add your handling code here:
     }//GEN-LAST:event_jButtonAddSueActionPerformed
 
     private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
