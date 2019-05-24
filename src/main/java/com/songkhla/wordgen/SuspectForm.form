@@ -1037,9 +1037,9 @@
                           <Component id="jLabel38" max="32767" attributes="0"/>
                           <Component id="jLabel37" max="32767" attributes="0"/>
                           <Component id="jLabel35" max="32767" attributes="0"/>
-                          <Component id="jRadioButton5" max="32767" attributes="0"/>
-                          <Component id="jRadioButton1" max="32767" attributes="0"/>
-                          <Component id="jRadioButton9" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jRadioCantCatch" max="32767" attributes="0"/>
+                          <Component id="jRadioSue" max="32767" attributes="0"/>
+                          <Component id="jRadioCatch" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -1065,19 +1065,19 @@
                           <Component id="RestoreDate" min="-2" pref="119" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jRadioButton2" alignment="1" pref="105" max="32767" attributes="0"/>
-                                  <Component id="jRadioButton6" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="jRadioButton10" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jRadioBail" alignment="1" pref="105" max="32767" attributes="0"/>
+                                  <Component id="jRadioUnknow" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="jRadioOther" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jRadioButton3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton8" min="-2" pref="119" max="-2" attributes="0"/>
+                                  <Component id="jRadioResultImprison" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jRadioVerbal" min="-2" pref="119" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jRadioButton4" max="32767" attributes="0"/>
-                                  <Component id="jRadioButton7" max="32767" attributes="0"/>
+                                  <Component id="jRadioResultRelease" max="32767" attributes="0"/>
+                                  <Component id="jRadioRestore" max="32767" attributes="0"/>
                                   <Component id="BailSendDate" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -1092,24 +1092,24 @@
                       <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jRadioButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jRadioButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jRadioButton3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jRadioButton4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jRadioSue" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jRadioBail" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jRadioResultImprison" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jRadioResultRelease" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jRadioButton6" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioButton8" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioButton7" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioUnknow" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioVerbal" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioRestore" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jRadioButton5" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jRadioCantCatch" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jRadioButton9" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jRadioButton10" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jRadioCatch" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jRadioOther" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -1183,64 +1183,88 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+            <Component class="javax.swing.JRadioButton" name="jRadioSue">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="TH SarabunPSK" size="20" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#xe1c;&#xe31;&#xe14;&#xe1f;&#xe49;&#xe2d;&#xe07;&#xe1d;&#xe32;&#xe01;&#xe02;&#xe31;&#xe07;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+            <Component class="javax.swing.JRadioButton" name="jRadioBail">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="TH SarabunPSK" size="20" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#xe1b;&#xe23;&#xe30;&#xe01;&#xe31;&#xe19;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButton3">
+            <Component class="javax.swing.JRadioButton" name="jRadioResultImprison">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="TH SarabunPSK" size="20" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#xe41;&#xe08;&#xe49;&#xe07;&#xe02;&#xe49;&#xe2d;&#xe2b;&#xe32;&#xe1d;&#xe32;&#xe01;&#xe02;&#xe31;&#xe07;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButton4">
+            <Component class="javax.swing.JRadioButton" name="jRadioResultRelease">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="TH SarabunPSK" size="20" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#xe41;&#xe08;&#xe49;&#xe07;&#xe02;&#xe49;&#xe2d;&#xe2b;&#xe32;&#xe1b;&#xe25;&#xe48;&#xe2d;&#xe22;&#xe15;&#xe31;&#xe27;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButton5">
+            <Component class="javax.swing.JRadioButton" name="jRadioCantCatch">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="TH SarabunPSK" size="20" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#xe44;&#xe21;&#xe48;&#xe44;&#xe14;&#xe49;&#xe15;&#xe31;&#xe27;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButton6">
+            <Component class="javax.swing.JRadioButton" name="jRadioUnknow">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="TH SarabunPSK" size="20" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#xe44;&#xe21;&#xe48;&#xe23;&#xe39;&#xe49;&#xe15;&#xe31;&#xe27;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButton7">
+            <Component class="javax.swing.JRadioButton" name="jRadioRestore">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="TH SarabunPSK" size="20" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#xe2a;&#xe48;&#xe07;&#xe1f;&#xe37;&#xe49;&#xe19;&#xe1f;&#xe39;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButton8">
+            <Component class="javax.swing.JRadioButton" name="jRadioVerbal">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="TH SarabunPSK" size="20" style="1"/>
                 </Property>
@@ -1262,16 +1286,22 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButton9">
+            <Component class="javax.swing.JRadioButton" name="jRadioCatch">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="TH SarabunPSK" size="20" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#xe2d;&#xe32;&#xe22;&#xe31;&#xe14;&#xe15;&#xe31;&#xe27;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButton10">
+            <Component class="javax.swing.JRadioButton" name="jRadioOther">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="TH SarabunPSK" size="20" style="1"/>
                 </Property>

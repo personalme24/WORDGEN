@@ -44,12 +44,14 @@ public class IdentityFrom extends javax.swing.JDialog {
     boolean isInsert;
     String caseid;
 
+    
     /**
      * Creates new form IdentifyFrom
      */
     public IdentityFrom(JFrame parrent,JSONObject datain) {
          super(parrent,true);
         initComponents();
+    jCheckDuringInvest.setSelected(true);
            if(datain!=null){
             try {
                 String rt=datain.get("CaseRequestTime")+"";
@@ -140,13 +142,13 @@ public class IdentityFrom extends javax.swing.JDialog {
         ActionCrimes = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
-        jRadioButton7 = new javax.swing.JRadioButton();
+        jCheckSuicide = new javax.swing.JRadioButton();
+        jCheckAnimal = new javax.swing.JRadioButton();
+        jCheckKill = new javax.swing.JRadioButton();
+        jCheckAccident = new javax.swing.JRadioButton();
+        jCheckUnknow = new javax.swing.JRadioButton();
+        jCheckExtraordinary = new javax.swing.JRadioButton();
+        jCheckControl = new javax.swing.JRadioButton();
         jLabel9 = new javax.swing.JLabel();
         CaseRequestDateTime = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
@@ -181,7 +183,7 @@ public class IdentityFrom extends javax.swing.JDialog {
         jLabel30 = new javax.swing.JLabel();
         EvidenceRecordNumber = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
-        Name = new javax.swing.JTextField();
+        ListAsset = new javax.swing.JTextField();
         jButton8 = new javax.swing.JButton();
         jLabel34 = new javax.swing.JLabel();
         jCheckDuringInvest = new javax.swing.JCheckBox();
@@ -221,6 +223,8 @@ public class IdentityFrom extends javax.swing.JDialog {
 
         SpinnerDateModel sm3=new SpinnerDateModel(date3,null,null,Calendar.HOUR_OF_DAY);
         OccuredDateTime = new javax.swing.JSpinner(sm3);
+        jLabelChargeCode = new javax.swing.JLabel();
+        jLabelActionCode = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -239,8 +243,9 @@ public class IdentityFrom extends javax.swing.JDialog {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(12, 12, 12)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(crimecaseid)
                 .addGap(0, 1181, Short.MAX_VALUE))
         );
@@ -298,54 +303,54 @@ public class IdentityFrom extends javax.swing.JDialog {
         jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel8.setText("เหตุที่ตาย");
 
-        jRadioButton1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jRadioButton1.setText("ฆ่าตัวตาย");
+        jCheckSuicide.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckSuicide.setText("ฆ่าตัวตาย");
 
-        jRadioButton2.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jRadioButton2.setText("สัตว์ทำร้ายตาย");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        jCheckAnimal.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckAnimal.setText("สัตว์ทำร้ายตาย");
+        jCheckAnimal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                jCheckAnimalActionPerformed(evt);
             }
         });
 
-        jRadioButton3.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jRadioButton3.setText("ผู้อื่นทำให้ตาย");
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+        jCheckKill.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckKill.setText("ผู้อื่นทำให้ตาย");
+        jCheckKill.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
+                jCheckKillActionPerformed(evt);
             }
         });
 
-        jRadioButton4.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jRadioButton4.setText("อุบัติเหตุ");
-        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
+        jCheckAccident.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckAccident.setText("อุบัติเหตุ");
+        jCheckAccident.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton4ActionPerformed(evt);
+                jCheckAccidentActionPerformed(evt);
             }
         });
 
-        jRadioButton5.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jRadioButton5.setText("มิปรากฎเหตุ");
-        jRadioButton5.addActionListener(new java.awt.event.ActionListener() {
+        jCheckUnknow.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckUnknow.setText("มิปรากฎเหตุ");
+        jCheckUnknow.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton5ActionPerformed(evt);
+                jCheckUnknowActionPerformed(evt);
             }
         });
 
-        jRadioButton6.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jRadioButton6.setText("ถูกเจ้าพนักงานทำให้ตาย(วิสามัญ)");
-        jRadioButton6.addActionListener(new java.awt.event.ActionListener() {
+        jCheckExtraordinary.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckExtraordinary.setText("ถูกเจ้าพนักงานทำให้ตาย(วิสามัญ)");
+        jCheckExtraordinary.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton6ActionPerformed(evt);
+                jCheckExtraordinaryActionPerformed(evt);
             }
         });
 
-        jRadioButton7.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jRadioButton7.setText("ระหว่างควบคุม");
-        jRadioButton7.addActionListener(new java.awt.event.ActionListener() {
+        jCheckControl.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckControl.setText("ระหว่างควบคุม");
+        jCheckControl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton7ActionPerformed(evt);
+                jCheckControlActionPerformed(evt);
             }
         });
 
@@ -459,7 +464,7 @@ public class IdentityFrom extends javax.swing.JDialog {
         jLabel31.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel31.setText("รายการทรัพย์");
 
-        Name.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        ListAsset.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jButton8.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButton8.setText("เพิ่ม");
@@ -595,6 +600,10 @@ public class IdentityFrom extends javax.swing.JDialog {
         OccuredDateTime.setEditor(timeEditor3);
         //jSpinner1.setValue(new Date());
 
+        jLabelChargeCode.setText("jLabel2");
+
+        jLabelActionCode.setText("jLabel22");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -609,7 +618,7 @@ public class IdentityFrom extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ListAsset, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(402, 402, 402))
@@ -687,7 +696,12 @@ public class IdentityFrom extends javax.swing.JDialog {
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jButtonWitness, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jButtonSuspect, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jButtonAccured, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jButtonAccured, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(81, 81, 81)
+                                        .addComponent(jLabelChargeCode)
+                                        .addGap(69, 69, 69)
+                                        .addComponent(jLabelActionCode))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -735,19 +749,19 @@ public class IdentityFrom extends javax.swing.JDialog {
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jRadioButton1)
+                                    .addComponent(jCheckSuicide)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jRadioButton2)
+                                    .addComponent(jCheckAnimal)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jRadioButton3)
+                                    .addComponent(jCheckKill)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jRadioButton4)
+                                    .addComponent(jCheckAccident)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jRadioButton5)
+                                    .addComponent(jCheckUnknow)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jRadioButton6)
+                                    .addComponent(jCheckExtraordinary)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jRadioButton7)
+                                    .addComponent(jCheckControl)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -795,70 +809,78 @@ public class IdentityFrom extends javax.swing.JDialog {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(crimecaseno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(crimecaseyear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CourtType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ChargeName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonCharge)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ActionCrimes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonAction))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CircumstancesOfDeath, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CaseRequestDateTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DailyNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CaseAcceptDateTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CaseRequestTimee, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CaseAcceptTimee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(OccuredDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CrimeLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(OccuredDateTime, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CrimeLocationDistrict, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CrimeLocationAmphur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CrimeLocationProvince, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextAccused, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonAccured))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(crimecaseno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(crimecaseyear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CourtType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ChargeName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonCharge)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ActionCrimes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonAction))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCheckSuicide, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCheckAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCheckKill, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCheckAccident, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCheckUnknow, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCheckExtraordinary, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCheckControl, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CircumstancesOfDeath, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CaseRequestDateTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(DailyNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CaseAcceptDateTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CaseRequestTimee, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CaseAcceptTimee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(OccuredDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CrimeLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(OccuredDateTime, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CrimeLocationDistrict, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CrimeLocationAmphur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1)
+                            .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CrimeLocationProvince, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextAccused, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonAccured))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelChargeCode)
+                            .addComponent(jLabelActionCode))
+                        .addGap(2, 2, 2)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextSuspect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -871,7 +893,7 @@ public class IdentityFrom extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ListAsset, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton8)
                     .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(EvidenceRecordNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -910,7 +932,7 @@ public class IdentityFrom extends javax.swing.JDialog {
                         .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButtonAddInvest, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonSaveCase)
                     .addComponent(jButton3))
@@ -952,29 +974,29 @@ public class IdentityFrom extends javax.swing.JDialog {
 
     }//GEN-LAST:event_jButtonActionActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void jCheckAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckAnimalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_jCheckAnimalActionPerformed
 
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+    private void jCheckKillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckKillActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
+    }//GEN-LAST:event_jCheckKillActionPerformed
 
-    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
+    private void jCheckAccidentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckAccidentActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton4ActionPerformed
+    }//GEN-LAST:event_jCheckAccidentActionPerformed
 
-    private void jRadioButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton5ActionPerformed
+    private void jCheckUnknowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckUnknowActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton5ActionPerformed
+    }//GEN-LAST:event_jCheckUnknowActionPerformed
 
-    private void jRadioButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton6ActionPerformed
+    private void jCheckExtraordinaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckExtraordinaryActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton6ActionPerformed
+    }//GEN-LAST:event_jCheckExtraordinaryActionPerformed
 
-    private void jRadioButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton7ActionPerformed
+    private void jCheckControlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckControlActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton7ActionPerformed
+    }//GEN-LAST:event_jCheckControlActionPerformed
 
     private void jButtonAccuredActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccuredActionPerformed
         // TODO add your handling code here:
@@ -1066,17 +1088,19 @@ public class IdentityFrom extends javax.swing.JDialog {
         String acceptTime = format.format(CaseAcceptTimee.getValue());
         String orcuredTime=format.format(OccuredDateTime.getValue());
          if(isInsert){
-        String sql="INSERT INTO CrimeCase (crimecaseno,crimecaseyears,ChargeCodeCase,ActionCrimes,CaseRequestDate,CaseRequestTime,"+
-                   "CaseAcceptDateTime,CaseAccepTimee,DailyNumber,OccuredDate,OccuredTime,CrimeLocation,CrimeLocationDistrict,CrimeLocationAmphur,"+
+      String sql="INSERT INTO CrimeCase (crimecaseno,crimecaseyears,ChargeCodeCase,ActionCodeCase,CaseRequestDate,CaseRequestTime,"+
+                   "CaseAcceptDate,CaseAccepTime,DailyNumber,OccuredDate,OccuredTime,CrimeLocation,CrimeLocationDistrict,CrimeLocationAmphur,"+
                    "CrimeLocationProvince,TypeCourt,AccureandOther,SuspectandOther,WitnessandOther,Investigator_Result,CourtResult,Invest_SendtoDepartment,"+
-                     "PoliceNameCase,AssetList,AssetCode,AnswerSuspect,CircumstancesOfDeath)"+
-                   "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                     "PoliceNameCase,AssetList,AssetCode,CircumstancesOfDeath,CauseDead,crimecasenoyear,CaseType)"+
+                   "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
           System.out.println(sql);
          try {
   
             pst=con.prepareStatement(sql);
             pst.setString(1,crimecaseno.getText());
             pst.setString(2,crimecaseyear.getText());
+            pst.setString(3,jLabelChargeCode.getText());
+            pst.setString(4,jLabelActionCode.getText());
             pst.setString(5,CaseRequestDateTime.getText());
             pst.setString(6,requestTime);
             pst.setString(7,CaseAcceptDateTime.getText());
@@ -1089,28 +1113,55 @@ public class IdentityFrom extends javax.swing.JDialog {
             pst.setString(14,CrimeLocationAmphur.getText());
             pst.setString(15,CrimeLocationProvince.getText());
             pst.setString(16,CourtType.getSelectedItem().toString());
+            pst.setString(17,jTextAccused.getText());
+            pst.setString(18,jTextSuspect.getText());
+            pst.setString(19,jTextWitness.getText());
             if(jCheckDuringInvest.isSelected()){
                pst.setString(20,"อยู่ระหว่างสอบสวน");  
             }
-            if(jCheckSue.isSelected()){
+          else  if(jCheckSue.isSelected()){
                pst.setString(20,"สั่งฟ้อง");  
             } 
-            if(jCheckNotSue.isSelected()){
+          else  if(jCheckNotSue.isSelected()){
                pst.setString(20,"สั่งไม่ฟ้อง");  
             }
-            if(jCheckNoInvest.isSelected()){
+          else  if(jCheckNoInvest.isSelected()){
                pst.setString(20,"งดการสอบสวน");  
             }
-            if(jCheckOtherInvest.isSelected()){
+         else   if(jCheckOtherInvest.isSelected()){
                pst.setString(20,"อื่นๆ");  
             }
             pst.setString(21,jTextCourtResult.getText());
             pst.setString(22,jTextInvestSendtoDepartment.getText());
             pst.setString(23,jTextPoliceName.getText());
-            pst.setString(25,EvidenceRecordNumber.getText());
-            //เกี่ยวกับการตาย
+              pst.setString(24,ListAsset.getText());
+                pst.setString(25,EvidenceRecordNumber.getText());
+
+//            //เกี่ยวกับการตาย
             pst.setString(26,CircumstancesOfDeath.getText());
-            
+             if(jCheckSuicide.isSelected()){
+                    pst.setString(27,"ฆ่าตัวตาย");
+                }
+             else   if(jCheckAnimal.isSelected()){
+                    pst.setString(27,"สัตว์ทำร้ายตาย");
+                }
+              else  if(jCheckKill.isSelected()){
+                    pst.setString(27,"ผู้อื่นทำให้ตาย");
+                }
+              else  if(jCheckAccident.isSelected()){
+                    pst.setString(27,"อุบัติเหตุ");
+                }
+              else  if(jCheckUnknow.isSelected()){
+                    pst.setString(27,"มิปรากฏเหตุ");
+                }
+              else   if(jCheckExtraordinary.isSelected()){
+                    pst.setString(27,"วิสามัญ");
+                }
+              else    if(jCheckControl.isSelected()){
+                    pst.setString(27,"ระหว่างควบคุม");
+                }
+                 pst.setString(28,crimecaseno.getText()+"/"+crimecaseyear.getText());
+                 pst.setString(29,"ชันสูตร");
             pst.executeUpdate();
                     JOptionPane.showMessageDialog(null, "Data Saved successfully");
                     System.out.println("SQL : "+sql);
@@ -1125,11 +1176,11 @@ public class IdentityFrom extends javax.swing.JDialog {
         String sqlUpdate="UPDATE CrimeCase SET crimecaseno = ?,"
                          +"crimecaseyears = ?,"
                          +"ChargeCodeCase = ?,"
-                         +"ActionCrimes = ?,"
+                         +"ActionCodeCase = ?,"
                          +"CaseRequestDate = ?,"
                          +"CaseRequestTime = ?,"
-                         +"CaseAcceptDateTime = ?,"
-                         +"CaseAccepTimee = ?,"
+                         +"CaseAcceptDate = ?,"
+                         +"CaseAccepTime = ?,"
                          +"DailyNumber = ?,"
                          +"OccuredDate = ?,"
                          +"OccuredTime = ?,"
@@ -1141,9 +1192,18 @@ public class IdentityFrom extends javax.swing.JDialog {
                          +"SuspectandOther = ?,"
                          +"WitnessandOther = ?,"
                          +"TypeCourt = ?,"
+                         +"AccureandOther = ?,"
+                         +"SuspectandOther = ?,"
+                         +"WitnessandOther = ?,"
+                         +"Investigator_Result = ?,"
+                         +"CourtResult = ?"
+                         +"Invest_SendtoDepartment =?" 
+                         +"PoliceNameCase = ?,"
                          +"AssetList = ?,"
                          +"AssetCode = ?"
                          +"CircumstancesOfDeath =?" 
+                         +"CauseDead = ?"
+                         +"crimecasenoyear =?" 
                 
                  +" WHERE  CaseId = ?";
           System.out.println("SQL : "+sqlUpdate);
@@ -1152,8 +1212,8 @@ public class IdentityFrom extends javax.swing.JDialog {
             pst=con.prepareStatement(sqlUpdate);
             pst.setString(1,crimecaseno.getText());
             pst.setString(2,crimecaseyear.getText());
-           // pst.setString(3,jLabelChargeCode.getText());
-            pst.setString(4,ActionCrimes.getText());
+            pst.setString(3,jLabelChargeCode.getText());
+            pst.setString(4,jLabelActionCode.getText());
             pst.setString(5,CaseRequestDateTime.getText());
             pst.setString(6,requestTime);
             pst.setString(7,CaseAcceptDateTime.getText());
@@ -1165,14 +1225,56 @@ public class IdentityFrom extends javax.swing.JDialog {
             pst.setString(13,CrimeLocationDistrict.getText());
             pst.setString(14,CrimeLocationAmphur.getText());
             pst.setString(15,CrimeLocationProvince.getText());
-           // pst.setString(16,jTextAccused.getText());      
-           // pst.setString(17,jTextSuspect.getText());
-           // pst.setString(18,jTextWitness.getText());
-            pst.setString(19,CourtType.getSelectedItem().toString());
-           // pst.setString(20,ListAsset.getText());
-            pst.setString(21,EvidenceRecordNumber.getText());
-            pst.setString(22,CircumstancesOfDeath.getText());
-            pst.setString(23,caseid);
+            pst.setString(16,CourtType.getSelectedItem().toString());
+            pst.setString(17,jTextAccused.getText());
+            pst.setString(18,jTextSuspect.getText());
+            pst.setString(19,jTextWitness.getText());
+            if(jCheckDuringInvest.isSelected()){
+               pst.setString(20,"อยู่ระหว่างสอบสวน");  
+            }
+          else  if(jCheckSue.isSelected()){
+               pst.setString(20,"สั่งฟ้อง");  
+            } 
+          else  if(jCheckNotSue.isSelected()){
+               pst.setString(20,"สั่งไม่ฟ้อง");  
+            }
+          else  if(jCheckNoInvest.isSelected()){
+               pst.setString(20,"งดการสอบสวน");  
+            }
+         else   if(jCheckOtherInvest.isSelected()){
+               pst.setString(20,"อื่นๆ");  
+            }
+            pst.setString(21,jTextCourtResult.getText());
+            pst.setString(22,jTextInvestSendtoDepartment.getText());
+            pst.setString(23,jTextPoliceName.getText());
+              pst.setString(24,ListAsset.getText());
+                pst.setString(25,EvidenceRecordNumber.getText());
+
+//            //เกี่ยวกับการตาย
+            pst.setString(26,CircumstancesOfDeath.getText());
+             if(jCheckSuicide.isSelected()){
+                    pst.setString(27,"ฆ่าตัวตาย");
+                }
+             else   if(jCheckAnimal.isSelected()){
+                    pst.setString(27,"สัตว์ทำร้ายตาย");
+                }
+              else  if(jCheckKill.isSelected()){
+                    pst.setString(27,"ผู้อื่นทำให้ตาย");
+                }
+              else  if(jCheckAccident.isSelected()){
+                    pst.setString(27,"อุบัติเหตุ");
+                }
+              else  if(jCheckUnknow.isSelected()){
+                    pst.setString(27,"มิปรากฏเหตุ");
+                }
+              else   if(jCheckExtraordinary.isSelected()){
+                    pst.setString(27,"วิสามัญ");
+                }
+              else    if(jCheckControl.isSelected()){
+                    pst.setString(27,"ระหว่างควบคุม");
+                }
+                 pst.setString(28,crimecaseno.getText()+"/"+crimecaseyear.getText());
+                 pst.setString(29,caseid);
             
              pst.executeUpdate();
 //                    JOptionPane.showMessageDialog(null, "บันทึกข้อมูล");
@@ -1187,9 +1289,9 @@ public class IdentityFrom extends javax.swing.JDialog {
     }//GEN-LAST:event_jButtonSaveCaseActionPerformed
 
     private void jButtonAddInvestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddInvestActionPerformed
-      
-         RecordInvestigatorForm ri =new RecordInvestigatorForm();
-        ri.setVisible(true);
+//      
+//         RecordInvestigatorForm ri =new RecordInvestigatorForm();
+//        ri.setVisible(true);
 // TODO add your handling code here:
     }//GEN-LAST:event_jButtonAddInvestActionPerformed
 
@@ -1248,7 +1350,7 @@ public class IdentityFrom extends javax.swing.JDialog {
     private javax.swing.JTextField CrimeLocationProvince;
     private javax.swing.JTextField DailyNumber;
     private javax.swing.JTextField EvidenceRecordNumber;
-    private javax.swing.JTextField Name;
+    private javax.swing.JTextField ListAsset;
     private javax.swing.JTextField OccuredDate;
     private javax.swing.JSpinner OccuredDateTime;
     private javax.swing.JLabel crimecaseid;
@@ -1264,11 +1366,18 @@ public class IdentityFrom extends javax.swing.JDialog {
     private javax.swing.JButton jButtonSaveCase;
     private javax.swing.JButton jButtonSuspect;
     private javax.swing.JButton jButtonWitness;
+    private javax.swing.JRadioButton jCheckAccident;
+    private javax.swing.JRadioButton jCheckAnimal;
+    private javax.swing.JRadioButton jCheckControl;
     private javax.swing.JCheckBox jCheckDuringInvest;
+    private javax.swing.JRadioButton jCheckExtraordinary;
+    private javax.swing.JRadioButton jCheckKill;
     private javax.swing.JCheckBox jCheckNoInvest;
     private javax.swing.JCheckBox jCheckNotSue;
     private javax.swing.JCheckBox jCheckOtherInvest;
     private javax.swing.JCheckBox jCheckSue;
+    private javax.swing.JRadioButton jCheckSuicide;
+    private javax.swing.JRadioButton jCheckUnknow;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1302,15 +1411,10 @@ public class IdentityFrom extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelActionCode;
+    private javax.swing.JLabel jLabelChargeCode;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
-    private javax.swing.JRadioButton jRadioButton7;
     private javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JTextField jTextAccused;
     private javax.swing.JTextArea jTextCourtResult;

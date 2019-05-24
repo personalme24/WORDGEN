@@ -37,7 +37,7 @@ public class ChargePage extends javax.swing.JDialog {
      */
     String chargeNo; 
     public ChargePage(JFrame parrent,JSONObject datain) {
-        //super(parrent,true);
+        super(parrent,true);
         initComponents();
          con=ConnectDatabase.connect();
             if(datain!=null){

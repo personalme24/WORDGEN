@@ -31,6 +31,7 @@ public class Identity_AccusedForm extends javax.swing.JDialog {
             crimecaseno.setText(datain.get("crimecaseno")+"");
             PeopleRegistrationID.setText(datain.get("PeopleRegistrationID")+"");
             FullNamePerson.setText(datain.get("FullNamePerson")+"");
+         
             Age.setText(datain.get("Age")+"");
             Amphur.setText(datain.get("Amphur")+"");
             BirthDay.setText(datain.get("BirthDay")+"");
@@ -768,7 +769,7 @@ public class Identity_AccusedForm extends javax.swing.JDialog {
         if(isInsert){    
         String sql="INSERT INTO Person (Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                        "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,crimecaseno,RelatedOfDie)"+
+                        "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,caseIdPerson,RelatedOfDie)"+
                         " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
          System.out.println("SQL : "+sql);
@@ -818,7 +819,7 @@ public class Identity_AccusedForm extends javax.swing.JDialog {
                                     "BloodGroup=?,ExpiredDate=?,FatherFullName=?,FullNamePerson=?,FullNamePersonEn=?,\n" +
                                     "Gender=?,Height=?,HouseNumber=?,IssueDate=?,Moo=?,MotherFullName=?,Nationality=?,Occupation=?,\n" +
                                     "OtherName=?,PassportNumber=?,PeopleRegistrationID=?,PhonePerson=?,Province=?,Race=?,Religion=?,\n" +
-                                    "Tambon=?,TypePerson=?,Weight=?,ZipCode=? ,crimecaseno=? where PeopleRegistrationID=? and TypePerson=?   ";
+                                    "Tambon=?,TypePerson=?,Weight=?,ZipCode=? ,crimecaseno=? where NoPerson=? and TypePerson=?   ";
        
          try {
             pst=con.prepareStatement(sqlUpdate);
@@ -850,7 +851,7 @@ public class Identity_AccusedForm extends javax.swing.JDialog {
                               pst.setString(26,Weight.getText());
                               pst.setString(27,ZipCode.getText());
                               pst.setString(28,crimecaseno.getText());
-                              pst.setString(29,PeopleRegistrationID.getText());
+                              pst.setString(29,noPerson);
                               pst.setString(30,TypePerson.getText());
                               pst.executeUpdate();
 

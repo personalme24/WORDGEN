@@ -210,18 +210,20 @@ String typeC;
            
             try{
                 String PeopleRegistrationID = jTableSuspect.getModel().getValueAt(jTableSuspect.getSelectedRow(), 0)+"";            
-                String sql = "select NoPerson,Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
+                String sql = "select NoPerson,Identification,CurrentAddress,Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,Weight,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                        "PhonePerson,Province,Race,Religion,Tambon,TypePerson,ZipCode,caseIdPerson from person where PeopleRegistrationID='"+PeopleRegistrationID+ "' and caseIdPerson='"+crimecaseno+"'";
+                        "PhonePerson,StatusSuspect,Province,Race,Religion,Tambon,TypePerson,ZipCode,caseIdPerson from person where PeopleRegistrationID='"+PeopleRegistrationID+ "' and caseIdPerson='"+crimecaseno+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);
                 System.out.println("dddddddddddddd:"+sql);
                 if(rs.next()){
                     JSONObject data = new JSONObject();
+                      data.put("StatusSuspect", rs.getString("StatusSuspect"));
                       data.put("NoPerson", rs.getString("NoPerson"));
                     data.put("PeopleRegistrationID", rs.getString("PeopleRegistrationID"));
                     data.put("crimecaseno", rs.getString("caseIdPerson"));
+                     data.put("Identification", rs.getString("Identification"));
                     data.put("Age", rs.getString("Age"));
                     data.put("Amphur", rs.getString("Amphur"));
                     data.put("BirthDay", rs.getString("BirthDay"));
@@ -245,6 +247,8 @@ String typeC;
                     data.put("Race", rs.getString("Race"));
                     data.put("Religion", rs.getString("Religion"));
                     data.put("Tambon", rs.getString("Tambon"));
+                    data.put("CurrentAddress", rs.getString("CurrentAddress"));
+                
                             AccusedForm accusedF=new AccusedForm(f,data);
                             accusedF.setVisible(true);    		
                 }

@@ -50,7 +50,7 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jLabel31" min="-2" pref="85" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="Name" min="-2" pref="383" max="-2" attributes="0"/>
+                          <Component id="ListAsset" min="-2" pref="383" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jButton8" min="-2" pref="91" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="402" max="-2" attributes="0"/>
@@ -146,7 +146,13 @@
                                           <Component id="jButtonWitness" max="32767" attributes="0"/>
                                           <Component id="jButtonSuspect" min="-2" pref="65" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jButtonAccured" alignment="0" min="-2" pref="65" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jButtonAccured" min="-2" pref="65" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
+                                          <Component id="jLabelChargeCode" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                                          <Component id="jLabelActionCode" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -206,19 +212,19 @@
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="jLabel8" min="-2" pref="65" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jCheckSuicide" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jCheckAnimal" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jCheckKill" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton4" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jCheckAccident" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton5" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jCheckUnknow" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton6" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jCheckExtraordinary" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton7" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jCheckControl" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="jLabel14" min="-2" pref="54" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -282,77 +288,89 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="jPanel3" min="-2" pref="47" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel3" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="crimecaseno" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel4" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="crimecaseyear" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel5" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="CourtType" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="ChargeName" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonCharge" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel6" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="jPanel3" min="-2" pref="47" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel3" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="crimecaseno" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel4" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="crimecaseyear" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel5" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="CourtType" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="ChargeName" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButtonCharge" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel6" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel7" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="ActionCrimes" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButtonAction" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel8" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="jCheckSuicide" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="jCheckAnimal" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="jCheckKill" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="jCheckAccident" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="jCheckUnknow" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="jCheckExtraordinary" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="jCheckControl" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="jLabel14" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="CircumstancesOfDeath" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel9" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="CaseRequestDateTime" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel10" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="jLabel13" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="DailyNumber" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel11" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="CaseAcceptDateTime" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel12" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="CaseRequestTimee" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                              <Component id="CaseAcceptTimee" alignment="3" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel15" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="OccuredDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel16" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="jLabel17" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="CrimeLocation" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="OccuredDateTime" alignment="3" pref="27" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel18" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="CrimeLocationDistrict" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel19" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="CrimeLocationAmphur" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel20" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="CrimeLocationProvince" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel21" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="jTextAccused" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButtonAccured" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabelChargeCode" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelActionCode" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel7" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="ActionCrimes" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonAction" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel8" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="jRadioButton1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="jRadioButton2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="jRadioButton3" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="jRadioButton4" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="jRadioButton5" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="jRadioButton6" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="jRadioButton7" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="jLabel14" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="CircumstancesOfDeath" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel9" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="CaseRequestDateTime" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel10" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="jLabel13" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="DailyNumber" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel11" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="CaseAcceptDateTime" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel12" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="CaseRequestTimee" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="CaseAcceptTimee" alignment="3" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel15" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="OccuredDate" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel16" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="jLabel17" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="CrimeLocation" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="OccuredDateTime" alignment="3" pref="27" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel18" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="CrimeLocationDistrict" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel19" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="CrimeLocationAmphur" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel20" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="CrimeLocationProvince" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel21" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="jTextAccused" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonAccured" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel26" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="jTextSuspect" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -367,7 +385,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel31" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="Name" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ListAsset" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButton8" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel30" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="EvidenceRecordNumber" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -415,7 +433,7 @@
                           <Component id="jButtonAddInvest" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="86" max="32767" attributes="0"/>
+                  <EmptySpace pref="89" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jButtonSaveCase" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -445,8 +463,9 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="crimecaseid" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="1181" max="32767" attributes="0"/>
                   </Group>
@@ -599,7 +618,7 @@
             <Property name="text" type="java.lang.String" value="&#xe40;&#xe2b;&#xe15;&#xe38;&#xe17;&#xe35;&#xe48;&#xe15;&#xe32;&#xe22;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+        <Component class="javax.swing.JRadioButton" name="jCheckSuicide">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="1"/>
@@ -607,7 +626,7 @@
             <Property name="text" type="java.lang.String" value="&#xe06;&#xe48;&#xe32;&#xe15;&#xe31;&#xe27;&#xe15;&#xe32;&#xe22;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+        <Component class="javax.swing.JRadioButton" name="jCheckAnimal">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="1"/>
@@ -615,10 +634,10 @@
             <Property name="text" type="java.lang.String" value="&#xe2a;&#xe31;&#xe15;&#xe27;&#xe4c;&#xe17;&#xe33;&#xe23;&#xe49;&#xe32;&#xe22;&#xe15;&#xe32;&#xe22;"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckAnimalActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton3">
+        <Component class="javax.swing.JRadioButton" name="jCheckKill">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="1"/>
@@ -626,10 +645,10 @@
             <Property name="text" type="java.lang.String" value="&#xe1c;&#xe39;&#xe49;&#xe2d;&#xe37;&#xe48;&#xe19;&#xe17;&#xe33;&#xe43;&#xe2b;&#xe49;&#xe15;&#xe32;&#xe22;"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckKillActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton4">
+        <Component class="javax.swing.JRadioButton" name="jCheckAccident">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="1"/>
@@ -637,10 +656,10 @@
             <Property name="text" type="java.lang.String" value="&#xe2d;&#xe38;&#xe1a;&#xe31;&#xe15;&#xe34;&#xe40;&#xe2b;&#xe15;&#xe38;"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton4ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckAccidentActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton5">
+        <Component class="javax.swing.JRadioButton" name="jCheckUnknow">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="1"/>
@@ -648,10 +667,10 @@
             <Property name="text" type="java.lang.String" value="&#xe21;&#xe34;&#xe1b;&#xe23;&#xe32;&#xe01;&#xe0e;&#xe40;&#xe2b;&#xe15;&#xe38;"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton5ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckUnknowActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton6">
+        <Component class="javax.swing.JRadioButton" name="jCheckExtraordinary">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="1"/>
@@ -659,10 +678,10 @@
             <Property name="text" type="java.lang.String" value="&#xe16;&#xe39;&#xe01;&#xe40;&#xe08;&#xe49;&#xe32;&#xe1e;&#xe19;&#xe31;&#xe01;&#xe07;&#xe32;&#xe19;&#xe17;&#xe33;&#xe43;&#xe2b;&#xe49;&#xe15;&#xe32;&#xe22;(&#xe27;&#xe34;&#xe2a;&#xe32;&#xe21;&#xe31;&#xe0d;)"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton6ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckExtraordinaryActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton7">
+        <Component class="javax.swing.JRadioButton" name="jCheckControl">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="1"/>
@@ -670,7 +689,7 @@
             <Property name="text" type="java.lang.String" value="&#xe23;&#xe30;&#xe2b;&#xe27;&#xe48;&#xe32;&#xe07;&#xe04;&#xe27;&#xe1a;&#xe04;&#xe38;&#xe21;"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton7ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckControlActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
@@ -954,7 +973,7 @@
             <Property name="text" type="java.lang.String" value="&#xe23;&#xe32;&#xe22;&#xe01;&#xe32;&#xe23;&#xe17;&#xe23;&#xe31;&#xe1e;&#xe22;&#xe4c;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="Name">
+        <Component class="javax.swing.JTextField" name="ListAsset">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>
@@ -1225,6 +1244,16 @@
             <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="Date date3=new Date();&#xa;&#xa;SpinnerDateModel sm3=new SpinnerDateModel(date3,null,null,Calendar.HOUR_OF_DAY);"/>
             <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="JSpinner.DateEditor timeEditor3 = new JSpinner.DateEditor(OccuredDateTime, &quot;HH:mm&quot;);&#xa;OccuredDateTime.setEditor(timeEditor3);&#xa;//jSpinner1.setValue(new Date());"/>
           </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelChargeCode">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jLabel2"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelActionCode">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jLabel22"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

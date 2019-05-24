@@ -179,7 +179,8 @@ public class CreateTable {
                           "	PoliceNameCase	VARCHAR(100)	,	\n"+
                         "	AssetCode	VARCHAR(100)	,	\n"+
                         "	AssetList	VARCHAR(100)	,	\n"+
-                       "	CauseDead	VARCHAR(100)		\n"+
+                          "	CauseDead	VARCHAR(100)	,	\n"+
+                         "	CircumstancesOfDeath	VARCHAR(100)		\n"+
                          "	);";
           String sqlAsset ="CREATE TABLE IF NOT EXISTS Asset (\n"+                 
                 "	NoAsset	INTEGER	Primary Key AUTOINCREMENT,	\n"+        
@@ -255,6 +256,13 @@ public class CreateTable {
                     "	ActionDetail	VARCHAR(100)	,	\n"+
                     "	ActionNote	VARCHAR(100)		\n"+
                     "	);";    
+            String sqlRecord ="CREATE TABLE IF NOT EXISTS RecordInquiry (\n"+
+                    "	IdRecord	INTEGER	Primary Key AUTOINCREMENT,	\n"+
+                    "	DateRecord	Date	,	\n"+
+                    "	NameInguiry	VARCHAR(100)	,	\n"+
+                    "	DetailRecord	VARCHAR(100)	,	\n"+
+                    "	CaseIdRecord	INTEGER	not null	\n"+    
+                    "	);";    
             
         
                       
@@ -269,7 +277,7 @@ public class CreateTable {
                       stmt.execute(sqlPoliceStat); 
                       stmt.execute(sqlCharge); 
                        stmt.execute(sqlAction); 
-                     
+                      stmt.execute(sqlRecord); 
                        stmt.close();
                     System.out.println("Create Table Complete");
 	        } catch (SQLException e) {

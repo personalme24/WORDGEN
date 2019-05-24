@@ -16,6 +16,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.json.simple.JSONObject;
@@ -36,9 +37,23 @@ public class SuspectForm extends javax.swing.JDialog {
     public SuspectForm(JFrame parrent,JSONObject datain) {
         super(parrent,true);
         initComponents();  
+        ButtonGroup g=new ButtonGroup();
+        g.add(jRadioSue);
+        g.add(jRadioBail);
+        g.add(jRadioResultImprison);
+        g.add(jRadioResultRelease);
+        g.add(jRadioCantCatch);
+        g.add(jRadioUnknow);
+        g.add(jRadioVerbal);
+        g.add(jRadioRestore);
+        g.add(jRadioCatch);
+        g.add(jRadioOther);
+
      
           if(datain!=null){
             isInsert=false;
+            String statusSus;
+            statusSus=datain.get("StatusSuspect")+"";
             noPerson=datain.get("NoPerson")+"";
             crimecaseno.setText(datain.get("caseIdPerson")+"");
             PeopleRegistrationID.setText(datain.get("PeopleRegistrationID")+"");
@@ -63,6 +78,12 @@ public class SuspectForm extends javax.swing.JDialog {
             Race.setText(datain.get("Race")+"");
             Religion.setText(datain.get("Religion")+"");
             Tambon.setText(datain.get("Tambon")+"");
+            Religion.setText(datain.get("Religion")+"");
+            if(statusSus.equals("")){
+            
+            }
+            
+
      
 
 //                    data.put("Gender", rs.getString("Gender"));
@@ -160,18 +181,18 @@ public class SuspectForm extends javax.swing.JDialog {
         jPanel2 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
-        jRadioButton7 = new javax.swing.JRadioButton();
-        jRadioButton8 = new javax.swing.JRadioButton();
+        jRadioSue = new javax.swing.JRadioButton();
+        jRadioBail = new javax.swing.JRadioButton();
+        jRadioResultImprison = new javax.swing.JRadioButton();
+        jRadioResultRelease = new javax.swing.JRadioButton();
+        jRadioCantCatch = new javax.swing.JRadioButton();
+        jRadioUnknow = new javax.swing.JRadioButton();
+        jRadioRestore = new javax.swing.JRadioButton();
+        jRadioVerbal = new javax.swing.JRadioButton();
         jLabel35 = new javax.swing.JLabel();
         SinceImprison = new javax.swing.JTextField();
-        jRadioButton9 = new javax.swing.JRadioButton();
-        jRadioButton10 = new javax.swing.JRadioButton();
+        jRadioCatch = new javax.swing.JRadioButton();
+        jRadioOther = new javax.swing.JRadioButton();
         jLabel37 = new javax.swing.JLabel();
         BailDate = new javax.swing.JTextField();
         jLabel38 = new javax.swing.JLabel();
@@ -757,40 +778,50 @@ public class SuspectForm extends javax.swing.JDialog {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jRadioButton1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jRadioButton1.setText("ผัดฟ้องฝากขัง");
+        jRadioSue.setBackground(new java.awt.Color(255, 255, 255));
+        jRadioSue.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jRadioSue.setText("ผัดฟ้องฝากขัง");
 
-        jRadioButton2.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jRadioButton2.setText("ประกัน");
+        jRadioBail.setBackground(new java.awt.Color(255, 255, 255));
+        jRadioBail.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jRadioBail.setText("ประกัน");
 
-        jRadioButton3.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jRadioButton3.setText("แจ้งข้อหาฝากขัง");
+        jRadioResultImprison.setBackground(new java.awt.Color(255, 255, 255));
+        jRadioResultImprison.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jRadioResultImprison.setText("แจ้งข้อหาฝากขัง");
 
-        jRadioButton4.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jRadioButton4.setText("แจ้งข้อหาปล่อยตัว");
+        jRadioResultRelease.setBackground(new java.awt.Color(255, 255, 255));
+        jRadioResultRelease.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jRadioResultRelease.setText("แจ้งข้อหาปล่อยตัว");
 
-        jRadioButton5.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jRadioButton5.setText("ไม่ได้ตัว");
+        jRadioCantCatch.setBackground(new java.awt.Color(255, 255, 255));
+        jRadioCantCatch.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jRadioCantCatch.setText("ไม่ได้ตัว");
 
-        jRadioButton6.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jRadioButton6.setText("ไม่รู้ตัว");
+        jRadioUnknow.setBackground(new java.awt.Color(255, 255, 255));
+        jRadioUnknow.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jRadioUnknow.setText("ไม่รู้ตัว");
 
-        jRadioButton7.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jRadioButton7.setText("ส่งฟื้นฟู");
+        jRadioRestore.setBackground(new java.awt.Color(255, 255, 255));
+        jRadioRestore.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jRadioRestore.setText("ส่งฟื้นฟู");
 
-        jRadioButton8.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jRadioButton8.setText("ฟ้องวาจา");
+        jRadioVerbal.setBackground(new java.awt.Color(255, 255, 255));
+        jRadioVerbal.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jRadioVerbal.setText("ฟ้องวาจา");
 
         jLabel35.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel35.setText("วันผัดฟ้องฝากขัง");
 
         SinceImprison.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        jRadioButton9.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jRadioButton9.setText("อายัดตัว");
+        jRadioCatch.setBackground(new java.awt.Color(255, 255, 255));
+        jRadioCatch.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jRadioCatch.setText("อายัดตัว");
 
-        jRadioButton10.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jRadioButton10.setText("อื่นๆ");
+        jRadioOther.setBackground(new java.awt.Color(255, 255, 255));
+        jRadioOther.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jRadioOther.setText("อื่นๆ");
 
         jLabel37.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel37.setText("วันที่ประกัน");
@@ -829,9 +860,9 @@ public class SuspectForm extends javax.swing.JDialog {
                     .addComponent(jLabel38, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jRadioButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jRadioButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jRadioButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jRadioCantCatch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jRadioSue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jRadioCatch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -851,17 +882,17 @@ public class SuspectForm extends javax.swing.JDialog {
                     .addComponent(RestoreDate, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jRadioButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
-                            .addComponent(jRadioButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jRadioButton10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jRadioBail, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
+                            .addComponent(jRadioUnknow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jRadioOther, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton3)
-                            .addComponent(jRadioButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jRadioResultImprison)
+                            .addComponent(jRadioVerbal, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jRadioButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jRadioButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jRadioResultRelease, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jRadioRestore, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(BailSendDate))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -871,21 +902,21 @@ public class SuspectForm extends javax.swing.JDialog {
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton3)
-                    .addComponent(jRadioButton4))
+                    .addComponent(jRadioSue)
+                    .addComponent(jRadioBail)
+                    .addComponent(jRadioResultImprison)
+                    .addComponent(jRadioResultRelease))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jRadioButton6)
-                        .addComponent(jRadioButton8)
-                        .addComponent(jRadioButton7))
-                    .addComponent(jRadioButton5))
+                        .addComponent(jRadioUnknow)
+                        .addComponent(jRadioVerbal)
+                        .addComponent(jRadioRestore))
+                    .addComponent(jRadioCantCatch))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton9)
-                    .addComponent(jRadioButton10))
+                    .addComponent(jRadioCatch)
+                    .addComponent(jRadioOther))
                 .addGap(29, 29, 29)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -998,7 +1029,7 @@ public class SuspectForm extends javax.swing.JDialog {
         if(isInsert){
             String sql="INSERT INTO Person (Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
             "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-            "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,caseIdPerson) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,StatusSuspect,caseIdPerson) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
             System.out.println("SQL : "+sql);
             try {
@@ -1030,9 +1061,43 @@ public class SuspectForm extends javax.swing.JDialog {
                 pst.setString(25,"ผู้ต้องหา");
                 pst.setString(26,Weight.getText());
                 pst.setString(27,ZipCode.getText());
-                pst.setString(28,crimecaseno.getText());
+          
+                if(jRadioSue.isSelected()){ 
+                    pst.setString(28,"ผัดฟ้องฝากขัง");       
+                    
+                }
+                else if(jRadioBail.isSelected()){
+                        pst.setString(28,"ประกัน");   
+                }
+                else if(jRadioResultImprison.isSelected()){
+                        pst.setString(28,"แจ้งข้อหาฝากขัง");   
+                }
+                else if(jRadioResultRelease.isSelected()){
+                        pst.setString(28,"แจ้งข้อหาปล่อยตัว");   
+                }
+                else if(jRadioCantCatch.isSelected()){
+                        pst.setString(28,"ไม่ได้ตัว");   
+                }
+                else if(jRadioUnknow.isSelected()){
+                        pst.setString(28,"ไม่รู้ตัว");   
+                }
+                else if(jRadioVerbal.isSelected()){
+                        pst.setString(28,"ฟ้องวาจา");   
+                }
+                else if(jRadioRestore.isSelected()){
+                        pst.setString(28,"ส่งฟื้นฟู");   
+                }
+                else if(jRadioCatch.isSelected()){
+                        pst.setString(28,"อายัดตัว");   
+                }
+                 else if(jRadioOther.isSelected()){
+                         pst.setString(28,"อื่นๆ");   
+                }   
+                 pst.setString(29,crimecaseno.getText());
                 pst.executeUpdate();
+                  JOptionPane.showMessageDialog(null, "Data Saved successfully");
                 pst.close();
+                
                 System.out.println("SQL : "+sql);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e);
@@ -1077,10 +1142,41 @@ public class SuspectForm extends javax.swing.JDialog {
                 pst.setString(27,ZipCode.getText());
                 pst.setString(28,crimecaseno.getText());
                 pst.setString(29,noPerson);
+                if(jRadioSue.isSelected()){ 
+                    pst.setString(28,"ผัดฟ้องฝากขัง");       
+                    
+                }
+                else if(jRadioBail.isSelected()){
+                        pst.setString(28,"ประกัน");   
+                }
+                else if(jRadioResultImprison.isSelected()){
+                        pst.setString(28,"แจ้งข้อหาฝากขัง");   
+                }
+                else if(jRadioResultRelease.isSelected()){
+                        pst.setString(28,"แจ้งข้อหาปล่อยตัว");   
+                }
+                else if(jRadioCantCatch.isSelected()){
+                        pst.setString(28,"ไม่ได้ตัว");   
+                }
+                else if(jRadioUnknow.isSelected()){
+                        pst.setString(28,"ไม่รู้ตัว");   
+                }
+                else if(jRadioVerbal.isSelected()){
+                        pst.setString(28,"ฟ้องวาจา");   
+                }
+                else if(jRadioRestore.isSelected()){
+                        pst.setString(28,"ส่งฟื้นฟู");   
+                }
+                else if(jRadioCatch.isSelected()){
+                        pst.setString(28,"อายัดตัว");   
+                }
+                 else if(jRadioOther.isSelected()){
+                         pst.setString(28,"อื่นๆ");   
+                }   
                 pst.setString(30,"ผู้ต้องหา");
                 pst.executeUpdate();
 
-                //                             JOptionPane.showMessageDialog(null, "Data Saved successfully");
+                JOptionPane.showMessageDialog(null, "Data Saved successfully");
                 pst.close();
                 System.out.println("SQL : "+sqlUpdate);
             } catch (Exception e) {
@@ -1090,13 +1186,6 @@ public class SuspectForm extends javax.swing.JDialog {
 
         }
 
-        JFrame frame = new JFrame("JOptionPane showMessageDialog example");
-
-        // show a joptionpane dialog using showMessageDialog
-        JOptionPane.showMessageDialog(frame,
-            "Data Save",
-            "Data Save",
-            JOptionPane.INFORMATION_MESSAGE);
         setVisible(false);
     }//GEN-LAST:event_BtSaveAccusedActionPerformed
 
@@ -1281,15 +1370,15 @@ public class SuspectForm extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton10;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
-    private javax.swing.JRadioButton jRadioButton7;
-    private javax.swing.JRadioButton jRadioButton8;
-    private javax.swing.JRadioButton jRadioButton9;
+    private javax.swing.JRadioButton jRadioBail;
+    private javax.swing.JRadioButton jRadioCantCatch;
+    private javax.swing.JRadioButton jRadioCatch;
+    private javax.swing.JRadioButton jRadioOther;
+    private javax.swing.JRadioButton jRadioRestore;
+    private javax.swing.JRadioButton jRadioResultImprison;
+    private javax.swing.JRadioButton jRadioResultRelease;
+    private javax.swing.JRadioButton jRadioSue;
+    private javax.swing.JRadioButton jRadioUnknow;
+    private javax.swing.JRadioButton jRadioVerbal;
     // End of variables declaration//GEN-END:variables
 }

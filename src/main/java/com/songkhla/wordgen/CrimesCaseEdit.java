@@ -1280,8 +1280,15 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButtonAddInvestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddInvestActionPerformed
+        String ci=crimecaseid.getText();
 
-        RecordInvestigatorForm ri =new RecordInvestigatorForm();
+        JSONObject data = new JSONObject();
+        data.put("CaseIdRec",ci );
+        JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame a = (JFrame)(dialog.getParent());
+        a.removeAll();
+        RecordInvestigatorView ri =new RecordInvestigatorView(a,data);
         ri.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonAddInvestActionPerformed

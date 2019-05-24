@@ -5,6 +5,13 @@
  */
 package com.songkhla.wordgen;
 
+import static com.songkhla.wordgen.ListAccused.jTableAccure;
+import static com.songkhla.wordgen.ListAccused.txtCaseNO;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Vector;
+
 /**
  *
  * @author Petpilin
@@ -107,19 +114,17 @@ public class BailForm extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 1302, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckBox1))
-                        .addGap(5, 5, 5)))
-                .addContainerGap())
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBox1))
+                .addGap(15, 15, 15))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,9 +134,9 @@ public class BailForm extends javax.swing.JFrame {
                 .addComponent(jCheckBox1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addContainerGap(165, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -147,7 +152,55 @@ public class BailForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+   public void RefreshData(){
+        try{
+              
+        Connection con = ConnectDatabase.connect();
+        Statement stmt = con.createStatement();
+        String a=txtCaseNO.getText();
+        String sql = "select FullNamePerson,StatusSuspect,CaseId,CaseIdPerson,CaseAcceptDate from Person ";
+      
+        ResultSet rs = stmt.executeQuery(sql);
+          System.out.println("SQL : "+sql);
+        Vector<Vector> tabledata = new Vector<Vector>();
+        while(rs.next()){
+            Vector<String> row = new Vector<String>();
+            row.add(rs.getString("PeopleRegistrationID"));
+            row.add(rs.getString("FullNamePerson"));
+            row.add(rs.getString("Age"));
+            row.add(rs.getString("Race"));
+            row.add(rs.getString("Nationality"));
+            row.add(rs.getString("Religion"));
+            tabledata.add(row);
+        }
+        rs.close();
+        stmt.close();
+        Vector ColumnName = new Vector();
+         ColumnName.add("เลขบัตรประชาชน");
+        ColumnName.add("ชื่อ-นามสุกล");
+        ColumnName.add("อายุ");
+        ColumnName.add("เชื้อชาติ");
+        ColumnName.add("สัญชาติ");
+        ColumnName.add("ศาสนา");
+         System.out.println("SQL : "+sql);
+     
+        jTableAccure.setModel(new javax.swing.table.DefaultTableModel(
+            tabledata,
+            ColumnName
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
 
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+     
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
     /**
      * @param args the command line arguments
      */
