@@ -262,7 +262,16 @@ public class CreateTable {
                     "	NameInguiry	VARCHAR(100)	,	\n"+
                     "	DetailRecord	VARCHAR(100)	,	\n"+
                     "	CaseIdRecord	INTEGER	not null	\n"+    
-                    "	);";    
+                    "	);";   
+             String sqlInvest ="CREATE TABLE IF NOT EXISTS InvestInformation (\n"+
+	             "	InvestId	INTEGER	Primary Key Not Null,	\n"+
+                     "	InvestCardID	VARCHAR(100)	,	\n"+
+                    "	InvestName	VARCHAR(100)	,	\n"+
+                    "	InvestPosition	VARCHAR(100)	,	\n"+
+                    "	InvestBirthDay	VARCHAR(100)	,	\n"+
+                    "	InvestAge	VARCHAR(100)	,	\n"+
+                    "	InvestTel	VARCHAR(100)		\n"+
+                    "	);";
             
         
                       
@@ -276,8 +285,9 @@ public class CreateTable {
                       stmt.execute(sqlPolice); 
                       stmt.execute(sqlPoliceStat); 
                       stmt.execute(sqlCharge); 
-                       stmt.execute(sqlAction); 
+                      stmt.execute(sqlAction); 
                       stmt.execute(sqlRecord); 
+                      stmt.execute(sqlInvest);
                        stmt.close();
                     System.out.println("Create Table Complete");
 	        } catch (SQLException e) {

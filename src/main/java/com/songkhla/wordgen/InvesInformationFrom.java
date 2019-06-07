@@ -4,26 +4,51 @@
  * and open the template in the editor.
  */
 package com.songkhla.wordgen;
+import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseno;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Vector;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import org.json.simple.JSONObject;
 /**
  *
  * @author Petpilin
  */
-public class InvesInformationFrom extends javax.swing.JFrame {
+public class InvesInformationFrom extends javax.swing.JDialog {
     Connection con=null;
     PreparedStatement pst=null;
     DataCase dc =new DataCase();
+   boolean isInsert;
 
 
     /**
      * Creates new form InvesInformationFrom
      */
-    public InvesInformationFrom() {
+    public InvesInformationFrom(JFrame parrent,JSONObject datain) {
+        super(parrent,true);
         initComponents();
+       
+        if(datain != null){
+           InvestId.setText(datain.get("InvestId")+"");
+           InvestCardID.setText(datain.get("InvestCardID")+"");
+           InvestRank.setText(datain.get("InvestRank")+"");
+           InvestName.setText(datain.get("InvestName")+"");
+           InvestPosition.setText(datain.get("InvestPosition")+"");
+           InvestBirthDay.setText(datain.get("InvestBirthDay")+"");
+           InvestAge.setText(datain.get("InvestAge")+"");
+           InvestTel.setText(datain.get("InvestTel")+"");
+
+           
+                                 
+                                 
+        }
+        else{ 
+            InvestId.setText(IdInvest());
+             isInsert=true;
+        }
     }
 
     /**
@@ -39,26 +64,24 @@ public class InvesInformationFrom extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        IdCardPolice = new javax.swing.JTextField();
-        RankPolice = new javax.swing.JTextField();
-        FirstName = new javax.swing.JTextField();
-        LastName = new javax.swing.JTextField();
-        Position = new javax.swing.JTextField();
+        InvestCardID = new javax.swing.JTextField();
+        InvestRank = new javax.swing.JTextField();
+        InvestName = new javax.swing.JTextField();
+        InvestPosition = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        BirthDay = new javax.swing.JTextField();
+        InvestBirthDay = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        Age = new javax.swing.JTextField();
+        InvestAge = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        Phone = new javax.swing.JTextField();
+        InvestTel = new javax.swing.JTextField();
         jButtonSave = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
-        No = new javax.swing.JTextField();
+        InvestId = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel3.setBackground(new java.awt.Color(77, 0, 0));
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -73,37 +96,41 @@ public class InvesInformationFrom extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
         );
 
         jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel8.setText("เลขประจำตัวประชาชน");
 
-        IdCardPolice.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        InvestCardID.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        RankPolice.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        InvestRank.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        InvestRank.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InvestRankActionPerformed(evt);
+            }
+        });
 
-        FirstName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        InvestName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        InvestName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InvestNameActionPerformed(evt);
+            }
+        });
 
-        LastName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-
-        Position.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        InvestPosition.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel12.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel12.setText("ตำแหน่ง");
 
-        jLabel11.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel11.setText("นามสกุล");
-
         jLabel10.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel10.setText("ชื่อ");
+        jLabel10.setText("ชื่อ-นามสกุล");
 
         jLabel9.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel9.setText("ยศ");
@@ -111,17 +138,17 @@ public class InvesInformationFrom extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel13.setText("วันเดือนปีเกิด");
 
-        BirthDay.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        InvestBirthDay.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel14.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel14.setText("อายุ");
 
-        Age.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        InvestAge.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel15.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel15.setText("เบอร์โทรศัพท์");
 
-        Phone.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        InvestTel.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jButtonSave.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButtonSave.setText("บันทึก");
@@ -134,97 +161,92 @@ public class InvesInformationFrom extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel16.setText("ลำดับ");
 
-        No.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        InvestId.setText("jLabel2");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(268, 268, 268))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(No, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(Phone, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(InvestId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(InvestTel, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(Age, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(BirthDay, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(Position, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(LastName, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(FirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(IdCardPolice, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(RankPolice, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addContainerGap(44, Short.MAX_VALUE))
+                                        .addComponent(InvestAge, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(InvestBirthDay, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(InvestPosition, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(InvestName, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(InvestCardID, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(InvestRank, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(333, 333, 333)
+                        .addComponent(jButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(124, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(No, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                    .addComponent(InvestId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(IdCardPolice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(InvestCardID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(RankPolice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(InvestRank, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(InvestName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Position, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(InvestPosition, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BirthDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(InvestBirthDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Age, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(InvestAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Phone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                    .addComponent(InvestTel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonSave)
-                .addGap(0, 67, Short.MAX_VALUE))
+                .addGap(0, 76, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -243,63 +265,97 @@ public class InvesInformationFrom extends javax.swing.JFrame {
 
     private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
         con=ConnectDatabase.connect();
-        String sql2= "select * from Police";
-
+     
+        if(isInsert){
         try {
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery(sql2);
-            if(!rs.next()){
-                String sql="INSERT INTO Police (IdCardPolice,RankPolice,FirstName,LastName,Position,No,BirthDay,Age,Phone) VALUES (?,?,?,?,?,?,?,?,?)";
+    
+                String sql="INSERT INTO InvestInformation (InvestId,InvestCardID,InvestName,"
+                        + "InvestPosition,InvestBirthDay,InvestAge,InvestTel) VALUES (?,?,?,?,?,?,?,?)";
                 pst=con.prepareStatement(sql);
-                pst.setString(1,IdCardPolice.getText());
-                pst.setString(2,RankPolice.getText());
-                pst.setString(3,FirstName.getText());
-                pst.setString(4,LastName.getText());
-                pst.setString(5,Position.getText());
-                pst.setString(6,No.getText());
-                pst.setString(7,BirthDay.getText());
-                pst.setString(8,Age.getText());
-                pst.setString(9,Phone.getText());
-                
+                pst.setString(1,InvestId.getText());
+                 pst.setString(2,InvestCardID.getText());
+                pst.setString(3,InvestRank.getText()+InvestName.getText());
+                pst.setString(4,InvestPosition.getText());
+                pst.setString(5,InvestBirthDay.getText());
+               pst.setString(6,InvestAge.getText());
+                pst.setString(7,InvestTel.getText());
+        
+               
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Data Saved successfully");
-                pst.close();
+                pst.close();}
+                  catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+            System.out.println("SQL : "+pst);
+        }
             }else{
-                String sqlUpdate= "UPDATE Police Set\n "
-                + "IdCardPolice=?,"
-                + "RankPolice=?,"
-                + "FirstName=?,"
-                + "LastName=?,"
-                + "Position=?"
-                + "No=?"
-                + "BirthDay=?"
-                + "Age=?"
-                + "Phone=?"          
-                + "Where IdCardPolice=?";
+            try{
+                String sqlUpdate= "UPDATE InvestInformation Set\n "
+                + "InvestName=?,"
+                + "InvestPosition=?,"
+                + "InvestBirthDay=?,"
+                + "InvestAge=?,"
+                + "InvestTel=?"   
+                + "Where InvestId=?";
                 pst=con.prepareStatement(sqlUpdate);
-                pst.setString(1,IdCardPolice.getText());
-                pst.setString(2,RankPolice.getText());
-                pst.setString(3,FirstName.getText());
-                pst.setString(4,LastName.getText());
-                pst.setString(5,Position.getText());
-                pst.setString(6,No.getText());
-                pst.setString(7,BirthDay.getText());
-                pst.setString(8,Age.getText());
-                pst.setString(9,Phone.getText());
+                pst.setString(1,InvestName.getText());
+                pst.setString(2,InvestPosition.getText());
+                pst.setString(3,InvestBirthDay.getText());
+                pst.setString(4,InvestAge.getText());
+                pst.setString(5,InvestTel.getText());
+                pst.setString(6,InvestCardID.getText());
+
+
                 
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Data Saved successfully");
                 System.out.println("SQL : "+sqlUpdate);
             }
-        }
+        
         catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
             System.out.println("SQL : "+pst);
+        }
         }
         setVisible(false);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonSaveActionPerformed
 
+    private void InvestNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InvestNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InvestNameActionPerformed
+
+    private void InvestRankActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InvestRankActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InvestRankActionPerformed
+
+       public static String IdInvest(){
+         Connection con=null;
+         con=ConnectDatabase.connect();
+            String sqlId="Select max(InvestId) InvestId from InvestInformation";
+        int id=0;
+        try {
+            Statement s=con.createStatement();
+            ResultSet rs=s.executeQuery(sqlId);
+            
+            if (rs.next()) {
+                id=rs.getInt("InvestId"); 
+            }
+            
+            if(id==0){
+                id=1;
+            }
+            else{
+                id=id+1;
+            }
+             return String.valueOf(id);
+        
+        } catch (Exception e) {
+            return null;
+//            System.out.println(e);
+        } 
+    
+    }
     /**
      * @param args the command line arguments
      */
@@ -330,25 +386,25 @@ public class InvesInformationFrom extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InvesInformationFrom().setVisible(true);
+//                new InvesInformationFrom().setVisible(true);
             }
         });
     }
+       
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Age;
-    private javax.swing.JTextField BirthDay;
-    private javax.swing.JTextField FirstName;
-    private javax.swing.JTextField IdCardPolice;
-    private javax.swing.JTextField LastName;
-    private javax.swing.JTextField No;
-    private javax.swing.JTextField Phone;
-    private javax.swing.JTextField Position;
-    private javax.swing.JTextField RankPolice;
+    private javax.swing.JTextField InvestAge;
+    private javax.swing.JTextField InvestBirthDay;
+    private javax.swing.JTextField InvestCardID;
+    private javax.swing.JLabel InvestId;
+    private javax.swing.JTextField InvestName;
+    private javax.swing.JTextField InvestPosition;
+    private javax.swing.JTextField InvestRank;
+    private javax.swing.JTextField InvestTel;
     private javax.swing.JButton jButtonSave;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;

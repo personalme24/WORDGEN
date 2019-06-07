@@ -749,7 +749,7 @@ public class SuspectForm extends javax.swing.JDialog {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ZipCode2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel34))
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addContainerGap(112, Short.MAX_VALUE))
         );
 
         PhonePerson.getAccessibleContext().setAccessibleName("");
@@ -938,7 +938,7 @@ public class SuspectForm extends javax.swing.JDialog {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(RestoreDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 265, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -1029,7 +1029,8 @@ public class SuspectForm extends javax.swing.JDialog {
         if(isInsert){
             String sql="INSERT INTO Person (Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
             "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-            "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,StatusSuspect,caseIdPerson) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,StatusSuspect,caseIdPerson,BailDate,SinceImprison)\n"
+                    + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
             System.out.println("SQL : "+sql);
             try {
@@ -1093,7 +1094,9 @@ public class SuspectForm extends javax.swing.JDialog {
                  else if(jRadioOther.isSelected()){
                          pst.setString(28,"อื่นๆ");   
                 }   
-                 pst.setString(29,crimecaseno.getText());
+                pst.setString(29,crimecaseno.getText());
+                pst.setString(30,BailDate.getText());
+                pst.setString(31,SinceImprison.getText());
                 pst.executeUpdate();
                   JOptionPane.showMessageDialog(null, "Data Saved successfully");
                 pst.close();

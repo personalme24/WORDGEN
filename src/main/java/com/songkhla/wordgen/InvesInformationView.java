@@ -5,17 +5,32 @@
  */
 package com.songkhla.wordgen;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.HashMap;
+import java.util.Vector;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import org.json.simple.JSONObject;
+
 /**
  *
  * @author Petpilin
  */
-public class InvesInformationView extends javax.swing.JFrame {
+public class InvesInformationView extends javax.swing.JDialog{
 
     /**
      * Creates new form InvesInformationView
      */
-    public InvesInformationView() {
+    JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame fwit = (JFrame)(dialog.getParent());
+        
+    public InvesInformationView(JFrame parrent) {
+        super(parrent,true);
         initComponents();
+        RefreshData();
     }
 
     /**
@@ -38,7 +53,7 @@ public class InvesInformationView extends javax.swing.JFrame {
         txtCaseNO = new javax.swing.JTextField();
         jButtonFind = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel3.setBackground(new java.awt.Color(77, 0, 0));
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -66,17 +81,17 @@ public class InvesInformationView extends javax.swing.JFrame {
         jTable1.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null},
+                {null},
+                {null},
+                {null}
             },
             new String [] {
-                "ลำดับ", "ยศ", "ชื่อ", "ตำแหน่ง", "วันเดือนปีเกิด", "อายุ"
+                "ลำดับ"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -92,9 +107,19 @@ public class InvesInformationView extends javax.swing.JFrame {
                 jButtonAddMouseClicked(evt);
             }
         });
+        jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddActionPerformed(evt);
+            }
+        });
 
         jButtonEdit.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButtonEdit.setText("แก้ไข");
+        jButtonEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEditActionPerformed(evt);
+            }
+        });
 
         jButtonDelete.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButtonDelete.setText("ลบ");
@@ -161,8 +186,8 @@ public class InvesInformationView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAddMouseClicked
-        IdentityFrom idf = new IdentityFrom(this,null);
-        idf.setVisible(true);
+              InvesInformationFrom ii=new InvesInformationFrom(null,null);
+        ii.setVisible(true);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonAddMouseClicked
@@ -170,6 +195,54 @@ public class InvesInformationView extends javax.swing.JFrame {
     private void txtCaseNOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCaseNOActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCaseNOActionPerformed
+
+    private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
+        // TODO add your handling code here:
+//         JFrame frame = new JFrame();
+//        JDialog dialog = new JDialog(frame);//frame is owner
+//        JFrame fwit = (JFrame)(dialog.getParent());
+//        fwit.removeAll();
+       InvesInformationFrom ii=new InvesInformationFrom(null,null);
+        ii.setVisible(true);
+    }//GEN-LAST:event_jButtonAddActionPerformed
+
+    private void jButtonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditActionPerformed
+        // TODO add your handling code here:
+        if(jTable1.getSelectedRow()>=0){
+            try{
+                String investId = jTable1.getModel().getValueAt(jTable1.getSelectedRow(), 0)+"";
+
+                String sql="select InvestId,InvestCardID,InvestName,InvestPosition,"
+                        + "InvestBirthDay,InvestAge,InvestTel from InvestInformation where InvestId="+investId;
+                Connection con = ConnectDatabase.connect();
+                Statement stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery(sql);
+                System.out.println("ExSql : "+sql);
+                if(rs.next()){
+                    JSONObject data = new JSONObject();
+                    data.put("InvestId", rs.getString("InvestId"));
+                    data.put("InvestCardID", rs.getString("InvestCardID"));
+                    data.put("InvestName", rs.getString("InvestName"));
+                    data.put("InvestPosition", rs.getString("InvestPosition"));
+                    data.put("InvestBirthDay", rs.getString("InvestBirthDay"));
+                    data.put("InvestAge", rs.getString("InvestAge"));
+                    data.put("InvestTel", rs.getString("InvestTel"));
+                      
+                    InvesInformationFrom iif =new InvesInformationFrom(fwit,data);
+                    iif.setVisible(true);
+                }
+
+                rs.close();
+                stmt.close();
+                RefreshData();
+            }catch(Exception ex){
+                ex.printStackTrace();
+
+            }
+        }else{
+
+        }
+    }//GEN-LAST:event_jButtonEditActionPerformed
 
     /**
      * @param args the command line arguments
@@ -201,10 +274,80 @@ public class InvesInformationView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InvesInformationView().setVisible(true);
+//                new InvesInformationView().setVisible(true);
             }
         });
     }
+     public void RefreshData(){
+        try{
+        Connection con = ConnectDatabase.connect();
+        Statement stmt = con.createStatement();
+        String sql = "select InvestId,InvestCardID,InvestName,InvestPosition,InvestBirthDay,InvestAge,InvestTel "
+                + "from InvestInformation";
+        ResultSet rs = stmt.executeQuery(sql);
+        Vector<Vector> tabledata = new Vector<Vector>();
+        while(rs.next()){
+            Vector<String> row = new Vector<String>();
+            row.add(rs.getString("InvestId"));
+            row.add(rs.getString("InvestName"));
+            row.add(rs.getString("InvestPosition"));
+            row.add(rs.getString("InvestBirthDay"));
+            row.add(rs.getString("InvestAge"));
+            row.add(rs.getString("InvestTel"));
+//            row.add(rs.getString("CaseRequestDate"));
+//            row.add("-");
+            tabledata.add(row);
+        }
+        rs.close();
+        stmt.close();
+        Vector ColumnName = new Vector();
+        ColumnName.add("ลำดับ");
+        ColumnName.add("ยศนาม");
+        ColumnName.add("ตำแหน่ง");
+        ColumnName.add("วันเดือนปีเกิด");
+        ColumnName.add("อายุ");     
+        ColumnName.add("เบอร์โทรศัพท์");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            tabledata,
+            ColumnName
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
+//       private String getFilterCondition(){
+//        HashMap<String,String> filter = new HashMap<String,String>();
+//        if(txtSearchCase.getText().trim().length()>0){
+//            filter.put("crimecaseno", txtSearchCase.getText().trim());
+////            filter.put("AccureandOther", txtSearchCase.getText().trim());
+//        }
+//        
+//        String[] key = filter.keySet().toArray(new String[0]);
+//        String result="";
+//        for(int i=0;i<key.length;i++){
+//            if(i==0){
+//                result=" or ";
+//            }
+//            if(i==key.length-1){
+//                result+= " "+key[i]+" LIKE '%"+filter.get(key[i])+"%'";
+//            }else{
+//                result+= " "+key[i]+" LIKE "+filter.get(key[i])+" or ";
+//            }
+//            System.out.println(result);
+//        }
+//        
+//        return result;
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAdd;

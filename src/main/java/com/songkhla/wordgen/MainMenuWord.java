@@ -11,6 +11,8 @@ import java.awt.Rectangle;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import org.json.simple.JSONObject;
@@ -928,6 +930,12 @@ public class MainMenuWord extends javax.swing.JFrame {
 
     private void howtomenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_howtomenuMouseClicked
         // TODO add your handling code here:
+        JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame in = (JFrame)(dialog.getParent());
+        in.removeAll();
+        InvesInformationView iv=new InvesInformationView(in);
+        iv.setVisible(true);
     }//GEN-LAST:event_howtomenuMouseClicked
 
     private void SueMenuMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SueMenuMouseMoved

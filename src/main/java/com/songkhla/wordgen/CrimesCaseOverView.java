@@ -82,7 +82,9 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
             }
         });
 
+        jButtonAdd.setBackground(new java.awt.Color(255, 51, 0));
         jButtonAdd.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jButtonAdd.setForeground(new java.awt.Color(255, 255, 255));
         jButtonAdd.setText("เพิ่ม");
         jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,7 +92,9 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
             }
         });
 
+        jButtonEdit.setBackground(new java.awt.Color(255, 51, 0));
         jButtonEdit.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jButtonEdit.setForeground(new java.awt.Color(255, 255, 255));
         jButtonEdit.setText("แก้ไข");
         jButtonEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,7 +108,9 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
             }
         });
 
+        jButtonDelete.setBackground(new java.awt.Color(255, 51, 0));
         jButtonDelete.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jButtonDelete.setForeground(new java.awt.Color(255, 255, 255));
         jButtonDelete.setText("ลบ");
         jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,7 +129,7 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButtonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(jButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)

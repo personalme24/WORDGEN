@@ -399,7 +399,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
              JOptionPane.showMessageDialog(null, e); 
              System.out.println("SQL : "+pst);
         }
-              
+          
         }
       
         else{
@@ -429,7 +429,9 @@ public class AssetNewEdit extends javax.swing.JDialog {
              JOptionPane.showMessageDialog(null, e); 
              System.out.println("SQL : "+pst);
         }
-        }
+        } 
+     CrimesCaseEdit.EvidenceRecordCase.setText(EvidenceRecordNumber1.getText());
+
      
         setVisible(false);
       

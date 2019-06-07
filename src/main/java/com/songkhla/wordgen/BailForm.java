@@ -23,6 +23,7 @@ public class BailForm extends javax.swing.JFrame {
      */
     public BailForm() {
         initComponents();
+        RefreshData();
     }
 
     /**
@@ -38,8 +39,8 @@ public class BailForm extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jTableBail = new javax.swing.JTable();
+        jComboStatus = new javax.swing.JComboBox<>();
         jCheckBox1 = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -69,42 +70,47 @@ public class BailForm extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTable1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableBail.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jTableBail.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "เลขคดี", "คดี", "ผู้ต้องหา", "วันรับคำร้องทุกข์", "วันประกัน", "ครบ 1 เดือน", "ครบ 2 เดือน", "ครบ 3 เดือน", "ครบ 4 เดือน", "ครบ 5 เดือน", "ครบ 6 เดือน", "ครบ 1 ปี", "ส่งสำนวนให้", "เลขส่ง", "วันที่ส่ง"
+                "เลขคดี/ปี", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6", "Title 7", "Title 8", "Title 9", "Title 10", "Title 11"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jTable1.setGridColor(new java.awt.Color(0, 0, 0));
-        jScrollPane1.setViewportView(jTable1);
+        jTableBail.setGridColor(new java.awt.Color(0, 0, 0));
+        jScrollPane1.setViewportView(jTableBail);
 
-        jComboBox1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ผัดฟ้องฝากขัง", "ประกัน", "แจ้งข้อหาปล่อยตัว", "แจ้งข้อหาฝากขัง", "ไม่ได้ตัว", "ไม่รู้ตัว", "ฟ้องวาจา", "ส่งฟื้นฟู", "อื่นๆ" }));
+        jComboStatus.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jComboStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ผัดฟ้องฝากขัง", "ประกัน", "แจ้งข้อหาปล่อยตัว", "แจ้งข้อหาฝากขัง", "ไม่ได้ตัว", "ไม่รู้ตัว", "ฟ้องวาจา", "ส่งฟื้นฟู", "อื่นๆ" }));
+        jComboStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboStatusActionPerformed(evt);
+            }
+        });
 
         jCheckBox1.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBox1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
@@ -114,17 +120,20 @@ public class BailForm extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox1))
-                .addGap(15, 15, 15))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1302, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jScrollPane1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jComboStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCheckBox1))))
+                .addGap(15, 15, 15))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,7 +142,7 @@ public class BailForm extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addComponent(jCheckBox1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(165, Short.MAX_VALUE))
@@ -143,7 +152,9 @@ public class BailForm extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,39 +163,74 @@ public class BailForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jComboStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboStatusActionPerformed
+        // TODO add your handling code here:
+        
+        RefreshData();
+    }//GEN-LAST:event_jComboStatusActionPerformed
    public void RefreshData(){
         try{
               
         Connection con = ConnectDatabase.connect();
         Statement stmt = con.createStatement();
-        String a=txtCaseNO.getText();
-        String sql = "select FullNamePerson,StatusSuspect,CaseId,CaseIdPerson,CaseAcceptDate from Person ";
+//        String a=txtCaseNO.getText();
+        String sql = "select crimecasenoyear,BailDate,PeopleRegistrationID,FullNamePerson,StatusSuspect,CaseId,CaseIdPerson,CaseAcceptDate \n" +
+                     "from Person\n" +
+                     "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId "
+                   + "where TypePerson='ผู้ต้องหา' and StatusSuspect='"+jComboStatus.getSelectedItem()+"'";
       
         ResultSet rs = stmt.executeQuery(sql);
           System.out.println("SQL : "+sql);
         Vector<Vector> tabledata = new Vector<Vector>();
         while(rs.next()){
             Vector<String> row = new Vector<String>();
-            row.add(rs.getString("PeopleRegistrationID"));
+            row.add(rs.getString("crimecasenoyear"));
             row.add(rs.getString("FullNamePerson"));
-            row.add(rs.getString("Age"));
-            row.add(rs.getString("Race"));
-            row.add(rs.getString("Nationality"));
-            row.add(rs.getString("Religion"));
+            row.add("-");
+            row.add(rs.getString("BailDate"));
+                row.add("-");
+//            row.add("-");
+//            row.add("-");
+//            row.add("-");
+//             row.add("-");
+//            row.add("-");
+//            row.add("-");
+//            row.add(rs.getString("Age"));
+//            row.add(rs.getString("Race"));
+//            row.add(rs.getString("Nationality"));
+//            row.add(rs.getString("Religion"));
             tabledata.add(row);
         }
         rs.close();
         stmt.close();
-        Vector ColumnName = new Vector();
-         ColumnName.add("เลขบัตรประชาชน");
-        ColumnName.add("ชื่อ-นามสุกล");
-        ColumnName.add("อายุ");
-        ColumnName.add("เชื้อชาติ");
-        ColumnName.add("สัญชาติ");
-        ColumnName.add("ศาสนา");
+        Vector ColumnName = new Vector(); 
+        String StatusSus=jComboStatus.getSelectedItem()+"";
+         ColumnName.add("เลขคดี/ปี");    
+         ColumnName.add("ผู้ต้องหา");
+         ColumnName.add("วันรับคำร้องทุกข์");
+         if(StatusSus.equals("ประกัน")){
+           ColumnName.add("วันประกัน");
+         }
+         if(StatusSus.equals("ส่งฟื้นฟู")){
+           ColumnName.add("วันส่งฟื้นฟู");
+         }
+         else{
+           ColumnName.add("วันส่งตัว");
+         }
+         ColumnName.add("ครบ 1 เดือน");
+//         ColumnName.add("ครบ 2 เดือน");
+//         ColumnName.add("ครบ 3 เดือน");
+//         ColumnName.add("ครบ 4 เดือน");
+//         ColumnName.add("ครบ 5 เดือน");
+//         ColumnName.add("ครบ 6 เดือน");
+//         ColumnName.add("ครบ 1 ปี");
+//         ColumnName.add("ครบ 2 เดือน");
+         
+
          System.out.println("SQL : "+sql);
      
-        jTableAccure.setModel(new javax.swing.table.DefaultTableModel(
+        jTableBail.setModel(new javax.swing.table.DefaultTableModel(
             tabledata,
             ColumnName
         ) {
@@ -238,11 +284,11 @@ public class BailForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboStatus;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableBail;
     // End of variables declaration//GEN-END:variables
 }
