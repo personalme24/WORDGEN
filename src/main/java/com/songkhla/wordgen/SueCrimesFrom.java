@@ -8,20 +8,43 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Vector;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import org.json.simple.JSONObject;
 /**
  *
  * @author Petpilin
  */
-public class SueCrimesFrom extends javax.swing.JFrame {
+public class SueCrimesFrom extends javax.swing.JDialog {
     Connection con=null;
     PreparedStatement pst=null;
     DataCase dc =new DataCase();
+    String person;
+    String caseid;
     /**
      * Creates new form SueCrimesFrom
      */
-    public SueCrimesFrom() {
+    public SueCrimesFrom(JFrame parrent,JSONObject datain) {
+        super(parrent,true);
         initComponents();
+       
+        if(datain != null){
+            person=datain.get("SuePersonId")+"";
+            caseid=datain.get("SueCaseId")+"";
+         
+        crimecaseno.setText(datain.get("crimecasenoyear")+"");
+        PeopleRegistrationID.setText(datain.get("PeopleRegistrationID")+"");
+        AccureandOther.setText(datain.get("AccureandOther")+"");
+        FullNamePerson.setText(datain.get("FullNamePerson")+"");
+        ChargeName.setText(datain.get("ChargeName")+"");
+        PeopleRegistrationID.setText(datain.get("PeopleRegistrationID")+"");
+        PeopleRegistrationID.setText(datain.get("PeopleRegistrationID")+"");
+
+
+        } 
+        RefreshData(); 
     }
 
     /**
@@ -43,15 +66,13 @@ public class SueCrimesFrom extends javax.swing.JFrame {
         crimecaseno = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        SuspectFullName = new javax.swing.JTextField();
+        FullNamePerson = new javax.swing.JTextField();
         PeopleRegistrationID = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        VictimFullName = new javax.swing.JTextField();
+        AccureandOther = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         ChargeName = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        ArrestDateTime = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         StatusSueAndPutInJail = new javax.swing.JTextField();
         ArrestDate = new javax.swing.JTextField();
@@ -64,8 +85,6 @@ public class SueCrimesFrom extends javax.swing.JFrame {
         NoImprison = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         ToImprison = new javax.swing.JTextField();
-        ToImprisonTime = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
         PoliceStationName = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -74,7 +93,7 @@ public class SueCrimesFrom extends javax.swing.JFrame {
         TotalTime = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableSue = new javax.swing.JTable();
         jButtonAddSue = new javax.swing.JButton();
         jButtonDelete = new javax.swing.JButton();
         jButtonEditSue = new javax.swing.JButton();
@@ -146,12 +165,12 @@ public class SueCrimesFrom extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel5.setText("ชื่อผู้ต้องหา");
 
-        SuspectFullName.setEditable(false);
-        SuspectFullName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        SuspectFullName.setBorder(null);
-        SuspectFullName.addActionListener(new java.awt.event.ActionListener() {
+        FullNamePerson.setEditable(false);
+        FullNamePerson.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        FullNamePerson.setBorder(null);
+        FullNamePerson.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SuspectFullNameActionPerformed(evt);
+                FullNamePersonActionPerformed(evt);
             }
         });
 
@@ -167,12 +186,12 @@ public class SueCrimesFrom extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel7.setText("ชื่อผู้กล่าวหา");
 
-        VictimFullName.setEditable(false);
-        VictimFullName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        VictimFullName.setBorder(null);
-        VictimFullName.addActionListener(new java.awt.event.ActionListener() {
+        AccureandOther.setEditable(false);
+        AccureandOther.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        AccureandOther.setBorder(null);
+        AccureandOther.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                VictimFullNameActionPerformed(evt);
+                AccureandOtherActionPerformed(evt);
             }
         });
 
@@ -190,18 +209,6 @@ public class SueCrimesFrom extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel8.setText("วันที่จับกุม");
-
-        jLabel9.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel9.setText("เวลา");
-
-        ArrestDateTime.setEditable(false);
-        ArrestDateTime.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        ArrestDateTime.setBorder(null);
-        ArrestDateTime.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ArrestDateTimeActionPerformed(evt);
-            }
-        });
 
         jLabel10.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel10.setText("สถานะผัดฟ้อง");
@@ -236,7 +243,7 @@ public class SueCrimesFrom extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(SuspectFullName))
+                                .addComponent(FullNamePerson))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel30)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -248,7 +255,7 @@ public class SueCrimesFrom extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(VictimFullName))
+                                .addComponent(AccureandOther))
                             .addComponent(PeopleRegistrationID)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel6)
@@ -258,14 +265,11 @@ public class SueCrimesFrom extends javax.swing.JFrame {
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ArrestDate, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ArrestDateTime, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(StatusSueAndPutInJail)))
+                        .addComponent(StatusSueAndPutInJail)
+                        .addGap(89, 89, 89)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -283,9 +287,9 @@ public class SueCrimesFrom extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(SuspectFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(FullNamePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel7)
-                        .addComponent(VictimFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(AccureandOther, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -293,8 +297,6 @@ public class SueCrimesFrom extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jLabel9)
-                    .addComponent(ArrestDateTime, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10)
                     .addComponent(StatusSueAndPutInJail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ArrestDate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -359,18 +361,6 @@ public class SueCrimesFrom extends javax.swing.JFrame {
             }
         });
 
-        ToImprisonTime.setEditable(false);
-        ToImprisonTime.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        ToImprisonTime.setBorder(null);
-        ToImprisonTime.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ToImprisonTimeActionPerformed(evt);
-            }
-        });
-
-        jLabel14.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel14.setText("เวลา");
-
         PoliceStationName.setEditable(false);
         PoliceStationName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         PoliceStationName.setBorder(null);
@@ -421,11 +411,7 @@ public class SueCrimesFrom extends javax.swing.JFrame {
                         .addComponent(jLabel13)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ToImprison, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ToImprisonTime, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(PoliceStationName, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -462,8 +448,6 @@ public class SueCrimesFrom extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(jLabel14)
-                    .addComponent(ToImprisonTime, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ToImprison, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15)
                     .addComponent(PoliceStationName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -477,8 +461,8 @@ public class SueCrimesFrom extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTable1.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableSue.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        jTableSue.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -500,7 +484,7 @@ public class SueCrimesFrom extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTableSue);
 
         jButtonAddSue.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButtonAddSue.setText("เพิ่มการผัดฟ้อง/ฝากขัง");
@@ -582,17 +566,17 @@ public class SueCrimesFrom extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void SuspectFullNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SuspectFullNameActionPerformed
+    private void FullNamePersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FullNamePersonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_SuspectFullNameActionPerformed
+    }//GEN-LAST:event_FullNamePersonActionPerformed
 
     private void PeopleRegistrationIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PeopleRegistrationIDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_PeopleRegistrationIDActionPerformed
 
-    private void VictimFullNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VictimFullNameActionPerformed
+    private void AccureandOtherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AccureandOtherActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_VictimFullNameActionPerformed
+    }//GEN-LAST:event_AccureandOtherActionPerformed
 
     private void ChargeNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChargeNameActionPerformed
         // TODO add your handling code here:
@@ -601,10 +585,6 @@ public class SueCrimesFrom extends javax.swing.JFrame {
     private void NumberImprisonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NumberImprisonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NumberImprisonActionPerformed
-
-    private void ArrestDateTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ArrestDateTimeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ArrestDateTimeActionPerformed
 
     private void StatusSueAndPutInJailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StatusSueAndPutInJailActionPerformed
         // TODO add your handling code here:
@@ -622,10 +602,6 @@ public class SueCrimesFrom extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ToImprisonActionPerformed
 
-    private void ToImprisonTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ToImprisonTimeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ToImprisonTimeActionPerformed
-
     private void PoliceStationNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PoliceStationNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_PoliceStationNameActionPerformed
@@ -639,7 +615,9 @@ public class SueCrimesFrom extends javax.swing.JFrame {
     }//GEN-LAST:event_TotalTimeActionPerformed
 
     private void jButtonAddSueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddSueActionPerformed
-         SueCrimesAdd ca =new SueCrimesAdd();
+        
+        
+        SueCrimesAdd ca =new SueCrimesAdd(null,null);
         ca.setVisible(true);
         
 // TODO add your handling code here:
@@ -651,6 +629,43 @@ public class SueCrimesFrom extends javax.swing.JFrame {
 
     private void jButtonEditSueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditSueActionPerformed
         // TODO add your handling code here:
+            if(jTableSue.getSelectedRow()>=0){
+            try{
+                String SueTimes = jTableSue.getModel().getValueAt(jTableSue.getSelectedRow(), 0)+"";
+
+                String sql= "select SueTimes,SueDate,SueStart,SueEnd,SueTotal,\n"+ 
+                    "SueCause,SueRequest from Sue Where SueTimes='"+SueTimes+"' and SueCaseId='"+caseid+"'";
+                Connection con = ConnectDatabase.connect();
+                Statement stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery(sql);
+                System.out.println("ExSql : "+sql);
+                if(rs.next()){
+                    JSONObject data = new JSONObject();
+                    data.put("SueTimes", rs.getString("SueTimes"));
+                    data.put("SueDate", rs.getString("SueDate"));
+                    data.put("SueStart", rs.getString("SueStart"));
+                    data.put("SueEnd", rs.getString("SueEnd"));
+                    data.put("SueTotal", rs.getString("SueTotal"));
+                    data.put("SueCause", rs.getString("SueCause"));
+                     data.put("SueRequest", rs.getString("SueRequest"));
+                      JFrame frame = new JFrame();
+                     JDialog dialog = new JDialog(frame);//frame is owner
+                      JFrame sc = (JFrame)(dialog.getParent());
+                      sc.removeAll();
+                    SueCrimesAdd sca =new SueCrimesAdd(sc,data);
+                    sca.setVisible(true);
+                }
+
+                rs.close();
+                stmt.close();
+                RefreshData();
+            }catch(Exception ex){
+                ex.printStackTrace();
+
+            }
+        }else{
+
+        }
     }//GEN-LAST:event_jButtonEditSueActionPerformed
 
     /**
@@ -683,26 +698,85 @@ public class SueCrimesFrom extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SueCrimesFrom().setVisible(true);
+//                new SueCrimesFrom().setVisible(true);
             }
         });
     }
+   public void RefreshData(){
+      try{
+              
+        Connection con = ConnectDatabase.connect();
+        Statement stmt = con.createStatement();
+//        String a=txtCaseNO.getText();
+        String sql;
+                sql= "select SueTimes,SueDate,SueStart,SueEnd,SueTotal,\n"+ 
+                    "SueCause,SueRequest from Sue Where SuePersonId='"+person+"' and SueCaseId='"+caseid+"'";
+            ResultSet rs = stmt.executeQuery(sql);
+          System.out.println("SQL : "+sql);
+        Vector<Vector> tabledata = new Vector<Vector>();
+        while(rs.next()){
+            Vector<String> row = new Vector<String>();
+            row.add(rs.getString("SueTimes"));
+            row.add(rs.getString("SueDate"));
+            row.add(rs.getString("SueStart"));
+            row.add(rs.getString("SueEnd"));
+            row.add(rs.getString("SueTotal"));
+            row.add(rs.getString("SueCause"));
+            row.add(rs.getString("SueRequest"));
+ 
+//            row.add(rs.getString("Age"));
+//            row.add(rs.getString("Race"));
+//            row.add(rs.getString("Nationality"));
+//            row.add(rs.getString("Religion"));
+            tabledata.add(row);
+        }
+        rs.close();
+        stmt.close();
+        Vector ColumnName = new Vector(); 
+    
+         ColumnName.add("ครั้งที่");    
+         ColumnName.add("วันฝาก");
+         ColumnName.add("นับแต่");   
+         ColumnName.add("ถึงวันที่");
+         ColumnName.add("รวมวัน");
+         ColumnName.add("ผู้ร้อง");
+         ColumnName.add("เหตุผัดฟ้องฝากขัง");
+//         ColumnName.add("ครบ 2 เดือน");
+         
+
+         System.out.println("SQL : "+sql);
+     
+        jTableSue.setModel(new javax.swing.table.DefaultTableModel(
+            tabledata,
+            ColumnName
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+     
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField AccureandOther;
     private javax.swing.JTextField ArrestDate;
-    private javax.swing.JTextField ArrestDateTime;
     private javax.swing.JTextField ChargeName;
+    private javax.swing.JTextField FullNamePerson;
     private javax.swing.JTextField NoImprison;
     private javax.swing.JTextField NumberImprison;
     private javax.swing.JTextField PeopleRegistrationID;
     private javax.swing.JTextField PoliceStationName;
     private javax.swing.JTextField StatusSueAndPutInJail;
-    private javax.swing.JTextField SuspectFullName;
     private javax.swing.JTextField ToImprison;
-    private javax.swing.JTextField ToImprisonTime;
     private javax.swing.JTextField TotalDate;
     private javax.swing.JTextField TotalTime;
-    private javax.swing.JTextField VictimFullName;
     private javax.swing.JTextField crimecaseno;
     private javax.swing.JButton jButtonAddSue;
     private javax.swing.JButton jButtonDelete;
@@ -712,7 +786,6 @@ public class SueCrimesFrom extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -725,7 +798,6 @@ public class SueCrimesFrom extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -733,6 +805,6 @@ public class SueCrimesFrom extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableSue;
     // End of variables declaration//GEN-END:variables
 }

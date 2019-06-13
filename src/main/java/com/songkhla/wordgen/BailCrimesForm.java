@@ -8,7 +8,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Vector;
 import javax.swing.JOptionPane;
+import org.json.simple.JSONObject;
 
 /**
  *
@@ -25,6 +27,10 @@ public class BailCrimesForm extends javax.swing.JFrame {
      */
     public BailCrimesForm() {
         initComponents();
+        RefreshData();
+       
+        
+  
     }
 
     /**
@@ -40,7 +46,7 @@ public class BailCrimesForm extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableBail = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         crimecaseno = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
@@ -55,11 +61,10 @@ public class BailCrimesForm extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
-        jButtonAddSue = new javax.swing.JButton();
-        jButtonEditSue = new javax.swing.JButton();
-        jButtonDelete = new javax.swing.JButton();
+        jCheckOnly = new javax.swing.JCheckBox();
+        jComboStatus = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -86,8 +91,8 @@ public class BailCrimesForm extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTable1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableBail.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jTableBail.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null, null, null},
@@ -117,8 +122,13 @@ public class BailCrimesForm extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jTable1.setGridColor(new java.awt.Color(0, 0, 0));
-        jScrollPane1.setViewportView(jTable1);
+        jTableBail.setGridColor(new java.awt.Color(0, 0, 0));
+        jTableBail.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableBailMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTableBail);
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -246,27 +256,20 @@ public class BailCrimesForm extends javax.swing.JFrame {
                 .addGap(24, 24, 24))
         );
 
-        jButtonAddSue.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButtonAddSue.setText("เพิ่ม");
-        jButtonAddSue.addActionListener(new java.awt.event.ActionListener() {
+        jCheckOnly.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckOnly.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckOnly.setText("เฉพาะคดีระหว่างสอบสวน");
+        jCheckOnly.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAddSueActionPerformed(evt);
+                jCheckOnlyActionPerformed(evt);
             }
         });
 
-        jButtonEditSue.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButtonEditSue.setText("แก้ไข");
-        jButtonEditSue.addActionListener(new java.awt.event.ActionListener() {
+        jComboStatus.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jComboStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ผัดฟ้องฝากขัง", "ประกัน", "แจ้งข้อหาปล่อยตัว", "แจ้งข้อหาฝากขัง", "ไม่ได้ตัว", "ไม่รู้ตัว", "ฟ้องวาจา", "ส่งฟื้นฟู", "อื่นๆ" }));
+        jComboStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEditSueActionPerformed(evt);
-            }
-        });
-
-        jButtonDelete.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButtonDelete.setText("ลบ");
-        jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonDeleteActionPerformed(evt);
+                jComboStatusActionPerformed(evt);
             }
         });
 
@@ -277,18 +280,17 @@ public class BailCrimesForm extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButtonAddSue)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonEditSue, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonDelete)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jCheckOnly)
+                        .addGap(27, 27, 27)
+                        .addComponent(jComboStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(104, 104, 104))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -296,12 +298,11 @@ public class BailCrimesForm extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22)
+                .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonAddSue)
-                    .addComponent(jButtonEditSue)
-                    .addComponent(jButtonDelete))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jCheckOnly)
+                    .addComponent(jComboStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(253, Short.MAX_VALUE))
         );
@@ -320,33 +321,69 @@ public class BailCrimesForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void SuspectFullNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SuspectFullNameActionPerformed
+    private void ArrestDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ArrestDateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_SuspectFullNameActionPerformed
-
-    private void ChargeNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChargeNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ChargeNameActionPerformed
+    }//GEN-LAST:event_ArrestDateActionPerformed
 
     private void SuspectFullName2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SuspectFullName2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SuspectFullName2ActionPerformed
 
-    private void ArrestDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ArrestDateActionPerformed
+    private void ChargeNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChargeNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ArrestDateActionPerformed
+    }//GEN-LAST:event_ChargeNameActionPerformed
 
-    private void jButtonAddSueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddSueActionPerformed
+    private void SuspectFullNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SuspectFullNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonAddSueActionPerformed
+    }//GEN-LAST:event_SuspectFullNameActionPerformed
 
-    private void jButtonEditSueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditSueActionPerformed
+    private void jCheckOnlyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckOnlyActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonEditSueActionPerformed
+        RefreshData();
+    }//GEN-LAST:event_jCheckOnlyActionPerformed
 
-    private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
+    private void jComboStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboStatusActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonDeleteActionPerformed
+        RefreshData();
+    }//GEN-LAST:event_jComboStatusActionPerformed
+
+    private void jTableBailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableBailMouseClicked
+        // TODO add your handling code here:
+
+             try{
+                String crimecaseid = jTableBail.getModel().getValueAt(jTableBail.getSelectedRow(), 0)+"";
+                String fullname = jTableBail.getModel().getValueAt(jTableBail.getSelectedRow(), 1)+"";
+
+                
+                String  sql= "select crimecasenoyear,ChargeName,Investigator_Result,TypePerson,BailDate,PeopleRegistrationID,FullNamePerson,StatusSuspect,CaseId,CaseIdPerson,CaseAcceptDate \n" +
+                     "from Person\n" +
+                     "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId "+ 
+                     "left join Charge on CrimeCase.ChargeCodeCase=Charge.ChargeCode "  +                    
+                      "where TypePerson='ผู้ต้องหา' and crimecasenoyear='"+crimecaseid+"' and FullNamePerson='"+fullname+"'" ;
+                Connection con = ConnectDatabase.connect();
+                Statement stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery(sql);
+                System.out.println("ExSql : "+sql);
+                if(rs.next()){
+                    crimecaseno.setText(rs.getString("crimecasenoyear"));
+                    SuspectFullName.setText(rs.getString("FullNamePerson"));
+                    ChargeName.setText(rs.getString("ChargeName"));
+                    
+                    
+                }
+
+                rs.close();
+                stmt.close();
+                RefreshData();
+            }catch(Exception ex){
+                ex.printStackTrace();
+
+            }
+//        ShowData();
+        
+          
+        
+    }//GEN-LAST:event_jTableBailMouseClicked
 
     /**
      * @param args the command line arguments
@@ -382,6 +419,117 @@ public class BailCrimesForm extends javax.swing.JFrame {
             }
         });
     }
+    public void ShowData(){
+     
+            try{
+                String crimecaseid = jTableBail.getModel().getValueAt(jTableBail.getSelectedRow(), 0)+"";
+
+                String  sql= "select crimecasenoyear,Investigator_Result,TypePerson,BailDate,PeopleRegistrationID,FullNamePerson,StatusSuspect,CaseId,CaseIdPerson,CaseAcceptDate \n" +
+                     "from Person\n" +
+                     "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId "
+                     + "where TypePerson='ผู้ต้องหา' and crimecasenoyear='"+crimecaseid+"'";
+                Connection con = ConnectDatabase.connect();
+                Statement stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery(sql);
+                System.out.println("ExSql : "+sql);
+                if(rs.next()){
+                    SuspectFullName.setText(rs.getString("FullNamePerson"));
+                }
+
+                rs.close();
+                stmt.close();
+                RefreshData();
+            }catch(Exception ex){
+                ex.printStackTrace();
+
+            }
+        
+  
+    
+    }
+    public void RefreshData(){
+        try{
+              
+        Connection con = ConnectDatabase.connect();
+        Statement stmt = con.createStatement();
+//        String a=txtCaseNO.getText();
+        String sql;
+                sql= "select crimecasenoyear,Investigator_Result,TypePerson,BailDate,PeopleRegistrationID,FullNamePerson,StatusSuspect,CaseId,CaseIdPerson,CaseAcceptDate \n" +
+                     "from Person\n" +
+                     "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId "
+                   + "where TypePerson='ผู้ต้องหา' and StatusSuspect='"+jComboStatus.getSelectedItem()+"'";
+      if(jCheckOnly.isSelected())
+      {
+      sql=sql+" and Investigator_Result='อยู่ระหว่างสอบสวน'";
+      
+      }
+        ResultSet rs = stmt.executeQuery(sql);
+          System.out.println("SQL : "+sql);
+        Vector<Vector> tabledata = new Vector<Vector>();
+        while(rs.next()){
+            Vector<String> row = new Vector<String>();
+            row.add(rs.getString("crimecasenoyear"));
+            row.add(rs.getString("FullNamePerson"));
+            row.add("-");
+            row.add(rs.getString("BailDate"));
+                row.add("-");
+            row.add("-");
+            row.add("-");
+            row.add("-");
+             row.add("-");
+            row.add("-");
+            row.add("-");
+//            row.add(rs.getString("Age"));
+//            row.add(rs.getString("Race"));
+//            row.add(rs.getString("Nationality"));
+//            row.add(rs.getString("Religion"));
+            tabledata.add(row);
+        }
+        rs.close();
+        stmt.close();
+        Vector ColumnName = new Vector(); 
+        String StatusSus=jComboStatus.getSelectedItem()+"";
+         ColumnName.add("เลขคดี/ปี");    
+         ColumnName.add("ผู้ต้องหา");
+         ColumnName.add("วันรับคำร้องทุกข์");
+         if(StatusSus.equals("ประกัน")){
+           ColumnName.add("วันประกัน");
+         }
+        else if(StatusSus.equals("ส่งฟื้นฟู")){
+           ColumnName.add("วันส่งฟื้นฟู");
+         }
+         else{
+           ColumnName.add("วันส่งตัว");
+         }
+         ColumnName.add("ครบ 1 เดือน");
+         ColumnName.add("ครบ 2 เดือน");
+         ColumnName.add("ครบ 3 เดือน");
+         ColumnName.add("ครบ 4 เดือน");
+         ColumnName.add("ครบ 5 เดือน");
+         ColumnName.add("ครบ 6 เดือน");
+         ColumnName.add("ครบ 1 ปี");
+//         ColumnName.add("ครบ 2 เดือน");
+         
+
+         System.out.println("SQL : "+sql);
+     
+        jTableBail.setModel(new javax.swing.table.DefaultTableModel(
+            tabledata,
+            ColumnName
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+     
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ArrestDate;
@@ -389,9 +537,8 @@ public class BailCrimesForm extends javax.swing.JFrame {
     private javax.swing.JTextField SuspectFullName;
     private javax.swing.JTextField SuspectFullName2;
     private javax.swing.JTextField crimecaseno;
-    private javax.swing.JButton jButtonAddSue;
-    private javax.swing.JButton jButtonDelete;
-    private javax.swing.JButton jButtonEditSue;
+    private javax.swing.JCheckBox jCheckOnly;
+    private javax.swing.JComboBox<String> jComboStatus;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel5;
@@ -405,6 +552,6 @@ public class BailCrimesForm extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableBail;
     // End of variables declaration//GEN-END:variables
 }

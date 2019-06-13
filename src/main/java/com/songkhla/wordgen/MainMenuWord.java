@@ -32,9 +32,10 @@ public class MainMenuWord extends javax.swing.JFrame {
         initComponents();
         panel1 = new JPanel[]{personmenu,formmenu,howtomenu};
         setMaximumSize(new Dimension(960, 834));
+        setMinimumSize(new Dimension(960, 834));
         setMaximizedBounds ( new Rectangle ( 960, 834 ) );
         data();
-           con=ConnectDatabase.connect();
+        con=ConnectDatabase.connect();
         CreateTable.createNewTable();      
 //             String sql= "select * from Police";
 //            Connection con = ConnectDatabase.connect();
@@ -76,7 +77,7 @@ public class MainMenuWord extends javax.swing.JFrame {
         profilemenu = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         formmenu = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
         howtomenu = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         SueMenu = new javax.swing.JPanel();
@@ -85,6 +86,8 @@ public class MainMenuWord extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         howtomenu1 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
+        ManageSuspectMenu = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
@@ -283,12 +286,12 @@ public class MainMenuWord extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setIcon(new javax.swing.ImageIcon("D:\\Master\\document.png")); // NOI18N
-        jLabel5.setText("แบบฟอร์ม");
+        jLabel18.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel18.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setIcon(new javax.swing.ImageIcon("D:\\Master\\document.png")); // NOI18N
+        jLabel18.setText("แบบฟอร์ม");
 
         javax.swing.GroupLayout formmenuLayout = new javax.swing.GroupLayout(formmenu);
         formmenu.setLayout(formmenuLayout);
@@ -296,15 +299,12 @@ public class MainMenuWord extends javax.swing.JFrame {
             formmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formmenuLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addGap(61, 61, 61))
+                .addComponent(jLabel18)
+                .addGap(60, 60, 60))
         );
         formmenuLayout.setVerticalGroup(
             formmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formmenuLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
         );
 
         howtomenu.setBackground(new java.awt.Color(77, 0, 0));
@@ -472,6 +472,33 @@ public class MainMenuWord extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        ManageSuspectMenu.setBackground(new java.awt.Color(77, 0, 0));
+        ManageSuspectMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ManageSuspectMenuMouseClicked(evt);
+            }
+        });
+
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("การจัดการผู้ต้องหา");
+
+        javax.swing.GroupLayout ManageSuspectMenuLayout = new javax.swing.GroupLayout(ManageSuspectMenu);
+        ManageSuspectMenu.setLayout(ManageSuspectMenuLayout);
+        ManageSuspectMenuLayout.setHorizontalGroup(
+            ManageSuspectMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ManageSuspectMenuLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(46, 46, 46))
+        );
+        ManageSuspectMenuLayout.setVerticalGroup(
+            ManageSuspectMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -484,6 +511,7 @@ public class MainMenuWord extends javax.swing.JFrame {
             .addComponent(BailMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
             .addComponent(howtomenu, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
             .addComponent(howtomenu1, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+            .addComponent(ManageSuspectMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -497,6 +525,8 @@ public class MainMenuWord extends javax.swing.JFrame {
                 .addComponent(SueMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(BailMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(ManageSuspectMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(formmenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
@@ -684,7 +714,7 @@ public class MainMenuWord extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
+                        .addContainerGap(22, Short.MAX_VALUE))
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
@@ -924,7 +954,7 @@ public class MainMenuWord extends javax.swing.JFrame {
     private void personmenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_personmenuMouseClicked
         // TODO add your handling code here:
         
-         PersonFrom ps = new PersonFrom();
+         PersonOverView ps = new PersonOverView();
         ps.setVisible(true);
     }//GEN-LAST:event_personmenuMouseClicked
 
@@ -945,7 +975,7 @@ public class MainMenuWord extends javax.swing.JFrame {
 
     private void SueMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SueMenuMouseClicked
         // TODO add your handling code here:
-        SueCrimesFrom sf=new SueCrimesFrom();
+        SueCrimesOverview sf=new SueCrimesOverview();
         sf.setVisible(true);
     }//GEN-LAST:event_SueMenuMouseClicked
 
@@ -968,8 +998,8 @@ public class MainMenuWord extends javax.swing.JFrame {
 
     private void BailMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BailMenuMouseClicked
         // TODO add your handling code here:
-        BailForm bf=new BailForm();
-        bf.setVisible(true);
+        BailCrimesForm bcf=new BailCrimesForm();
+        bcf.setVisible(true);
     }//GEN-LAST:event_BailMenuMouseClicked
 
     private void BailMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BailMenuMouseExited
@@ -995,6 +1025,12 @@ public class MainMenuWord extends javax.swing.JFrame {
     private void howtomenu1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_howtomenu1MouseExited
         // TODO add your handling code here:
     }//GEN-LAST:event_howtomenu1MouseExited
+
+    private void ManageSuspectMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ManageSuspectMenuMouseClicked
+        // TODO add your handling code here:
+        BailForm bf=new BailForm();
+        bf.setVisible(true);
+    }//GEN-LAST:event_ManageSuspectMenuMouseClicked
     public void setPanelBackground (JPanel jp){
         jp.setBackground(new Color(155,0,0));
     }
@@ -1040,9 +1076,11 @@ public class MainMenuWord extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BailMenu;
+    private javax.swing.JPanel ManageSuspectMenu;
     private javax.swing.JPanel SueMenu;
     private javax.swing.JLabel UserName;
     private javax.swing.JPanel formmenu;
+    private javax.swing.JPanel formmenu1;
     private javax.swing.JPanel howtomenu;
     private javax.swing.JPanel howtomenu1;
     private javax.swing.JLabel jLabel1;
@@ -1053,6 +1091,8 @@ public class MainMenuWord extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

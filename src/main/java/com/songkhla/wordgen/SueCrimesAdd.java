@@ -9,23 +9,42 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import org.json.simple.JSONObject;
 
 /**
  *
  * @author Petpilin
  */
-public class SueCrimesAdd extends javax.swing.JFrame {
+public class SueCrimesAdd extends javax.swing.JDialog {
     Connection con=null;
     PreparedStatement pst=null;
     DataCase dc =new DataCase();
-
+    boolean isinsert;
+ String idCase;
     /**
      * Creates new form SueCrimesAdd
      */
-    public SueCrimesAdd() {
-        
+    public SueCrimesAdd(JFrame parrent,JSONObject datain) {
+        super(parrent,true);
         initComponents();
+      
+     
+        if(datain != null){
+  
+        SueTimes.setText(datain.get("SueTimes")+"");
+        SueDate.setText(datain.get("SueDate")+"");
+        SueStart.setText(datain.get("SueStart")+"");
+
+        }
+        else{
+            isinsert=true;
+        idCase=datain.get("SueCaseId")+"";      
+        SueTimes.setText(sueTimes());
+        noperson.setText(IdPerson());
+        
+        }
     }
 
     /**
@@ -43,37 +62,35 @@ public class SueCrimesAdd extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         NoImprison = new javax.swing.JTextField();
-        NumberImprison = new javax.swing.JTextField();
+        SueTimes = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
         crimecaseno = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         SuspectFullName = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        ChargeName = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        TotalDate = new javax.swing.JTextField();
+        SueTotal = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        SinceImprison = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
-        SinceImprisonTime = new javax.swing.JTextField();
+        SueStart = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         PoliceStationName = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        CauseImprison = new javax.swing.JComboBox<>();
+        SueCause = new javax.swing.JComboBox<>();
         jLabel20 = new javax.swing.JLabel();
         StatusSueAndPutInJail = new javax.swing.JComboBox<>();
         jLabel21 = new javax.swing.JLabel();
-        ToImprison = new javax.swing.JTextField();
-        jLabel22 = new javax.swing.JLabel();
-        ToImprisonTime = new javax.swing.JTextField();
-        jLabel23 = new javax.swing.JLabel();
-        TotalTime = new javax.swing.JTextField();
-        jLabel24 = new javax.swing.JLabel();
-        jButtonSave = new javax.swing.JButton();
+        SueEnd = new javax.swing.JTextField();
+        jButtonSaveSue = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        caseid = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        SueDate = new javax.swing.JTextField();
+        jLabel25 = new javax.swing.JLabel();
+        SueRequest = new javax.swing.JComboBox<>();
+        noperson = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setAlwaysOnTop(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -91,14 +108,13 @@ public class SueCrimesAdd extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
         );
 
         jLabel11.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
@@ -109,11 +125,11 @@ public class SueCrimesAdd extends javax.swing.JFrame {
 
         NoImprison.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        NumberImprison.setEditable(false);
-        NumberImprison.setBorder(null);
-        NumberImprison.addActionListener(new java.awt.event.ActionListener() {
+        SueTimes.setEditable(false);
+        SueTimes.setBorder(null);
+        SueTimes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NumberImprisonActionPerformed(evt);
+                SueTimesActionPerformed(evt);
             }
         });
 
@@ -141,33 +157,16 @@ public class SueCrimesAdd extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel6.setText("ข้อหา");
-
-        ChargeName.setEditable(false);
-        ChargeName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        ChargeName.setBorder(null);
-        ChargeName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ChargeNameActionPerformed(evt);
-            }
-        });
-
         jLabel13.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel13.setText("จำนวน");
 
-        TotalDate.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        TotalDate.setText("6");
+        SueTotal.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        SueTotal.setText("6");
 
         jLabel14.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel14.setText("วันที่เริ่ม");
 
-        SinceImprison.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-
-        jLabel15.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel15.setText("เวลา");
-
-        SinceImprisonTime.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        SueStart.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel16.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel16.setText("วัน");
@@ -180,8 +179,8 @@ public class SueCrimesAdd extends javax.swing.JFrame {
         jLabel19.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel19.setText("เหตุผัดฟ้องฝากขัง");
 
-        CauseImprison.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        CauseImprison.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
+        SueCause.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        SueCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
 
         jLabel20.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel20.setText("สถานะการผัดฟ้อง");
@@ -192,26 +191,13 @@ public class SueCrimesAdd extends javax.swing.JFrame {
         jLabel21.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel21.setText("วันที่สิ้นสุด");
 
-        ToImprison.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        SueEnd.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        jLabel22.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel22.setText("เวลา");
-
-        ToImprisonTime.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-
-        jLabel23.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel23.setText("รวมเวลา");
-
-        TotalTime.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-
-        jLabel24.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel24.setText("ชั่วโมง");
-
-        jButtonSave.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButtonSave.setText("บันทึก");
-        jButtonSave.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSaveSue.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jButtonSaveSue.setText("บันทึก");
+        jButtonSaveSue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSaveActionPerformed(evt);
+                jButtonSaveSueActionPerformed(evt);
             }
         });
 
@@ -223,14 +209,38 @@ public class SueCrimesAdd extends javax.swing.JFrame {
             }
         });
 
+        caseid.setText("jLabel2");
+
+        jLabel17.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel17.setText("วันฝาก");
+
+        SueDate.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+
+        jLabel25.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel25.setText("ผู้ร้อง");
+
+        SueRequest.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+
+        noperson.setText("jLabel3");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(231, 231, 231)
+                .addComponent(jButtonSaveSue, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel25)
+                        .addGap(80, 80, 80)
+                        .addComponent(SueRequest, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel18)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -240,47 +250,39 @@ public class SueCrimesAdd extends javax.swing.JFrame {
                             .addComponent(jLabel12)
                             .addComponent(jLabel11)
                             .addComponent(jLabel5)
-                            .addComponent(jLabel6)
                             .addComponent(jLabel14)
-                            .addComponent(jLabel13)
-                            .addComponent(jLabel21))
+                            .addComponent(jLabel13))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(NumberImprison, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(SueTimes, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(51, 51, 51)
                                 .addComponent(jLabel30)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(crimecaseno, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(crimecaseno, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(caseid)
+                                .addGap(18, 18, 18)
+                                .addComponent(noperson))
                             .addComponent(NoImprison, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(SuspectFullName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 540, Short.MAX_VALUE)
-                                .addComponent(ChargeName, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(SuspectFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(ToImprison, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(TotalDate)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jLabel16))
-                                        .addComponent(SinceImprison, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(47, 47, 47)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(SueStart, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(SueTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(jLabel16))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(40, 40, 40)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel15)
-                                            .addComponent(jLabel22))
+                                            .addComponent(jLabel21)
+                                            .addComponent(jLabel17))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(SinceImprisonTime, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(ToImprisonTime, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel23)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(TotalTime, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel24)))
+                                            .addComponent(SueDate, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(SueEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                         .addGap(0, 14, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -289,74 +291,63 @@ public class SueCrimesAdd extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(StatusSueAndPutInJail, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(CauseImprison, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(SueCause, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(37, 37, 37))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(231, 231, 231)
-                .addComponent(jButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(NumberImprison, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SueTimes, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(crimecaseno, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(crimecaseno, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(caseid)
+                    .addComponent(noperson))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(SuspectFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ChargeName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(NoImprison, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(NoImprison, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17)
+                    .addComponent(SueDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
-                    .addComponent(SinceImprison, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15)
-                    .addComponent(SinceImprisonTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ToImprison, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SueStart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel21)
-                    .addComponent(jLabel22)
-                    .addComponent(ToImprisonTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(SueEnd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TotalDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13)
-                    .addComponent(jLabel16)
-                    .addComponent(jLabel23)
-                    .addComponent(TotalTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel24))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(SueTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel18)
                     .addComponent(PoliceStationName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
-                    .addComponent(CauseImprison, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(SueCause, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
                     .addComponent(StatusSueAndPutInJail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(66, 66, 66)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel25)
+                    .addComponent(SueRequest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(92, 92, 92)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonSave)
+                    .addComponent(jButtonSaveSue)
                     .addComponent(jButton5))
-                .addGap(0, 201, Short.MAX_VALUE))
+                .addGap(0, 41, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -367,15 +358,15 @@ public class SueCrimesAdd extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void NumberImprisonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NumberImprisonActionPerformed
+    private void SueTimesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueTimesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_NumberImprisonActionPerformed
+    }//GEN-LAST:event_SueTimesActionPerformed
 
     private void crimecasenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crimecasenoActionPerformed
         // TODO add your handling code here:
@@ -385,45 +376,39 @@ public class SueCrimesAdd extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_SuspectFullNameActionPerformed
 
-    private void ChargeNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChargeNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ChargeNameActionPerformed
-
-    private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
+    private void jButtonSaveSueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveSueActionPerformed
         // TODO add your handling code here:
         
         con=ConnectDatabase.connect();
-        String sql2= "select * from Person";
+
 
         try {
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery(sql2);
-            if(!rs.next()){
-                String sql="INSERT INTO Person (CauseImprison,ChargeName,NoImprison,NumberImprison,SinceImprison,SinceImprisonTime,"
-                         + "StatusSueAndPutInJail,SuspectFullName,ToImprison,ToImprisonTime,TotalTime,TotalDate) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+//            ResultSet rs = stmt.executeQuery(sql2);
+             String personid=IdPerson();
+             if(isinsert){
+                String sql="INSERT INTO Sue (SueTimes,SueDate,SueStart,SueEnd,SueTotal,SueCause,\n"
+                         + "SueRequest,SuePersonId,SueCaseId) VALUES (?,?,?,?,?,?,?,?,?)";
                 pst=con.prepareStatement(sql);
-                //pst.setString(1,CauseImprison.getText());
-                pst.setString(2,ChargeName.getText());
-                pst.setString(3,NoImprison.getText());
-                pst.setString(4,NumberImprison.getText());
-               // pst.setString(5,PoliceStationName.getText());
-                pst.setString(6,SinceImprison.getText());
-                pst.setString(7,SinceImprisonTime.getText());
-               // pst.setString(8,StatusSueAndPutInJail.getText());
-                pst.setString(9,SuspectFullName.getText());
-                pst.setString(10,ToImprison.getText());
-                pst.setString(11,ToImprisonTime.getText());
-                pst.setString(12,TotalTime.getText());
-                pst.setString(13,TotalDate.getText());
-                //pst.setString(14,crimecaseno.getText());
+                pst.setString(1,SueTimes.getText());
+                pst.setString(2,SueDate.getText());
+                pst.setString(3,SueStart.getText());
+                pst.setString(4,SueEnd.getText());
+                pst.setString(5,SueTotal.getText());
+                pst.setString(6,SueCause.getSelectedItem()+"");
+                pst.setString(7,SueRequest.getSelectedItem()+"");
+                pst.setString(8,personid);
+                pst.setString(9,idCase);
+
               
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Data Saved successfully");
                 pst.close();
-            }else{
-                String sqlUpdate= "UPDATE Person Set\n "
-                + "CauseImprison=?,"
-                + "ChargeName=?,"
+             }
+           else{
+                String sqlUpdate= "UPDATE Sue Set\n "
+                + "SueTimes=?,"
+                + "v=?,"
                 + "NoImprison=?,"
                 + "NumberImprison=?,"
                 + "SinceImprison=?"
@@ -435,22 +420,7 @@ public class SueCrimesAdd extends javax.swing.JFrame {
                 + "TotalTime=?"
                 + "TotalDate=?"          
                 + "Where IdCardPolice=?";
-                pst=con.prepareStatement(sqlUpdate);
-                //pst.setString(1,CauseImprison.getText());
-                pst.setString(2,ChargeName.getText());
-                pst.setString(3,NoImprison.getText());
-                pst.setString(4,NumberImprison.getText());
-               // pst.setString(5,PoliceStationName.getText());
-                pst.setString(6,SinceImprison.getText());
-                pst.setString(7,SinceImprisonTime.getText());
-               // pst.setString(8,StatusSueAndPutInJail.getText());
-                pst.setString(9,SuspectFullName.getText());
-                pst.setString(10,ToImprison.getText());
-                pst.setString(11,ToImprisonTime.getText());
-                pst.setString(12,TotalTime.getText());
-                pst.setString(13,TotalDate.getText());
-                //pst.setString(14,crimecaseno.getText());
-              
+
                 
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Data Saved successfully");
@@ -462,15 +432,71 @@ public class SueCrimesAdd extends javax.swing.JFrame {
             System.out.println("SQL : "+pst);
         }
         setVisible(false);
-    }//GEN-LAST:event_jButtonSaveActionPerformed
+    }//GEN-LAST:event_jButtonSaveSueActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
-
+ 
     /**
      * @param args the command line arguments
      */
+  public static String sueTimes(){
+         Connection con=null;
+         con=ConnectDatabase.connect();
+         String personid=IdPerson();
+            String sqlId="Select max(SueTimes) SueTimes from Sue where SuePersonId="+personid;
+            
+        int id=0;
+        try {
+            Statement s=con.createStatement();
+            ResultSet rs=s.executeQuery(sqlId);
+            
+            if (rs.next()) {
+                id=rs.getInt("SueTimes"); 
+            }
+            
+            if(id==0){
+                id=1;
+            }
+            else{
+                id=id+1;
+            }
+             return String.valueOf(id);
+        
+        } catch (Exception e) {
+            return null;
+//            System.out.println(e);
+        } 
+    
+    }
+   public static String IdPerson(){
+         Connection con=null;
+         con=ConnectDatabase.connect();
+            String sqlId="Select max(NoPerson) noPerson from Person";
+        int id=0;
+        try {
+            Statement s=con.createStatement();
+            ResultSet rs=s.executeQuery(sqlId);
+            
+            if (rs.next()) {
+                id=rs.getInt("noPerson"); 
+            }
+            
+            if(id==0){
+                id=1;
+            }
+            else{
+                id=id+1;
+            }
+             return String.valueOf(id);
+        
+        } catch (Exception e) {
+            return null;
+//            System.out.println(e);
+        } 
+    
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -498,46 +524,43 @@ public class SueCrimesAdd extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SueCrimesAdd().setVisible(true);
+//                new SueCrimesAdd().setVisible(true);
             }
         });
     }
-
+ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> CauseImprison;
-    private javax.swing.JTextField ChargeName;
     private javax.swing.JTextField NoImprison;
-    private javax.swing.JTextField NumberImprison;
     private javax.swing.JTextField PoliceStationName;
-    private javax.swing.JTextField SinceImprison;
-    private javax.swing.JTextField SinceImprisonTime;
     private javax.swing.JComboBox<String> StatusSueAndPutInJail;
+    private javax.swing.JComboBox<String> SueCause;
+    private javax.swing.JTextField SueDate;
+    private javax.swing.JTextField SueEnd;
+    private javax.swing.JComboBox<String> SueRequest;
+    private javax.swing.JTextField SueStart;
+    private javax.swing.JTextField SueTimes;
+    private javax.swing.JTextField SueTotal;
     private javax.swing.JTextField SuspectFullName;
-    private javax.swing.JTextField ToImprison;
-    private javax.swing.JTextField ToImprisonTime;
-    private javax.swing.JTextField TotalDate;
-    private javax.swing.JTextField TotalTime;
+    private javax.swing.JLabel caseid;
     private javax.swing.JTextField crimecaseno;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButtonSave;
+    private javax.swing.JButton jButtonSaveSue;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel noperson;
     // End of variables declaration//GEN-END:variables
 }

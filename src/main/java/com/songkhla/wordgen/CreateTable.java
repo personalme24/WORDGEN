@@ -272,6 +272,20 @@ public class CreateTable {
                     "	InvestAge	VARCHAR(100)	,	\n"+
                     "	InvestTel	VARCHAR(100)		\n"+
                     "	);";
+             
+               String sqlSue ="CREATE TABLE IF NOT EXISTS Sue (\n"+
+	       "	SueId	INTEGER	Primary Key AUTOINCREMENT,	\n"+
+                "	SueTimes	INTEGER	,	\n"+
+                "	SueDate	VARCHAR(100)	,	\n"+
+                "	SueStart	VARCHAR(100)	,	\n"+
+                "	SueEnd	VARCHAR(100)	,	\n"+
+                "	SueTotal	INTEGER	,	\n"+
+                "	SueCause	VARCHAR(100)	,	\n"+
+                "	SueRequest	VARCHAR(100)	,	\n"+
+                "	SuePersonId	INTEGER	not null, \n"+	
+                "	SueCaseId	INTEGER	not null		\n"+
+                    "	);";
+            
             
         
                       
@@ -288,6 +302,8 @@ public class CreateTable {
                       stmt.execute(sqlAction); 
                       stmt.execute(sqlRecord); 
                       stmt.execute(sqlInvest);
+                      stmt.execute(sqlSue);
+
                        stmt.close();
                     System.out.println("Create Table Complete");
 	        } catch (SQLException e) {

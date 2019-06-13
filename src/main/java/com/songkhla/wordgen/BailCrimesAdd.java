@@ -513,6 +513,7 @@ public class BailCrimesAdd extends javax.swing.JFrame {
 
     private void jButtonAddSueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddSueActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButtonAddSueActionPerformed
 
     private void jButtonEditSueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditSueActionPerformed

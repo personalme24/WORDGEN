@@ -5,17 +5,39 @@
  */
 package com.songkhla.wordgen;
 
+import javax.swing.JFrame;
+import org.json.simple.JSONObject;
+
 /**
  *
  * @author Petpilin
  */
-public class PersonFrom extends javax.swing.JFrame {
+public class PersonFrom extends javax.swing.JDialog {
 
     /**
      * Creates new form PersonFrom
      */
-    public PersonFrom() {
+    public PersonFrom(JFrame parrent,JSONObject datain) {
+                super(parrent,true);
+
         initComponents();
+        if(datain != null){
+        PeopleRegistrationID.setText(datain.get("PeopleRegistrationID")+"");
+        FullNamePerson.setText(datain.get("FullNamePerson")+"");
+        Age.setText(datain.get("Age")+"");
+        BirthDay.setText(datain.get("BirthDay")+"");
+        Race.setText(datain.get("Race")+"");
+        Nationality.setText(datain.get("Nationality")+"");
+        Religion.setText(datain.get("Religion")+"");
+        Occupation.setText(datain.get("Occupation")+"");
+        TypePerson.setText(datain.get("TypePerson")+"");
+        OtherName.setText(datain.get("OtherName")+"");
+        TypePerson.setText(datain.get("TypePerson")+"");
+        TypePerson.setText(datain.get("TypePerson")+"");
+        TypePerson.setText(datain.get("TypePerson")+"");
+        
+        
+        }
     }
 
     /**
@@ -28,8 +50,6 @@ public class PersonFrom extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         FullNamePerson = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -90,34 +110,11 @@ public class PersonFrom extends javax.swing.JFrame {
         FavouritePlace = new javax.swing.JTextField();
         jLabel37 = new javax.swing.JLabel();
         PoliceStationCode28 = new javax.swing.JTextField();
-        PersonType = new javax.swing.JTextField();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        TypePerson = new javax.swing.JTextField();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        jPanel3.setBackground(new java.awt.Color(77, 0, 0));
-        jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel3.setForeground(new java.awt.Color(255, 255, 255));
-
-        jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 28)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("ข้อมูลบุคคล");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
 
         jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel8.setText("ประเภท");
@@ -268,21 +265,21 @@ public class PersonFrom extends javax.swing.JFrame {
         jLabel36.setText("สถานที่ที่ชอบไป");
 
         FavouritePlace.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        FavouritePlace.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 153, 153), null));
 
         jLabel37.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel37.setText("รถที่ใช้");
 
         PoliceStationCode28.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        PersonType.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        PersonType.setForeground(new java.awt.Color(255, 0, 0));
-        PersonType.setEnabled(false);
+        TypePerson.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        TypePerson.setForeground(new java.awt.Color(255, 0, 0));
+        TypePerson.setEnabled(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -291,7 +288,7 @@ public class PersonFrom extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
-                            .addComponent(PersonType))
+                            .addComponent(TypePerson))
                         .addGap(92, 92, 92)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -363,7 +360,7 @@ public class PersonFrom extends javax.swing.JFrame {
                             .addComponent(jLabel26)
                             .addComponent(Adress)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
+                                .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(FatherFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -421,8 +418,7 @@ public class PersonFrom extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(58, 58, 58)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(FullNamePerson, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -431,7 +427,7 @@ public class PersonFrom extends javax.swing.JFrame {
                     .addComponent(OtherName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SpouseFullName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PersonType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TypePerson, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -535,7 +531,30 @@ public class PersonFrom extends javax.swing.JFrame {
                                     .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(WarrantList, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addGap(0, 105, Short.MAX_VALUE))
+                .addGap(0, 63, Short.MAX_VALUE))
+        );
+
+        jPanel3.setBackground(new java.awt.Color(77, 0, 0));
+        jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel3.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 28)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("ข้อมูลบุคคล");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -543,11 +562,13 @@ public class PersonFrom extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -588,7 +609,7 @@ public class PersonFrom extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PersonFrom().setVisible(true);
+//                new PersonFrom().setVisible(true);
             }
         });
     }
@@ -614,7 +635,6 @@ public class PersonFrom extends javax.swing.JFrame {
     private javax.swing.JTextField Office;
     private javax.swing.JTextField OtherName;
     private javax.swing.JTextField PeopleRegistrationID;
-    private javax.swing.JTextField PersonType;
     private javax.swing.JTextField PhonePerson;
     private javax.swing.JTextField PoliceStationCode21;
     private javax.swing.JTextField PoliceStationCode28;
@@ -623,6 +643,7 @@ public class PersonFrom extends javax.swing.JFrame {
     private javax.swing.JTextField Religion;
     private javax.swing.JTextField SpouseFullName;
     private javax.swing.JTextField Tambon;
+    private javax.swing.JTextField TypePerson;
     private javax.swing.JTextField WarrantList;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

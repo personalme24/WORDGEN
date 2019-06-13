@@ -249,8 +249,8 @@ String typeC;
                     data.put("Tambon", rs.getString("Tambon"));
                     data.put("CurrentAddress", rs.getString("CurrentAddress"));
                 
-                            AccusedForm accusedF=new AccusedForm(f,data);
-                            accusedF.setVisible(true);    		
+                            SuspectForm suspectF=new SuspectForm(f,data);
+                            suspectF.setVisible(true);    		
                 }
                 
                 rs.close();

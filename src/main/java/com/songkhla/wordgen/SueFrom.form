@@ -113,27 +113,32 @@
                           </Group>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="NamePolis5" alignment="1" min="-2" pref="241" max="-2" attributes="0"/>
-                                  <Component id="NamePolis6" min="-2" pref="241" max="-2" attributes="0"/>
-                                  <Component id="NamePolis4" alignment="1" min="-2" pref="241" max="-2" attributes="0"/>
-                                  <Component id="NamePolis3" alignment="1" min="-2" pref="241" max="-2" attributes="0"/>
-                                  <Component id="NamePolis2" alignment="1" min="-2" pref="241" max="-2" attributes="0"/>
-                                  <Component id="NamePolis1" alignment="1" min="-2" pref="241" max="-2" attributes="0"/>
-                                  <Component id="jLabel28" alignment="1" min="-2" pref="241" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="NamePolis7" min="-2" pref="241" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="CauseImprison2" alignment="0" pref="501" max="32767" attributes="0"/>
+                                      <Component id="CauseImprison7" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="CauseImprison6" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="CauseImprison3" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="CauseImprison4" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="CauseImprison1" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jLabel29" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <Component id="NamePolis7" min="-2" pref="241" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="CauseImprison2" alignment="0" pref="501" max="32767" attributes="0"/>
-                              <Component id="CauseImprison7" alignment="0" max="32767" attributes="0"/>
-                              <Component id="CauseImprison6" alignment="0" max="32767" attributes="0"/>
-                              <Component id="CauseImprison3" alignment="0" max="32767" attributes="0"/>
-                              <Component id="CauseImprison4" alignment="0" max="32767" attributes="0"/>
-                              <Component id="CauseImprison5" alignment="0" max="32767" attributes="0"/>
-                              <Component id="CauseImprison1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jLabel29" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="NamePolis5" alignment="1" min="-2" pref="241" max="-2" attributes="0"/>
+                                      <Component id="NamePolis6" min="-2" pref="241" max="-2" attributes="0"/>
+                                      <Component id="NamePolis4" alignment="1" min="-2" pref="241" max="-2" attributes="0"/>
+                                      <Component id="NamePolis3" alignment="1" min="-2" pref="241" max="-2" attributes="0"/>
+                                      <Component id="NamePolis2" alignment="1" min="-2" pref="241" max="-2" attributes="0"/>
+                                      <Component id="NamePolis1" alignment="1" min="-2" pref="241" max="-2" attributes="0"/>
+                                      <Component id="jLabel28" alignment="1" min="-2" pref="241" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="CauseImprison5" min="-2" pref="501" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                       <Group type="102" attributes="0">
@@ -932,13 +937,15 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel30" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="jLabel33" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="CourtType" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="SuspectFullName" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="crimecaseno" alignment="0" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel30" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="jLabel33" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="CourtType" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="SuspectFullName" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -1602,7 +1609,6 @@
                   <Font name="TH SarabunPSK" size="20" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#xe04;&#xe31;&#xe14;&#xe04;&#xe49;&#xe32;&#xe19;&#xe01;&#xe32;&#xe23;&#xe1b;&#xe23;&#xe30;&#xe01;&#xe31;&#xe19;&#xe15;&#xe31;&#xe27;"/>
-                <Property name="actionCommand" type="java.lang.String" value="&#xe04;&#xe31;&#xe14;&#xe04;&#xe49;&#xe32;&#xe19;&#xe01;&#xe32;&#xe23;&#xe1b;&#xe23;&#xe30;&#xe01;&#xe31;&#xe19;&#xe15;&#xe31;&#xe27;"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel18">
