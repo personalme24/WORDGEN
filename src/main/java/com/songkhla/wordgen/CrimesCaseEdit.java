@@ -51,7 +51,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
     public CrimesCaseEdit(JFrame parrent,JSONObject datain){
         super(parrent,true);
         initComponents();
-      
+        combo();
 //        jTextPoliceName.setText(Data.getPolicName());
         jLabelActionCode.setVisible(false);
         jLabelChargeCode.setVisible(false);
@@ -81,7 +81,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
             CrimeLocationDistrict.setText(datain.get("CrimeLocationDistrict")+"");
             CrimeLocationAmphur.setText(datain.get("CrimeLocationAmphur")+"");
             CrimeLocationProvince.setText(datain.get("CrimeLocationProvince")+"");
-            jTextPoliceName.setSelectedItem(datain.get("PoliceNameCase"));
+            jComboPoliceName.setSelectedItem(datain.get("PoliceNameCase"));
             jTextSuspect.setText(datain.get("SuspectandOther")+"");
             jTextWitness.setText(datain.get("WitnessandOther")+"");
             CaseRequestTimee.setValue(timeReq);
@@ -226,7 +226,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         jTextField1 = new javax.swing.JTextField();
         jLabel41 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
-        jTextPoliceName = new javax.swing.JComboBox<>();
+        jComboPoliceName = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         CaseType = new javax.swing.JLabel();
@@ -242,6 +242,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         jLabel3.setText("อำนาจศาล");
 
         crimecaseno.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        crimecaseno.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel4.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel4.setText("/");
@@ -539,8 +540,6 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         jLabel41.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel41.setText("บันทึกพนักงานสอบสวน");
 
-        jTextPoliceName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -721,7 +720,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
                                         .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextPoliceName, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jComboPoliceName, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jTextField2))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jButtonAddInvest, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -872,7 +871,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel38, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                            .addComponent(jTextPoliceName))
+                            .addComponent(jComboPoliceName))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel41, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1055,7 +1054,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
              
                 pst.setString(22,jTextCourtResult.getText());
                 pst.setString(23,jTextInvestSendtoDepartment.getText());
-                pst.setString(24,jTextPoliceName.getSelectedItem().toString());
+                pst.setString(24,jComboPoliceName.getSelectedItem().toString());
                 pst.setString(25,ListAsset.getText());
                 pst.setString(26,EvidenceRecordCase.getText());
                  pst.setString(27,AnswerSuspect.getText());
@@ -1281,6 +1280,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
     }//GEN-LAST:event_CaseAcceptDateActionPerformed
     public static String IdCase(){
          Connection con=null;
+         
          con=ConnectDatabase.connect();
             String sqlId="Select max(CaseId) caseid from CrimeCase";
         int id=0;
@@ -1305,6 +1305,27 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
 //            System.out.println(e);
         } 
     
+    }
+    public void combo(){
+    
+     try {
+
+         Connection con2 = ConnectDatabase.connect();
+	Statement st = con2.createStatement();
+        	String c = "Select InvestName from InvestInformation";
+        	ResultSet res = st.executeQuery(c);
+	//Vector<Object> v=new Vector<Object>();
+	
+	while(res.next())
+	{
+	jComboPoliceName.addItem(res.getString("InvestName"));
+
+	
+	}
+	
+}
+catch (Exception d) {  //System.out.println(d);  
+}
     }
     public static JComponent makeExamplePane() {
      JPanel text = new JPanel();
@@ -1401,6 +1422,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
     private javax.swing.JCheckBox jCheckNotSue;
     private javax.swing.JCheckBox jCheckOtherInvest;
     private javax.swing.JCheckBox jCheckSue;
+    private javax.swing.JComboBox<String> jComboPoliceName;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1451,7 +1473,6 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
     private javax.swing.JTextField jTextField26;
     private javax.swing.JTextField jTextInvestSendtoDepartment;
     private javax.swing.JTextField jTextInvestigatorResult;
-    private javax.swing.JComboBox<String> jTextPoliceName;
     public static javax.swing.JTextField jTextSuspect;
     public static javax.swing.JTextField jTextWitness;
     private lu.tudor.santec.jtimechooser.demo.JTimeChooserDemo jTimeChooserDemo1;

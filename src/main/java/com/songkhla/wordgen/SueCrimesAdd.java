@@ -29,22 +29,24 @@ public class SueCrimesAdd extends javax.swing.JDialog {
     public SueCrimesAdd(JFrame parrent,JSONObject datain) {
         super(parrent,true);
         initComponents();
-      
-     
-        if(datain != null){
-  
-        SueTimes.setText(datain.get("SueTimes")+"");
-        SueDate.setText(datain.get("SueDate")+"");
-        SueStart.setText(datain.get("SueStart")+"");
-
+        
+       String casea=datain.get("SueFrist")+"";
+       
+        if(casea.equals("SueFrist")){
+         isinsert=true;        
+        SueTimes.setText(sueTimes());
+       caseid.setText(datain.get("SueCaseId")+"");
+        noperson.setText(IdPerson());
         }
         else{
-            isinsert=true;
-        idCase=datain.get("SueCaseId")+"";      
-        SueTimes.setText(sueTimes());
-        noperson.setText(IdPerson());
-        
+       
+         SueTimes.setText(datain.get("SueTimes")+"");
+        SueDate.setText(datain.get("SueDate")+"");
+        SueStart.setText(datain.get("SueStart")+"");
+        caseid.setText(datain.get("SueCaseId")+"");
         }
+        
+        
     }
 
     /**
@@ -229,12 +231,6 @@ public class SueCrimesAdd extends javax.swing.JDialog {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(231, 231, 231)
-                .addComponent(jButtonSaveSue, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -293,6 +289,12 @@ public class SueCrimesAdd extends javax.swing.JDialog {
                             .addComponent(StatusSueAndPutInJail, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(SueCause, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(37, 37, 37))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonSaveSue, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(278, 278, 278))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -343,11 +345,11 @@ public class SueCrimesAdd extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel25)
                     .addComponent(SueRequest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(92, 92, 92)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonSaveSue)
                     .addComponent(jButton5))
-                .addGap(0, 41, Short.MAX_VALUE))
+                .addGap(45, 45, 45))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

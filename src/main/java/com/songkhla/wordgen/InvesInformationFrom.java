@@ -270,7 +270,7 @@ public class InvesInformationFrom extends javax.swing.JDialog {
         try {
     
                 String sql="INSERT INTO InvestInformation (InvestId,InvestCardID,InvestName,"
-                        + "InvestPosition,InvestBirthDay,InvestAge,InvestTel) VALUES (?,?,?,?,?,?,?,?)";
+                        + "InvestPosition,InvestBirthDay,InvestAge,InvestTel) VALUES (?,?,?,?,?,?,?)";
                 pst=con.prepareStatement(sql);
                 pst.setString(1,InvestId.getText());
                  pst.setString(2,InvestCardID.getText());

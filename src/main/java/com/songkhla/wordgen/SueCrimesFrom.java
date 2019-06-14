@@ -617,7 +617,11 @@ public class SueCrimesFrom extends javax.swing.JDialog {
     private void jButtonAddSueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddSueActionPerformed
         
         
-        SueCrimesAdd ca =new SueCrimesAdd(null,null);
+        JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame fs = (JFrame)(dialog.getParent());
+        fs.removeAll();    
+        SueCrimesAdd ca =new SueCrimesAdd(fs,null);
         ca.setVisible(true);
         
 // TODO add your handling code here:
@@ -634,7 +638,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 String SueTimes = jTableSue.getModel().getValueAt(jTableSue.getSelectedRow(), 0)+"";
 
                 String sql= "select SueTimes,SueDate,SueStart,SueEnd,SueTotal,\n"+ 
-                    "SueCause,SueRequest from Sue Where SueTimes='"+SueTimes+"' and SueCaseId='"+caseid+"'";
+                    "SueCause,SueRequest,SueCaseId from Sue Where SueTimes='"+SueTimes+"' and SueCaseId='"+caseid+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);
@@ -648,6 +652,8 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                     data.put("SueTotal", rs.getString("SueTotal"));
                     data.put("SueCause", rs.getString("SueCause"));
                      data.put("SueRequest", rs.getString("SueRequest"));
+                      data.put("SueCaseId", rs.getString("SueCaseId"));
+                    
                       JFrame frame = new JFrame();
                      JDialog dialog = new JDialog(frame);//frame is owner
                       JFrame sc = (JFrame)(dialog.getParent());

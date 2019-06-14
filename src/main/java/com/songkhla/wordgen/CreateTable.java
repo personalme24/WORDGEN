@@ -180,6 +180,7 @@ public class CreateTable {
                         "	AssetCode	VARCHAR(100)	,	\n"+
                         "	AssetList	VARCHAR(100)	,	\n"+
                           "	CauseDead	VARCHAR(100)	,	\n"+
+                          "	RecordInvestCase	VARCHAR(100)	,	\n"+
                          "	CircumstancesOfDeath	VARCHAR(100)		\n"+
                          "	);";
           String sqlAsset ="CREATE TABLE IF NOT EXISTS Asset (\n"+                 
