@@ -241,6 +241,8 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         jLabel41 = new javax.swing.JLabel();
         jTextRecordInvest = new javax.swing.JTextField();
         jComboPoliceName = new javax.swing.JComboBox<>();
+        jRadioKnowSuspect = new javax.swing.JRadioButton();
+        jRadioUnknowSuspect = new javax.swing.JRadioButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         CaseType = new javax.swing.JLabel();
@@ -410,7 +412,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
                 jButtonSaveCaseActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonSaveCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 740, 102, -1));
+        jPanel1.add(jButtonSaveCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 760, 102, -1));
 
         jLabel22.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel22.setText("ผู้ต้องหา");
@@ -418,10 +420,11 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
 
         jTextSuspect.setEditable(false);
         jTextSuspect.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jPanel1.add(jTextSuspect, new org.netbeans.lib.awtextra.AbsoluteConstraints(698, 80, 435, -1));
+        jPanel1.add(jTextSuspect, new org.netbeans.lib.awtextra.AbsoluteConstraints(813, 80, 320, -1));
 
         jButtonSuspect.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButtonSuspect.setText("เพิ่ม");
+        jButtonSuspect.setEnabled(false);
         jButtonSuspect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSuspectActionPerformed(evt);
@@ -577,7 +580,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
 
         jLabel38.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel38.setText("พนักงานสอบสวน");
-        jPanel1.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 640, -1, 30));
+        jPanel1.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 650, -1, 30));
 
         jLabel20.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel20.setText("คำให้การผู้ต้องหา");
@@ -626,17 +629,30 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
                 jButtonAddInvestActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonAddInvest, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 680, 61, 31));
+        jPanel1.add(jButtonAddInvest, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 690, 61, -1));
 
         jTextField1.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 390, 582, 80));
 
         jLabel41.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel41.setText("บันทึกพนักงานสอบสวน");
-        jPanel1.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 690, 139, -1));
-        jPanel1.add(jTextRecordInvest, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 680, 360, 32));
+        jPanel1.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 700, 139, -1));
+        jPanel1.add(jTextRecordInvest, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 690, 360, 32));
 
-        jPanel1.add(jComboPoliceName, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 640, 360, 30));
+        jPanel1.add(jComboPoliceName, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 650, 360, 30));
+
+        jRadioKnowSuspect.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jRadioKnowSuspect.setText("รู้ตัว");
+        jRadioKnowSuspect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioKnowSuspectActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jRadioKnowSuspect, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 80, -1, 30));
+
+        jRadioUnknowSuspect.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jRadioUnknowSuspect.setText("ไม่รู้ตัว");
+        jPanel1.add(jRadioUnknowSuspect, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 80, -1, 30));
 
         jScrollPane2.setViewportView(jPanel1);
 
@@ -688,9 +704,8 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addGap(0, 0, 0)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -1035,6 +1050,10 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
     private void CaseAcceptDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CaseAcceptDateActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CaseAcceptDateActionPerformed
+
+    private void jRadioKnowSuspectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioKnowSuspectActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioKnowSuspectActionPerformed
     public static String IdCase(){
          Connection con=null;
          
@@ -1217,6 +1236,8 @@ catch (Exception d) {  //System.out.println(d);
     public static javax.swing.JLabel jLabelChargeCode;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JRadioButton jRadioKnowSuspect;
+    private javax.swing.JRadioButton jRadioUnknowSuspect;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;

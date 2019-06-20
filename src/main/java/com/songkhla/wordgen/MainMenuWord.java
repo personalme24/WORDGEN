@@ -990,6 +990,7 @@ public class MainMenuWord extends javax.swing.JFrame {
 
     private void BailMenuMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BailMenuMouseMoved
         // TODO add your handling code here:
+          setPanelBackground(BailMenu);
     }//GEN-LAST:event_BailMenuMouseMoved
 
     private void BailMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BailMenuMouseClicked
@@ -1000,6 +1001,7 @@ public class MainMenuWord extends javax.swing.JFrame {
 
     private void BailMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BailMenuMouseExited
         // TODO add your handling code here:
+         resetPanelBackground(BailMenu);
     }//GEN-LAST:event_BailMenuMouseExited
 
     private void BailMenuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BailMenuMousePressed
@@ -1012,14 +1014,17 @@ public class MainMenuWord extends javax.swing.JFrame {
 
     private void howtomenu1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_howtomenu1MouseMoved
         // TODO add your handling code here:
+          setPanelBackground(howtomenu1);
     }//GEN-LAST:event_howtomenu1MouseMoved
 
     private void howtomenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_howtomenu1MouseClicked
         // TODO add your handling code here:
+//         resetPanelBackground(howtomenu1);
     }//GEN-LAST:event_howtomenu1MouseClicked
 
     private void howtomenu1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_howtomenu1MouseExited
         // TODO add your handling code here:
+                 resetPanelBackground(howtomenu1);
     }//GEN-LAST:event_howtomenu1MouseExited
 
     private void ManageSuspectMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ManageSuspectMenuMouseClicked
