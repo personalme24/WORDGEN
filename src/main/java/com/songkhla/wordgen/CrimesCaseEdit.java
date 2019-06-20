@@ -23,6 +23,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ButtonGroup;
 import javax.swing.JComponent;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -33,6 +34,8 @@ import javax.swing.JSpinner;
 import javax.swing.JTextArea;
 import javax.swing.SpinnerDateModel;
 import javax.swing.UIManager;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import org.json.simple.JSONObject;
 
 /**
@@ -63,6 +66,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
 //          ex.getMessage();
 //      }
            initComponents();
+           eventJRadioKnowSuspect();
         
         
         comboInvest();
@@ -424,7 +428,6 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
 
         jButtonSuspect.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButtonSuspect.setText("เพิ่ม");
-        jButtonSuspect.setEnabled(false);
         jButtonSuspect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSuspectActionPerformed(evt);
@@ -1054,6 +1057,25 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
     private void jRadioKnowSuspectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioKnowSuspectActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioKnowSuspectActionPerformed
+    public void eventJRadioKnowSuspect(){
+    ButtonGroup g=new ButtonGroup();
+        g.add(jRadioKnowSuspect);
+        g.add(jRadioUnknowSuspect);
+        jRadioKnowSuspect.setSelected(true);
+       jRadioKnowSuspect.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+            if(jRadioKnowSuspect.isSelected()){
+            jButtonSuspect.setEnabled(true);
+            
+            }
+            else jButtonSuspect.setEnabled(false);
+            }
+        }
+        );
+      
+               }
+    
     public static String IdCase(){
          Connection con=null;
          
