@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package com.songkhla.wordgen;
+import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseno;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -33,7 +34,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         if(datain != null){
             person=datain.get("SuePersonId")+"";
             caseid=datain.get("SueCaseId")+"";
-         
+            System.out.println("fff "+person+caseid);
         crimecaseno.setText(datain.get("crimecasenoyear")+"");
         PeopleRegistrationID.setText(datain.get("PeopleRegistrationID")+"");
         AccureandOther.setText(datain.get("AccureandOther")+"");
@@ -99,6 +100,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         jButtonEditSue = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setAlwaysOnTop(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -616,12 +618,15 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 
     private void jButtonAddSueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddSueActionPerformed
         
-        
+
+        JSONObject s = new JSONObject();
+        s.put("SueCaseId",caseid );
+        s.put("SuePersonId",person );        
         JFrame frame = new JFrame();
         JDialog dialog = new JDialog(frame);//frame is owner
         JFrame fs = (JFrame)(dialog.getParent());
         fs.removeAll();    
-        SueCrimesAdd ca =new SueCrimesAdd(fs,null);
+        SueCrimesAdd ca =new SueCrimesAdd(fs,s);
         ca.setVisible(true);
         
 // TODO add your handling code here:
@@ -638,7 +643,8 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 String SueTimes = jTableSue.getModel().getValueAt(jTableSue.getSelectedRow(), 0)+"";
 
                 String sql= "select SueTimes,SueDate,SueStart,SueEnd,SueTotal,\n"+ 
-                    "SueCause,SueRequest,SueCaseId from Sue Where SueTimes='"+SueTimes+"' and SueCaseId='"+caseid+"'";
+                    "SueCause,SueRequest,SueCaseId,SuePersonId from Sue\n"
+                    + "Where SueTimes='"+SueTimes+"' and SueCaseId='"+caseid+"' and SuePersonId='"+person+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);
@@ -653,6 +659,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                     data.put("SueCause", rs.getString("SueCause"));
                      data.put("SueRequest", rs.getString("SueRequest"));
                       data.put("SueCaseId", rs.getString("SueCaseId"));
+                      data.put("SuePersonId", rs.getString("SuePersonId"));
                     
                       JFrame frame = new JFrame();
                      JDialog dialog = new JDialog(frame);//frame is owner

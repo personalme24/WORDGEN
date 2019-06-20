@@ -31,21 +31,32 @@ public class SueCrimesAdd extends javax.swing.JDialog {
         initComponents();
         
        String casea=datain.get("SueFrist")+"";
-       
+       System.out.print("hhhhhhhhhhh: "+casea);
         if(casea.equals("SueFrist")){
-         isinsert=true;        
-        SueTimes.setText(sueTimes());
+       isinsert=true;
+//        SueTimes.setText(sueTimes());
        caseid.setText(datain.get("SueCaseId")+"");
         noperson.setText(IdPerson());
         }
         else{
-       
-         SueTimes.setText(datain.get("SueTimes")+"");
-        SueDate.setText(datain.get("SueDate")+"");
-        SueStart.setText(datain.get("SueStart")+"");
+//        SueTimes.setText(sueTimes());
+          isinsert=true;
+        noperson.setText(datain.get("SuePersonId")+"");
         caseid.setText(datain.get("SueCaseId")+"");
+           
         }
-        
+                   isinsert=false;
+                 noperson.setText(datain.get("SuePersonId")+"");
+                 caseid.setText(datain.get("SueCaseId")+"");               
+                 SueTimes.setText(datain.get("SueTimes")+"");
+                 SueTotal.setText(datain.get("SueTotal")+"");                
+                 SueDate.setText(datain.get("SueDate")+"");                
+                 SueStart.setText(datain.get("SueStart")+"");                
+                 SueEnd.setText(datain.get("SueEnd")+"");                 
+                 SueCause.setSelectedItem(datain.get("SueCause"));
+                 SueRequest.setSelectedItem(datain.get("SueRequest"));
+                 
+//         System.out.println("llllllll: "+sueTimes());
         
     }
 
@@ -127,8 +138,7 @@ public class SueCrimesAdd extends javax.swing.JDialog {
 
         NoImprison.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        SueTimes.setEditable(false);
-        SueTimes.setBorder(null);
+        SueTimes.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         SueTimes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SueTimesActionPerformed(evt);
@@ -383,14 +393,15 @@ public class SueCrimesAdd extends javax.swing.JDialog {
         
         con=ConnectDatabase.connect();
 
-
-        try {
-            Statement stmt = con.createStatement();
-//            ResultSet rs = stmt.executeQuery(sql2);
-             String personid=IdPerson();
-             if(isinsert){
-                String sql="INSERT INTO Sue (SueTimes,SueDate,SueStart,SueEnd,SueTotal,SueCause,\n"
+if(isinsert){
+    
+    String sql="INSERT INTO Sue (SueTimes,SueDate,SueStart,SueEnd,SueTotal,SueCause,\n"
                          + "SueRequest,SuePersonId,SueCaseId) VALUES (?,?,?,?,?,?,?,?,?)";
+        try {
+       
+             String personid=IdPerson();
+             
+                
                 pst=con.prepareStatement(sql);
                 pst.setString(1,SueTimes.getText());
                 pst.setString(2,SueDate.getText());
@@ -399,18 +410,23 @@ public class SueCrimesAdd extends javax.swing.JDialog {
                 pst.setString(5,SueTotal.getText());
                 pst.setString(6,SueCause.getSelectedItem()+"");
                 pst.setString(7,SueRequest.getSelectedItem()+"");
-                pst.setString(8,personid);
-                pst.setString(9,idCase);
+                pst.setString(8,noperson.getText());
+                pst.setString(9,caseid.getText());
 
               
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Data Saved successfully");
                 pst.close();
              }
+         catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"not success");
+            System.out.println(e);
+        }
+}
            else{
+    try{
                 String sqlUpdate= "UPDATE Sue Set\n "
                 + "SueTimes=?,"
-                + "v=?,"
                 + "NoImprison=?,"
                 + "NumberImprison=?,"
                 + "SinceImprison=?"
@@ -427,12 +443,14 @@ public class SueCrimesAdd extends javax.swing.JDialog {
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Data Saved successfully");
                 System.out.println("SQL : "+sqlUpdate);
-            }
+            
         }
         catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
             System.out.println("SQL : "+pst);
         }
+    
+    }
         setVisible(false);
     }//GEN-LAST:event_jButtonSaveSueActionPerformed
 
@@ -443,35 +461,35 @@ public class SueCrimesAdd extends javax.swing.JDialog {
     /**
      * @param args the command line arguments
      */
-  public static String sueTimes(){
-         Connection con=null;
-         con=ConnectDatabase.connect();
-         String personid=IdPerson();
-            String sqlId="Select max(SueTimes) SueTimes from Sue where SuePersonId="+personid;
-            
-        int id=0;
-        try {
-            Statement s=con.createStatement();
-            ResultSet rs=s.executeQuery(sqlId);
-            
-            if (rs.next()) {
-                id=rs.getInt("SueTimes"); 
-            }
-            
-            if(id==0){
-                id=1;
-            }
-            else{
-                id=id+1;
-            }
-             return String.valueOf(id);
-        
-        } catch (Exception e) {
-            return null;
-//            System.out.println(e);
-        } 
-    
-    }
+//  public static String sueTimes(){
+//         Connection con=null;
+//         con=ConnectDatabase.connect();
+//  
+//            String sqlId="Select max(SueTimes) suetimes from Sue where SueCaseId="+personid;
+//            
+//        int id=0;
+//        try {
+//            Statement s=con.createStatement();
+//            ResultSet rs=s.executeQuery(sqlId);
+//            
+//            if (rs.next()) {
+//                id=rs.getInt("suetimes"); 
+//            }
+//            
+//            if(id==0){
+//                id=1;
+//            }
+//            else{
+//                id=id+1;
+//            }
+//             return String.valueOf(id);
+//        
+//        } catch (Exception e) {
+//            return null;
+////            System.out.println(e);
+//        } 
+//    
+//    }
    public static String IdPerson(){
          Connection con=null;
          con=ConnectDatabase.connect();

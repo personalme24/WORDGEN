@@ -712,9 +712,7 @@ public class MainMenuWord extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(22, Short.MAX_VALUE))
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
@@ -726,9 +724,7 @@ public class MainMenuWord extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -964,7 +960,7 @@ public class MainMenuWord extends javax.swing.JFrame {
         JDialog dialog = new JDialog(frame);//frame is owner
         JFrame in = (JFrame)(dialog.getParent());
         in.removeAll();
-        InvesInformationView iv=new InvesInformationView(in);
+        InvesInformationView1 iv=new InvesInformationView1(this);
         iv.setVisible(true);
     }//GEN-LAST:event_howtomenuMouseClicked
 
@@ -1080,7 +1076,6 @@ public class MainMenuWord extends javax.swing.JFrame {
     private javax.swing.JPanel SueMenu;
     private javax.swing.JLabel UserName;
     private javax.swing.JPanel formmenu;
-    private javax.swing.JPanel formmenu1;
     private javax.swing.JPanel howtomenu;
     private javax.swing.JPanel howtomenu1;
     private javax.swing.JLabel jLabel1;
@@ -1091,7 +1086,6 @@ public class MainMenuWord extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

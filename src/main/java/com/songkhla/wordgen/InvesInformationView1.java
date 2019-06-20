@@ -5,6 +5,8 @@
  */
 package com.songkhla.wordgen;
 
+import static com.songkhla.wordgen.ListSuspect.jTableSuspect;
+import static com.songkhla.wordgen.ListSuspect.txtCaseNO;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -18,17 +20,18 @@ import org.json.simple.JSONObject;
  *
  * @author Petpilin
  */
-public class InvesInformationView extends javax.swing.JDialog{
+public class InvesInformationView1 extends javax.swing.JDialog{
 
     /**
      * Creates new form InvesInformationView
      */
  
-        
-    public InvesInformationView(JFrame parrent) {
+        Connection con=null;
+    public InvesInformationView1(JFrame parrent) {
         super(parrent,true);
         initComponents();
         RefreshData();
+        
     }
 
     /**
@@ -195,60 +198,29 @@ public class InvesInformationView extends javax.swing.JDialog{
 
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
         // TODO add your handling code here:
-//         JFrame frame = new JFrame();
-//        JDialog dialog = new JDialog(frame);//frame is owner
-//        JFrame fwit = (JFrame)(dialog.getParent());
-//        fwit.removeAll();
-       InvesInformationFrom ii=new InvesInformationFrom(null,null);
+         JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame fwit = (JFrame)(dialog.getParent());
+        fwit.removeAll();
+       InvesInformationFrom ii=new InvesInformationFrom(fwit,null);
         ii.setVisible(true);
+                RefreshData();
+
     }//GEN-LAST:event_jButtonAddActionPerformed
 
     private void jButtonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditActionPerformed
         // TODO add your handling code here:
-        if(jTableInvest.getSelectedRow()>=0){
-            try{
-                String investId = jTableInvest.getModel().getValueAt(jTableInvest.getSelectedRow(), 0)+"";
-
-                String sql="select InvestId,InvestCardID,InvestName,InvestPosition,"
-                        + "InvestBirthDay,InvestAge,InvestTel from InvestInformation where InvestId="+investId;
-                Connection con = ConnectDatabase.connect();
-                Statement stmt = con.createStatement();
-                ResultSet rs = stmt.executeQuery(sql);
-                System.out.println("ExSql : "+sql);
-                if(rs.next()){
-                    JSONObject data = new JSONObject();
-                    data.put("InvestId", rs.getString("InvestId"));
-                    data.put("InvestCardID", rs.getString("InvestCardID"));
-                    data.put("InvestName", rs.getString("InvestName"));
-                    data.put("InvestPosition", rs.getString("InvestPosition"));
-                    data.put("InvestBirthDay", rs.getString("InvestBirthDay"));
-                    data.put("InvestAge", rs.getString("InvestAge"));
-                    data.put("InvestTel", rs.getString("InvestTel"));
-                         JFrame frame = new JFrame();
-                      JDialog dialog = new JDialog(frame);//frame is owner
-                    JFrame fwit = (JFrame)(dialog.getParent());
-                    InvesInformationFrom iif =new InvesInformationFrom(fwit,data);
-                    iif.setVisible(true);
-                }
-
-                rs.close();
-                stmt.close();
-                RefreshData();
-            }catch(Exception ex){
-                ex.printStackTrace();
-
-            }
-        }else{
-
-        }
+       
     }//GEN-LAST:event_jButtonEditActionPerformed
   public void RefreshData(){
-        try{
+     try{
+              
         Connection con = ConnectDatabase.connect();
         Statement stmt = con.createStatement();
-        String sql = "select InvestId,InvestCardID,InvestName,InvestPosition,InvestBirthDay,InvestAge,InvestTel "
-                + "from InvestInformation";
+       
+        String sql = "select InvestId,InvestCardID,InvestName,InvestPosition,InvestBirthDay,InvestAge,InvestTel from InvestInformation" ;
         ResultSet rs = stmt.executeQuery(sql);
+          System.out.println("SQL : "+sql);
         Vector<Vector> tabledata = new Vector<Vector>();
         while(rs.next()){
             Vector<String> row = new Vector<String>();
@@ -258,20 +230,19 @@ public class InvesInformationView extends javax.swing.JDialog{
             row.add(rs.getString("InvestBirthDay"));
             row.add(rs.getString("InvestAge"));
             row.add(rs.getString("InvestTel"));
-//            row.add(rs.getString("CaseRequestDate"));
-//            row.add("-");
             tabledata.add(row);
         }
         rs.close();
         stmt.close();
         Vector ColumnName = new Vector();
-        ColumnName.add("ลำดับ");
+       ColumnName.add("ลำดับ");
         ColumnName.add("ยศนาม");
         ColumnName.add("ตำแหน่ง");
         ColumnName.add("วันเดือนปีเกิด");
         ColumnName.add("อายุ");     
         ColumnName.add("เบอร์โทรศัพท์");
-
+         System.out.println("SQL : "+sql);
+     
         jTableInvest.setModel(new javax.swing.table.DefaultTableModel(
             tabledata,
             ColumnName
@@ -284,7 +255,9 @@ public class InvesInformationView extends javax.swing.JDialog{
                 return types [columnIndex];
             }
         });
-        
+                             System.out.println("SQL : "+sql);
+                             System.out.println("runagainnn");
+
         }catch(Exception ex){
             ex.printStackTrace();
         }
@@ -306,14 +279,15 @@ public class InvesInformationView extends javax.swing.JDialog{
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InvesInformationView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InvesInformationView1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InvesInformationView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InvesInformationView1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InvesInformationView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InvesInformationView1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InvesInformationView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InvesInformationView1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

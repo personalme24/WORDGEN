@@ -212,7 +212,7 @@ String typeC;
                 String PeopleRegistrationID = jTableSuspect.getModel().getValueAt(jTableSuspect.getSelectedRow(), 0)+"";            
                 String sql = "select NoPerson,Identification,CurrentAddress,Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,Weight,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                        "PhonePerson,StatusSuspect,Province,Race,Religion,Tambon,TypePerson,ZipCode,caseIdPerson from person where PeopleRegistrationID='"+PeopleRegistrationID+ "' and caseIdPerson='"+crimecaseno+"'";
+                        "PhonePerson,StatusSuspect,Province,Race,Religion,Tambon,TypePerson,ZipCode,caseIdPerson,ArrestDateTime,PlaceArrest from person where PeopleRegistrationID='"+PeopleRegistrationID+ "' and caseIdPerson='"+crimecaseno+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);
@@ -248,6 +248,8 @@ String typeC;
                     data.put("Religion", rs.getString("Religion"));
                     data.put("Tambon", rs.getString("Tambon"));
                     data.put("CurrentAddress", rs.getString("CurrentAddress"));
+                    data.put("ArrestDateTime", rs.getString("ArrestDateTime"));
+                    data.put("PlaceArrest", rs.getString("PlaceArrest"));
                 
                             SuspectForm suspectF=new SuspectForm(f,data);
                             suspectF.setVisible(true);    		

@@ -286,9 +286,36 @@ public class CreateTable {
                 "	SuePersonId	INTEGER	not null, \n"+	
                 "	SueCaseId	INTEGER	not null		\n"+
                     "	);";
-            
-            
-        
+               
+            String sqlBailAsset ="CREATE TABLE IF NOT EXISTS BailAsset (\n"+
+                            "	BailAssetId	INTEGER	Primary Key AUTOINCREMENT,	\n"+
+                            "	BailAssetOrder	INTEGER	,	\n"+
+                            "	BailAssetDetail	VARCHAR(100)	,	\n"+
+                            "	BailAssetBath	VARCHAR(100)	,	\n"+
+                            "	BailAssetTotal	VARCHAR(100)	,	\n"+
+                            "	BailAssetRemark	VARCHAR(100)	,	\n"+
+                            "	BailCaseId	INTEGER	,	\n"+
+                            "	BailPersonId	INTEGER		\n"+
+                    "	);";
+             String sqlBail ="CREATE TABLE IF NOT EXISTS Bail (\n"+
+                              "	BailAssetId	INTEGER	Primary Key AUTOINCREMENT,	\n"+
+                                "	BailAssetOrder	INTEGER	,	\n"+
+                                "	BailAssetDetail	VARCHAR(100)	,	\n"+
+                                "	BailAssetBath	VARCHAR(100)	,	\n"+
+                                "	BailAmount	VARCHAR(100)	,	\n"+
+                                "	BailAssetTotal	VARCHAR(100)	,	\n"+
+                                "	BailAssetRemark	VARCHAR(100)	,	\n"+
+                                "	BailCaseId	INTEGER	,	\n"+
+                                "	BailPersonId	INTEGER		\n"+
+                    "	);";            
+                String sqlDeliverySuspect ="CREATE TABLE IF NOT EXISTS DeliverySuspect (\n"+
+                                "	DeliId	INTEGER	Primary Key AUTOINCREMENT,	\n"+
+                                "	DeliOrder	INTEGER	,	\n"+
+                                "	DeliDate	VARCHAR(100)	,	\n"+
+                                "	DeliTimes	VARCHAR(100)	,	\n"+
+                                "	DeliPlace	VARCHAR(100)	,	\n"+
+                                "	DeliPersonId	INTEGER		\n"+         
+                                "	);"; 
                       
 	        try ( 
                         Statement stmt = cc.createStatement()) {
@@ -304,6 +331,9 @@ public class CreateTable {
                       stmt.execute(sqlRecord); 
                       stmt.execute(sqlInvest);
                       stmt.execute(sqlSue);
+                       stmt.execute(sqlBailAsset);
+                      stmt.execute(sqlBail);
+                      stmt.execute(sqlDeliverySuspect);
 
                        stmt.close();
                     System.out.println("Create Table Complete");

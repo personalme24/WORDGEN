@@ -8,20 +8,24 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import org.json.simple.JSONObject;
 /**
  *
  * @author Petpilin
  */
-public class BailAssetAdd extends javax.swing.JFrame {
+public class BailAssetAdd extends javax.swing.JDialog {
     Connection con=null;
     PreparedStatement pst=null;
     DataCase dc =new DataCase();
+    boolean isInsert;
     /**
      * Creates new form BailAssetAdd
      */
-    public BailAssetAdd() {
-        initComponents();
+    public BailAssetAdd(JFrame parrent,JSONObject datain) {
+                super(parrent,true);        
+                initComponents();
     }
 
     /**
@@ -37,21 +41,21 @@ public class BailAssetAdd extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        No = new javax.swing.JTextField();
+        BailAssetOrder = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        AssetsName = new javax.swing.JTextField();
+        BailAssetDetail = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
-        AssetAmount = new javax.swing.JTextField();
+        BailAmount = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        AssetsUnitValueBaht = new javax.swing.JTextField();
-        AssetsTotalValueBaht = new javax.swing.JTextField();
+        BailAssetBath = new javax.swing.JTextField();
+        BailAssetTotal = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        Remark = new javax.swing.JTextArea();
+        BailAssetRemark = new javax.swing.JTextArea();
         jButtonSave = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -81,24 +85,24 @@ public class BailAssetAdd extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel16.setText("ลำดับ");
 
-        No.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        BailAssetOrder.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel17.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel17.setText("ทรัพย์สิน");
 
-        AssetsName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        BailAssetDetail.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel18.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel18.setText("จำนวน");
 
-        AssetAmount.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        BailAmount.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel19.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel19.setText("มูลค่า(บาท)");
 
-        AssetsUnitValueBaht.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        BailAssetBath.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        AssetsTotalValueBaht.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        BailAssetTotal.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel21.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel21.setText("รวมมูลค่า(บาท)");
@@ -106,9 +110,9 @@ public class BailAssetAdd extends javax.swing.JFrame {
         jLabel23.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel23.setText("หมายเหตุ");
 
-        Remark.setColumns(20);
-        Remark.setRows(5);
-        jScrollPane4.setViewportView(Remark);
+        BailAssetRemark.setColumns(20);
+        BailAssetRemark.setRows(5);
+        jScrollPane4.setViewportView(BailAssetRemark);
 
         jButtonSave.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButtonSave.setText("บันทึก");
@@ -134,12 +138,12 @@ public class BailAssetAdd extends javax.swing.JFrame {
                     .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(No)
-                    .addComponent(AssetsName)
-                    .addComponent(AssetAmount)
+                    .addComponent(BailAssetOrder)
+                    .addComponent(BailAssetDetail)
+                    .addComponent(BailAmount)
                     .addComponent(jScrollPane4)
-                    .addComponent(AssetsUnitValueBaht)
-                    .addComponent(AssetsTotalValueBaht))
+                    .addComponent(BailAssetBath)
+                    .addComponent(BailAssetTotal))
                 .addGap(58, 58, 58))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(288, Short.MAX_VALUE)
@@ -153,23 +157,23 @@ public class BailAssetAdd extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(No, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BailAssetOrder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AssetsName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BailAssetDetail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AssetsUnitValueBaht, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BailAssetBath, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AssetAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BailAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AssetsTotalValueBaht, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BailAssetTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -197,26 +201,34 @@ public class BailAssetAdd extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         con=ConnectDatabase.connect();
-        String sql2= "select * from Person";
+        if(isInsert){
 
         try {
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery(sql2);
-            if(!rs.next()){
-                String sql="INSERT INTO Person (AssetAmount,AssetsName,AssetsTotalValueBaht,AssetsTotalValueSatang,AssetsUnitValueBaht,AssetsUnitValueSatang,"
-                + "Remark) VALUES (?,?,?,?,?,?,?)";
+
+                String sql="INSERT INTO BailAsset (BailAssetOrder,BailAssetDetail,BailAssetBath,BailAmount,BailAssetTotal,BailAssetRemark,BailCaseId,BailPersonId\n"
+                + "VALUES (?,?,?,?,?,?,?,?)";
                 pst=con.prepareStatement(sql);
                
-                pst.setString(1,AssetAmount.getText());
-                pst.setString(2,AssetsName.getText());
-                pst.setString(3,AssetsTotalValueBaht.getText());
-                pst.setString(5,AssetsUnitValueBaht.getText());           
-                pst.setString(7,Remark.getText());
+                pst.setString(1,BailAssetOrder.getText());
+                pst.setString(2,BailAssetDetail.getText());
+                pst.setString(3,BailAssetBath.getText());
+                pst.setString(4,BailAmount.getText());           
+                pst.setString(5,BailAssetTotal.getText());
+                pst.setString(6,BailAssetRemark.getText());
+                pst.setString(7,BailAssetRemark.getText());
+                pst.setString(8,BailAssetRemark.getText());
           
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Data Saved successfully");
                 pst.close();
-            }else{
+        }
+                 catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+            System.out.println("SQL : "+pst);
+        }
+        }  
+            else{
+            try{
                 String sqlUpdate= "UPDATE Person Set\n "
                 + "AssetAmount=?,"
                 + "AssetsName=?,"
@@ -229,19 +241,20 @@ public class BailAssetAdd extends javax.swing.JFrame {
                 + "Where IdCardPolice=?";
                 
                 pst=con.prepareStatement(sqlUpdate);
-                pst.setString(1,AssetAmount.getText());
-                pst.setString(2,AssetsName.getText());
-                pst.setString(3,AssetsTotalValueBaht.getText());      
-                pst.setString(5,AssetsUnitValueBaht.getText());
-                pst.setString(7,Remark.getText());
+                pst.setString(1,BailAmount.getText());
+                pst.setString(2,BailAssetDetail.getText());
+                pst.setString(3,BailAssetTotal.getText());      
+                pst.setString(5,BailAssetBath.getText());
+                pst.setString(7,BailAssetRemark.getText());
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Data Saved successfully");
                 System.out.println("SQL : "+sqlUpdate);
             }
-        }
+        
         catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
             System.out.println("SQL : "+pst);
+           }
         }
         setVisible(false);
 
@@ -277,18 +290,18 @@ public class BailAssetAdd extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BailAssetAdd().setVisible(true);
+//                new BailAssetAdd().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField AssetAmount;
-    private javax.swing.JTextField AssetsName;
-    private javax.swing.JTextField AssetsTotalValueBaht;
-    private javax.swing.JTextField AssetsUnitValueBaht;
-    private javax.swing.JTextField No;
-    private javax.swing.JTextArea Remark;
+    private javax.swing.JTextField BailAmount;
+    private javax.swing.JTextField BailAssetBath;
+    private javax.swing.JTextField BailAssetDetail;
+    private javax.swing.JTextField BailAssetOrder;
+    private javax.swing.JTextArea BailAssetRemark;
+    private javax.swing.JTextField BailAssetTotal;
     private javax.swing.JButton jButtonSave;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;

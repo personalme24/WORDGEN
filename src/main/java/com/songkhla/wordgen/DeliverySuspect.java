@@ -17,6 +17,7 @@ public class DeliverySuspect extends javax.swing.JFrame {
     Connection con=null;
     PreparedStatement pst=null;
     DataCase dc =new DataCase();
+    boolean isInsert;
     /**
      * Creates new form DeliverySuspect
      */
@@ -36,14 +37,14 @@ public class DeliverySuspect extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        No = new javax.swing.JTextField();
+        DeliOrder = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        DueDate = new javax.swing.JTextField();
-        DueDateTime = new javax.swing.JTextField();
+        DeliDate = new javax.swing.JTextField();
+        DeliTimes = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        HandOverLocation = new javax.swing.JTextField();
+        DeliPlace = new javax.swing.JTextField();
         jButtonSave = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -73,7 +74,7 @@ public class DeliverySuspect extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        No.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        DeliOrder.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel16.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel16.setText("ครั้งที่");
@@ -81,9 +82,9 @@ public class DeliverySuspect extends javax.swing.JFrame {
         jLabel17.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel17.setText("วันเดือนปีที่ส่งตัว");
 
-        DueDate.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        DeliDate.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        DueDateTime.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        DeliTimes.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel18.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel18.setText("เวลา");
@@ -91,7 +92,7 @@ public class DeliverySuspect extends javax.swing.JFrame {
         jLabel19.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel19.setText("สถานที่ส่งตัว");
 
-        HandOverLocation.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        DeliPlace.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jButtonSave.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButtonSave.setText("บันทึก");
@@ -112,7 +113,7 @@ public class DeliverySuspect extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(HandOverLocation, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE))
+                        .addComponent(DeliPlace, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -121,9 +122,9 @@ public class DeliverySuspect extends javax.swing.JFrame {
                                 .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(DueDate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
-                            .addComponent(No, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(DueDateTime))))
+                            .addComponent(DeliDate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
+                            .addComponent(DeliOrder, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(DeliTimes))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(280, Short.MAX_VALUE)
@@ -137,19 +138,19 @@ public class DeliverySuspect extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(No, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(DeliOrder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DueDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(DeliDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DueDateTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(DeliTimes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(HandOverLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(DeliPlace, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(69, 69, 69)
                 .addComponent(jButtonSave)
                 .addGap(0, 99, Short.MAX_VALUE))
@@ -173,25 +174,29 @@ public class DeliverySuspect extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         con=ConnectDatabase.connect();
-        String sql2= "select * from Person";
-
+        if(isInsert){
         try {
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery(sql2);
-            if(!rs.next()){
-                String sql="INSERT INTO Person (DueDate,DueDateTime,HandOverLocation) VALUES (?,?,?)";
+     
+           
+                String sql="INSERT INTO DeliverySuspect (DeliOrder,DeliDate,DeliTimes,DeliPlace,DeliPersonId) VALUES (?,?,?,?,?)";
                 pst=con.prepareStatement(sql);
                
-                pst.setString(1,DueDate.getText());
-                pst.setString(2,DueDateTime.getText());
-                pst.setString(3,HandOverLocation.getText());
-               
-                
+                pst.setString(1,DeliOrder.getText());
+                pst.setString(2,DeliDate.getText());
+                pst.setString(3,DeliTimes.getText());
+                pst.setString(4,DeliPlace.getText());
+                pst.setString(5,DeliTimes.getText());
               
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Data Saved successfully");
                 pst.close();
-            }else{
+            }
+          catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+            System.out.println("SQL : "+pst);
+        }
+        }else{
+            try{
                 String sqlUpdate= "UPDATE Person Set\n "
                 + "DueDate=?,"
                 + "DueDateTime=?,"
@@ -199,18 +204,22 @@ public class DeliverySuspect extends javax.swing.JFrame {
                 + "Where =?";
                 
                 pst=con.prepareStatement(sqlUpdate);
-                pst.setString(1,DueDate.getText());
-                pst.setString(2,DueDateTime.getText());
-                pst.setString(3,HandOverLocation.getText());
+                pst.setString(1,DeliDate.getText());
+                pst.setString(2,DeliTimes.getText());
+                pst.setString(3,DeliPlace.getText());
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Data Saved successfully");
                 System.out.println("SQL : "+sqlUpdate);
-            }
-        }
-        catch (Exception e) {
+                }
+                catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
             System.out.println("SQL : "+pst);
         }
+            } 
+        
+       
+        
+      
         setVisible(false);
     }//GEN-LAST:event_jButtonSaveActionPerformed
 
@@ -250,10 +259,10 @@ public class DeliverySuspect extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField DueDate;
-    private javax.swing.JTextField DueDateTime;
-    private javax.swing.JTextField HandOverLocation;
-    private javax.swing.JTextField No;
+    private javax.swing.JTextField DeliDate;
+    private javax.swing.JTextField DeliOrder;
+    private javax.swing.JTextField DeliPlace;
+    private javax.swing.JTextField DeliTimes;
     private javax.swing.JButton jButtonSave;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;
