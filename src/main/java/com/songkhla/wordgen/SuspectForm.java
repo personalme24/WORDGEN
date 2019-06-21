@@ -33,7 +33,7 @@ public class SuspectForm extends javax.swing.JDialog {
     Connection con2=null;
      PreparedStatement pst=null;
      boolean isInsert;
-     String noPerson;
+     String noPerson,caseid;
     /**
      * Creates new form AccusedForm
      */
@@ -58,6 +58,7 @@ public class SuspectForm extends javax.swing.JDialog {
             isInsert=false;
             String statusSus;
             statusSus=datain.get("StatusSuspect")+"";
+            caseid=datain.get("caseIdPerson")+"";
             noPerson=datain.get("NoPerson")+"";
             crimecaseno.setText(datain.get("caseIdPerson")+"");
             PeopleRegistrationID.setText(datain.get("PeopleRegistrationID")+"");
@@ -1428,10 +1429,10 @@ public class SuspectForm extends javax.swing.JDialog {
             Statement stmt = con.createStatement();
             //        String a=txtCaseNO.getText();
 
-            String sql= "select CaseId,PeopleRegistrationID,crimecasenoyear,AccureandOther,ChargeName,FullNamePerson,PeopleRegistrationID,SueTimes,SueDate,SuePersonId,SueCaseId from Sue\n"+
+            String sql= "select CaseId,PeopleRegistrationID,crimecasenoyear,AccureandOther,ChargeName,FullNamePerson,SueTimes,SueDate,SuePersonId,SueCaseId from Sue\n"+
             "left join Person on Sue.SuePersonId=Person.NoPerson\n"+
             "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId\n"+
-            "left join Charge on CrimeCase.ChargeCodeCase=Charge.ChargeCode Where CaseIdPerson='"+crimecaseno.getText()+"' and NoPerson='"+noPerson+"'";
+            "left join Charge on CrimeCase.ChargeCodeCase=Charge.ChargeCode Where CaseIdPerson='"+caseid+"' and NoPerson='"+noPerson+"'";
             ResultSet rs = stmt.executeQuery(sql);
             System.out.println("SQL : "+sql);
             JSONObject data = new JSONObject();

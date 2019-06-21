@@ -250,7 +250,7 @@ String typeC;
                     data.put("CurrentAddress", rs.getString("CurrentAddress"));
                     data.put("ArrestDateTime", rs.getString("ArrestDateTime"));
                     data.put("PlaceArrest", rs.getString("PlaceArrest"));
-                
+                    data.put("caseIdPerson", rs.getString("caseIdPerson"));
                             SuspectForm suspectF=new SuspectForm(f,data);
                             suspectF.setVisible(true);    		
                 }
