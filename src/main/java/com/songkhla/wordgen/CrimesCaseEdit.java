@@ -53,22 +53,9 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
      */
     public CrimesCaseEdit(JFrame parrent,JSONObject datain){
         super(parrent,true);
-     
-//      try  {
-//        for (UIManager.LookAndFeelInfo info:UIManager.getInstalledLookAndFeels()){
-//        
-//                 if("Windows".equals(info.getName()))
-//                 {
-//                 UIManager.setLookAndFeel(info.getClassName());
-//                 }
-//        }
-//      }catch(Exception ex){
-//          ex.getMessage();
-//      }
-           initComponents();
+
+           initComponents();     
            eventJRadioKnowSuspect();
-        
-        
         comboInvest();
 //        jTextPoliceName.setText(Data.getPolicName());
         jLabelActionCode.setVisible(false);
@@ -77,6 +64,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
          
         if(datain!=null){
             try {
+                String knowSus=datain.get("StatusKnowSuspect")+"";
                 String rt=datain.get("CaseRequestTime")+"";
                 String at=datain.get("CaseAcceptTime")+"";
                 String ot=datain.get("CaseAcceptTime")+"";
@@ -112,17 +100,23 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
             if(investSta.equals("อยู่ระหว่างสอบสวน")){
                 jCheckDuringInvest.setSelected(true);
             }
-            if(investSta.equals("สั่งฟ้อง")){
+           else if(investSta.equals("สั่งฟ้อง")){
                 jCheckSue.setSelected(true);
             }
-            if(investSta.equals("สั่งไม่ฟ้อง")){
+          else  if(investSta.equals("สั่งไม่ฟ้อง")){
                 jCheckNotSue.setSelected(true);
             }
-            if(investSta.equals("งดการสอบสวน")){
+          else  if(investSta.equals("งดการสอบสวน")){
                 jCheckNoInvest.setSelected(true);
             }
-            if(investSta.equals("อื่นๆ")){
+          else  if(investSta.equals("อื่นๆ")){
                 jCheckOtherInvest.setSelected(true);
+            }
+             if(knowSus.equals("รู้ตัว")){
+                jRadioKnowSuspect.setSelected(true);
+            }
+         else   if(knowSus.equals("ไม่รู้ตัว")){
+                jRadioUnknowSuspect.setSelected(true);
             }
             ListAsset.setText(datain.get("AssetList")+"");
             ActionCrimes.setText(datain.get("ActionCrimes")+"");
@@ -257,6 +251,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setFocusable(false);
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
@@ -784,8 +779,8 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
             String sql="INSERT INTO CrimeCase (CaseType,crimecaseno,crimecaseyears,ChargeCodeCase,ActionCodeCase,CaseRequestDate,CaseRequestTime,"+
             "CaseAcceptDate,CaseAccepTime,DailyNumber,OccuredDate,OccuredTime,CrimeLocation,CrimeLocationDistrict,CrimeLocationAmphur,"+
             "CrimeLocationProvince,TypeCourt,AccureandOther,SuspectandOther,WitnessandOther,Investigator_Result,CourtResult,Invest_SendtoDepartment,"+
-            "PoliceNameCase,AssetList,AssetCode,AnswerSuspect,crimecasenoyear)"+
-            "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            "PoliceNameCase,AssetList,AssetCode,AnswerSuspect,crimecasenoyear,StatusKnowSuspect)"+
+            "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             System.out.println(sql);
             try {
 
@@ -834,12 +829,18 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
                 pst.setString(26,EvidenceRecordCase.getText());
                  pst.setString(27,AnswerSuspect.getText());
                   pst.setString(28,crimecaseno.getText()+"/"+crimecaseyear.getText());
+                 if(jRadioKnowSuspect.isSelected()){
+                    pst.setString(29,"รู้ตัว");
+                }
+               else if(jRadioUnknowSuspect.isSelected()){
+                    pst.setString(29,"ไม่รู้ตัว");
+                }                  
                 pst.executeUpdate();
-                JOptionPane.showMessageDialog(null, "Data Saved successfully");
+                
                 System.out.println("SQL : "+sql);
                 
                 pst.close();
-
+                JOptionPane.showMessageDialog(null, "Data Saved successfully");
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e);
                 System.out.println("SQL : "+pst);
@@ -866,7 +867,8 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
             +"WitnessandOther = ?,"
             +"TypeCourt = ?,"
             +"AssetList = ?,"
-            +"AssetCode = ?"
+            +"AssetCode = ?,"
+            +"StatusKnowSuspect=?"        
             +" WHERE  CaseId = ?";
             System.out.println("SQL : "+sqlUpdate);
             try {
@@ -1163,7 +1165,7 @@ catch (Exception d) {  //System.out.println(d);
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
+//                   jScrollPane2.getVerticalScrollBar().setUI(new MyScrollBarUI());
 //                  JComponent before = makeExamplePane();
 //                   UIManager.put("ScrollBarUI", "MyMetalScrollBarUI");
 // 

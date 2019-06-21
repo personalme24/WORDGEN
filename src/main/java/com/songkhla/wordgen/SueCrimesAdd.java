@@ -22,40 +22,38 @@ public class SueCrimesAdd extends javax.swing.JDialog {
     PreparedStatement pst=null;
     DataCase dc =new DataCase();
     boolean isinsert;
- String idCase;
+ String caseid,personid;
     /**
      * Creates new form SueCrimesAdd
      */
-    public SueCrimesAdd(JFrame parrent,JSONObject datain) {
+    public SueCrimesAdd(JFrame parrent,JSONObject datain,JSONObject dataId) {
         super(parrent,true);
         initComponents();
-        
-       String casea=datain.get("SueFrist")+"";
-       System.out.print("hhhhhhhhhhh: "+casea);
-        if(casea.equals("SueFrist")){
-       isinsert=true;
-//        SueTimes.setText(sueTimes());
-       caseid.setText(datain.get("SueCaseId")+"");
-        noperson.setText(IdPerson());
-        }
-        else{
-//        SueTimes.setText(sueTimes());
-          isinsert=true;
-        noperson.setText(datain.get("SuePersonId")+"");
-        caseid.setText(datain.get("SueCaseId")+"");
-           
-        }
-                   isinsert=false;
-                 noperson.setText(datain.get("SuePersonId")+"");
-                 caseid.setText(datain.get("SueCaseId")+"");               
+        comboInvest();
+
+//         personid=dataId.get("SuePersonId")+"";
+//      caseid=dataId.get("SueCaseId")+"";  
+//            jLabel3.setText(personid);
+//                 jLabel2.setText(caseid);    
+      if(datain!=null){
+                 jLabel3.setText(datain.get("SuePersonId")+"");
+                 jLabel2.setText(datain.get("SueCaseId")+"");               
                  SueTimes.setText(datain.get("SueTimes")+"");
                  SueTotal.setText(datain.get("SueTotal")+"");                
                  SueDate.setText(datain.get("SueDate")+"");                
                  SueStart.setText(datain.get("SueStart")+"");                
                  SueEnd.setText(datain.get("SueEnd")+"");                 
                  SueCause.setSelectedItem(datain.get("SueCause"));
-                 SueRequest.setSelectedItem(datain.get("SueRequest"));
-                 
+                 jComboSueRequest.setSelectedItem(datain.get("SueRequest"));
+      }
+      else{
+      isinsert=true;
+            personid=dataId.get("SuePersonId")+"";
+      caseid=dataId.get("SueCaseId")+"";  
+            jLabel3.setText(personid);
+                 jLabel2.setText(caseid);   
+              
+      }
 //         System.out.println("llllllll: "+sueTimes());
         
     }
@@ -95,12 +93,12 @@ public class SueCrimesAdd extends javax.swing.JDialog {
         SueEnd = new javax.swing.JTextField();
         jButtonSaveSue = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        caseid = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         SueDate = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
-        SueRequest = new javax.swing.JComboBox<>();
-        noperson = new javax.swing.JLabel();
+        jComboSueRequest = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -221,7 +219,7 @@ public class SueCrimesAdd extends javax.swing.JDialog {
             }
         });
 
-        caseid.setText("jLabel2");
+        jLabel2.setText("jLabel2");
 
         jLabel17.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel17.setText("วันฝาก");
@@ -231,9 +229,9 @@ public class SueCrimesAdd extends javax.swing.JDialog {
         jLabel25.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel25.setText("ผู้ร้อง");
 
-        SueRequest.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        jComboSueRequest.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        noperson.setText("jLabel3");
+        jLabel3.setText("jLabel3");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -246,7 +244,7 @@ public class SueCrimesAdd extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel25)
                         .addGap(80, 80, 80)
-                        .addComponent(SueRequest, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jComboSueRequest, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel18)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -267,9 +265,9 @@ public class SueCrimesAdd extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(crimecaseno, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(caseid)
+                                .addComponent(jLabel2)
                                 .addGap(18, 18, 18)
-                                .addComponent(noperson))
+                                .addComponent(jLabel3))
                             .addComponent(NoImprison, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(SuspectFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -316,8 +314,8 @@ public class SueCrimesAdd extends javax.swing.JDialog {
                     .addComponent(SueTimes, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(crimecaseno, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(caseid)
-                    .addComponent(noperson))
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -354,7 +352,7 @@ public class SueCrimesAdd extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel25)
-                    .addComponent(SueRequest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboSueRequest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonSaveSue)
@@ -366,7 +364,9 @@ public class SueCrimesAdd extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 10, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -398,8 +398,7 @@ if(isinsert){
     String sql="INSERT INTO Sue (SueTimes,SueDate,SueStart,SueEnd,SueTotal,SueCause,\n"
                          + "SueRequest,SuePersonId,SueCaseId) VALUES (?,?,?,?,?,?,?,?,?)";
         try {
-       
-             String personid=IdPerson();
+
              
                 
                 pst=con.prepareStatement(sql);
@@ -409,17 +408,19 @@ if(isinsert){
                 pst.setString(4,SueEnd.getText());
                 pst.setString(5,SueTotal.getText());
                 pst.setString(6,SueCause.getSelectedItem()+"");
-                pst.setString(7,SueRequest.getSelectedItem()+"");
-                pst.setString(8,noperson.getText());
-                pst.setString(9,caseid.getText());
+                pst.setString(7,jComboSueRequest.getSelectedItem()+"");
+                pst.setString(8,personid);
+                pst.setString(9,caseid);
 
               
                 pst.executeUpdate();
-                JOptionPane.showMessageDialog(null, "Data Saved successfully");
+           JOptionPane.showMessageDialog(jPanel1,null, "Data Save", JOptionPane.INFORMATION_MESSAGE);
+
                 pst.close();
              }
          catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"not success");
+           JOptionPane.showMessageDialog(jPanel1, null, "Data Save", JOptionPane.INFORMATION_MESSAGE);
+
             System.out.println(e);
         }
 }
@@ -441,7 +442,8 @@ if(isinsert){
 
                 
                 pst.executeUpdate();
-                JOptionPane.showMessageDialog(null, "Data Saved successfully");
+           JOptionPane.showMessageDialog(jPanel1, null, "Data Save", JOptionPane.INFORMATION_MESSAGE);
+
                 System.out.println("SQL : "+sqlUpdate);
             
         }
@@ -490,6 +492,26 @@ if(isinsert){
 //        } 
 //    
 //    }
+     public void comboInvest(){
+    
+     try {
+
+         Connection con2 = ConnectDatabase.connect();
+	Statement st = con2.createStatement();
+        	String c = "Select InvestName from InvestInformation";
+        	ResultSet res = st.executeQuery(c);
+	//Vector<Object> v=new Vector<Object>();
+	
+	while(res.next())
+	{
+	jComboSueRequest.addItem(res.getString("InvestName"));
+
+	
+	}
+}
+catch (Exception d) {  //System.out.println(d);  
+} 
+     }
    public static String IdPerson(){
          Connection con=null;
          con=ConnectDatabase.connect();
@@ -556,15 +578,14 @@ if(isinsert){
     private javax.swing.JComboBox<String> SueCause;
     private javax.swing.JTextField SueDate;
     private javax.swing.JTextField SueEnd;
-    private javax.swing.JComboBox<String> SueRequest;
     private javax.swing.JTextField SueStart;
     private javax.swing.JTextField SueTimes;
     private javax.swing.JTextField SueTotal;
     private javax.swing.JTextField SuspectFullName;
-    private javax.swing.JLabel caseid;
     private javax.swing.JTextField crimecaseno;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButtonSaveSue;
+    private javax.swing.JComboBox<String> jComboSueRequest;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -574,13 +595,14 @@ if(isinsert){
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JLabel noperson;
     // End of variables declaration//GEN-END:variables
 }

@@ -80,6 +80,7 @@ public class BailCrimesAdd extends javax.swing.JDialog {
         jRadioButton2 = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setAlwaysOnTop(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -602,11 +603,14 @@ public class BailCrimesAdd extends javax.swing.JDialog {
                     data.put("BailAssetRemark", rs.getString("BailAssetRemark"));
                     data.put("BailCaseId", rs.getString("BailCaseId"));
                      data.put("BailPersonId", rs.getString("BailPersonId"));
+                      JSONObject data2 = new JSONObject();
+                          data2.put("BailCaseId", rs.getString("BailCaseId"));
+                     data2.put("BailPersonId", rs.getString("BailPersonId"));
                       JFrame frame = new JFrame();
                     JDialog dialog = new JDialog(frame);//frame is owner
                     JFrame baf = (JFrame)(dialog.getParent());
                     baf.removeAll();
-                    BailAssetAdd ba =new BailAssetAdd(baf,data);
+                    BailAssetAdd ba =new BailAssetAdd(baf,data,data2);
                     ba.setVisible(true);
                 }
 
@@ -626,7 +630,7 @@ public class BailCrimesAdd extends javax.swing.JDialog {
     private void jButtonAddSueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddSueActionPerformed
         // TODO add your handling code here:
         
-        BailAssetAdd baa=new BailAssetAdd(null,null);
+        BailAssetAdd baa=new BailAssetAdd(null,null,null);
         baa.setVisible(true);
         refreshAssetData();
     }//GEN-LAST:event_jButtonAddSueActionPerformed

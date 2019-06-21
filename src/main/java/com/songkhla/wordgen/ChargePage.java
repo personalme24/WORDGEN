@@ -296,9 +296,11 @@ public class ChargePage extends javax.swing.JDialog {
            System.out.println("SQLLLLL : "+intCh);
            pst.close();
            
-           JOptionPane.showMessageDialog(null, "Data Saved successfully");
+                     JOptionPane.showMessageDialog(jPanel2,  "บันทึกข้อมูลแล้ว",null, JOptionPane.INFORMATION_MESSAGE);
+
         } catch (Exception e) {
-          JOptionPane.showMessageDialog(null, "Cannot Saved successfully");
+                               JOptionPane.showMessageDialog(jPanel2,"Cannot Save", null , JOptionPane.INFORMATION_MESSAGE);
+
             
         }
 //       Connection con = ConnectDatabase.connect();
