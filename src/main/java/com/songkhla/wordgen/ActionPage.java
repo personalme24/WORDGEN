@@ -75,6 +75,7 @@ public class ActionPage extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("ข้อมูลข้อหา");
         setAlwaysOnTop(true);
+        setAutoRequestFocus(false);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setFont(new java.awt.Font("TH SarabunPSK", 0, 16)); // NOI18N
         setResizable(false);
@@ -249,9 +250,9 @@ public class ActionPage extends javax.swing.JDialog {
            System.out.println("SQLLLLL : "+intAc);
            pst.close();
            
-           JOptionPane.showMessageDialog(null, "Data Saved successfully");
+           JOptionPane.showMessageDialog(jPanel1,null, "Data Save", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
-          JOptionPane.showMessageDialog(null, "Cannot Saved successfully");
+          JOptionPane.showMessageDialog(jPanel1,null, "Cannot Save", JOptionPane.INFORMATION_MESSAGE);
             
         }
         CrimesCaseEdit.ActionCrimes.setText(ActionCrimes.getText());

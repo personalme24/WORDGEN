@@ -271,6 +271,7 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
                      data.put("ActionCode", rs.getString("ActionCode"));
                       data.put("OccuredDate", rs.getString("OccuredDate"));
                      data.put("OccuredTime", rs.getString("OccuredTime"));
+                     data.put("StatusKnowSuspect", rs.getString("StatusKnowSuspect"));                    
                     CrimesCaseEdit cce =new CrimesCaseEdit(this,data);
                     cce.setVisible(true);
                 }

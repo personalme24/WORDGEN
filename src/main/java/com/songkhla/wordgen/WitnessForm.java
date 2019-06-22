@@ -750,11 +750,13 @@ public class WitnessForm extends javax.swing.JDialog {
                               pst.setString(29,noPerson);
                               pst.setString(30,TypePerson.getText());
                               pst.executeUpdate();
-//                             JOptionPane.showMessageDialog(null, "Data Saved successfully");
+                JOptionPane.showMessageDialog(jPanel1, "บันทึกข้อมูลแล้ว" ,null, JOptionPane.INFORMATION_MESSAGE);
+
                              pst.close();
                               System.out.println("SQL : "+sqlUpdate);
         } catch (Exception e) {
-             JOptionPane.showMessageDialog(null, e); 
+                JOptionPane.showMessageDialog(jPanel1, "บันทึกข้อมูลไม่สำเร็จ" ,null, JOptionPane.INFORMATION_MESSAGE);
+
              System.out.println("SQL : "+pst);
         }
       

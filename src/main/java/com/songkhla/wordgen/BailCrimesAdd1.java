@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package com.songkhla.wordgen;
+import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseno;
+import static com.songkhla.wordgen.SuspectForm.IdPerson;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -32,8 +34,11 @@ public class BailCrimesAdd1 extends javax.swing.JDialog {
         initComponents();
         refreshAssetData();
         refreshBailSendData();
-        caseId=datain.get("SueCaseId")+"";
-        personId=datain.get("CaseIdPerson")+"";
+        caseId=datain.get("InsuCaseId")+"";
+        personId=IdPerson();
+        jlabelCaseId.setText(caseId);
+        jLabePersonId.setText(IdPerson());
+        System.out.print("sdffffffff:"+IdPerson());
     }
 
     /**
@@ -65,10 +70,13 @@ public class BailCrimesAdd1 extends javax.swing.JDialog {
         jButtonEditSue1 = new javax.swing.JButton();
         jButtonDelete1 = new javax.swing.JButton();
         jButtonSave = new javax.swing.JButton();
+        jlabelCaseId = new javax.swing.JLabel();
+        jLabePersonId = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setAlwaysOnTop(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -301,25 +309,39 @@ public class BailCrimesAdd1 extends javax.swing.JDialog {
             }
         });
 
+        jlabelCaseId.setText("jLabel2");
+
+        jLabePersonId.setText("jLabel3");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 17, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(562, 562, 562))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jlabelCaseId)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabePersonId))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 17, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(53, 53, 53)
+                .addGap(21, 21, 21)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlabelCaseId)
+                    .addComponent(jLabePersonId))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -373,13 +395,22 @@ public class BailCrimesAdd1 extends javax.swing.JDialog {
 
     private void jButtonAddSue1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddSue1ActionPerformed
         // TODO add your handling code here:
+        
         refreshBailSendData();
     }//GEN-LAST:event_jButtonAddSue1ActionPerformed
 
     private void jButtonEditSue1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditSue1ActionPerformed
         // TODO add your handling code here:
         
-        
+        JSONObject s = new JSONObject();
+        s.put("BailCaseId",caseId );
+        s.put("BailPersonId",personId );
+        JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame bas = (JFrame)(dialog.getParent());
+        bas.removeAll();
+        DeliverySuspect baa=new DeliverySuspect(bas,s,null);
+        baa.setVisible(true);
         refreshBailSendData();
     }//GEN-LAST:event_jButtonEditSue1ActionPerformed
 
@@ -493,11 +524,14 @@ public class BailCrimesAdd1 extends javax.swing.JDialog {
                     data.put("BailAssetRemark", rs.getString("BailAssetRemark"));
                     data.put("BailCaseId", rs.getString("BailCaseId"));
                      data.put("BailPersonId", rs.getString("BailPersonId"));
+                    JSONObject data2 = new JSONObject();     
+                     data2.put("BailCaseId", rs.getString("BailCaseId"));
+                     data2.put("BailPersonId", rs.getString("BailPersonId"));                    
                       JFrame frame = new JFrame();
                     JDialog dialog = new JDialog(frame);//frame is owner
                     JFrame baf = (JFrame)(dialog.getParent());
                     baf.removeAll();
-                    BailAssetAdd ba =new BailAssetAdd(baf,data);
+                    BailAssetAdd ba =new BailAssetAdd(baf,data,data2);
                     ba.setVisible(true);
                 }
 
@@ -516,8 +550,16 @@ public class BailCrimesAdd1 extends javax.swing.JDialog {
 
     private void jButtonAddSueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddSueActionPerformed
         // TODO add your handling code here:
-        
-        BailAssetAdd baa=new BailAssetAdd(null,null);
+ 
+
+        JSONObject s = new JSONObject();
+        s.put("BailCaseId",caseId );
+        s.put("BailPersonId",personId );
+        JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame bas = (JFrame)(dialog.getParent());
+        bas.removeAll();
+        BailAssetAdd baa=new BailAssetAdd(bas,null,s);
         baa.setVisible(true);
         refreshAssetData();
     }//GEN-LAST:event_jButtonAddSueActionPerformed
@@ -582,6 +624,33 @@ public class BailCrimesAdd1 extends javax.swing.JDialog {
         }
 
 
+    }
+ public static String IdPerson(){
+         Connection cc=null;
+         cc=ConnectDatabase.connect();
+            String sqlperson="Select max(NoPerson) noperson from Person";
+        int id=0;
+        try {
+            Statement s=cc.createStatement();
+            ResultSet rs=s.executeQuery(sqlperson);
+            
+            if (rs.next()) {
+                id=rs.getInt("noperson"); 
+            }
+            
+            if(id==0){
+                id=1;
+            }
+            else{
+                id=id+1;
+            }
+             return String.valueOf(id);
+        
+        } catch (Exception e) {
+            return null;
+//            System.out.println(e);
+        } 
+    
     }
      public void refreshBailSendData(){
             try{
@@ -686,6 +755,7 @@ public class BailCrimesAdd1 extends javax.swing.JDialog {
     private javax.swing.JButton jButtonEditSue;
     private javax.swing.JButton jButtonEditSue1;
     private javax.swing.JButton jButtonSave;
+    private javax.swing.JLabel jLabePersonId;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel34;
@@ -700,5 +770,6 @@ public class BailCrimesAdd1 extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTableBailAsset;
     private javax.swing.JTable jTableBailSend;
+    private javax.swing.JLabel jlabelCaseId;
     // End of variables declaration//GEN-END:variables
 }

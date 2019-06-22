@@ -33,7 +33,7 @@ public class SuspectForm extends javax.swing.JDialog {
     Connection con2=null;
      PreparedStatement pst=null;
      boolean isInsert;
-     String noPerson;
+     String noPerson,caseid;
     /**
      * Creates new form AccusedForm
      */
@@ -58,6 +58,7 @@ public class SuspectForm extends javax.swing.JDialog {
             isInsert=false;
             String statusSus;
             statusSus=datain.get("StatusSuspect")+"";
+            caseid=datain.get("caseIdPerson")+"";
             noPerson=datain.get("NoPerson")+"";
             crimecaseno.setText(datain.get("caseIdPerson")+"");
             PeopleRegistrationID.setText(datain.get("PeopleRegistrationID")+"");
@@ -147,6 +148,7 @@ public class SuspectForm extends javax.swing.JDialog {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        BtSaveAccused = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -239,12 +241,19 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabel36 = new javax.swing.JLabel();
         jButtonInsu2 = new javax.swing.JPanel();
         jLabel38 = new javax.swing.JLabel();
-        BtSaveAccused = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        BtSaveAccused.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        BtSaveAccused.setText("บันทึก");
+        BtSaveAccused.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtSaveAccusedActionPerformed(evt);
+            }
+        });
 
         jPanel3.setBackground(new java.awt.Color(77, 0, 0));
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -966,7 +975,7 @@ public class SuspectForm extends javax.swing.JDialog {
                         .addComponent(jButtonInsu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButtonInsu2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 125, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
@@ -1006,7 +1015,7 @@ public class SuspectForm extends javax.swing.JDialog {
                                         .addComponent(jRadioVerbal, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jRadioRestore, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(51, Short.MAX_VALUE))))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1044,16 +1053,8 @@ public class SuspectForm extends javax.swing.JDialog {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelRestoreDate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(RestoreDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(194, Short.MAX_VALUE))
+                .addGap(36, 36, 36))
         );
-
-        BtSaveAccused.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        BtSaveAccused.setText("บันทึก");
-        BtSaveAccused.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtSaveAccusedActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -1062,10 +1063,6 @@ public class SuspectForm extends javax.swing.JDialog {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtSaveAccused, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
@@ -1074,9 +1071,7 @@ public class SuspectForm extends javax.swing.JDialog {
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addComponent(BtSaveAccused, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -1089,6 +1084,10 @@ public class SuspectForm extends javax.swing.JDialog {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BtSaveAccused, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1098,7 +1097,9 @@ public class SuspectForm extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addComponent(BtSaveAccused)
+                .addGap(24, 24, 24))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1111,7 +1112,7 @@ public class SuspectForm extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -1233,12 +1234,14 @@ public class SuspectForm extends javax.swing.JDialog {
                 pst.setString(32,PlaceArrest.getText());
                
                 pst.executeUpdate();
-                  JOptionPane.showMessageDialog(null, "Data Saved successfully");
+                JOptionPane.showMessageDialog(jPanel1, "บันทึกข้อมูลแล้ว" ,null, JOptionPane.INFORMATION_MESSAGE);
+
                 pst.close();
                 
                 System.out.println("SQL : "+sql);
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
+              JOptionPane.showMessageDialog(jPanel1, "Cannaot Save" ,null, JOptionPane.INFORMATION_MESSAGE);
+
                 System.out.println("SQL : "+pst);
             }
         }
@@ -1368,57 +1371,40 @@ public class SuspectForm extends javax.swing.JDialog {
     private void jButtonSueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSueMouseClicked
         // TODO add your handling code here:
         
-         String idCase=crimecaseno.getText();
+         String idCase=IdCase();
          String idPerson=IdPerson();
         
-        String SueFrist="SueFrist";
+       
 
         JSONObject s = new JSONObject();
         s.put("SueCaseId",idCase );
         s.put("SuePersonId",idPerson );        
-        s.put("SueFrist",SueFrist );
+
         JFrame frame = new JFrame();
         JDialog dialog = new JDialog(frame);//frame is owner
         JFrame fwit = (JFrame)(dialog.getParent());
         fwit.removeAll();
-        SueCrimesAdd sa=new SueCrimesAdd(fwit, s);
+        SueCrimesFrom1 sa=new SueCrimesFrom1(fwit,s);
         sa.setVisible(true);
         
     }//GEN-LAST:event_jButtonSueMouseClicked
 
     private void jButtonInsuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonInsuMouseClicked
         // TODO add your handling code here:
-              String idCase=crimecaseno.getText();
-        String InsuName=FullNamePerson.getText();
+        String idCase=crimecaseno.getText();
+        String personid=IdPerson();
 
         JSONObject s = new JSONObject();
         s.put("InsuCaseId",idCase );
-        s.put("InsuName",InsuName );
+        s.put("InsuPersonId",personid );
         JFrame frame = new JFrame();
         JDialog dialog = new JDialog(frame);//frame is owner
         JFrame fwit = (JFrame)(dialog.getParent());
         fwit.removeAll();
-        BailCrimesAdd sa=new BailCrimesAdd(fwit, s);
+        BailCrimesAdd1 sa=new BailCrimesAdd1(fwit, s);
         sa.setVisible(true);
         
     }//GEN-LAST:event_jButtonInsuMouseClicked
-
-    private void jButtonSue2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSue2MouseClicked
-        // TODO add your handling code here:
-        
-         String idCase=crimecaseno.getText();
-
-        JSONObject s = new JSONObject();
-        s.put("SueCaseId",idCase );
-        s.put("SuePersonId",noPerson );        
-
-        JFrame frame = new JFrame();
-        JDialog dialog = new JDialog(frame);//frame is owner
-        JFrame fwit = (JFrame)(dialog.getParent());
-        fwit.removeAll();
-        SueCrimesFrom sa=new SueCrimesFrom(fwit, s);
-        sa.setVisible(true);
-    }//GEN-LAST:event_jButtonSue2MouseClicked
 
     private void jButtonInsu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonInsu2MouseClicked
         // TODO add your handling code here:
@@ -1435,6 +1421,53 @@ public class SuspectForm extends javax.swing.JDialog {
         BailCrimesAdd sa=new BailCrimesAdd(fwit, s);
         sa.setVisible(true);
     }//GEN-LAST:event_jButtonInsu2MouseClicked
+
+    private void jButtonSue2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSue2MouseClicked
+        // TODO add your handling code here:
+        try{
+            Connection con = ConnectDatabase.connect();
+            Statement stmt = con.createStatement();
+            //        String a=txtCaseNO.getText();
+
+            String sql= "select CaseId,PeopleRegistrationID,crimecasenoyear,AccureandOther,ChargeName,FullNamePerson,SueTimes,SueDate,SuePersonId,SueCaseId from Sue\n"+
+            "left join Person on Sue.SuePersonId=Person.NoPerson\n"+
+            "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId\n"+
+            "left join Charge on CrimeCase.ChargeCodeCase=Charge.ChargeCode Where CaseIdPerson='"+caseid+"' and NoPerson='"+noPerson+"'";
+            ResultSet rs = stmt.executeQuery(sql);
+            System.out.println("SQL : "+sql);
+            JSONObject data = new JSONObject();
+            data.put("CaseId", rs.getString("CaseId"));
+            data.put("crimecasenoyear", rs.getString("crimecasenoyear"));
+            data.put("AccureandOther", rs.getString("AccureandOther"));
+            data.put("ChargeName", rs.getString("ChargeName"));
+            data.put("FullNamePerson", rs.getString("FullNamePerson"));
+            data.put("PeopleRegistrationID", rs.getString("PeopleRegistrationID"));
+            data.put("SueCaseId", rs.getString("SueCaseId"));
+            data.put("SuePersonId", rs.getString("SuePersonId"));
+
+            JFrame frame = new JFrame();
+            JDialog dialog = new JDialog(frame);//frame is owner
+            JFrame fwit = (JFrame)(dialog.getParent());
+            fwit.removeAll();
+            SueCrimesFrom scf =new SueCrimesFrom(fwit,data);
+            scf.setVisible(true);
+
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+//                 String idCase=crimecaseno.getText();
+//        
+//                JSONObject s = new JSONObject();
+//                s.put("SueCaseId",idCase );
+//                s.put("SuePersonId",noPerson );
+//        
+//                JFrame frame = new JFrame();
+//                JDialog dialog = new JDialog(frame);//frame is owner
+//                JFrame fwit = (JFrame)(dialog.getParent());
+//                fwit.removeAll();
+//                SueCrimesFrom sa=new SueCrimesFrom(fwit, s);
+//                sa.setVisible(true);
+    }//GEN-LAST:event_jButtonSue2MouseClicked
   public void eventJButtonManage(){
       
      jRadioSue.addChangeListener(new ChangeListener() {
@@ -1643,16 +1676,16 @@ public class SuspectForm extends javax.swing.JDialog {
     
     }
    public static String IdPerson(){
-         Connection c=null;
-         c=ConnectDatabase.connect();
-            String sqlId="Select max(NoPerson) NoPerson from NoPerson";
+         Connection cc=null;
+         cc=ConnectDatabase.connect();
+            String sqlperson="Select max(NoPerson) noperson from Person";
         int id=0;
         try {
-            Statement s=c.createStatement();
-            ResultSet rs=s.executeQuery(sqlId);
+            Statement s=cc.createStatement();
+            ResultSet rs=s.executeQuery(sqlperson);
             
             if (rs.next()) {
-                id=rs.getInt("NoPerson"); 
+                id=rs.getInt("noperson"); 
             }
             
             if(id==0){

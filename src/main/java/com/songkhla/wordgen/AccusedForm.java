@@ -753,9 +753,12 @@ public class AccusedForm extends javax.swing.JDialog {
 
 //                             JOptionPane.showMessageDialog(null, "Data Saved successfully");
                              pst.close();
+                             JOptionPane.showMessageDialog(jPanel1, "บันทึกข้อมูลแล้ว" ,null, JOptionPane.INFORMATION_MESSAGE);
+
                               System.out.println("SQL : "+sqlUpdate);
         } catch (Exception e) {
-             JOptionPane.showMessageDialog(null, e); 
+                               JOptionPane.showMessageDialog(jPanel1,  "Cannot Save", null,JOptionPane.INFORMATION_MESSAGE);
+
              System.out.println("SQL : "+pst);
         }
         
@@ -765,11 +768,6 @@ public class AccusedForm extends javax.swing.JDialog {
         
                             JFrame frame = new JFrame("JOptionPane showMessageDialog example");
 
-    // show a joptionpane dialog using showMessageDialog
-    JOptionPane.showMessageDialog(frame, 
-        "Your RSS feed has been published", 
-        "RSS Feed Published", 
-        JOptionPane.INFORMATION_MESSAGE);
         setVisible(false);
     }//GEN-LAST:event_BtSaveAccusedActionPerformed
 

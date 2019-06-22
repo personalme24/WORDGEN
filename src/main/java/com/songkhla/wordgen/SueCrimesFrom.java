@@ -30,11 +30,11 @@ public class SueCrimesFrom extends javax.swing.JDialog {
     public SueCrimesFrom(JFrame parrent,JSONObject datain) {
         super(parrent,true);
         initComponents();
-       
-        if(datain != null){
-            person=datain.get("SuePersonId")+"";
+          person=datain.get("SuePersonId")+"";
             caseid=datain.get("SueCaseId")+"";
-            System.out.println("fff "+person+caseid);
+        if(datain != null){
+//            DataCase();
+            jLabel2.setText(person);
         crimecaseno.setText(datain.get("crimecasenoyear")+"");
         PeopleRegistrationID.setText(datain.get("PeopleRegistrationID")+"");
         AccureandOther.setText(datain.get("AccureandOther")+"");
@@ -98,6 +98,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         jButtonAddSue = new javax.swing.JButton();
         jButtonDelete = new javax.swing.JButton();
         jButtonEditSue = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -512,6 +513,8 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             }
         });
 
+        jLabel2.setText("jLabel2");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -531,6 +534,8 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                         .addComponent(jButtonEditSue, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonDelete)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -546,7 +551,8 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonAddSue)
                     .addComponent(jButtonEditSue)
-                    .addComponent(jButtonDelete))
+                    .addComponent(jButtonDelete)
+                    .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(157, Short.MAX_VALUE))
@@ -626,7 +632,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         JDialog dialog = new JDialog(frame);//frame is owner
         JFrame fs = (JFrame)(dialog.getParent());
         fs.removeAll();    
-        SueCrimesAdd ca =new SueCrimesAdd(fs,s);
+        SueCrimesAdd ca =new SueCrimesAdd(fs,s,null);
         ca.setVisible(true);
         
 // TODO add your handling code here:
@@ -665,7 +671,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                      JDialog dialog = new JDialog(frame);//frame is owner
                       JFrame sc = (JFrame)(dialog.getParent());
                       sc.removeAll();
-                    SueCrimesAdd sca =new SueCrimesAdd(sc,data);
+                    SueCrimesAdd sca =new SueCrimesAdd(sc,data,null);
                     sca.setVisible(true);
                 }
 
@@ -714,6 +720,33 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 //                new SueCrimesFrom().setVisible(true);
             }
         });
+    }
+    public void DataCase(){
+          try{          
+        Connection con = ConnectDatabase.connect();
+        Statement stmt = con.createStatement();
+//        String a=txtCaseNO.getText();
+      
+           String sql= "select CaseId,PeopleRegistrationID,crimecasenoyear,AccureandOther,ChargeName,FullNamePerson,PeopleRegistrationID,SueTimes,SueDate,SuePersonId,SueCaseId from Sue\n"+
+                           "left join Person on Sue.SuePersonId=Person.NoPerson\n"+
+                           "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId\n"+
+                          "left join Charge on CrimeCase.ChargeCodeCase=Charge.ChargeCode Where CaseIdPerson='"+caseid+"' and NoPerson='"+person+"'";
+            ResultSet rs = stmt.executeQuery(sql);
+          System.out.println("SQL : "+sql);
+          if(rs.next()){
+          
+           crimecaseno.setText(rs.getString("crimecasenoyear"));
+        PeopleRegistrationID.setText(rs.getString("PeopleRegistrationID"));
+        AccureandOther.setText(rs.getString("AccureandOther"));
+        FullNamePerson.setText(rs.getString("FullNamePerson"));
+        ChargeName.setText(rs.getString("ChargeName"));
+
+          }
+    
+     
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
     }
    public void RefreshData(){
       try{
@@ -803,6 +836,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel30;

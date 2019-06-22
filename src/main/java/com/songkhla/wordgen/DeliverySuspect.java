@@ -8,20 +8,25 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import org.json.simple.JSONObject;
 /**
  *
  * @author Petpilin
  */
-public class DeliverySuspect extends javax.swing.JFrame {
+public class DeliverySuspect extends javax.swing.JDialog {
     Connection con=null;
     PreparedStatement pst=null;
     DataCase dc =new DataCase();
     boolean isInsert;
+    
     /**
      * Creates new form DeliverySuspect
      */
-    public DeliverySuspect() {
+    public DeliverySuspect(JFrame parrent,JSONObject datain,JSONObject dataId) {
+        super(parrent,true);        
+
         initComponents();
     }
 
@@ -47,7 +52,8 @@ public class DeliverySuspect extends javax.swing.JFrame {
         DeliPlace = new javax.swing.JTextField();
         jButtonSave = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setAlwaysOnTop(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -188,11 +194,11 @@ public class DeliverySuspect extends javax.swing.JFrame {
                 pst.setString(5,DeliTimes.getText());
               
                 pst.executeUpdate();
-                JOptionPane.showMessageDialog(null, "Data Saved successfully");
+ JOptionPane.showMessageDialog(jPanel1,null, "Data Save", JOptionPane.INFORMATION_MESSAGE);
                 pst.close();
             }
           catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
+ JOptionPane.showMessageDialog(jPanel1, null, "Cannot Save", JOptionPane.INFORMATION_MESSAGE);
             System.out.println("SQL : "+pst);
         }
         }else{
@@ -253,7 +259,7 @@ public class DeliverySuspect extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DeliverySuspect().setVisible(true);
+//                new DeliverySuspect().setVisible(true);
             }
         });
     }
