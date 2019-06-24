@@ -909,8 +909,11 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         }
 
         //        setVisible(false);
-        ReportAllForm n=new ReportAllForm();
-        n.setModal(true);
+         JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame fr = (JFrame)(dialog.getParent());
+        fr.removeAll();       
+        ReportforCrimesCase n=new ReportforCrimesCase(fr);
         n.setVisible(true);
 
     }//GEN-LAST:event_jButtonSaveCaseActionPerformed

@@ -35,9 +35,7 @@ public class SueCrimesFrom1 extends javax.swing.JDialog {
             person=dataId.get("SuePersonId")+"";
             caseid=dataId.get("SueCaseId")+"";
 
-        jLabel2.setText(caseid);
-        jLabel3.setText(person);
-
+  
         RefreshData(); 
     }
 
@@ -58,8 +56,6 @@ public class SueCrimesFrom1 extends javax.swing.JDialog {
         jButtonAddSue = new javax.swing.JButton();
         jButtonDelete = new javax.swing.JButton();
         jButtonEditSue = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -137,10 +133,6 @@ public class SueCrimesFrom1 extends javax.swing.JDialog {
             }
         });
 
-        jLabel2.setText("jLabel2");
-
-        jLabel3.setText("jLabel3");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -155,10 +147,6 @@ public class SueCrimesFrom1 extends javax.swing.JDialog {
                         .addComponent(jButtonEditSue, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonDelete))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel3))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 763, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -166,11 +154,7 @@ public class SueCrimesFrom1 extends javax.swing.JDialog {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonAddSue)
                     .addComponent(jButtonEditSue)
@@ -196,35 +180,15 @@ public class SueCrimesFrom1 extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonAddSueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddSueActionPerformed
-        
-
-        JSONObject s = new JSONObject();
-        s.put("SueCaseId",caseid );
-        s.put("SuePersonId",person );        
-        JFrame frame = new JFrame();
-        JDialog dialog = new JDialog(frame);//frame is owner
-        JFrame fs = (JFrame)(dialog.getParent());
-        fs.removeAll();    
-        SueCrimesAdd ca =new SueCrimesAdd(fs,null,s);
-        ca.setVisible(true);
-        
-// TODO add your handling code here:
-    }//GEN-LAST:event_jButtonAddSueActionPerformed
-
-    private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonDeleteActionPerformed
-
     private void jButtonEditSueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditSueActionPerformed
         // TODO add your handling code here:
-            if(jTableSue.getSelectedRow()>=0){
+        if(jTableSue.getSelectedRow()>=0){
             try{
                 String SueTimes = jTableSue.getModel().getValueAt(jTableSue.getSelectedRow(), 0)+"";
 
-                String sql= "select SueTimes,SueDate,SueStart,SueEnd,SueTotal,\n"+ 
-                    "SueCause,SueRequest,SueCaseId,SuePersonId from Sue\n"
-                    + "Where SueTimes='"+SueTimes+"' and SueCaseId='"+caseid+"' and SuePersonId='"+person+"'";
+                String sql= "select SueTimes,SueDate,SueStart,SueEnd,SueTotal,\n"+
+                "SueCause,SueRequest,SueCaseId,SuePersonId from Sue\n"
+                + "Where SueTimes='"+SueTimes+"' and SueCaseId='"+caseid+"' and SuePersonId='"+person+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);
@@ -237,16 +201,16 @@ public class SueCrimesFrom1 extends javax.swing.JDialog {
                     data.put("SueEnd", rs.getString("SueEnd"));
                     data.put("SueTotal", rs.getString("SueTotal"));
                     data.put("SueCause", rs.getString("SueCause"));
-                     data.put("SueRequest", rs.getString("SueRequest"));
-                      data.put("SueCaseId", rs.getString("SueCaseId"));
-                      data.put("SuePersonId", rs.getString("SuePersonId"));
-                     JSONObject data2 = new JSONObject();
-                      data2.put("SueCaseId", rs.getString("SueCaseId"));
-                      data2.put("SuePersonId", rs.getString("SuePersonId"));                    
-                      JFrame frame = new JFrame();
-                     JDialog dialog = new JDialog(frame);//frame is owner
-                      JFrame sc = (JFrame)(dialog.getParent());
-                      sc.removeAll();
+                    data.put("SueRequest", rs.getString("SueRequest"));
+                    data.put("SueCaseId", rs.getString("SueCaseId"));
+                    data.put("SuePersonId", rs.getString("SuePersonId"));
+                    JSONObject data2 = new JSONObject();
+                    data2.put("SueCaseId", rs.getString("SueCaseId"));
+                    data2.put("SuePersonId", rs.getString("SuePersonId"));
+                    JFrame frame = new JFrame();
+                    JDialog dialog = new JDialog(frame);//frame is owner
+                    JFrame sc = (JFrame)(dialog.getParent());
+                    sc.removeAll();
                     SueCrimesAdd sca =new SueCrimesAdd(sc,data,data2);
                     sca.setVisible(true);
                 }
@@ -262,6 +226,25 @@ public class SueCrimesFrom1 extends javax.swing.JDialog {
 
         }
     }//GEN-LAST:event_jButtonEditSueActionPerformed
+
+    private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonDeleteActionPerformed
+
+    private void jButtonAddSueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddSueActionPerformed
+
+        JSONObject s = new JSONObject();
+        s.put("SueCaseId",caseid );
+        s.put("SuePersonId",person );
+        JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame fs = (JFrame)(dialog.getParent());
+        fs.removeAll();
+        SueCrimesAdd ca =new SueCrimesAdd(fs,null,s);
+        ca.setVisible(true);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonAddSueActionPerformed
 
     /**
      * @param args the command line arguments
@@ -365,8 +348,6 @@ public class SueCrimesFrom1 extends javax.swing.JDialog {
     private javax.swing.JButton jButtonDelete;
     private javax.swing.JButton jButtonEditSue;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;

@@ -76,19 +76,19 @@ public class W5 {
                   bookmarkvalue.put("S5", "เขตบางปี");
                    bookmarkvalue.put("S6", " ");
                  bookmarkvalue.put("PS7",s.getString("AccureandOther"));
-                  bookmarkvalue.put("PS13", s.getString("AgeAccured"));
-                   bookmarkvalue.put("PS14", s.getString("AccuredRace"));
-                    bookmarkvalue.put("PS15", s.getString("AccuredNati")); 
+//                  bookmarkvalue.put("PS13", s.getString("AgeAccured"));
+//                   bookmarkvalue.put("PS14", s.getString("AccuredRace"));
+//                    bookmarkvalue.put("PS15", s.getString("AccuredNati")); 
 //                     bookmarkvalue.put("P15", "-"); 
 //                    bookmarkvalue.put("PA75", "-"); 
                     bookmarkvalue.put("PA7",  s.getString("SuspectandOther")); 
-                    bookmarkvalue.put("PA13",  s.getString("suspectAge"));
-                     bookmarkvalue.put("PA14", s.getString("suspectRace"));
-                         bookmarkvalue.put("PA15",  s.getString("suspectNati"));
+//                    bookmarkvalue.put("PA13",  s.getString("suspectAge"));
+//                     bookmarkvalue.put("PA14", s.getString("suspectRace"));
+//                         bookmarkvalue.put("PA15",  s.getString("suspectNati"));
                          
-                      bookmarkvalue.put("B2", s.getString("ChargeName"));
+//                      bookmarkvalue.put("B2", s.getString("ChargeName"));
                        bookmarkvalue.put("C4", s.getString("OccuredDate"));
-                        bookmarkvalue.put("C8", s.getString("CrimeLocationDistrict"));
+//                        bookmarkvalue.put("C8", s.getString("CrimeLocationDistrict"));
                          bookmarkvalue.put("C5", s.getString("CaseAcceptDate"));
                     
                     

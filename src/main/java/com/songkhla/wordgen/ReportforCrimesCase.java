@@ -8,19 +8,24 @@ import com.songkhla.document.TestWord;
 import com.songkhla.document.W5;
 import com.songkhla.document.W9;
 import java.io.File;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 /**
  *
  * @author Petpilin
  */
-public class ReportforCrimesCase extends javax.swing.JFrame {
+public class ReportforCrimesCase extends javax.swing.JDialog  {
 
     /**
      * Creates new form ReportforCrimesCase
      */
-    public ReportforCrimesCase() {
+    public ReportforCrimesCase(JFrame parrent) {
+                super(parrent,true);
+
         initComponents();
-        
+         jCheckW5.setSelected(true);
+        crimecaseno.setVisible(true);
+        crimecaseno.setText(CrimesCaseEdit.crimecaseid.getText());
     }
 
     /**
@@ -92,7 +97,8 @@ public class ReportforCrimesCase extends javax.swing.JFrame {
         crimecaseno = new javax.swing.JLabel();
         jButtonPrint = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setAlwaysOnTop(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -556,7 +562,7 @@ public class ReportforCrimesCase extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -581,7 +587,8 @@ public class ReportforCrimesCase extends javax.swing.JFrame {
         if(jCheckBox1.isSelected()){
             TestWord.T1();
         }
-        JOptionPane.showMessageDialog(null, "Export successfully");
+         JOptionPane.showMessageDialog(jPanel1,null, "Export successfully", JOptionPane.INFORMATION_MESSAGE);
+     
     }//GEN-LAST:event_jButtonPrintActionPerformed
 
     /**
@@ -614,7 +621,7 @@ public class ReportforCrimesCase extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ReportforCrimesCase().setVisible(true);
+//                new ReportforCrimesCase().setVisible(true);
             }
         });
     }
