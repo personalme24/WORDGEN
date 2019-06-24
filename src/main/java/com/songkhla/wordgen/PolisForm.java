@@ -33,9 +33,10 @@ import org.json.simple.JSONObject;
  * @author Petpilin
  */
 public class PolisForm extends javax.swing.JDialog {
-   Connection con=null;
+    Connection con=null;
     PreparedStatement pst=null;
     DataCase dc =new DataCase();
+    
     boolean isInsert;
 
     /**
@@ -89,6 +90,7 @@ public class PolisForm extends javax.swing.JDialog {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("ข้อมูลผู้ใช้");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -119,6 +121,16 @@ public class PolisForm extends javax.swing.JDialog {
         jLabel8.setText("เลขประจำตัวประชาชน");
 
         IdCardPolice.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        IdCardPolice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IdCardPoliceActionPerformed(evt);
+            }
+        });
+        IdCardPolice.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                IdCardPoliceKeyTyped(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel9.setText("ยศ");
@@ -177,7 +189,7 @@ public class PolisForm extends javax.swing.JDialog {
                                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(IdCardPolice, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(IdCardPolice)
                                         .addComponent(RankPolice, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(291, 291, 291)
@@ -231,31 +243,39 @@ public class PolisForm extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         con=ConnectDatabase.connect();
-       
+      // 
+        //
+        // Saving code here
         if(isInsert){
-         try {  
-             Statement stmt = con.createStatement();
-
-         
-                 String sql="INSERT INTO Police (IdCardPolice,RankPolice,FirstName,LastName,Position) VALUES (?,?,?,?,?)";
-            pst=con.prepareStatement(sql);
-            pst.setString(1,IdCardPolice.getText());
-            pst.setString(2,RankPolice.getText());
-            pst.setString(3,FirstName.getText());
-            pst.setString(4,LastName.getText());
-            pst.setString(5,Position.getText());
-            pst.executeUpdate();
-            JOptionPane.showMessageDialog(null, "บันทึกข้อมูลเรียบร้อย");
-             pst.close(); 
-         
+          int dialogResult = JOptionPane.showConfirmDialog (null, "ทำการบันทึกข้อมูล?");
+          if(dialogResult == JOptionPane.YES_OPTION){
+                try {  
+                        Statement stmt = con.createStatement();
+                        String sql="INSERT INTO Police (IdCardPolice,RankPolice,FirstName,LastName,Position) VALUES (?,?,?,?,?)";
+                        pst=con.prepareStatement(sql);
+                        pst.setString(1,IdCardPolice.getText());
+                        pst.setString(2,RankPolice.getText());
+                        pst.setString(3,FirstName.getText());
+                        pst.setString(4,LastName.getText());
+                        pst.setString(5,Position.getText());
+                        pst.executeUpdate();
+                        pst.close();
+                        JOptionPane.showMessageDialog(null, "บันทึกข้อมูลเรียบร้อย");
+               
+                        setVisible(false);
+                        
+                         
+                      }
+                catch (Exception e) {
+                           JOptionPane.showMessageDialog(null, e);
+                           System.out.println("SQL : "+pst);
+                       }
+                             
          }
-         catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-            System.out.println("SQL : "+pst);
-        }
-             setVisible(false);      
         }
          else{
+          int dialogResult = JOptionPane.showConfirmDialog (null, "ทำการแก้ไขข้อมูล?");
+          if(dialogResult == JOptionPane.YES_OPTION){
            try{
         String sqlUpdate= "UPDATE Police Set\n "
         + "IdCardPolice=?,"
@@ -272,19 +292,34 @@ public class PolisForm extends javax.swing.JDialog {
             pst.setString(5,Position.getText());
             pst.setString(6,IdCardPolice.getText());
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Data Saved successfully");
+            JOptionPane.showMessageDialog(null, "แก้ไขข้อมูลสำเร็จแล้ว");
             System.out.println("SQL : "+sqlUpdate);
+            setVisible(false);
+                
         }
          
          catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
             System.out.println("SQL : "+pst);
-        }
            
         }
+          }
+           }
+        
                                                     
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void IdCardPoliceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IdCardPoliceActionPerformed
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_IdCardPoliceActionPerformed
+
+    private void IdCardPoliceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_IdCardPoliceKeyTyped
+         if(IdCardPolice.getText().length()>=13) {  
+           evt.consume();
+ }        // TODO add your handling code here:
+    }//GEN-LAST:event_IdCardPoliceKeyTyped
 private void data() 
 {       String a;
             String sql= "select * from Police";

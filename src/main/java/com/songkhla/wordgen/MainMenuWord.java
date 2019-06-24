@@ -8,9 +8,15 @@ package com.songkhla.wordgen;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Rectangle;
+import java.awt.Toolkit;
+
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+
+
+
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -34,6 +40,7 @@ public class MainMenuWord extends javax.swing.JFrame {
         setMaximumSize(new Dimension(960, 834));
         setMinimumSize(new Dimension(960, 834));
         setMaximizedBounds ( new Rectangle ( 960, 834 ) );
+       setIconImage(Toolkit.getDefaultToolkit().getImage(("‪D:\\Master\\10.png")));
         data();
         con=ConnectDatabase.connect();
         CreateTable.createNewTable();      
@@ -103,7 +110,10 @@ public class MainMenuWord extends javax.swing.JFrame {
         UserName = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("ระบบสำนวนอิเล็กทรอนิกส์");
         setBackground(new java.awt.Color(255, 255, 255));
+        setIconImages(null);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(77, 0, 0));
 
@@ -1063,6 +1073,9 @@ public class MainMenuWord extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(MainMenuWord.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
