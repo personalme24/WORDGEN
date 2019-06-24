@@ -243,7 +243,8 @@ public class CreateTable {
                         "	ProvincProsecutorCh	VARCHAR(100)	,	\n"+
                         "	THNumBook	VARCHAR(100)	,	\n"+
                         "	ProtectChild	VARCHAR(100)		\n"+
-                         "	);";       
+                        
+                        "	);";       
            String sqlCharge ="CREATE TABLE IF NOT EXISTS Charge (\n"+
 	            "	ChargeCode	VARCHAR(100)	Primary Key,	\n"+
                     "	ChargeName	VARCHAR(100)	,	\n"+

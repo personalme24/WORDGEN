@@ -332,6 +332,7 @@ public class Identity_witnessForm extends javax.swing.JDialog {
             }
         });
 
+        jButton1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButton1.setText("บันทึก");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
