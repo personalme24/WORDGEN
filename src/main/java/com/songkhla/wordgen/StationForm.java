@@ -152,6 +152,7 @@ public class StationForm extends javax.swing.JDialog {
         Fax = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("ข้อมูลหน่วยงานและหน่วยงานที่เกี่ยวข้อง");
         setPreferredSize(new java.awt.Dimension(1264, 726));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -183,6 +184,22 @@ public class StationForm extends javax.swing.JDialog {
         jLabel8.setText("รหัสสถานีตำรวจ");
 
         PoliceStationCode.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        PoliceStationCode.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        PoliceStationCode.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                PoliceStationCodeFocusLost(evt);
+            }
+        });
+        PoliceStationCode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PoliceStationCodeActionPerformed(evt);
+            }
+        });
+        PoliceStationCode.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                PoliceStationCodeKeyTyped(evt);
+            }
+        });
 
         PoliceStationName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
@@ -233,16 +250,41 @@ public class StationForm extends javax.swing.JDialog {
         jLabel18.setText("รหัสไปรษณีย์");
 
         Postcode.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Postcode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PostcodeActionPerformed(evt);
+            }
+        });
+        Postcode.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                PostcodeKeyTyped(evt);
+            }
+        });
 
         jLabel19.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel19.setText("เบอร์โทรศัพท์(สถานี)");
 
         TelStation.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        TelStation.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TelStationKeyTyped(evt);
+            }
+        });
 
         jLabel20.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel20.setText("เบอร์โทรศัพท์(มือถือ)");
 
         PhonePolice.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        PhonePolice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PhonePoliceActionPerformed(evt);
+            }
+        });
+        PhonePolice.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                PhonePoliceKeyTyped(evt);
+            }
+        });
 
         jLabel21.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel21.setText("โทรสาร");
@@ -768,6 +810,47 @@ public class StationForm extends javax.swing.JDialog {
     private void LocationOfDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LocationOfDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_LocationOfDActionPerformed
+
+    private void PoliceStationCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PoliceStationCodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PoliceStationCodeActionPerformed
+
+    private void PoliceStationCodeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PoliceStationCodeKeyTyped
+        if(PoliceStationCode.getText().length()>=5) {  
+           evt.consume(); // TODO add your han
+        }
+  
+    }//GEN-LAST:event_PoliceStationCodeKeyTyped
+
+    private void PostcodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PostcodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PostcodeActionPerformed
+
+    private void PostcodeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PostcodeKeyTyped
+            if(Postcode.getText().length()>=5) {  
+            evt.consume();        
+            }
+    }//GEN-LAST:event_PostcodeKeyTyped
+
+    private void PhonePoliceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PhonePoliceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PhonePoliceActionPerformed
+
+    private void PhonePoliceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PhonePoliceKeyTyped
+         if(PhonePolice.getText().length()>=10) {  
+           evt.consume();  
+         }// TODO add your handling code here:
+    }//GEN-LAST:event_PhonePoliceKeyTyped
+
+    private void PoliceStationCodeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_PoliceStationCodeFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PoliceStationCodeFocusLost
+
+    private void TelStationKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TelStationKeyTyped
+       if(TelStation.getText().length()>=10) {  
+           evt.consume();  
+         } // TODO add your handling code here:
+    }//GEN-LAST:event_TelStationKeyTyped
 private void data() 
 {
             String sql= "select * from PoliceStation";

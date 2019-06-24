@@ -37,7 +37,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 public class W9 {
-	public static void w9(String cc) {
+public static void w9(String cc) {
             Connection conn=null;
             conn=ConnectDatabase.connect();
             PreparedStatement pst=null;
@@ -47,15 +47,15 @@ public class W9 {
 //                   String sql="SELECT * from CrimeCase Where crimecaseno = '"+cc+"'";
                    String sql="select crimecase.*,Charge.*,P1.*,P2.*\n" +
                                 "from crimecase inner join(\n" +
-                              "SELECT  min(Person.NoPerson),Person.FullNamePerson AccuredName,Person.Age AgeAccured FROM Person where Person.TypePerson='ผู้กล่าวหา'\n" +
-                              ")P1\n" +
-                              "inner join(\n" +
-                                "SELECT min(Person.NoPerson),Person.FullNamePerson suspectName FROM Person where Person.TypePerson='ผู้ต้องหา'\n" +
-                                ")P2\n" +
-                                "left join Charge on crimecase.ChargeCodeCase=Charge.ChargeCode\n" +
-                                "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
-                                "where crimecase.CaseId='"+cc+"'\n"+
-                                "group by crimecase.CaseId";
+                                "SELECT  min(Person.NoPerson),Person.FullNamePerson AccuredName,Person.Age AgeAccured FROM Person where Person.TypePerson='ผู้กล่าวหา'\n" +
+                                 ")P1\n" +
+                                 "inner join(\n" +
+                                  "SELECT min(Person.NoPerson),Person.FullNamePerson suspectName FROM Person where Person.TypePerson='ผู้ต้องหา'\n" +
+                                  ")P2\n" +
+                                    "left join Charge on crimecase.ChargeCodeCase=Charge.ChargeCode\n" +
+                                    "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
+                                   "where crimecase.CaseId='"+cc+"'\n"+
+                                   "group by crimecase.CaseId";
 //                   pst=conn.prepareStatement(sql);
 //           pst=PreparedStatement(sql);
                 Statement st = conn.createStatement();
