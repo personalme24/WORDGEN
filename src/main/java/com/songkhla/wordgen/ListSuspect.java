@@ -189,10 +189,14 @@ String typeC;
              s.removeAll();
          if(typeC.equals("ชันสูตร")){        
        Identity_DeadForm idd=new Identity_DeadForm(s,null);
+        idd.pack();
+      idd.setLocationRelativeTo(null);       
        idd.setVisible(true);   
        }
        else{         
         SuspectForm susF=new SuspectForm(null,null);
+        susF.pack();
+      susF.setLocationRelativeTo(null);         
            susF.setVisible(true);
        }
 
@@ -252,6 +256,8 @@ String typeC;
                     data.put("PlaceArrest", rs.getString("PlaceArrest"));
                     data.put("caseIdPerson", rs.getString("caseIdPerson"));
                             SuspectForm suspectF=new SuspectForm(f,data);
+                             suspectF.pack();
+                             suspectF.setLocationRelativeTo(null);
                             suspectF.setVisible(true);    		
                 }
                 

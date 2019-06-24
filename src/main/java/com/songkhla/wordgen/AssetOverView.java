@@ -29,7 +29,8 @@ public class AssetOverView extends javax.swing.JDialog {
 
 
     /** Creates new form Asset */
-    public AssetOverView() {
+    public AssetOverView(JFrame parrent) {
+        super(parrent,true);
         initComponents();
         JTable rowTable = new RowNumberTable(jTableAsset);
         jScrollPane2.setRowHeaderView(rowTable);
@@ -65,6 +66,7 @@ public class AssetOverView extends javax.swing.JDialog {
         EvidenceRecordNumber = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setAlwaysOnTop(true);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(77, 0, 0));
@@ -214,6 +216,8 @@ public class AssetOverView extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
          AssetNewEdit  assetAdd=new AssetNewEdit(null,null);
+        assetAdd.pack();
+       assetAdd.setLocationRelativeTo(null); 
          assetAdd.setVisible(true);        
          RefreshData();
 // TODO add your handling code here:
@@ -264,6 +268,8 @@ public class AssetOverView extends javax.swing.JDialog {
                     JFrame f = (JFrame)(dialog.getParent());
                      f.removeAll();
                             AssetNewEdit af=new AssetNewEdit(f,data);
+                            af.pack();
+                             af.setLocationRelativeTo(null);
                             af.setVisible(true);    		
                 }
               
@@ -313,7 +319,7 @@ public class AssetOverView extends javax.swing.JDialog {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AssetOverView().setVisible(true);
+//                new AssetOverView().setVisible(true);
                 
             }
         });

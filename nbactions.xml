@@ -43,4 +43,14 @@
                 <exec.executable>java</exec.executable>
             </properties>
         </action>
+        <action>
+            <actionName>test</actionName>
+            <preAction>build-with-dependencies</preAction>
+            <packagings>
+                <packaging>*</packaging>
+            </packagings>
+            <goals>
+                <goal>test</goal>
+            </goals>
+        </action>
     </actions>

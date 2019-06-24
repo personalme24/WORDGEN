@@ -191,10 +191,14 @@ String typeC;
              facc.removeAll();
        if(typeC.equals("ชันสูตร")){
        Identity_AccusedForm ida=new Identity_AccusedForm(facc,null);
+                  ida.pack();
+        ida.setLocationRelativeTo(null);      
        ida.setVisible(true);
        }  
        else{  
         AccusedForm accusedF=new AccusedForm(facc,null);
+                accusedF.pack();
+        accusedF.setLocationRelativeTo(null); 
         accusedF.setVisible(true);
         
         
@@ -249,6 +253,8 @@ String typeC;
                     data.put("Religion", rs.getString("Religion"));
                     data.put("Tambon", rs.getString("Tambon"));
                             AccusedForm accusedF=new AccusedForm(f,data);
+                             accusedF.pack();
+                             accusedF.setLocationRelativeTo(null);
                             accusedF.setVisible(true);    		
                 }
                 

@@ -8,15 +8,9 @@ package com.songkhla.wordgen;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Rectangle;
-import java.awt.Toolkit;
-
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-
-
-
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -35,12 +29,14 @@ public class MainMenuWord extends javax.swing.JFrame {
     Connection con=null;
     JPanel [] panel1;
     public MainMenuWord() {
-        initComponents();
+        initComponents();  
+        pack();
+        setLocationRelativeTo(null); 
         panel1 = new JPanel[]{personmenu,formmenu,howtomenu};
-        setMaximumSize(new Dimension(960, 834));
-        setMinimumSize(new Dimension(960, 834));
-        setMaximizedBounds ( new Rectangle ( 960, 834 ) );
-       setIconImage(Toolkit.getDefaultToolkit().getImage(("‪D:\\Master\\10.png")));
+        setMaximumSize(new Dimension(1280, 720));
+        setMinimumSize(new Dimension(1280, 720));
+        setMaximizedBounds ( new Rectangle ( 1280, 720 ) );
+      
         data();
         con=ConnectDatabase.connect();
         CreateTable.createNewTable();      
@@ -110,10 +106,7 @@ public class MainMenuWord extends javax.swing.JFrame {
         UserName = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("ระบบสำนวนอิเล็กทรอนิกส์");
         setBackground(new java.awt.Color(255, 255, 255));
-        setIconImages(null);
-        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(77, 0, 0));
 
@@ -139,9 +132,9 @@ public class MainMenuWord extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1153, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1280, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(575, Short.MAX_VALUE)
                 .addComponent(jLabel7)
                 .addGap(358, 358, 358))
         );
@@ -682,7 +675,7 @@ public class MainMenuWord extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(70, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(67, 67, 67)
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -712,8 +705,7 @@ public class MainMenuWord extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -743,6 +735,8 @@ public class MainMenuWord extends javax.swing.JFrame {
     private void jPanel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel9MouseClicked
         // TODO add your handling code here:
         CrimesCaseOverView ccv =new CrimesCaseOverView();
+        ccv.pack();
+        ccv.setLocationRelativeTo(null);
         ccv.setVisible(true);
     }//GEN-LAST:event_jPanel9MouseClicked
 
@@ -850,10 +844,14 @@ public class MainMenuWord extends javax.swing.JFrame {
                     data.put("Position", rs.getString("Position"));
                  
                     PolisForm pf =new PolisForm(this,data);
+                     pf.pack();
+                    pf.setLocationRelativeTo(null);
                     pf.setVisible(true);
                 }
                 else{
                      PolisForm pf =new PolisForm(this,null);
+                      pf.pack();
+            pf.setLocationRelativeTo(null);
                     pf.setVisible(true);
                 }
 
@@ -940,10 +938,14 @@ public class MainMenuWord extends javax.swing.JFrame {
                     data.put("Postcode", rs.getString("Postcode"));                 
 
                             StationForm sf = new StationForm(this,data);
+                             sf.pack();
+                             sf.setLocationRelativeTo(null);
                              sf.setVisible(true);
                 }
                 else{
                      StationForm sf = new StationForm(this,null);
+                      sf.pack();
+                      sf.setLocationRelativeTo(null);
                      sf.setVisible(true);
                 }
 
@@ -961,6 +963,8 @@ public class MainMenuWord extends javax.swing.JFrame {
         // TODO add your handling code here:
         
          PersonOverView ps = new PersonOverView();
+          ps.pack();
+            ps.setLocationRelativeTo(null);
         ps.setVisible(true);
     }//GEN-LAST:event_personmenuMouseClicked
 
@@ -971,6 +975,8 @@ public class MainMenuWord extends javax.swing.JFrame {
         JFrame in = (JFrame)(dialog.getParent());
         in.removeAll();
         InvesInformationView1 iv=new InvesInformationView1(this);
+         iv.pack();
+            iv.setLocationRelativeTo(null);
         iv.setVisible(true);
     }//GEN-LAST:event_howtomenuMouseClicked
 
@@ -982,6 +988,8 @@ public class MainMenuWord extends javax.swing.JFrame {
     private void SueMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SueMenuMouseClicked
         // TODO add your handling code here:
         SueCrimesOverview sf=new SueCrimesOverview();
+         sf.pack();
+            sf.setLocationRelativeTo(null);
         sf.setVisible(true);
     }//GEN-LAST:event_SueMenuMouseClicked
 
@@ -1006,6 +1014,8 @@ public class MainMenuWord extends javax.swing.JFrame {
     private void BailMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BailMenuMouseClicked
         // TODO add your handling code here:
         BailCrimesForm bcf=new BailCrimesForm();
+         bcf.pack();
+            bcf.setLocationRelativeTo(null);
         bcf.setVisible(true);
     }//GEN-LAST:event_BailMenuMouseClicked
 
@@ -1039,8 +1049,8 @@ public class MainMenuWord extends javax.swing.JFrame {
 
     private void ManageSuspectMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ManageSuspectMenuMouseClicked
         // TODO add your handling code here:
-        BailForm bf=new BailForm();
-        bf.setVisible(true);
+//        BailForm bf=new BailForm();
+//        bf.setVisible(true);
     }//GEN-LAST:event_ManageSuspectMenuMouseClicked
     public void setPanelBackground (JPanel jp){
         jp.setBackground(new Color(155,0,0));
@@ -1074,15 +1084,13 @@ public class MainMenuWord extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(MainMenuWord.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainMenuWord().setVisible(true);
-                
+         
+               
             }
         });
     }

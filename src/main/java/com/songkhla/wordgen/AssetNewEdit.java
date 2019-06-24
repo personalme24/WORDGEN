@@ -102,6 +102,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
         StatusAsset = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setAlwaysOnTop(true);
 
         jPanel4.setBackground(new java.awt.Color(77, 0, 0));
 

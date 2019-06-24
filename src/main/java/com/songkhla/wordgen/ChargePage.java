@@ -360,7 +360,8 @@ public class ChargePage extends javax.swing.JDialog {
              JFrame f = (JFrame)(dialog.getParent());               
              f.removeAll();
         ChargeOverView coList=new ChargeOverView(f);
-//        coList.setModal(true);
+        coList.pack();
+       coList.setLocationRelativeTo(null);  
         coList.setVisible(true);
              
          

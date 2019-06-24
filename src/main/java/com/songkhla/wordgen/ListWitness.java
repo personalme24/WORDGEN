@@ -192,11 +192,14 @@ String noPerson;
              s.removeAll();
        if(typeC.equals("ชันสูตร")){        
        Identity_witnessForm idw=new Identity_witnessForm(s,null);
+       idw.pack();
+       idw.setLocationRelativeTo(null);
        idw.setVisible(true);   
        }
        else{         
          WitnessForm wf=new WitnessForm(s,null);
-//        accusedF.setModal(true);
+        wf.pack();                            
+        wf.setLocationRelativeTo(null);     
         wf.setVisible(true);
        }
 
@@ -249,8 +252,10 @@ String noPerson;
                     data.put("Race", rs.getString("Race"));
                     data.put("Religion", rs.getString("Religion"));
                     data.put("Tambon", rs.getString("Tambon"));
-                            AccusedForm accusedF=new AccusedForm(f,data);
-                            accusedF.setVisible(true);    		
+                            WitnessForm wF=new WitnessForm(f,data);
+                            wF.pack();
+                            wF.setLocationRelativeTo(null);                            
+                            wF.setVisible(true);    		
                 }
                 
                 rs.close();

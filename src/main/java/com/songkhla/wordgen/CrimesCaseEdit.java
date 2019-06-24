@@ -146,513 +146,108 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         jTimeChooserDemo1 = new lu.tudor.santec.jtimechooser.demo.JTimeChooserDemo();
         jTimeChooserDemo2 = new lu.tudor.santec.jtimechooser.demo.JTimeChooserDemo();
         jSplitPane1 = new javax.swing.JSplitPane();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        CaseType = new javax.swing.JLabel();
+        crimecaseid = new javax.swing.JLabel();
+        jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        jButtonCharge = new javax.swing.JButton();
         crimecaseno = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        crimecaseyear = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        CourtType = new javax.swing.JComboBox<>();
-        jLabel6 = new javax.swing.JLabel();
-        ChargeNameCase = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
-        ActionCrimes = new javax.swing.JTextField();
-        jButtonAction = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        OccuredDate = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        Date date3=new Date();
+
+        SpinnerDateModel sm3=new SpinnerDateModel(date3,null,null,Calendar.HOUR_OF_DAY);
+        OccuredDateTime = new javax.swing.JSpinner(sm3);
+        jLabel15 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        ChargeNameCase = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        CaseRequestDateTime = new javax.swing.JTextField();
+        Date date2=new Date();
+
+        SpinnerDateModel sm2=new SpinnerDateModel(date2,null,null,Calendar.HOUR_OF_DAY);
+        CaseAcceptTimee = new javax.swing.JSpinner(sm2);
         DailyNumber = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        OccuredDate = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
+        ActionCrimes = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        Date date=new Date();
+
+        SpinnerDateModel sm=new SpinnerDateModel(date,null,null,Calendar.HOUR_OF_DAY);
+        CaseRequestTimee = new javax.swing.JSpinner(sm);
+        jLabel7 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         CrimeLocation = new javax.swing.JTextField();
+        CaseAcceptDate = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        crimecaseyear = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jButtonAction = new javax.swing.JButton();
+        CourtType = new javax.swing.JComboBox<>();
+        ListAsset = new javax.swing.JTextField();
+        jLabel29 = new javax.swing.JLabel();
+        jButtonAddAsset = new javax.swing.JButton();
+        jLabel28 = new javax.swing.JLabel();
+        EvidenceRecordCase = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
-        jTextAccused = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         CrimeLocationAmphur = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         CrimeLocationProvince = new javax.swing.JTextField();
-        jButtonCharge = new javax.swing.JButton();
-        jLabel19 = new javax.swing.JLabel();
         CrimeLocationDistrict = new javax.swing.JTextField();
+        jLabel45 = new javax.swing.JLabel();
+        jButtonAddInvest = new javax.swing.JButton();
+        jLabel46 = new javax.swing.JLabel();
+        jTextRecordInvest = new javax.swing.JTextField();
+        jComboPoliceName = new javax.swing.JComboBox<>();
+        jPanel5 = new javax.swing.JPanel();
+        jTextAccused = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
         jButtonAccured = new javax.swing.JButton();
-        jButtonSaveCase = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
         jTextSuspect = new javax.swing.JTextField();
         jButtonSuspect = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
-        ListAsset = new javax.swing.JTextField();
         jButtonWitness = new javax.swing.JButton();
-        jLabel28 = new javax.swing.JLabel();
         jTextWitness = new javax.swing.JTextField();
-        jButtonAddAsset = new javax.swing.JButton();
-        jLabel29 = new javax.swing.JLabel();
-        EvidenceRecordCase = new javax.swing.JTextField();
-        jCheckSue = new javax.swing.JCheckBox();
-        jCheckDuringInvest = new javax.swing.JCheckBox();
-        jCheckNotSue = new javax.swing.JCheckBox();
-        jCheckOtherInvest = new javax.swing.JCheckBox();
-        jCheckNoInvest = new javax.swing.JCheckBox();
-        jLabel31 = new javax.swing.JLabel();
-        jTextInvestSendtoDepartment = new javax.swing.JTextField();
-        jLabel32 = new javax.swing.JLabel();
-        jTextField25 = new javax.swing.JTextField();
-        jLabel33 = new javax.swing.JLabel();
-        jTextField26 = new javax.swing.JTextField();
-        jLabel34 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
-        jTextInvestigatorResult = new javax.swing.JTextField();
-        jLabel36 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextCourtResult = new javax.swing.JTextArea();
-        jLabel37 = new javax.swing.JLabel();
-        jLabelChargeCode = new javax.swing.JLabel();
-        CaseRequestDateTime = new javax.swing.JTextField();
-        CaseAcceptDate = new javax.swing.JTextField();
-        jLabel38 = new javax.swing.JLabel();
+        jRadioKnowSuspect = new javax.swing.JRadioButton();
+        jRadioUnknowSuspect = new javax.swing.JRadioButton();
         jLabel20 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         AnswerSuspect = new javax.swing.JTextArea();
         jLabel21 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         AnswerVictim = new javax.swing.JTextArea();
-        jLabelActionCode = new javax.swing.JLabel();
-        Date date=new Date();
-
-        SpinnerDateModel sm=new SpinnerDateModel(date,null,null,Calendar.HOUR_OF_DAY);
-        CaseRequestTimee = new javax.swing.JSpinner(sm);
-        Date date2=new Date();
-
-        SpinnerDateModel sm2=new SpinnerDateModel(date2,null,null,Calendar.HOUR_OF_DAY);
-        CaseAcceptTimee = new javax.swing.JSpinner(sm2);
-        Date date3=new Date();
-
-        SpinnerDateModel sm3=new SpinnerDateModel(date3,null,null,Calendar.HOUR_OF_DAY);
-        OccuredDateTime = new javax.swing.JSpinner(sm3);
-        jButtonAddInvest = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        jTextField27 = new javax.swing.JTextField();
+        jCheckOtherInvest = new javax.swing.JCheckBox();
+        jTextField28 = new javax.swing.JTextField();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jTextInvestigatorResult = new javax.swing.JTextField();
+        jCheckSue = new javax.swing.JCheckBox();
+        jCheckNotSue = new javax.swing.JCheckBox();
+        jCheckNoInvest = new javax.swing.JCheckBox();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextCourtResult = new javax.swing.JTextArea();
+        jCheckDuringInvest = new javax.swing.JCheckBox();
         jLabel41 = new javax.swing.JLabel();
-        jTextRecordInvest = new javax.swing.JTextField();
-        jComboPoliceName = new javax.swing.JComboBox<>();
-        jRadioKnowSuspect = new javax.swing.JRadioButton();
-        jRadioUnknowSuspect = new javax.swing.JRadioButton();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        CaseType = new javax.swing.JLabel();
-        crimecaseid = new javax.swing.JLabel();
+        jTextInvestSendtoDepartment = new javax.swing.JTextField();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jButtonSaveCase = new javax.swing.JButton();
+        jLabelChargeCode = new javax.swing.JLabel();
+        jLabelActionCode = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setFocusable(false);
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel3.setText("อำนาจศาล");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 45, -1, 30));
-
-        crimecaseno.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        crimecaseno.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(crimecaseno, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 46, 80, -1));
-
-        jLabel4.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel4.setText("/");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 45, -1, 30));
-
-        crimecaseyear.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jPanel1.add(crimecaseyear, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 45, 80, -1));
-
-        jLabel5.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel5.setText("เลขคดี");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 45, -1, 30));
-
-        CourtType.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        CourtType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ศาลอาญา", "ศาลแขวง", "ศาลเยาวชน", "ศาลทหาร" }));
-        CourtType.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CourtTypeActionPerformed(evt);
-            }
-        });
-        jPanel1.add(CourtType, new org.netbeans.lib.awtextra.AbsoluteConstraints(345, 45, 254, -1));
-
-        jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel6.setText("ข้อหา");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 117, -1, 30));
-
-        ChargeNameCase.setEditable(false);
-        ChargeNameCase.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jPanel1.add(ChargeNameCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 117, 384, -1));
-
-        jButton1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButton1.setText("ต/อ/จ");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 444, -1, -1));
-
-        jLabel7.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel7.setText("พฤติการณ์คดี");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 78, 77, 30));
-
-        ActionCrimes.setEditable(false);
-        ActionCrimes.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jPanel1.add(ActionCrimes, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 78, 383, -1));
-
-        jButtonAction.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButtonAction.setText("พฤติการณ์คดี");
-        jButtonAction.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonActionActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButtonAction, new org.netbeans.lib.awtextra.AbsoluteConstraints(492, 77, -1, -1));
-
-        jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel8.setText("วันที่รับแจ้ง");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 155, -1, 30));
-
-        jLabel9.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel9.setText("เวลารับแจ้ง");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 156, -1, 30));
-
-        jLabel10.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel10.setText("ปจว.ข้อ");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 290, -1, 30));
-
-        DailyNumber.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jPanel1.add(DailyNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 328, 496, 69));
-
-        jLabel11.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel11.setText("วันที่รับคำร้องทุกข์");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 201, -1, 30));
-
-        jLabel12.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel12.setText("เวลารับคำร้องทุกข์");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 201, -1, 30));
-
-        jLabel13.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel13.setText("วันที่เกิดเหตุ");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 240, -1, 30));
-
-        OccuredDate.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jPanel1.add(OccuredDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 240, 184, -1));
-
-        jLabel14.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel14.setText("เวลาที่เกิดเหตุ");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 240, -1, 30));
-
-        jLabel15.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel15.setText("สถานที่เกิดเหตุ");
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 326, 85, 30));
-
-        CrimeLocation.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jPanel1.add(CrimeLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 290, 490, -1));
-
-        jLabel16.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel16.setText("ตำบล");
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 408, -1, 30));
-
-        jTextAccused.setEditable(false);
-        jTextAccused.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jPanel1.add(jTextAccused, new org.netbeans.lib.awtextra.AbsoluteConstraints(701, 45, 432, -1));
-
-        jLabel17.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel17.setText("อำเภอ");
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(292, 408, -1, 30));
-
-        CrimeLocationAmphur.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jPanel1.add(CrimeLocationAmphur, new org.netbeans.lib.awtextra.AbsoluteConstraints(337, 408, 262, -1));
-
-        jLabel18.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel18.setText("จังหวัด");
-        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 445, -1, 30));
-
-        CrimeLocationProvince.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jPanel1.add(CrimeLocationProvince, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 445, 435, -1));
-
-        jButtonCharge.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButtonCharge.setText("ข้อหา");
-        jButtonCharge.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonChargeActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButtonCharge, new org.netbeans.lib.awtextra.AbsoluteConstraints(492, 116, 107, -1));
-
-        jLabel19.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel19.setText("ผู้กล่าวหา");
-        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(628, 45, -1, 30));
-
-        CrimeLocationDistrict.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jPanel1.add(CrimeLocationDistrict, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 408, 194, -1));
-
-        jButtonAccured.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButtonAccured.setText("เพิ่ม");
-        jButtonAccured.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAccuredActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButtonAccured, new org.netbeans.lib.awtextra.AbsoluteConstraints(1139, 44, 73, -1));
-
-        jButtonSaveCase.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButtonSaveCase.setText("บันทึก");
-        jButtonSaveCase.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSaveCaseActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButtonSaveCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 760, 102, -1));
-
-        jLabel22.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel22.setText("ผู้ต้องหา");
-        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(628, 80, -1, 30));
-
-        jTextSuspect.setEditable(false);
-        jTextSuspect.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jPanel1.add(jTextSuspect, new org.netbeans.lib.awtextra.AbsoluteConstraints(813, 80, 320, -1));
-
-        jButtonSuspect.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButtonSuspect.setText("เพิ่ม");
-        jButtonSuspect.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSuspectActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButtonSuspect, new org.netbeans.lib.awtextra.AbsoluteConstraints(1139, 79, 73, -1));
-
-        jLabel25.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel25.setText("พยานและบุคคลอื่น");
-        jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(625, 119, 106, 30));
-
-        ListAsset.setEditable(false);
-        ListAsset.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        ListAsset.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ListAssetActionPerformed(evt);
-            }
-        });
-        jPanel1.add(ListAsset, new org.netbeans.lib.awtextra.AbsoluteConstraints(905, 158, 211, -1));
-
-        jButtonWitness.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButtonWitness.setText("เพิ่ม");
-        jButtonWitness.setActionCommand("พยาน");
-        jButtonWitness.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonWitnessActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButtonWitness, new org.netbeans.lib.awtextra.AbsoluteConstraints(1144, 118, 68, -1));
-
-        jLabel28.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel28.setText("รายการทรัพย์");
-        jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(813, 158, 85, 30));
-
-        jTextWitness.setEditable(false);
-        jTextWitness.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jPanel1.add(jTextWitness, new org.netbeans.lib.awtextra.AbsoluteConstraints(735, 119, 391, -1));
-
-        jButtonAddAsset.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButtonAddAsset.setText("เพิ่ม");
-        jButtonAddAsset.setActionCommand("พยาน");
-        jButtonAddAsset.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAddAssetActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButtonAddAsset, new org.netbeans.lib.awtextra.AbsoluteConstraints(1134, 157, 76, -1));
-
-        jLabel29.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel29.setText("เลขบัญชีของกลาง");
-        jPanel1.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(625, 158, -1, 30));
-
-        EvidenceRecordCase.setEditable(false);
-        EvidenceRecordCase.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jPanel1.add(EvidenceRecordCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(728, 158, 81, -1));
-
-        jCheckSue.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jCheckSue.setText("สั่งฟ้อง");
-        jCheckSue.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckSueActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jCheckSue, new org.netbeans.lib.awtextra.AbsoluteConstraints(905, 201, -1, -1));
-
-        jCheckDuringInvest.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jCheckDuringInvest.setText("อยู่ระหว่างสอบสวน");
-        jPanel1.add(jCheckDuringInvest, new org.netbeans.lib.awtextra.AbsoluteConstraints(768, 201, -1, -1));
-
-        jCheckNotSue.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jCheckNotSue.setText("สั่งไม่ฟ้อง");
-        jCheckNotSue.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckNotSueActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jCheckNotSue, new org.netbeans.lib.awtextra.AbsoluteConstraints(968, 201, -1, -1));
-
-        jCheckOtherInvest.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jCheckOtherInvest.setText("อื่นๆ");
-        jCheckOtherInvest.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckOtherInvestActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jCheckOtherInvest, new org.netbeans.lib.awtextra.AbsoluteConstraints(1156, 201, -1, -1));
-
-        jCheckNoInvest.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jCheckNoInvest.setText("งดการสอบสวน");
-        jCheckNoInvest.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckNoInvestActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jCheckNoInvest, new org.netbeans.lib.awtextra.AbsoluteConstraints(1043, 201, -1, -1));
-
-        jLabel31.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel31.setText("ส่งสำนวนไปยัง");
-        jPanel1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 323, -1, 30));
-
-        jTextInvestSendtoDepartment.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jPanel1.add(jTextInvestSendtoDepartment, new org.netbeans.lib.awtextra.AbsoluteConstraints(715, 323, 142, -1));
-
-        jLabel32.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel32.setText("เลขที่ส่ง");
-        jPanel1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(861, 323, -1, 30));
-
-        jTextField25.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jPanel1.add(jTextField25, new org.netbeans.lib.awtextra.AbsoluteConstraints(908, 323, 127, -1));
-
-        jLabel33.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel33.setText("วันเดือนปีที่ส่ง");
-        jPanel1.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(1045, 323, 77, 30));
-
-        jTextField26.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jPanel1.add(jTextField26, new org.netbeans.lib.awtextra.AbsoluteConstraints(1126, 323, 81, -1));
-
-        jLabel34.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel34.setText("ผลคดีชั้นพนักงานสอบสวน");
-        jPanel1.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(625, 202, -1, 30));
-
-        jLabel35.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel35.setText("ผลคดีชั้นอัยการ");
-        jPanel1.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(625, 243, -1, -1));
-
-        jTextInvestigatorResult.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jPanel1.add(jTextInvestigatorResult, new org.netbeans.lib.awtextra.AbsoluteConstraints(735, 238, 472, 66));
-
-        jLabel36.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel36.setText("ผลคดีชั้นศาล");
-        jPanel1.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 480, -1, 30));
-
-        jTextCourtResult.setColumns(20);
-        jTextCourtResult.setRows(5);
-        jScrollPane1.setViewportView(jTextCourtResult);
-
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 510, 582, -1));
-
-        jLabel37.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel37.setText("หมายเหตุ-เลขคดีอุกฉกรรจ์");
-        jPanel1.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 359, 156, 30));
-
-        jLabelChargeCode.setText("CodeCharge");
-        jPanel1.add(jLabelChargeCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(1073, 19, -1, -1));
-        jPanel1.add(CaseRequestDateTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 156, 202, 32));
-
-        CaseAcceptDate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CaseAcceptDateActionPerformed(evt);
-            }
-        });
-        jPanel1.add(CaseAcceptDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 203, 170, 30));
-
-        jLabel38.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel38.setText("พนักงานสอบสวน");
-        jPanel1.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 650, -1, 30));
-
-        jLabel20.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel20.setText("คำให้การผู้ต้องหา");
-        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 615, -1, -1));
-
-        AnswerSuspect.setColumns(20);
-        AnswerSuspect.setRows(5);
-        jScrollPane4.setViewportView(AnswerSuspect);
-
-        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 644, 553, -1));
-
-        jLabel21.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel21.setText("คำให้การผู้กล่าวหา/พยาน");
-        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 483, -1, -1));
-
-        AnswerVictim.setColumns(20);
-        AnswerVictim.setRows(5);
-        jScrollPane5.setViewportView(AnswerVictim);
-
-        jPanel1.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 513, 553, -1));
-
-        jLabelActionCode.setText("jLabel2");
-        jPanel1.add(jLabelActionCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(1178, 19, -1, -1));
-
-        JSpinner.DateEditor timeEditor = new JSpinner.DateEditor(CaseRequestTimee, "HH:mm");
-        CaseRequestTimee.setEditor(timeEditor);
-        //jSpinner1.setValue(new Date());
-        jPanel1.add(CaseRequestTimee, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 158, 215, 30));
-
-        JSpinner.DateEditor te = new JSpinner.DateEditor(CaseAcceptTimee, "HH:mm");
-        CaseAcceptTimee.setEditor(te);
-        //jSpinner1.setValue(new Date());
-        CaseAcceptTimee.setPreferredSize(new java.awt.Dimension(29, 25));
-        jPanel1.add(CaseAcceptTimee, new org.netbeans.lib.awtextra.AbsoluteConstraints(398, 202, 201, 32));
-
-        JSpinner.DateEditor timeEditor3 = new JSpinner.DateEditor(OccuredDateTime, "HH:mm");
-        OccuredDateTime.setEditor(timeEditor3);
-        //jSpinner1.setValue(new Date());
-        jPanel1.add(OccuredDateTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(388, 242, 211, 30));
-
-        jButtonAddInvest.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButtonAddInvest.setText("เพิ่ม");
-        jButtonAddInvest.setActionCommand("พยาน");
-        jButtonAddInvest.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAddInvestActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButtonAddInvest, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 690, 61, -1));
-
-        jTextField1.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 390, 582, 80));
-
-        jLabel41.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel41.setText("บันทึกพนักงานสอบสวน");
-        jPanel1.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 700, 139, -1));
-        jPanel1.add(jTextRecordInvest, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 690, 360, 32));
-
-        jPanel1.add(jComboPoliceName, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 650, 360, 30));
-
-        jRadioKnowSuspect.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jRadioKnowSuspect.setText("รู้ตัว");
-        jRadioKnowSuspect.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioKnowSuspectActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jRadioKnowSuspect, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 80, -1, 30));
-
-        jRadioUnknowSuspect.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jRadioUnknowSuspect.setText("ไม่รู้ตัว");
-        jPanel1.add(jRadioUnknowSuspect, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 80, -1, 30));
-
-        jScrollPane2.setViewportView(jPanel1);
 
         jPanel3.setBackground(new java.awt.Color(77, 0, 0));
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -683,89 +278,749 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(CaseType, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
-                .addComponent(crimecaseid)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(crimecaseid)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(CaseType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jTabbedPane2.setFont(new java.awt.Font("TH SarabunPSK", 1, 24)); // NOI18N
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jButtonCharge.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jButtonCharge.setText("ข้อหา");
+        jButtonCharge.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonChargeActionPerformed(evt);
+            }
+        });
+
+        crimecaseno.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        crimecaseno.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel10.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel10.setText("ปจว.ข้อ");
+
+        OccuredDate.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+
+        jLabel4.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel4.setText("/");
+
+        JSpinner.DateEditor timeEditor3 = new JSpinner.DateEditor(OccuredDateTime, "HH:mm");
+        OccuredDateTime.setEditor(timeEditor3);
+        //jSpinner1.setValue(new Date());
+
+        jLabel15.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel15.setText("สถานที่เกิดเหตุ");
+
+        jLabel14.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel14.setText("เวลาที่เกิดเหตุ");
+
+        ChargeNameCase.setEditable(false);
+        ChargeNameCase.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+
+        jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel8.setText("วันที่รับแจ้ง");
+
+        JSpinner.DateEditor te = new JSpinner.DateEditor(CaseAcceptTimee, "HH:mm");
+        CaseAcceptTimee.setEditor(te);
+        //jSpinner1.setValue(new Date());
+        CaseAcceptTimee.setPreferredSize(new java.awt.Dimension(29, 25));
+
+        DailyNumber.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+
+        jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel6.setText("ข้อหา");
+
+        jLabel12.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel12.setText("เวลารับคำร้องทุกข์");
+
+        jLabel13.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel13.setText("วันที่เกิดเหตุ");
+
+        ActionCrimes.setEditable(false);
+        ActionCrimes.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+
+        jLabel9.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel9.setText("เวลารับแจ้ง");
+
+        JSpinner.DateEditor timeEditor = new JSpinner.DateEditor(CaseRequestTimee, "HH:mm");
+        CaseRequestTimee.setEditor(timeEditor);
+        //jSpinner1.setValue(new Date());
+
+        jLabel7.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel7.setText("พฤติการณ์คดี");
+
+        jLabel11.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel11.setText("วันที่รับคำร้องทุกข์");
+
+        CrimeLocation.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+
+        CaseAcceptDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CaseAcceptDateActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel3.setText("อำนาจศาล");
+
+        crimecaseyear.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+
+        jLabel5.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel5.setText("เลขคดี");
+
+        jButtonAction.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jButtonAction.setText("พฤติการณ์คดี");
+        jButtonAction.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonActionActionPerformed(evt);
+            }
+        });
+
+        CourtType.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        CourtType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ศาลอาญา", "ศาลแขวง", "ศาลเยาวชน", "ศาลทหาร" }));
+        CourtType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CourtTypeActionPerformed(evt);
+            }
+        });
+
+        ListAsset.setEditable(false);
+        ListAsset.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        ListAsset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ListAssetActionPerformed(evt);
+            }
+        });
+
+        jLabel29.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel29.setText("เลขบัญชีของกลาง");
+
+        jButtonAddAsset.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jButtonAddAsset.setText("เพิ่ม");
+        jButtonAddAsset.setActionCommand("พยาน");
+        jButtonAddAsset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddAssetActionPerformed(evt);
+            }
+        });
+
+        jLabel28.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel28.setText("รายการทรัพย์");
+
+        EvidenceRecordCase.setEditable(false);
+        EvidenceRecordCase.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+
+        jButton1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jButton1.setText("ต/อ/จ");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel16.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel16.setText("ตำบล");
+
+        jLabel17.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel17.setText("อำเภอ");
+
+        CrimeLocationAmphur.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+
+        jLabel18.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel18.setText("จังหวัด");
+
+        CrimeLocationProvince.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+
+        CrimeLocationDistrict.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+
+        jLabel45.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel45.setText("พนักงานสอบสวน");
+
+        jButtonAddInvest.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jButtonAddInvest.setText("เพิ่ม");
+        jButtonAddInvest.setActionCommand("พยาน");
+        jButtonAddInvest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddInvestActionPerformed(evt);
+            }
+        });
+
+        jLabel46.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel46.setText("บันทึกพนักงานสอบสวน");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(45, 45, 45)
+                            .addComponent(jLabel10)
+                            .addGap(10, 10, 10)
+                            .addComponent(CrimeLocation))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(23, 23, 23)
+                            .addComponent(jLabel13)
+                            .addGap(17, 17, 17)
+                            .addComponent(OccuredDate, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(4, 4, 4)
+                            .addComponent(jLabel14)
+                            .addGap(7, 7, 7)
+                            .addComponent(OccuredDateTime))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addGap(4, 4, 4)
+                                .addComponent(CaseAcceptDate, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(4, 4, 4)
+                                .addComponent(jLabel12)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(CaseAcceptTimee, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addComponent(jLabel8)
+                                .addGap(4, 4, 4)
+                                .addComponent(CaseRequestDateTime, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(CaseRequestTimee, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(56, 56, 56)
+                            .addComponent(jLabel6)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(ChargeNameCase)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jButtonCharge, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(12, 12, 12)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(ActionCrimes, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(5, 5, 5)
+                            .addComponent(jButtonAction)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(4, 4, 4)
+                        .addComponent(crimecaseno, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(4, 4, 4)
+                        .addComponent(jLabel4)
+                        .addGap(4, 4, 4)
+                        .addComponent(crimecaseyear, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(4, 4, 4)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CourtType, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel18)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel29))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(CrimeLocationDistrict, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jLabel17)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(CrimeLocationAmphur))
+                                .addComponent(DailyNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(CrimeLocationProvince)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jButton1)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(EvidenceRecordCase, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ListAsset, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonAddAsset))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel45)
+                                .addGap(45, 45, 45)
+                                .addComponent(jComboPoliceName, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(1, 1, 1)
+                                .addComponent(jTextRecordInvest, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(jButtonAddInvest, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(0, 8, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addComponent(crimecaseno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(crimecaseyear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(CourtType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(ActionCrimes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButtonAction))))
+                    .addComponent(DailyNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ChargeNameCase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(CrimeLocationDistrict, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(CrimeLocationAmphur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(2, 2, 2)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(1, 1, 1)
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(CaseRequestDateTime, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(9, 9, 9)
+                                                .addComponent(CaseRequestTimee, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(CrimeLocationProvince, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(13, 13, 13)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(2, 2, 2)
+                                                .addComponent(CaseAcceptDate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(CaseAcceptTimee, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(6, 6, 6)
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(OccuredDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(8, 8, 8)
+                                                .addComponent(OccuredDateTime, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(EvidenceRecordCase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(ListAsset, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jButtonAddAsset)))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton1)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(CrimeLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboPoliceName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(10, 10, 10)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(jLabel46))
+                                    .addComponent(jTextRecordInvest, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButtonAddInvest)))))
+                    .addComponent(jButtonCharge))
+                .addContainerGap(166, Short.MAX_VALUE))
+        );
+
+        jTabbedPane2.addTab("ข้อมูลคดี", jPanel1);
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+
+        jTextAccused.setEditable(false);
+        jTextAccused.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+
+        jLabel19.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel19.setText("ผู้กล่าวหา");
+
+        jButtonAccured.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jButtonAccured.setText("เพิ่ม");
+        jButtonAccured.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAccuredActionPerformed(evt);
+            }
+        });
+
+        jLabel22.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel22.setText("ผู้ต้องหา");
+
+        jTextSuspect.setEditable(false);
+        jTextSuspect.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+
+        jButtonSuspect.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jButtonSuspect.setText("เพิ่ม");
+        jButtonSuspect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSuspectActionPerformed(evt);
+            }
+        });
+
+        jLabel25.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel25.setText("พยานและบุคคลอื่น");
+
+        jButtonWitness.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jButtonWitness.setText("เพิ่ม");
+        jButtonWitness.setActionCommand("พยาน");
+        jButtonWitness.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonWitnessActionPerformed(evt);
+            }
+        });
+
+        jTextWitness.setEditable(false);
+        jTextWitness.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+
+        jRadioKnowSuspect.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jRadioKnowSuspect.setText("รู้ตัว");
+        jRadioKnowSuspect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioKnowSuspectActionPerformed(evt);
+            }
+        });
+
+        jRadioUnknowSuspect.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jRadioUnknowSuspect.setText("ไม่รู้ตัว");
+
+        jLabel20.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel20.setText("คำให้การผู้ต้องหา");
+
+        AnswerSuspect.setColumns(20);
+        AnswerSuspect.setRows(5);
+        jScrollPane4.setViewportView(AnswerSuspect);
+
+        jLabel21.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel21.setText("คำให้การผู้กล่าวหา/พยาน");
+
+        AnswerVictim.setColumns(20);
+        AnswerVictim.setRows(5);
+        jScrollPane5.setViewportView(AnswerVictim);
+
+        jTextField27.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+
+        jCheckOtherInvest.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckOtherInvest.setText("อื่นๆ");
+        jCheckOtherInvest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckOtherInvestActionPerformed(evt);
+            }
+        });
+
+        jTextField28.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+
+        jLabel38.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel38.setText("ผลคดีชั้นพนักงานสอบสวน");
+
+        jLabel39.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel39.setText("ผลคดีชั้นศาล");
+
+        jLabel40.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel40.setText("หมายเหตุ-เลขคดีอุกฉกรรจ์");
+
+        jTextField2.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+
+        jTextInvestigatorResult.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+
+        jCheckSue.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckSue.setText("สั่งฟ้อง");
+        jCheckSue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckSueActionPerformed(evt);
+            }
+        });
+
+        jCheckNotSue.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckNotSue.setText("สั่งไม่ฟ้อง");
+        jCheckNotSue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckNotSueActionPerformed(evt);
+            }
+        });
+
+        jCheckNoInvest.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckNoInvest.setText("งดการสอบสวน");
+        jCheckNoInvest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckNoInvestActionPerformed(evt);
+            }
+        });
+
+        jTextCourtResult.setColumns(20);
+        jTextCourtResult.setRows(5);
+        jScrollPane2.setViewportView(jTextCourtResult);
+
+        jCheckDuringInvest.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckDuringInvest.setText("อยู่ระหว่างสอบสวน");
+
+        jLabel41.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel41.setText("วันเดือนปีที่ส่ง");
+
+        jTextInvestSendtoDepartment.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+
+        jLabel42.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel42.setText("ผลคดีชั้นอัยการ");
+
+        jLabel43.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel43.setText("ส่งสำนวนไปยัง");
+
+        jLabel44.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel44.setText("เลขที่ส่ง");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel19)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextAccused, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(jButtonAccured, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel22)
+                                .addGap(26, 26, 26)
+                                .addComponent(jRadioKnowSuspect)
+                                .addGap(1, 1, 1)
+                                .addComponent(jRadioUnknowSuspect)
+                                .addGap(2, 2, 2)
+                                .addComponent(jTextSuspect, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(jButtonSuspect, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(4, 4, 4)
+                        .addComponent(jTextWitness, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonWitness, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 498, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel21)
+                    .addComponent(jLabel20)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 498, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addGap(0, 2, Short.MAX_VALUE)
+                        .addComponent(jLabel42)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextInvestigatorResult, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(86, 86, 86))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addComponent(jCheckDuringInvest)
+                                        .addGap(2, 2, 2)
+                                        .addComponent(jCheckSue)
+                                        .addGap(0, 0, 0)
+                                        .addComponent(jCheckNotSue)
+                                        .addGap(0, 0, 0)
+                                        .addComponent(jCheckNoInvest)
+                                        .addGap(2, 2, 2)
+                                        .addComponent(jCheckOtherInvest))
+                                    .addComponent(jLabel38)))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel43)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextInvestSendtoDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel44)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel39)
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 523, Short.MAX_VALUE)))
+                        .addGap(0, 13, Short.MAX_VALUE))))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jCheckDuringInvest)
+                            .addComponent(jCheckSue)
+                            .addComponent(jCheckNotSue)
+                            .addComponent(jCheckNoInvest)
+                            .addComponent(jCheckOtherInvest))
+                        .addGap(14, 14, 14)
+                        .addComponent(jTextInvestigatorResult, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonAccured)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextAccused, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(2, 2, 2)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonSuspect)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jRadioKnowSuspect, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jRadioUnknowSuspect, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextSuspect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jButtonWitness)
+                                .addComponent(jLabel42))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextWitness, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel21)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel20)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jTextInvestSendtoDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(33, Short.MAX_VALUE))
+        );
+
+        jTabbedPane2.addTab("ข้อมูลผู้ต้องหา", jPanel5);
+
+        jButtonSaveCase.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jButtonSaveCase.setText("บันทึก");
+        jButtonSaveCase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSaveCaseActionPerformed(evt);
+            }
+        });
+
+        jLabelChargeCode.setText("CodeCharge");
+
+        jLabelActionCode.setText("jLabel2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(74, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButtonSaveCase, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelChargeCode)
+                        .addGap(45, 45, 45)
+                        .addComponent(jLabelActionCode)
+                        .addGap(563, 563, 563))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonSaveCase)
+                    .addComponent(jLabelChargeCode)
+                    .addComponent(jLabelActionCode))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 548, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jCheckNoInvestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckNoInvestActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckNoInvestActionPerformed
-
-    private void jCheckOtherInvestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckOtherInvestActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckOtherInvestActionPerformed
-
-    private void jCheckNotSueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckNotSueActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckNotSueActionPerformed
-
-    private void jCheckSueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckSueActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckSueActionPerformed
-
-    private void jButtonAddAssetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddAssetActionPerformed
-        // TODO add your handling code here:
-        AssetOverView as =new AssetOverView();
-        as.setModal(true);
-        as.setVisible(true);
-
-    }//GEN-LAST:event_jButtonAddAssetActionPerformed
-
-    private void jButtonWitnessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonWitnessActionPerformed
-        // TODO add your handling code here:
-        String idWit=crimecaseid.getText();
-        String typeW="อาญา";
-        JSONObject s = new JSONObject();
-        s.put("CaseIdWit",idWit );
-        s.put("TypeCaseW",typeW );
-        JFrame frame = new JFrame();
-        JDialog dialog = new JDialog(frame);//frame is owner
-        JFrame fwit = (JFrame)(dialog.getParent());
-        fwit.removeAll();
-        ListWitness lw=new ListWitness(fwit,s);
-        lw.setModal(true);
-        lw.setVisible(true);
-    }//GEN-LAST:event_jButtonWitnessActionPerformed
-
-    private void jButtonSuspectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSuspectActionPerformed
-        // TODO add your handling code here:
-        String idSus=crimecaseid.getText();
-        String caseNumber=crimecaseno.getText()+crimecaseyear.getText();
-        String typeS="อาญา";
-        JSONObject s = new JSONObject();
-        s.put("CaseIdSus",idSus );
-        s.put("TypeCaseS",typeS );
-        s.put("CaseNumber",caseNumber );
-        JFrame frame = new JFrame();
-        JDialog dialog = new JDialog(frame);//frame is owner
-        JFrame facc = (JFrame)(dialog.getParent());
-        facc.removeAll();
-        ListSuspect ls=new ListSuspect(facc,s);
-        ls.setModal(true);
-        ls.setVisible(true);
-    }//GEN-LAST:event_jButtonSuspectActionPerformed
 
     private void jButtonSaveCaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveCaseActionPerformed
         // TODO add your handling code here:
@@ -821,24 +1076,24 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
                 if(jCheckOtherInvest.isSelected()){
                     pst.setString(21,"อื่นๆ");
                 }
-             
+
                 pst.setString(22,jTextCourtResult.getText());
                 pst.setString(23,jTextInvestSendtoDepartment.getText());
                 pst.setString(24,jComboPoliceName.getSelectedItem().toString());
                 pst.setString(25,ListAsset.getText());
                 pst.setString(26,EvidenceRecordCase.getText());
-                 pst.setString(27,AnswerSuspect.getText());
-                  pst.setString(28,crimecaseno.getText()+"/"+crimecaseyear.getText());
-                 if(jRadioKnowSuspect.isSelected()){
+                pst.setString(27,AnswerSuspect.getText());
+                pst.setString(28,crimecaseno.getText()+"/"+crimecaseyear.getText());
+                if(jRadioKnowSuspect.isSelected()){
                     pst.setString(29,"รู้ตัว");
                 }
-               else if(jRadioUnknowSuspect.isSelected()){
+                else if(jRadioUnknowSuspect.isSelected()){
                     pst.setString(29,"ไม่รู้ตัว");
-                }                  
+                }
                 pst.executeUpdate();
-                
+
                 System.out.println("SQL : "+sql);
-                
+
                 pst.close();
                 JOptionPane.showMessageDialog(null, "Data Saved successfully");
             } catch (Exception e) {
@@ -868,7 +1123,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
             +"TypeCourt = ?,"
             +"AssetList = ?,"
             +"AssetCode = ?,"
-            +"StatusKnowSuspect=?"        
+            +"StatusKnowSuspect=?"
             +" WHERE  CaseId = ?";
             System.out.println("SQL : "+sqlUpdate);
             try {
@@ -909,31 +1164,66 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         }
 
         //        setVisible(false);
-         JFrame frame = new JFrame();
-        JDialog dialog = new JDialog(frame);//frame is owner
-        JFrame fr = (JFrame)(dialog.getParent());
-        fr.removeAll();       
-        ReportforCrimesCase n=new ReportforCrimesCase(fr);
-        n.setVisible(true);
-
-    }//GEN-LAST:event_jButtonSaveCaseActionPerformed
-
-    private void jButtonAccuredActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccuredActionPerformed
-        // TODO add your handling code here:
-        String aa=crimecaseid.getText();
-        String type="อาญา";
-        JSONObject data = new JSONObject();
-        data.put("CaseIdAcc",aa );
-        data.put("TypeCase",type );
         JFrame frame = new JFrame();
         JDialog dialog = new JDialog(frame);//frame is owner
-        JFrame facc = (JFrame)(dialog.getParent());
-        facc.removeAll();
-        ListAccused la =new ListAccused(facc,data);
-        la.setModal(true);
-        la.setVisible(true);
+        JFrame fr = (JFrame)(dialog.getParent());
+        fr.removeAll();
+        ReportforCrimesCase n=new ReportforCrimesCase(fr);
+        n.setVisible(true);
+    }//GEN-LAST:event_jButtonSaveCaseActionPerformed
 
-    }//GEN-LAST:event_jButtonAccuredActionPerformed
+    private void CourtTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CourtTypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CourtTypeActionPerformed
+
+    private void jButtonActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActionActionPerformed
+        // TODO add your handling code here:
+        JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame fr = (JFrame)(dialog.getParent());
+        fr.removeAll();
+
+        if(ActionCrimes.getText().length()==0 || ActionCrimes.getText()==null|| ActionCrimes.getText().isEmpty()){
+            ActionPage d = new ActionPage(fr,null);
+            d.pack();
+            d.setLocationRelativeTo(null);
+            d.setVisible(true);
+        }
+        else {
+
+            try{
+                //                String crimecaseno = jTable1.getModel().getValueAt(jTable1.getSelectedRow(), 0)+"";
+                String actionCode=jLabelActionCode.getText();
+                String sql="select * From ActionsCase where ActionsCase.ActionCode ='"+actionCode+"'";
+                //                System.out.println("ExSql : "+sql);
+                Connection con = ConnectDatabase.connect();
+                Statement stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery(sql);
+
+                if(rs.next()){
+                    JSONObject data = new JSONObject();
+                    data.put("ActionCode", rs.getString("ActionCode"));
+                    data.put("ActionCrimes", rs.getString("ActionCrimes"));
+                    data.put("ActionDetail", rs.getString("ActionDetail"));
+                    data.put("ActionNote", rs.getString("ActionNote"));
+
+                    ActionPage d = new ActionPage(fr,data);
+                    d.pack();
+                    d.setLocationRelativeTo(null);
+                    d.setVisible(true);
+
+                }
+
+                rs.close();
+                stmt.close();
+
+            }catch(Exception ex){
+                ex.printStackTrace();
+
+            }
+
+        }
+    }//GEN-LAST:event_jButtonActionActionPerformed
 
     private void jButtonChargeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChargeActionPerformed
         // TODO add your handling code here:
@@ -943,7 +1233,8 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         f.removeAll();
         if(ChargeNameCase.getText().length()==0 || ChargeNameCase.getText()==null|| ChargeNameCase.getText().isEmpty()){
             ChargePage d = new ChargePage(f,null);
-            d.setModal(true);
+            d.pack();
+            d.setLocationRelativeTo(null);
             d.setVisible(true);
         }
         else {
@@ -966,6 +1257,8 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
                     data.put("Note", rs.getString("Note"));
 
                     ChargePage d = new ChargePage(f,data);
+                    d.pack();
+                    d.setLocationRelativeTo(null);
                     d.setVisible(true);
 
                 }
@@ -979,59 +1272,104 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
             }
 
         }
-
     }//GEN-LAST:event_jButtonChargeActionPerformed
 
-    private void jButtonActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActionActionPerformed
+    private void CaseAcceptDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CaseAcceptDateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CaseAcceptDateActionPerformed
+
+    private void ListAssetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListAssetActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ListAssetActionPerformed
+
+    private void jButtonAddAssetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddAssetActionPerformed
         // TODO add your handling code here:
         JFrame frame = new JFrame();
         JDialog dialog = new JDialog(frame);//frame is owner
-        JFrame fr = (JFrame)(dialog.getParent());
-        fr.removeAll();
+        JFrame asv = (JFrame)(dialog.getParent());
+        asv.removeAll();
+        AssetOverView as =new AssetOverView(asv);
+        as.pack();
+        as.setLocationRelativeTo(null);
+        as.setVisible(true);
+    }//GEN-LAST:event_jButtonAddAssetActionPerformed
 
-        if(ActionCrimes.getText().length()==0 || ActionCrimes.getText()==null|| ActionCrimes.getText().isEmpty()){
-            ActionPage d = new ActionPage(fr,null);
-            d.setModal(true);
-            d.setVisible(true);
-        }
-        else {
+    private void jButtonAccuredActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccuredActionPerformed
+        // TODO add your handling code here:
+        String aa=crimecaseid.getText();
+        String type="อาญา";
+        JSONObject data = new JSONObject();
+        data.put("CaseIdAcc",aa );
+        data.put("TypeCase",type );
+        JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame facc = (JFrame)(dialog.getParent());
+        facc.removeAll();
+        ListAccused la =new ListAccused(facc,data);
+        la.pack();
+        la.setLocationRelativeTo(null);
+        la.setVisible(true);
+    }//GEN-LAST:event_jButtonAccuredActionPerformed
 
-            try{
-                //                String crimecaseno = jTable1.getModel().getValueAt(jTable1.getSelectedRow(), 0)+"";
-                String actionCode=jLabelActionCode.getText();
-                String sql="select * From ActionsCase where ActionsCase.ActionCode ='"+actionCode+"'";
-                //                System.out.println("ExSql : "+sql);
-                Connection con = ConnectDatabase.connect();
-                Statement stmt = con.createStatement();
-                ResultSet rs = stmt.executeQuery(sql);
+    private void jButtonSuspectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSuspectActionPerformed
+        // TODO add your handling code here:
+        String idSus=crimecaseid.getText();
+        String caseNumber=crimecaseno.getText()+crimecaseyear.getText();
+        String typeS="อาญา";
+        JSONObject s = new JSONObject();
+        s.put("CaseIdSus",idSus );
+        s.put("TypeCaseS",typeS );
+        s.put("CaseNumber",caseNumber );
+        JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame facc = (JFrame)(dialog.getParent());
+        facc.removeAll();
+        ListSuspect ls=new ListSuspect(facc,s);
+        ls.pack();
+        ls.setLocationRelativeTo(null);
+        ls.setVisible(true);
+    }//GEN-LAST:event_jButtonSuspectActionPerformed
 
-                if(rs.next()){
-                    JSONObject data = new JSONObject();
-                    data.put("ActionCode", rs.getString("ActionCode"));
-                    data.put("ActionCrimes", rs.getString("ActionCrimes"));
-                    data.put("ActionDetail", rs.getString("ActionDetail"));
-                    data.put("ActionNote", rs.getString("ActionNote"));
+    private void jButtonWitnessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonWitnessActionPerformed
+        // TODO add your handling code here:
+        String idWit=crimecaseid.getText();
+        String typeW="อาญา";
+        JSONObject s = new JSONObject();
+        s.put("CaseIdWit",idWit );
+        s.put("TypeCaseW",typeW );
+        JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame fwit = (JFrame)(dialog.getParent());
+        fwit.removeAll();
+        ListWitness lw=new ListWitness(fwit,s);
+        lw.pack();
+        lw.setLocationRelativeTo(null);
+        lw.setVisible(true);
+    }//GEN-LAST:event_jButtonWitnessActionPerformed
 
-                    ActionPage d = new ActionPage(fr,data);
-                    d.setVisible(true);
-
-                }
-
-                rs.close();
-                stmt.close();
-
-            }catch(Exception ex){
-                ex.printStackTrace();
-
-            }
-
-        }
-
-    }//GEN-LAST:event_jButtonActionActionPerformed
+    private void jRadioKnowSuspectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioKnowSuspectActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioKnowSuspectActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jCheckOtherInvestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckOtherInvestActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckOtherInvestActionPerformed
+
+    private void jCheckSueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckSueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckSueActionPerformed
+
+    private void jCheckNotSueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckNotSueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckNotSueActionPerformed
+
+    private void jCheckNoInvestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckNoInvestActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckNoInvestActionPerformed
 
     private void jButtonAddInvestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddInvestActionPerformed
         String ci=crimecaseid.getText();
@@ -1043,25 +1381,11 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         JFrame a = (JFrame)(dialog.getParent());
         a.removeAll();
         RecordInvestigatorView ri =new RecordInvestigatorView(a,data);
+        ri.pack();
+        ri.setLocationRelativeTo(null);
         ri.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonAddInvestActionPerformed
-
-    private void ListAssetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListAssetActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ListAssetActionPerformed
-
-    private void CourtTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CourtTypeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CourtTypeActionPerformed
-
-    private void CaseAcceptDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CaseAcceptDateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CaseAcceptDateActionPerformed
-
-    private void jRadioKnowSuspectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioKnowSuspectActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioKnowSuspectActionPerformed
     public void eventJRadioKnowSuspect(){
     ButtonGroup g=new ButtonGroup();
         g.add(jRadioKnowSuspect);
@@ -1164,6 +1488,34 @@ catch (Exception d) {  //System.out.println(d);
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1244,16 +1596,16 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1263,18 +1615,19 @@ catch (Exception d) {  //System.out.println(d);
     public static javax.swing.JLabel jLabelChargeCode;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JRadioButton jRadioKnowSuspect;
     private javax.swing.JRadioButton jRadioUnknowSuspect;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JTabbedPane jTabbedPane2;
     public static javax.swing.JTextField jTextAccused;
     private javax.swing.JTextArea jTextCourtResult;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField25;
-    private javax.swing.JTextField jTextField26;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField27;
+    private javax.swing.JTextField jTextField28;
     private javax.swing.JTextField jTextInvestSendtoDepartment;
     private javax.swing.JTextField jTextInvestigatorResult;
     private javax.swing.JTextField jTextRecordInvest;

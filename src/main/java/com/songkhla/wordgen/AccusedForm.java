@@ -703,10 +703,13 @@ public class AccusedForm extends javax.swing.JDialog {
                               pst.setString(27,ZipCode.getText());
                               pst.setString(28,crimecaseno.getText());
                               pst.executeUpdate();
+                              
                               pst.close();
+                               JOptionPane.showMessageDialog(jPanel1, "Data Save",null, JOptionPane.INFORMATION_MESSAGE);
                               System.out.println("SQL : "+sql);
         } catch (Exception e) {
-             JOptionPane.showMessageDialog(null, e); 
+             JOptionPane.showMessageDialog(jPanel1,e,null, JOptionPane.INFORMATION_MESSAGE);
+
              System.out.println("SQL : "+pst);
         }
         }

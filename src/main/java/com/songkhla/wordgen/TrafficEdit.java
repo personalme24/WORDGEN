@@ -1089,8 +1089,13 @@ public class TrafficEdit extends javax.swing.JDialog {
 
     private void jButtonAddAssetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddAssetActionPerformed
         // TODO add your handling code here:
-        AssetOverView as =new AssetOverView();
-          as.setModal(true);
+        JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame asv = (JFrame)(dialog.getParent());
+        asv.removeAll();
+        AssetOverView as =new AssetOverView(asv);
+        as.pack();
+        as.setLocationRelativeTo(null); 
         as.setVisible(true);
         
     }//GEN-LAST:event_jButtonAddAssetActionPerformed

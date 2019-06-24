@@ -266,6 +266,8 @@ public class ActionPage extends javax.swing.JDialog {
              JFrame f = (JFrame)(dialog.getParent());               
              f.removeAll();
                    ActionList d = new ActionList(f);
+                    d.pack();
+                     d.setLocationRelativeTo(null);                   
                     d.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 

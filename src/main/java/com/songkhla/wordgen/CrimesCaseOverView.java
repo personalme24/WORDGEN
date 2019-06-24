@@ -68,7 +68,9 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(77, 0, 0));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.setPreferredSize(new java.awt.Dimension(1261, 52));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1280, 720));
+        jPanel1.setMaximumSize(new Dimension(1280, 720));
+        jPanel1.setMinimumSize(new Dimension(1280, 720));
 
         jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 28)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -129,7 +131,7 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButtonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
+                        .addComponent(jButtonEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(jButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -189,7 +191,7 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1247, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1248, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(57, 57, 57)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1120, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -273,6 +275,8 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
                      data.put("OccuredTime", rs.getString("OccuredTime"));
                      data.put("StatusKnowSuspect", rs.getString("StatusKnowSuspect"));                    
                     CrimesCaseEdit cce =new CrimesCaseEdit(this,data);
+                    cce.pack();
+                     cce.setLocationRelativeTo(null);                   
                     cce.setVisible(true);
                 }
 
@@ -291,6 +295,8 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
         // TODO add your handling code here:
         CrimesCaseEdit cce =new CrimesCaseEdit(this,null);
+        cce.pack();
+        cce.setLocationRelativeTo(null);
         cce.setVisible(true);
         RefreshData();
     }//GEN-LAST:event_jButtonAddActionPerformed
