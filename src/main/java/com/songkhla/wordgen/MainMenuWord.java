@@ -19,6 +19,8 @@ import org.json.simple.JSONObject;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.awt.Image;
+import java.awt.Toolkit;
+import java.io.IOException;
 import java.net.URL;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -36,6 +38,7 @@ public class MainMenuWord extends javax.swing.JFrame {
     JPanel [] panel1;
     public MainMenuWord() {
         initComponents();  
+//        setIconImage(Toolkit.getDefaultToolkit().getImage(MainMenuWord.class.getResource("D://Master//user.png")));
         pack();
         setLocationRelativeTo(null); 
         panel1 = new JPanel[]{personmenu,formmenu,howtomenu};
@@ -114,6 +117,7 @@ public class MainMenuWord extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        setIconImages(null);
 
         jPanel1.setBackground(new java.awt.Color(77, 0, 0));
 
@@ -214,11 +218,6 @@ public class MainMenuWord extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Master\\group (1).png")); // NOI18N
         jLabel1.setText("ข้อมูลบุคคล");
-        jLabel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel1MouseMoved(evt);
-            }
-        });
 
         javax.swing.GroupLayout personmenuLayout = new javax.swing.GroupLayout(personmenu);
         personmenu.setLayout(personmenuLayout);
@@ -804,10 +803,6 @@ public class MainMenuWord extends javax.swing.JFrame {
          resetPanelBackground(formmenu);
     }//GEN-LAST:event_formmenuMouseExited
 
-    private void jLabel1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel1MouseMoved
-
     private void personmenuMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_personmenuMouseMoved
         // TODO add your handling code here:
          setPanelBackground(personmenu);
@@ -1076,6 +1071,15 @@ public class MainMenuWord extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+//     private void formWindowOpened(java.awt.event.WindowEvent evt) {                                  
+//        try {
+//            // TODO add your handling code here:
+//            Image img=ImageIO.read(getClass().getResource("ur path"));
+//            this.setIconImage(img);
+//        } catch (IOException ex) {
+//
+//        }
+//     }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

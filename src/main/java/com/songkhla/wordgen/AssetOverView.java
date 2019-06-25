@@ -383,6 +383,19 @@ public class AssetOverView extends javax.swing.JDialog {
         
 //            System.out.println(name);
       }
+//          JSONObject data = new JSONObject(); 
+//                            
+//                    data.put("AssetList",ArrayData);
+                 
+                             //  Convert CrimcaseEdit to JFrame   
+//                       JFrame frame = new JFrame();
+//                     JDialog dialog = new JDialog(frame);//frame is owner
+//                    JFrame f = (JFrame)(dialog.getParent());
+//                     f.removeAll();
+//                            AssetNewEdit af=new AssetNewEdit(f,data);
+//                            af.pack();
+//                             af.setLocationRelativeTo(null);
+//                            af.setVisible(true);    		
             CrimesCaseEdit.ListAsset.setText(ArrayData);
       
     }

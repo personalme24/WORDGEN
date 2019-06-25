@@ -261,6 +261,9 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
                     data.put("CrimeLocation", rs.getString("CrimeLocation"));
                     data.put("CrimeLocationDistrict", rs.getString("CrimeLocationDistrict"));
                     data.put("CrimeLocationAmphur", rs.getString("CrimeLocationAmphur"));
+                    data.put("CrimeLocationMoo", rs.getString("CrimeLocationMoo"));
+                    data.put("CrimeLocationRoad", rs.getString("CrimeLocationRoad"));
+                    data.put("CrimeLocationSoi", rs.getString("CrimeLocationSoi"));
                     data.put("CrimeLocationProvince", rs.getString("CrimeLocationProvince"));
                     data.put("AccureandOther", rs.getString("AccureandOther"));
                     data.put("SuspectandOther", rs.getString("SuspectandOther")); 
@@ -270,12 +273,17 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
                     data.put("PoliceNameCase", rs.getString("PoliceNameCase"));
                      data.put("AssetList", rs.getString("AssetList"));
                       data.put("AssetCode", rs.getString("AssetCode"));
-                    
+                       data.put("RecordInvestCase", rs.getString("RecordInvestCase"));
                      data.put("ActionCrimes", rs.getString("ActionCrimes"));
                      data.put("ActionCode", rs.getString("ActionCode"));
                       data.put("OccuredDate", rs.getString("OccuredDate"));
                      data.put("OccuredTime", rs.getString("OccuredTime"));
-                     data.put("StatusKnowSuspect", rs.getString("StatusKnowSuspect"));                    
+                     data.put("StatusKnowSuspect", rs.getString("StatusKnowSuspect"));  
+                      data.put("AnswerAccuser", rs.getString("AnswerAccuser"));                    
+                      data.put("Investigator_Number", rs.getString("Investigator_Number"));
+                     data.put("Invest_SendCaseDate", rs.getString("Invest_SendCaseDate"));
+                     data.put("Prosecutor_Result", rs.getString("Prosecutor_Result"));  
+                      data.put("CapitalCrimeCaseNumber", rs.getString("CapitalCrimeCaseNumber"));            
                     CrimesCaseEdit cce =new CrimesCaseEdit(this,data);
                     cce.pack();
                      cce.setLocationRelativeTo(null);                   
