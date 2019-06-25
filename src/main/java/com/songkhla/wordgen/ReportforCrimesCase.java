@@ -5,6 +5,7 @@
  */
 package com.songkhla.wordgen;
 import com.songkhla.document.TestWord;
+import com.songkhla.document.W3;
 import com.songkhla.document.W5;
 import com.songkhla.document.W9;
 import java.io.File;
@@ -581,9 +582,9 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
         if(jCheckW5.isSelected()){
             W5.w5(no);
         }
-        if(jCheckW9.isSelected()){
-            W9.w9(no);
-        }
+//        if(jCheckW9.isSelected()){
+//            W3
+//        }
         if(jCheckBox1.isSelected()){
             TestWord.T1();
         }

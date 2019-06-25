@@ -363,8 +363,10 @@ public class BailCrimesForm extends javax.swing.JFrame {
                     data.put("FullNamePerson", rs.getString("FullNamePerson"));
                     data.put("CaseIdPerson", rs.getString("CaseIdPerson"));
                     
-                    CrimesCaseEdit cce =new CrimesCaseEdit(this,data);
-                    cce.setVisible(true);
+                    BailCrimesAdd bca =new BailCrimesAdd(this,data);
+                    bca.pack();
+                    bca.setLocationRelativeTo(null);
+                    bca.setVisible(true);
                 }
 
                 rs.close();

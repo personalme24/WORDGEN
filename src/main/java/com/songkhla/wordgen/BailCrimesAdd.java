@@ -128,10 +128,11 @@ public class BailCrimesAdd extends javax.swing.JDialog {
         ChargeName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         ChargeName.setBorder(null);
 
-        jPanel6.setBackground(new java.awt.Color(255, 153, 153));
+        jPanel6.setBackground(new java.awt.Color(102, 0, 0));
 
         jLabel31.setBackground(new java.awt.Color(255, 204, 204));
         jLabel31.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(255, 255, 255));
         jLabel31.setText("ระบุหลักประกัน ในการขอประกันตัว");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -246,10 +247,11 @@ public class BailCrimesAdd extends javax.swing.JDialog {
 
         OccuredDate.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        jPanel7.setBackground(new java.awt.Color(255, 153, 153));
+        jPanel7.setBackground(new java.awt.Color(102, 0, 0));
 
         jLabel35.setBackground(new java.awt.Color(255, 204, 204));
         jLabel35.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel35.setForeground(new java.awt.Color(255, 255, 255));
         jLabel35.setText("กำหนดวันเวลาส่งตัวผู้ต้องหา");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);

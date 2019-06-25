@@ -61,17 +61,27 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         jLabelActionCode.setVisible(false);
         jLabelChargeCode.setVisible(false);
         crimecaseid.setVisible(true);
-         
+       
+       
         if(datain!=null){
             try {
                 String knowSus=datain.get("StatusKnowSuspect")+"";
                 String rt=datain.get("CaseRequestTime")+"";
                 String at=datain.get("CaseAcceptTime")+"";
                 String ot=datain.get("CaseAcceptTime")+"";
-                SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm");
-                Date timeReq = dateFormat.parse(rt);
-                Date timeAcc = dateFormat.parse(at);
-                Date timeOccu = dateFormat.parse(ot);
+                String qd=datain.get("CaseRequestDate")+"";
+                String ad=datain.get("CaseAcceptDate")+"";
+                String od=datain.get("OccuredDate")+"";
+               
+                SimpleDateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
+                 Date dateReq=dateFormat.parse(qd);
+                 Date dateAcc=dateFormat.parse(ad);
+                 Date dateOcc=dateFormat.parse(od);
+                 
+                SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm");
+                Date timeReq = timeFormat.parse(rt);
+                Date timeAcc = timeFormat.parse(at);
+                Date timeOccu = timeFormat.parse(ot);
                 isInsert=false;
                 caseid= "" + datain.get("CaseId");
                 crimecaseid.setText(datain.get("CaseId")+"");
@@ -85,7 +95,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
             }
             else{
             ChargeNameCase.setText(datain.get("ChargeName")+"");}
-            CaseRequestDateTime.setText(datain.get("CaseRequestDate")+"");
+//            CaseRequestDateTime.setText(datain.get("CaseRequestDate")+"");
             jTextAccused.setText(datain.get("AccureandOther")+"");
             CourtType.setSelectedItem(datain.get("TypeCourt"));
             CrimeLocation.setText(datain.get("CrimeLocation")+"");
@@ -98,12 +108,13 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
             jComboPoliceName.setSelectedItem(datain.get("PoliceNameCase"));
             jTextSuspect.setText(datain.get("SuspectandOther")+"");
             jTextWitness.setText(datain.get("WitnessandOther")+"");
+            CaseRequestDateTime.setDate(dateReq);
             CaseRequestTimee.setValue(timeReq);
-            CaseAcceptDate.setText(datain.get("CaseAcceptDate")+"");
+            CaseAcceptDate.setDate(dateAcc);
             CaseAcceptTimee.setValue(timeAcc);
             DailyNumber.setText(datain.get("DailyNumber")+"");
             String investSta=datain.get("Investigator_Result")+"";
-            OccuredDate.setText(datain.get("OccuredDate")+"");
+            OccuredDate.setDate(dateOcc);
             OccuredDateTime.setValue(timeOccu);
             jLabelActionCode.setText(datain.get("ActionCode")+"");
             Prosecutor_Result.setText(datain.get("Prosecutor_Result")+"");
@@ -150,8 +161,18 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
 
         }
         else{
-           crimecaseid.setText(IdCase());
-            isInsert=true;
+//            Date date2=new Date();
+//            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
+//            Date date = dateFormat.parse(date2);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
+	Date date = new Date();
+        dateFormat.format(date);
+//	System.out.println(dateFormat.format(date));
+           crimecaseid.setText(IdCase());       
+           CaseAcceptDate.setDate(date);
+           CaseRequestDateTime.setDate(date);
+           OccuredDate.setDate(date);
+           isInsert=true;
           
         }
             
@@ -178,7 +199,6 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         jButtonCharge = new javax.swing.JButton();
         crimecaseno = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        OccuredDate = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         Date date3=new Date();
 
@@ -188,7 +208,6 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         jLabel14 = new javax.swing.JLabel();
         ChargeNameCase = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        CaseRequestDateTime = new javax.swing.JTextField();
         Date date2=new Date();
 
         SpinnerDateModel sm2=new SpinnerDateModel(date2,null,null,Calendar.HOUR_OF_DAY);
@@ -206,7 +225,6 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         jLabel7 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         CrimeLocation = new javax.swing.JTextField();
-        CaseAcceptDate = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         crimecaseyear = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -235,6 +253,9 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         CrimeLocationMoo = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
         CrimeLocationSoi = new javax.swing.JTextField();
+        CaseRequestDateTime = new com.toedter.calendar.JDateChooser();
+        CaseAcceptDate = new com.toedter.calendar.JDateChooser();
+        OccuredDate = new com.toedter.calendar.JDateChooser();
         jPanel5 = new javax.swing.JPanel();
         jTextAccused = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
@@ -335,8 +356,6 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         jLabel10.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel10.setText("ปจว.ข้อ");
 
-        OccuredDate.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-
         jLabel4.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel4.setText("/");
 
@@ -389,12 +408,6 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         jLabel11.setText("วันที่รับคำร้องทุกข์");
 
         CrimeLocation.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-
-        CaseAcceptDate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CaseAcceptDateActionPerformed(evt);
-            }
-        });
 
         jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel3.setText("อำนาจศาล");
@@ -499,6 +512,12 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         jLabel24.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel24.setText("ตรอก/ซอย");
 
+        CaseRequestDateTime.setDateFormatString("dd/mm/yyyy");
+
+        CaseAcceptDate.setDateFormatString("dd/mm/yyyy");
+
+        OccuredDate.setDateFormatString("dd/mm/yyyy");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -508,37 +527,35 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(45, 45, 45)
-                            .addComponent(jLabel10)
-                            .addGap(10, 10, 10)
-                            .addComponent(CrimeLocation))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGap(23, 23, 23)
                             .addComponent(jLabel13)
-                            .addGap(17, 17, 17)
-                            .addComponent(OccuredDate, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(4, 4, 4)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(OccuredDate, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
                             .addComponent(jLabel14)
                             .addGap(7, 7, 7)
                             .addComponent(OccuredDateTime))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel11)
-                                .addGap(4, 4, 4)
-                                .addComponent(CaseAcceptDate, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(4, 4, 4)
-                                .addComponent(jLabel12)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(CaseAcceptTimee, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addComponent(jLabel8)
-                                .addGap(4, 4, 4)
-                                .addComponent(CaseRequestDateTime, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(CaseRequestTimee, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel11)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(CaseAcceptDate, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .addGap(26, 26, 26)
+                                    .addComponent(jLabel8)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(CaseRequestDateTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGap(4, 4, 4)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel12)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(CaseAcceptTimee, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel9)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(CaseRequestTimee, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGap(56, 56, 56)
                             .addComponent(jLabel6)
@@ -552,7 +569,12 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(ActionCrimes, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(5, 5, 5)
-                            .addComponent(jButtonAction)))
+                            .addComponent(jButtonAction))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(45, 45, 45)
+                            .addComponent(jLabel10)
+                            .addGap(10, 10, 10)
+                            .addComponent(CrimeLocation)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addGap(4, 4, 4)
@@ -682,49 +704,50 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
                                     .addComponent(CrimeLocationProvince, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jButton1)
                                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CaseRequestDateTime, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(CaseRequestTimee, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(EvidenceRecordCase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ListAsset, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonAddAsset)
-                            .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(12, 12, 12)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(CaseRequestTimee, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(EvidenceRecordCase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ListAsset, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButtonAddAsset)
+                                    .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(12, 12, 12))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CaseRequestDateTime, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(CaseAcceptDate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(CaseAcceptTimee, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jComboPoliceName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, 0)
+                        .addComponent(jComboPoliceName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CaseAcceptDate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(OccuredDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(5, 5, 5)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(OccuredDateTime, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel46)
                             .addComponent(RecordInvestCase, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonAddInvest, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jButtonAddInvest, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(OccuredDate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(17, 17, 17)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -882,63 +905,60 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
                 .addGap(35, 35, 35)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel19)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextAccused, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6)
-                                .addComponent(jButtonAccured, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel22)
-                                .addGap(26, 26, 26)
-                                .addComponent(jRadioKnowSuspect)
-                                .addGap(1, 1, 1)
-                                .addComponent(jRadioUnknowSuspect)
-                                .addGap(2, 2, 2)
-                                .addComponent(jTextSuspect, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6)
-                                .addComponent(jButtonSuspect, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jLabel38)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jCheckDuringInvest)
+                        .addGap(2, 2, 2)
+                        .addComponent(jCheckSue)
+                        .addGap(0, 0, 0)
+                        .addComponent(jCheckNotSue)
+                        .addGap(0, 0, 0)
+                        .addComponent(jCheckNoInvest)
+                        .addGap(2, 2, 2)
+                        .addComponent(jCheckOtherInvest))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(4, 4, 4)
-                        .addComponent(jTextWitness, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonWitness, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 498, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel21)
-                    .addComponent(jLabel20)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 498, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel42)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Prosecutor_Result, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(86, 86, 86))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
+                                .addGap(3, 3, 3)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addComponent(jCheckDuringInvest)
+                                        .addComponent(jLabel19)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jTextAccused, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(6, 6, 6)
+                                        .addComponent(jButtonAccured, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addComponent(jLabel22)
+                                        .addGap(26, 26, 26)
+                                        .addComponent(jRadioKnowSuspect)
+                                        .addGap(1, 1, 1)
+                                        .addComponent(jRadioUnknowSuspect)
                                         .addGap(2, 2, 2)
-                                        .addComponent(jCheckSue)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(jCheckNotSue)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(jCheckNoInvest)
-                                        .addGap(2, 2, 2)
-                                        .addComponent(jCheckOtherInvest))
-                                    .addComponent(jLabel38)))
+                                        .addComponent(jTextSuspect, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(6, 6, 6)
+                                        .addComponent(jButtonSuspect, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(4, 4, 4)
+                                .addComponent(jTextWitness, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButtonWitness, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel21)
+                            .addComponent(jLabel20)
+                            .addComponent(jScrollPane5)
+                            .addComponent(jScrollPane4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel42)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Prosecutor_Result, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(61, 61, 61))
                             .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel39)
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(CapitalCrimeCaseNumber, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 523, Short.MAX_VALUE))
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel44)
@@ -951,43 +971,14 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
                                         .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(Invest_SendCaseDate, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jTextInvestSendtoDepartment))))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                    .addComponent(jTextInvestSendtoDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckDuringInvest)
-                            .addComponent(jCheckSue)
-                            .addComponent(jCheckNotSue)
-                            .addComponent(jCheckNoInvest)
-                            .addComponent(jCheckOtherInvest))
-                        .addGap(14, 14, 14)
-                        .addComponent(Prosecutor_Result, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextInvestSendtoDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Investigator_Number, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Invest_SendCaseDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CapitalCrimeCaseNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonAccured)
@@ -1008,9 +999,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
                                     .addComponent(jTextSuspect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(6, 6, 6)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jButtonWitness)
-                                .addComponent(jLabel42))
+                            .addComponent(jButtonWitness)
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1023,11 +1012,44 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel20)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(12, Short.MAX_VALUE))
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel5Layout.createSequentialGroup()
+                            .addGap(1, 1, 1)
+                            .addComponent(Prosecutor_Result, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextInvestSendtoDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(10, 10, 10)
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Investigator_Number, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Invest_SendCaseDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(CapitalCrimeCaseNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel5Layout.createSequentialGroup()
+                            .addComponent(jLabel42)
+                            .addGap(364, 364, 364))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckDuringInvest)
+                    .addComponent(jCheckSue)
+                    .addComponent(jCheckNotSue)
+                    .addComponent(jCheckNoInvest)
+                    .addComponent(jCheckOtherInvest))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
-        jTabbedPane2.addTab("ข้อมูลผู้ต้องหา", jPanel5);
+        jTabbedPane2.addTab("ข้อมูลบุคคล", jPanel5);
 
         jLabelChargeCode.setText("CodeCharge");
 
@@ -1089,6 +1111,11 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         String requestTime = format.format(CaseRequestTimee.getValue());
         String acceptTime = format.format(CaseAcceptTimee.getValue());
         String orcuredTime=format.format(OccuredDateTime.getValue());
+        SimpleDateFormat formatDate = new SimpleDateFormat("dd/mm/yyyy");
+        String requestDate=formatDate.format(CaseRequestDateTime.getDate());
+        String acceptDate=formatDate.format(CaseAcceptDate.getDate());
+        String occureDate=formatDate.format(OccuredDate.getDate());
+
         if(isInsert){
             String sql="INSERT INTO CrimeCase (CaseType,crimecaseno,crimecaseyears,ChargeCodeCase,ActionCodeCase,CaseRequestDate,CaseRequestTime,"+
             "CaseAcceptDate,CaseAccepTime,DailyNumber,OccuredDate,OccuredTime,CrimeLocation,CrimeLocationMoo,CrimeLocationSoi,CrimeLocationRoad,CrimeLocationDistrict,CrimeLocationAmphur,"+
@@ -1105,12 +1132,12 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
                 pst.setString(3,crimecaseyear.getText());
                 pst.setString(4,jLabelChargeCode.getText());
                 pst.setString(5,jLabelActionCode.getText());
-                pst.setString(6,CaseRequestDateTime.getText());
+                pst.setString(6,requestDate);
                 pst.setString(7,requestTime);
-                pst.setString(8,CaseAcceptDate.getText());
+                pst.setString(8,acceptDate);
                 pst.setString(9,acceptTime);
                 pst.setString(10,DailyNumber.getText());
-                pst.setString(11,OccuredDate.getText());
+                pst.setString(11,occureDate);
                 pst.setString(12,orcuredTime);
                 pst.setString(13,CrimeLocation.getText());
                 pst.setString(14,CrimeLocationMoo.getText());
@@ -1160,17 +1187,29 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
                 pst.setString(37,CapitalCrimeCaseNumber.getText());
                 
 
-                pst.executeUpdate();
+       
+         
+               
+//       JOptionPane.showMessageDialog(jPanel1,null, "Data Save", JOptionPane.INFORMATION_MESSAGE);
 
-                System.out.println("SQL : "+sql);
-
-                pst.close();
-                    int response = JOptionPane.showConfirmDialog(jPanel1, "Do you want to continue?", "Confirm",
+                
+      int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
         JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
     if (response == JOptionPane.NO_OPTION) {
       System.out.println("No button clicked");
     } else if (response == JOptionPane.YES_OPTION) {
-      System.out.println("Yes button clicked");
+         pst.executeUpdate(); 
+         pst.close();
+         System.out.println("SQL : "+sql);
+           JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame fr = (JFrame)(dialog.getParent());
+        fr.removeAll();
+        ReportforCrimesCase n=new ReportforCrimesCase(fr);
+        n.pack();
+        n.setLocationRelativeTo(null);
+        n.setVisible(true);
+
     } else if (response == JOptionPane.CLOSED_OPTION) {
       System.out.println("JOptionPane closed");
     }
@@ -1225,12 +1264,12 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
                 pst.setString(2,crimecaseyear.getText());
                 pst.setString(3,jLabelChargeCode.getText());
                 pst.setString(4,jLabelActionCode.getText());
-                pst.setString(5,CaseRequestDateTime.getText());
+                pst.setString(5,requestDate);
                 pst.setString(6,requestTime);
-                pst.setString(7,CaseAcceptDate.getText());
+                pst.setString(7,acceptDate);
                 pst.setString(8,acceptTime);
                 pst.setString(9,DailyNumber.getText());
-                pst.setString(10,OccuredDate.getText());
+                pst.setString(10,occureDate);
                 pst.setString(11,orcuredTime);
                 pst.setString(12,CrimeLocation.getText());
                 pst.setString(13,CrimeLocationDistrict.getText());
@@ -1277,11 +1316,26 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
                 pst.setString(35,Prosecutor_Result.getText());
                 pst.setString(36,CapitalCrimeCaseNumber.getText());
                 pst.setString(37,caseid);
-                pst.executeUpdate();
-                //                    JOptionPane.showMessageDialog(null, "บันทึกข้อมูล");
+               int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
+        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+    if (response == JOptionPane.NO_OPTION) {
+      System.out.println("No button clicked");
+    } else if (response == JOptionPane.YES_OPTION) {
+         pst.executeUpdate(); 
+         pst.close();
+         System.out.println("SQL : "+sqlUpdate);
+           JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame fr = (JFrame)(dialog.getParent());
+        fr.removeAll();
+        ReportforCrimesCase n=new ReportforCrimesCase(fr);
+        n.pack();
+        n.setLocationRelativeTo(null);
+        n.setVisible(true);
 
-                pst.close();
-                System.out.println("SQL : "+sqlUpdate);
+    } else if (response == JOptionPane.CLOSED_OPTION) {
+      System.out.println("JOptionPane closed");
+    }
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e);
                 System.out.println("SQL : "+pst);
@@ -1289,12 +1343,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         }
 
         //        setVisible(false);
-        JFrame frame = new JFrame();
-        JDialog dialog = new JDialog(frame);//frame is owner
-        JFrame fr = (JFrame)(dialog.getParent());
-        fr.removeAll();
-        ReportforCrimesCase n=new ReportforCrimesCase(fr);
-        n.setVisible(true);
+      
     }//GEN-LAST:event_jButtonSaveCaseActionPerformed
 
     private void CourtTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CourtTypeActionPerformed
@@ -1398,10 +1447,6 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
 
         }
     }//GEN-LAST:event_jButtonChargeActionPerformed
-
-    private void CaseAcceptDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CaseAcceptDateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CaseAcceptDateActionPerformed
 
     private void ListAssetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListAssetActionPerformed
         // TODO add your handling code here:
@@ -1644,9 +1689,9 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JTextArea AnswerAccuser;
     private javax.swing.JTextArea AnswerSuspect;
     private javax.swing.JTextField CapitalCrimeCaseNumber;
-    private javax.swing.JTextField CaseAcceptDate;
+    private com.toedter.calendar.JDateChooser CaseAcceptDate;
     private javax.swing.JSpinner CaseAcceptTimee;
-    private javax.swing.JTextField CaseRequestDateTime;
+    private com.toedter.calendar.JDateChooser CaseRequestDateTime;
     private javax.swing.JSpinner CaseRequestTimee;
     private javax.swing.JLabel CaseType;
     public static javax.swing.JTextField ChargeNameCase;
@@ -1664,7 +1709,7 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JTextField Invest_SendCaseDate;
     private javax.swing.JTextField Investigator_Number;
     public static javax.swing.JTextField ListAsset;
-    private javax.swing.JTextField OccuredDate;
+    private com.toedter.calendar.JDateChooser OccuredDate;
     private javax.swing.JSpinner OccuredDateTime;
     private javax.swing.JTextField Prosecutor_Result;
     private javax.swing.JTextField RecordInvestCase;

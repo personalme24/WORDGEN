@@ -56,7 +56,7 @@ public class W3 {
                          policeStationProv=rs.getString("StationProvince");
                          policeStationTamb=rs.getString("StationTambon");
                       }
-                   String sql="SELECT * FROM CrimeCase";
+                   String sql="SELECT ";
 //                   pst=conn.prepareStatement(sql);
 //           pst=PreparedStatement(sql);
                 Statement st = conn.createStatement();

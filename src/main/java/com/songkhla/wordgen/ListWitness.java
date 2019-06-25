@@ -120,7 +120,6 @@ String noPerson;
         });
 
         txtCaseNO.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        txtCaseNO.setText("No");
 
         jButtonAddAccused.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         jButtonAddAccused.setText("เพิ่ม");
