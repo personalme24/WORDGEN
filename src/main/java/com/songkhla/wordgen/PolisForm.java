@@ -122,11 +122,6 @@ public class PolisForm extends javax.swing.JDialog {
         jLabel8.setText("เลขประจำตัวประชาชน");
 
         IdCardPolice.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        IdCardPolice.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IdCardPoliceActionPerformed(evt);
-            }
-        });
         IdCardPolice.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 IdCardPoliceKeyTyped(evt);
@@ -311,11 +306,6 @@ public class PolisForm extends javax.swing.JDialog {
                                                     
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void IdCardPoliceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IdCardPoliceActionPerformed
-        
-        // TODO add your handling code here:
-    }//GEN-LAST:event_IdCardPoliceActionPerformed
 
     private void IdCardPoliceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_IdCardPoliceKeyTyped
          char vChar = evt.getKeyChar();

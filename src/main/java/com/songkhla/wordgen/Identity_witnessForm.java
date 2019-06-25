@@ -160,21 +160,11 @@ public class Identity_witnessForm extends javax.swing.JDialog {
         jLabel2.setText("เลขบัตรประชาชน");
 
         PeopleRegistrationID.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        PeopleRegistrationID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PeopleRegistrationIDActionPerformed(evt);
-            }
-        });
 
         jLabel5.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel5.setText("ชื่อ-สกุล");
 
         FullNamePerson.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        FullNamePerson.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FullNamePersonActionPerformed(evt);
-            }
-        });
 
         jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel8.setText("อายุ");
@@ -185,11 +175,6 @@ public class Identity_witnessForm extends javax.swing.JDialog {
         jLabel10.setText("วันเกิด");
 
         Age.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        Age.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AgeActionPerformed(evt);
-            }
-        });
 
         Nationality.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
@@ -200,22 +185,12 @@ public class Identity_witnessForm extends javax.swing.JDialog {
         jLabel13.setText("เชื้อชาติ");
 
         Race.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        Race.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RaceActionPerformed(evt);
-            }
-        });
 
         jLabel14.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel14.setText("ที่ทำงาน ตำแหน่ง หน้าที่");
 
         Gender.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         Gender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "หญิง", "ชาย", "ไม่ระบุ" }));
-        Gender.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GenderActionPerformed(evt);
-            }
-        });
 
         Occupation.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
@@ -223,11 +198,6 @@ public class Identity_witnessForm extends javax.swing.JDialog {
         jLabel16.setText("สูง");
 
         Religion.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        Religion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ReligionActionPerformed(evt);
-            }
-        });
 
         jLabel17.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel17.setText("น้ำหนัก");
@@ -238,11 +208,6 @@ public class Identity_witnessForm extends javax.swing.JDialog {
         jLabel18.setText("ศาสนา");
 
         Weight.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        Weight.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                WeightActionPerformed(evt);
-            }
-        });
 
         BloodGroup.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
@@ -280,27 +245,12 @@ public class Identity_witnessForm extends javax.swing.JDialog {
         jLabel30.setText("หมู่ที่");
 
         Moo.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        Moo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MooActionPerformed(evt);
-            }
-        });
 
         Tambon.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        Tambon.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TambonActionPerformed(evt);
-            }
-        });
 
         Amphur.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         ZipCode.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        ZipCode.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ZipCodeActionPerformed(evt);
-            }
-        });
 
         Province.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
@@ -326,11 +276,6 @@ public class Identity_witnessForm extends javax.swing.JDialog {
 
         RelatedOfDie.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         RelatedOfDie.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ผู้จับกุมผู้ต้องหา", "ผู้พบการกระทำผิด", "ผู้ตรวจยึดของกลาง", "บิดาผู้ต้องหา", "มารกาผู้ต้องหา", "ผู้ปกครองหรือผู้ดูแลผู้ต้องหา", "เจ้าหน้าที่สืบสวน", "ผู้เสียหาย", "ผู้ตาย", "บิดาผู้ตาย", "มารดาผู้ตาย", "ญาติผู้ตาย", "พยาน", "นายประกัน", "ไม่ระบุ" }));
-        RelatedOfDie.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RelatedOfDieActionPerformed(evt);
-            }
-        });
 
         jButton1.setText("บันทึก");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -569,50 +514,6 @@ public class Identity_witnessForm extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void PeopleRegistrationIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PeopleRegistrationIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PeopleRegistrationIDActionPerformed
-
-    private void FullNamePersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FullNamePersonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FullNamePersonActionPerformed
-
-    private void AgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AgeActionPerformed
-
-    private void RaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RaceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RaceActionPerformed
-
-    private void GenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenderActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_GenderActionPerformed
-
-    private void ReligionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReligionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ReligionActionPerformed
-
-    private void WeightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WeightActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_WeightActionPerformed
-
-    private void MooActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MooActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MooActionPerformed
-
-    private void TambonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TambonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TambonActionPerformed
-
-    private void ZipCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ZipCodeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ZipCodeActionPerformed
-
-    private void RelatedOfDieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RelatedOfDieActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RelatedOfDieActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:

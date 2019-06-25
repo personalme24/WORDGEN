@@ -671,9 +671,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="CaseAcceptDate">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CaseAcceptDateActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
@@ -723,9 +720,6 @@
                   </StringArray>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CourtTypeActionPerformed"/>
-              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
@@ -737,9 +731,6 @@
                   <Font name="TH SarabunPSK" size="20" style="0"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ListAssetActionPerformed"/>
-              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>
@@ -790,9 +781,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#xe15;/&#xe2d;/&#xe08;"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel16">
               <Properties>
@@ -898,9 +886,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="CrimeLocationMoo">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CrimeLocationMooActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel24">
               <Properties>
@@ -1217,9 +1202,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#xe23;&#xe39;&#xe49;&#xe15;&#xe31;&#xe27;"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioKnowSuspectActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="jRadioUnknowSuspect">
               <Properties>
@@ -1289,9 +1271,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#xe2d;&#xe37;&#xe48;&#xe19;&#xe46;"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckOtherInvestActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField28">
               <Properties>
@@ -1345,9 +1324,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#xe2a;&#xe31;&#xe48;&#xe07;&#xe1f;&#xe49;&#xe2d;&#xe07;"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckSueActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JCheckBox" name="jCheckNotSue">
               <Properties>
@@ -1356,9 +1332,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#xe2a;&#xe31;&#xe48;&#xe07;&#xe44;&#xe21;&#xe48;&#xe1f;&#xe49;&#xe2d;&#xe07;"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckNotSueActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JCheckBox" name="jCheckNoInvest">
               <Properties>
@@ -1367,9 +1340,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#xe07;&#xe14;&#xe01;&#xe32;&#xe23;&#xe2a;&#xe2d;&#xe1a;&#xe2a;&#xe27;&#xe19;"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckNoInvestActionPerformed"/>
-              </Events>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane2">
               <AuxValues>

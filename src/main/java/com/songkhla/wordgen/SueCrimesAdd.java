@@ -137,11 +137,6 @@ public class SueCrimesAdd extends javax.swing.JDialog {
         NoImprison.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         SueTimes.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        SueTimes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SueTimesActionPerformed(evt);
-            }
-        });
 
         jLabel30.setBackground(java.awt.SystemColor.activeCaptionBorder);
         jLabel30.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
@@ -149,11 +144,6 @@ public class SueCrimesAdd extends javax.swing.JDialog {
 
         crimecaseno.setEditable(false);
         crimecaseno.setBorder(null);
-        crimecaseno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                crimecasenoActionPerformed(evt);
-            }
-        });
 
         jLabel5.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel5.setText("ชื่อผู้ต้องหา");
@@ -161,11 +151,6 @@ public class SueCrimesAdd extends javax.swing.JDialog {
         SuspectFullName.setEditable(false);
         SuspectFullName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         SuspectFullName.setBorder(null);
-        SuspectFullName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SuspectFullNameActionPerformed(evt);
-            }
-        });
 
         jLabel13.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel13.setText("จำนวน");
@@ -375,18 +360,6 @@ public class SueCrimesAdd extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void SueTimesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueTimesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SueTimesActionPerformed
-
-    private void crimecasenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crimecasenoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_crimecasenoActionPerformed
-
-    private void SuspectFullNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SuspectFullNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SuspectFullNameActionPerformed
 
     private void jButtonSaveSueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveSueActionPerformed
         // TODO add your handling code here:

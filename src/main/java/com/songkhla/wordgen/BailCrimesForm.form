@@ -279,9 +279,6 @@
                   <Border info="null"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SuspectFullNameActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="ChargeName">
               <Properties>
@@ -293,9 +290,6 @@
                   <Border info="null"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ChargeNameActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
@@ -323,9 +317,6 @@
                   <Border info="null"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SuspectFullName2ActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel8">
               <Properties>
@@ -345,9 +336,6 @@
                   <Border info="null"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ArrestDateActionPerformed"/>
-              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -385,7 +373,6 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jComboStatusItemStateChanged"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboStatusActionPerformed"/>
           </Events>
           <AuxValues>

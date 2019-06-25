@@ -69,20 +69,10 @@ public class ActionList extends javax.swing.JDialog {
         jLabel10.setText("พฤติการณ์คดี");
 
         ActionCrimes.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        ActionCrimes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ActionCrimesActionPerformed(evt);
-            }
-        });
 
         jButton3.setBackground(new java.awt.Color(153, 0, 0));
         jButton3.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButton3.setText("ค้นหา");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
 
         jTableAction.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jTableAction.setModel(new javax.swing.table.DefaultTableModel(
@@ -232,14 +222,6 @@ public class ActionList extends javax.swing.JDialog {
         ActionPage.ActionDetail.setText(jTableAction.getValueAt(number, 2).toString());
         ActionPage.ActionNote.setText(jTableAction.getValueAt(number, 3).toString());
     }//GEN-LAST:event_jTableActionMouseClicked
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void ActionCrimesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActionCrimesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ActionCrimesActionPerformed
  public void RefreshData(){
         try{
         Connection con = ConnectDatabase.connect();

@@ -171,20 +171,10 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         FullNamePerson.setEditable(false);
         FullNamePerson.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         FullNamePerson.setBorder(null);
-        FullNamePerson.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FullNamePersonActionPerformed(evt);
-            }
-        });
 
         PeopleRegistrationID.setEditable(false);
         PeopleRegistrationID.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         PeopleRegistrationID.setBorder(null);
-        PeopleRegistrationID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PeopleRegistrationIDActionPerformed(evt);
-            }
-        });
 
         jLabel7.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel7.setText("ชื่อผู้กล่าวหา");
@@ -192,11 +182,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         AccureandOther.setEditable(false);
         AccureandOther.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         AccureandOther.setBorder(null);
-        AccureandOther.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AccureandOtherActionPerformed(evt);
-            }
-        });
 
         jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel6.setText("ข้อหา");
@@ -204,11 +189,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         ChargeName.setEditable(false);
         ChargeName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         ChargeName.setBorder(null);
-        ChargeName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ChargeNameActionPerformed(evt);
-            }
-        });
 
         jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel8.setText("วันที่จับกุม");
@@ -219,20 +199,10 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         StatusSueAndPutInJail.setEditable(false);
         StatusSueAndPutInJail.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         StatusSueAndPutInJail.setBorder(null);
-        StatusSueAndPutInJail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                StatusSueAndPutInJailActionPerformed(evt);
-            }
-        });
 
         ArrestDate.setEditable(false);
         ArrestDate.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         ArrestDate.setBorder(null);
-        ArrestDate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ArrestDateActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -332,11 +302,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 
         NumberImprison.setEditable(false);
         NumberImprison.setBorder(null);
-        NumberImprison.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NumberImprisonActionPerformed(evt);
-            }
-        });
 
         jLabel11.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel11.setText("ครั้งที่ผัดฟ้องฝากขัง");
@@ -346,11 +311,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 
         NoImprison.setEditable(false);
         NoImprison.setBorder(null);
-        NoImprison.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NoImprisonActionPerformed(evt);
-            }
-        });
 
         jLabel13.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel13.setText("วันที่สิ้นสุด");
@@ -358,20 +318,10 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         ToImprison.setEditable(false);
         ToImprison.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         ToImprison.setBorder(null);
-        ToImprison.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ToImprisonActionPerformed(evt);
-            }
-        });
 
         PoliceStationName.setEditable(false);
         PoliceStationName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         PoliceStationName.setBorder(null);
-        PoliceStationName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PoliceStationNameActionPerformed(evt);
-            }
-        });
 
         jLabel15.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel15.setText("สถานที่ควบคุม");
@@ -382,11 +332,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         TotalDate.setEditable(false);
         TotalDate.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         TotalDate.setBorder(null);
-        TotalDate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TotalDateActionPerformed(evt);
-            }
-        });
 
         jLabel17.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel17.setText("วัน");
@@ -394,11 +339,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         TotalTime.setEditable(false);
         TotalTime.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         TotalTime.setBorder(null);
-        TotalTime.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TotalTimeActionPerformed(evt);
-            }
-        });
 
         jLabel18.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel18.setText("ชั่วโมง");
@@ -573,54 +513,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void FullNamePersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FullNamePersonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FullNamePersonActionPerformed
-
-    private void PeopleRegistrationIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PeopleRegistrationIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PeopleRegistrationIDActionPerformed
-
-    private void AccureandOtherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AccureandOtherActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AccureandOtherActionPerformed
-
-    private void ChargeNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChargeNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ChargeNameActionPerformed
-
-    private void NumberImprisonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NumberImprisonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NumberImprisonActionPerformed
-
-    private void StatusSueAndPutInJailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StatusSueAndPutInJailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_StatusSueAndPutInJailActionPerformed
-
-    private void ArrestDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ArrestDateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ArrestDateActionPerformed
-
-    private void NoImprisonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NoImprisonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NoImprisonActionPerformed
-
-    private void ToImprisonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ToImprisonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ToImprisonActionPerformed
-
-    private void PoliceStationNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PoliceStationNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PoliceStationNameActionPerformed
-
-    private void TotalDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TotalDateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TotalDateActionPerformed
-
-    private void TotalTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TotalTimeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TotalTimeActionPerformed
 
     private void jButtonAddSueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddSueActionPerformed
         

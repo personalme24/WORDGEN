@@ -393,38 +393,18 @@ public class TrafficEdit extends javax.swing.JDialog {
 
         jCheckSue.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jCheckSue.setText("สั่งฟ้อง");
-        jCheckSue.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckSueActionPerformed(evt);
-            }
-        });
 
         jCheckDuringInvest.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jCheckDuringInvest.setText("อยู่ระหว่างสอบสวน");
 
         jCheckNotSue.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jCheckNotSue.setText("สั่งไม่ฟ้อง");
-        jCheckNotSue.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckNotSueActionPerformed(evt);
-            }
-        });
 
         jCheckOtherInvest.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jCheckOtherInvest.setText("อื่นๆ");
-        jCheckOtherInvest.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckOtherInvestActionPerformed(evt);
-            }
-        });
 
         jCheckNoInvest.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jCheckNoInvest.setText("งดการสอบสวน");
-        jCheckNoInvest.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckNoInvestActionPerformed(evt);
-            }
-        });
 
         jLabel31.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel31.setText("ส่งสำนวนไปยัง");
@@ -1099,22 +1079,6 @@ public class TrafficEdit extends javax.swing.JDialog {
         as.setVisible(true);
         
     }//GEN-LAST:event_jButtonAddAssetActionPerformed
-
-    private void jCheckSueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckSueActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckSueActionPerformed
-
-    private void jCheckNotSueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckNotSueActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckNotSueActionPerformed
-
-    private void jCheckOtherInvestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckOtherInvestActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckOtherInvestActionPerformed
-
-    private void jCheckNoInvestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckNoInvestActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckNoInvestActionPerformed
 
     private void jButtonChargeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChargeActionPerformed
         // TODO add your handling code here:

@@ -903,9 +903,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#xe2a;&#xe31;&#xe48;&#xe07;&#xe1f;&#xe49;&#xe2d;&#xe07;"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckSueActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JCheckBox" name="jCheckDuringInvest">
               <Properties>
@@ -922,9 +919,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#xe2a;&#xe31;&#xe48;&#xe07;&#xe44;&#xe21;&#xe48;&#xe1f;&#xe49;&#xe2d;&#xe07;"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckNotSueActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JCheckBox" name="jCheckOtherInvest">
               <Properties>
@@ -933,9 +927,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#xe2d;&#xe37;&#xe48;&#xe19;&#xe46;"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckOtherInvestActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JCheckBox" name="jCheckNoInvest">
               <Properties>
@@ -944,9 +935,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#xe07;&#xe14;&#xe01;&#xe32;&#xe23;&#xe2a;&#xe2d;&#xe1a;&#xe2a;&#xe27;&#xe19;"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckNoInvestActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel31">
               <Properties>

@@ -256,9 +256,7 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="BtSaveDead" min="-2" pref="78" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jButton3" min="-2" pref="78" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="496" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="584" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -347,11 +345,8 @@
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="BtSaveDead" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                          <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="132" max="32767" attributes="0"/>
+                      <Component id="BtSaveDead" min="-2" pref="32" max="-2" attributes="0"/>
+                      <EmptySpace pref="133" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -371,9 +366,6 @@
                   <Font name="TH SarabunPSK" size="20" style="0"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PeopleRegistrationIDActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
               <Properties>
@@ -389,9 +381,6 @@
                   <Font name="TH SarabunPSK" size="20" style="0"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FullNamePersonActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel10">
               <Properties>
@@ -422,9 +411,6 @@
                   <Font name="TH SarabunPSK" size="20" style="0"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AgeActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel20">
               <Properties>
@@ -455,9 +441,6 @@
                   <Font name="TH SarabunPSK" size="20" style="0"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ReligionActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel12">
               <Properties>
@@ -488,9 +471,6 @@
                   <Font name="TH SarabunPSK" size="20" style="0"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RaceActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel16">
               <Properties>
@@ -521,9 +501,6 @@
                   <Font name="TH SarabunPSK" size="20" style="0"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="WeightActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="Gender">
               <Properties>
@@ -538,9 +515,6 @@
                   </StringArray>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GenderActionPerformed"/>
-              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
@@ -627,9 +601,6 @@
                   <Font name="TH SarabunPSK" size="20" style="0"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ZipCodeActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="Province">
               <Properties>
@@ -666,9 +637,6 @@
                   <Font name="TH SarabunPSK" size="20" style="0"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TambonActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel22">
               <Properties>
@@ -692,9 +660,6 @@
                   <Font name="TH SarabunPSK" size="20" style="0"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MooActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="HouseNumber">
               <Properties>
@@ -741,9 +706,6 @@
                   <Font name="TH SarabunPSK" size="20" style="0"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IdentificationActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel9">
               <Properties>
@@ -769,18 +731,6 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtSaveDeadActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="jButton3">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="TH SarabunPSK" size="22" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="&#xe22;&#xe01;&#xe40;&#xe25;&#xe34;&#xe01;"/>
-              </Properties>
-              <Events>
-                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton3MouseExited"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

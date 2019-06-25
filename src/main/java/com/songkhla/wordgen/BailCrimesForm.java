@@ -150,20 +150,10 @@ public class BailCrimesForm extends javax.swing.JFrame {
         SuspectFullName.setEditable(false);
         SuspectFullName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         SuspectFullName.setBorder(null);
-        SuspectFullName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SuspectFullNameActionPerformed(evt);
-            }
-        });
 
         ChargeName.setEditable(false);
         ChargeName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         ChargeName.setBorder(null);
-        ChargeName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ChargeNameActionPerformed(evt);
-            }
-        });
 
         jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel6.setText("ข้อหา");
@@ -174,11 +164,6 @@ public class BailCrimesForm extends javax.swing.JFrame {
         SuspectFullName2.setEditable(false);
         SuspectFullName2.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         SuspectFullName2.setBorder(null);
-        SuspectFullName2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SuspectFullName2ActionPerformed(evt);
-            }
-        });
 
         jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel8.setText("วันที่จับกุม");
@@ -186,11 +171,6 @@ public class BailCrimesForm extends javax.swing.JFrame {
         ArrestDate.setEditable(false);
         ArrestDate.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         ArrestDate.setBorder(null);
-        ArrestDate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ArrestDateActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -251,11 +231,6 @@ public class BailCrimesForm extends javax.swing.JFrame {
 
         jComboStatus.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jComboStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ผัดฟ้องฝากขัง", "ประกัน", "แจ้งข้อหาปล่อยตัว", "แจ้งข้อหาฝากขัง", "ไม่ได้ตัว", "ไม่รู้ตัว", "ฟ้องวาจา", "ส่งฟื้นฟู", "อื่นๆ" }));
-        jComboStatus.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jComboStatusItemStateChanged(evt);
-            }
-        });
         jComboStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboStatusActionPerformed(evt);
@@ -320,31 +295,10 @@ public class BailCrimesForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ArrestDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ArrestDateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ArrestDateActionPerformed
-
-    private void SuspectFullName2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SuspectFullName2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SuspectFullName2ActionPerformed
-
-    private void ChargeNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChargeNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ChargeNameActionPerformed
-
-    private void SuspectFullNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SuspectFullNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SuspectFullNameActionPerformed
-
     private void jCheckOnlyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckOnlyActionPerformed
         // TODO add your handling code here:
         RefreshData();
     }//GEN-LAST:event_jCheckOnlyActionPerformed
-
-    private void jComboStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboStatusActionPerformed
-        // TODO add your handling code here:
-        RefreshData();
-    }//GEN-LAST:event_jComboStatusActionPerformed
 
     private void jTableBailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableBailMouseClicked
         // TODO add your handling code here:
@@ -383,10 +337,6 @@ public class BailCrimesForm extends javax.swing.JFrame {
           
         
     }//GEN-LAST:event_jTableBailMouseClicked
-
-    private void jComboStatusItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboStatusItemStateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboStatusItemStateChanged
 
     private void AddEditBailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddEditBailActionPerformed
         // TODO add your handling code here:
@@ -428,6 +378,11 @@ public class BailCrimesForm extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_AddEditBailActionPerformed
+
+    private void jComboStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboStatusActionPerformed
+        // TODO add your handling code here:
+        RefreshData();
+    }//GEN-LAST:event_jComboStatusActionPerformed
  public void eventJStatusManage(){
 //     String a= jComboStatus.getSelectedItem()+"";
 //     if(a.equals("ประกัน"))

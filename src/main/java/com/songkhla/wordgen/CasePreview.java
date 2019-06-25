@@ -125,11 +125,6 @@ public class CasePreview extends javax.swing.JFrame {
         SuspectFullName.setEditable(false);
         SuspectFullName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         SuspectFullName.setBorder(null);
-        SuspectFullName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SuspectFullNameActionPerformed(evt);
-            }
-        });
 
         jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel6.setText("ข้อหา");
@@ -137,11 +132,6 @@ public class CasePreview extends javax.swing.JFrame {
         FullNamePerson1.setEditable(false);
         FullNamePerson1.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         FullNamePerson1.setBorder(null);
-        FullNamePerson1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FullNamePerson1ActionPerformed(evt);
-            }
-        });
 
         jLabel7.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel7.setText("ชื่อผู้กล่าวหา");
@@ -149,22 +139,12 @@ public class CasePreview extends javax.swing.JFrame {
         VictimFullName.setEditable(false);
         VictimFullName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         VictimFullName.setBorder(null);
-        VictimFullName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                VictimFullNameActionPerformed(evt);
-            }
-        });
 
         jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel8.setText("วันที่รับคำร้องทุกข์");
 
         CaseAcceptDateTime.setEditable(false);
         CaseAcceptDateTime.setBorder(null);
-        CaseAcceptDateTime.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CaseAcceptDateTimeActionPerformed(evt);
-            }
-        });
 
         CourtType.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         CourtType.setBorder(null);
@@ -320,7 +300,7 @@ public class CasePreview extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 336, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -362,22 +342,6 @@ public class CasePreview extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void SuspectFullNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SuspectFullNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SuspectFullNameActionPerformed
-
-    private void FullNamePerson1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FullNamePerson1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FullNamePerson1ActionPerformed
-
-    private void VictimFullNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VictimFullNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_VictimFullNameActionPerformed
-
-    private void CaseAcceptDateTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CaseAcceptDateTimeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CaseAcceptDateTimeActionPerformed
 
     /**
      * @param args the command line arguments

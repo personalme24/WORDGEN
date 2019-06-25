@@ -45,7 +45,6 @@ public class BailCrimesAdd extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        fXDatePickerInSwingExample1 = new com.songkhla.wordgen.FXDatePickerInSwingExample();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -121,11 +120,6 @@ public class BailCrimesAdd extends javax.swing.JDialog {
         SuspectFullName.setEditable(false);
         SuspectFullName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         SuspectFullName.setBorder(null);
-        SuspectFullName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SuspectFullNameActionPerformed(evt);
-            }
-        });
 
         jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel6.setText("ข้อหา");
@@ -133,11 +127,6 @@ public class BailCrimesAdd extends javax.swing.JDialog {
         ChargeName.setEditable(false);
         ChargeName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         ChargeName.setBorder(null);
-        ChargeName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ChargeNameActionPerformed(evt);
-            }
-        });
 
         jPanel6.setBackground(new java.awt.Color(255, 153, 153));
 
@@ -473,14 +462,6 @@ public class BailCrimesAdd extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void SuspectFullNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SuspectFullNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SuspectFullNameActionPerformed
-
-    private void ChargeNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChargeNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ChargeNameActionPerformed
-
     private void jButtonAddSue1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddSue1ActionPerformed
         // TODO add your handling code here:
         refreshBailSendData();
@@ -794,7 +775,6 @@ public class BailCrimesAdd extends javax.swing.JDialog {
     private javax.swing.JTextField OccuredDate;
     private javax.swing.JTextField SuspectFullName;
     private javax.swing.JTextField crimecaseno;
-    private com.songkhla.wordgen.FXDatePickerInSwingExample fXDatePickerInSwingExample1;
     private javax.swing.JButton jButtonAddSue;
     private javax.swing.JButton jButtonAddSue1;
     private javax.swing.JButton jButtonDelete;

@@ -216,9 +216,6 @@
                   <Font name="TH SarabunPSK" size="20" style="1"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ChargeNameActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButton3">
               <Properties>
@@ -233,9 +230,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#xe04;&#xe49;&#xe19;&#xe2b;&#xe32;"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButton4">
               <Properties>

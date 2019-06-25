@@ -12,6 +12,7 @@ import static com.songkhla.wordgen.CrimesCaseEdit.jLabelChargeCode;
 import static com.songkhla.wordgen.CrimesCaseEdit.jTextAccused;
 import java.awt.Dimension;
 import java.awt.Rectangle;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -160,11 +161,6 @@ public class AccusedForm extends javax.swing.JDialog {
         TypePerson.setEditable(false);
         TypePerson.setFont(new java.awt.Font("TH SarabunPSK", 0, 18)); // NOI18N
         TypePerson.setText("ผู้กล่าวหา");
-        TypePerson.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TypePersonActionPerformed(evt);
-            }
-        });
 
         jLabel4.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel4.setText("ประเภทบุคคล");
@@ -202,20 +198,14 @@ public class AccusedForm extends javax.swing.JDialog {
         jLabel2.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel2.setText("เลขบัตรประชาชน");
 
-        PeopleRegistrationID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PeopleRegistrationIDActionPerformed(evt);
+        PeopleRegistrationID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                PeopleRegistrationIDKeyTyped(evt);
             }
         });
 
         jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel1.setText("วันที่ออกบัตร");
-
-        ExpiredDate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ExpiredDateActionPerformed(evt);
-            }
-        });
 
         jLabel9.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel9.setText("เลขหนังสือเดินทาง");
@@ -223,45 +213,16 @@ public class AccusedForm extends javax.swing.JDialog {
         jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel6.setText("วันที่บัตรหมดอายุ");
 
-        PassportNumber.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PassportNumberActionPerformed(evt);
-            }
-        });
-
         jLabel5.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel5.setText("ชื่อ-สกุล");
 
         BtSaveAccused.setText("บันทึก");
-        BtSaveAccused.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtSaveAccusedActionPerformed(evt);
-            }
-        });
-
-        FullNamePerson.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FullNamePersonActionPerformed(evt);
-            }
-        });
-
-        OtherName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                OtherNameActionPerformed(evt);
-            }
-        });
 
         jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel8.setText("อายุ");
 
         jLabel10.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel10.setText("วันเกิด");
-
-        Age.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AgeActionPerformed(evt);
-            }
-        });
 
         jLabel11.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel11.setText("ชื่อภาษาอังกฤษ");
@@ -272,21 +233,10 @@ public class AccusedForm extends javax.swing.JDialog {
         jLabel13.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel13.setText("เชื้อชาติ");
 
-        Race.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RaceActionPerformed(evt);
-            }
-        });
-
         jLabel14.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel14.setText("อาชีพ");
 
         Gender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "หญิง", "ชาย", " " }));
-        Gender.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GenderActionPerformed(evt);
-            }
-        });
 
         jLabel15.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel15.setText("เพศ");
@@ -294,23 +244,11 @@ public class AccusedForm extends javax.swing.JDialog {
         jLabel16.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel16.setText("สูง");
 
-        Religion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ReligionActionPerformed(evt);
-            }
-        });
-
         jLabel17.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel17.setText("น้ำหนัก");
 
         jLabel18.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel18.setText("ศาสนา");
-
-        Weight.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                WeightActionPerformed(evt);
-            }
-        });
 
         jLabel7.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel7.setText("ชื่อสกุลอื่น");
@@ -344,24 +282,6 @@ public class AccusedForm extends javax.swing.JDialog {
 
         jLabel30.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel30.setText("หมู่ที่");
-
-        Moo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MooActionPerformed(evt);
-            }
-        });
-
-        Tambon.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TambonActionPerformed(evt);
-            }
-        });
-
-        ZipCode.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ZipCodeActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -629,172 +549,16 @@ public class AccusedForm extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void WeightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WeightActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_WeightActionPerformed
-
-    private void ReligionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReligionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ReligionActionPerformed
-
-    private void RaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RaceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RaceActionPerformed
-
-    private void AgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AgeActionPerformed
-
-    private void OtherNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OtherNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_OtherNameActionPerformed
-
-    private void FullNamePersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FullNamePersonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FullNamePersonActionPerformed
-
-    private void BtSaveAccusedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSaveAccusedActionPerformed
-        // TODO add your handling code here:
-               con=ConnectDatabase.connect();
-        if(isInsert){    
-        String sql="INSERT INTO Person (Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
-                        "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                        "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,caseIdPerson) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-
-         System.out.println("SQL : "+sql);
-      try {
-            pst=con.prepareStatement(sql);
-                              pst.setString(1,Age.getText());
-                              pst.setString(2,Amphur.getText());
-                              pst.setString(3,BirthDay.getText());
-                              pst.setString(4,BloodGroup.getText());
-                              pst.setString(5,ExpiredDate.getText());
-                              pst.setString(6,FatherFullName.getText());
-                              pst.setString(7,FullNamePerson.getText());
-                              pst.setString(8,FullNamePersonEn.getText());
-                              pst.setString(9,Gender.getSelectedItem().toString());
-                              pst.setString(10,Height.getText());
-                              pst.setString(11,HouseNumber.getText());
-                              pst.setString(12,IssueDate.getText());
-                              pst.setString(13,Moo.getText());
-                              pst.setString(14,MotherFullName.getText());
-                              pst.setString(15,Nationality.getText());
-                              pst.setString(16,Occupation.getText());
-                              pst.setString(17,OtherName.getText());
-                              pst.setString(18,PassportNumber.getText());
-                              pst.setString(19,PeopleRegistrationID.getText());
-                              pst.setString(20,PhonePerson.getText());
-                              pst.setString(21,Province.getText());
-                              pst.setString(22,Race.getText());
-                              pst.setString(23,Religion.getText());
-                              pst.setString(24,Tambon.getText());
-                              pst.setString(25,TypePerson.getText());
-                              pst.setString(26,Weight.getText());
-                              pst.setString(27,ZipCode.getText());
-                              pst.setString(28,crimecaseno.getText());
-                              pst.executeUpdate();
-                              
-                              pst.close();
-                               JOptionPane.showMessageDialog(jPanel1, "Data Save",null, JOptionPane.INFORMATION_MESSAGE);
-                              System.out.println("SQL : "+sql);
-        } catch (Exception e) {
-             JOptionPane.showMessageDialog(jPanel1,e,null, JOptionPane.INFORMATION_MESSAGE);
-
-             System.out.println("SQL : "+pst);
-        }
-        }
-        else{
-             String sqlUpdate="Update Person set Age=?,Amphur=?,BirthDay=?,\n" +
-                                    "BloodGroup=?,ExpiredDate=?,FatherFullName=?,FullNamePerson=?,FullNamePersonEn=?,\n" +
-                                    "Gender=?,Height=?,HouseNumber=?,IssueDate=?,Moo=?,MotherFullName=?,Nationality=?,Occupation=?,\n" +
-                                    "OtherName=?,PassportNumber=?,PeopleRegistrationID=?,PhonePerson=?,Province=?,Race=?,Religion=?,\n" +
-                                    "Tambon=?,TypePerson=?,Weight=?,ZipCode=? ,caseIdPerson=? where NoPerson=? and TypePerson=?   ";
-       
-         try {
-            pst=con.prepareStatement(sqlUpdate);
-                              pst.setString(1,Age.getText());
-                              pst.setString(2,Amphur.getText());
-                              pst.setString(3,BirthDay.getText());
-                              pst.setString(4,BloodGroup.getText());
-                              pst.setString(5,ExpiredDate.getText());
-                              pst.setString(6,FatherFullName.getText());
-                              pst.setString(7,FullNamePerson.getText());
-                              pst.setString(8,FullNamePersonEn.getText());
-                              pst.setString(9,Gender.getSelectedItem().toString());
-                              pst.setString(10,Height.getText());
-                              pst.setString(11,HouseNumber.getText());
-                              pst.setString(12,IssueDate.getText());
-                              pst.setString(13,Moo.getText());
-                              pst.setString(14,MotherFullName.getText());
-                              pst.setString(15,Nationality.getText());
-                              pst.setString(16,Occupation.getText());
-                              pst.setString(17,OtherName.getText());
-                              pst.setString(18,PassportNumber.getText());
-                              pst.setString(19,PeopleRegistrationID.getText());
-                              pst.setString(20,PhonePerson.getText());
-                              pst.setString(21,Province.getText());
-                              pst.setString(22,Race.getText());
-                              pst.setString(23,Religion.getText());
-                              pst.setString(24,Tambon.getText());
-                              pst.setString(25,TypePerson.getText());
-                              pst.setString(26,Weight.getText());
-                              pst.setString(27,ZipCode.getText());
-                              pst.setString(28,crimecaseno.getText());
-                              pst.setString(29,noPerson);
-                              pst.setString(30,TypePerson.getText());
-                              pst.executeUpdate();
-
-//                             JOptionPane.showMessageDialog(null, "Data Saved successfully");
-                             pst.close();
-                             JOptionPane.showMessageDialog(jPanel1, "บันทึกข้อมูลแล้ว" ,null, JOptionPane.INFORMATION_MESSAGE);
-
-                              System.out.println("SQL : "+sqlUpdate);
-        } catch (Exception e) {
-                               JOptionPane.showMessageDialog(jPanel1,  "Cannot Save", null,JOptionPane.INFORMATION_MESSAGE);
-
-             System.out.println("SQL : "+pst);
-        }
-        
-        
-        
-        }
-        
-                            JFrame frame = new JFrame("JOptionPane showMessageDialog example");
-
-        setVisible(false);
-    }//GEN-LAST:event_BtSaveAccusedActionPerformed
-
-    private void PassportNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PassportNumberActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PassportNumberActionPerformed
-
-    private void ExpiredDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExpiredDateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ExpiredDateActionPerformed
-
-    private void PeopleRegistrationIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PeopleRegistrationIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PeopleRegistrationIDActionPerformed
-
-    private void MooActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MooActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MooActionPerformed
-
-    private void TambonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TambonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TambonActionPerformed
-
-    private void TypePersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TypePersonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TypePersonActionPerformed
-
-    private void ZipCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ZipCodeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ZipCodeActionPerformed
-
-    private void GenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenderActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_GenderActionPerformed
+    private void PeopleRegistrationIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PeopleRegistrationIDKeyTyped
+           char vChar = evt.getKeyChar();
+         if(!(Character.isDigit(vChar) || (vChar==KeyEvent.VK_BACK_SPACE)||(vChar==KeyEvent.VK_DELETE)))
+         {
+             evt.consume();
+         }
+         if(PeopleRegistrationID.getText().length()>=13) {  
+           evt.consume();
+ }     // TODO add your handling code here:
+    }//GEN-LAST:event_PeopleRegistrationIDKeyTyped
 
     /**
      * @param args the command line arguments

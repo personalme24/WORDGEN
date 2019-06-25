@@ -368,9 +368,6 @@
                   <Font name="TH SarabunPSK" size="20" style="0"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PeopleRegistrationIDActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
               <Properties>
@@ -386,9 +383,6 @@
                   <Font name="TH SarabunPSK" size="20" style="0"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FullNamePersonActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel8">
               <Properties>
@@ -419,9 +413,6 @@
                   <Font name="TH SarabunPSK" size="20" style="0"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AgeActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="Nationality">
               <Properties>
@@ -452,9 +443,6 @@
                   <Font name="TH SarabunPSK" size="20" style="0"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RaceActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel14">
               <Properties>
@@ -477,9 +465,6 @@
                   </StringArray>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GenderActionPerformed"/>
-              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
@@ -505,9 +490,6 @@
                   <Font name="TH SarabunPSK" size="20" style="0"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ReligionActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel17">
               <Properties>
@@ -538,9 +520,6 @@
                   <Font name="TH SarabunPSK" size="20" style="0"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="WeightActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="BloodGroup">
               <Properties>
@@ -648,9 +627,6 @@
                   <Font name="TH SarabunPSK" size="20" style="0"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MooActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="Tambon">
               <Properties>
@@ -658,9 +634,6 @@
                   <Font name="TH SarabunPSK" size="20" style="0"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TambonActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="Amphur">
               <Properties>
@@ -675,9 +648,6 @@
                   <Font name="TH SarabunPSK" size="20" style="0"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ZipCodeActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="Province">
               <Properties>
@@ -768,9 +738,6 @@
                   </StringArray>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RelatedOfDieActionPerformed"/>
-              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>

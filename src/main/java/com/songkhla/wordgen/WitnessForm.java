@@ -160,11 +160,6 @@ public class WitnessForm extends javax.swing.JDialog {
         TypePerson.setEditable(false);
         TypePerson.setFont(new java.awt.Font("TH SarabunPSK", 0, 18)); // NOI18N
         TypePerson.setText("พยานและบุคคลอื่นๆ");
-        TypePerson.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TypePersonActionPerformed(evt);
-            }
-        });
 
         jLabel4.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel4.setText("ประเภทบุคคล");
@@ -202,32 +197,14 @@ public class WitnessForm extends javax.swing.JDialog {
         jLabel2.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel2.setText("เลขบัตรประชาชน");
 
-        PeopleRegistrationID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PeopleRegistrationIDActionPerformed(evt);
-            }
-        });
-
         jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel1.setText("วันที่ออกบัตร");
-
-        ExpiredDate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ExpiredDateActionPerformed(evt);
-            }
-        });
 
         jLabel9.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel9.setText("เลขหนังสือเดินทาง");
 
         jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel6.setText("วันที่บัตรหมดอายุ");
-
-        PassportNumber.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PassportNumberActionPerformed(evt);
-            }
-        });
 
         jLabel5.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel5.setText("ชื่อ-สกุล");
@@ -239,29 +216,11 @@ public class WitnessForm extends javax.swing.JDialog {
             }
         });
 
-        FullNamePerson.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FullNamePersonActionPerformed(evt);
-            }
-        });
-
-        OtherName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                OtherNameActionPerformed(evt);
-            }
-        });
-
         jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel8.setText("อายุ");
 
         jLabel10.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel10.setText("วันเกิด");
-
-        Age.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AgeActionPerformed(evt);
-            }
-        });
 
         jLabel11.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel11.setText("ชื่อภาษาอังกฤษ");
@@ -272,21 +231,10 @@ public class WitnessForm extends javax.swing.JDialog {
         jLabel13.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel13.setText("เชื้อชาติ");
 
-        Race.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RaceActionPerformed(evt);
-            }
-        });
-
         jLabel14.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel14.setText("อาชีพ");
 
         Gender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "หญิง", "ชาย", " " }));
-        Gender.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GenderActionPerformed(evt);
-            }
-        });
 
         jLabel15.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel15.setText("เพศ");
@@ -294,23 +242,11 @@ public class WitnessForm extends javax.swing.JDialog {
         jLabel16.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel16.setText("สูง");
 
-        Religion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ReligionActionPerformed(evt);
-            }
-        });
-
         jLabel17.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel17.setText("น้ำหนัก");
 
         jLabel18.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel18.setText("ศาสนา");
-
-        Weight.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                WeightActionPerformed(evt);
-            }
-        });
 
         jLabel7.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel7.setText("ชื่อสกุลอื่น");
@@ -344,24 +280,6 @@ public class WitnessForm extends javax.swing.JDialog {
 
         jLabel30.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel30.setText("หมู่ที่");
-
-        Moo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MooActionPerformed(evt);
-            }
-        });
-
-        Tambon.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TambonActionPerformed(evt);
-            }
-        });
-
-        ZipCode.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ZipCodeActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -629,30 +547,6 @@ public class WitnessForm extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void WeightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WeightActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_WeightActionPerformed
-
-    private void ReligionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReligionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ReligionActionPerformed
-
-    private void RaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RaceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RaceActionPerformed
-
-    private void AgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AgeActionPerformed
-
-    private void OtherNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OtherNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_OtherNameActionPerformed
-
-    private void FullNamePersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FullNamePersonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FullNamePersonActionPerformed
-
     private void BtSaveAccusedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSaveAccusedActionPerformed
         // TODO add your handling code here:
                con=ConnectDatabase.connect();
@@ -760,38 +654,6 @@ public class WitnessForm extends javax.swing.JDialog {
         JOptionPane.INFORMATION_MESSAGE);
         setVisible(false);
     }//GEN-LAST:event_BtSaveAccusedActionPerformed
-
-    private void PassportNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PassportNumberActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PassportNumberActionPerformed
-
-    private void ExpiredDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExpiredDateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ExpiredDateActionPerformed
-
-    private void PeopleRegistrationIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PeopleRegistrationIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PeopleRegistrationIDActionPerformed
-
-    private void MooActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MooActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MooActionPerformed
-
-    private void TambonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TambonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TambonActionPerformed
-
-    private void TypePersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TypePersonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TypePersonActionPerformed
-
-    private void ZipCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ZipCodeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ZipCodeActionPerformed
-
-    private void GenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenderActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_GenderActionPerformed
 
     /**
      * @param args the command line arguments

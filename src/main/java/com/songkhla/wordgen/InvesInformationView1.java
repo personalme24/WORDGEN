@@ -125,11 +125,6 @@ public class InvesInformationView1 extends javax.swing.JDialog{
         jButtonDelete.setText("ลบ");
 
         txtCaseNO.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        txtCaseNO.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCaseNOActionPerformed(evt);
-            }
-        });
 
         jButtonFind.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButtonFind.setText("ค้นหา");
@@ -191,10 +186,6 @@ public class InvesInformationView1 extends javax.swing.JDialog{
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonAddMouseClicked
-
-    private void txtCaseNOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCaseNOActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCaseNOActionPerformed
 
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
         // TODO add your handling code here:

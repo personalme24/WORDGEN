@@ -325,9 +325,6 @@
               <Font name="TH SarabunPSK" size="20" style="0"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DefectMarkActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="PointFoundCheck">
           <Properties>
@@ -356,9 +353,6 @@
               <Font name="TH SarabunPSK" size="20" style="0"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NoteActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
@@ -391,9 +385,6 @@
               <Font name="TH SarabunPSK" size="20" style="0"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PlaceFoundExhibitActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="OrderAsset">
           <Properties>
@@ -401,9 +392,6 @@
               <Font name="TH SarabunPSK" size="20" style="0"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="OrderAssetActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="crimecaseno">
           <Properties>
@@ -421,9 +409,6 @@
               <Font name="TH SarabunPSK" size="20" style="0"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EvidenceRecordNumber1ActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JComboBox" name="StatusAsset">
           <Properties>

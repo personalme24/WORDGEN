@@ -124,7 +124,6 @@ public class Identity_DeadForm extends javax.swing.JDialog {
         jLabel9 = new javax.swing.JLabel();
         PassportNumber = new javax.swing.JTextField();
         BtSaveDead = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         crimecaseno = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -161,21 +160,11 @@ public class Identity_DeadForm extends javax.swing.JDialog {
         jLabel2.setText("เลขบัตรประชาชน");
 
         PeopleRegistrationID.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        PeopleRegistrationID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PeopleRegistrationIDActionPerformed(evt);
-            }
-        });
 
         jLabel5.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel5.setText("ชื่อ-สกุล");
 
         FullNamePerson.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        FullNamePerson.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FullNamePersonActionPerformed(evt);
-            }
-        });
 
         jLabel10.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel10.setText("วันเกิด");
@@ -186,11 +175,6 @@ public class Identity_DeadForm extends javax.swing.JDialog {
         jLabel8.setText("อายุ");
 
         Age.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        Age.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AgeActionPerformed(evt);
-            }
-        });
 
         jLabel20.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel20.setText("หมู่โลหิต");
@@ -201,11 +185,6 @@ public class Identity_DeadForm extends javax.swing.JDialog {
         jLabel18.setText("ศาสนา");
 
         Religion.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        Religion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ReligionActionPerformed(evt);
-            }
-        });
 
         jLabel12.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel12.setText("สัญชาติ");
@@ -216,11 +195,6 @@ public class Identity_DeadForm extends javax.swing.JDialog {
         jLabel13.setText("เชื้อชาติ");
 
         Race.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        Race.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RaceActionPerformed(evt);
-            }
-        });
 
         jLabel16.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel16.setText("สูง");
@@ -231,19 +205,9 @@ public class Identity_DeadForm extends javax.swing.JDialog {
         jLabel17.setText("น้ำหนัก");
 
         Weight.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        Weight.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                WeightActionPerformed(evt);
-            }
-        });
 
         Gender.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         Gender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "หญิง", "ชาย", "ไม่ระบุ" }));
-        Gender.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GenderActionPerformed(evt);
-            }
-        });
 
         jLabel34.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel34.setText("เพศ");
@@ -272,11 +236,6 @@ public class Identity_DeadForm extends javax.swing.JDialog {
         jLabel24.setText("รหัสไปรษณีย์");
 
         ZipCode.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        ZipCode.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ZipCodeActionPerformed(evt);
-            }
-        });
 
         Province.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
@@ -288,11 +247,6 @@ public class Identity_DeadForm extends javax.swing.JDialog {
         jLabel23.setText("เขต/อำเภอ");
 
         Tambon.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        Tambon.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TambonActionPerformed(evt);
-            }
-        });
 
         jLabel22.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel22.setText("แขวง/ตำบล");
@@ -301,11 +255,6 @@ public class Identity_DeadForm extends javax.swing.JDialog {
         jLabel30.setText("หมู่ที่");
 
         Moo.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        Moo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MooActionPerformed(evt);
-            }
-        });
 
         HouseNumber.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
@@ -322,11 +271,6 @@ public class Identity_DeadForm extends javax.swing.JDialog {
         jLabel3.setText("ตำหนิรูปพรรณ");
 
         Identification.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        Identification.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IdentificationActionPerformed(evt);
-            }
-        });
 
         jLabel9.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel9.setText("เลขหนังสือเดินทาง");
@@ -338,19 +282,6 @@ public class Identity_DeadForm extends javax.swing.JDialog {
         BtSaveDead.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtSaveDeadActionPerformed(evt);
-            }
-        });
-
-        jButton3.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jButton3.setText("ยกเลิก");
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jButton3MouseExited(evt);
-            }
-        });
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
             }
         });
 
@@ -461,9 +392,7 @@ public class Identity_DeadForm extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(BtSaveDead, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(496, 496, 496))
+                .addGap(584, 584, 584))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -538,10 +467,8 @@ public class Identity_DeadForm extends javax.swing.JDialog {
                     .addComponent(Identification, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(50, 50, 50)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BtSaveDead, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addComponent(BtSaveDead, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(133, Short.MAX_VALUE))
         );
 
         crimecaseno.setText("เลขคดี");
@@ -587,50 +514,6 @@ public class Identity_DeadForm extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void PeopleRegistrationIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PeopleRegistrationIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PeopleRegistrationIDActionPerformed
-
-    private void FullNamePersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FullNamePersonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FullNamePersonActionPerformed
-
-    private void AgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AgeActionPerformed
-
-    private void ReligionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReligionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ReligionActionPerformed
-
-    private void RaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RaceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RaceActionPerformed
-
-    private void WeightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WeightActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_WeightActionPerformed
-
-    private void GenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenderActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_GenderActionPerformed
-
-    private void ZipCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ZipCodeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ZipCodeActionPerformed
-
-    private void TambonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TambonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TambonActionPerformed
-
-    private void MooActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MooActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MooActionPerformed
-
-    private void IdentificationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IdentificationActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_IdentificationActionPerformed
 
     private void BtSaveDeadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSaveDeadActionPerformed
         // TODO add your handling code here:
@@ -751,17 +634,6 @@ public class Identity_DeadForm extends javax.swing.JDialog {
         setVisible(false);
     }//GEN-LAST:event_BtSaveDeadActionPerformed
 
-    private void jButton3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseExited
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_jButton3MouseExited
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-//        ListWitness lw=new ListWitness();
-//        lw.setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -824,7 +696,6 @@ public class Identity_DeadForm extends javax.swing.JDialog {
     private javax.swing.JTextField Weight;
     private javax.swing.JTextField ZipCode;
     private javax.swing.JLabel crimecaseno;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;

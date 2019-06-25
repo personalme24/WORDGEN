@@ -186,11 +186,6 @@ public class StationForm extends javax.swing.JDialog {
 
         PoliceStationCode.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         PoliceStationCode.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        PoliceStationCode.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                PoliceStationCodeFocusLost(evt);
-            }
-        });
         PoliceStationCode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PoliceStationCodeActionPerformed(evt);
@@ -251,11 +246,6 @@ public class StationForm extends javax.swing.JDialog {
         jLabel18.setText("รหัสไปรษณีย์");
 
         Postcode.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        Postcode.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PostcodeActionPerformed(evt);
-            }
-        });
         Postcode.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 PostcodeKeyTyped(evt);
@@ -276,11 +266,6 @@ public class StationForm extends javax.swing.JDialog {
         jLabel20.setText("เบอร์โทรศัพท์(มือถือ)");
 
         PhonePolice.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        PhonePolice.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PhonePoliceActionPerformed(evt);
-            }
-        });
         PhonePolice.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 PhonePoliceKeyTyped(evt);
@@ -834,10 +819,6 @@ public class StationForm extends javax.swing.JDialog {
   
     }//GEN-LAST:event_PoliceStationCodeKeyTyped
 
-    private void PostcodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PostcodeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PostcodeActionPerformed
-
     private void PostcodeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PostcodeKeyTyped
          char vChar = evt.getKeyChar();
          if(!(Character.isDigit(vChar) || (vChar==KeyEvent.VK_BACK_SPACE)||(vChar==KeyEvent.VK_DELETE)))
@@ -849,20 +830,12 @@ public class StationForm extends javax.swing.JDialog {
             }
     }//GEN-LAST:event_PostcodeKeyTyped
 
-    private void PhonePoliceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PhonePoliceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PhonePoliceActionPerformed
-
     private void PhonePoliceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PhonePoliceKeyTyped
 
         if(PhonePolice.getText().length()>=10) {  
            evt.consume();  
          }// TODO add your handling code here:
     }//GEN-LAST:event_PhonePoliceKeyTyped
-
-    private void PoliceStationCodeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_PoliceStationCodeFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PoliceStationCodeFocusLost
 
     private void TelStationKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TelStationKeyTyped
        if(TelStation.getText().length()>=10) {  
