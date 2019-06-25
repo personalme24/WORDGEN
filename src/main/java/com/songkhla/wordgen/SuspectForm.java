@@ -1228,6 +1228,8 @@ public class SuspectForm extends javax.swing.JDialog {
         JFrame fwit = (JFrame)(dialog.getParent());
         fwit.removeAll();
         SueCrimesFrom1 sa=new SueCrimesFrom1(fwit,s);
+        sa.pack();
+        sa.setLocationRelativeTo(null);
         sa.setVisible(true);
         
     }//GEN-LAST:event_jButtonSueMouseClicked
@@ -1293,6 +1295,8 @@ public class SuspectForm extends javax.swing.JDialog {
             JFrame fwit = (JFrame)(dialog.getParent());
             fwit.removeAll();
             SueCrimesFrom scf =new SueCrimesFrom(fwit,data);
+            scf.pack();
+            scf.setLocationRelativeTo(null);
             scf.setVisible(true);
 
         }catch(Exception ex){

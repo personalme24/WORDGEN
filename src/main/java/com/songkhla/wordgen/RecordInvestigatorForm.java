@@ -11,6 +11,11 @@ import static com.songkhla.wordgen.ActionPage.ActionDetail;
 import static com.songkhla.wordgen.ActionPage.ActionNote;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.json.simple.JSONObject;
@@ -33,11 +38,20 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
         initComponents();
         
        if(datain != null){
+           try{
+           String dr=datain.get("DateRecord")+"";
+              SimpleDateFormat dateFormat = new SimpleDateFormat("dd/M/yyyy");
+                 Date dateRec=dateFormat.parse(dr);
            idRecord=datain.get("IdRecord")+"";
-           DateRecord.setText(datain.get("DateRecord")+"");
+           DateRecord.setDate(dateRec);
            NameInguiry.setText(datain.get("NameInguiry")+"");
            DetailRecord.setText(datain.get("DetailRecord")+"");
               }
+           catch (ParseException ex) {
+                Logger.getLogger(CrimesCaseEdit.class.getName()).log(Level.SEVERE, null, ex);
+            }
+           }
+       
        else{
        isInsert=true;
        caseId.setText(RecordInvestigatorView.caseId.getText());
@@ -57,13 +71,13 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        DateRecord = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         DetailRecord = new java.awt.TextArea();
         jLabel11 = new javax.swing.JLabel();
         NameInguiry = new javax.swing.JTextField();
         jButtonSave = new javax.swing.JButton();
         caseId = new javax.swing.JLabel();
+        DateRecord = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -97,10 +111,10 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
         jLabel9.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel9.setText("วันที่ปฏิบัติ");
 
-        DateRecord.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-
         jLabel10.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel10.setText("งานที่ปฏิบัติ");
+
+        DetailRecord.setFont(new java.awt.Font("TH SarabunPSK", 0, 14)); // NOI18N
 
         jLabel11.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel11.setText("พนักงานสอบสวนที่รับผิดชอบ");
@@ -117,6 +131,8 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
 
         caseId.setText("crimescaseno");
 
+        DateRecord.setDateFormatString("dd/M/yyyy");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -125,12 +141,10 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jButtonSave)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel10)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(DetailRecord, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(DetailRecord, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,11 +152,14 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel9)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(DateRecord, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(DateRecord, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel11)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(NameInguiry, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(NameInguiry, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButtonSave)
+                        .addGap(122, 122, 122)))
                 .addContainerGap(51, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -154,18 +171,18 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
                 .addGap(7, 7, 7)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DateRecord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NameInguiry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(NameInguiry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DateRecord, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(148, 148, 148))
                     .addComponent(DetailRecord, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonSave)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -186,57 +203,65 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
 
     private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
         // TODO add your handling code here:
+        SimpleDateFormat formatDate = new SimpleDateFormat("dd/M/yyyy");
+        String dateRec = formatDate.format(DateRecord.getDate());
         if(isInsert){
          String intAc="INSERT into RecordInquiry(DateRecord,NameInguiry,DetailRecord,CaseIdRecord) values(?,?,?,?) ";
 //          String intCr="insert into CrimesCase(AnswerSuspect,AnswerAccuse) values(?,?) ";
         try {
            
            pst=con.prepareStatement(intAc);
-           pst.setString(1, DateRecord.getText());
+           pst.setString(1, dateRec);
            pst.setString(2, NameInguiry.getText());
            pst.setString(3, DetailRecord.getText());
            pst.setString(4, caseId.getText());
-            
-           pst.execute();
-           System.out.println("SQLLLLL : "+intAc);
-           pst.close();
-           
-           JOptionPane.showMessageDialog(null, "Data Saved successfully");
+
+            int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
+            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                            if (response == JOptionPane.YES_OPTION) {
+                           pst.execute();
+                           System.out.println("SQLLLLL : "+intAc);
+                         pst.close();
+                            setVisible(false); 
+
+                                } 
         } catch (Exception e) {
-          JOptionPane.showMessageDialog(null, "Cannot Saved successfully");
+          JOptionPane.showMessageDialog(null,e);
             
         }
           
         }
         else{
-                 String intAc="UPDATE RecordInquiry set"
+                 String intAcUp="UPDATE RecordInquiry set"
                             + " DateRecord=?,"
                             + " NameInguiry=?,"
                             + "DetailRecord=? where IdRecord=?";
 //          String intCr="insert into CrimesCase(AnswerSuspect,AnswerAccuse) values(?,?) ";
         try {
            
-           pst=con.prepareStatement(intAc);
-           pst.setString(1, DateRecord.getText());
+           pst=con.prepareStatement(intAcUp);
+           pst.setString(1, dateRec);
            pst.setString(2, NameInguiry.getText());
            pst.setString(3, DetailRecord.getText());
            pst.setString(4, idRecord);
             
-           pst.execute();
-           System.out.println("SQLLLLL : "+intAc);
-           pst.close();
-           
-           JOptionPane.showMessageDialog(null, "Data Saved successfully");
+          
+            int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
+                            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                            if (response == JOptionPane.YES_OPTION) {
+                           pst.execute();
+                              System.out.println("SQLLLLL : "+intAcUp);
+                         pst.close();
+                            setVisible(false); 
+
+                                } 
         } catch (Exception e) {
           JOptionPane.showMessageDialog(null, "Cannot Saved successfully");
             
         }
                 
                 }
-   
-                                          
-
-        setVisible(false);
+                                    
     }//GEN-LAST:event_jButtonSaveActionPerformed
 
     /**
@@ -276,7 +301,7 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField DateRecord;
+    private com.toedter.calendar.JDateChooser DateRecord;
     private java.awt.TextArea DetailRecord;
     private javax.swing.JTextField NameInguiry;
     private javax.swing.JLabel caseId;

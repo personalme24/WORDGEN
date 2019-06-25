@@ -605,9 +605,18 @@ public class WitnessForm extends javax.swing.JDialog {
                               pst.setString(26,Weight.getText());
                               pst.setString(27,ZipCode.getText());
                               pst.setString(28,crimecaseno.getText());
-                              pst.executeUpdate();
+//                              pst.executeUpdate();
+//                              pst.close();
+//                              System.out.println("SQL : "+sql);
+                               int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
+            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                            if (response == JOptionPane.YES_OPTION) {
+                            pst.executeUpdate();
                               pst.close();
                               System.out.println("SQL : "+sql);
+                            setVisible(false); 
+
+                                } 
         } catch (Exception e) {
              JOptionPane.showMessageDialog(null, e); 
              System.out.println("SQL : "+pst);
@@ -652,11 +661,15 @@ public class WitnessForm extends javax.swing.JDialog {
                               pst.setString(28,crimecaseno.getText());
                               pst.setString(29,noPerson);
                               pst.setString(30,TypePerson.getText());
-                              pst.executeUpdate();
-                JOptionPane.showMessageDialog(jPanel1, "บันทึกข้อมูลแล้ว" ,null, JOptionPane.INFORMATION_MESSAGE);
-
-                             pst.close();
+                           int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
+            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                            if (response == JOptionPane.YES_OPTION) {
+                            pst.executeUpdate();
+                              pst.close();
                               System.out.println("SQL : "+sqlUpdate);
+                            setVisible(false); 
+
+                                } 
         } catch (Exception e) {
                 JOptionPane.showMessageDialog(jPanel1, "บันทึกข้อมูลไม่สำเร็จ" ,null, JOptionPane.INFORMATION_MESSAGE);
 
@@ -664,14 +677,7 @@ public class WitnessForm extends javax.swing.JDialog {
         }
       
         }
-                            JFrame frame = new JFrame("JOptionPane showMessageDialog example");
-
-    // show a joptionpane dialog using showMessageDialog
-    JOptionPane.showMessageDialog(frame, 
-        "Data save", 
-        "Data save", 
-        JOptionPane.INFORMATION_MESSAGE);
-        setVisible(false);
+                          
     }//GEN-LAST:event_BtSaveAccusedActionPerformed
 
     private void PeopleRegistrationIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PeopleRegistrationIDKeyTyped

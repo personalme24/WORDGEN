@@ -241,9 +241,9 @@ public class ActionPage extends javax.swing.JDialog {
            System.out.println("SQLLLLL : "+intAc);
            pst.close();
            
-           JOptionPane.showMessageDialog(jPanel1,null, "Data Save", JOptionPane.INFORMATION_MESSAGE);
+           JOptionPane.showMessageDialog(jPanel1,"ยืนยัน", "บันทึกข้อมูล", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
-          JOptionPane.showMessageDialog(jPanel1,null, "Cannot Save", JOptionPane.INFORMATION_MESSAGE);
+          JOptionPane.showMessageDialog(jPanel1,e,null, JOptionPane.INFORMATION_MESSAGE);
             
         }
         CrimesCaseEdit.ActionCrimes.setText(ActionCrimes.getText());

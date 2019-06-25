@@ -226,7 +226,7 @@ public class ActionList extends javax.swing.JDialog {
         try{
         Connection con = ConnectDatabase.connect();
         Statement stmt = con.createStatement();
-        String sql = "select * from Action "+ getFilterCondition();
+        String sql = "select * from ActionsCase "+ getFilterCondition();
         ResultSet rs = stmt.executeQuery(sql);
         Vector<Vector> tabledata = new Vector<Vector>();
         while(rs.next()){

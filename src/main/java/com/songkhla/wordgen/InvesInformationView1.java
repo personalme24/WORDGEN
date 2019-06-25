@@ -194,6 +194,8 @@ public class InvesInformationView1 extends javax.swing.JDialog{
         JFrame fwit = (JFrame)(dialog.getParent());
         fwit.removeAll();
        InvesInformationFrom ii=new InvesInformationFrom(fwit,null);
+       ii.pack();
+       ii.setLocationRelativeTo(null);
         ii.setVisible(true);
                 RefreshData();
 

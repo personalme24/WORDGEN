@@ -9,11 +9,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.Vector;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.json.simple.JSONObject;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
 /**
  *
  * @author Petpilin
@@ -30,11 +33,13 @@ public class SueCrimesFrom extends javax.swing.JDialog {
     public SueCrimesFrom(JFrame parrent,JSONObject datain) {
         super(parrent,true);
         initComponents();
+        DataLastSue();
           person=datain.get("SuePersonId")+"";
             caseid=datain.get("SueCaseId")+"";
         if(datain != null){
+            
 //            DataCase();
-DataLastSue();
+        DataLastSue();
             jLabel2.setText(person);
         crimecaseno.setText(datain.get("crimecasenoyear")+"");
         PeopleRegistrationID.setText(datain.get("PeopleRegistrationID")+"");
@@ -287,6 +292,7 @@ DataLastSue();
 
         TotalDate.setEditable(false);
         TotalDate.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        TotalDate.setForeground(new java.awt.Color(255, 0, 0));
 
         jLabel17.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel17.setText("วัน");
@@ -474,10 +480,12 @@ DataLastSue();
         JDialog dialog = new JDialog(frame);//frame is owner
         JFrame fs = (JFrame)(dialog.getParent());
         fs.removeAll();    
-        SueCrimesAdd ca =new SueCrimesAdd(fs,s,null);
+        SueCrimesAdd ca =new SueCrimesAdd(fs,null,s);
         ca.pack();
         ca.setLocationRelativeTo(null);
         ca.setVisible(true);
+        RefreshData();
+        DataLastSue();
         
 // TODO add your handling code here:
     }//GEN-LAST:event_jButtonAddSueActionPerformed
@@ -510,12 +518,14 @@ DataLastSue();
                      data.put("SueRequest", rs.getString("SueRequest"));
                       data.put("SueCaseId", rs.getString("SueCaseId"));
                       data.put("SuePersonId", rs.getString("SuePersonId"));
-                    
+                    JSONObject data2 = new JSONObject();
+                    data.put("SueCaseId", rs.getString("SueCaseId"));
+                      data.put("SuePersonId", rs.getString("SuePersonId"));
                       JFrame frame = new JFrame();
                      JDialog dialog = new JDialog(frame);//frame is owner
                       JFrame sc = (JFrame)(dialog.getParent());
                       sc.removeAll();
-                    SueCrimesAdd sca =new SueCrimesAdd(sc,data,null);
+                    SueCrimesAdd sca =new SueCrimesAdd(sc,data,data2);
                     sca.pack();
                     sca.setLocationRelativeTo(null);
                     sca.setVisible(true);
@@ -608,7 +618,18 @@ DataLastSue();
            NumberImprison.setText(rs.getString("sueTime"));
         SueStartLast.setText(rs.getString("SueStart"));
         SueEndLast.setText(rs.getString("SueEnd"));
+              SimpleDateFormat myFormat = new SimpleDateFormat("dd MM yyyy");
+              String dateStart = rs.getString("SueEnd");
+                 String dateStop = rs.getString("SueStart");
+     
 
+    Date date1 = myFormat.parse(dateStart);
+    Date date2 = myFormat.parse(dateStop);
+    long diff = date2.getTime() - date1.getTime();
+    
+//    String total=TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS;
+//    System.out.println ("Days: " + TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS));
+//    TotalDate.setText(sql);
           }
     
      

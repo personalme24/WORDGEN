@@ -155,6 +155,7 @@ public class StationForm extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("ข้อมูลหน่วยงานและหน่วยงานที่เกี่ยวข้อง");
         setPreferredSize(new java.awt.Dimension(1264, 726));
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 

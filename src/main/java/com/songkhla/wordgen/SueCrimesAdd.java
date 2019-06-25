@@ -35,13 +35,53 @@ public class SueCrimesAdd extends javax.swing.JDialog {
         super(parrent,true);
         initComponents();
         comboInvest();
+//        if(dataId !=null){
+//         personid=dataId.get("SuePersonId")+"";
+//         caseid=dataId.get("SueCaseId")+"";  }
+//        else{
+//         personid=dataId.get("SuePersonId")+"";
+//         caseid=dataId.get("SueCaseId")+"";  }
+//        
+//        
+//         
+//    
+//    jLabel3.setText(personid);
+//         jLabel2.setText(caseid); 
         if(dataId !=null){
          personid=dataId.get("SuePersonId")+"";
-         caseid=dataId.get("SueCaseId")+"";  }
-
+         caseid=dataId.get("SueCaseId")+""; 
          jLabel3.setText(personid);
-         jLabel2.setText(caseid); 
+          jLabel2.setText(caseid);   
+           SimpleDateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
+            Date date = new Date();
+            dateFormat.format(date);
+               SueDate.setDate(date);                
+          SueStart.setDate(date);                
+          SueEnd.setDate(date);  
+        }
+        else {
+                 personid=dataId.get("SuePersonId")+"";
+         caseid=dataId.get("SueCaseId")+""; 
+         jLabel3.setText(personid);
+          jLabel2.setText(caseid);   
+           SimpleDateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
+            Date date = new Date();
+            dateFormat.format(date);
+               SueDate.setDate(date);                
+          SueStart.setDate(date);                
+          SueEnd.setDate(date);  
+        
+        
+        }
+            if(datain!=null){
+             personid=dataId.get("SuePersonId")+"";
+            caseid=dataId.get("SueCaseId")+""; 
+            jLabel3.setText(personid);
+             jLabel2.setText(caseid);  
 
+
+            }
+   
       if(datain!=null){
           try{
                  String sd=datain.get("SueDate")+"";
@@ -72,16 +112,11 @@ public class SueCrimesAdd extends javax.swing.JDialog {
       else{
       isinsert=true;
        
-                personid=dataId.get("SuePersonId")+"";
-          caseid=dataId.get("SueCaseId")+""; 
-          SimpleDateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
-            Date date = new Date();
-            dateFormat.format(date);
+              
+        
           jLabel3.setText(personid);
           jLabel2.setText(caseid);   
-          SueDate.setDate(date);                
-          SueStart.setDate(date);                
-          SueEnd.setDate(date);              
+                  
       }
 //         System.out.println("llllllll: "+sueTimes());
         
@@ -394,7 +429,7 @@ public class SueCrimesAdd extends javax.swing.JDialog {
 
               
                 pst.executeUpdate();
-           JOptionPane.showMessageDialog(jPanel1,"Data Save",null,  JOptionPane.INFORMATION_MESSAGE);
+           JOptionPane.showMessageDialog(jPanel1,null,"Data Save",  JOptionPane.INFORMATION_MESSAGE);
 
                 pst.close();
              }
@@ -433,7 +468,7 @@ public class SueCrimesAdd extends javax.swing.JDialog {
             
         }
         catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(jPanel1,e,null, JOptionPane.INFORMATION_MESSAGE);
             System.out.println("SQL : "+pst);
         }
     

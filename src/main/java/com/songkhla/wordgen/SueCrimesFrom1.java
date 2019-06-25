@@ -242,6 +242,7 @@ public class SueCrimesFrom1 extends javax.swing.JDialog {
         fs.removeAll();
         SueCrimesAdd ca =new SueCrimesAdd(fs,null,s);
         ca.setVisible(true);
+        RefreshData();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonAddSueActionPerformed

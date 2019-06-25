@@ -17,6 +17,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.json.simple.JSONObject;
@@ -644,11 +645,18 @@ public class AccusedForm extends javax.swing.JDialog {
                               pst.setString(26,Weight.getText());
                               pst.setString(27,ZipCode.getText());
                               pst.setString(28,crimecaseno.getText());
-                              pst.executeUpdate();
-                              
-                              pst.close();
-                               JOptionPane.showMessageDialog(jPanel1, "Data Save",null, JOptionPane.INFORMATION_MESSAGE);
-                              System.out.println("SQL : "+sql);
+                             
+//                               JOptionPane.showMessageDialog(jPanel1,"ยืนยัน","บันทึกข้อมูล", JOptionPane.INFORMATION_MESSAGE);
+                            
+     int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
+        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+     if (response == JOptionPane.YES_OPTION) {
+         pst.executeUpdate(); 
+         pst.close();
+         System.out.println("SQL : "+sql);
+        setVisible(false); 
+
+     } 
         } catch (Exception e) {
              JOptionPane.showMessageDialog(jPanel1,e,null, JOptionPane.INFORMATION_MESSAGE);
 
@@ -694,13 +702,15 @@ public class AccusedForm extends javax.swing.JDialog {
                               pst.setString(28,crimecaseno.getText());
                               pst.setString(29,noPerson);
                               pst.setString(30,TypePerson.getText());
-                              pst.executeUpdate();
-
-//                             JOptionPane.showMessageDialog(null, "Data Saved successfully");
+                         int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
+                            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                            if (response == JOptionPane.YES_OPTION) {
+                             pst.executeUpdate(); 
                              pst.close();
-                             JOptionPane.showMessageDialog(jPanel1, "บันทึกข้อมูลแล้ว" ,null, JOptionPane.INFORMATION_MESSAGE);
+                             System.out.println("SQL : "+sqlUpdate);
+                            setVisible(false); 
 
-                              System.out.println("SQL : "+sqlUpdate);
+                                } 
         } catch (Exception e) {
                                JOptionPane.showMessageDialog(jPanel1,  "Cannot Save", null,JOptionPane.INFORMATION_MESSAGE);
 
@@ -711,9 +721,9 @@ public class AccusedForm extends javax.swing.JDialog {
         
         }
         
-                            JFrame frame = new JFrame("JOptionPane showMessageDialog example");
+                            
 
-        setVisible(false);        // TODO add your handling code here:
+               // TODO add your handling code here:
     }//GEN-LAST:event_BtSaveAccusedActionPerformed
 
     /**

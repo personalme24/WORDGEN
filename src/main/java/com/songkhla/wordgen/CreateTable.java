@@ -260,7 +260,7 @@ public class CreateTable {
                     "	);";    
             String sqlRecord ="CREATE TABLE IF NOT EXISTS RecordInquiry (\n"+
                     "	IdRecord	INTEGER	Primary Key AUTOINCREMENT,	\n"+
-                    "	DateRecord	Date	,	\n"+
+                    "	DateRecord	VARCHAR(100)	,	\n"+
                     "	NameInguiry	VARCHAR(100)	,	\n"+
                     "	DetailRecord	VARCHAR(100)	,	\n"+
                     "	CaseIdRecord	INTEGER	not null	\n"+    
