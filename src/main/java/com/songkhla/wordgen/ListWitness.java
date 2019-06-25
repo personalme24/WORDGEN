@@ -8,6 +8,7 @@ package com.songkhla.wordgen;
 import com.songkhla.wordgen.*;
 import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseid;
 import static com.songkhla.wordgen.CrimesCaseEdit.jTextAccused;
+import static com.songkhla.wordgen.ListAccused.txtCaseNO;
 import static com.songkhla.wordgen.ListSuspect.jTableSuspect;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -35,7 +36,8 @@ String noPerson;
                 super(parrent,true);
 
         initComponents();  
-       
+               txtCaseNO.setVisible(false);
+
         txtCaseNO.setText(datain.get("CaseIdWit")+"");
          typeC=datain.get("TypeCaseW")+"";
          RefreshData();
@@ -218,7 +220,7 @@ String noPerson;
                 String PeopleRegistrationID = jTableWitness.getModel().getValueAt(jTableWitness.getSelectedRow(), 0)+"";            
                 String sql = "select NoPerson,Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,Weight,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                        "PhonePerson,Province,Race,Religion,Tambon,TypePerson,ZipCode,caseIdPerson from person where PeopleRegistrationID='"+PeopleRegistrationID+ "' and caseIdPerson='"+crimecaseno+"'";
+                        "PhonePerson,Province,Race,Religion,Tambon,TypePerson,ZipCode,caseIdPerson from person where TypePerson='พยานและบุคคลอื่นๆ' and PeopleRegistrationID='"+PeopleRegistrationID+ "' and caseIdPerson='"+crimecaseno+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);

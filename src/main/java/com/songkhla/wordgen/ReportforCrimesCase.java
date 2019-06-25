@@ -25,7 +25,7 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
 
         initComponents();
          jCheckW5.setSelected(true);
-        crimecaseno.setVisible(true);
+        crimecaseno.setVisible(false);
         crimecaseno.setText(CrimesCaseEdit.crimecaseid.getText());
     }
 

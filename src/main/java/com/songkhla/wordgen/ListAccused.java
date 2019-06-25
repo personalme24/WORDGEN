@@ -33,6 +33,7 @@ String typeC;
         super(parrent,true);
 
         initComponents();  
+        txtCaseNO.setVisible(false);
         txtCaseNO.setText(datain.get("CaseIdAcc")+"");
          typeC=datain.get("TypeCase")+"";
          System.out.println("saaaaaaaaa: "+typeC);
@@ -119,6 +120,7 @@ String typeC;
         });
 
         txtCaseNO.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        txtCaseNO.setText("No");
 
         jButtonAddAccused.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         jButtonAddAccused.setText("เพิ่ม");
@@ -218,7 +220,7 @@ String typeC;
                 String PeopleRegistrationID = jTableAccure.getModel().getValueAt(jTableAccure.getSelectedRow(), 0)+"";            
                 String sql = "select NoPerson,Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,Weight,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                        "PhonePerson,Province,Race,Religion,Tambon,TypePerson,ZipCode,caseIdPerson from person where PeopleRegistrationID='"+PeopleRegistrationID+ "' and caseIdPerson='"+crimecaseno+"'";
+                        "PhonePerson,Province,Race,Religion,Tambon,TypePerson,ZipCode,caseIdPerson from person where PeopleRegistrationID='"+PeopleRegistrationID+ "' and caseIdPerson='"+crimecaseno+"' TypePerson='ผู้กล่าวหา'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);

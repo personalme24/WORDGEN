@@ -38,7 +38,7 @@ public class AccusedForm extends javax.swing.JDialog {
     public AccusedForm(JFrame parrent,JSONObject datain) {
         super(parrent,true);
         initComponents();  
-     
+     crimecaseno.setVisible(false);
           if(datain!=null){
             isInsert=false;
             noPerson=datain.get("NoPerson")+"";

@@ -27,6 +27,8 @@ public class BailAssetAdd extends javax.swing.JDialog {
     public BailAssetAdd(JFrame parrent,JSONObject datain,JSONObject dataId) {
                 super(parrent,true);        
                 initComponents();
+                jLabel2.setVisible(false);
+                jLabel3.setVisible(false);
                 caseId=dataId.get("BailCaseId")+"";
                 personId=dataId.get("BailPersonId")+"";
                 jLabel2.setText(caseId);

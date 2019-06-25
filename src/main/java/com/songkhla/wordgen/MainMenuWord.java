@@ -37,7 +37,8 @@ public class MainMenuWord extends javax.swing.JFrame {
     Connection con=null;
     JPanel [] panel1;
     public MainMenuWord() {
-        initComponents();  
+        initComponents(); 
+        data();
 //        setIconImage(Toolkit.getDefaultToolkit().getImage(MainMenuWord.class.getResource("D://Master//user.png")));
         pack();
         setLocationRelativeTo(null); 
@@ -45,7 +46,7 @@ public class MainMenuWord extends javax.swing.JFrame {
         setMaximumSize(new Dimension(1280, 720));
         setMinimumSize(new Dimension(1280, 720));
         setMaximizedBounds ( new Rectangle ( 1280, 720 ) );
-        data();
+        
         con=ConnectDatabase.connect();
         CreateTable.createNewTable();      
 
@@ -838,12 +839,16 @@ public class MainMenuWord extends javax.swing.JFrame {
                     PolisForm pf =new PolisForm(this,data);
                      pf.pack();
                     pf.setLocationRelativeTo(null);
+                    pf.pack();
+                    pf.setLocationRelativeTo(null);
                     pf.setVisible(true);
                 }
                 else{
                      PolisForm pf =new PolisForm(this,null);
                       pf.pack();
-            pf.setLocationRelativeTo(null);
+                pf.setLocationRelativeTo(null);
+                pf.pack();
+                pf.setLocationRelativeTo(null);
                     pf.setVisible(true);
                 }
 
@@ -854,6 +859,7 @@ public class MainMenuWord extends javax.swing.JFrame {
                 ex.printStackTrace();
 
             }
+          data() ;
 //      PolisForm pf =new PolisForm(this,null);
 //                    pf.setVisible(true);
         

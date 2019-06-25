@@ -29,6 +29,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
     public AssetNewEdit(JFrame parrent,JSONObject datain) {
         super(parrent,true);
         initComponents();
+        crimecaseno.setVisible(false);
           crimecaseno.setText(CrimesCaseEdit.crimecaseid.getText());
         try { Connection con = ConnectDatabase.connect();
             Statement stmt = con.createStatement();

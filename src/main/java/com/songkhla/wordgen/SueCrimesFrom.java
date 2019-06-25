@@ -502,7 +502,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 
                 String sql= "select SueTimes,SueDate,SueStart,SueEnd,SueTotal,\n"+ 
                     "SueCause,SueRequest,SueCaseId,SuePersonId from Sue\n"
-                    + "Where SueTimes='"+SueTimes+"' and SueCaseId='"+caseid+"' and SuePersonId='"+person+"'";
+                    + "Where SueTimes='"+SueTimes+"s' and SueCaseId='"+caseid+"' and SuePersonId='"+person+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);
@@ -626,7 +626,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
     Date date1 = myFormat.parse(dateStart);
     Date date2 = myFormat.parse(dateStop);
     long diff = date2.getTime() - date1.getTime();
-    
+//    System.out.print(Days.daysBetween(dt1, dt2).getDays() + " days, ");
 //    String total=TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS;
 //    System.out.println ("Days: " + TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS));
 //    TotalDate.setText(sql);

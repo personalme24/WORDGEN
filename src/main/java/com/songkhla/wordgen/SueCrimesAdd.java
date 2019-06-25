@@ -35,6 +35,8 @@ public class SueCrimesAdd extends javax.swing.JDialog {
         super(parrent,true);
         initComponents();
         comboInvest();
+         jLabel3.setVisible(false);
+         jLabel2.setVisible(false); 
 //        if(dataId !=null){
 //         personid=dataId.get("SuePersonId")+"";
 //         caseid=dataId.get("SueCaseId")+"";  }

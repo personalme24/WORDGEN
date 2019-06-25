@@ -118,11 +118,13 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
             OccuredDateTime.setValue(timeOccu);
             jLabelActionCode.setText(datain.get("ActionCode")+"");
             Prosecutor_Result.setText(datain.get("Prosecutor_Result")+"");
-            jTextInvestSendtoDepartment.setText(datain.get("InvestSendtoDepartment")+"");
+            jTextInvestSendtoDepartment.setText(datain.get("Invest_SendtoDepartment")+"");
             Investigator_Number.setText(datain.get("Investigator_Number")+"");
             Invest_SendCaseDate.setText(datain.get("Invest_SendCaseDate")+"");
             CapitalCrimeCaseNumber.setText(datain.get("CapitalCrimeCaseNumber")+"");
             AnswerAccuser.setText(datain.get("AnswerAccuser")+"");
+            AnswerSuspect.setText(datain.get("AnswerSuspect")+"");
+           
             if(investSta.equals("อยู่ระหว่างสอบสวน")){
                 jCheckDuringInvest.setSelected(true);
             }
@@ -1119,8 +1121,8 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
             String sql="INSERT INTO CrimeCase (CaseType,crimecaseno,crimecaseyears,ChargeCodeCase,ActionCodeCase,CaseRequestDate,CaseRequestTime,"+
             "CaseAcceptDate,CaseAccepTime,DailyNumber,OccuredDate,OccuredTime,CrimeLocation,CrimeLocationMoo,CrimeLocationSoi,CrimeLocationRoad,CrimeLocationDistrict,CrimeLocationAmphur,"+
             "CrimeLocationProvince,TypeCourt,AccureandOther,SuspectandOther,WitnessandOther,Investigator_Result,CourtResult,Invest_SendtoDepartment,"+
-            "PoliceNameCase,AssetList,AssetCode,AnswerSuspect,crimecasenoyear,StatusKnowSuspect,RecordInvestCase,Investigator_Number,Invest_SendCaseDate,Prosecutor_Result,CapitalCrimeCaseNumber)"+
-            "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            "PoliceNameCase,AssetList,AssetCode,AnswerSuspect,crimecasenoyear,StatusKnowSuspect,RecordInvestCase,Investigator_Number,Invest_SendCaseDate,Prosecutor_Result,CapitalCrimeCaseNumber,AnswerAccuser)"+
+            "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             System.out.println(sql);
             try {
 
@@ -1184,6 +1186,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
                 pst.setString(35,Invest_SendCaseDate.getText());
                 pst.setString(36,Prosecutor_Result.getText());
                 pst.setString(37,CapitalCrimeCaseNumber.getText());
+                pst.setString(38,AnswerAccuser.getText());
                 
 
        
@@ -1253,7 +1256,9 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
             +"Investigator_Number=?,"
             +"Invest_SendCaseDate=?,"
             +"Prosecutor_Result=?," 
-            +"CapitalCrimeCaseNumber=?"                    
+            +"CapitalCrimeCaseNumber=?,"
+            +"AnswerAccuser=?"                    
+                   
             +" WHERE  CaseId = ?";
             System.out.println("SQL : "+sqlUpdate);
             try {
@@ -1314,7 +1319,9 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
                 pst.setString(34,Invest_SendCaseDate.getText());
                 pst.setString(35,Prosecutor_Result.getText());
                 pst.setString(36,CapitalCrimeCaseNumber.getText());
-                pst.setString(37,caseid);
+                pst.setString(37,AnswerAccuser.getText());
+                pst.setString(38,caseid);
+                
                int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
         JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
     if (response == JOptionPane.NO_OPTION) {

@@ -32,6 +32,8 @@ public class AssetOverView extends javax.swing.JDialog {
     public AssetOverView(JFrame parrent) {
         super(parrent,true);
         initComponents();
+        EvidenceRecordNumber.setVisible(false);
+        txtCaseno.setVisible(false);
         JTable rowTable = new RowNumberTable(jTableAsset);
         jScrollPane2.setRowHeaderView(rowTable);
         jScrollPane2.setCorner(JScrollPane.UPPER_LEFT_CORNER,

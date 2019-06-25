@@ -614,6 +614,8 @@ public class BailCrimesAdd extends javax.swing.JDialog {
         // TODO add your handling code here:
         
         BailAssetAdd baa=new BailAssetAdd(null,null,null);
+        baa.pack();
+        baa.setLocationRelativeTo(null);
         baa.setVisible(true);
         refreshAssetData();
     }//GEN-LAST:event_jButtonAddSueActionPerformed

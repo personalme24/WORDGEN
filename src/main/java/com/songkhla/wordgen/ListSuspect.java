@@ -9,6 +9,7 @@ import com.songkhla.wordgen.*;
 import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseid;
 import static com.songkhla.wordgen.CrimesCaseEdit.jTextAccused;
 import static com.songkhla.wordgen.ListAccused.jTableAccure;
+import static com.songkhla.wordgen.ListAccused.txtCaseNO;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -33,6 +34,8 @@ String typeC;
     public ListSuspect(JFrame parrent,JSONObject datain) {
         super(parrent,true);
         initComponents();  
+                txtCaseNO.setVisible(false);
+
        txtCaseNO.setText(datain.get("CaseIdSus")+"");
         typeC=datain.get("TypeCaseS")+"";
          RefreshData();
@@ -215,7 +218,7 @@ String typeC;
                 String PeopleRegistrationID = jTableSuspect.getModel().getValueAt(jTableSuspect.getSelectedRow(), 0)+"";            
                 String sql = "select NoPerson,Identification,CurrentAddress,Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,Weight,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                        "PhonePerson,StatusSuspect,Province,Race,Religion,Tambon,TypePerson,ZipCode,caseIdPerson,ArrestDateTime,PlaceArrest from person where PeopleRegistrationID='"+PeopleRegistrationID+ "' and caseIdPerson='"+crimecaseno+"'";
+                        "PhonePerson,StatusSuspect,Province,Race,Religion,Tambon,TypePerson,ZipCode,caseIdPerson,ArrestDateTime,PlaceArrest from person where PeopleRegistrationID='"+PeopleRegistrationID+ "' and caseIdPerson='"+crimecaseno+"' and TypePerson='ผู้ต้องหา'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);
