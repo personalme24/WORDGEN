@@ -368,12 +368,6 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
 
         CrimeLocation.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        CaseAcceptDate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CaseAcceptDateActionPerformed(evt);
-            }
-        });
-
         jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel3.setText("อำนาจศาล");
 
@@ -392,19 +386,9 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
 
         CourtType.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         CourtType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ศาลอาญา", "ศาลแขวง", "ศาลเยาวชน", "ศาลทหาร" }));
-        CourtType.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CourtTypeActionPerformed(evt);
-            }
-        });
 
         ListAsset.setEditable(false);
         ListAsset.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        ListAsset.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ListAssetActionPerformed(evt);
-            }
-        });
 
         jLabel29.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel29.setText("เลขบัญชีของกลาง");
@@ -426,11 +410,6 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
 
         jButton1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButton1.setText("ต/อ/จ");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         jLabel16.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel16.setText("ตำบล");
@@ -467,12 +446,6 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
 
         jLabel23.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel23.setText("หมู่ที่");
-
-        CrimeLocationMoo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CrimeLocationMooActionPerformed(evt);
-            }
-        });
 
         jLabel24.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel24.setText("ตรอก/ซอย");
@@ -770,11 +743,6 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
 
         jRadioKnowSuspect.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jRadioKnowSuspect.setText("รู้ตัว");
-        jRadioKnowSuspect.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioKnowSuspectActionPerformed(evt);
-            }
-        });
 
         jRadioUnknowSuspect.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jRadioUnknowSuspect.setText("ไม่รู้ตัว");
@@ -797,11 +765,6 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
 
         jCheckOtherInvest.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jCheckOtherInvest.setText("อื่นๆ");
-        jCheckOtherInvest.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckOtherInvestActionPerformed(evt);
-            }
-        });
 
         jTextField28.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
@@ -820,27 +783,12 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
 
         jCheckSue.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jCheckSue.setText("สั่งฟ้อง");
-        jCheckSue.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckSueActionPerformed(evt);
-            }
-        });
 
         jCheckNotSue.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jCheckNotSue.setText("สั่งไม่ฟ้อง");
-        jCheckNotSue.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckNotSueActionPerformed(evt);
-            }
-        });
 
         jCheckNoInvest.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jCheckNoInvest.setText("งดการสอบสวน");
-        jCheckNoInvest.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckNoInvestActionPerformed(evt);
-            }
-        });
 
         jTextCourtResult.setColumns(20);
         jTextCourtResult.setRows(5);
@@ -1266,10 +1214,6 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         n.setVisible(true);
     }//GEN-LAST:event_jButtonSaveCaseActionPerformed
 
-    private void CourtTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CourtTypeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CourtTypeActionPerformed
-
     private void jButtonActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActionActionPerformed
         // TODO add your handling code here:
         JFrame frame = new JFrame();
@@ -1368,14 +1312,6 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jButtonChargeActionPerformed
 
-    private void CaseAcceptDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CaseAcceptDateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CaseAcceptDateActionPerformed
-
-    private void ListAssetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListAssetActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ListAssetActionPerformed
-
     private void jButtonAddAssetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddAssetActionPerformed
         // TODO add your handling code here:
         JFrame frame = new JFrame();
@@ -1441,30 +1377,6 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         lw.setVisible(true);
     }//GEN-LAST:event_jButtonWitnessActionPerformed
 
-    private void jRadioKnowSuspectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioKnowSuspectActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioKnowSuspectActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jCheckOtherInvestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckOtherInvestActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckOtherInvestActionPerformed
-
-    private void jCheckSueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckSueActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckSueActionPerformed
-
-    private void jCheckNotSueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckNotSueActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckNotSueActionPerformed
-
-    private void jCheckNoInvestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckNoInvestActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckNoInvestActionPerformed
-
     private void jButtonAddInvestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddInvestActionPerformed
         String ci=crimecaseid.getText();
 
@@ -1480,10 +1392,6 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
         ri.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonAddInvestActionPerformed
-
-    private void CrimeLocationMooActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrimeLocationMooActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CrimeLocationMooActionPerformed
     public void eventJRadioKnowSuspect(){
     ButtonGroup g=new ButtonGroup();
         g.add(jRadioKnowSuspect);
