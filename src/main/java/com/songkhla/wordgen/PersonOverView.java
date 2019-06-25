@@ -57,7 +57,6 @@ public class PersonOverView extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButtonSearch = new javax.swing.JButton();
-        jButtonAdd = new javax.swing.JButton();
         jButtonEdit = new javax.swing.JButton();
         txtSearchCase = new javax.swing.JTextField();
         jButtonDelete = new javax.swing.JButton();
@@ -80,16 +79,6 @@ public class PersonOverView extends javax.swing.JFrame {
         jButtonSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSearchActionPerformed(evt);
-            }
-        });
-
-        jButtonAdd.setBackground(new java.awt.Color(255, 51, 0));
-        jButtonAdd.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButtonAdd.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonAdd.setText("เพิ่ม");
-        jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAddActionPerformed(evt);
             }
         });
 
@@ -128,16 +117,14 @@ public class PersonOverView extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButtonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonEdit)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(69, 69, 69)
                         .addComponent(txtSearchCase, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(626, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,8 +136,7 @@ public class PersonOverView extends javax.swing.JFrame {
                     .addComponent(txtSearchCase, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonSearch)
                     .addComponent(jButtonDelete)
-                    .addComponent(jButtonEdit)
-                    .addComponent(jButtonAdd))
+                    .addComponent(jButtonEdit))
                 .addGap(20, 20, 20))
         );
 
@@ -282,13 +268,6 @@ public class PersonOverView extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_jButtonEditActionPerformed
-
-    private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
-        // TODO add your handling code here:
-        CrimesCaseEdit cce =new CrimesCaseEdit(this,null);
-        cce.setVisible(true);
-        RefreshData();
-    }//GEN-LAST:event_jButtonAddActionPerformed
  
     private void jButtonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchActionPerformed
         // TODO add your handling code here:
@@ -425,7 +404,6 @@ public class PersonOverView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAdd;
     private javax.swing.JButton jButtonDelete;
     private javax.swing.JButton jButtonEdit;
     private javax.swing.JButton jButtonSearch;

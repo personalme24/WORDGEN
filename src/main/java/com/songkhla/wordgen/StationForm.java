@@ -5,6 +5,7 @@
  */
 package com.songkhla.wordgen;
 
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -671,6 +672,8 @@ public class StationForm extends javax.swing.JDialog {
            //Connection con = ConnectDatabase.connect();
       
               if(isInsert){
+                     int dialogResult = JOptionPane.showConfirmDialog (null, "ทำการบันทึกข้อมูล?", "ยืนยันการบันทึกข้อมูล",JOptionPane.YES_NO_OPTION);
+                    if(dialogResult == JOptionPane.YES_OPTION){
           try {  
               Statement stmt = con.createStatement();
      
@@ -714,13 +717,16 @@ public class StationForm extends javax.swing.JDialog {
             pst.executeUpdate();
             pst.close();
             JOptionPane.showMessageDialog(null, "Data Saved successfully");
-
+             setVisible(false);
               } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
             System.out.println("SQL : "+pst);
         }
               }
+              }
               else{
+                      int dialogResult = JOptionPane.showConfirmDialog (null, "ทำการแก้ไขข้อมูล?", "ยืนยันการแก้ไขข้อมูล",JOptionPane.YES_NO_OPTION);
+          if(dialogResult == JOptionPane.YES_OPTION){
          try{
          String sqlUpdate= "UPDATE PoliceStation Set\n "
         + "PoliceStartionCode=?,"
@@ -794,6 +800,7 @@ public class StationForm extends javax.swing.JDialog {
              System.out.println("SQL : "+sqlUpdate);
             pst.executeUpdate();
             pst.close();
+             setVisible(false);
               
                     }
             
@@ -804,7 +811,7 @@ public class StationForm extends javax.swing.JDialog {
         }
               }
         setVisible(false);
-        
+              }
     }//GEN-LAST:event_jButtonSaveStationActionPerformed
 
     private void LocationOfDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LocationOfDActionPerformed
@@ -816,7 +823,12 @@ public class StationForm extends javax.swing.JDialog {
     }//GEN-LAST:event_PoliceStationCodeActionPerformed
 
     private void PoliceStationCodeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PoliceStationCodeKeyTyped
-        if(PoliceStationCode.getText().length()>=5) {  
+        char vChar = evt.getKeyChar();
+         if(!(Character.isDigit(vChar) || (vChar==KeyEvent.VK_BACK_SPACE)||(vChar==KeyEvent.VK_DELETE)))
+         {
+             evt.consume();
+         }
+         if(PoliceStationCode.getText().length()>=5) {  
            evt.consume(); // TODO add your han
         }
   
@@ -827,7 +839,12 @@ public class StationForm extends javax.swing.JDialog {
     }//GEN-LAST:event_PostcodeActionPerformed
 
     private void PostcodeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PostcodeKeyTyped
-            if(Postcode.getText().length()>=5) {  
+         char vChar = evt.getKeyChar();
+         if(!(Character.isDigit(vChar) || (vChar==KeyEvent.VK_BACK_SPACE)||(vChar==KeyEvent.VK_DELETE)))
+         {
+             evt.consume();
+         }
+        if(Postcode.getText().length()>=5) {  
             evt.consume();        
             }
     }//GEN-LAST:event_PostcodeKeyTyped
@@ -837,7 +854,8 @@ public class StationForm extends javax.swing.JDialog {
     }//GEN-LAST:event_PhonePoliceActionPerformed
 
     private void PhonePoliceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PhonePoliceKeyTyped
-         if(PhonePolice.getText().length()>=10) {  
+
+        if(PhonePolice.getText().length()>=10) {  
            evt.consume();  
          }// TODO add your handling code here:
     }//GEN-LAST:event_PhonePoliceKeyTyped

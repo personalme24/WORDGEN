@@ -15,6 +15,7 @@ import static com.songkhla.wordgen.CrimesCaseEdit.jLabelChargeCode;
 import static com.songkhla.wordgen.CrimesCaseEdit.jTextAccused;
 import static com.songkhla.wordgen.CrimesCaseEdit.jTextSuspect;
 import static com.songkhla.wordgen.CrimesCaseEdit.jTextWitness;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -247,7 +248,7 @@ public class PolisForm extends javax.swing.JDialog {
         //
         // Saving code here
         if(isInsert){
-          int dialogResult = JOptionPane.showConfirmDialog (null, "ทำการบันทึกข้อมูล?");
+            int dialogResult = JOptionPane.showConfirmDialog (null, "ทำการบันทึกข้อมูล?", "ยืนยันการบันทึกข้อมูล",JOptionPane.YES_NO_OPTION);
           if(dialogResult == JOptionPane.YES_OPTION){
                 try {  
                         Statement stmt = con.createStatement();
@@ -274,7 +275,8 @@ public class PolisForm extends javax.swing.JDialog {
          }
         }
          else{
-          int dialogResult = JOptionPane.showConfirmDialog (null, "ทำการแก้ไขข้อมูล?");
+          //int dialogResult = JOptionPane.showConfirmDialog (null, "ทำการแก้ไขข้อมูล?");
+            int dialogResult = JOptionPane.showConfirmDialog (null, "ทำการแก้ไขข้อมูล?", "ยืนยันการแก้ไขข้อมูล",JOptionPane.YES_NO_OPTION);
           if(dialogResult == JOptionPane.YES_OPTION){
            try{
         String sqlUpdate= "UPDATE Police Set\n "
@@ -299,7 +301,7 @@ public class PolisForm extends javax.swing.JDialog {
         }
          
          catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, "บันทึกข้อมูลเรียบร้อยแล้ว");
             System.out.println("SQL : "+pst);
            
         }
@@ -316,6 +318,11 @@ public class PolisForm extends javax.swing.JDialog {
     }//GEN-LAST:event_IdCardPoliceActionPerformed
 
     private void IdCardPoliceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_IdCardPoliceKeyTyped
+         char vChar = evt.getKeyChar();
+         if(!(Character.isDigit(vChar) || (vChar==KeyEvent.VK_BACK_SPACE)||(vChar==KeyEvent.VK_DELETE)))
+         {
+             evt.consume();
+         }
          if(IdCardPolice.getText().length()>=13) {  
            evt.consume();
  }        // TODO add your handling code here:

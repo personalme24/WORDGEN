@@ -5,6 +5,7 @@
  */
 package com.songkhla.wordgen;
 import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseno;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -110,6 +111,16 @@ public class InvesInformationFrom extends javax.swing.JDialog {
         jLabel8.setText("เลขประจำตัวประชาชน");
 
         InvestCardID.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        InvestCardID.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                InvestCardIDFocusLost(evt);
+            }
+        });
+        InvestCardID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                InvestCardIDKeyTyped(evt);
+            }
+        });
 
         InvestRank.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         InvestRank.addActionListener(new java.awt.event.ActionListener() {
@@ -145,6 +156,11 @@ public class InvesInformationFrom extends javax.swing.JDialog {
         jLabel14.setText("อายุ");
 
         InvestAge.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        InvestAge.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                InvestAgeKeyTyped(evt);
+            }
+        });
 
         jLabel15.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel15.setText("เบอร์โทรศัพท์");
@@ -268,28 +284,34 @@ public class InvesInformationFrom extends javax.swing.JDialog {
         con=ConnectDatabase.connect();
      
         if(isInsert){
+              int dialogResult = JOptionPane.showConfirmDialog (null, "ทำการบันทึกข้อมูล?", "ยืนยันการบันทึกข้อมูล",JOptionPane.YES_NO_OPTION);
+                if(dialogResult == JOptionPane.YES_OPTION){
         try {
     
                 String sql="INSERT INTO InvestInformation (InvestId,InvestCardID,InvestName,"
                         + "InvestPosition,InvestBirthDay,InvestAge,InvestTel) VALUES (?,?,?,?,?,?,?)";
                 pst=con.prepareStatement(sql);
                 pst.setString(1,InvestId.getText());
-                 pst.setString(2,InvestCardID.getText());
+                pst.setString(2,InvestCardID.getText());
                 pst.setString(3,InvestRank.getText()+InvestName.getText());
                 pst.setString(4,InvestPosition.getText());
                 pst.setString(5,InvestBirthDay.getText());
                pst.setString(6,InvestAge.getText());
                 pst.setString(7,InvestTel.getText());
-        
-               
                 pst.executeUpdate();
-                JOptionPane.showMessageDialog(null, "Data Saved successfully");
-                pst.close();}
-                  catch (Exception e) {
+                pst.close();
+                JOptionPane.showMessageDialog(null, "บันทึกข้อมูลเรียบร้อย");
+                setVisible(false);
+        }
+             catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
             System.out.println("SQL : "+pst);
+             }
+            }
         }
-            }else{
+          else{
+          int dialogResult = JOptionPane.showConfirmDialog (null, "ทำการแก้ไขข้อมูล?", "ยืนยันการแก้ไขข้อมูล",JOptionPane.YES_NO_OPTION);
+          if(dialogResult == JOptionPane.YES_OPTION){
             try{
                 String sqlUpdate= "UPDATE InvestInformation Set\n "
                 + "InvestName=?,"
@@ -305,17 +327,17 @@ public class InvesInformationFrom extends javax.swing.JDialog {
                 pst.setString(4,InvestAge.getText());
                 pst.setString(5,InvestTel.getText());
                 pst.setString(6,InvestCardID.getText());
-
-
-                
                 pst.executeUpdate();
-                JOptionPane.showMessageDialog(null, "Data Saved successfully");
+                 JOptionPane.showMessageDialog(null, "แก้ไขข้อมูลสำเร็จแล้ว");
                 System.out.println("SQL : "+sqlUpdate);
+              setVisible(false);
             }
+          
         
         catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
             System.out.println("SQL : "+pst);
+        }
         }
         }
         setVisible(false);
@@ -329,6 +351,31 @@ public class InvesInformationFrom extends javax.swing.JDialog {
     private void InvestRankActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InvestRankActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_InvestRankActionPerformed
+
+    private void InvestCardIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InvestCardIDKeyTyped
+        // TODO add your handling code here:
+          char vChar = evt.getKeyChar();
+         if(!(Character.isDigit(vChar) || (vChar==KeyEvent.VK_BACK_SPACE)||(vChar==KeyEvent.VK_DELETE)))
+         {
+             evt.consume();
+         }
+         if(InvestCardID.getText().length()>=13) {  
+           evt.consume();
+ }    
+    }//GEN-LAST:event_InvestCardIDKeyTyped
+
+    private void InvestCardIDFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InvestCardIDFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InvestCardIDFocusLost
+
+    private void InvestAgeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InvestAgeKeyTyped
+  char vChar = evt.getKeyChar();
+         if(!(Character.isDigit(vChar) || (vChar==KeyEvent.VK_BACK_SPACE)||(vChar==KeyEvent.VK_DELETE)))
+         {
+             evt.consume();
+         }
+          // TODO add your handling code here:
+    }//GEN-LAST:event_InvestAgeKeyTyped
 
        public static String IdInvest(){
          Connection con=null;
