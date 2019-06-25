@@ -210,7 +210,45 @@ public class InvesInformationView1 extends javax.swing.JDialog{
 
     private void jButtonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditActionPerformed
         // TODO add your handling code here:
-       
+          JFrame frame = new JFrame();
+                      JDialog dialog = new JDialog(frame);//frame is owner
+                    JFrame fwit = (JFrame)(dialog.getParent());
+                                 fwit.removeAll();
+
+        if(jTableInvest.getSelectedRow()>=0){
+            try{
+                String investId = jTableInvest.getModel().getValueAt(jTableInvest.getSelectedRow(), 0)+"";
+
+                String sql="select InvestId,InvestCardID,InvestName,InvestPosition,"
+                        + "InvestBirthDay,InvestAge,InvestTel from InvestInformation where InvestId="+investId;
+                Connection con = ConnectDatabase.connect();
+                Statement stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery(sql);
+                System.out.println("ExSql : "+sql);
+                if(rs.next()){
+                    JSONObject data = new JSONObject();
+                    data.put("InvestId", rs.getString("InvestId"));
+                    data.put("InvestCardID", rs.getString("InvestCardID"));
+                    data.put("InvestName", rs.getString("InvestName"));
+                    data.put("InvestPosition", rs.getString("InvestPosition"));
+                    data.put("InvestBirthDay", rs.getString("InvestBirthDay"));
+                    data.put("InvestAge", rs.getString("InvestAge"));
+                    data.put("InvestTel", rs.getString("InvestTel"));
+                 
+                    InvesInformationFrom iif =new InvesInformationFrom(fwit,data);
+                    iif.setVisible(true);
+                }
+
+                rs.close();
+                stmt.close();
+                RefreshData();
+            }catch(Exception ex){
+                ex.printStackTrace();
+
+            }
+        }else{
+
+        }       
     }//GEN-LAST:event_jButtonEditActionPerformed
   public void RefreshData(){
      try{
@@ -256,7 +294,6 @@ public class InvesInformationView1 extends javax.swing.JDialog{
             }
         });
                              System.out.println("SQL : "+sql);
-                             System.out.println("runagainnn");
 
         }catch(Exception ex){
             ex.printStackTrace();

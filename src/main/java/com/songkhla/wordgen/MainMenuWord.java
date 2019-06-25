@@ -16,6 +16,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import org.json.simple.JSONObject;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.awt.Image;
+import java.net.URL;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -36,7 +42,8 @@ public class MainMenuWord extends javax.swing.JFrame {
         setMaximumSize(new Dimension(1280, 720));
         setMinimumSize(new Dimension(1280, 720));
         setMaximizedBounds ( new Rectangle ( 1280, 720 ) );
-      
+//      setIconImage(
+//                        loadImageIcon("D:\\Master\\user.png").getImage());
         data();
         con=ConnectDatabase.connect();
         CreateTable.createNewTable();      
@@ -739,7 +746,15 @@ public class MainMenuWord extends javax.swing.JFrame {
         ccv.setLocationRelativeTo(null);
         ccv.setVisible(true);
     }//GEN-LAST:event_jPanel9MouseClicked
-
+ private static ImageIcon loadImageIcon(String path) {
+        URL imgURL = MainMenuWord.class.getResource(path);
+        if (imgURL != null) {
+            return new ImageIcon(imgURL);
+        } else {
+            System.err.println("Couldn't find file: " + path);
+            return null;
+        }
+    }
     private void jPanel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel10MouseClicked
         // TODO add your handling code here:
          IdentityView idt = new IdentityView();

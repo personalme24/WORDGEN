@@ -391,11 +391,11 @@ public class AssetNewEdit extends javax.swing.JDialog {
                               pst.setString(13,StatusAsset.getSelectedItem().toString());
                               pst.executeUpdate();
                               
-                             JOptionPane.showMessageDialog(null, "Data Saved successfully");
+                              JOptionPane.showMessageDialog(jPanel1, "Data Save",null, JOptionPane.INFORMATION_MESSAGE);
                              pst.close();
                         
         } catch (Exception e) {
-             JOptionPane.showMessageDialog(null, e); 
+             JOptionPane.showMessageDialog(jPanel1, "Cannot Save",null, JOptionPane.INFORMATION_MESSAGE);
              System.out.println("SQL : "+pst);
         }
           

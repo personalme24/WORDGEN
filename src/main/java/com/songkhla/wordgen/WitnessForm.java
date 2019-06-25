@@ -148,7 +148,6 @@ public class WitnessForm extends javax.swing.JDialog {
         Moo = new javax.swing.JTextField();
         Tambon = new javax.swing.JTextField();
         Amphur = new javax.swing.JTextField();
-        jLabel28 = new javax.swing.JLabel();
         ZipCode = new javax.swing.JTextField();
         Province = new javax.swing.JTextField();
         crimecaseno = new javax.swing.JLabel();
@@ -358,9 +357,6 @@ public class WitnessForm extends javax.swing.JDialog {
             }
         });
 
-        jLabel28.setFont(new java.awt.Font("TH SarabunPSK", 1, 24)); // NOI18N
-        jLabel28.setText("ที่อยู่");
-
         ZipCode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ZipCodeActionPerformed(evt);
@@ -478,10 +474,6 @@ public class WitnessForm extends javax.swing.JDialog {
                         .addGap(71, 71, 71)
                         .addComponent(BtSaveAccused, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(98, 98, 98)
-                .addComponent(jLabel28)
-                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -546,9 +538,7 @@ public class WitnessForm extends javax.swing.JDialog {
                                 .addComponent(FatherFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel29)
                             .addComponent(MotherFullName))
-                        .addGap(9, 9, 9)
-                        .addComponent(jLabel28)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(10, 10, 10)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(HouseNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel21)
@@ -922,7 +912,6 @@ public class WitnessForm extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;

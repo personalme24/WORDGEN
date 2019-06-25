@@ -74,7 +74,7 @@ public class AssetOverView extends javax.swing.JDialog {
         jLabel6.setBackground(new java.awt.Color(0, 0, 0));
         jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 36)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("ทรัพย์(อาญา)");
+        jLabel6.setText("รายการทรัพย์(อาญา)");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -259,6 +259,7 @@ public class AssetOverView extends javax.swing.JDialog {
                     System.out.println("Delete : "+sql);
                 if(rs.next()){
                     JSONObject data = new JSONObject(); 
+                            
                     data.put("EvidenceRecordNumber", rs.getString("EvidenceRecordNumber"));
                     data.put("crimecaseno", rs.getString("caseIdAsset"));
                     data.put("Name", rs.getString("Name"));
@@ -332,12 +333,13 @@ public class AssetOverView extends javax.swing.JDialog {
         String crimecaseno = txtCaseno.getText();
         String sql = "select EvidenceRecordNumber,Amount,DateSequester,DefectMark,"
                      + "PlaceFoundExhibit,Name,Note,OccupantName,OrderAsset,PointFoundCheck,"
-                     + "Value from Asset where caseIdAsset='"+crimecaseno+"' and "+getFilterCondition();
+                     + "Value,StatusAsset from Asset where caseIdAsset='"+crimecaseno+"' and "+getFilterCondition();
             System.out.println(sql);
         ResultSet rs = stmt.executeQuery(sql);
         Vector<Vector> tabledata = new Vector<Vector>();
         while(rs.next()){
             Vector<String> row = new Vector<String>();
+            row.add(rs.getString("StatusAsset"));
             row.add(rs.getString("Name"));
             row.add(rs.getString("Amount"));
             row.add(rs.getString("Value"));
@@ -346,7 +348,7 @@ public class AssetOverView extends javax.swing.JDialog {
         rs.close();
         stmt.close();
         Vector ColumnName = new Vector();
-       
+        ColumnName.add("ประเภท");       
         ColumnName.add("ชื่อของกลาง");
         ColumnName.add("จำนวน");
         ColumnName.add("ราคา");

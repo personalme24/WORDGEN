@@ -269,6 +269,8 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
                      data.put("TypeCourt", rs.getString("TypeCourt"));
                     data.put("PoliceNameCase", rs.getString("PoliceNameCase"));
                      data.put("AssetList", rs.getString("AssetList"));
+                      data.put("AssetCode", rs.getString("AssetCode"));
+                    
                      data.put("ActionCrimes", rs.getString("ActionCrimes"));
                      data.put("ActionCode", rs.getString("ActionCode"));
                       data.put("OccuredDate", rs.getString("OccuredDate"));

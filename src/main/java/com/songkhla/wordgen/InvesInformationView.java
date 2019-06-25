@@ -46,10 +46,10 @@ public class InvesInformationView extends javax.swing.JDialog{
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableInvest = new javax.swing.JTable();
         jButtonAdd = new javax.swing.JButton();
-        jButtonEdit = new javax.swing.JButton();
         jButtonDelete = new javax.swing.JButton();
         txtCaseNO = new javax.swing.JTextField();
         jButtonFind = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -110,14 +110,6 @@ public class InvesInformationView extends javax.swing.JDialog{
             }
         });
 
-        jButtonEdit.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButtonEdit.setText("แก้ไข");
-        jButtonEdit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEditActionPerformed(evt);
-            }
-        });
-
         jButtonDelete.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButtonDelete.setText("ลบ");
 
@@ -131,6 +123,13 @@ public class InvesInformationView extends javax.swing.JDialog{
         jButtonFind.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButtonFind.setText("ค้นหา");
 
+        jButton1.setText("แก้ไข");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -143,7 +142,7 @@ public class InvesInformationView extends javax.swing.JDialog{
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButtonAdd)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonEdit)
+                        .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonDelete)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -156,16 +155,16 @@ public class InvesInformationView extends javax.swing.JDialog{
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addGap(60, 60, 60)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCaseNO, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonFind)
                     .addComponent(jButtonDelete)
-                    .addComponent(jButtonEdit)
-                    .addComponent(jButtonAdd))
+                    .addComponent(jButtonAdd)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(118, Short.MAX_VALUE))
+                .addContainerGap(90, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -203,8 +202,13 @@ public class InvesInformationView extends javax.swing.JDialog{
         ii.setVisible(true);
     }//GEN-LAST:event_jButtonAddActionPerformed
 
-    private void jButtonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+          JFrame frame = new JFrame();
+                      JDialog dialog = new JDialog(frame);//frame is owner
+                    JFrame fwit = (JFrame)(dialog.getParent());
+                                 fwit.removeAll();
+
         if(jTableInvest.getSelectedRow()>=0){
             try{
                 String investId = jTableInvest.getModel().getValueAt(jTableInvest.getSelectedRow(), 0)+"";
@@ -224,9 +228,7 @@ public class InvesInformationView extends javax.swing.JDialog{
                     data.put("InvestBirthDay", rs.getString("InvestBirthDay"));
                     data.put("InvestAge", rs.getString("InvestAge"));
                     data.put("InvestTel", rs.getString("InvestTel"));
-                         JFrame frame = new JFrame();
-                      JDialog dialog = new JDialog(frame);//frame is owner
-                    JFrame fwit = (JFrame)(dialog.getParent());
+                 
                     InvesInformationFrom iif =new InvesInformationFrom(fwit,data);
                     iif.setVisible(true);
                 }
@@ -241,7 +243,7 @@ public class InvesInformationView extends javax.swing.JDialog{
         }else{
 
         }
-    }//GEN-LAST:event_jButtonEditActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
   public void RefreshData(){
         try{
         Connection con = ConnectDatabase.connect();
@@ -349,9 +351,9 @@ public class InvesInformationView extends javax.swing.JDialog{
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAdd;
     private javax.swing.JButton jButtonDelete;
-    private javax.swing.JButton jButtonEdit;
     private javax.swing.JButton jButtonFind;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
