@@ -208,6 +208,10 @@
               <Font name="TH SarabunPSK" size="20" style="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="InvestCardIDFocusLost"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="InvestCardIDKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="InvestRank">
           <Properties>
@@ -289,6 +293,9 @@
               <Font name="TH SarabunPSK" size="20" style="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="InvestAgeKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel15">
           <Properties>
