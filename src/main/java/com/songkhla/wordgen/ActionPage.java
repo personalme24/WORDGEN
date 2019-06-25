@@ -102,11 +102,6 @@ public class ActionPage extends javax.swing.JDialog {
         jLabel2.setText("รายละเอียดพฤติการณ์คดี");
 
         ActionCrimes.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        ActionCrimes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ActionCrimesActionPerformed(evt);
-            }
-        });
 
         jLabel4.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel4.setText("พฤติการณ์คดี");
@@ -229,10 +224,6 @@ public class ActionPage extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void ActionCrimesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActionCrimesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ActionCrimesActionPerformed
 
     private void ButtonAddActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAddActionActionPerformed
         // TODO add your handling code here: 

@@ -235,11 +235,6 @@ public class PersonFrom extends javax.swing.JDialog {
         jLabel31.setText("หมายเหตุ");
 
         Note.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        Note.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NoteActionPerformed(evt);
-            }
-        });
 
         jLabel32.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel32.setText("รายการประวัติ หมายจับ");
@@ -574,10 +569,6 @@ public class PersonFrom extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void NoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NoteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NoteActionPerformed
 
     /**
      * @param args the command line arguments

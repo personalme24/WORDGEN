@@ -150,11 +150,6 @@ public class ChargePage extends javax.swing.JDialog {
         jLabel2.setText("กฎหมายที่อ้าง");
 
         ChargeName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        ChargeName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ChargeNameActionPerformed(evt);
-            }
-        });
 
         jLabel4.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel4.setText("ข้อหา");
@@ -163,11 +158,6 @@ public class ChargePage extends javax.swing.JDialog {
         jLabel5.setText("รหัสข้อหา");
 
         ChargeCode.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        ChargeCode.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ChargeCodeActionPerformed(evt);
-            }
-        });
 
         jButtonSaveCharge.setBackground(java.awt.SystemColor.windowText);
         jButtonSaveCharge.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
@@ -274,11 +264,6 @@ public class ChargePage extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ChargeNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChargeNameActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_ChargeNameActionPerformed
-
     private void jButtonSaveChargeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveChargeActionPerformed
         // TODO add your handling code here:
     String intCh="INSERT into Charge(ChargeCode,ChargeName,Law,RateOfPenalty,Note) values(?,?,?,?,?) ";
@@ -348,11 +333,6 @@ public class ChargePage extends javax.swing.JDialog {
         
         
     }//GEN-LAST:event_jButtonSaveChargeActionPerformed
-
-    private void ChargeCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChargeCodeActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_ChargeCodeActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        JFrame frame = new JFrame();

@@ -98,21 +98,11 @@ public class ChargeOverView extends javax.swing.JDialog {
         jLabel10.setText("ข้อหา");
 
         ChargeName.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        ChargeName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ChargeNameActionPerformed(evt);
-            }
-        });
 
         jButton3.setBackground(java.awt.SystemColor.windowText);
         jButton3.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("ค้นหา");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
 
         jButton4.setBackground(java.awt.SystemColor.windowText);
         jButton4.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
@@ -249,20 +239,6 @@ public class ChargeOverView extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ChargeNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChargeNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ChargeNameActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-        
-        setVisible(false);
-    }//GEN-LAST:event_jButton4ActionPerformed
-
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
          int number=jTable1.getSelectedRow();
@@ -272,6 +248,12 @@ public class ChargeOverView extends javax.swing.JDialog {
         ChargePage.RateOfPenalty.setText(jTable1.getValueAt(number, 3).toString());
          ChargePage.Note.setText(jTable1.getValueAt(number, 4).toString());
     }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+
+        setVisible(false);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments

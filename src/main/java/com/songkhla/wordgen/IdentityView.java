@@ -98,12 +98,6 @@ public class IdentityView extends javax.swing.JFrame {
             }
         });
 
-        txtSearchCase.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSearchCaseActionPerformed(evt);
-            }
-        });
-
         jButtonDelete.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButtonDelete.setText("ลบ");
         jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -219,10 +213,6 @@ public class IdentityView extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jButtonDeleteActionPerformed
-
-    private void txtSearchCaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchCaseActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSearchCaseActionPerformed
 
     private void jButtonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditActionPerformed
         // TODO add your handling code here:

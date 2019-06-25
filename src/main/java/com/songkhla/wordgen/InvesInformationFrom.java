@@ -123,18 +123,8 @@ public class InvesInformationFrom extends javax.swing.JDialog {
         });
 
         InvestRank.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        InvestRank.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InvestRankActionPerformed(evt);
-            }
-        });
 
         InvestName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        InvestName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InvestNameActionPerformed(evt);
-            }
-        });
 
         InvestPosition.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
@@ -343,14 +333,6 @@ public class InvesInformationFrom extends javax.swing.JDialog {
         setVisible(false);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonSaveActionPerformed
-
-    private void InvestNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InvestNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_InvestNameActionPerformed
-
-    private void InvestRankActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InvestRankActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_InvestRankActionPerformed
 
     private void InvestCardIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InvestCardIDKeyTyped
         // TODO add your handling code here:

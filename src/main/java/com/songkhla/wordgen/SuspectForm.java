@@ -304,21 +304,11 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabel2.setText("เลขบัตรประชาชน");
 
         PeopleRegistrationID.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        PeopleRegistrationID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PeopleRegistrationIDActionPerformed(evt);
-            }
-        });
 
         jLabel5.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel5.setText("ชื่อ-สกุล");
 
         FullNamePerson.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        FullNamePerson.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FullNamePersonActionPerformed(evt);
-            }
-        });
 
         jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel1.setText("วันที่ออกบัตร");
@@ -329,21 +319,11 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabel6.setText("วันที่บัตรหมดอายุ");
 
         ExpiredDate.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        ExpiredDate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ExpiredDateActionPerformed(evt);
-            }
-        });
 
         jLabel7.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel7.setText("ชื่อสกุลอื่น");
 
         OtherName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        OtherName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                OtherNameActionPerformed(evt);
-            }
-        });
 
         jLabel11.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel11.setText("ชื่อภาษาอังกฤษ");
@@ -354,11 +334,6 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabel9.setText("เลขหนังสือเดินทาง");
 
         PassportNumber.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        PassportNumber.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PassportNumberActionPerformed(evt);
-            }
-        });
 
         jLabel10.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel10.setText("วันเกิด");
@@ -369,11 +344,6 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabel8.setText("อายุ");
 
         Age.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        Age.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AgeActionPerformed(evt);
-            }
-        });
 
         jLabel12.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel12.setText("สัญชาติ");
@@ -384,21 +354,11 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabel13.setText("เชื้อชาติ");
 
         Race.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        Race.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RaceActionPerformed(evt);
-            }
-        });
 
         jLabel18.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel18.setText("ศาสนา");
 
         Religion.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        Religion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ReligionActionPerformed(evt);
-            }
-        });
 
         jLabel16.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel16.setText("สูง");
@@ -409,11 +369,6 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabel17.setText("น้ำหนัก");
 
         Weight.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        Weight.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                WeightActionPerformed(evt);
-            }
-        });
 
         jLabel20.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel20.setText("หมู่โลหิต");
@@ -425,11 +380,6 @@ public class SuspectForm extends javax.swing.JDialog {
 
         Gender.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         Gender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "หญิง", "ชาย", "ไม่ระบุ" }));
-        Gender.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GenderActionPerformed(evt);
-            }
-        });
 
         jLabel14.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel14.setText("อาชีพ");
@@ -460,21 +410,11 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabel30.setText("หมู่ที่");
 
         Moo.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        Moo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MooActionPerformed(evt);
-            }
-        });
 
         jLabel22.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel22.setText("แขวง/ตำบล");
 
         Tambon.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        Tambon.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TambonActionPerformed(evt);
-            }
-        });
 
         jLabel23.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel23.setText("เขต/อำเภอ");
@@ -490,49 +430,24 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabel24.setText("รหัสไปรษณีย์");
 
         ZipCode.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        ZipCode.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ZipCodeActionPerformed(evt);
-            }
-        });
 
         jLabel19.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel19.setText("ลำดับ");
 
         NoPerson.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        NoPerson.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NoPersonActionPerformed(evt);
-            }
-        });
 
         jLabel32.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel32.setText("เคยต้องโทษ");
 
         ZipCode1.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        ZipCode1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ZipCode1ActionPerformed(evt);
-            }
-        });
 
         jLabel33.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel33.setText("ผู้ต้องหาให้การ");
 
         Gender1.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         Gender1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "รับสารภาพ", "ปฏิเสธ", "ภาคเสธ" }));
-        Gender1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Gender1ActionPerformed(evt);
-            }
-        });
 
         ZipCode2.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        ZipCode2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ZipCode2ActionPerformed(evt);
-            }
-        });
 
         jLabel34.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel34.setText("ตำหนิรูปพรรณ");
@@ -825,16 +740,6 @@ public class SuspectForm extends javax.swing.JDialog {
         jRadioSue.setBackground(new java.awt.Color(255, 255, 255));
         jRadioSue.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jRadioSue.setText("ผัดฟ้องฝากขัง");
-        jRadioSue.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jRadioSueMouseClicked(evt);
-            }
-        });
-        jRadioSue.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioSueActionPerformed(evt);
-            }
-        });
 
         jRadioBail.setBackground(new java.awt.Color(255, 255, 255));
         jRadioBail.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
@@ -1118,46 +1023,6 @@ public class SuspectForm extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ZipCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ZipCodeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ZipCodeActionPerformed
-
-    private void TambonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TambonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TambonActionPerformed
-
-    private void MooActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MooActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MooActionPerformed
-
-    private void WeightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WeightActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_WeightActionPerformed
-
-    private void ReligionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReligionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ReligionActionPerformed
-
-    private void GenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenderActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_GenderActionPerformed
-
-    private void RaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RaceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RaceActionPerformed
-
-    private void AgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AgeActionPerformed
-
-    private void OtherNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OtherNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_OtherNameActionPerformed
-
-    private void FullNamePersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FullNamePersonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FullNamePersonActionPerformed
-
     private void BtSaveAccusedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSaveAccusedActionPerformed
         // TODO add your handling code here:
         con=ConnectDatabase.connect();
@@ -1328,45 +1193,6 @@ public class SuspectForm extends javax.swing.JDialog {
 
         setVisible(false);
     }//GEN-LAST:event_BtSaveAccusedActionPerformed
-
-    private void PassportNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PassportNumberActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PassportNumberActionPerformed
-
-    private void ExpiredDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExpiredDateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ExpiredDateActionPerformed
-
-    private void PeopleRegistrationIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PeopleRegistrationIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PeopleRegistrationIDActionPerformed
-
-    private void NoPersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NoPersonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NoPersonActionPerformed
-
-    private void ZipCode1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ZipCode1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ZipCode1ActionPerformed
-
-    private void Gender1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Gender1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Gender1ActionPerformed
-
-    private void ZipCode2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ZipCode2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ZipCode2ActionPerformed
-
-    private void jRadioSueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioSueActionPerformed
-        // TODO add your handling code here:
-           
-     
-    }//GEN-LAST:event_jRadioSueActionPerformed
-
-    private void jRadioSueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioSueMouseClicked
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_jRadioSueMouseClicked
 
     private void jButtonSueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSueMouseClicked
         // TODO add your handling code here:

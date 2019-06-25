@@ -164,11 +164,6 @@ public class AssetNewEdit extends javax.swing.JDialog {
         DateSequester.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         DefectMark.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        DefectMark.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DefectMarkActionPerformed(evt);
-            }
-        });
 
         PointFoundCheck.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
@@ -177,11 +172,6 @@ public class AssetNewEdit extends javax.swing.JDialog {
         Amount.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         Note.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        Note.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NoteActionPerformed(evt);
-            }
-        });
 
         jButton1.setBackground(java.awt.SystemColor.windowText);
         jButton1.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
@@ -197,29 +187,14 @@ public class AssetNewEdit extends javax.swing.JDialog {
         jLabel11.setText("ตำหนิ");
 
         PlaceFoundExhibit.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        PlaceFoundExhibit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PlaceFoundExhibitActionPerformed(evt);
-            }
-        });
 
         OrderAsset.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        OrderAsset.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                OrderAssetActionPerformed(evt);
-            }
-        });
 
         crimecaseno.setText("ccno");
 
         jRecord.setText("สมุดบัญชีเลขที่");
 
         EvidenceRecordNumber1.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        EvidenceRecordNumber1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EvidenceRecordNumber1ActionPerformed(evt);
-            }
-        });
 
         StatusAsset.setFont(new java.awt.Font("TH SarabunPSK", 0, 18)); // NOI18N
         StatusAsset.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ของกลาง", "ประทุษร้าย", "ได้คืน", "ไม่ได้คืน", "เพลิงไหม้", " " }));
@@ -351,24 +326,8 @@ public class AssetNewEdit extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void DefectMarkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DefectMarkActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DefectMarkActionPerformed
-
-    private void NoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NoteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NoteActionPerformed
-
-    private void PlaceFoundExhibitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlaceFoundExhibitActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PlaceFoundExhibitActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
              con=ConnectDatabase.connect();
-               
-      
-       
-
         if (isInsert) {
               String sql="INSERT INTO Asset (EvidenceRecordNumber,Amount,DateSequester,DefectMark,PlaceFoundExhibit,"
                       + "Name,Note,OccupantName,OrderAsset,PointFoundCheck,Value,caseIdAsset,StatusAsset) "           
@@ -436,14 +395,6 @@ public class AssetNewEdit extends javax.swing.JDialog {
       
                 // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void OrderAssetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OrderAssetActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_OrderAssetActionPerformed
-
-    private void EvidenceRecordNumber1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EvidenceRecordNumber1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EvidenceRecordNumber1ActionPerformed
 
     /**
      * @param args the command line arguments

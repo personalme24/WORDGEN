@@ -4,9 +4,6 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
     <Property name="alwaysOnTop" type="boolean" value="true"/>
-    <Property name="iconImage" type="java.awt.Image" editor="org.netbeans.modules.form.ComponentChooserEditor">
-      <ComponentRef name="default"/>
-    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -94,9 +91,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="&#xe1c;&#xe39;&#xe49;&#xe01;&#xe25;&#xe48;&#xe32;&#xe27;&#xe2b;&#xe32;"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TypePersonActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
@@ -449,7 +443,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="PeopleRegistrationID">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PeopleRegistrationIDActionPerformed"/>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="PeopleRegistrationIDKeyTyped"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel1">
@@ -461,9 +455,6 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="ExpiredDate">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ExpiredDateActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel9">
                   <Properties>
@@ -484,9 +475,6 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="PassportNumber">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PassportNumberActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel5">
                   <Properties>
@@ -500,19 +488,10 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtSaveAccusedActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="FullNamePerson">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FullNamePersonActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="OtherName">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="OtherNameActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="FullNamePersonEn">
                 </Component>
@@ -535,9 +514,6 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="Age">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AgeActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel11">
                   <Properties>
@@ -566,9 +542,6 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="Race">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RaceActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel14">
                   <Properties>
@@ -588,9 +561,6 @@
                       </StringArray>
                     </Property>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GenderActionPerformed"/>
-                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
@@ -614,9 +584,6 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="Religion">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ReligionActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel17">
                   <Properties>
@@ -637,9 +604,6 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="Weight">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="WeightActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel7">
                   <Properties>
@@ -743,21 +707,12 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="Moo">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MooActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="Tambon">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TambonActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="Amphur">
                 </Component>
                 <Component class="javax.swing.JTextField" name="ZipCode">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ZipCodeActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="Province">
                 </Component>

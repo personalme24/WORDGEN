@@ -128,7 +128,6 @@ public class IdentityFrom extends javax.swing.JDialog {
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButtonSaveCase = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -254,29 +253,6 @@ public class IdentityFrom extends javax.swing.JDialog {
 
         jButtonSaveCase.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jButtonSaveCase.setText("บันทึก");
-        jButtonSaveCase.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSaveCaseActionPerformed(evt);
-            }
-        });
-        jButtonSaveCase.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jButtonSaveCaseKeyTyped(evt);
-            }
-        });
-
-        jButton3.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jButton3.setText("ยกเลิก");
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jButton3MouseExited(evt);
-            }
-        });
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
 
         jTabbedPane1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
 
@@ -332,51 +308,21 @@ public class IdentityFrom extends javax.swing.JDialog {
 
         jCheckAnimal.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jCheckAnimal.setText("สัตว์ทำร้ายตาย");
-        jCheckAnimal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckAnimalActionPerformed(evt);
-            }
-        });
 
         jCheckKill.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jCheckKill.setText("ผู้อื่นทำให้ตาย");
-        jCheckKill.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckKillActionPerformed(evt);
-            }
-        });
 
         jCheckAccident.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jCheckAccident.setText("อุบัติเหตุ");
-        jCheckAccident.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckAccidentActionPerformed(evt);
-            }
-        });
 
         jCheckUnknow.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jCheckUnknow.setText("มิปรากฎเหตุ");
-        jCheckUnknow.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckUnknowActionPerformed(evt);
-            }
-        });
 
         jCheckExtraordinary.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jCheckExtraordinary.setText("ถูกเจ้าพนักงานทำให้ตาย(วิสามัญ)");
-        jCheckExtraordinary.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckExtraordinaryActionPerformed(evt);
-            }
-        });
 
         jCheckControl.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jCheckControl.setText("ระหว่างควบคุม");
-        jCheckControl.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckControlActionPerformed(evt);
-            }
-        });
 
         jLabel9.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel9.setText("วันที่รับแจ้ง");
@@ -443,35 +389,15 @@ public class IdentityFrom extends javax.swing.JDialog {
 
         jCheckSue.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jCheckSue.setText("สั่งฟ้อง");
-        jCheckSue.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckSueActionPerformed(evt);
-            }
-        });
 
         jCheckNotSue.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jCheckNotSue.setText("สั่งไม่ฟ้อง");
-        jCheckNotSue.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckNotSueActionPerformed(evt);
-            }
-        });
 
         jCheckNoInvest.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jCheckNoInvest.setText("งดการสอบสวน");
-        jCheckNoInvest.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckNoInvestActionPerformed(evt);
-            }
-        });
 
         jCheckOtherInvest.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jCheckOtherInvest.setText("อื่นๆ");
-        jCheckOtherInvest.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckOtherInvestActionPerformed(evt);
-            }
-        });
 
         jLabel32.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel32.setText("ส่งสำนวนไปยัง");
@@ -789,7 +715,7 @@ public class IdentityFrom extends javax.swing.JDialog {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(116, Short.MAX_VALUE))
+                        .addContainerGap(155, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(11, 11, 11)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -835,7 +761,7 @@ public class IdentityFrom extends javax.swing.JDialog {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(119, 119, 119))))
+                        .addGap(158, 158, 158))))
         );
 
         jTabbedPane1.addTab("ข้อมูลคดี", jPanel1);
@@ -844,11 +770,6 @@ public class IdentityFrom extends javax.swing.JDialog {
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
         jTextAccused.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jTextAccused.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextAccusedActionPerformed(evt);
-            }
-        });
 
         jButtonAccured.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButtonAccured.setText("เพิ่ม");
@@ -865,11 +786,6 @@ public class IdentityFrom extends javax.swing.JDialog {
         jLabel26.setText("ผู้ต้องหา");
 
         jTextSuspect.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        jTextSuspect.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextSuspectActionPerformed(evt);
-            }
-        });
 
         jButtonSuspect.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButtonSuspect.setText("เพิ่ม");
@@ -897,11 +813,6 @@ public class IdentityFrom extends javax.swing.JDialog {
         jLabel30.setText("เลขบัญชีของกลาง");
 
         EvidenceRecordNumber.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        EvidenceRecordNumber.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EvidenceRecordNumberActionPerformed(evt);
-            }
-        });
 
         jLabel31.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel31.setText("รายการทรัพย์");
@@ -911,11 +822,6 @@ public class IdentityFrom extends javax.swing.JDialog {
         jButton8.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButton8.setText("เพิ่ม");
         jButton8.setActionCommand("พยาน");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -997,16 +903,14 @@ public class IdentityFrom extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(79, 79, 79)
+                .addGap(142, 142, 142)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1304, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButtonSaveCase, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(102, 102, 102)
                         .addComponent(crimecaseid)))
-                .addContainerGap(140, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
             .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -1015,9 +919,7 @@ public class IdentityFrom extends javax.swing.JDialog {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButtonSaveCase)
-                        .addComponent(jButton3))
+                    .addComponent(jButtonSaveCase, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(crimecaseid, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1026,231 +928,6 @@ public class IdentityFrom extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseExited
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jButton3MouseExited
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-      
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButtonSaveCaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveCaseActionPerformed
-        // TODO add your handling code here:
-        con=ConnectDatabase.connect();
-        SimpleDateFormat format = new SimpleDateFormat("HH:mm");
-        String requestTime = format.format(CaseRequestTimee.getValue());
-        String acceptTime = format.format(CaseAcceptTimee.getValue());
-        String orcuredTime=format.format(OccuredDateTime.getValue());
-        
-         if(isInsert){
-                int dialogResult = JOptionPane.showConfirmDialog (null, "ทำการบันทึกข้อมูล?", "ยืนยันการบันทึกข้อมูล",JOptionPane.YES_NO_OPTION);
-                if(dialogResult == JOptionPane.YES_OPTION){
-                        String sql="INSERT INTO CrimeCase (crimecaseno,crimecaseyears,ChargeCodeCase,ActionCodeCase,CaseRequestDate,CaseRequestTime,"+
-                                        "CaseAcceptDate,CaseAccepTime,DailyNumber,OccuredDate,OccuredTime,CrimeLocation,CrimeLocationDistrict,CrimeLocationAmphur,"+
-                                        "CrimeLocationProvince,TypeCourt,AccureandOther,SuspectandOther,WitnessandOther,Investigator_Result,CourtResult,Invest_SendtoDepartment,"+
-                                         "PoliceNameCase,AssetList,AssetCode,CircumstancesOfDeath,CauseDead,crimecasenoyear,CaseType)"+
-                                         "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-          System.out.println(sql);
-         try {
-  
-            pst=con.prepareStatement(sql);
-            pst.setString(1,crimecaseno.getText());
-            pst.setString(2,crimecaseyear.getText());
-            pst.setString(3,jLabelChargeCode.getText());
-            pst.setString(4,jLabelActionCode.getText());
-            pst.setString(5,CaseRequestDateTime.getText());
-            pst.setString(6,requestTime);
-            pst.setString(7,CaseAcceptDateTime.getText());
-            pst.setString(8,acceptTime);
-            pst.setString(9,DailyNumber.getText());
-            pst.setString(10,OccuredDate.getText());
-            pst.setString(11,orcuredTime);
-            pst.setString(12,CrimeLocation.getText());
-            pst.setString(13,CrimeLocationDistrict.getText());
-            pst.setString(14,CrimeLocationAmphur.getText());
-            pst.setString(15,CrimeLocationProvince.getText());
-            pst.setString(16,CourtType.getSelectedItem().toString());
-            pst.setString(17,jTextAccused.getText());
-            pst.setString(18,jTextSuspect.getText());
-            pst.setString(19,jTextWitness.getText());
-            if(jCheckDuringInvest.isSelected()){
-               pst.setString(20,"อยู่ระหว่างสอบสวน");  
-            }
-          else  if(jCheckSue.isSelected()){
-               pst.setString(20,"สั่งฟ้อง");  
-            } 
-          else  if(jCheckNotSue.isSelected()){
-               pst.setString(20,"สั่งไม่ฟ้อง");  
-            }
-          else  if(jCheckNoInvest.isSelected()){
-               pst.setString(20,"งดการสอบสวน");  
-            }
-         else   if(jCheckOtherInvest.isSelected()){
-               pst.setString(20,"อื่นๆ");  
-            }
-            pst.setString(21,jTextCourtResult.getText());
-            pst.setString(22,jTextInvestSendtoDepartment.getText());
-            pst.setString(23,jTextPoliceName.getText());
-              pst.setString(24,ListAsset.getText());
-                pst.setString(25,EvidenceRecordNumber.getText());
-
-//            //เกี่ยวกับการตาย
-            pst.setString(26,CircumstancesOfDeath.getText());
-             if(jCheckSuicide.isSelected()){
-                    pst.setString(27,"ฆ่าตัวตาย");
-                }
-             else   if(jCheckAnimal.isSelected()){
-                    pst.setString(27,"สัตว์ทำร้ายตาย");
-                }
-              else  if(jCheckKill.isSelected()){
-                    pst.setString(27,"ผู้อื่นทำให้ตาย");
-                }
-              else  if(jCheckAccident.isSelected()){
-                    pst.setString(27,"อุบัติเหตุ");
-                }
-              else  if(jCheckUnknow.isSelected()){
-                    pst.setString(27,"มิปรากฏเหตุ");
-                }
-              else   if(jCheckExtraordinary.isSelected()){
-                    pst.setString(27,"วิสามัญ");
-                }
-              else    if(jCheckControl.isSelected()){
-                    pst.setString(27,"ระหว่างควบคุม");
-                }
-                 pst.setString(28,crimecaseno.getText()+"/"+crimecaseyear.getText());
-                 pst.setString(29,"ชันสูตร");
-                 pst.executeUpdate();
-                 pst.close();
-                 JOptionPane.showMessageDialog(null, "บันทึกข้อมูลเรียบร้อย");
-                 setVisible(false);
-                 System.out.println("SQL : "+sql);
-            
-        } catch (Exception e) {
-             JOptionPane.showMessageDialog(null, e); 
-             System.out.println("SQL : "+pst);
-        }
-        }
-         }
-         else{
-          int dialogResult = JOptionPane.showConfirmDialog (null, "ทำการแก้ไขข้อมูล?", "ยืนยันการแก้ไขข้อมูล",JOptionPane.YES_NO_OPTION);
-          if(dialogResult == JOptionPane.YES_OPTION){
-        String sqlUpdate="UPDATE CrimeCase SET crimecaseno = ?,"
-                         +"crimecaseyears = ?,"
-                         +"ChargeCodeCase = ?,"
-                         +"ActionCodeCase = ?,"
-                         +"CaseRequestDate = ?,"
-                         +"CaseRequestTime = ?,"
-                         +"CaseAcceptDate = ?,"
-                         +"CaseAccepTime = ?,"
-                         +"DailyNumber = ?,"
-                         +"OccuredDate = ?,"
-                         +"OccuredTime = ?,"
-                         +"CrimeLocation = ?,"
-                         +"CrimeLocationDistrict = ?,"
-                         +"CrimeLocationAmphur = ?,"
-                         +"CrimeLocationProvince = ?,"
-                         +"AccureandOther = ?,"
-                         +"SuspectandOther = ?,"
-                         +"WitnessandOther = ?,"
-                         +"TypeCourt = ?,"
-                         +"AccureandOther = ?,"
-                         +"SuspectandOther = ?,"
-                         +"WitnessandOther = ?,"
-                         +"Investigator_Result = ?,"
-                         +"CourtResult = ?"
-                         +"Invest_SendtoDepartment =?" 
-                         +"PoliceNameCase = ?,"
-                         +"AssetList = ?,"
-                         +"AssetCode = ?"
-                         +"CircumstancesOfDeath =?" 
-                         +"CauseDead = ?"
-                         +"crimecasenoyear =?" 
-                
-                 +" WHERE  CaseId = ?";
-          System.out.println("SQL : "+sqlUpdate);
-         try {
-  
-            pst=con.prepareStatement(sqlUpdate);
-            pst.setString(1,crimecaseno.getText());
-            pst.setString(2,crimecaseyear.getText());
-            pst.setString(3,jLabelChargeCode.getText());
-            pst.setString(4,jLabelActionCode.getText());
-            pst.setString(5,CaseRequestDateTime.getText());
-            pst.setString(6,requestTime);
-            pst.setString(7,CaseAcceptDateTime.getText());
-            pst.setString(8,acceptTime);
-            pst.setString(9,DailyNumber.getText());
-            pst.setString(10,OccuredDate.getText());
-            pst.setString(11,orcuredTime);
-            pst.setString(12,CrimeLocation.getText());
-            pst.setString(13,CrimeLocationDistrict.getText());
-            pst.setString(14,CrimeLocationAmphur.getText());
-            pst.setString(15,CrimeLocationProvince.getText());
-            pst.setString(16,CourtType.getSelectedItem().toString());
-            pst.setString(17,jTextAccused.getText());
-            pst.setString(18,jTextSuspect.getText());
-            pst.setString(19,jTextWitness.getText());
-            if(jCheckDuringInvest.isSelected()){
-               pst.setString(20,"อยู่ระหว่างสอบสวน");  
-            }
-          else  if(jCheckSue.isSelected()){
-               pst.setString(20,"สั่งฟ้อง");  
-            } 
-          else  if(jCheckNotSue.isSelected()){
-               pst.setString(20,"สั่งไม่ฟ้อง");  
-            }
-          else  if(jCheckNoInvest.isSelected()){
-               pst.setString(20,"งดการสอบสวน");  
-            }
-         else   if(jCheckOtherInvest.isSelected()){
-               pst.setString(20,"อื่นๆ");  
-            }
-            pst.setString(21,jTextCourtResult.getText());
-            pst.setString(22,jTextInvestSendtoDepartment.getText());
-            pst.setString(23,jTextPoliceName.getText());
-              pst.setString(24,ListAsset.getText());
-                pst.setString(25,EvidenceRecordNumber.getText());
-
-//            //เกี่ยวกับการตาย
-            pst.setString(26,CircumstancesOfDeath.getText());
-             if(jCheckSuicide.isSelected()){
-                    pst.setString(27,"ฆ่าตัวตาย");
-                }
-             else   if(jCheckAnimal.isSelected()){
-                    pst.setString(27,"สัตว์ทำร้ายตาย");
-                }
-              else  if(jCheckKill.isSelected()){
-                    pst.setString(27,"ผู้อื่นทำให้ตาย");
-                }
-              else  if(jCheckAccident.isSelected()){
-                    pst.setString(27,"อุบัติเหตุ");
-                }
-              else  if(jCheckUnknow.isSelected()){
-                    pst.setString(27,"มิปรากฏเหตุ");
-                }
-              else   if(jCheckExtraordinary.isSelected()){
-                    pst.setString(27,"วิสามัญ");
-                }
-              else    if(jCheckControl.isSelected()){
-                    pst.setString(27,"ระหว่างควบคุม");
-                }
-                 pst.setString(28,crimecaseno.getText()+"/"+crimecaseyear.getText());
-                 pst.setString(29,caseid);
-                 pst.executeUpdate();
-                 pst.close();
-                JOptionPane.showMessageDialog(null, "แก้ไขข้อมูลสำเร็จแล้ว");
-                setVisible(false);
-                             System.out.println("SQL : "+sqlUpdate);
-        } catch (Exception e) {
-             JOptionPane.showMessageDialog(null, "แก้ไขข้อมูลไม่สำเร็จ."); 
-             System.out.println("SQL : "+pst);
-        }
-          }
-      }
-    }//GEN-LAST:event_jButtonSaveCaseActionPerformed
 
     private void jButtonWitnessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonWitnessActionPerformed
         // TODO add your handling code here:
@@ -1267,10 +944,6 @@ public class IdentityFrom extends javax.swing.JDialog {
         lw.setModal(true);
         lw.setVisible(true);
     }//GEN-LAST:event_jButtonWitnessActionPerformed
-
-    private void jTextSuspectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextSuspectActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextSuspectActionPerformed
 
     private void jButtonSuspectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSuspectActionPerformed
         // TODO add your handling code here:
@@ -1313,54 +986,6 @@ public class IdentityFrom extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonAddInvestActionPerformed
 
-    private void jCheckOtherInvestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckOtherInvestActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckOtherInvestActionPerformed
-
-    private void jCheckNoInvestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckNoInvestActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckNoInvestActionPerformed
-
-    private void jCheckNotSueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckNotSueActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckNotSueActionPerformed
-
-    private void jCheckSueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckSueActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckSueActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
-
-    private void EvidenceRecordNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EvidenceRecordNumberActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EvidenceRecordNumberActionPerformed
-
-    private void jCheckControlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckControlActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckControlActionPerformed
-
-    private void jCheckExtraordinaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckExtraordinaryActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckExtraordinaryActionPerformed
-
-    private void jCheckUnknowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckUnknowActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckUnknowActionPerformed
-
-    private void jCheckAccidentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckAccidentActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckAccidentActionPerformed
-
-    private void jCheckKillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckKillActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckKillActionPerformed
-
-    private void jCheckAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckAnimalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckAnimalActionPerformed
-
     private void jButtonActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActionActionPerformed
         // TODO add your handling code here:
         JFrame frame = new JFrame();
@@ -1380,14 +1005,6 @@ public class IdentityFrom extends javax.swing.JDialog {
         ChargePage cp=new ChargePage(fr,null);
         cp.setVisible(true);
     }//GEN-LAST:event_jButtonChargeActionPerformed
-
-    private void jButtonSaveCaseKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButtonSaveCaseKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonSaveCaseKeyTyped
-
-    private void jTextAccusedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextAccusedActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextAccusedActionPerformed
     
     /**
      * @param args the command line arguments
@@ -1447,7 +1064,6 @@ public class IdentityFrom extends javax.swing.JDialog {
     private javax.swing.JTextField crimecaseno;
     private javax.swing.JTextField crimecaseyear;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton8;
     public static javax.swing.JButton jButtonAccured;
     private javax.swing.JButton jButtonAction;

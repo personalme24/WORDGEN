@@ -336,11 +336,6 @@ public class SueFrom extends javax.swing.JFrame {
         SuspectFullName.setEditable(false);
         SuspectFullName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         SuspectFullName.setBorder(null);
-        SuspectFullName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SuspectFullNameActionPerformed(evt);
-            }
-        });
 
         jLabel5.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel5.setText("ชื่อผู้ต้องหา");
@@ -351,11 +346,6 @@ public class SueFrom extends javax.swing.JFrame {
         FullNamePerson1.setEditable(false);
         FullNamePerson1.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         FullNamePerson1.setBorder(null);
-        FullNamePerson1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FullNamePerson1ActionPerformed(evt);
-            }
-        });
 
         jLabel7.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel7.setText("ชื่อผู้กล่าวหา");
@@ -363,22 +353,12 @@ public class SueFrom extends javax.swing.JFrame {
         VictimFullName.setEditable(false);
         VictimFullName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         VictimFullName.setBorder(null);
-        VictimFullName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                VictimFullNameActionPerformed(evt);
-            }
-        });
 
         jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel8.setText("วันที่รับคดี");
 
         CaseAcceptDateTime.setEditable(false);
         CaseAcceptDateTime.setBorder(null);
-        CaseAcceptDateTime.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CaseAcceptDateTimeActionPerformed(evt);
-            }
-        });
 
         jLabel9.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel9.setText("วันที่รับตัว");
@@ -386,11 +366,6 @@ public class SueFrom extends javax.swing.JFrame {
         AcceptSueDate.setEditable(false);
         AcceptSueDate.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         AcceptSueDate.setBorder(null);
-        AcceptSueDate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AcceptSueDateActionPerformed(evt);
-            }
-        });
 
         jLabel10.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel10.setText("ครบกำหนด 30 วัน");
@@ -398,11 +373,6 @@ public class SueFrom extends javax.swing.JFrame {
         Accept30Date.setEditable(false);
         Accept30Date.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         Accept30Date.setBorder(null);
-        Accept30Date.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Accept30DateActionPerformed(evt);
-            }
-        });
 
         jLabel11.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel11.setText("ของกลาง");
@@ -410,11 +380,6 @@ public class SueFrom extends javax.swing.JFrame {
         FullNamePerson6.setEditable(false);
         FullNamePerson6.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         FullNamePerson6.setBorder(null);
-        FullNamePerson6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FullNamePerson6ActionPerformed(evt);
-            }
-        });
 
         jLabel12.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel12.setText("ผัดฟ้องฝากขัง");
@@ -422,11 +387,6 @@ public class SueFrom extends javax.swing.JFrame {
         PutInJailDate.setEditable(false);
         PutInJailDate.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         PutInJailDate.setBorder(null);
-        PutInJailDate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PutInJailDateActionPerformed(evt);
-            }
-        });
 
         crimecaseno.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         crimecaseno.setBorder(null);
@@ -657,11 +617,6 @@ public class SueFrom extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButton2.setText("1");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
 
         jButton3.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButton3.setText("2");
@@ -978,42 +933,6 @@ public class SueFrom extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void SuspectFullNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SuspectFullNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SuspectFullNameActionPerformed
-
-    private void FullNamePerson1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FullNamePerson1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FullNamePerson1ActionPerformed
-
-    private void VictimFullNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VictimFullNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_VictimFullNameActionPerformed
-
-    private void CaseAcceptDateTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CaseAcceptDateTimeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CaseAcceptDateTimeActionPerformed
-
-    private void AcceptSueDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AcceptSueDateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AcceptSueDateActionPerformed
-
-    private void Accept30DateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Accept30DateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Accept30DateActionPerformed
-
-    private void FullNamePerson6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FullNamePerson6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FullNamePerson6ActionPerformed
-
-    private void PutInJailDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PutInJailDateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PutInJailDateActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
