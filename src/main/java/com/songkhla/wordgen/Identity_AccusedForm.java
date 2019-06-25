@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package com.songkhla.wordgen;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import javax.swing.JFrame;
@@ -179,6 +180,11 @@ public class Identity_AccusedForm extends javax.swing.JDialog {
         jLabel2.setText("เลขบัตรประชาชน");
 
         PeopleRegistrationID.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        PeopleRegistrationID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                PeopleRegistrationIDKeyTyped(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel3.setText("วันที่ออกบัตร");
@@ -211,6 +217,11 @@ public class Identity_AccusedForm extends javax.swing.JDialog {
         jLabel10.setText("วันเกิด");
 
         Age.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Age.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                AgeKeyTyped(evt);
+            }
+        });
 
         jLabel11.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel11.setText("ชื่อภาษาอังกฤษ");
@@ -293,6 +304,11 @@ public class Identity_AccusedForm extends javax.swing.JDialog {
         Amphur.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         ZipCode.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        ZipCode.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ZipCodeKeyTyped(evt);
+            }
+        });
 
         Province.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
@@ -733,6 +749,38 @@ public class Identity_AccusedForm extends javax.swing.JDialog {
         setVisible(false);
                                                  
     }//GEN-LAST:event_jButtonSaveActionPerformed
+
+    private void PeopleRegistrationIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PeopleRegistrationIDKeyTyped
+    char vChar = evt.getKeyChar();
+         if(!(Character.isDigit(vChar) || (vChar==KeyEvent.VK_BACK_SPACE)||(vChar==KeyEvent.VK_DELETE)))
+         {
+             evt.consume();
+         }     
+                  if(PeopleRegistrationID.getText().length()>=13) {  
+           evt.consume();
+ }         // TODO add your handling code here:
+    }//GEN-LAST:event_PeopleRegistrationIDKeyTyped
+
+    private void ZipCodeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ZipCodeKeyTyped
+     char vChar = evt.getKeyChar();
+         if(!(Character.isDigit(vChar) || (vChar==KeyEvent.VK_BACK_SPACE)||(vChar==KeyEvent.VK_DELETE)))
+         {
+             evt.consume();
+         }     
+     
+                  if(ZipCode.getText().length()>=5) {  
+           evt.consume();
+ }          // TODO add your handling code here:
+    }//GEN-LAST:event_ZipCodeKeyTyped
+
+    private void AgeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AgeKeyTyped
+     char vChar = evt.getKeyChar();
+         if(!(Character.isDigit(vChar) || (vChar==KeyEvent.VK_BACK_SPACE)||(vChar==KeyEvent.VK_DELETE)))
+         {
+             evt.consume();
+         }     
+      // TODO add your handling code here:
+    }//GEN-LAST:event_AgeKeyTyped
 
     /**
      * @param args the command line arguments

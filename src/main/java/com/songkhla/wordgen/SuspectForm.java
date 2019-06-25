@@ -12,6 +12,7 @@ import static com.songkhla.wordgen.CrimesCaseEdit.jLabelChargeCode;
 import static com.songkhla.wordgen.CrimesCaseEdit.jTextAccused;
 import java.awt.Dimension;
 import java.awt.Rectangle;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -304,6 +305,11 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabel2.setText("เลขบัตรประชาชน");
 
         PeopleRegistrationID.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        PeopleRegistrationID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                PeopleRegistrationIDKeyTyped(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel5.setText("ชื่อ-สกุล");
@@ -344,6 +350,11 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabel8.setText("อายุ");
 
         Age.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Age.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                AgeKeyTyped(evt);
+            }
+        });
 
         jLabel12.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel12.setText("สัญชาติ");
@@ -430,6 +441,11 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabel24.setText("รหัสไปรษณีย์");
 
         ZipCode.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        ZipCode.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ZipCodeKeyTyped(evt);
+            }
+        });
 
         jLabel19.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel19.setText("ลำดับ");
@@ -1294,6 +1310,36 @@ public class SuspectForm extends javax.swing.JDialog {
 //                SueCrimesFrom sa=new SueCrimesFrom(fwit, s);
 //                sa.setVisible(true);
     }//GEN-LAST:event_jButtonSue2MouseClicked
+
+    private void PeopleRegistrationIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PeopleRegistrationIDKeyTyped
+     char vChar = evt.getKeyChar();
+         if(!(Character.isDigit(vChar) || (vChar==KeyEvent.VK_BACK_SPACE)||(vChar==KeyEvent.VK_DELETE)))
+         {
+             evt.consume();
+         }
+         if(PeopleRegistrationID.getText().length()>=13) {  
+           evt.consume();
+ }        // TODO add your handling code here:
+    }//GEN-LAST:event_PeopleRegistrationIDKeyTyped
+
+    private void AgeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AgeKeyTyped
+         char vChar = evt.getKeyChar();
+         if(!(Character.isDigit(vChar) || (vChar==KeyEvent.VK_BACK_SPACE)||(vChar==KeyEvent.VK_DELETE)))
+         {
+             evt.consume();
+         }// TODO add your handling code here:
+    }//GEN-LAST:event_AgeKeyTyped
+
+    private void ZipCodeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ZipCodeKeyTyped
+  char vChar = evt.getKeyChar();
+         if(!(Character.isDigit(vChar) || (vChar==KeyEvent.VK_BACK_SPACE)||(vChar==KeyEvent.VK_DELETE)))
+         {
+             evt.consume();
+         }  
+             if(ZipCode.getText().length()>=13) {  
+           evt.consume();
+ }  // TODO add your handling code here:
+    }//GEN-LAST:event_ZipCodeKeyTyped
   public void eventJButtonManage(){
       
      jRadioSue.addChangeListener(new ChangeListener() {

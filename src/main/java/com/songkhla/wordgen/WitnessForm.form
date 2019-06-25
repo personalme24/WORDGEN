@@ -442,6 +442,9 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="PeopleRegistrationID">
+                  <Events>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="PeopleRegistrationIDKeyTyped"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel1">
                   <Properties>
@@ -514,6 +517,9 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="Age">
+                  <Events>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="AgeKeyTyped"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel11">
                   <Properties>
@@ -713,6 +719,9 @@
                 <Component class="javax.swing.JTextField" name="Amphur">
                 </Component>
                 <Component class="javax.swing.JTextField" name="ZipCode">
+                  <Events>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ZipCodeKeyTyped"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="Province">
                 </Component>
