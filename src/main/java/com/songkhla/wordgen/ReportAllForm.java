@@ -7,7 +7,7 @@ package com.songkhla.wordgen;
 
 import com.songkhla.document.TestWord;
 import com.songkhla.document.W5;
-import com.songkhla.document.W9;
+//import com.songkhla.document.W9;
 import java.io.File;
 import javax.swing.JOptionPane;
 
@@ -787,9 +787,9 @@ public class ReportAllForm extends javax.swing.JDialog {
         if(jCheckW5.isSelected()){
             W5.w5(no);
         }
-         if(jCheckW9.isSelected()){
-            W9.w9(no);
-        }
+      //   if(jCheckW9.isSelected()){
+      //      W9.w9(no);
+     //   }
           if(jCheckBox1.isSelected()){
               TestWord.T1();
         }

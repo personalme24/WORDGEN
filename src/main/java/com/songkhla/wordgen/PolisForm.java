@@ -257,7 +257,6 @@ public class PolisForm extends javax.swing.JDialog {
                         pst.executeUpdate();
                         pst.close();
                         JOptionPane.showMessageDialog(null, "บันทึกข้อมูลเรียบร้อย");
-               
                         setVisible(false);
                         
                          
