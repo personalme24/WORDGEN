@@ -35,6 +35,10 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
     
     public CrimesCaseOverView() {
         initComponents();
+        ImageIcon img = new ImageIcon("D://Master//WD.png");
+        setIconImage(img.getImage());
+        setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
+        
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
  
         jTable1.setOpaque(false);
@@ -65,6 +69,7 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(77, 0, 0));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());

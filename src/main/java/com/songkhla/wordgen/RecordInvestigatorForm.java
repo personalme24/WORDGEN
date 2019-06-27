@@ -9,15 +9,22 @@ import static com.songkhla.wordgen.ActionPage.ActionCode;
 import static com.songkhla.wordgen.ActionPage.ActionCrimes;
 import static com.songkhla.wordgen.ActionPage.ActionDetail;
 import static com.songkhla.wordgen.ActionPage.ActionNote;
+import java.awt.Color;
+import java.awt.FlowLayout;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import org.jdatepicker.impl.JDatePanelImpl;
+import org.jdatepicker.impl.JDatePickerImpl;
+import org.jdatepicker.impl.UtilDateModel;
 import org.json.simple.JSONObject;
 
 /**
@@ -30,26 +37,33 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
     DataCase dc =new DataCase();
     boolean isInsert=true;
     String idRecord;
+    JDatePickerImpl DateRecord;
     /**
      * Creates new form RecordInvestigator
      */
     public RecordInvestigatorForm(JFrame parrent,JSONObject datain) {
         super(parrent,true);
         initComponents();
+         UtilDateModel model2 = new UtilDateModel();
+            model2.setValue(Calendar.getInstance().getTime());
+            Properties p = new Properties();
+            p.put("text.today", "Today");
+            p.put("text.month", "Month");
+            p.put("text.year", "Year");
+          JDatePanelImpl datePanel2 = new JDatePanelImpl(model2, p);
+        DateRecord = new JDatePickerImpl(datePanel2,new DateLabelFormatter());
+        DateRecord.setTextEditable(true);
+        DateRecord.setBackground(Color.WHITE);
+        jPanelDateRecord.setLayout(new FlowLayout());
+        jPanelDateRecord.add(DateRecord); 
         
        if(datain != null){
-           try{
-           String dr=datain.get("DateRecord")+"";
-              SimpleDateFormat dateFormat = new SimpleDateFormat("dd/M/yyyy");
-                 Date dateRec=dateFormat.parse(dr);
+           
            idRecord=datain.get("IdRecord")+"";
-           DateRecord.setDate(dateRec);
+           DateRecord.getJFormattedTextField().setText(datain.get("DateRecord")+"");
            NameInguiry.setText(datain.get("NameInguiry")+"");
            DetailRecord.setText(datain.get("DetailRecord")+"");
-              }
-           catch (ParseException ex) {
-                Logger.getLogger(CrimesCaseEdit.class.getName()).log(Level.SEVERE, null, ex);
-            }
+              
            }
        
        else{
@@ -76,8 +90,9 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
         NameInguiry = new javax.swing.JTextField();
         jButtonSave = new javax.swing.JButton();
         caseId = new javax.swing.JLabel();
-        DateRecord = new com.toedter.calendar.JDateChooser();
-        DetailRecord = new javax.swing.JTextField();
+        jPanelDateRecord = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        DetailRecord = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -99,13 +114,11 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(443, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
         );
 
         jLabel9.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
@@ -127,9 +140,20 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
             }
         });
 
-        caseId.setText("crimescaseno");
+        javax.swing.GroupLayout jPanelDateRecordLayout = new javax.swing.GroupLayout(jPanelDateRecord);
+        jPanelDateRecord.setLayout(jPanelDateRecordLayout);
+        jPanelDateRecordLayout.setHorizontalGroup(
+            jPanelDateRecordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 214, Short.MAX_VALUE)
+        );
+        jPanelDateRecordLayout.setVerticalGroup(
+            jPanelDateRecordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 32, Short.MAX_VALUE)
+        );
 
-        DateRecord.setDateFormatString("dd/M/yyyy");
+        DetailRecord.setColumns(20);
+        DetailRecord.setRows(5);
+        jScrollPane1.setViewportView(DetailRecord);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -137,49 +161,50 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(DetailRecord, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(caseId)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(DateRecord, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(NameInguiry, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButtonSave)
-                        .addGap(122, 122, 122)))
-                .addContainerGap(51, Short.MAX_VALUE))
+                        .addGap(67, 67, 67)
+                        .addComponent(caseId))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButtonSave)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(8, 8, 8)
+                                    .addComponent(jLabel9)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jPanelDateRecord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jLabel11)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(NameInguiry, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel10)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(caseId)
-                .addGap(7, 7, 7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(DateRecord, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelDateRecord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(NameInguiry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DetailRecord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(158, 158, 158)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jButtonSave)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addGap(40, 40, 40))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -192,7 +217,7 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -200,15 +225,14 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
 
     private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
         // TODO add your handling code here:
-        SimpleDateFormat formatDate = new SimpleDateFormat("dd/M/yyyy");
-        String dateRec = formatDate.format(DateRecord.getDate());
+ con=ConnectDatabase.connect();
         if(isInsert){
          String intAc="INSERT into RecordInquiry(DateRecord,NameInguiry,DetailRecord,CaseIdRecord) values(?,?,?,?) ";
 //          String intCr="insert into CrimesCase(AnswerSuspect,AnswerAccuse) values(?,?) ";
         try {
            
            pst=con.prepareStatement(intAc);
-           pst.setString(1, dateRec);
+           pst.setString(1,DateRecord.getJFormattedTextField().getText());
            pst.setString(2, NameInguiry.getText());
            pst.setString(3, DetailRecord.getText());
            pst.setString(4, caseId.getText());
@@ -220,7 +244,6 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
                            System.out.println("SQLLLLL : "+intAc);
                          pst.close();
                             setVisible(false); 
-
                                 } 
         } catch (Exception e) {
           JOptionPane.showMessageDialog(null,e);
@@ -237,7 +260,7 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
         try {
            
            pst=con.prepareStatement(intAcUp);
-           pst.setString(1, dateRec);
+           pst.setString(1, DateRecord.getJFormattedTextField().getText());
            pst.setString(2, NameInguiry.getText());
            pst.setString(3, DetailRecord.getText());
            pst.setString(4, idRecord);
@@ -298,8 +321,7 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.toedter.calendar.JDateChooser DateRecord;
-    private javax.swing.JTextField DetailRecord;
+    private javax.swing.JTextArea DetailRecord;
     private javax.swing.JTextField NameInguiry;
     private javax.swing.JLabel caseId;
     private javax.swing.JButton jButtonSave;
@@ -309,5 +331,7 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanelDateRecord;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

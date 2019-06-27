@@ -14,6 +14,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Vector;
+import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import org.json.simple.JSONObject;
@@ -33,6 +34,9 @@ String typeC;
         super(parrent,true);
 
         initComponents();  
+         ImageIcon img = new ImageIcon("D://Master//WD.png");
+            setIconImage(img.getImage());
+            setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
         txtCaseNO.setVisible(false);
         txtCaseNO.setText(datain.get("CaseIdAcc")+"");
          typeC=datain.get("TypeCase")+"";

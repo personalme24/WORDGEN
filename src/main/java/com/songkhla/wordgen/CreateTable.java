@@ -79,6 +79,8 @@ public class CreateTable {
                 "	ProvinceFoundBody	VARCHAR(100)	,	\n"+
                 "	CircumstancesOfDeath	VARCHAR(100)	,	\n"+
                 "	ArrestDate	VARCHAR(100)	,	\n"+
+                "	ArrestTime	VARCHAR(100)	,	\n"+                     
+                        
                 "	PlaceArrest	VARCHAR(100)	,	\n"+
                 "	Country	VARCHAR(100)	,	\n"+
                 "	DoctorCheckฺBodyID	VARCHAR(100)	,	\n"+
@@ -93,7 +95,7 @@ public class CreateTable {
                 "	MotherIdCard	VARCHAR(100)	,	\n"+
                 "	MotherAddress	VARCHAR(100)	,	\n"+
                 "	MotherPhone	VARCHAR(100)	,	\n"+
-                "	ParentName	VARCHAR(100)	,	\n"+
+                "	ParentName	VARCHAR(100)	,	\n"+                        
                 "	ParentAge	VARCHAR(100)	,	\n"+
                 "	ParentCareer	VARCHAR(100)	,	\n"+
                 "	ParentIdCard	VARCHAR(100)	,	\n"+
@@ -124,6 +126,7 @@ public class CreateTable {
                 "	StatusSuspect	VARCHAR(100)	,	\n"+
                 "	BailDate	VARCHAR(100)	,	\n"+
                 "	RestoreDate	VARCHAR(100)	,	\n"+ 
+                  "	SueLastEndDate	VARCHAR(100)	,	\n"+                         
                 "	caseIdPerson	INTEGER	not null	\n"+
                 "	);	";	
 

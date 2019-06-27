@@ -7,7 +7,7 @@ package com.songkhla.document;
 
 /**
  *
- * @author Computer
+ * @author Petpilin
  */
 import com.songkhla.wordgen.ConnectDatabase;
 import java.sql.Connection;
@@ -36,23 +36,20 @@ import org.docx4j.wml.Tr;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-public class W3 {
-	 public static void w3(String cc) {
+public class W6 {
+     public static void w6(String cc) {
      
             Connection conn=null;
             conn=ConnectDatabase.connect();
             PreparedStatement pst=null;
              String ccYear;
-             String SendIDocDate;
-             String DocOrder;
-             String DocSlash;
+             String CrimeLocationDistrict;
              String PoliceStationName="";
+             String StationAmphur="";
+             String StationProvince="";
              String ProvincProsecutor="";
              String TelStation="";
-             String RankPolice ="";
-             String FirstName ="";
-             String LastName ="";
-             String Position ="";
+            
              
              
             try {
@@ -62,24 +59,20 @@ public class W3 {
                   ResultSet rs=sp.executeQuery(sqlDataPoliceStation); 
                   while (rs.next()) {                    
                          PoliceStationName=rs.getString("PoliceStaionName");
+                         StationAmphur=rs.getString("StationAmphur");
+                         StationProvince=rs.getString("StationProvince");
                          ProvincProsecutor=rs.getString("ProvincProsecutor");
                          TelStation=rs.getString("TelStation");
                       }
             
-                    String sqlDataPolice="SELECT * FROM Police";
-                      Statement sp1 = conn.createStatement();
-                  ResultSet rs1=sp1.executeQuery(sqlDataPolice); 
-                  while (rs1.next()) {                    
-                         RankPolice =rs1.getString("RankPolice");
-                         FirstName=rs1.getString("FirstName");
-                         LastName=rs1.getString("LastName");
-                         Position=rs1.getString("Position");
-                      }
                   
-                   String sql= "select crimecase.*,Charge.*,P1.*,P2.*\n" +
-                               "from crimecase inner join(\n" +
+                   
+                   String sql="select crimecase.CaseId,crimecase.crimecaseno,crimecase.crimecaseyears,crimecase.SendIDocDate,crimecase.OccuredDate,crimecase.OccuredTime,"
+                           + "crimecase.CaseAcceptDate,crimecase.CaseAccepTime,crimecase.CrimeLocationDistrict,crimecase.AccureandOther,crimecase.SuspectandOther,crimecase.WitnessandOther,"
+                            + "Charge.*,P1.*,P2.*\n" +
+                                "from crimecase inner join(\n" +
                               "SELECT  min(Person.NoPerson),Person.FullNamePerson AccuredName,Person.Age AgeAccured,Person.Race AccuredRace,Person.Nationality AccuredNati "
-                            + "FROM Person where Person.TypePerson='ผู้กล่าวหา'\n" +
+                            + "  FROM Person where Person.TypePerson='ผู้กล่าวหา'\n" +
                               ")P1\n" +
                               "inner join(\n" +
                                 "SELECT min(Person.NoPerson),Person.FullNamePerson suspectName,Person.Age suspectAge,Person.Amphur suspectAmp,Person.Race suspectRace,\n"+
@@ -92,46 +85,46 @@ public class W3 {
                    
 //                   pst=conn.prepareStatement(sql);
 //           pst=PreparedStatement(sql);
-                Statement st = conn.createStatement();
+            Statement st = conn.createStatement();
             ResultSet s=st.executeQuery(sql); 
                 System.out.println(sql);
             while((s!=null) && (s.next()))
             {  String  
                     cs =s.getString("crimecaseno");
                     ccYear=s.getString("crimecaseyears");
-                    DocOrder=s.getString("DocOrder");
-                    DocSlash=s.getString("DocSlash");
-                    SendIDocDate=s.getString("SendIDocDate");
-//              
+                  CrimeLocationDistrict = s.getString("CrimeLocationDistrict");
                  JSONObject bookmarkvalue = new JSONObject();
 //                 bookmarkvalue.put("C1","Date");
 //                 bookmarkvalue.put("S27","-");
-               // bookmarkvalue.put("C1",SendIDocDate);
 		bookmarkvalue.put("C2",cs);
                 bookmarkvalue.put("C3", ccYear);
-                bookmarkvalue.put("C16", DocOrder);
-                bookmarkvalue.put("C17", DocSlash);
+                
+                
                  bookmarkvalue.put("S2",PoliceStationName);
+                 bookmarkvalue.put("S5",StationAmphur);
+                 bookmarkvalue.put("S6",StationProvince);
+                  bookmarkvalue.put("S10",TelStation);
                   bookmarkvalue.put("S27",ProvincProsecutor);
-                   bookmarkvalue.put("S10",TelStation);
-                   
-                 bookmarkvalue.put("PA7",s.getString("AccureandOther"));
-                  bookmarkvalue.put("PA13", s.getString("AgeAccured"));
-                   bookmarkvalue.put("PA14", s.getString("AccuredRace"));
-                    bookmarkvalue.put("PA15", s.getString("AccuredNati")); 
+                  
+                 bookmarkvalue.put("PS7",s.getString("AccureandOther"));
+                  bookmarkvalue.put("PS13", s.getString("AgeAccured"));
+                   bookmarkvalue.put("PS14", s.getString("AccuredRace"));
+                    bookmarkvalue.put("PS15", s.getString("AccuredNati")); 
 //                     bookmarkvalue.put("P15", "-"); 
 //                    bookmarkvalue.put("PA75", "-"); 
-                    bookmarkvalue.put("PS7",  s.getString("SuspectandOther")); 
-                    bookmarkvalue.put("PS13",  s.getString("suspectAge"));
-                     bookmarkvalue.put("PS14", s.getString("suspectRace"));
-                         bookmarkvalue.put("PS15",  s.getString("suspectNati"));
+                    bookmarkvalue.put("PA7",  s.getString("SuspectandOther")); 
+                    bookmarkvalue.put("PA13",  s.getString("suspectAge"));
+                     bookmarkvalue.put("PA14", s.getString("suspectRace"));
+                         bookmarkvalue.put("PA15",  s.getString("suspectNati"));
                          
                       bookmarkvalue.put("B2", s.getString("ChargeName"));
+                      bookmarkvalue.put("B3", s.getString("Law"));
                       
-                     bookmarkvalue.put("P02", RankPolice);
-                       bookmarkvalue.put("P03", FirstName);
-                        bookmarkvalue.put("P04", LastName);
-                         bookmarkvalue.put("P05", Position);
+                            bookmarkvalue.put("C4", s.getString("OccuredDate"));
+                            bookmarkvalue.put("C411", s.getString("OccuredDate"));
+                            bookmarkvalue.put("C12", s.getString("CrimeLocationDistrict"));
+                            bookmarkvalue.put("C5", s.getString("CaseAcceptDate"));
+                            bookmarkvalue.put("C511", s.getString("CaseAcceptDate"));
                     
                    
     
@@ -170,10 +163,10 @@ public class W3 {
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("D:/TEMPLATE/w3.docx"));
+					.load(new java.io.File("D:/TEMPLATE/w6.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/เอกสารสำนวนคดี "+cc+"/หนังสือส่งสำนวนที่เห็นควรสั่งฟ้อง(ผู้ต้องหาหลบหนี) "+cc+".doc"));
+			wordMLPackage.save(new java.io.File("D:/เอกสารสำนวนคดี "+cc+"/รายงานการสอบสวนคดีไม่ปรากฎว่าผู้ใดเป็นผู้กระทำผิด "+cc+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -292,4 +285,3 @@ public class W3 {
 	}
     
 }
-

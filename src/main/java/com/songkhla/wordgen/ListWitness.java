@@ -19,6 +19,7 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import org.json.simple.JSONObject;
 import static com.songkhla.wordgen.ListWitness.jTableWitness;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -35,7 +36,10 @@ String noPerson;
     public ListWitness(JFrame parrent,JSONObject datain) {
                 super(parrent,true);
 
-        initComponents();  
+        initComponents();
+         ImageIcon img = new ImageIcon("D://Master//WD.png");
+            setIconImage(img.getImage());
+            setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
                txtCaseNO.setVisible(false);
 
         txtCaseNO.setText(datain.get("CaseIdWit")+"");

@@ -21,6 +21,7 @@ import org.json.simple.JSONObject;
  */
 public class RecordInvestigatorView extends javax.swing.JDialog {
     Connection con=null;
+    String caseIdRec;
     
     /**
      * Creates new form RecordInvestigatorView
@@ -28,8 +29,8 @@ public class RecordInvestigatorView extends javax.swing.JDialog {
     public RecordInvestigatorView(JFrame parrent,JSONObject datain) {
         super(parrent,true);
         initComponents();
-        caseId.setText(datain.get("CaseIdRec")+"");
-        
+        caseIdRec=datain.get("CaseIdRec")+"";
+        caseId.setText(caseIdRec);
         RefreshData();
     }
 
@@ -43,7 +44,7 @@ public class RecordInvestigatorView extends javax.swing.JDialog {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableRecord = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButtonSave = new javax.swing.JButton();
@@ -55,8 +56,8 @@ public class RecordInvestigatorView extends javax.swing.JDialog {
         setAlwaysOnTop(true);
         setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableRecord.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jTableRecord.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -67,7 +68,8 @@ public class RecordInvestigatorView extends javax.swing.JDialog {
                 "วันเดือนปี", "งานที่ปฏิบัติ", "พนักงานสอบสวนที่รับผิดชอบ"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jTableRecord.setSelectionBackground(new java.awt.Color(51, 153, 255));
+        jScrollPane1.setViewportView(jTableRecord);
 
         jPanel3.setBackground(new java.awt.Color(77, 0, 0));
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -158,8 +160,9 @@ public class RecordInvestigatorView extends javax.swing.JDialog {
              JFrame fr = (JFrame)(dialog.getParent());               
              fr.removeAll();
         RecordInvestigatorForm rs=new RecordInvestigatorForm(fr,null);
+        rs.pack();
+        rs.setLocationRelativeTo(null);
         rs.setVisible(true);
-
         RefreshData();
     }//GEN-LAST:event_jButtonSaveActionPerformed
 
@@ -170,10 +173,10 @@ public class RecordInvestigatorView extends javax.swing.JDialog {
              JFrame f = (JFrame)(dialog.getParent());               
              f.removeAll();
           String crimecaseno = caseId.getText();
-        if(jTableAccure.getSelectedRow()>=0){
+        if(jTableRecord.getSelectedRow()>=0){
            
             try{
-                String NameInguiry = jTableAccure.getModel().getValueAt(jTableAccure.getSelectedRow(), 2)+"";            
+                String NameInguiry = jTableRecord.getModel().getValueAt(jTableRecord.getSelectedRow(), 2)+"";            
                 String sql = "select IdRecord,DateRecord,NameInguiry,DetailRecord,CaseIdRecord where '"+NameInguiry+"' and CaseIdRecord="+crimecaseno;
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
@@ -207,13 +210,13 @@ public class RecordInvestigatorView extends javax.swing.JDialog {
      * @param args the command line arguments
      */
      public void RefreshData(){
-        try{
+           try{
               
         Connection con = ConnectDatabase.connect();
         Statement stmt = con.createStatement();
-        String a=txtCaseNO.getText();
+
         String sql = "select DateRecord,NameInguiry,DetailRecord\n"+
-                     "from RecordInquiry";
+                     "from RecordInquiry where CaseIdRecord='"+caseIdRec+"'";
       
         ResultSet rs = stmt.executeQuery(sql);
           System.out.println("SQL : "+sql);
@@ -223,7 +226,6 @@ public class RecordInvestigatorView extends javax.swing.JDialog {
             row.add(rs.getString("DateRecord"));
             row.add(rs.getString("DetailRecord"));
             row.add(rs.getString("NameInguiry"));
-       
             tabledata.add(row);
         }
         rs.close();
@@ -232,10 +234,9 @@ public class RecordInvestigatorView extends javax.swing.JDialog {
          ColumnName.add("วันที่");
         ColumnName.add("งานที่ปฏิบัติ");
         ColumnName.add("ชื่อ");
-
          System.out.println("SQL : "+sql);
      
-        jTableAccure.setModel(new javax.swing.table.DefaultTableModel(
+        jTableRecord.setModel(new javax.swing.table.DefaultTableModel(
             tabledata,
             ColumnName
         ) {
@@ -251,6 +252,8 @@ public class RecordInvestigatorView extends javax.swing.JDialog {
         }catch(Exception ex){
             ex.printStackTrace();
         }
+           
+     
     }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -292,6 +295,6 @@ public class RecordInvestigatorView extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableRecord;
     // End of variables declaration//GEN-END:variables
 }
