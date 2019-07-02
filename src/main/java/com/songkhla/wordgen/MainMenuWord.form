@@ -72,7 +72,7 @@
         <Container class="javax.swing.JPanel" name="jPanel1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="4d" type="rgb"/>
+              <Color blue="8a" green="64" red="29" type="rgb"/>
             </Property>
           </Properties>
 
@@ -139,7 +139,7 @@
         <Container class="javax.swing.JPanel" name="jPanel2">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="4d" type="rgb"/>
+              <Color blue="ca" green="9c" red="2e" type="rgb"/>
             </Property>
           </Properties>
 
@@ -186,7 +186,7 @@
             <Container class="javax.swing.JPanel" name="policemenu">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="4d" type="rgb"/>
+                  <Color blue="ca" green="9c" red="2e" type="rgb"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[155, 54]"/>
@@ -235,7 +235,7 @@
             <Container class="javax.swing.JPanel" name="personmenu">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="4d" type="rgb"/>
+                  <Color blue="ca" green="9c" red="2e" type="rgb"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[155, 54]"/>
@@ -287,7 +287,7 @@
             <Container class="javax.swing.JPanel" name="profilemenu">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="4d" type="rgb"/>
+                  <Color blue="ca" green="9c" red="2e" type="rgb"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[145, 54]"/>
@@ -336,7 +336,7 @@
             <Container class="javax.swing.JPanel" name="formmenu">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="4d" type="rgb"/>
+                  <Color blue="ca" green="9c" red="2e" type="rgb"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[149, 54]"/>
@@ -390,7 +390,7 @@
             <Container class="javax.swing.JPanel" name="howtomenu">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="4d" type="rgb"/>
+                  <Color blue="ca" green="9c" red="2e" type="rgb"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[136, 54]"/>
@@ -439,7 +439,7 @@
             <Container class="javax.swing.JPanel" name="SueMenu">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="4d" type="rgb"/>
+                  <Color blue="ca" green="9c" red="2e" type="rgb"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[147, 54]"/>
@@ -494,7 +494,7 @@
             <Container class="javax.swing.JPanel" name="BailMenu">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="4d" type="rgb"/>
+                  <Color blue="ca" green="9c" red="2e" type="rgb"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[122, 54]"/>
@@ -549,7 +549,7 @@
             <Container class="javax.swing.JPanel" name="howtomenu1">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="4d" type="rgb"/>
+                  <Color blue="ca" green="9c" red="2e" type="rgb"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[136, 54]"/>
@@ -601,7 +601,7 @@
             <Container class="javax.swing.JPanel" name="ManageSuspectMenu">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="4d" type="rgb"/>
+                  <Color blue="ca" green="9c" red="2e" type="rgb"/>
                 </Property>
               </Properties>
               <Events>

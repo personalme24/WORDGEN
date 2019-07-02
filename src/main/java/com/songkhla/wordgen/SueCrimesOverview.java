@@ -4,11 +4,17 @@
  * and open the template in the editor.
  */
 package com.songkhla.wordgen;
+import java.awt.Font;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Vector;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import org.json.simple.JSONObject;
 
@@ -27,6 +33,14 @@ public class SueCrimesOverview extends javax.swing.JFrame {
      */
     public SueCrimesOverview() {
         initComponents();
+        ImageIcon img = new ImageIcon("D://Master//WD.png");
+        setIconImage(img.getImage());
+         setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
+           jTableSue.setOpaque(false);
+        jTableSue.getTableHeader().setFont(new Font("TH SarabunPSK",Font.BOLD,20));
+     
+//        CalculateDate();
+//        TestDate();
         RefreshData();
        
         
@@ -48,14 +62,21 @@ public class SueCrimesOverview extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableSue = new javax.swing.JTable();
         jButtonAddSue = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1265, 700));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.setBackground(new java.awt.Color(77, 0, 0));
+        jPanel3.setBackground(new java.awt.Color(46, 156, 202));
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 18)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 28)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -75,31 +96,33 @@ public class SueCrimesOverview extends javax.swing.JFrame {
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
         );
 
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
         jTableSue.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jTableSue.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "เลขคดี", "คดี", "ผู้ต้องหา", "วันรับคำร้องทุกข์", "วันประกัน"
+                "เลขคดี", "คดี", "ผู้ต้องหา", "ครั้งที่ 1", "ครั้งที่ 2", "ครั้งที่ 3", "ครั้งที่ 4", "ครั้งที่ 5", "ครั้งที่ 6", "ครั้งที่ 7"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -107,7 +130,20 @@ public class SueCrimesOverview extends javax.swing.JFrame {
             }
         });
         jTableSue.setGridColor(new java.awt.Color(0, 0, 0));
+        jTableSue.setFocusable(false);
+
+        jTableSue.setGridColor(new java.awt.Color(255, 255, 255));
+
+        jTableSue.setIntercellSpacing(new java.awt.Dimension(0, 0));
+
+        jTableSue.setRowHeight(25);
+
+        jTableSue.setSelectionBackground(new java.awt.Color(77, 0, 0));
+
+        jTableSue.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTableSue);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 163, 1158, 269));
 
         jButtonAddSue.setText("เเก้ไข/เพิ่ม");
         jButtonAddSue.addActionListener(new java.awt.event.ActionListener() {
@@ -115,37 +151,35 @@ public class SueCrimesOverview extends javax.swing.JFrame {
                 jButtonAddSueActionPerformed(evt);
             }
         });
+        jPanel1.add(jButtonAddSue, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 127, -1, 30));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonAddSue)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        jTextField1.setPreferredSize(new java.awt.Dimension(59, 30));
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 65, 218, -1));
+
+        jTextField2.setPreferredSize(new java.awt.Dimension(59, 30));
+        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(273, 65, 218, -1));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 251, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(jButtonAddSue, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(345, Short.MAX_VALUE))
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 32, Short.MAX_VALUE)
         );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(509, 65, -1, -1));
+
+        jButton1.setText("ค้นหา");
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(778, 67, -1, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1236, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1265, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,10 +195,11 @@ public class SueCrimesOverview extends javax.swing.JFrame {
             try{
                 String crimecasenoyear = jTableSue.getModel().getValueAt(jTableSue.getSelectedRow(), 0)+"";
                 String nameSuspect = jTableSue.getModel().getValueAt(jTableSue.getSelectedRow(), 1)+"";
-                String sql="select CaseId,crimecasenoyear,AccureandOther,ChargeName,FullNamePerson,PeopleRegistrationID,SueTimes,SueDate,SuePersonId,SueCaseId from Sue\n"+
-                           "left join Person on Sue.SuePersonId=Person.NoPerson\n"+
+                String sql="select CaseId,crimecasenoyear,AccureandOther,ChargeName,Person.* from Person\n"+
                            "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId\n"+
-                          "left join Charge on CrimeCase.ChargeCodeCase=Charge.ChargeCode Where crimecasenoyear='"+crimecasenoyear+"'";
+                           "left join Charge on CrimeCase.ChargeCodeCase=Charge.ChargeCode\n"+
+
+                          " Where crimecasenoyear='"+crimecasenoyear+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);
@@ -177,8 +212,20 @@ public class SueCrimesOverview extends javax.swing.JFrame {
                     data.put("ChargeName", rs.getString("ChargeName"));
                     data.put("FullNamePerson", rs.getString("FullNamePerson"));
                     data.put("PeopleRegistrationID", rs.getString("PeopleRegistrationID"));
-                    data.put("SueCaseId", rs.getString("SueCaseId"));
-                    data.put("SuePersonId", rs.getString("SuePersonId"));
+                    data.put("SueFirstDate", rs.getString("SueFirstDate"));
+                    data.put("SueFirst", rs.getString("SueFirst"));
+                    data.put("SueFirstTotal", rs.getString("SueFirstTotal"));
+                     data.put("PlaceArrest", rs.getString("PlaceArrest"));
+                    data.put("SueFirstTotal", rs.getString("SueFirstTotal"));
+                  
+                    data.put("NoPerson", rs.getString("NoPerson"));
+                    data.put("caseIdPerson", rs.getString("caseIdPerson"));
+                    
+                    
+//                     data.put("SueFirstDate", rs.getString("SueFirstDate"));
+                   
+
+
                     
 
                     SueCrimesFrom scf =new SueCrimesFrom(this,data);
@@ -211,7 +258,7 @@ public class SueCrimesOverview extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -238,6 +285,21 @@ public class SueCrimesOverview extends javax.swing.JFrame {
         });
     }
    
+        public void TestDate(){
+            Calendar calendar = Calendar.getInstance();
+        System.out.println("Original = " + calendar.getTime());
+ 
+        // Substract 2 hour from the current time
+        calendar.add(Calendar.HOUR, +48);
+ 
+        // Add 30 minutes to the calendar time
+        calendar.add(Calendar.MINUTE, 0);
+ 
+        // Add 300 seconds to the calendar time
+        calendar.add(Calendar.SECOND, 0);
+        System.out.println("Updated  = " + calendar.getTime());
+        }
+   
     public void RefreshData(){
         try{
               
@@ -245,10 +307,9 @@ public class SueCrimesOverview extends javax.swing.JFrame {
         Statement stmt = con.createStatement();
 //        String a=txtCaseNO.getText();
         String sql;
-                sql=    "select crimecasenoyear,SueCaseId,FullNamePerson,SueTimes,SueDate from Sue\n"+
-                        "left join Person on Sue.SuePersonId=Person.NoPerson\n"+
-                        "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId\n"+
-                        "group by SueCaseId";
+                sql=    "select crimecasenoyear,StatusSuspect,CaseIdPerson,CaseId,SueFirstDate,SueSecDate,SueThirdDate,SueFourthDate,SueFifthDate,SueSixthDate,SueSevenDate,FullNamePerson from Person\n"+
+                        "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId where StatusSuspect='ผัดฟ้องฝากขัง'";
+                        
                 
         ResultSet rs = stmt.executeQuery(sql);
           System.out.println("SQL : "+sql);
@@ -257,9 +318,15 @@ public class SueCrimesOverview extends javax.swing.JFrame {
             Vector<String> row = new Vector<String>();
             row.add(rs.getString("crimecasenoyear"));
             row.add(rs.getString("FullNamePerson"));
-            row.add(rs.getString("SueTimes"));
-            row.add(rs.getString("SueDate"));
-                
+            row.add(rs.getString("SueFirstDate"));
+            row.add(rs.getString("SueSecDate"));
+            row.add(rs.getString("SueThirdDate"));
+             row.add(rs.getString("SueFourthDate"));
+            row.add(rs.getString("SueFifthDate"));
+             row.add(rs.getString("SueSixthDate"));
+            row.add(rs.getString("SueSevenDate"));
+
+               
 //            row.add(rs.getString("Age"));
 //            row.add(rs.getString("Race"));
 //            row.add(rs.getString("Nationality"));
@@ -272,8 +339,16 @@ public class SueCrimesOverview extends javax.swing.JFrame {
     
          ColumnName.add("เลขคดี");
          ColumnName.add("ผู้ต้องหา");    
-         ColumnName.add("ครั้งที่ผัดฟ้องล่าสุด");         
-         ColumnName.add("วันฝาก");
+         ColumnName.add("ครั้งที่ 1");         
+         ColumnName.add("ครั้งที่ 2");
+         ColumnName.add("ครั้งที่ 3");
+         ColumnName.add("ครั้งที่ 4");
+         ColumnName.add("ครั้งที่ 5");
+         ColumnName.add("ครั้งที่ 6");
+         ColumnName.add("ครั้งที่ 7");
+         
+        
+
 
 //         ColumnName.add("ครบ 2 เดือน");
          
@@ -299,11 +374,15 @@ public class SueCrimesOverview extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAddSue;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableSue;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }

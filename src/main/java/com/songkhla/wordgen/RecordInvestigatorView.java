@@ -7,6 +7,7 @@ package com.songkhla.wordgen;
 
 import static com.songkhla.wordgen.ListAccused.jTableAccure;
 import static com.songkhla.wordgen.ListAccused.txtCaseNO;
+import static com.songkhla.wordgen.ListSuspect.jTableSuspect;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -248,7 +249,9 @@ public class RecordInvestigatorView extends javax.swing.JDialog {
                 return types [columnIndex];
             }
         });
-        
+     
+            CrimesCaseEdit.RecordInvestCase.setText(jTableRecord.getValueAt(jTableRecord.getModel().getRowCount()-1, 0).toString()+","+jTableRecord.getValueAt(jTableRecord.getModel().getRowCount()-1, 1).toString()); 
+            
         }catch(Exception ex){
             ex.printStackTrace();
         }

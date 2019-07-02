@@ -10,6 +10,7 @@ import com.github.lgooddatepicker.components.DatePickerSettings;
 import com.github.lgooddatepicker.components.TimePickerSettings;
 import com.github.lgooddatepicker.optionalusertools.PickerUtilities;
 import static com.songkhla.wordgen.ListAccused.jTableAccure;
+import static com.songkhla.wordgen.ListAccused.txtCaseNO;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -32,6 +33,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Properties;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.animation.Animation;
@@ -111,13 +113,14 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate;
 //--------------------------------------Date Filed----------------------------------------------
 
 
-        comboInvest();
+      
+       
 //        jTextPoliceName.setText(Data.getPolicName());
         jLabelActionCode.setVisible(false);
         jLabelChargeCode.setVisible(false);
         crimecaseid.setVisible(true);
  
-  
+            comboInvest();
  
         if(datain!=null){
             try {
@@ -171,20 +174,20 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate;
             CapitalCrimeCaseNumber.setText(datain.get("CapitalCrimeCaseNumber")+"");
             AnswerAccuser.setText(datain.get("AnswerAccuser")+"");
             AnswerSuspect.setText(datain.get("AnswerSuspect")+"");
-           
+            RecordInvestCase.setText(datain.get("RecordInvestCase")+"");
             if(investSta.equals("อยู่ระหว่างสอบสวน")){
                 jCheckDuringInvest.setSelected(true);
             }
-           else if(investSta.equals("สั่งฟ้อง")){
+             else if(investSta.equals("สั่งฟ้อง")){
                 jCheckSue.setSelected(true);
             }
-          else  if(investSta.equals("สั่งไม่ฟ้อง")){
+              else  if(investSta.equals("สั่งไม่ฟ้อง")){
                 jCheckNotSue.setSelected(true);
             }
-          else  if(investSta.equals("งดการสอบสวน")){
+              else  if(investSta.equals("งดการสอบสวน")){
                 jCheckNoInvest.setSelected(true);
             }
-          else  if(investSta.equals("อื่นๆ")){
+              else  if(investSta.equals("อื่นๆ")){
                 jCheckOtherInvest.setSelected(true);
             }
           
@@ -205,6 +208,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate;
 
         }
         else{
+             
 //            Date date2=new Date();
 //            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
 //            Date date = dateFormat.parse(date2);
@@ -349,7 +353,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate;
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
-        jPanel3.setBackground(new java.awt.Color(77, 0, 0));
+        jPanel3.setBackground(new java.awt.Color(46, 156, 202));
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
 
@@ -379,11 +383,10 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate;
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(crimecaseid)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(CaseType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CaseType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(crimecaseid))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -729,11 +732,6 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate;
 
         jCheckOtherInvest.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jCheckOtherInvest.setText("อื่นๆ");
-        jCheckOtherInvest.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckOtherInvestActionPerformed(evt);
-            }
-        });
 
         Investigator_Number.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
@@ -752,27 +750,12 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate;
 
         jCheckSue.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jCheckSue.setText("สั่งฟ้อง");
-        jCheckSue.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckSueActionPerformed(evt);
-            }
-        });
 
         jCheckNotSue.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jCheckNotSue.setText("สั่งไม่ฟ้อง");
-        jCheckNotSue.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckNotSueActionPerformed(evt);
-            }
-        });
 
         jCheckNoInvest.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jCheckNoInvest.setText("งดการสอบสวน");
-        jCheckNoInvest.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckNoInvestActionPerformed(evt);
-            }
-        });
 
         CourtResult.setColumns(20);
         CourtResult.setRows(5);
@@ -1324,7 +1307,30 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate;
 
         }
     }//GEN-LAST:event_jButtonChargeActionPerformed
+    public void RefreshDataRec(){
+    
+     try{
+              
+        Connection con = ConnectDatabase.connect();
+        Statement stmt = con.createStatement();
+        String sql = "select Max(IdRecord) IdRecord,DateRecord,NameInguiry,"
+                + "DetailRecord,CaseIdRecord from RecordInquiry where CaseIdRecord='"+caseid+"'";
+      
+        ResultSet rs = stmt.executeQuery(sql);
+          System.out.println("SQL : "+sql);
 
+        if(rs.next()){
+            RecordInvestCase.setText(rs.getString("DateRecord")+","+rs.getString("DetailRecord"));
+        }
+        rs.close();
+        stmt.close();
+
+       
+     
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
     private void ListAssetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListAssetActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ListAssetActionPerformed
@@ -1398,22 +1404,6 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate;
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jCheckOtherInvestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckOtherInvestActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckOtherInvestActionPerformed
-
-    private void jCheckSueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckSueActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckSueActionPerformed
-
-    private void jCheckNotSueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckNotSueActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckNotSueActionPerformed
-
-    private void jCheckNoInvestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckNoInvestActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckNoInvestActionPerformed
-
     private void jButtonAddInvestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddInvestActionPerformed
         String ci=crimecaseid.getText();
 
@@ -1427,6 +1417,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate;
         ri.pack();
         ri.setLocationRelativeTo(null);
         ri.setVisible(true);
+//        RefreshDataRec();
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonAddInvestActionPerformed
 
@@ -1479,6 +1470,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate;
 
 	
 	}
+//        else{jComboPoliceName.addItem("");}
 	
 }
 catch (Exception d) {  //System.out.println(d);  
@@ -1565,7 +1557,7 @@ catch (Exception d) {  //System.out.println(d);
     public static javax.swing.JTextField ListAsset;
     private javax.swing.JSpinner OccuredDateTime;
     private javax.swing.JTextField Prosecutor_Result;
-    private javax.swing.JTextField RecordInvestCase;
+    public static javax.swing.JTextField RecordInvestCase;
     public static javax.swing.JLabel crimecaseid;
     public static javax.swing.JTextField crimecaseno;
     private javax.swing.JTextField crimecaseyear;

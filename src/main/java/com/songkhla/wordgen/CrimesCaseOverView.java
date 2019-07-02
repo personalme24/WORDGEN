@@ -71,7 +71,7 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(77, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(46, 156, 202));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.setPreferredSize(new java.awt.Dimension(1280, 720));
         jPanel1.setMaximumSize(new Dimension(1280, 720));

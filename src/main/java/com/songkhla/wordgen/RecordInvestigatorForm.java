@@ -13,6 +13,8 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -56,17 +58,18 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
         DateRecord.setBackground(Color.WHITE);
         jPanelDateRecord.setLayout(new FlowLayout());
         jPanelDateRecord.add(DateRecord); 
-        
+          comboInvest();
        if(datain != null){
            
            idRecord=datain.get("IdRecord")+"";
            DateRecord.getJFormattedTextField().setText(datain.get("DateRecord")+"");
-           NameInguiry.setText(datain.get("NameInguiry")+"");
+           NameInguiry.setSelectedItem(datain.get("NameInguiry")+"");
            DetailRecord.setText(datain.get("DetailRecord")+"");
               
            }
        
        else{
+         
        isInsert=true;
        caseId.setText(RecordInvestigatorView.caseId.getText());
        }
@@ -87,12 +90,12 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        NameInguiry = new javax.swing.JTextField();
         jButtonSave = new javax.swing.JButton();
         caseId = new javax.swing.JLabel();
         jPanelDateRecord = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         DetailRecord = new javax.swing.JTextArea();
+        NameInguiry = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -130,8 +133,6 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
         jLabel11.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel11.setText("พนักงานสอบสวนที่รับผิดชอบ");
 
-        NameInguiry.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-
         jButtonSave.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButtonSave.setText("บันทึก");
         jButtonSave.addActionListener(new java.awt.event.ActionListener() {
@@ -167,22 +168,22 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
                         .addComponent(caseId))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButtonSave)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(8, 8, 8)
-                                    .addComponent(jLabel9)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jPanelDateRecord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel11)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(NameInguiry, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jButtonSave)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel10)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanelDateRecord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(NameInguiry, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -197,7 +198,7 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(NameInguiry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(NameInguiry, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -233,7 +234,7 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
            
            pst=con.prepareStatement(intAc);
            pst.setString(1,DateRecord.getJFormattedTextField().getText());
-           pst.setString(2, NameInguiry.getText());
+           pst.setString(2, NameInguiry.getSelectedItem()+"");
            pst.setString(3, DetailRecord.getText());
            pst.setString(4, caseId.getText());
 
@@ -261,7 +262,7 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
            
            pst=con.prepareStatement(intAcUp);
            pst.setString(1, DateRecord.getJFormattedTextField().getText());
-           pst.setString(2, NameInguiry.getText());
+           pst.setString(2, NameInguiry.getSelectedItem()+"");
            pst.setString(3, DetailRecord.getText());
            pst.setString(4, idRecord);
             
@@ -283,7 +284,26 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
                 }
                                     
     }//GEN-LAST:event_jButtonSaveActionPerformed
+    public void comboInvest(){
+    
+     try {
 
+         Connection con2 = ConnectDatabase.connect();
+	Statement st = con2.createStatement();
+        	String c = "Select InvestName from InvestInformation";
+        	ResultSet res = st.executeQuery(c);
+	//Vector<Object> v=new Vector<Object>();
+	
+	if(res.next())
+	{
+	NameInguiry.addItem(res.getString("InvestName"));	
+	}
+        else{NameInguiry.addItem("");}
+	
+}
+catch (Exception d) {  //System.out.println(d);  
+}
+    }
     /**
      * @param args the command line arguments
      */
@@ -322,7 +342,7 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea DetailRecord;
-    private javax.swing.JTextField NameInguiry;
+    private javax.swing.JComboBox<String> NameInguiry;
     private javax.swing.JLabel caseId;
     private javax.swing.JButton jButtonSave;
     private javax.swing.JLabel jLabel1;

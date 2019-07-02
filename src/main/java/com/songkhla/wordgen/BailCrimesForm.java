@@ -300,44 +300,6 @@ public class BailCrimesForm extends javax.swing.JFrame {
         RefreshData();
     }//GEN-LAST:event_jCheckOnlyActionPerformed
 
-    private void jTableBailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableBailMouseClicked
-        // TODO add your handling code here:
-
-             try{
-                String crimecaseid = jTableBail.getModel().getValueAt(jTableBail.getSelectedRow(), 0)+"";
-                String fullname = jTableBail.getModel().getValueAt(jTableBail.getSelectedRow(), 1)+"";
-
-                
-                String  sql= "select crimecasenoyear,ChargeName,Investigator_Result,TypePerson,BailDate,PeopleRegistrationID,FullNamePerson,StatusSuspect,CaseId,CaseIdPerson,CaseAcceptDate \n" +
-                     "from Person\n" +
-                     "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId "+ 
-                     "left join Charge on CrimeCase.ChargeCodeCase=Charge.ChargeCode "  +                    
-                      "where TypePerson='ผู้ต้องหา' and crimecasenoyear='"+crimecaseid+"' and FullNamePerson='"+fullname+"'" ;
-                Connection con = ConnectDatabase.connect();
-                Statement stmt = con.createStatement();
-                ResultSet rs = stmt.executeQuery(sql);
-                System.out.println("ExSql : "+sql);
-                if(rs.next()){
-                    crimecaseno.setText(rs.getString("crimecasenoyear"));
-                    SuspectFullName.setText(rs.getString("FullNamePerson"));
-                    ChargeName.setText(rs.getString("ChargeName"));
-                    
-                    
-                }
-
-                rs.close();
-                stmt.close();
-                RefreshData();
-            }catch(Exception ex){
-                ex.printStackTrace();
-
-            }
-//        ShowData();
-        
-          
-        
-    }//GEN-LAST:event_jTableBailMouseClicked
-
     private void AddEditBailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddEditBailActionPerformed
         // TODO add your handling code here:
         
@@ -385,6 +347,40 @@ public class BailCrimesForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         RefreshData();
     }//GEN-LAST:event_jComboStatusActionPerformed
+
+    private void jTableBailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableBailMouseClicked
+        // TODO add your handling code here:
+
+        try{
+            String crimecaseid = jTableBail.getModel().getValueAt(jTableBail.getSelectedRow(), 0)+"";
+            String fullname = jTableBail.getModel().getValueAt(jTableBail.getSelectedRow(), 1)+"";
+
+            String  sql= "select crimecasenoyear,ChargeName,Investigator_Result,TypePerson,BailDate,PeopleRegistrationID,FullNamePerson,StatusSuspect,CaseId,CaseIdPerson,CaseAcceptDate \n" +
+            "from Person\n" +
+            "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId "+
+            "left join Charge on CrimeCase.ChargeCodeCase=Charge.ChargeCode "  +
+            "where TypePerson='ผู้ต้องหา' and crimecasenoyear='"+crimecaseid+"' and FullNamePerson='"+fullname+"'" ;
+            Connection con = ConnectDatabase.connect();
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            System.out.println("ExSql : "+sql);
+            if(rs.next()){
+                crimecaseno.setText(rs.getString("crimecasenoyear"));
+                SuspectFullName.setText(rs.getString("FullNamePerson"));
+                ChargeName.setText(rs.getString("ChargeName"));
+
+            }
+
+            rs.close();
+            stmt.close();
+            RefreshData();
+        }catch(Exception ex){
+            ex.printStackTrace();
+
+        }
+        //        ShowData();
+
+    }//GEN-LAST:event_jTableBailMouseClicked
  public void eventJStatusManage(){
 //     String a= jComboStatus.getSelectedItem()+"";
 //     if(a.equals("ประกัน"))
@@ -546,6 +542,12 @@ public class BailCrimesForm extends javax.swing.JFrame {
         }catch(Exception ex){
             ex.printStackTrace();
         }
+    }
+    public void CalculateDateBail(){
+        
+    
+    
+    
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

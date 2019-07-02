@@ -23,6 +23,11 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.PreparedStatement;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
@@ -36,6 +41,8 @@ public class MainMenuWord extends javax.swing.JFrame {
      * Creates new form MainMenuWord
      */
     Connection con=null;
+        PreparedStatement pst=null;
+
     JPanel [] panel1;
     public MainMenuWord() {
         initComponents(); 
@@ -43,6 +50,7 @@ public class MainMenuWord extends javax.swing.JFrame {
         setIconImage(img.getImage());
         setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
        
+        CalculateDate();
         data();
 //        setIconImage(Toolkit.getDefaultToolkit().getImage(MainMenuWord.class.getResource("D://Master//user.png")));
         pack();
@@ -112,7 +120,7 @@ public class MainMenuWord extends javax.swing.JFrame {
         setIconImages(null);
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(77, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(41, 100, 138));
 
         jLabel7.setFont(new java.awt.Font("TH SarabunPSK", 1, 48)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -152,9 +160,9 @@ public class MainMenuWord extends javax.swing.JFrame {
                 .addGap(0, 0, 0))
         );
 
-        jPanel2.setBackground(new java.awt.Color(77, 0, 0));
+        jPanel2.setBackground(new java.awt.Color(46, 156, 202));
 
-        policemenu.setBackground(new java.awt.Color(77, 0, 0));
+        policemenu.setBackground(new java.awt.Color(46, 156, 202));
         policemenu.setPreferredSize(new java.awt.Dimension(155, 54));
         policemenu.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -191,7 +199,7 @@ public class MainMenuWord extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        personmenu.setBackground(new java.awt.Color(77, 0, 0));
+        personmenu.setBackground(new java.awt.Color(46, 156, 202));
         personmenu.setPreferredSize(new java.awt.Dimension(155, 54));
         personmenu.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -229,7 +237,7 @@ public class MainMenuWord extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        profilemenu.setBackground(new java.awt.Color(77, 0, 0));
+        profilemenu.setBackground(new java.awt.Color(46, 156, 202));
         profilemenu.setPreferredSize(new java.awt.Dimension(145, 54));
         profilemenu.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -266,7 +274,7 @@ public class MainMenuWord extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        formmenu.setBackground(new java.awt.Color(77, 0, 0));
+        formmenu.setBackground(new java.awt.Color(46, 156, 202));
         formmenu.setPreferredSize(new java.awt.Dimension(149, 54));
         formmenu.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -309,7 +317,7 @@ public class MainMenuWord extends javax.swing.JFrame {
             .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
         );
 
-        howtomenu.setBackground(new java.awt.Color(77, 0, 0));
+        howtomenu.setBackground(new java.awt.Color(46, 156, 202));
         howtomenu.setPreferredSize(new java.awt.Dimension(136, 54));
         howtomenu.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -346,7 +354,7 @@ public class MainMenuWord extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        SueMenu.setBackground(new java.awt.Color(77, 0, 0));
+        SueMenu.setBackground(new java.awt.Color(46, 156, 202));
         SueMenu.setPreferredSize(new java.awt.Dimension(147, 54));
         SueMenu.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -391,7 +399,7 @@ public class MainMenuWord extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        BailMenu.setBackground(new java.awt.Color(77, 0, 0));
+        BailMenu.setBackground(new java.awt.Color(46, 156, 202));
         BailMenu.setPreferredSize(new java.awt.Dimension(122, 54));
         BailMenu.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -436,7 +444,7 @@ public class MainMenuWord extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        howtomenu1.setBackground(new java.awt.Color(77, 0, 0));
+        howtomenu1.setBackground(new java.awt.Color(46, 156, 202));
         howtomenu1.setPreferredSize(new java.awt.Dimension(136, 54));
         howtomenu1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -474,7 +482,7 @@ public class MainMenuWord extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        ManageSuspectMenu.setBackground(new java.awt.Color(77, 0, 0));
+        ManageSuspectMenu.setBackground(new java.awt.Color(46, 156, 202));
         ManageSuspectMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ManageSuspectMenuMouseClicked(evt);
@@ -1112,10 +1120,10 @@ public class MainMenuWord extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanelSueMenuMouseClicked
     public void setPanelBackground (JPanel jp){
-        jp.setBackground(new Color(155,0,0));
+        jp.setBackground(new Color(41,100,138));
     }
      public void resetPanelBackground (JPanel jp){
-        jp.setBackground(new Color(77,0,0));
+        jp.setBackground(new Color(46,156,202));
     }
     /**
      * @param args the command line arguments
@@ -1162,6 +1170,78 @@ public class MainMenuWord extends javax.swing.JFrame {
             }
         });
     }
+         public void CalculateDate(){
+            try{
+            Connection con = ConnectDatabase.connect();
+             Statement stmt = con.createStatement();
+            String sqlListSuspect ="Select ArrestDateTime,CourtSuspect,Test2,NoPerson,caseIdPerson from Person";
+             ResultSet rs = stmt.executeQuery(sqlListSuspect);
+              int dateArr=0;
+              String arrDateTime="";
+              String noPer="";
+              String caseid="";
+                    while(rs.next()){
+                         arrDateTime=rs.getString("ArrestDateTime");
+//                   dateArr=Integer.valueOf(aa);
+                        noPer=rs.getString("NoPerson");
+                        caseid=rs.getString("caseIdPerson");
+                           Calendar cal;
+                        if(arrDateTime!=null){
+                            System.out.println("DateOld : " +arrDateTime); 
+                            Locale lc = new Locale("th","TH");
+                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm",lc);
+                        Date date = sdf.parse(arrDateTime);
+                         cal = Calendar.getInstance();
+                        cal.setTime(date);                      
+                        cal.add(Calendar.HOUR, +48);
+                         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm",lc);
+                          SimpleDateFormat dateFormat2 = new SimpleDateFormat("dd/MM/yyyy",lc);
+
+//                        System.out.println("DateNew : "+dateFormat.format(cal.getTime()));
+//                        String d1=dateFormat.format(cal.getTime());
+                       
+                        SimpleDateFormat  format = new SimpleDateFormat("dd/MM/yyyy HH:mm",lc);  
+                        String d2Day=dateFormat.format(new Date());
+                        String d24= dateFormat.format(cal.getTime());
+                        Date dateTo =null;
+                        Date d24Hr=null;
+                         dateTo=format.parse(d2Day);
+                          d24Hr=format.parse(d24);
+
+//                       format.format(d24);
+
+//                         dateFormat.format(dt2);
+                         System.out.println("DateNew : "+d24Hr);
+                        System.out.println("DateToday : "+dateTo);
+
+                            long diff = d24Hr.getTime() - dateTo.getTime();
+                           long diffSeconds = diff / 1000 % 60;  
+                            long diffMinutes = diff / (60 * 1000) % 60; 
+                            long diffHours = diff / (60 * 60 * 1000);
+                            int diffDays = (int)(diff / (24 * 60 * 60 * 1000));
+                            System.out.println("Time in seconds: " + diffSeconds + " seconds.");         
+                            System.out.println("Time in minutes: " + diffMinutes + " minutes.");         
+                            System.out.println("Time in hours: " + diffHours + " hours."); 
+                             System.out.println("Time in Day: " + diffDays + " Days."); 
+
+                        if(diffDays<=0 && diffHours <=0){
+                           String updateSue="Update Person set SueFirst='1',SueFirstDate='"+dateFormat2.format(cal.getTime())+"',SueFirstTotal='5' where ArrestDateTime='"+arrDateTime+"'";
+                           String insertSue="insert into SueCrimeCase(SueFirst,SueFirstDate,SueFirstTotal,SueCaseId,SueSuspectId) values('1','"+dateFormat2.format(cal.getTime())+"','5','"+caseid+"','"+noPer+"')";
+
+                             pst=con.prepareStatement(updateSue);
+                             pst=con.prepareStatement(insertSue);                                
+                             pst.executeUpdate();
+                             pst.close();
+                        }
+                        }
+                    }
+                 
+                  
+          }
+            catch(Exception ex){
+            ex.printStackTrace();
+        }
+        }
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

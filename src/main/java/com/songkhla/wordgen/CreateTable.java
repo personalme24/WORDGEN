@@ -79,12 +79,11 @@ public class CreateTable {
                 "	ProvinceFoundBody	VARCHAR(100)	,	\n"+
                 "	CircumstancesOfDeath	VARCHAR(100)	,	\n"+
                 "	ArrestDate	VARCHAR(100)	,	\n"+
-                "	ArrestTime	VARCHAR(100)	,	\n"+                     
-                        
+                "	ArrestTime	VARCHAR(100)	,	\n"+                                           
                 "	PlaceArrest	VARCHAR(100)	,	\n"+
-                "	Country	VARCHAR(100)	,	\n"+
-                "	DoctorCheckฺBodyID	VARCHAR(100)	,	\n"+
-                "	DoctorCheckฺBody	VARCHAR(100)	,	\n"+
+                "	Country         VARCHAR(100)	,	\n"+
+                "	DoctorCheckBodyID	VARCHAR(100)	,\n"+
+                "	DoctorCheckBody	VARCHAR(100)	,	\n"+
                 "	FatherAge	VARCHAR(100)	,	\n"+
                 "	FatherCareer	VARCHAR(100)	,	\n"+
                 "	FatherIdCard	VARCHAR(100)	,	\n"+
@@ -126,7 +125,59 @@ public class CreateTable {
                 "	StatusSuspect	VARCHAR(100)	,	\n"+
                 "	BailDate	VARCHAR(100)	,	\n"+
                 "	RestoreDate	VARCHAR(100)	,	\n"+ 
-                  "	SueLastEndDate	VARCHAR(100)	,	\n"+                         
+                "	SueLastEndDate	VARCHAR(100)	,	\n"+  
+                "	CourtSuspect	VARCHAR(100)	,	\n"+    
+                "	Test1	VARCHAR(100)	,	\n"+    
+                "	Test2	VARCHAR(100)	,	\n"+ 
+                "	SueFirst	INTEGER	,	\n"+
+                "	SueFirstDate	DateTime	,	\n"+
+                "	SueFirstStart	DateTime	,	\n"+
+                "	SueFirstEnd	DateTime	,	\n"+
+                "	SueFirstTotal	INTEGER	,	\n"+
+                "	SueFirstRequest	VARCHAR(100)	,	\n"+
+                "	SueFirstCause	VARCHAR(100)	,	\n"+
+                "	SueSecond	INTEGER	,	\n"+
+                "	SueSecDate	DateTime	,	\n"+
+                "	SueSecStart	DateTime	,	\n"+
+                "	SueSecEnd	DateTime	,	\n"+
+                "	SueSecTotal	INTEGER	,	\n"+
+                "	SueSecRequest	VARCHAR(100)	,	\n"+
+                "	SueSecCause	VARCHAR(100)	,	\n"+
+                "	SueThird	INTEGER	,	\n"+
+                "	SueThirdDate	DateTime	,	\n"+
+                "	SueThirdStart	DateTime	,	\n"+
+                "	SueThirdEnd	DateTime	,	\n"+
+                "	SueThirdTotal	INTEGER	,	\n"+
+                "	SueThirdRequest	VARCHAR(100)	,	\n"+
+                "	SueThirdCause	VARCHAR(100)	,	\n"+
+                "	SueFourth	INTEGER	,	\n"+
+                "	SueFourthDate	DateTime	,	\n"+
+                "	SueFourthStart	DateTime	,	\n"+
+                "	SueFourthEnd	DateTime	,	\n"+
+                "	SueFourthtotal	INTEGER	,	\n"+
+                "	SueFourthRequest	VARCHAR(100)	,	\n"+
+                "	SueFourthCause	VARCHAR(100)	,	\n"+
+                "	SueFifth	INTEGER	,	\n"+
+                "	SueFifthDate	DateTime	,	\n"+
+                "	SueFifthStart	DateTime	,	\n"+
+                "	SueFifthEnd	DateTime	,	\n"+
+                "	SueFifthTotal	INTEGER	,	\n"+
+                "	SueFifthRequest	VARCHAR(100)	,	\n"+
+                "	SueFifthCause	VARCHAR(100)	,	\n"+
+                "	SueSixth	INTEGER	,	\n"+
+                "	SueSixthDate	DateTime	,	\n"+
+                "	SueSixthStart	DateTime	,	\n"+
+                "	SueSixthEnd	DateTime	,	\n"+
+                "	SueSixthTotal	INTEGER	,	\n"+
+                "	SueSixthRequest	VARCHAR(100)	,	\n"+
+                "	SueSixthCause	VARCHAR(100)	,	\n"+
+                "	SueSeven	INTEGER	,	\n"+
+                "	SueSevenDate	DateTime	,	\n"+
+                "	SueSevenStart	DateTime	,	\n"+
+                "	SueSevenEnd	DateTime	,	\n"+
+                "	SueSevenTotal	INTEGER	,	\n"+
+                "	SueSevenRequest	VARCHAR(100)	,	\n"+
+                "	SueSevenCause	VARCHAR(100)	,	\n"+                        
                 "	caseIdPerson	INTEGER	not null	\n"+
                 "	);	";	
 
@@ -320,7 +371,62 @@ public class CreateTable {
                                 "	DeliPlace	VARCHAR(100)	,	\n"+
                                 "	DeliPersonId	INTEGER		\n"+         
                                 "	);"; 
-                      
+                
+        String sqlSueCrimeCase ="CREATE TABLE IF NOT EXISTS SueCrimeCase (\n"+                
+                "	SueId	INTEGER	Primary Key AUTOINCREMENT,	\n"+
+                "	SueFirst	INTEGER	,	\n"+
+                "	SueFirstDate	DateTime	,	\n"+
+                "	SueFirstStart	DateTime	,	\n"+
+                "	SueFirstEnd	DateTime	,	\n"+
+                "	SueFirstTotal	INTEGER	,	\n"+
+                "	SueFirstRequest	VARCHAR(100)	,	\n"+
+                "	SueFirstCause	VARCHAR(100)	,	\n"+
+                "	SueSecond	INTEGER	,	\n"+
+                "	SueSecDate	DateTime	,	\n"+
+                "	SueSecStart	DateTime	,	\n"+
+                "	SueSecEnd	DateTime	,	\n"+
+                "	SueSecTotal	INTEGER	,	\n"+
+                "	SueSecRequest	VARCHAR(100)	,	\n"+
+                "	SueSecCause	VARCHAR(100)	,	\n"+
+                "	SueThird	INTEGER	,	\n"+
+                "	SueThirdDate	DateTime	,	\n"+
+                "	SueThirdStart	DateTime	,	\n"+
+                "	SueThirdEnd	DateTime	,	\n"+
+                "	SueThirdTotal	INTEGER	,	\n"+
+                "	SueThirdRequest	VARCHAR(100)	,	\n"+
+                "	SueThirdCause	VARCHAR(100)	,	\n"+
+                "	SueFourth	INTEGER	,	\n"+
+                "	SueFourthDate	DateTime	,	\n"+
+                "	SueFourthStart	DateTime	,	\n"+
+                "	SueFourthEnd	DateTime	,	\n"+
+                "	SueFourthtotal	INTEGER	,	\n"+
+                "	SueFourthRequest	VARCHAR(100)	,	\n"+
+                "	SueFourthCause	VARCHAR(100)	,	\n"+
+                "	SueFifth	INTEGER	,	\n"+
+                "	SueFifthDate	DateTime	,	\n"+
+                "	SueFifthStart	DateTime	,	\n"+
+                "	SueFifthEnd	DateTime	,	\n"+
+                "	SueFifthTotal	INTEGER	,	\n"+
+                "	SueFifthRequest	VARCHAR(100)	,	\n"+
+                "	SueFifthCause	VARCHAR(100)	,	\n"+
+                "	SueSixth	INTEGER	,	\n"+
+                "	SueSixthDate	DateTime	,	\n"+
+                "	SueSixthStart	DateTime	,	\n"+
+                "	SueSixthEnd	DateTime	,	\n"+
+                "	SueSixthTotal	INTEGER	,	\n"+
+                "	SueSixthRequest	VARCHAR(100)	,	\n"+
+                "	SueSixthCause	VARCHAR(100)	,	\n"+
+                "	SueSeven	INTEGER	,	\n"+
+                "	SueSevenDate	DateTime	,	\n"+
+                "	SueSevenStart	DateTime	,	\n"+
+                "	SueSevenEnd	DateTime	,	\n"+
+                "	SueSevenTotal	INTEGER	,	\n"+
+                "	SueSevenRequest	VARCHAR(100)	,	\n"+
+                "	SueSevenCause	VARCHAR(100)	,	\n"+
+                "	SueCaseId	INTEGER	 not null,	\n"+
+                "	SueSuspectId	INTEGER	not null	\n"+
+                                "	);"; 
+
 	        try ( 
                         Statement stmt = cc.createStatement()) {
 	            // create a new table
@@ -338,6 +444,7 @@ public class CreateTable {
                        stmt.execute(sqlBailAsset);
                       stmt.execute(sqlBail);
                       stmt.execute(sqlDeliverySuspect);
+                      stmt.execute(sqlSueCrimeCase);
 
                        stmt.close();
                     System.out.println("Create Table Complete");

@@ -187,7 +187,7 @@ public class WitnessForm extends javax.swing.JDialog {
         Amphur = new javax.swing.JTextField();
         ZipCode = new javax.swing.JTextField();
         Province = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        Related = new javax.swing.JComboBox<>();
         jLabel19 = new javax.swing.JLabel();
         jPanelBirthDay = new javax.swing.JPanel();
         jPanelIssueDate = new javax.swing.JPanel();
@@ -341,8 +341,10 @@ public class WitnessForm extends javax.swing.JDialog {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Related.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        Related.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "นายประกัน", " " }));
 
+        jLabel19.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel19.setText("เกี่ยวข้องเป็น");
 
         javax.swing.GroupLayout jPanelBirthDayLayout = new javax.swing.GroupLayout(jPanelBirthDay);
@@ -396,7 +398,7 @@ public class WitnessForm extends javax.swing.JDialog {
                     .addComponent(jLabel19))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Related, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(FatherFullName, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(FullNamePersonEn, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(PassportNumber)
@@ -589,7 +591,7 @@ public class WitnessForm extends javax.swing.JDialog {
                             .addComponent(PhonePerson, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
                         .addGap(44, 44, 44)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Related, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel19))
                 .addGap(83, 83, 83)
                 .addComponent(BtSaveAccused, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -658,7 +660,8 @@ public class WitnessForm extends javax.swing.JDialog {
         if(isInsert){    
         String sql="INSERT INTO Person (Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                        "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,caseIdPerson) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                        "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,caseIdPerson,Related)\n"
+                + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
          System.out.println("SQL : "+sql);
       try {
@@ -691,9 +694,9 @@ public class WitnessForm extends javax.swing.JDialog {
                               pst.setString(26,Weight.getText());
                               pst.setString(27,ZipCode.getText());
                               pst.setString(28,crimecaseno.getText());
-//                              pst.executeUpdate();
-//                              pst.close();
-//                              System.out.println("SQL : "+sql);
+                              pst.setString(29,Related.getSelectedItem().toString());
+
+//                     
                                int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
             JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                             if (response == JOptionPane.YES_OPTION) {
@@ -890,13 +893,13 @@ public class WitnessForm extends javax.swing.JDialog {
     private javax.swing.JTextField PhonePerson;
     private javax.swing.JTextField Province;
     private javax.swing.JTextField Race;
+    private javax.swing.JComboBox<String> Related;
     private javax.swing.JTextField Religion;
     private javax.swing.JTextField Tambon;
     private javax.swing.JTextField TypePerson;
     private javax.swing.JTextField Weight;
     private javax.swing.JTextField ZipCode;
     private javax.swing.JLabel crimecaseno;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

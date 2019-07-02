@@ -275,7 +275,7 @@ public class Identity_witnessForm extends javax.swing.JDialog {
         jLabel34.setText("เพศ");
 
         RelatedOfDie.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        RelatedOfDie.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ผู้จับกุมผู้ต้องหา", "ผู้พบการกระทำผิด", "ผู้ตรวจยึดของกลาง", "บิดาผู้ต้องหา", "มารกาผู้ต้องหา", "ผู้ปกครองหรือผู้ดูแลผู้ต้องหา", "เจ้าหน้าที่สืบสวน", "ผู้เสียหาย", "ผู้ตาย", "บิดาผู้ตาย", "มารดาผู้ตาย", "ญาติผู้ตาย", "พยาน", "นายประกัน", "ไม่ระบุ" }));
+        RelatedOfDie.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ผู้จับกุมผู้ต้องหา", "ผู้พบการกระทำผิด", "ผู้ตรวจยึดของกลาง", "บิดาผู้ต้องหา", "มารดาผู้ต้องหา", "ผู้ปกครองหรือผู้ดูแลผู้ต้องหา", "เจ้าหน้าที่สืบสวน", "ผู้เสียหาย", "ผู้ตาย", "บิดาผู้ตาย", "มารดาผู้ตาย", "ญาติผู้ตาย", "พยาน", "นายประกัน", "ไม่ระบุ" }));
 
         jButton1.setText("บันทึก");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -315,12 +315,7 @@ public class Identity_witnessForm extends javax.swing.JDialog {
                                 .addComponent(jLabel10)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(BirthDay, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(197, 197, 197)
-                                .addComponent(jLabel25)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(PhonePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(BirthDay, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(Nationality, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -344,7 +339,7 @@ public class Identity_witnessForm extends javax.swing.JDialog {
                                 .addComponent(jLabel20)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(BloodGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(169, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -361,7 +356,11 @@ public class Identity_witnessForm extends javax.swing.JDialog {
                                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel2Layout.createSequentialGroup()
                                             .addGap(5, 5, 5)
-                                            .addComponent(MotherFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(MotherFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jLabel25)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(PhonePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(jPanel2Layout.createSequentialGroup()
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(Moo, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
