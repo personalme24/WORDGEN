@@ -13,7 +13,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Vector;
-import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -33,9 +32,6 @@ public class AssetOverView extends javax.swing.JDialog {
     public AssetOverView(JFrame parrent) {
         super(parrent,true);
         initComponents();
-         ImageIcon img = new ImageIcon("D://Master//WD.png");
-            setIconImage(img.getImage());
-            setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
         EvidenceRecordNumber.setVisible(false);
         txtCaseno.setVisible(false);
         JTable rowTable = new RowNumberTable(jTableAsset);
@@ -75,7 +71,7 @@ public class AssetOverView extends javax.swing.JDialog {
         setAlwaysOnTop(true);
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(46, 156, 202));
+        jPanel1.setBackground(new java.awt.Color(77, 0, 0));
 
         jLabel6.setBackground(new java.awt.Color(0, 0, 0));
         jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 36)); // NOI18N
@@ -338,7 +334,7 @@ public class AssetOverView extends javax.swing.JDialog {
         
         String crimecaseno = txtCaseno.getText();
         String sql = "select EvidenceRecordNumber,Amount,DateSequester,DefectMark,"
-                     + "PlaceFoundExhibit,Name,Note,OccupantName,OrderAsset,PointFoundCheck,"
+                     + "PlaceFoundExhibit,Name,Remark,OccupantName,OrderAsset,PointFoundCheck,"
                      + "Value,StatusAsset from Asset where caseIdAsset='"+crimecaseno+"' and "+getFilterCondition();
             System.out.println(sql);
         ResultSet rs = stmt.executeQuery(sql);

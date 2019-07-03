@@ -14,10 +14,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import javax.xml.bind.JAXBElement;
@@ -42,67 +45,118 @@ public class W11 {
             conn=ConnectDatabase.connect();
             PreparedStatement pst=null;
             String ccYear;
+            String PoliceStationName="";
+            
+             String RankPolice ="";
+             String FirstName ="";
+             String LastName ="";
+             String Position ="";
             try {
+                
+                 String sqlDataPoliceStation="SELECT * FROM PoliceStation";
+                      Statement sp = conn.createStatement();
+                  ResultSet rs=sp.executeQuery(sqlDataPoliceStation); 
+                  while (rs.next()) {                    
+                         PoliceStationName=rs.getString("PoliceStaionName");
+                        
+                      }
+                  
+            
 //                String ch;
 //                   String sql="SELECT * from CrimeCase Where crimecaseno = '"+cc+"'";
-                   String sql="select crimecase.*,Charge.*,P1.*,P2.*\n" +
+                   String sql="select crimecase.*,Charge.*,Asset.*,P1.*,P2.*\n" +
                                 "from crimecase inner join(\n" +
-                              "SELECT  min(Person.NoPerson),Person.FullNamePerson AccuredName,Person.Age AgeAccured,Person.Race AccuredRace,Person.Nationality AccuredNati "
-                           + "  FROM Person where Person.TypePerson='ผู้กล่าวหา'\n" +
-                              ")P1\n" +
-                              "inner join(\n" +
-                                "SELECT min(Person.NoPerson),Person.FullNamePerson suspectName,Person.Age suspectAge,Person.Amphur suspectAmp,Person.Race suspectRace,\n"+
-                                "Person.Nationality suspectNati,Person.Religion suspectRel,Person.Occupation suspectOc,Person.HouseNumber suspectHouse FROM Person where Person.TypePerson='ผู้ต้องหา'\n" +
+                                "SELECT  min(Person.NoPerson),Person.FullNamePerson AccuredName,Person.Age AgeAccured,Person.Race AccuredRace,Person.Nationality AccuredNati "
+                            +   "FROM Person where Person.TypePerson='ผู้กล่าวหา'\n" +
+                                ")P1\n" +
+                                "inner join(\n" +
+                                "SELECT min(Person.NoPerson),Person.FullNamePerson suspectName,Person.Age suspectAge,Person.Amphur suspectAmp,Person.Race suspectRace\n"+
+                                "FROM Person where Person.TypePerson='ผู้ต้องหา'\n" +
                                 ")P2\n" +
                                 "left join Charge on crimecase.ChargeCodeCase=Charge.ChargeCode\n" +
                                 "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
-                                "where crimecase.CaseId='"+cc+"'\n"+
-                                "group by crimecase.CaseId";
+                                "left join Asset  on crimecase.CaseId=Asset.caseIdAsset\n" +
+                                "where crimecase.CaseId='"+cc+"' and Asset.StatusAsset='ของกลาง'\n" +
+                                "group by crimecase.CaseId,Asset.NoAsset";
 //                   pst=conn.prepareStatement(sql);
 //           pst=PreparedStatement(sql);
                 Statement st = conn.createStatement();
             ResultSet s=st.executeQuery(sql); 
                 System.out.println(sql);
+            String VarAS1 ="";
+            String VarAS3 ="";
+            String VarAS4 ="";
+            String VarAS5 ="";
+            String VarAS6 ="";
+            String VarAS7 ="";
+            String VarAS8 ="";
+            String VarAS9 ="";
+            String VarAS10 ="";
+            int OrderAsset=0;
+            int SumValue=0;
+            
+            
+       
             while((s!=null) && (s.next()))
             {  String  cs =s.getString("crimecaseno");
-            ccYear=s.getString("crimecaseyears");
-//                System.out.print("ข้อหา :: "+s.getString("ChargeCode"));
-//                System.out.print(" - ");
+                    ccYear=s.getString("crimecaseyears");
+
+                String Date="";
+                
+                SimpleDateFormat sdfstart ;
+                Calendar  calstart = Calendar.getInstance();
+                sdfstart = new SimpleDateFormat("dd MMMM yyyy", new Locale("th", "TH"));  
+               Date =sdfstart.format(calstart.getTime());
+              
+               
+                    
                  JSONObject bookmarkvalue = new JSONObject();
-//                 bookmarkvalue.put("C1","Date");
-//                 bookmarkvalue.put("S27","-");
+
+
+                bookmarkvalue.put("C1",Date);
 		bookmarkvalue.put("C2",cs);
                 bookmarkvalue.put("C3", ccYear);
-                 bookmarkvalue.put("S2", "สถานีตำรวจบางบัว");
-                  bookmarkvalue.put("S5", "เขตบางปี");
-                   bookmarkvalue.put("S6", " ");
-                 bookmarkvalue.put("PS7",s.getString("AccureandOther"));
-                  bookmarkvalue.put("PS13", s.getString("AgeAccured"));
-                   bookmarkvalue.put("PS14", s.getString("AccuredRace"));
-                    bookmarkvalue.put("PS15", s.getString("AccuredNati")); 
-//                     bookmarkvalue.put("P15", "-"); 
-//                    bookmarkvalue.put("PA75", "-"); 
-                    bookmarkvalue.put("PA7",  s.getString("SuspectandOther")); 
-                    bookmarkvalue.put("PA13",  s.getString("suspectAge"));
-                     bookmarkvalue.put("PA14", s.getString("suspectRace"));
-                         bookmarkvalue.put("PA15",  s.getString("suspectNati"));
+                bookmarkvalue.put("S2",PoliceStationName);
+                 
+                 bookmarkvalue.put("PA7",s.getString("AccureandOther"));
+                 
+                    bookmarkvalue.put("PS7",  s.getString("SuspectandOther")); 
+                   
                          
-                      bookmarkvalue.put("B2", s.getString("ChargeName"));
-                       bookmarkvalue.put("C4", s.getString("OccuredDate"));
-                        bookmarkvalue.put("C8", s.getString("CrimeLocationDistrict"));
-                         bookmarkvalue.put("C5", s.getString("CaseAcceptDate"));
+                    bookmarkvalue.put("B2", s.getString("ChargeName"));
+                     //ทรัพย์
+                    VarAS1=VarAS1+"\n\r"+s.getString("EvidenceRecordNumber");
+                    bookmarkvalue.put("AS1", VarAS1);
+                   
+                    
+                    ++OrderAsset ;
+                    VarAS3=VarAS3+"\n\r"+(OrderAsset);
+                    bookmarkvalue.put("AS3", VarAS3);
                     
                     
+                    VarAS4=VarAS4+"\n\r"+s.getString("Name");
+                    bookmarkvalue.put("AS4", VarAS4);
+                    VarAS5=VarAS5+"\n\r"+s.getString("Amount");
+                    bookmarkvalue.put("AS5", VarAS5);
                     
+                    
+                    VarAS6=VarAS6+"\n\r"+s.getString("Value");
+                    bookmarkvalue.put("AS6", VarAS6);
+                    if (s.getString("Value") != null)
+                    {
+                    SumValue = SumValue+s.getInt("Value");
+                    }
+                    
+                    VarAS8=VarAS8+"\n\r"+s.getString("OccupantName");
+                    bookmarkvalue.put("AS8", VarAS8);
+                    VarAS9=VarAS9+"\n\r"+s.getString("DateSequester");
+                    bookmarkvalue.put("AS9", VarAS9);
+                    VarAS10=VarAS10+"\n\r"+s.getString("Remark");
+                    bookmarkvalue.put("AS10",VarAS10);
+                    bookmarkvalue.put("AS331", OrderAsset);
+                    bookmarkvalue.put("AS661", SumValue);
                     
                  
-//		bookmarkvalue.put("P7", s.getString("AccureandOther"));
-//                bookmarkvalue.put("P13", s.getString("AccureandOther"));
-//		bookmarkvalue.put("test01", "พ.ต.อ.");
-//		bookmarkvalue.put("test02", "พนักงานสอบสวน");
-//		bookmarkvalue.put("test03", "สน.ดอนเมือง");
-//                bookmarkvalue.put("test04", "สน.ดอนเมือง5");
-		
     
 			JSONArray tablecolumn = new JSONArray();
 			tablecolumn.add("C2");
@@ -142,7 +196,7 @@ public class W11 {
 					.load(new java.io.File("D:/TEMPLATE/w11.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/เอกสารสำนวนคดี "+cc+"/บัญชีของกลาง "+cc+".doc"));
+			wordMLPackage.save(new java.io.File("D:/เอกสารสำนวนคดี "+cc+"/บัญชีทรัพย์ของกลางคดีอาญา "+cc+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -259,5 +313,7 @@ public class W11 {
 			tempTable.getContent().remove(templateRow);
 		}
 	}
+        
+    
 }
 
