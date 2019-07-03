@@ -4,18 +4,28 @@
  * and open the template in the editor.
  */
 package com.songkhla.wordgen;
+import static com.songkhla.wordgen.ListSuspect.txtCaseNO;
+import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Properties;
 import java.util.Vector;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import org.jdatepicker.impl.JDatePanelImpl;
+import org.jdatepicker.impl.JDatePickerImpl;
+import org.jdatepicker.impl.UtilDateModel;
 import org.json.simple.JSONObject;
 
 /**
@@ -26,6 +36,7 @@ public class SueCrimesOverview extends javax.swing.JFrame {
     Connection con=null;
     PreparedStatement pst=null;
     DataCase dc =new DataCase();
+    JDatePickerImpl DateFilter;
 
 
     /**
@@ -41,6 +52,22 @@ public class SueCrimesOverview extends javax.swing.JFrame {
      
 //        CalculateDate();
 //        TestDate();
+
+//------------------------------------------Date----------------------------------------
+         UtilDateModel model = new UtilDateModel();
+            model.setValue(Calendar.getInstance().getTime());
+            Properties p = new Properties();
+            p.put("text.today", "Today");
+            p.put("text.month", "Month");
+            p.put("text.year", "Year");
+        JDatePanelImpl datePanel = new JDatePanelImpl(model, p);
+         DateFilter = new JDatePickerImpl(datePanel,new DateLabelFormatter());
+        DateFilter.setTextEditable(true);
+        DateFilter.setBackground(Color.WHITE);
+        jPanelDate.setLayout(new FlowLayout());
+        jPanelDate.add(DateFilter);   
+//------------------------------------------Date----------------------------------------
+        
         RefreshData();
        
         
@@ -62,15 +89,15 @@ public class SueCrimesOverview extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableSue = new javax.swing.JTable();
         jButtonAddSue = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        textSearch = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
+        jPanelDate = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1265, 700));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1280, 720));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(46, 156, 202));
@@ -153,27 +180,32 @@ public class SueCrimesOverview extends javax.swing.JFrame {
         });
         jPanel1.add(jButtonAddSue, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 127, -1, 30));
 
-        jTextField1.setPreferredSize(new java.awt.Dimension(59, 30));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 65, 218, -1));
+        textSearch.setPreferredSize(new java.awt.Dimension(59, 30));
+        jPanel1.add(textSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 65, 218, -1));
 
         jTextField2.setPreferredSize(new java.awt.Dimension(59, 30));
         jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(273, 65, 218, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanelDateLayout = new javax.swing.GroupLayout(jPanelDate);
+        jPanelDate.setLayout(jPanelDateLayout);
+        jPanelDateLayout.setHorizontalGroup(
+            jPanelDateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 251, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanelDateLayout.setVerticalGroup(
+            jPanelDateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 32, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(509, 65, -1, -1));
+        jPanel1.add(jPanelDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(509, 65, -1, -1));
 
-        jButton1.setText("ค้นหา");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(778, 67, -1, 30));
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 70, -1, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -183,7 +215,9 @@ public class SueCrimesOverview extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -195,11 +229,11 @@ public class SueCrimesOverview extends javax.swing.JFrame {
             try{
                 String crimecasenoyear = jTableSue.getModel().getValueAt(jTableSue.getSelectedRow(), 0)+"";
                 String nameSuspect = jTableSue.getModel().getValueAt(jTableSue.getSelectedRow(), 1)+"";
+                 String dateArr = jTableSue.getModel().getValueAt(jTableSue.getSelectedRow(), 2)+"";
                 String sql="select CaseId,crimecasenoyear,AccureandOther,ChargeName,Person.* from Person\n"+
                            "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId\n"+
                            "left join Charge on CrimeCase.ChargeCodeCase=Charge.ChargeCode\n"+
-
-                          " Where crimecasenoyear='"+crimecasenoyear+"'";
+                          " Where crimecasenoyear='"+crimecasenoyear+"' and FullNamePerson='"+nameSuspect+"' and SueFirstDate='"+dateArr+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);
@@ -217,7 +251,7 @@ public class SueCrimesOverview extends javax.swing.JFrame {
                     data.put("SueFirstTotal", rs.getString("SueFirstTotal"));
                      data.put("PlaceArrest", rs.getString("PlaceArrest"));
                     data.put("SueFirstTotal", rs.getString("SueFirstTotal"));
-                  
+                    data.put("SueFirstEnd", rs.getString("SueFirstEnd"));
                     data.put("NoPerson", rs.getString("NoPerson"));
                     data.put("caseIdPerson", rs.getString("caseIdPerson"));
                     
@@ -246,6 +280,11 @@ public class SueCrimesOverview extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jButtonAddSueActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+          RefreshData();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -308,13 +347,14 @@ public class SueCrimesOverview extends javax.swing.JFrame {
 //        String a=txtCaseNO.getText();
         String sql;
                 sql=    "select crimecasenoyear,StatusSuspect,CaseIdPerson,CaseId,SueFirstDate,SueSecDate,SueThirdDate,SueFourthDate,SueFifthDate,SueSixthDate,SueSevenDate,FullNamePerson from Person\n"+
-                        "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId where StatusSuspect='ผัดฟ้องฝากขัง'";
+                        "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId where StatusSuspect='ผัดฟ้องฝากขัง'"+getFilterCondition();
                         
                 
         ResultSet rs = stmt.executeQuery(sql);
           System.out.println("SQL : "+sql);
         Vector<Vector> tabledata = new Vector<Vector>();
         while(rs.next()){
+          
             Vector<String> row = new Vector<String>();
             row.add(rs.getString("crimecasenoyear"));
             row.add(rs.getString("FullNamePerson"));
@@ -372,17 +412,39 @@ public class SueCrimesOverview extends javax.swing.JFrame {
             ex.printStackTrace();
         }
     }
-
+     private String getFilterCondition(){
+        HashMap<String,String> filter = new HashMap<String,String>();
+        if(textSearch.getText() != null){
+            filter.put("FullNamePerson", textSearch.getText().trim());
+        }
+        
+        String[] key = filter.keySet().toArray(new String[0]);
+        String result="";
+        for(int i=0;i<key.length;i++){
+            if(i==0){
+                result=" and ";
+            }
+            if(i==key.length-1){
+                result+= " "+key[i]+" LIKE '%"+filter.get(key[i])+"%'";
+            }else{
+                result+= " "+key[i]+" LIKE "+filter.get(key[i]);
+            }
+            System.out.println(result);
+        }
+        
+        return result;
+    }
+  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAddSue;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanelDate;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableSue;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField textSearch;
     // End of variables declaration//GEN-END:variables
 }

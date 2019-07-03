@@ -125,6 +125,8 @@ public class CreateTable {
                 "	StatusSuspect	VARCHAR(100)	,	\n"+
                 "	BailDate	VARCHAR(100)	,	\n"+
                 "	RestoreDate	VARCHAR(100)	,	\n"+ 
+                "	Road     	VARCHAR(100)	,	\n"+
+                "	Soi     	VARCHAR(100)	,	\n"+  
                 "	SueLastEndDate	VARCHAR(100)	,	\n"+  
                 "	CourtSuspect	VARCHAR(100)	,	\n"+    
                 "	Test1	VARCHAR(100)	,	\n"+    
@@ -239,7 +241,7 @@ public class CreateTable {
                          "	CircumstancesOfDeath	VARCHAR(100)		\n"+
                          "	);";
           String sqlAsset ="CREATE TABLE IF NOT EXISTS Asset (\n"+                 
-                "	NoAsset	INTEGER	Primary Key AUTOINCREMENT,	\n"+        
+            "	NoAsset	INTEGER	Primary Key AUTOINCREMENT,	\n"+        
                 "	EvidenceRecordNumber	VARCHAR(100),	\n"+
                 "	OrderAsset	INTEGER	,	\n"+
                 "	Name	VARCHAR(100)	,	\n"+
@@ -247,12 +249,19 @@ public class CreateTable {
                 "	Value	VARCHAR(100)	,	\n"+
                 "	OccupantName	VARCHAR(100)	,	\n"+
                 "	DateSequester	VARCHAR(100)	,	\n"+
-                "	Note	VARCHAR(100)	,	\n"+
+                "	Remark  	VARCHAR(100)	,	\n"+
                 "	PlaceFoundExhibit	VARCHAR(100)	,	\n"+
                 "	DefectMark	VARCHAR(100)	,	\n"+
                 "	PointFoundCheck	VARCHAR(100)	,	\n"+
                 "	StatusAsset	VARCHAR(100)	,	\n"+
-                "	caseIdAsset	INTEGER	not null	\n"+           
+                "	SerialNO	VARCHAR(100)	,	\n"+
+                "	Brand	VARCHAR(100)	,	\n"+
+                "	Color	VARCHAR(100)	,	\n"+  
+                "	EngineNumber	VARCHAR(100)	,	\n"+
+                "	ChasisNumber	VARCHAR(100)	,	\n"+  
+                "	SumOrderAsset 	INTEGER   	,	\n"+
+                "	SumValue	VARCHAR(100)	,	\n"+
+                "	caseIdAsset	INTEGER	not null	\n"+          
                 "	);";
           
           
@@ -478,5 +487,5 @@ public class CreateTable {
 	    public static void main(String[] args) {
 	        createNewTable();
 	    }
-            
+    
 }

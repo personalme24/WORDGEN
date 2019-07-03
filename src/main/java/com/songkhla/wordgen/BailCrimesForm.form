@@ -3,6 +3,9 @@
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
+    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[1270, 700]"/>
+    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -23,12 +26,15 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" pref="1264" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="1" pref="1264" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -54,6 +60,8 @@
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="AddEditBail" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
+                          <Component id="jPanelDateSearch" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jCheckOnly" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jComboStatus" min="-2" pref="182" max="-2" attributes="0"/>
@@ -70,17 +78,20 @@
                   <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="AddEditBail" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jCheckOnly" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jComboStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="AddEditBail" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jCheckOnly" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jComboStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
+                      <Component id="jPanelDateSearch" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="269" max="-2" attributes="0"/>
-                  <EmptySpace pref="101" max="32767" attributes="0"/>
+                  <EmptySpace pref="232" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -89,7 +100,7 @@
         <Container class="javax.swing.JPanel" name="jPanel3">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="4d" type="rgb"/>
+              <Color blue="ca" green="9c" red="2e" type="rgb"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
@@ -162,6 +173,7 @@
                 <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
+                <Property name="rowHeight" type="int" value="20"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTableBailMouseClicked"/>
@@ -184,7 +196,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="SuspectFullName2" max="32767" attributes="0"/>
+                              <Component id="PlaceArrest" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
@@ -198,23 +210,24 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="ArrestDate" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="ChargeName" max="32767" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel30" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="crimecaseno" alignment="3" max="32767" attributes="0"/>
@@ -226,11 +239,15 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel7" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="SuspectFullName2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="PlaceArrest" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ArrestDate" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                      <Component id="ArrestDate" min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace pref="15" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -241,6 +258,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="TH SarabunPSK" size="20" style="0"/>
                 </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
@@ -275,6 +293,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="TH SarabunPSK" size="20" style="0"/>
                 </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
@@ -286,6 +305,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="TH SarabunPSK" size="20" style="0"/>
                 </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
@@ -307,12 +327,13 @@
                 <Property name="text" type="java.lang.String" value="&#xe2a;&#xe16;&#xe32;&#xe19;&#xe17;&#xe35;&#xe48;&#xe08;&#xe31;&#xe1a;&#xe01;&#xe38;&#xe21;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="SuspectFullName2">
+            <Component class="javax.swing.JTextField" name="PlaceArrest">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="TH SarabunPSK" size="20" style="0"/>
                 </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
@@ -332,6 +353,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="TH SarabunPSK" size="20" style="0"/>
                 </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
@@ -359,16 +381,15 @@
               <Font name="TH SarabunPSK" size="20" style="1"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="9">
-                <StringItem index="0" value="&#xe1c;&#xe31;&#xe14;&#xe1f;&#xe49;&#xe2d;&#xe07;&#xe1d;&#xe32;&#xe01;&#xe02;&#xe31;&#xe07;"/>
-                <StringItem index="1" value="&#xe1b;&#xe23;&#xe30;&#xe01;&#xe31;&#xe19;"/>
-                <StringItem index="2" value="&#xe41;&#xe08;&#xe49;&#xe07;&#xe02;&#xe49;&#xe2d;&#xe2b;&#xe32;&#xe1b;&#xe25;&#xe48;&#xe2d;&#xe22;&#xe15;&#xe31;&#xe27;"/>
-                <StringItem index="3" value="&#xe41;&#xe08;&#xe49;&#xe07;&#xe02;&#xe49;&#xe2d;&#xe2b;&#xe32;&#xe1d;&#xe32;&#xe01;&#xe02;&#xe31;&#xe07;"/>
-                <StringItem index="4" value="&#xe44;&#xe21;&#xe48;&#xe44;&#xe14;&#xe49;&#xe15;&#xe31;&#xe27;"/>
-                <StringItem index="5" value="&#xe44;&#xe21;&#xe48;&#xe23;&#xe39;&#xe49;&#xe15;&#xe31;&#xe27;"/>
-                <StringItem index="6" value="&#xe1f;&#xe49;&#xe2d;&#xe07;&#xe27;&#xe32;&#xe08;&#xe32;"/>
-                <StringItem index="7" value="&#xe2a;&#xe48;&#xe07;&#xe1f;&#xe37;&#xe49;&#xe19;&#xe1f;&#xe39;"/>
-                <StringItem index="8" value="&#xe2d;&#xe37;&#xe48;&#xe19;&#xe46;"/>
+              <StringArray count="8">
+                <StringItem index="0" value="&#xe1b;&#xe23;&#xe30;&#xe01;&#xe31;&#xe19;"/>
+                <StringItem index="1" value="&#xe41;&#xe08;&#xe49;&#xe07;&#xe02;&#xe49;&#xe2d;&#xe2b;&#xe32;&#xe1b;&#xe25;&#xe48;&#xe2d;&#xe22;&#xe15;&#xe31;&#xe27;"/>
+                <StringItem index="2" value="&#xe41;&#xe08;&#xe49;&#xe07;&#xe02;&#xe49;&#xe2d;&#xe2b;&#xe32;&#xe1d;&#xe32;&#xe01;&#xe02;&#xe31;&#xe07;"/>
+                <StringItem index="3" value="&#xe44;&#xe21;&#xe48;&#xe44;&#xe14;&#xe49;&#xe15;&#xe31;&#xe27;"/>
+                <StringItem index="4" value="&#xe44;&#xe21;&#xe48;&#xe23;&#xe39;&#xe49;&#xe15;&#xe31;&#xe27;"/>
+                <StringItem index="5" value="&#xe1f;&#xe49;&#xe2d;&#xe07;&#xe27;&#xe32;&#xe08;&#xe32;"/>
+                <StringItem index="6" value="&#xe2a;&#xe48;&#xe07;&#xe1f;&#xe37;&#xe49;&#xe19;&#xe1f;&#xe39;"/>
+                <StringItem index="7" value="&#xe2d;&#xe37;&#xe48;&#xe19;&#xe46;"/>
               </StringArray>
             </Property>
           </Properties>
@@ -387,6 +408,21 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AddEditBailActionPerformed"/>
           </Events>
         </Component>
+        <Container class="javax.swing.JPanel" name="jPanelDateSearch">
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="257" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="37" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+        </Container>
       </SubComponents>
     </Container>
   </SubComponents>

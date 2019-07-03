@@ -5,6 +5,8 @@
  */
 package com.songkhla.wordgen;
 import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseno;
+import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
@@ -21,10 +23,14 @@ import javax.swing.JOptionPane;
 import org.json.simple.JSONObject;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import javax.swing.ImageIcon;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import org.jdatepicker.impl.JDatePanelImpl;
+import org.jdatepicker.impl.JDatePickerImpl;
+import org.jdatepicker.impl.UtilDateModel;
 /**
  *
  * @author Petpilin
@@ -36,6 +42,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
     String person;
     String caseid;
     String dateF,dateTot;
+//    JDatePickerImpl SueSecDate,SueThirdDate,SueFourthDate,SueFifthDate,SueSixthDate,SueSevDate;
     /**
      * Creates new form SueCrimesFrom
      */
@@ -51,47 +58,88 @@ public class SueCrimesFrom extends javax.swing.JDialog {
           person=datain.get("NoPerson")+"";
             caseid=datain.get("caseIdPerson")+"";   
             dateF=datain.get("SueFirstDate")+"";
-        
-          
+//        
+//            UtilDateModel model = new UtilDateModel();
+//            model.setValue(Calendar.getInstance().getTime());
+//            Properties p = new Properties();
+//            p.put("text.today", "Today");
+//            p.put("text.month", "Month");
+//            p.put("text.year", "Year");
+//        JDatePanelImpl datePanel = new JDatePanelImpl(model, p);
+//         SueSecDate = new JDatePickerImpl(datePanel,new DateLabelFormatter());
+//        SueSecDate.getComponent(1).setEnabled(false);
+//        SueSecDate.setBackground(Color.WHITE);
+//        jPanelSecDate.setLayout(new FlowLayout());
+//        jPanelSecDate.add(SueSecDate);    
+//        
+//           UtilDateModel model2 = new UtilDateModel();
+//            model2.setValue(Calendar.getInstance().getTime());
+//         JDatePanelImpl datePanel2 = new JDatePanelImpl(model2, p);
+//        SueThirdDate = new JDatePickerImpl(datePanel2,new DateLabelFormatter());
+//        SueThirdDate.setTextEditable(true);
+//        SueThirdDate.setBackground(Color.WHITE);
+//        jPanelThirdDate.setLayout(new FlowLayout());
+//        jPanelThirdDate.add(SueThirdDate);
+//        
+//        UtilDateModel model3 = new UtilDateModel();
+//            model3.setValue(Calendar.getInstance().getTime());
+//         JDatePanelImpl datePanel3 = new JDatePanelImpl(model3, p);
+//        SueFourthDate= new JDatePickerImpl(datePanel3,new DateLabelFormatter());
+//        SueFourthDate.setTextEditable(true);
+//        SueFourthDate.setBackground(Color.WHITE);
+//        jPanelFourthDate.setLayout(new FlowLayout());
+//        jPanelFourthDate.add(SueFourthDate);
+//        
+//         UtilDateModel model4 = new UtilDateModel();
+//            model4.setValue(Calendar.getInstance().getTime());
+//         JDatePanelImpl datePanel4 = new JDatePanelImpl(model4, p);
+//        SueFifthDate= new JDatePickerImpl(datePanel4,new DateLabelFormatter());
+//        SueFifthDate.setTextEditable(true);
+//        SueFifthDate.setBackground(Color.WHITE);
+//        jPanelFifthDate.setLayout(new FlowLayout());
+//        jPanelFifthDate.add(SueFifthDate);
+//        
+//        UtilDateModel model5 = new UtilDateModel();
+//            model5.setValue(Calendar.getInstance().getTime());
+//         JDatePanelImpl datePanel5 = new JDatePanelImpl(model5, p);
+//        SueSixthDate= new JDatePickerImpl(datePanel5,new DateLabelFormatter());
+//        SueSixthDate.setTextEditable(true);
+//        SueSixthDate.setBackground(Color.WHITE);
+//        jPanelSixthDate.setLayout(new FlowLayout());
+//        jPanelSixthDate.add(SueSixthDate);
+//        
+//        UtilDateModel model6 = new UtilDateModel();
+//            model6.setValue(Calendar.getInstance().getTime());
+//         JDatePanelImpl datePanel6 = new JDatePanelImpl(model6, p);
+//        SueSevDate= new JDatePickerImpl(datePanel6,new DateLabelFormatter());
+//        SueSevDate.setTextEditable(true);
+//        SueSevDate.setBackground(Color.WHITE);
+//        jPanelSevDate.setLayout(new FlowLayout());
+//        jPanelSevDate.add(SueSevDate);
         if(datain != null){
-            SueFirstTotal.setText(datain.get("SueFirstTotal")+"");
+          
             dateTot=SueFirstTotal.getText();   
-//            DataCase();
-//        DataLastSue();
-//            jLabel2.setText(person);
-        SueFirstEnd.setText(CalculateDateEnd(dateF, dateTot));
-        crimecaseno.setText(datain.get("crimecasenoyear")+"");
-        PeopleRegistrationID.setText(datain.get("PeopleRegistrationID")+"");
-        AccureandOther.setText(datain.get("AccureandOther")+"");
-        FullNamePerson.setText(datain.get("FullNamePerson")+"");
-        ChargeName.setText(datain.get("ChargeName")+"");
-        PeopleRegistrationID.setText(datain.get("PeopleRegistrationID")+"");
-        SueFirst.setText(datain.get("SueFirst")+"");
-                SueFirst.setText(datain.get("SueFirst")+"");
-
-         SueFirstDate.setText(datain.get("SueFirstDate")+"");
-        
-       
-
-
-        } 
-  SueFirstTotal.addKeyListener(new KeyAdapter() {
-            public void keyReleased(KeyEvent e) {
-                        SueFirstEnd.setText(CalculateDateEnd(dateF, dateTot));
-
+           
+            crimecaseno.setText(datain.get("crimecasenoyear")+"");
+            PeopleRegistrationID.setText(datain.get("PeopleRegistrationID")+"");
+            AccureandOther.setText(datain.get("AccureandOther")+"");
+            FullNamePerson.setText(datain.get("FullNamePerson")+"");
+            ChargeName.setText(datain.get("ChargeName")+"");
+            PeopleRegistrationID.setText(datain.get("PeopleRegistrationID")+"");
+            SueFirst.setText(datain.get("SueFirst")+"");
+            SueFirstDate.setText(datain.get("SueFirstDate")+"");
+            if(datain.get("SueFirstEnd")==null){
+             SueFirstEnd.setText("");
             }
-        });
-//  SueFirstTotal.getDocument().addDocumentListener(new DocumentListener() {
-//  public void changedUpdate(DocumentEvent e) {
-//   SueFirstEnd.setText(CalculateDateEnd(dateF, dateTot));
-//  }
-//  public void removeUpdate(DocumentEvent e) {
-//    SueFirstEnd.setText(CalculateDateEnd(dateF, dateTot));
-//  }
-//  public void insertUpdate(DocumentEvent e) {
-//    SueFirstEnd.setText(CalculateDateEnd(dateF, dateTot));
-//  }
-//  });
+            else{
+            SueFirstEnd.setText(datain.get("SueFirstEnd")+"");}
+            SueFirstTotal.setText(datain.get("SueFirstTotal")+"");
+
+        
+        } 
+       
+    
+       DateEnd();
 
         RefreshData(); 
     }
@@ -137,7 +185,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         jLabel17 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         SueStartLast = new javax.swing.JTextField();
-        jButtonEditSue = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         SueFirstDate = new javax.swing.JTextField();
         SueFirstEnd = new javax.swing.JTextField();
@@ -154,17 +201,42 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         jLabel12 = new javax.swing.JLabel();
         SueSecTotal = new javax.swing.JTextField();
         SueSecRequest = new javax.swing.JComboBox<>();
-        SueSecond = new javax.swing.JTextField();
-        SueSecDate = new javax.swing.JTextField();
         SueSecEnd = new javax.swing.JTextField();
         SueSecCause = new javax.swing.JComboBox<>();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
-        jTextField12 = new javax.swing.JTextField();
-        SueSecRequest1 = new javax.swing.JComboBox<>();
-        SueSecCause1 = new javax.swing.JComboBox<>();
+        SueThirdEnd = new javax.swing.JTextField();
+        SueThirdTotal = new javax.swing.JTextField();
+        SueThirdRequest = new javax.swing.JComboBox<>();
+        SueSevCause = new javax.swing.JComboBox<>();
+        SueSevenEnd = new javax.swing.JTextField();
+        SueSevenTotal = new javax.swing.JTextField();
+        SueSevRequest = new javax.swing.JComboBox<>();
+        SueFourthEnd = new javax.swing.JTextField();
+        SueFifthEnd = new javax.swing.JTextField();
+        SueSixthEnd = new javax.swing.JTextField();
+        SueFourthTotal = new javax.swing.JTextField();
+        SueFifthTotal = new javax.swing.JTextField();
+        SueSixthTotal = new javax.swing.JTextField();
+        SueFourthRequest = new javax.swing.JComboBox<>();
+        SueFifthRequest = new javax.swing.JComboBox<>();
+        SueSixthRequest = new javax.swing.JComboBox<>();
+        SueThirdCause = new javax.swing.JComboBox<>();
+        SueFourthCause = new javax.swing.JComboBox<>();
+        SueFifthCause = new javax.swing.JComboBox<>();
+        SueSixthCause = new javax.swing.JComboBox<>();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        SevDate = new javax.swing.JTextField();
+        SixthDate = new javax.swing.JTextField();
+        FifthDate = new javax.swing.JTextField();
+        FourthDate = new javax.swing.JTextField();
+        ThirdDate = new javax.swing.JTextField();
+        SueSecDateT = new javax.swing.JTextField();
         jButtonSave = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -438,14 +510,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 .addContainerGap(80, Short.MAX_VALUE))
         );
 
-        jButtonEditSue.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButtonEditSue.setText("แก้ไข");
-        jButtonEditSue.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEditSueActionPerformed(evt);
-            }
-        });
-
         jPanel5.setEnabled(false);
 
         SueFirstEnd.setEditable(false);
@@ -455,9 +519,18 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             }
         });
 
+        SueFirstTotal.setText(" ");
+
+        SueFirstRequest.setEditable(true);
         SueFirstRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 2", "Item 3", "Item 4" }));
 
-        SueFirstCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 2", "Item 3", "Item 4" }));
+        SueFirstCause.setEditable(true);
+        SueFirstCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
+
+        SueFirst.setEditable(false);
+        SueFirst.setBackground(new java.awt.Color(46, 156, 202));
+        SueFirst.setForeground(new java.awt.Color(255, 255, 255));
+        SueFirst.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jPanel8.setBackground(new java.awt.Color(0, 102, 204));
 
@@ -492,15 +565,15 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
-                .addGap(59, 59, 59)
+                .addGap(97, 97, 97)
                 .addComponent(jLabel4)
-                .addGap(95, 95, 95)
+                .addGap(127, 127, 127)
                 .addComponent(jLabel9)
-                .addGap(85, 85, 85)
+                .addGap(111, 111, 111)
                 .addComponent(jLabel8)
-                .addGap(224, 224, 224)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
                 .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(260, 260, 260)
                 .addComponent(jLabel12)
                 .addGap(151, 151, 151))
         );
@@ -517,109 +590,359 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                     .addComponent(jLabel12)))
         );
 
+        SueSecTotal.setText(" ");
+
+        SueSecRequest.setEditable(true);
         SueSecRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 2", "Item 3", "Item 4" }));
 
         SueSecEnd.setEditable(false);
+        SueSecEnd.setText(" ");
         SueSecEnd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SueSecEndActionPerformed(evt);
             }
         });
 
-        SueSecCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 2", "Item 3", "Item 4" }));
+        SueSecCause.setEditable(true);
+        SueSecCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
 
-        jTextField11.setEditable(false);
-        jTextField11.addActionListener(new java.awt.event.ActionListener() {
+        SueThirdEnd.setEditable(false);
+        SueThirdEnd.setText(" ");
+        SueThirdEnd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField11ActionPerformed(evt);
+                SueThirdEndActionPerformed(evt);
             }
         });
 
-        SueSecRequest1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 2", "Item 3", "Item 4" }));
+        SueThirdTotal.setText(" ");
+        SueThirdTotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SueThirdTotalActionPerformed(evt);
+            }
+        });
 
-        SueSecCause1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 2", "Item 3", "Item 4" }));
+        SueThirdRequest.setEditable(true);
+        SueThirdRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 2", "Item 3", "Item 4" }));
+
+        SueSevCause.setEditable(true);
+        SueSevCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
+
+        SueSevenEnd.setEditable(false);
+        SueSevenEnd.setText(" ");
+        SueSevenEnd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SueSevenEndActionPerformed(evt);
+            }
+        });
+
+        SueSevenTotal.setText(" ");
+        SueSevenTotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SueSevenTotalActionPerformed(evt);
+            }
+        });
+
+        SueSevRequest.setEditable(true);
+        SueSevRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 2", "Item 3", "Item 4" }));
+
+        SueFourthEnd.setEditable(false);
+        SueFourthEnd.setText(" ");
+        SueFourthEnd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SueFourthEndActionPerformed(evt);
+            }
+        });
+
+        SueFifthEnd.setEditable(false);
+        SueFifthEnd.setText(" ");
+        SueFifthEnd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SueFifthEndActionPerformed(evt);
+            }
+        });
+
+        SueSixthEnd.setEditable(false);
+        SueSixthEnd.setText(" ");
+        SueSixthEnd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SueSixthEndActionPerformed(evt);
+            }
+        });
+
+        SueFourthTotal.setText(" ");
+        SueFourthTotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SueFourthTotalActionPerformed(evt);
+            }
+        });
+
+        SueFifthTotal.setText(" ");
+        SueFifthTotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SueFifthTotalActionPerformed(evt);
+            }
+        });
+
+        SueSixthTotal.setText(" ");
+        SueSixthTotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SueSixthTotalActionPerformed(evt);
+            }
+        });
+
+        SueFourthRequest.setEditable(true);
+        SueFourthRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 2", "Item 3", "Item 4" }));
+
+        SueFifthRequest.setEditable(true);
+        SueFifthRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 2", "Item 3", "Item 4" }));
+
+        SueSixthRequest.setEditable(true);
+        SueSixthRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 2", "Item 3", "Item 4" }));
+
+        SueThirdCause.setEditable(true);
+        SueThirdCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
+
+        SueFourthCause.setEditable(true);
+        SueFourthCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
+
+        SueFifthCause.setEditable(true);
+        SueFifthCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
+
+        SueSixthCause.setEditable(true);
+        SueSixthCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
+
+        jButton2.setText("2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("3");
+
+        jButton4.setText("4");
+
+        jButton5.setText("6");
+
+        jButton6.setText("5");
+
+        jButton7.setText("7");
+
+        SevDate.setText(" ");
+
+        SixthDate.setText("  ");
+
+        FifthDate.setText(" ");
+
+        FourthDate.setText(" ");
+
+        ThirdDate.setText(" ");
+
+        SueSecDateT.setText(" ");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(10, 10, 10)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
-                                .addComponent(SueSecond, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(SueSecDate, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(SueSecEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(SueSecTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(SueSecRequest, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(7, 7, 7)
+                                .addComponent(SueSecDateT, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(SueFirst, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(SueFirstDate, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(SueFirstEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(SueFirstDate, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(SueSecEnd, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
+                            .addComponent(SueFirstEnd))
+                        .addGap(12, 12, 12)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(SueFirstTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(SueFirstRequest, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGap(14, 14, 14)
+                                .addComponent(SueFirstRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(SueFirstCause, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                                .addComponent(SueSecTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(14, 14, 14)
+                                .addComponent(SueSecRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(SueSecCause, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(SevDate, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(SixthDate, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(FifthDate, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(19, 19, 19))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(ThirdDate, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(FourthDate, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)))))
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(SueSevenEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(SueSevenTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(SueSevRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(SueSixthEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(SueSixthTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(SueSixthRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(SueFifthEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(SueFifthTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(SueFifthRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(SueFourthEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(SueFourthTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(14, 14, 14)
+                                .addComponent(SueFourthRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(SueThirdEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(SueThirdTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(14, 14, 14)
+                                .addComponent(SueThirdRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(SueFirstCause, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SueSecCause, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(SueSecRequest1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(SueSecCause1, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                            .addComponent(SueSevCause, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(SueSixthCause, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(SueFifthCause, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(SueFourthCause, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(SueThirdCause, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addGap(11, 11, 11)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(SueFirstEnd)
-                    .addComponent(SueFirstDate)
-                    .addComponent(SueFirstCause, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
-                    .addComponent(SueFirst)
-                    .addComponent(SueFirstTotal)
-                    .addComponent(SueFirstRequest))
+                .addGap(11, 11, 11)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(SueFirstTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(SueFirstEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(SueFirstDate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(SueFirst, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(SueFirstRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SueFirstCause, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(SueSecTotal)
-                    .addComponent(SueSecDate)
-                    .addComponent(SueSecEnd)
-                    .addComponent(SueSecCause)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(SueSecond, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(SueSecRequest))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(SueSecRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(SueSecCause, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jTextField11)
-                    .addComponent(jTextField12)
-                    .addComponent(SueSecRequest1)
-                    .addComponent(SueSecCause1))
-                .addGap(227, 227, 227))
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(SueSecDateT, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(SueSecEnd, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                        .addComponent(SueSecTotal)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(SueThirdTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(SueThirdEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addComponent(SueThirdRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(ThirdDate, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(9, 9, 9)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(SueFourthTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(SueFourthEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel5Layout.createSequentialGroup()
+                                    .addGap(1, 1, 1)
+                                    .addComponent(SueFourthRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(FourthDate, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(1, 1, 1)))
+                        .addGap(8, 8, 8)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(SueFifthTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(SueFifthEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(SueFifthRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(FifthDate, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(9, 9, 9)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(SueSixthTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(SueSixthEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(SueSixthRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(SixthDate, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(SueSevenTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(SueSevenEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(SueSevRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                            .addComponent(SevDate)))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(SueThirdCause, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(SueFourthCause, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(11, 11, 11)
+                        .addComponent(SueFifthCause, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(13, 13, 13)
+                        .addComponent(SueSixthCause, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(11, 11, 11)
+                        .addComponent(SueSevCause, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         jButtonSave.setText("บันทึก");
@@ -628,6 +951,8 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 jButtonSaveActionPerformed(evt);
             }
         });
+
+        jButton1.setText("พิมพ์เอกสาร");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -639,15 +964,15 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jButtonEditSue, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(8, 8, 8)
                         .addComponent(jButtonSave)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 625, Short.MAX_VALUE)))
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -655,20 +980,16 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(240, 240, 240)
-                            .addComponent(jButtonEditSue))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addGap(239, 239, 239)
-                            .addComponent(jButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addGap(75, 75, 75))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -686,65 +1007,42 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButtonEditSueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditSueActionPerformed
-        // TODO add your handling code here:
-//            if(jTableSue.getSelectedRow()>=0){
-//            try{
-//                String SueTimes = jTableSue.getModel().getValueAt(jTableSue.getSelectedRow(), 0)+"";
-//
-//                String sql= "select SueTimes,SueDate,SueStart,SueEnd,SueTotal,\n"+ 
-//                    "SueCause,SueRequest,SueCaseId,SuePersonId from Sue\n"
-//                    + "Where SueTimes='"+SueTimes+"s' and SueCaseId='"+caseid+"' and SuePersonId='"+person+"'";
-//                Connection con = ConnectDatabase.connect();
-//                Statement stmt = con.createStatement();
-//                ResultSet rs = stmt.executeQuery(sql);
-//                System.out.println("ExSql : "+sql);
-//                if(rs.next()){
-//                    JSONObject data = new JSONObject();
-//                    data.put("SueTimes", rs.getString("SueTimes"));
-//                    data.put("SueDate", rs.getString("SueDate"));
-//                    data.put("SueStart", rs.getString("SueStart"));
-//                    data.put("SueEnd", rs.getString("SueEnd"));
-//                    data.put("SueTotal", rs.getString("SueTotal"));
-//                    data.put("SueCause", rs.getString("SueCause"));
-//                     data.put("SueRequest", rs.getString("SueRequest"));
-//                      data.put("SueCaseId", rs.getString("SueCaseId"));
-//                      data.put("SuePersonId", rs.getString("SuePersonId"));
-//                    JSONObject data2 = new JSONObject();
-//                    data.put("SueCaseId", rs.getString("SueCaseId"));
-//                      data.put("SuePersonId", rs.getString("SuePersonId"));
-//                      JFrame frame = new JFrame();
-//                     JDialog dialog = new JDialog(frame);//frame is owner
-//                      JFrame sc = (JFrame)(dialog.getParent());
-//                      sc.removeAll();
-//                    SueCrimesAdd sca =new SueCrimesAdd(sc,data,data2);
-//                    sca.pack();
-//                    sca.setLocationRelativeTo(null);
-//                    sca.setVisible(true);
-//                }
-//
-//                rs.close();
-//                stmt.close();
-//                RefreshData();
-//            }catch(Exception ex){
-//                ex.printStackTrace();
-//
-//            }
-//        }else{
-//
-//        }
-    }//GEN-LAST:event_jButtonEditSueActionPerformed
     
     private void SueSecEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueSecEndActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SueSecEndActionPerformed
-
+    public void DateEnd(){
+        
+    
+           SueFirstTotal.getDocument().addDocumentListener(new DocumentListener() {
+                    public void changedUpdate(DocumentEvent e) {
+                     SueFirstEnd.setText(CalculateDateEnd(dateF, SueFirstTotal.getText()));
+                    }
+                    public void removeUpdate(DocumentEvent e) {
+                   
+                    }
+                    public void insertUpdate(DocumentEvent e) {
+                      SueFirstEnd.setText(CalculateDateEnd(dateF, SueFirstTotal.getText()));
+                    }
+                    });
+           
+           SueSecTotal.getDocument().addDocumentListener(new DocumentListener() {
+                    public void changedUpdate(DocumentEvent e) {
+                     SueSecEnd.setText(CalculateDateEnd(SueSecDateT.getText(), SueSecTotal.getText()));
+                    }
+                    public void removeUpdate(DocumentEvent e) {
+                   
+                    }
+                    public void insertUpdate(DocumentEvent e) {
+                      SueSecEnd.setText(CalculateDateEnd(SueSecDateT.getText(), SueSecTotal.getText()));
+                    }
+                    });
+    
+    
+    }
     private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
         // TODO add your handling code here:
          con=ConnectDatabase.connect();
-         SimpleDateFormat format = new SimpleDateFormat("HH:mm");
-    
         
             String sqlUpdate="Update Person set "
                     + "SueFirst=?,"
@@ -758,18 +1056,37 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                     +  "SueSecEnd=?,"
                     + "SueSecTotal=?,"
                     + "SueSecRequest=?,"
-                    + "SueSecCause=?"
-//                    + "SueThird=?,"
-//                    + "SueThirdDate=?,"
-//                    + "SueThirdEnd=?,"
-//                    + "SueThirdTotal=?,\n"
-//                    + "SueThirdRequest=?,"
-//                    + "SueThirdCause=?,"
-//                    + "SueFourth=?,"
-//                    + "SueFourthDate=?,"
-//                    + "SueFourthEnd=?,"
-//                    + "SueFourthtotal=?,"
-//                    + "SueFourthRequest=?,\n" 
+                    + "SueSecCause=?,"
+                    + "SueThird=?,"
+                    + "SueThirdDate=?,"
+                    + "SueThirdEnd=?,"
+                    + "SueThirdTotal=?,\n"
+                    + "SueThirdRequest=?,"
+                    + "SueThirdCause=?,"
+                    + "SueFourth=?,"
+                    + "SueFourthDate=?,"
+                    + "SueFourthEnd=?,"
+                    + "SueFourthtotal=?,"
+                    + "SueFourthRequest=?,\n" 
+                    + "SueFourthCause=?,\n" 
+                    + "SueFifth=?,"
+                    + "SueFifthDate=?,"
+                    + "SueFifthEnd=?,"
+                    + "SueFifthTotal=?,"
+                    + "SueFifthRequest=?,\n" 
+                    + "SueFifthCause=?,\n" 
+                    + "SueSixth=?,"
+                    + "SueSixthDate=?,"
+                    + "SueSixthEnd=?,"
+                    + "SueSixthTotal=?,"
+                    + "SueSixthRequest=?,\n" 
+                    + "SueSixthCause=?,\n"
+                    + "SueSeven=?,"
+                    + "SueSevenDate=?,"
+                    + "SueSevenEnd=?,"
+                    + "SueSevenTotal=?,"
+                    + "SueSevenRequest=?,\n" 
+                    + "SueSevenCause=?\n"  
                     + "where NoPerson=? and CaseIdPerson=?   ";
 
             try {
@@ -780,14 +1097,44 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 pst.setString(4,SueFirstTotal.getText());
                 pst.setString(5,SueFirstRequest.getSelectedItem().toString());
                 pst.setString(6,SueFirstCause.getSelectedItem().toString());
-                pst.setString(7,SueSecond.getText());
-                pst.setString(8,SueSecDate.getText());
+                pst.setString(7,"2");
+                pst.setString(8,SueSecDateT.getText());
                 pst.setString(9,SueSecEnd.getText());
                 pst.setString(10,SueSecTotal.getText());
                 pst.setString(11,SueSecRequest.getSelectedItem().toString());
                 pst.setString(12,SueSecCause.getSelectedItem().toString());
-                pst.setString(13,person);
-                pst.setString(14,caseid);
+                pst.setString(13,"3");
+                pst.setString(14,ThirdDate.getText());
+                pst.setString(15,SueThirdEnd.getText());
+                pst.setString(16,SueThirdTotal.getText());
+                pst.setString(17,SueThirdRequest.getSelectedItem().toString());
+                pst.setString(18,SueThirdCause.getSelectedItem().toString());
+                pst.setString(19,"4");
+                pst.setString(20,FourthDate.getText());
+                pst.setString(21,SueFourthEnd.getText());
+                pst.setString(22,SueFourthTotal.getText());
+                pst.setString(23,SueFourthRequest.getSelectedItem().toString());
+                pst.setString(24,SueFourthCause.getSelectedItem().toString());
+                pst.setString(25,"5");
+                pst.setString(26,FifthDate.getText());
+                pst.setString(27,SueFifthEnd.getText());
+                pst.setString(28,SueFifthTotal.getText());
+                pst.setString(29,SueFifthRequest.getSelectedItem().toString());
+                pst.setString(30,SueFifthCause.getSelectedItem().toString());
+                pst.setString(31,"6");
+                pst.setString(32,SixthDate.getText());
+                pst.setString(33,SueSixthEnd.getText());
+                pst.setString(34,SueSixthTotal.getText());
+                pst.setString(35,SueSixthRequest.getSelectedItem().toString());
+                pst.setString(36,SueSixthCause.getSelectedItem().toString());
+                pst.setString(37,"7");
+                pst.setString(38,SevDate.getText());
+                pst.setString(39,SueSevenEnd.getText());
+                pst.setString(40,SueSevenTotal.getText());
+                pst.setString(41,SueSevRequest.getSelectedItem().toString());
+                pst.setString(42,SueSevCause.getSelectedItem().toString());
+                pst.setString(43,person);
+                pst.setString(44,caseid);
 
             
                 
@@ -810,14 +1157,55 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 //        setVisible(false);
     }//GEN-LAST:event_jButtonSaveActionPerformed
 
-    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField11ActionPerformed
-
     private void SueFirstEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueFirstEndActionPerformed
         // TODO add your handling code here:
        
     }//GEN-LAST:event_SueFirstEndActionPerformed
+
+    private void SueThirdEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueThirdEndActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SueThirdEndActionPerformed
+
+    private void SueFourthEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueFourthEndActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SueFourthEndActionPerformed
+
+    private void SueFifthEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueFifthEndActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SueFifthEndActionPerformed
+
+    private void SueSixthEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueSixthEndActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SueSixthEndActionPerformed
+
+    private void SueSevenEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueSevenEndActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SueSevenEndActionPerformed
+
+    private void SueThirdTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueThirdTotalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SueThirdTotalActionPerformed
+
+    private void SueFourthTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueFourthTotalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SueFourthTotalActionPerformed
+
+    private void SueFifthTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueFifthTotalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SueFifthTotalActionPerformed
+
+    private void SueSixthTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueSixthTotalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SueSixthTotalActionPerformed
+
+    private void SueSevenTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueSevenTotalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SueSevenTotalActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1002,29 +1390,57 @@ public class SueCrimesFrom extends javax.swing.JDialog {
     private javax.swing.JTextField AccureandOther;
     private javax.swing.JTextField ChargeName;
     private javax.swing.JTextField DateArrest;
+    private javax.swing.JTextField FifthDate;
+    private javax.swing.JTextField FourthDate;
     private javax.swing.JTextField FullNamePerson;
     private javax.swing.JTextField NumberImprison;
     private javax.swing.JTextField PeopleRegistrationID;
     private javax.swing.JTextField PoliceStationName;
+    private javax.swing.JTextField SevDate;
+    private javax.swing.JTextField SixthDate;
     private javax.swing.JTextField SueEndLast;
+    private javax.swing.JComboBox<String> SueFifthCause;
+    private javax.swing.JTextField SueFifthEnd;
+    private javax.swing.JComboBox<String> SueFifthRequest;
+    private javax.swing.JTextField SueFifthTotal;
     private javax.swing.JTextField SueFirst;
     private javax.swing.JComboBox<String> SueFirstCause;
     private javax.swing.JTextField SueFirstDate;
     private javax.swing.JTextField SueFirstEnd;
     private javax.swing.JComboBox<String> SueFirstRequest;
     private javax.swing.JTextField SueFirstTotal;
+    private javax.swing.JComboBox<String> SueFourthCause;
+    private javax.swing.JTextField SueFourthEnd;
+    private javax.swing.JComboBox<String> SueFourthRequest;
+    private javax.swing.JTextField SueFourthTotal;
     private javax.swing.JComboBox<String> SueSecCause;
-    private javax.swing.JComboBox<String> SueSecCause1;
-    private javax.swing.JTextField SueSecDate;
+    private javax.swing.JTextField SueSecDateT;
     private javax.swing.JTextField SueSecEnd;
     private javax.swing.JComboBox<String> SueSecRequest;
-    private javax.swing.JComboBox<String> SueSecRequest1;
     private javax.swing.JTextField SueSecTotal;
-    private javax.swing.JTextField SueSecond;
+    private javax.swing.JComboBox<String> SueSevCause;
+    private javax.swing.JComboBox<String> SueSevRequest;
+    private javax.swing.JTextField SueSevenEnd;
+    private javax.swing.JTextField SueSevenTotal;
+    private javax.swing.JComboBox<String> SueSixthCause;
+    private javax.swing.JTextField SueSixthEnd;
+    private javax.swing.JComboBox<String> SueSixthRequest;
+    private javax.swing.JTextField SueSixthTotal;
     private javax.swing.JTextField SueStartLast;
+    private javax.swing.JComboBox<String> SueThirdCause;
+    private javax.swing.JTextField SueThirdEnd;
+    private javax.swing.JComboBox<String> SueThirdRequest;
+    private javax.swing.JTextField SueThirdTotal;
+    private javax.swing.JTextField ThirdDate;
     private javax.swing.JTextField TotalDate;
     private javax.swing.JTextField crimecaseno;
-    private javax.swing.JButton jButtonEditSue;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButtonSave;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1055,9 +1471,5 @@ public class SueCrimesFrom extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
 }

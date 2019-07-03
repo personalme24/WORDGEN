@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Vector;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 /**
@@ -25,6 +26,9 @@ public class ActionList extends javax.swing.JDialog {
                        super(parrent,true);
 
         initComponents();
+         ImageIcon img = new ImageIcon("D://Master//WD.png");
+            setIconImage(img.getImage());
+            setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
         RefreshData();
        
     }
@@ -164,7 +168,7 @@ public class ActionList extends javax.swing.JDialog {
                 .addContainerGap(32, Short.MAX_VALUE))
         );
 
-        jPanel4.setBackground(new java.awt.Color(77, 0, 0));
+        jPanel4.setBackground(new java.awt.Color(46, 156, 202));
 
         jLabel8.setBackground(new java.awt.Color(0, 0, 0));
         jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 36)); // NOI18N

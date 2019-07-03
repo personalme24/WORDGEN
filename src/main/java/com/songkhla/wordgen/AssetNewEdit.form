@@ -47,7 +47,7 @@
     <Container class="javax.swing.JPanel" name="jPanel4">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="4d" type="rgb"/>
+          <Color blue="ca" green="9c" red="2e" type="rgb"/>
         </Property>
       </Properties>
 
@@ -148,7 +148,7 @@
                                           <Component id="crimecaseno" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="Note" min="-2" pref="193" max="-2" attributes="0"/>
+                                          <Component id="Remark" min="-2" pref="193" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="StatusAsset" min="-2" pref="137" max="-2" attributes="0"/>
                                       </Group>
@@ -215,7 +215,7 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="Note" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Remark" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="StatusAsset" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -347,7 +347,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="Note">
+        <Component class="javax.swing.JTextField" name="Remark">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="0"/>

@@ -14,6 +14,7 @@ import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -26,6 +27,8 @@ import org.json.simple.JSONObject;
 public class ActionPage extends javax.swing.JDialog {
     Connection con=null;
     PreparedStatement pst=null;
+        boolean isInsert;
+
     
     /**
      * Creates new form ChangPage
@@ -33,18 +36,19 @@ public class ActionPage extends javax.swing.JDialog {
 //    String chargeNo; 
     public ActionPage(JFrame parrent,JSONObject datain) {
         super(parrent,true);
-        initComponents();         
+        initComponents();       
+         ImageIcon img = new ImageIcon("D://Master//WD.png");
+            setIconImage(img.getImage());
+            setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
         con=ConnectDatabase.connect();
-                    if(datain!=null){
+        if(datain!=null){
 //            caseid= "" + datain.get("CaseId"); 
 //            chargeNo=datain.get("ActionCode")+"";
             ActionCode.setText(datain.get("ActionCode")+"");
             ActionCrimes.setText(datain.get("ActionCrimes")+"");
              ActionDetail.setText(datain.get("ActionDetail")+"");
               ActionNote.setText(datain.get("ActionNote")+"");
-
-
-    }
+             }
     }
 
     /**
@@ -80,7 +84,7 @@ public class ActionPage extends javax.swing.JDialog {
         setFont(new java.awt.Font("TH SarabunPSK", 0, 16)); // NOI18N
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(77, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(46, 156, 202));
 
         jLabel6.setBackground(new java.awt.Color(0, 0, 0));
         jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 36)); // NOI18N

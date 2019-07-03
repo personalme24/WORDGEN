@@ -209,7 +209,7 @@ public class AccusedForm extends javax.swing.JDialog {
         jLabel4.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel4.setText("ประเภทบุคคล");
 
-        jPanel3.setBackground(new java.awt.Color(77, 0, 0));
+        jPanel3.setBackground(new java.awt.Color(46, 156, 202));
 
         jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));

@@ -54,9 +54,9 @@ public class ChargePage extends javax.swing.JDialog {
 //           isInsert=false;
            
         }
-//            else{
-//            isInsert=true;
-//        }
+            else{
+            isInsert=true;
+        }
      
     }
 
@@ -267,6 +267,7 @@ public class ChargePage extends javax.swing.JDialog {
 
     private void jButtonSaveChargeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveChargeActionPerformed
         // TODO add your handling code here:
+         if(isInsert){
     String intCh="INSERT into Charge(ChargeCode,ChargeName,Law,RateOfPenalty,Note) values(?,?,?,?,?) ";
 //          String intCr="insert into CrimesCase(AnswerSuspect,AnswerAccuse) values(?,?) ";
         try {
@@ -278,55 +279,53 @@ public class ChargePage extends javax.swing.JDialog {
             pst.setString(4,RateOfPenalty.getText());
              pst.setString(5,Note.getText());
             
-           pst.execute();
+           
+             int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
+        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (response == JOptionPane.YES_OPTION) {
+               pst.execute();
            System.out.println("SQLLLLL : "+intCh);
            pst.close();
-           
-                     JOptionPane.showMessageDialog(jPanel2,  "บันทึกข้อมูลแล้ว",null, JOptionPane.INFORMATION_MESSAGE);
+          } 
 
         } catch (Exception e) {
-                               JOptionPane.showMessageDialog(jPanel2,"Cannot Save", null , JOptionPane.INFORMATION_MESSAGE);
-
-            
+         JOptionPane.showMessageDialog(jPanel2,"Cannot Save", null , JOptionPane.INFORMATION_MESSAGE);    
         }
-//       Connection con = ConnectDatabase.connect();
-//        PreparedStatement pst=null;
-//        String sql="UPDATE Charge SET "
-//                + "ChargeCode=?,"
-//                + "ChargeName=?,"
-//                + "Law=?,"
-//                + "RateOfPenalty=?,"
-//                + "Note=?"
-//                 + "Where ChargeCode=?";
-//         try {
-//  
-//            pst=con.prepareStatement(sql);
-//            
-//            
-//            pst.setString(1,ChargeCode.getText());
-//            pst.setString(2,ChargeName.getText());
-//            pst.setString(3,Law.getText());
-//            pst.setString(4,RateOfPenalty.getText());
-//             pst.setString(5,Note.getText());
-//             pst.setString(6,chargeNo);
-//          JSONObject data = new JSONObject();
-//          data.put("ChargeName", ChargeName.getText());
-//          data.put("ChargeCode", ChargeCode.getText());
+         }
+         else{
+         
+         try {
+  
+                 String sql="UPDATE Charge SET "
+                + "ChargeCode=?,"
+                + "ChargeName=?,"
+                + "Law=?,"
+                + "RateOfPenalty=?,"
+                + "Note=?"
+                 + "Where ChargeCode=?";
+            pst=con.prepareStatement(sql);       
+            pst.setString(1,ChargeCode.getText());
+            pst.setString(2,ChargeName.getText());
+            pst.setString(3,Law.getText());
+            pst.setString(4,RateOfPenalty.getText());
+             pst.setString(5,Note.getText());
+             pst.setString(6,chargeNo);
+          JSONObject data = new JSONObject();
+          data.put("ChargeName", ChargeName.getText());
+          data.put("ChargeCode", ChargeCode.getText());
           
-//            pst.executeUpdate();
-//                   
-//                       System.out.println("SQL : "+sql);
-//            pst.close();
-//            JOptionPane.showMessageDialog(null, "Data Saved successfully");
-//  JOptionPane.showConfirmDialog(null,
-//                        "บันทึกข้อมูล.",
-//                        "Data Saved successfully",
-//                        JOptionPane.WARNING_MESSAGE);
-//           
-//        } catch (Exception e) {
-//             JOptionPane.showMessageDialog(null, e); 
-//             System.out.println("SQL : "+pst);
-//        }
+  
+         int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
+        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (response == JOptionPane.YES_OPTION) {
+               pst.executeUpdate(); 
+               pst.close();
+          } 
+        } catch (Exception e) {
+             JOptionPane.showMessageDialog(null, e); 
+             System.out.println("SQL : "+pst);
+        }    
+         }
 
            CrimesCaseEdit.ChargeNameCase.setText(ChargeName.getText());
            CrimesCaseEdit.jLabelChargeCode.setText(ChargeCode.getText());

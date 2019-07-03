@@ -66,7 +66,7 @@ public class IdentityView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(77, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(46, 156, 202));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.setPreferredSize(new java.awt.Dimension(1261, 52));
 

@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.json.simple.JSONObject;
@@ -29,6 +30,9 @@ public class AssetNewEdit extends javax.swing.JDialog {
     public AssetNewEdit(JFrame parrent,JSONObject datain) {
         super(parrent,true);
         initComponents();
+        ImageIcon img = new ImageIcon("D://Master//WD.png");
+        setIconImage(img.getImage());
+         setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
         crimecaseno.setVisible(false);
           crimecaseno.setText(CrimesCaseEdit.crimecaseid.getText());
         try { Connection con = ConnectDatabase.connect();
@@ -92,7 +96,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
         PointFoundCheck = new javax.swing.JTextField();
         Value = new javax.swing.JTextField();
         Amount = new javax.swing.JTextField();
-        Note = new javax.swing.JTextField();
+        Remark = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         PlaceFoundExhibit = new javax.swing.JTextField();
@@ -105,7 +109,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
 
-        jPanel4.setBackground(new java.awt.Color(77, 0, 0));
+        jPanel4.setBackground(new java.awt.Color(46, 156, 202));
 
         jLabel8.setBackground(new java.awt.Color(0, 0, 0));
         jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 36)); // NOI18N
@@ -172,7 +176,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
 
         Amount.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        Note.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Remark.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jButton1.setBackground(java.awt.SystemColor.windowText);
         jButton1.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
@@ -248,7 +252,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(crimecaseno))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(Note, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(Remark, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(StatusAsset, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
@@ -298,7 +302,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
                     .addComponent(Amount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Note, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Remark, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9)
                     .addComponent(StatusAsset, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
@@ -331,7 +335,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
              con=ConnectDatabase.connect();
         if (isInsert) {
               String sql="INSERT INTO Asset (EvidenceRecordNumber,Amount,DateSequester,DefectMark,PlaceFoundExhibit,"
-                      + "Name,Note,OccupantName,OrderAsset,PointFoundCheck,Value,caseIdAsset,StatusAsset) "           
+                      + "Name,Remark,OccupantName,OrderAsset,PointFoundCheck,Value,caseIdAsset,StatusAsset) "           
                       + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
               
                try {
@@ -342,7 +346,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
                               pst.setString(4,DefectMark.getText());
                               pst.setString(5,PlaceFoundExhibit.getText());
                               pst.setString(6,Name.getText());
-                              pst.setString(7,Note.getText());
+                              pst.setString(7,Remark.getText());
                               pst.setString(8,OccupantName.getText());
                               pst.setString(9,OrderAsset.getText());
                               pst.setString(10,PointFoundCheck.getText());
@@ -373,7 +377,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
                               pst.setString(4,DefectMark.getText());
                               pst.setString(5,PlaceFoundExhibit.getText());
                               pst.setString(6,Name.getText());
-                              pst.setString(7,Note.getText());
+                              pst.setString(7,Remark.getText());
                               pst.setString(8,OccupantName.getText());
                               pst.setString(9,OrderAsset.getText());
                               pst.setString(10,PointFoundCheck.getText());
@@ -440,11 +444,11 @@ public class AssetNewEdit extends javax.swing.JDialog {
     private javax.swing.JTextField DefectMark;
     private javax.swing.JTextField EvidenceRecordNumber1;
     private javax.swing.JTextField Name;
-    private javax.swing.JTextField Note;
     private javax.swing.JTextField OccupantName;
     private javax.swing.JTextField OrderAsset;
     private javax.swing.JTextField PlaceFoundExhibit;
     private javax.swing.JTextField PointFoundCheck;
+    private javax.swing.JTextField Remark;
     private javax.swing.JComboBox<String> StatusAsset;
     private javax.swing.JTextField Value;
     private javax.swing.JLabel crimecaseno;

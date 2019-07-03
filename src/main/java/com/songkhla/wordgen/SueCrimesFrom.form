@@ -56,16 +56,16 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jPanel5" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                          <Component id="jButtonEditSue" min="-2" pref="61" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                           <Component id="jButtonSave" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jPanel4" pref="625" max="32767" attributes="0"/>
+                          <Component id="jPanel4" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -77,25 +77,18 @@
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="240" max="-2" attributes="0"/>
-                              <Component id="jButtonEditSue" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="-2" pref="239" max="-2" attributes="0"/>
-                              <Component id="jButtonSave" min="-2" pref="34" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                          <Component id="jPanel2" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="jPanel2" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jButtonSave" alignment="3" max="32767" attributes="0"/>
+                      <Component id="jButton1" alignment="3" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="16" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -594,17 +587,6 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="jButtonEditSue">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="TH SarabunPSK" size="20" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="&#xe41;&#xe01;&#xe49;&#xe44;&#xe02;"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonEditSueActionPerformed"/>
-          </Events>
-        </Component>
         <Container class="javax.swing.JPanel" name="jPanel5">
           <Properties>
             <Property name="enabled" type="boolean" value="false"/>
@@ -614,96 +596,266 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jPanel8" max="32767" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="SueSecond" min="-2" pref="50" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="SueSecDate" min="-2" pref="140" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="SueSecEnd" min="-2" pref="147" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="SueSecTotal" min="-2" pref="98" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="SueSecRequest" max="32767" attributes="0"/>
+                          <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="jButton2" min="-2" pref="51" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                                      <Component id="SueSecDateT" min="-2" pref="199" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
                                       <Component id="SueFirst" min="-2" pref="50" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="SueFirstDate" min="-2" pref="140" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="SueFirstEnd" min="-2" pref="147" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="SueFirstDate" min="-2" pref="200" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="SueSecEnd" pref="164" max="32767" attributes="0"/>
+                                  <Component id="SueFirstEnd" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
                                       <Component id="SueFirstTotal" min="-2" pref="98" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="SueFirstRequest" max="32767" attributes="0"/>
+                                      <EmptySpace min="14" pref="14" max="-2" attributes="0"/>
+                                      <Component id="SueFirstRequest" min="-2" pref="291" max="-2" attributes="0"/>
+                                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                      <Component id="SueFirstCause" min="-2" pref="371" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="SueSecTotal" min="-2" pref="98" max="-2" attributes="0"/>
+                                      <EmptySpace min="14" pref="14" max="-2" attributes="0"/>
+                                      <Component id="SueSecRequest" min="-2" pref="291" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="SueSecCause" min="-2" pref="371" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jButton7" min="-2" pref="51" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="SevDate" min="-2" pref="199" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jButton6" min="-2" pref="51" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jButton3" alignment="1" min="-2" pref="51" max="-2" attributes="0"/>
+                                                  <Component id="jButton4" alignment="1" min="-2" pref="51" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jButton5" min="-2" pref="51" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="SixthDate" min="-2" pref="199" max="-2" attributes="0"/>
+                                                  <Component id="FifthDate" min="-2" pref="199" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Component id="ThirdDate" min="-2" pref="199" max="-2" attributes="0"/>
+                                                  <Component id="FourthDate" min="-2" pref="199" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="SueSevenEnd" min="-2" pref="164" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                      <Component id="SueSevenTotal" min="-2" pref="98" max="-2" attributes="0"/>
+                                      <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                                      <Component id="SueSevRequest" min="-2" pref="291" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="SueSixthEnd" min="-2" pref="164" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                      <Component id="SueSixthTotal" min="-2" pref="98" max="-2" attributes="0"/>
+                                      <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                                      <Component id="SueSixthRequest" min="-2" pref="291" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="SueFifthEnd" min="-2" pref="164" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                      <Component id="SueFifthTotal" min="-2" pref="98" max="-2" attributes="0"/>
+                                      <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                                      <Component id="SueFifthRequest" min="-2" pref="291" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="SueFourthEnd" min="-2" pref="164" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                      <Component id="SueFourthTotal" min="-2" pref="98" max="-2" attributes="0"/>
+                                      <EmptySpace min="14" pref="14" max="-2" attributes="0"/>
+                                      <Component id="SueFourthRequest" min="-2" pref="291" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="SueThirdEnd" min="-2" pref="164" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                      <Component id="SueThirdTotal" min="-2" pref="98" max="-2" attributes="0"/>
+                                      <EmptySpace min="14" pref="14" max="-2" attributes="0"/>
+                                      <Component id="SueThirdRequest" min="-2" pref="291" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="SueFirstCause" min="-2" pref="371" max="-2" attributes="0"/>
-                                  <Component id="SueSecCause" alignment="1" min="-2" pref="371" max="-2" attributes="0"/>
+                                  <Component id="SueSevCause" alignment="1" min="-2" pref="371" max="-2" attributes="0"/>
+                                  <Component id="SueSixthCause" alignment="1" min="-2" pref="371" max="-2" attributes="0"/>
+                                  <Component id="SueFifthCause" alignment="1" min="-2" pref="371" max="-2" attributes="0"/>
+                                  <Component id="SueFourthCause" alignment="1" min="-2" pref="371" max="-2" attributes="0"/>
+                                  <Component id="SueThirdCause" alignment="1" min="-2" pref="371" max="-2" attributes="0"/>
                               </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jTextField9" min="-2" pref="50" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField10" min="-2" pref="140" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField11" min="-2" pref="147" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField12" min="-2" pref="98" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="SueSecRequest1" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="SueSecCause1" min="-2" pref="371" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
                       <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="SueFirstEnd" max="32767" attributes="0"/>
-                          <Component id="SueFirstDate" max="32767" attributes="0"/>
-                          <Component id="SueFirstCause" alignment="0" pref="29" max="32767" attributes="0"/>
-                          <Component id="SueFirst" alignment="0" max="32767" attributes="0"/>
-                          <Component id="SueFirstTotal" alignment="0" max="32767" attributes="0"/>
-                          <Component id="SueFirstRequest" alignment="0" max="32767" attributes="0"/>
+                      <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="SueFirstTotal" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="SueFirstEnd" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="SueFirstDate" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="SueFirst" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="SueFirstRequest" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="SueFirstCause" min="-2" pref="29" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="SueSecTotal" alignment="0" max="32767" attributes="0"/>
-                          <Component id="SueSecDate" alignment="0" max="32767" attributes="0"/>
-                          <Component id="SueSecEnd" alignment="0" max="32767" attributes="0"/>
-                          <Component id="SueSecCause" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="SueSecond" min="-2" pref="29" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                              <Component id="SueSecRequest" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="SueSecCause" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="SueSecRequest" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jButton2" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                              <Component id="SueSecDateT" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="SueSecEnd" alignment="0" pref="37" max="32767" attributes="0"/>
+                              <Component id="SueSecTotal" alignment="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextField9" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-                              <Component id="jTextField10" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                      <Component id="SueThirdTotal" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                                      <Component id="SueThirdEnd" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
+                                      <Component id="SueThirdRequest" min="-2" pref="29" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                      <Component id="jButton3" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                      <Component id="ThirdDate" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                          <Component id="SueFourthTotal" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                          <Component id="SueFourthEnd" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
+                                          <Component id="SueFourthRequest" min="-2" pref="30" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jButton4" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                          <Component id="FourthDate" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                          <Component id="SueFifthTotal" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                          <Component id="SueFifthEnd" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="SueFifthRequest" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jButton6" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                      <Component id="FifthDate" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                          <Component id="SueSixthTotal" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                          <Component id="SueSixthEnd" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="SueSixthRequest" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jButton5" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                      <Component id="SixthDate" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                      <Component id="SueSevenTotal" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="SueSevenEnd" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="SueSevRequest" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="jButton7" pref="31" max="32767" attributes="0"/>
+                                  <Component id="SevDate" alignment="0" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
-                          <Component id="jTextField11" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jTextField12" alignment="0" max="32767" attributes="0"/>
-                          <Component id="SueSecRequest1" alignment="0" max="32767" attributes="0"/>
-                          <Component id="SueSecCause1" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                              <Component id="SueThirdCause" min="-2" pref="29" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                              <Component id="SueFourthCause" min="-2" pref="29" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                              <Component id="SueFifthCause" min="-2" pref="29" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                              <Component id="SueSixthCause" min="-2" pref="29" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                              <Component id="SueSevCause" min="-2" pref="29" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="227" max="-2" attributes="0"/>
+                      <EmptySpace pref="20" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -720,9 +872,13 @@
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="SueFirstTotal">
+              <Properties>
+                <Property name="text" type="java.lang.String" value=" "/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="SueFirstRequest">
               <Properties>
+                <Property name="editable" type="boolean" value="true"/>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
                     <StringItem index="0" value="-"/>
@@ -738,12 +894,16 @@
             </Component>
             <Component class="javax.swing.JComboBox" name="SueFirstCause">
               <Properties>
+                <Property name="editable" type="boolean" value="true"/>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
+                  <StringArray count="7">
                     <StringItem index="0" value="-"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
+                    <StringItem index="1" value="&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe22;&#xe32;&#xe19;&#xe2d;&#xe35;&#xe01; 5 &#xe1b;&#xe32;&#xe01; &#xe41;&#xe25;&#xe30;&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                    <StringItem index="2" value="&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe22;&#xe32;&#xe19;&#xe2d;&#xe35;&#xe01; 4 &#xe1b;&#xe32;&#xe01; &#xe41;&#xe25;&#xe30;&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                    <StringItem index="3" value="&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe22;&#xe32;&#xe19;&#xe2d;&#xe35;&#xe01; 3 &#xe1b;&#xe32;&#xe01; &#xe41;&#xe25;&#xe30;&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                    <StringItem index="4" value="&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe22;&#xe32;&#xe19;&#xe2d;&#xe35;&#xe01; 2 &#xe1b;&#xe32;&#xe01; &#xe41;&#xe25;&#xe30;&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                    <StringItem index="5" value="&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe22;&#xe32;&#xe19;&#xe2d;&#xe35;&#xe01; 1 &#xe1b;&#xe32;&#xe01; &#xe41;&#xe25;&#xe30;&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                    <StringItem index="6" value="&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -752,6 +912,16 @@
               </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="SueFirst">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ca" green="9c" red="2e" type="rgb"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+              </Properties>
             </Component>
             <Container class="javax.swing.JPanel" name="jPanel8">
               <Properties>
@@ -766,15 +936,15 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="127" max="-2" attributes="0"/>
                           <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
                           <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="224" max="-2" attributes="0"/>
+                          <EmptySpace pref="176" max="32767" attributes="0"/>
                           <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="260" max="-2" attributes="0"/>
                           <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
                       </Group>
@@ -866,9 +1036,13 @@
               </SubComponents>
             </Container>
             <Component class="javax.swing.JTextField" name="SueSecTotal">
+              <Properties>
+                <Property name="text" type="java.lang.String" value=" "/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="SueSecRequest">
               <Properties>
+                <Property name="editable" type="boolean" value="true"/>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
                     <StringItem index="0" value="-"/>
@@ -882,13 +1056,10 @@
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JTextField" name="SueSecond">
-            </Component>
-            <Component class="javax.swing.JTextField" name="SueSecDate">
-            </Component>
             <Component class="javax.swing.JTextField" name="SueSecEnd">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
+                <Property name="text" type="java.lang.String" value=" "/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SueSecEndActionPerformed"/>
@@ -896,12 +1067,16 @@
             </Component>
             <Component class="javax.swing.JComboBox" name="SueSecCause">
               <Properties>
+                <Property name="editable" type="boolean" value="true"/>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
+                  <StringArray count="7">
                     <StringItem index="0" value="-"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
+                    <StringItem index="1" value="&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe22;&#xe32;&#xe19;&#xe2d;&#xe35;&#xe01; 5 &#xe1b;&#xe32;&#xe01; &#xe41;&#xe25;&#xe30;&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                    <StringItem index="2" value="&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe22;&#xe32;&#xe19;&#xe2d;&#xe35;&#xe01; 4 &#xe1b;&#xe32;&#xe01; &#xe41;&#xe25;&#xe30;&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                    <StringItem index="3" value="&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe22;&#xe32;&#xe19;&#xe2d;&#xe35;&#xe01; 3 &#xe1b;&#xe32;&#xe01; &#xe41;&#xe25;&#xe30;&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                    <StringItem index="4" value="&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe22;&#xe32;&#xe19;&#xe2d;&#xe35;&#xe01; 2 &#xe1b;&#xe32;&#xe01; &#xe41;&#xe25;&#xe30;&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                    <StringItem index="5" value="&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe22;&#xe32;&#xe19;&#xe2d;&#xe35;&#xe01; 1 &#xe1b;&#xe32;&#xe01; &#xe41;&#xe25;&#xe30;&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                    <StringItem index="6" value="&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -909,22 +1084,26 @@
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField9">
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextField10">
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextField11">
+            <Component class="javax.swing.JTextField" name="SueThirdEnd">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
+                <Property name="text" type="java.lang.String" value=" "/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField11ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SueThirdEndActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField12">
-            </Component>
-            <Component class="javax.swing.JComboBox" name="SueSecRequest1">
+            <Component class="javax.swing.JTextField" name="SueThirdTotal">
               <Properties>
+                <Property name="text" type="java.lang.String" value=" "/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SueThirdTotalActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="SueThirdRequest">
+              <Properties>
+                <Property name="editable" type="boolean" value="true"/>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
                     <StringItem index="0" value="-"/>
@@ -938,8 +1117,45 @@
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JComboBox" name="SueSecCause1">
+            <Component class="javax.swing.JComboBox" name="SueSevCause">
               <Properties>
+                <Property name="editable" type="boolean" value="true"/>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="7">
+                    <StringItem index="0" value="-"/>
+                    <StringItem index="1" value="&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe22;&#xe32;&#xe19;&#xe2d;&#xe35;&#xe01; 5 &#xe1b;&#xe32;&#xe01; &#xe41;&#xe25;&#xe30;&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                    <StringItem index="2" value="&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe22;&#xe32;&#xe19;&#xe2d;&#xe35;&#xe01; 4 &#xe1b;&#xe32;&#xe01; &#xe41;&#xe25;&#xe30;&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                    <StringItem index="3" value="&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe22;&#xe32;&#xe19;&#xe2d;&#xe35;&#xe01; 3 &#xe1b;&#xe32;&#xe01; &#xe41;&#xe25;&#xe30;&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                    <StringItem index="4" value="&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe22;&#xe32;&#xe19;&#xe2d;&#xe35;&#xe01; 2 &#xe1b;&#xe32;&#xe01; &#xe41;&#xe25;&#xe30;&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                    <StringItem index="5" value="&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe22;&#xe32;&#xe19;&#xe2d;&#xe35;&#xe01; 1 &#xe1b;&#xe32;&#xe01; &#xe41;&#xe25;&#xe30;&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                    <StringItem index="6" value="&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JTextField" name="SueSevenEnd">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+                <Property name="text" type="java.lang.String" value=" "/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SueSevenEndActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="SueSevenTotal">
+              <Properties>
+                <Property name="text" type="java.lang.String" value=" "/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SueSevenTotalActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="SueSevRequest">
+              <Properties>
+                <Property name="editable" type="boolean" value="true"/>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
                     <StringItem index="0" value="-"/>
@@ -952,6 +1168,244 @@
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
+            </Component>
+            <Component class="javax.swing.JTextField" name="SueFourthEnd">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+                <Property name="text" type="java.lang.String" value=" "/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SueFourthEndActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="SueFifthEnd">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+                <Property name="text" type="java.lang.String" value=" "/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SueFifthEndActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="SueSixthEnd">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+                <Property name="text" type="java.lang.String" value=" "/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SueSixthEndActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="SueFourthTotal">
+              <Properties>
+                <Property name="text" type="java.lang.String" value=" "/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SueFourthTotalActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="SueFifthTotal">
+              <Properties>
+                <Property name="text" type="java.lang.String" value=" "/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SueFifthTotalActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="SueSixthTotal">
+              <Properties>
+                <Property name="text" type="java.lang.String" value=" "/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SueSixthTotalActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="SueFourthRequest">
+              <Properties>
+                <Property name="editable" type="boolean" value="true"/>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="4">
+                    <StringItem index="0" value="-"/>
+                    <StringItem index="1" value="Item 2"/>
+                    <StringItem index="2" value="Item 3"/>
+                    <StringItem index="3" value="Item 4"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="SueFifthRequest">
+              <Properties>
+                <Property name="editable" type="boolean" value="true"/>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="4">
+                    <StringItem index="0" value="-"/>
+                    <StringItem index="1" value="Item 2"/>
+                    <StringItem index="2" value="Item 3"/>
+                    <StringItem index="3" value="Item 4"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="SueSixthRequest">
+              <Properties>
+                <Property name="editable" type="boolean" value="true"/>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="4">
+                    <StringItem index="0" value="-"/>
+                    <StringItem index="1" value="Item 2"/>
+                    <StringItem index="2" value="Item 3"/>
+                    <StringItem index="3" value="Item 4"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="SueThirdCause">
+              <Properties>
+                <Property name="editable" type="boolean" value="true"/>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="7">
+                    <StringItem index="0" value="-"/>
+                    <StringItem index="1" value="&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe22;&#xe32;&#xe19;&#xe2d;&#xe35;&#xe01; 5 &#xe1b;&#xe32;&#xe01; &#xe41;&#xe25;&#xe30;&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                    <StringItem index="2" value="&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe22;&#xe32;&#xe19;&#xe2d;&#xe35;&#xe01; 4 &#xe1b;&#xe32;&#xe01; &#xe41;&#xe25;&#xe30;&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                    <StringItem index="3" value="&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe22;&#xe32;&#xe19;&#xe2d;&#xe35;&#xe01; 3 &#xe1b;&#xe32;&#xe01; &#xe41;&#xe25;&#xe30;&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                    <StringItem index="4" value="&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe22;&#xe32;&#xe19;&#xe2d;&#xe35;&#xe01; 2 &#xe1b;&#xe32;&#xe01; &#xe41;&#xe25;&#xe30;&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                    <StringItem index="5" value="&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe22;&#xe32;&#xe19;&#xe2d;&#xe35;&#xe01; 1 &#xe1b;&#xe32;&#xe01; &#xe41;&#xe25;&#xe30;&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                    <StringItem index="6" value="&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="SueFourthCause">
+              <Properties>
+                <Property name="editable" type="boolean" value="true"/>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="7">
+                    <StringItem index="0" value="-"/>
+                    <StringItem index="1" value="&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe22;&#xe32;&#xe19;&#xe2d;&#xe35;&#xe01; 5 &#xe1b;&#xe32;&#xe01; &#xe41;&#xe25;&#xe30;&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                    <StringItem index="2" value="&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe22;&#xe32;&#xe19;&#xe2d;&#xe35;&#xe01; 4 &#xe1b;&#xe32;&#xe01; &#xe41;&#xe25;&#xe30;&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                    <StringItem index="3" value="&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe22;&#xe32;&#xe19;&#xe2d;&#xe35;&#xe01; 3 &#xe1b;&#xe32;&#xe01; &#xe41;&#xe25;&#xe30;&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                    <StringItem index="4" value="&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe22;&#xe32;&#xe19;&#xe2d;&#xe35;&#xe01; 2 &#xe1b;&#xe32;&#xe01; &#xe41;&#xe25;&#xe30;&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                    <StringItem index="5" value="&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe22;&#xe32;&#xe19;&#xe2d;&#xe35;&#xe01; 1 &#xe1b;&#xe32;&#xe01; &#xe41;&#xe25;&#xe30;&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                    <StringItem index="6" value="&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="SueFifthCause">
+              <Properties>
+                <Property name="editable" type="boolean" value="true"/>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="7">
+                    <StringItem index="0" value="-"/>
+                    <StringItem index="1" value="&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe22;&#xe32;&#xe19;&#xe2d;&#xe35;&#xe01; 5 &#xe1b;&#xe32;&#xe01; &#xe41;&#xe25;&#xe30;&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                    <StringItem index="2" value="&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe22;&#xe32;&#xe19;&#xe2d;&#xe35;&#xe01; 4 &#xe1b;&#xe32;&#xe01; &#xe41;&#xe25;&#xe30;&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                    <StringItem index="3" value="&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe22;&#xe32;&#xe19;&#xe2d;&#xe35;&#xe01; 3 &#xe1b;&#xe32;&#xe01; &#xe41;&#xe25;&#xe30;&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                    <StringItem index="4" value="&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe22;&#xe32;&#xe19;&#xe2d;&#xe35;&#xe01; 2 &#xe1b;&#xe32;&#xe01; &#xe41;&#xe25;&#xe30;&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                    <StringItem index="5" value="&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe22;&#xe32;&#xe19;&#xe2d;&#xe35;&#xe01; 1 &#xe1b;&#xe32;&#xe01; &#xe41;&#xe25;&#xe30;&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                    <StringItem index="6" value="&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="SueSixthCause">
+              <Properties>
+                <Property name="editable" type="boolean" value="true"/>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="7">
+                    <StringItem index="0" value="-"/>
+                    <StringItem index="1" value="&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe22;&#xe32;&#xe19;&#xe2d;&#xe35;&#xe01; 5 &#xe1b;&#xe32;&#xe01; &#xe41;&#xe25;&#xe30;&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                    <StringItem index="2" value="&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe22;&#xe32;&#xe19;&#xe2d;&#xe35;&#xe01; 4 &#xe1b;&#xe32;&#xe01; &#xe41;&#xe25;&#xe30;&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                    <StringItem index="3" value="&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe22;&#xe32;&#xe19;&#xe2d;&#xe35;&#xe01; 3 &#xe1b;&#xe32;&#xe01; &#xe41;&#xe25;&#xe30;&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                    <StringItem index="4" value="&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe22;&#xe32;&#xe19;&#xe2d;&#xe35;&#xe01; 2 &#xe1b;&#xe32;&#xe01; &#xe41;&#xe25;&#xe30;&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                    <StringItem index="5" value="&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe22;&#xe32;&#xe19;&#xe2d;&#xe35;&#xe01; 1 &#xe1b;&#xe32;&#xe01; &#xe41;&#xe25;&#xe30;&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                    <StringItem index="6" value="&#xe23;&#xe2d;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="2"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton3">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="3"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton4">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="4"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton5">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="6"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton6">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="5"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton7">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="7"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="SevDate">
+              <Properties>
+                <Property name="text" type="java.lang.String" value=" "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="SixthDate">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="  "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="FifthDate">
+              <Properties>
+                <Property name="text" type="java.lang.String" value=" "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="FourthDate">
+              <Properties>
+                <Property name="text" type="java.lang.String" value=" "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="ThirdDate">
+              <Properties>
+                <Property name="text" type="java.lang.String" value=" "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="SueSecDateT">
+              <Properties>
+                <Property name="text" type="java.lang.String" value=" "/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
@@ -962,6 +1416,11 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSaveActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe40;&#xe2d;&#xe01;&#xe2a;&#xe32;&#xe23;"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

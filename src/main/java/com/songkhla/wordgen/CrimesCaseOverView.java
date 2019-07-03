@@ -60,13 +60,14 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButtonSearch = new javax.swing.JButton();
-        jButtonAdd = new javax.swing.JButton();
-        jButtonEdit = new javax.swing.JButton();
-        txtSearchCase = new javax.swing.JTextField();
         jButtonDelete = new javax.swing.JButton();
+        txtSearchCase = new javax.swing.JTextField();
+        jButtonEdit = new javax.swing.JButton();
+        jButtonAdd = new javax.swing.JButton();
+        jButtonSearch = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -81,21 +82,19 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("ข้อมูลคดีอาญา");
 
-        jButtonSearch.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButtonSearch.setText("ค้นหา");
-        jButtonSearch.addActionListener(new java.awt.event.ActionListener() {
+        jButtonDelete.setBackground(new java.awt.Color(255, 51, 0));
+        jButtonDelete.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jButtonDelete.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonDelete.setText("ลบ");
+        jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSearchActionPerformed(evt);
+                jButtonDeleteActionPerformed(evt);
             }
         });
 
-        jButtonAdd.setBackground(new java.awt.Color(255, 51, 0));
-        jButtonAdd.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButtonAdd.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonAdd.setText("เพิ่ม");
-        jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
+        txtSearchCase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAddActionPerformed(evt);
+                txtSearchCaseActionPerformed(evt);
             }
         });
 
@@ -109,19 +108,21 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
             }
         });
 
-        txtSearchCase.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAdd.setBackground(new java.awt.Color(255, 51, 0));
+        jButtonAdd.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jButtonAdd.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonAdd.setText("เพิ่ม");
+        jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSearchCaseActionPerformed(evt);
+                jButtonAddActionPerformed(evt);
             }
         });
 
-        jButtonDelete.setBackground(new java.awt.Color(255, 51, 0));
-        jButtonDelete.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButtonDelete.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonDelete.setText("ลบ");
-        jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSearch.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jButtonSearch.setText("ค้นหา");
+        jButtonSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonDeleteActionPerformed(evt);
+                jButtonSearchActionPerformed(evt);
             }
         });
 
@@ -130,27 +131,27 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(56, 56, 56)
+                .addGap(55, 55, 55)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButtonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
+                        .addComponent(jButtonEdit)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtSearchCase, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(622, Short.MAX_VALUE))
+                .addContainerGap(676, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(32, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSearchCase, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonSearch)
@@ -192,23 +193,43 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
         jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable1);
 
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 43, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1248, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(280, 280, 280)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(267, Short.MAX_VALUE))
+                .addGap(109, 109, 109)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(105, Short.MAX_VALUE))
         );
 
         pack();
@@ -419,20 +440,20 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
     private String getFilterCondition(){
         HashMap<String,String> filter = new HashMap<String,String>();
         if(txtSearchCase.getText().trim().length()>0){
-            filter.put("crimecaseno", txtSearchCase.getText().trim());
-//            filter.put("AccureandOther", txtSearchCase.getText().trim());
+            filter.put("crimecasenoyear", txtSearchCase.getText().trim());
+            filter.put("AccureandOther", txtSearchCase.getText().trim());
         }
         
         String[] key = filter.keySet().toArray(new String[0]);
         String result="";
         for(int i=0;i<key.length;i++){
             if(i==0){
-                result=" or ";
+                result=" and ";
             }
             if(i==key.length-1){
                 result+= " "+key[i]+" LIKE '%"+filter.get(key[i])+"%'";
             }else{
-                result+= " "+key[i]+" LIKE "+filter.get(key[i])+" or ";
+                result+= " "+key[i]+" LIKE '%"+filter.get(key[i])+"%' or ";
             }
             System.out.println(result);
         }
@@ -447,6 +468,7 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
     private javax.swing.JButton jButtonSearch;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField txtSearchCase;

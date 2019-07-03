@@ -249,6 +249,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate;
         jLabel1 = new javax.swing.JLabel();
         CaseType = new javax.swing.JLabel();
         crimecaseid = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jButtonCharge = new javax.swing.JButton();
@@ -346,9 +347,9 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate;
         jLabel42 = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
+        jButtonSaveCase = new javax.swing.JButton();
         jLabelChargeCode = new javax.swing.JLabel();
         jLabelActionCode = new javax.swing.JLabel();
-        jButtonSaveCase = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -378,7 +379,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate;
                 .addComponent(CaseType)
                 .addGap(18, 18, 18)
                 .addComponent(crimecaseid)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(977, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -924,10 +925,6 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate;
 
         jTabbedPane2.addTab("ข้อมูลบุคคล", jPanel5);
 
-        jLabelChargeCode.setText("CodeCharge");
-
-        jLabelActionCode.setText("jLabel2");
-
         jButtonSaveCase.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButtonSaveCase.setText("บันทึก");
         jButtonSaveCase.addActionListener(new java.awt.event.ActionListener() {
@@ -936,37 +933,57 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate;
             }
         });
 
+        jLabelChargeCode.setText("CodeCharge");
+
+        jLabelActionCode.setText("jLabel2");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jButtonSaveCase, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelChargeCode)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabelActionCode)
+                        .addGap(85, 85, 85))))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabelChargeCode)
+                        .addComponent(jLabelActionCode))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButtonSaveCase)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 548, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(102, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(68, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonSaveCase, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 430, Short.MAX_VALUE)
-                        .addComponent(jLabelChargeCode)
-                        .addGap(45, 45, 45)
-                        .addComponent(jLabelActionCode)
-                        .addGap(563, 563, 563))))
+            .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelChargeCode)
-                    .addComponent(jLabelActionCode)
-                    .addComponent(jButtonSaveCase))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 548, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -1057,9 +1074,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate;
                 
       int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
         JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-    if (response == JOptionPane.NO_OPTION) {
-      System.out.println("No button clicked");
-    } else if (response == JOptionPane.YES_OPTION) {
+  if (response == JOptionPane.YES_OPTION) {
          pst.executeUpdate(); 
          pst.close();
          System.out.println("SQL : "+sql);
@@ -1072,9 +1087,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate;
         n.setLocationRelativeTo(null);
         n.setVisible(true);
 
-    } else if (response == JOptionPane.CLOSED_OPTION) {
-      System.out.println("JOptionPane closed");
-    }
+    } 
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e);
                 System.out.println("SQL : "+pst);
@@ -1178,9 +1191,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate;
                 
                int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
         JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-    if (response == JOptionPane.NO_OPTION) {
-      System.out.println("No button clicked");
-    } else if (response == JOptionPane.YES_OPTION) {
+  if (response == JOptionPane.YES_OPTION) {
          pst.executeUpdate(); 
          pst.close();
          System.out.println("SQL : "+sqlUpdate);
@@ -1193,9 +1204,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate;
         n.setLocationRelativeTo(null);
         n.setVisible(true);
 
-    } else if (response == JOptionPane.CLOSED_OPTION) {
-      System.out.println("JOptionPane closed");
-    }
+    } 
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e);
                 System.out.println("SQL : "+pst);
@@ -1623,6 +1632,7 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
