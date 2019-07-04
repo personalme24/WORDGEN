@@ -154,7 +154,7 @@ public class W26 {
                         bookmarkvalue.put("P04", LastName);
                         bookmarkvalue.put("P05", Position);
                          
-                           bookmarkvalue.put("C4",ToDate(s.getString("OccuredDate")));
+                            bookmarkvalue.put("C4",ToDate(s.getString("OccuredDate")));
                             bookmarkvalue.put("C441", s.getString("OccuredTime"));
                             
                             bookmarkvalue.put("C5", ToDate(s.getString("CaseAcceptDate")));
