@@ -89,8 +89,6 @@ public class SueCrimesOverview extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableSue = new javax.swing.JTable();
         jButtonAddSue = new javax.swing.JButton();
-        textSearch = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
         jPanelDate = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
 
@@ -180,12 +178,6 @@ public class SueCrimesOverview extends javax.swing.JFrame {
         });
         jPanel1.add(jButtonAddSue, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 127, -1, 30));
 
-        textSearch.setPreferredSize(new java.awt.Dimension(59, 30));
-        jPanel1.add(textSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 65, 218, -1));
-
-        jTextField2.setPreferredSize(new java.awt.Dimension(59, 30));
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(273, 65, 218, -1));
-
         javax.swing.GroupLayout jPanelDateLayout = new javax.swing.GroupLayout(jPanelDate);
         jPanelDate.setLayout(jPanelDateLayout);
         jPanelDateLayout.setHorizontalGroup(
@@ -197,15 +189,15 @@ public class SueCrimesOverview extends javax.swing.JFrame {
             .addGap(0, 32, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanelDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(509, 65, -1, -1));
+        jPanel1.add(jPanelDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
 
-        jButton1.setText("jButton1");
+        jButton1.setText("ค้นหา");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 70, -1, 30));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, -1, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -250,8 +242,12 @@ public class SueCrimesOverview extends javax.swing.JFrame {
                     data.put("SueFirst", rs.getString("SueFirst"));
                     data.put("SueFirstTotal", rs.getString("SueFirstTotal"));
                      data.put("PlaceArrest", rs.getString("PlaceArrest"));
+                      data.put("ArrestDateTime", rs.getString("ArrestDateTime"));                    
                     data.put("SueFirstTotal", rs.getString("SueFirstTotal"));
                     data.put("SueFirstEnd", rs.getString("SueFirstEnd"));
+                     data.put("SueSecDate", rs.getString("SueSecDate"));
+                      data.put("SueSecTotal", rs.getString("SueSecTotal"));
+                    
                     data.put("NoPerson", rs.getString("NoPerson"));
                     data.put("caseIdPerson", rs.getString("caseIdPerson"));
                     
@@ -414,9 +410,9 @@ public class SueCrimesOverview extends javax.swing.JFrame {
     }
      private String getFilterCondition(){
         HashMap<String,String> filter = new HashMap<String,String>();
-        if(textSearch.getText() != null){
-            filter.put("FullNamePerson", textSearch.getText().trim());
-        }
+//        if(textSearch.getText() != null){
+//            filter.put("FullNamePerson", textSearch.getText().trim());
+//        }
         
         String[] key = filter.keySet().toArray(new String[0]);
         String result="";
@@ -444,7 +440,5 @@ public class SueCrimesOverview extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelDate;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableSue;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField textSearch;
     // End of variables declaration//GEN-END:variables
 }

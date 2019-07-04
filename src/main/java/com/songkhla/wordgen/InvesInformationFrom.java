@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Vector;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.json.simple.JSONObject;
@@ -31,7 +32,9 @@ public class InvesInformationFrom extends javax.swing.JDialog {
     public InvesInformationFrom(JFrame parrent,JSONObject datain) {
         super(parrent,true);
         initComponents();
-       
+            ImageIcon img = new ImageIcon("D://Master//WD.png");
+            setIconImage(img.getImage());
+            setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
         if(datain != null){
            InvestId.setText(datain.get("InvestId")+"");
            InvestCardID.setText(datain.get("InvestCardID")+"");
@@ -85,7 +88,7 @@ public class InvesInformationFrom extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
 
-        jPanel3.setBackground(new java.awt.Color(77, 0, 0));
+        jPanel3.setBackground(new java.awt.Color(46, 156, 202));
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
 

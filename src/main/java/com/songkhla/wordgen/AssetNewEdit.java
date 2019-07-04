@@ -5,13 +5,20 @@
  */
 package com.songkhla.wordgen;
 
+import java.awt.Color;
+import java.awt.FlowLayout;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Calendar;
+import java.util.Properties;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import org.jdatepicker.impl.JDatePanelImpl;
+import org.jdatepicker.impl.JDatePickerImpl;
+import org.jdatepicker.impl.UtilDateModel;
 import org.json.simple.JSONObject;
 
 /**
@@ -23,7 +30,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
      PreparedStatement pst=null;
        boolean isInsert;
         String caseid;
-   
+   JDatePickerImpl DateSequester;
     /**
      * Creates new form AssetNewEdit
      */
@@ -55,7 +62,18 @@ public class AssetNewEdit extends javax.swing.JDialog {
           
         } catch (Exception e) {
         }
-     
+        UtilDateModel model = new UtilDateModel();
+            model.setValue(Calendar.getInstance().getTime());
+            Properties p = new Properties();
+            p.put("text.today", "Today");
+            p.put("text.month", "Month");
+            p.put("text.year", "Year");
+        JDatePanelImpl datePanel = new JDatePanelImpl(model, p);
+         DateSequester = new JDatePickerImpl(datePanel,new DateLabelFormatter());
+        DateSequester.setTextEditable(true);
+        DateSequester.setBackground(Color.WHITE);
+        jPanelDateAsset.setLayout(new FlowLayout());
+        jPanelDateAsset.add(DateSequester);    
         if(datain!=null){
  
             crimecaseno.setText(datain.get("crimecaseno")+"");
@@ -91,7 +109,6 @@ public class AssetNewEdit extends javax.swing.JDialog {
         jLabel10 = new javax.swing.JLabel();
         Name = new javax.swing.JTextField();
         OccupantName = new javax.swing.JTextField();
-        DateSequester = new javax.swing.JTextField();
         DefectMark = new javax.swing.JTextField();
         PointFoundCheck = new javax.swing.JTextField();
         Value = new javax.swing.JTextField();
@@ -105,13 +122,14 @@ public class AssetNewEdit extends javax.swing.JDialog {
         jRecord = new javax.swing.JLabel();
         EvidenceRecordNumber1 = new javax.swing.JTextField();
         StatusAsset = new javax.swing.JComboBox<>();
+        jPanelDateAsset = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
 
-        jPanel4.setBackground(new java.awt.Color(77, 0, 0));
+        jPanel4.setBackground(new java.awt.Color(46, 156, 202));
 
-        jLabel8.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel8.setBackground(new java.awt.Color(46, 156, 202));
         jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 36)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("เพิ่มข้อมูลทรัพย์");
@@ -166,8 +184,6 @@ public class AssetNewEdit extends javax.swing.JDialog {
 
         OccupantName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        DateSequester.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-
         DefectMark.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         PointFoundCheck.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
@@ -204,6 +220,17 @@ public class AssetNewEdit extends javax.swing.JDialog {
         StatusAsset.setFont(new java.awt.Font("TH SarabunPSK", 0, 18)); // NOI18N
         StatusAsset.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ของกลาง", "ประทุษร้าย", "ได้คืน", "ไม่ได้คืน", "เพลิงไหม้", " " }));
 
+        javax.swing.GroupLayout jPanelDateAssetLayout = new javax.swing.GroupLayout(jPanelDateAsset);
+        jPanelDateAsset.setLayout(jPanelDateAssetLayout);
+        jPanelDateAssetLayout.setHorizontalGroup(
+            jPanelDateAssetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 205, Short.MAX_VALUE)
+        );
+        jPanelDateAssetLayout.setVerticalGroup(
+            jPanelDateAssetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 32, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -221,10 +248,12 @@ public class AssetNewEdit extends javax.swing.JDialog {
                             .addComponent(jLabel5)
                             .addComponent(jLabel2))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(DateSequester, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Name)
-                            .addComponent(OccupantName, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(Name)
+                                .addComponent(OccupantName, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanelDateAsset, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
@@ -255,7 +284,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
                                         .addComponent(Remark, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(StatusAsset, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 98, Short.MAX_VALUE)))))
+                                .addGap(0, 104, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -268,7 +297,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
                     .addComponent(crimecaseno)
                     .addComponent(jRecord)
                     .addComponent(EvidenceRecordNumber1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -277,9 +306,9 @@ public class AssetNewEdit extends javax.swing.JDialog {
                     .addComponent(jLabel5)
                     .addComponent(OccupantName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
-                    .addComponent(DateSequester, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanelDateAsset, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DefectMark, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -335,14 +364,14 @@ public class AssetNewEdit extends javax.swing.JDialog {
              con=ConnectDatabase.connect();
         if (isInsert) {
               String sql="INSERT INTO Asset (EvidenceRecordNumber,Amount,DateSequester,DefectMark,PlaceFoundExhibit,"
-                      + "Name,Note,OccupantName,OrderAsset,PointFoundCheck,Value,caseIdAsset,StatusAsset) "           
+                      + "Name,Remark,OccupantName,OrderAsset,PointFoundCheck,Value,caseIdAsset,StatusAsset) "           
                       + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
               
                try {
             pst=con.prepareStatement(sql);
                               pst.setString(1,EvidenceRecordNumber1.getText());
                               pst.setString(2,Amount.getText());
-                              pst.setString(3,DateSequester.getText());
+                              pst.setString(3,DateSequester.getJFormattedTextField().getText());
                               pst.setString(4,DefectMark.getText());
                               pst.setString(5,PlaceFoundExhibit.getText());
                               pst.setString(6,Name.getText());
@@ -358,7 +387,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
                               
                               pst.executeUpdate();
                               
-                              JOptionPane.showMessageDialog(jPanel1, "Data Save",null, JOptionPane.INFORMATION_MESSAGE);
+                              JOptionPane.showMessageDialog(jPanel1, "บันทึกข้อมูล",null, JOptionPane.INFORMATION_MESSAGE);
                              pst.close();
                         
         } catch (Exception e) {
@@ -376,7 +405,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
             pst=con.prepareStatement(sqlUpdate);
                               pst.setString(1,OrderAsset.getText());
                               pst.setString(2,Amount.getText());
-                              pst.setString(3,DateSequester.getText());
+                              pst.setString(3,DateSequester.getJFormattedTextField().getText());
                               pst.setString(4,DefectMark.getText());
                               pst.setString(5,PlaceFoundExhibit.getText());
                               pst.setString(6,Name.getText());
@@ -443,7 +472,6 @@ public class AssetNewEdit extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Amount;
-    private javax.swing.JTextField DateSequester;
     private javax.swing.JTextField DefectMark;
     private javax.swing.JTextField EvidenceRecordNumber1;
     private javax.swing.JTextField Name;
@@ -469,6 +497,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanelDateAsset;
     private javax.swing.JLabel jRecord;
     // End of variables declaration//GEN-END:variables
 }

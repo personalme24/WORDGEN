@@ -16,6 +16,7 @@ import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
 import java.util.Properties;
 import java.util.Vector;
@@ -99,6 +100,7 @@ public class BailCrimesForm extends javax.swing.JFrame {
         jComboStatus = new javax.swing.JComboBox<>();
         AddEditBail = new javax.swing.JButton();
         jPanelDateSearch = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1270, 700));
@@ -298,6 +300,13 @@ public class BailCrimesForm extends javax.swing.JFrame {
             .addGap(0, 37, Short.MAX_VALUE)
         );
 
+        jButton1.setText("ค้นหา");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -313,7 +322,9 @@ public class BailCrimesForm extends javax.swing.JFrame {
                         .addComponent(AddEditBail)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanelDateSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1)
+                        .addGap(24, 24, 24)
                         .addComponent(jCheckOnly)
                         .addGap(18, 18, 18)
                         .addComponent(jComboStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -328,15 +339,15 @@ public class BailCrimesForm extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(AddEditBail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jCheckOnly)
-                            .addComponent(jComboStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jPanelDateSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(AddEditBail)
+                    .addComponent(jPanelDateSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jCheckOnly)
+                        .addComponent(jComboStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(232, Short.MAX_VALUE))
+                .addGap(232, 232, 232))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -369,7 +380,7 @@ public class BailCrimesForm extends javax.swing.JFrame {
                 String fullname = jTableBail.getModel().getValueAt(jTableBail.getSelectedRow(), 1)+"";
 
                 String sql="select crimecasenoyear,NoPerson,crimecaseno,Investigator_Result,TypePerson,BailDate,"
-                        + "PeopleRegistrationID,FullNamePerson,StatusSuspect,CaseId,CaseIdPerson,"
+                        + "PeopleRegistrationID,PlaceArrest,ArrestDateTime,FullNamePerson,StatusSuspect,CaseId,CaseIdPerson,"
                         + "CaseAcceptDate,ChargeCode,ChargeName\n" +
                      "from Person\n" +
                      "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId\n"+
@@ -389,6 +400,9 @@ public class BailCrimesForm extends javax.swing.JFrame {
                     data.put("FullNamePerson", rs.getString("FullNamePerson"));
                     data.put("CaseIdPerson", rs.getString("CaseIdPerson"));
                     data.put("NoPerson", rs.getString("NoPerson"));
+                                        data.put("PlaceArrest", rs.getString("PlaceArrest"));
+                    data.put("ArrestDateTime", rs.getString("ArrestDateTime"));
+
 
                     BailCrimesAdd bca =new BailCrimesAdd(this,data);
                     bca.pack();
@@ -431,7 +445,7 @@ public class BailCrimesForm extends javax.swing.JFrame {
                 SuspectFullName.setText(rs.getString("FullNamePerson"));
                 ChargeName.setText(rs.getString("ChargeName"));
                 PlaceArrest.setText(rs.getString("PlaceArrest"));
-
+                ArrestDate.setText(rs.getString("ArrestDateTime"));
             }
 
             rs.close();
@@ -448,6 +462,11 @@ public class BailCrimesForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         RefreshData();
     }//GEN-LAST:event_jComboStatusActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        RefreshData();
+    }//GEN-LAST:event_jButton1ActionPerformed
  public void eventJStatusManage(){
 //     String a= jComboStatus.getSelectedItem()+"";
 //     if(a.equals("ประกัน"))
@@ -690,6 +709,29 @@ public class BailCrimesForm extends javax.swing.JFrame {
             ex.printStackTrace();
         }
     }
+       private String getFilterCondition(){
+        HashMap<String,String> filter = new HashMap<String,String>();
+        if(DateSearch.getJFormattedTextField().getText().trim().length()>0){
+            filter.put("BailDate", DateSearch.getJFormattedTextField().getText().trim());
+        }
+        
+        String[] key = filter.keySet().toArray(new String[0]);
+        String result="";
+        for(int i=0;i<key.length;i++){
+            if(i==0){
+                result=" and ";
+            }
+            if(i==key.length-1){
+                result+= " "+key[i]+" LIKE '%"+filter.get(key[i])+"%'";
+            }else{
+                result+= " "+key[i]+" LIKE '%"+filter.get(key[i])+"%' or ";
+            }
+            System.out.println(result);
+        }
+        
+        return result;
+    }
+
     public int CalculateDateBail(String DateCheck){
        int diffDays =0;   
        try{
@@ -723,6 +765,7 @@ public class BailCrimesForm extends javax.swing.JFrame {
     private javax.swing.JTextField PlaceArrest;
     private javax.swing.JTextField SuspectFullName;
     private javax.swing.JTextField crimecaseno;
+    private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckOnly;
     private javax.swing.JComboBox<String> jComboStatus;
     private javax.swing.JLabel jLabel1;

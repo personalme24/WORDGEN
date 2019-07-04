@@ -5,6 +5,7 @@
  */
 package com.songkhla.wordgen;
 
+import com.github.lgooddatepicker.components.DatePickerSettings;
 import static com.songkhla.wordgen.CrimesCaseEdit.ChargeNameCase;
 import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseid;
 import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseno;
@@ -141,6 +142,10 @@ public class SuspectForm extends javax.swing.JDialog {
         g.add(jRadioCatch);
         g.add(jRadioOther);
 
+         ButtonGroup kno=new ButtonGroup();
+        kno.add(jRadioUnknowSuspect);
+        kno.add(jRadioKnowSuspect);
+        
           if(datain!=null){
            eventJButtonManage();
             isInsert=false;
@@ -176,7 +181,15 @@ public class SuspectForm extends javax.swing.JDialog {
             Religion.setText(datain.get("Religion")+"");
             Tambon.setText(datain.get("Tambon")+"");
             Religion.setText(datain.get("Religion")+"");
-            ArrestDateTime.getJFormattedTextField().setText(datain.get("ArrestDateTime")+"");
+            SimpleDateFormat format=new SimpleDateFormat("dd/MM/yyyy");
+            String DateArr=datain.get("ArrestDateTime")+"";
+            Date d=null;
+            try{
+             d=format.parse(DateArr);}
+            catch(Exception e){
+            
+            }
+            ArrestDateTime.getJFormattedTextField().setText(format.format(d));
             PlaceArrest.setText(datain.get("PlaceArrest")+"");
             if(statusSus.equals("ผัดฟ้องฝากขัง")){
             jRadioSue.setSelected(true);
@@ -218,7 +231,7 @@ public class SuspectForm extends javax.swing.JDialog {
 
         }else{
             eventJRadioManage();
-           crimecaseno.setText(IdCase());
+           crimecaseno.setText(ListSuspect.txtCaseNO.getText());
             isInsert=true;
           
         }
@@ -902,7 +915,7 @@ public class SuspectForm extends javax.swing.JDialog {
         );
 
         jLabelBailDate.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabelBailDate.setText("ัวันประกัน");
+        jLabelBailDate.setText("วันประกัน");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -943,13 +956,16 @@ public class SuspectForm extends javax.swing.JDialog {
                             .addGap(11, 11, 11)
                             .addComponent(PlaceArrest))
                         .addGroup(jPanel5Layout.createSequentialGroup()
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                                    .addComponent(jLabelArrestDate, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(12, 12, 12))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                                    .addComponent(jLabelRestoreDate)
-                                    .addGap(25, 25, 25)))
+                            .addContainerGap()
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel5Layout.createSequentialGroup()
+                                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jLabelRestoreDate, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+                                        .addComponent(jLabelArrestDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGap(4, 4, 4))
+                                .addGroup(jPanel5Layout.createSequentialGroup()
+                                    .addComponent(jLabelBailDate, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
+                                    .addGap(18, 18, 18)))
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jPanelRestoreDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(jPanel5Layout.createSequentialGroup()
@@ -958,11 +974,8 @@ public class SuspectForm extends javax.swing.JDialog {
                                     .addComponent(jLabelArrTime)
                                     .addGap(18, 18, 18)
                                     .addComponent(jSpinnerArrTime, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jPanelBailDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabelBailDate)))
-                .addContainerGap(53, Short.MAX_VALUE))
+                                .addComponent(jPanelBailDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1005,12 +1018,10 @@ public class SuspectForm extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanelRestoreDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(11, 11, 11)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabelBailDate, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jPanelBailDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanelBailDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelBailDate, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -1026,7 +1037,7 @@ public class SuspectForm extends javax.swing.JDialog {
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(154, Short.MAX_VALUE))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
 
         jLabel21.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
@@ -1515,12 +1526,18 @@ public class SuspectForm extends javax.swing.JDialog {
             @Override
             public void stateChanged(ChangeEvent e) {
             if(jRadioSue.isSelected()){
-            jButtonSue2.setVisible(true);
-            
+//            jButtonSue2.setVisible(true);
+            PlaceArrest.setVisible(true);
+            jPanelDateArrest.setVisible(true);
+            jSpinnerArrTime.setVisible(true);
             
             }
             else{
-              jButtonSue2.setVisible(false);  
+                PlaceArrest.setVisible(false);
+            jPanelDateArrest.setVisible(false);
+             jSpinnerArrTime.setVisible(false);
+
+//              jButtonSue2.setVisible(false);  
             }
             }
         }
@@ -1531,50 +1548,17 @@ public class SuspectForm extends javax.swing.JDialog {
             if(jRadioBail.isSelected()){ 
             jLabelBailDate.setVisible(true);
             jPanelBailDate.setVisible(true);
-            jButtonInsu2.setVisible(true);         
+         
             }
             else{               
              jLabelBailDate.setVisible(false);
             jPanelBailDate.setVisible(false);   
-             jButtonInsu2.setVisible(false);       
+    
             }
             }
         }
         );
-          jRadioRestore.addChangeListener(new ChangeListener() {
-            @Override
-            public void stateChanged(ChangeEvent e) {
-            if(jRadioRestore.isSelected()){ 
-            jLabelRestoreDate.setVisible(true);
-//            RestoreDate.setVisible(true);
-           
-            
-            }
-            else{
-              RestoreDate.setVisible(false);  
-//              jLabelRestoreDate.setVisible(false);  
-              }
-            }
-        }
-        );
-   jRadioResultImprison.addChangeListener(new ChangeListener() {
-            @Override
-            public void stateChanged(ChangeEvent e) {
-            if(jRadioResultImprison.isSelected()){ 
-//            PlaceArrest.setVisible(true);
-//            jLabelArrestPlace.setVisible(true);
-//            jLabelArrestDate.setVisible(true);            
-           
-            
-            }
-            else{
-//              PlaceArrest.setVisible(false);   
-//              jLabelArrestPlace.setVisible(false);
-//            jLabelArrestDate.setVisible(false);
-              }
-            }
-        }
-        );
+
 
   
   }   
@@ -1607,48 +1591,17 @@ public class SuspectForm extends javax.swing.JDialog {
             }
         }
         );
-       jRadioRestore.addChangeListener(new ChangeListener() {
-            @Override
-            public void stateChanged(ChangeEvent e) {
-            if(jRadioRestore.isSelected()){ 
-            jLabelRestoreDate.setVisible(true);
-             jPanelRestoreDate.setVisible(true);
-//            RestoreDate.setVisible(true);
-           
-            
-            }
-            else{
-//              RestoreDate.setVisible(false);  
-              jLabelRestoreDate.setVisible(false);
-              jPanelRestoreDate.setVisible(false);
-
-              }
-            }
-        }
-        );
-    
-   jRadioResultImprison.addChangeListener(new ChangeListener() {
-            @Override
-            public void stateChanged(ChangeEvent e) {
-            if(jRadioResultImprison.isSelected()){ 
-            PlaceArrest.setVisible(true);
-            jLabelArrestPlace.setVisible(true);
-//            jLabelArrestDate.setVisible(true);
-           
-            
-            }
-            else{
-              PlaceArrest.setVisible(false);  
-            jLabelArrestPlace.setVisible(false);
-//            jLabelArrestDate.setVisible(false);              
-              }
-            }
-        }
-        );
+      
    jRadioBail.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
             if(jRadioBail.isSelected()){ 
+               PlaceArrest.setVisible(true);
+                  jLabelArrestPlace.setVisible(true);
+            jPanelDateArrest.setVisible(true);
+            jLabelArrestDate.setVisible(true);
+            jLabelArrTime.setVisible(true);
+            jSpinnerArrTime.setVisible(true);   
              jLabelBailDate.setVisible(true);
             jPanelBailDate.setVisible(true);   
            
@@ -1657,7 +1610,12 @@ public class SuspectForm extends javax.swing.JDialog {
             else{
             jLabelBailDate.setVisible(false);
             jPanelBailDate.setVisible(false);  
-           
+           PlaceArrest.setVisible(false);
+                  jLabelArrestPlace.setVisible(false);
+                jPanelDateArrest.setVisible(false);
+                jLabelArrestDate.setVisible(false);
+                   jLabelArrTime.setVisible(false);
+            jSpinnerArrTime.setVisible(false);
               }
             }
         }
