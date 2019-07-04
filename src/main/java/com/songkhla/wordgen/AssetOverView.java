@@ -257,7 +257,7 @@ public class AssetOverView extends javax.swing.JDialog {
                 String crimecaseno = txtCaseno.getText();
 //                String EvidenceRecordNumber = jTableAsset.getModel().getValueAt(jTableAsset.getSelectedRow(), 1)+"";
                 String nameAsset = jTableAsset.getModel().getValueAt(jTableAsset.getSelectedRow(), 1)+"";
-                String sql = "select * from Asset where WHERE Name='"+nameAsset+"' and caseIdAsset='"+crimecaseno+"'";
+                String sql = "select * from Asset where Name='"+nameAsset+"' and caseIdAsset='"+crimecaseno+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                ResultSet rs = stmt.executeQuery(sql);
