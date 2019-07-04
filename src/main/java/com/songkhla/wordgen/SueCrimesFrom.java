@@ -138,8 +138,18 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             SueFirstTotal.setText(datain.get("SueFirstTotal")+"");
             PlaceArrest.setText(datain.get("PlaceArrest")+"");
             DateArrest.setText(datain.get("ArrestDateTime")+"");
-            SueSecDateT.setText(datain.get("SueSecDate")+"");
-            SueSecTotal.setText(datain.get("SueSecTotal")+"");
+            if(datain.get("SueFirstEnd")==null){
+             SueSecDateT.setText("");
+            }
+            else{
+            SueSecDateT.setText(datain.get("SueSecDate")+""); }
+             if(datain.get("SueSecTotal")==null||datain.get("SueSecTotal").equals(" ")){
+             SueSecTotal.setText("");
+            }
+            else{
+            SueSecTotal.setText(datain.get("SueSecTotal")+""); }
+           
+           
 
         
         } 

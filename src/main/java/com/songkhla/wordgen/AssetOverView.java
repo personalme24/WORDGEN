@@ -234,7 +234,7 @@ public class AssetOverView extends javax.swing.JDialog {
             try{
                 String crimecaseno = txtCaseno.getText();
 //                String EvidenceRecordNumber = jTableAsset.getModel().getValueAt(jTableAsset.getSelectedRow(), 1)+"";
-                String nameAsset = jTableAsset.getModel().getValueAt(jTableAsset.getSelectedRow(), 0)+"";
+                String nameAsset = jTableAsset.getModel().getValueAt(jTableAsset.getSelectedRow(), 1)+"";
                 String sql = "Delete from Asset WHERE Name='"+nameAsset+"' and caseIdAsset='"+crimecaseno+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
@@ -256,7 +256,7 @@ public class AssetOverView extends javax.swing.JDialog {
             try{
                 String crimecaseno = txtCaseno.getText();
 //                String EvidenceRecordNumber = jTableAsset.getModel().getValueAt(jTableAsset.getSelectedRow(), 1)+"";
-                String nameAsset = jTableAsset.getModel().getValueAt(jTableAsset.getSelectedRow(), 0)+"";
+                String nameAsset = jTableAsset.getModel().getValueAt(jTableAsset.getSelectedRow(), 1)+"";
                 String sql = "select * from Asset where WHERE Name='"+nameAsset+"' and caseIdAsset='"+crimecaseno+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
@@ -269,6 +269,12 @@ public class AssetOverView extends javax.swing.JDialog {
                     data.put("EvidenceRecordNumber", rs.getString("EvidenceRecordNumber"));
                     data.put("crimecaseno", rs.getString("caseIdAsset"));
                     data.put("Name", rs.getString("Name"));
+                      data.put("OccupantName", rs.getString("OccupantName"));
+                    data.put("Amount", rs.getString("Amount"));
+                    data.put("DateSequester", rs.getString("DateSequester"));
+                    data.put("DefectMark", rs.getString("DefectMark"));
+                      
+
                              //  Convert CrimcaseEdit to JFrame   
                        JFrame frame = new JFrame();
                      JDialog dialog = new JDialog(frame);//frame is owner
