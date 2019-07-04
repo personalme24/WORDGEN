@@ -101,16 +101,29 @@ public class W15 {
             while((s!=null) && (s.next()))
             {  String  cs =s.getString("crimecaseno");
                     ccYear=s.getString("crimecaseyears");
-               String Date="";
+                String Date="";
+                String Month="";
+                String Year="";
+                
                 
                 SimpleDateFormat sdfstart ;
                 Calendar  calstart = Calendar.getInstance();
-                sdfstart = new SimpleDateFormat("dd MMMM yyyy", new Locale("th", "TH"));  
+                sdfstart = new SimpleDateFormat("dd", new Locale("th", "TH"));  
                Date =sdfstart.format(calstart.getTime());
               
+               sdfstart = new SimpleDateFormat("MMMM", new Locale("th", "TH"));  
+               Month=sdfstart.format(calstart.getTime());
+               
+               sdfstart = new SimpleDateFormat("yyyy", new Locale("th", "TH"));  
+               Year=sdfstart.format(calstart.getTime());
+                 
+//                System.out.print("ข้อหา :: "+s.getString("ChargeCode"));
+//                System.out.print(" - ");
                  JSONObject bookmarkvalue = new JSONObject();
-
+//              
                 bookmarkvalue.put("C1",Checknull(Date));
+                bookmarkvalue.put("C01",Checknull(Month));
+                bookmarkvalue.put("C001",Checknull(Year));
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3",Checknull(ccYear));
                 bookmarkvalue.put("S2",Checknull(PoliceStationName));
