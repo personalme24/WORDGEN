@@ -231,7 +231,7 @@ public class SuspectForm extends javax.swing.JDialog {
 
         }else{
             eventJRadioManage();
-           crimecaseno.setText(IdCase());
+           crimecaseno.setText(ListSuspect.txtCaseNO.getText());
             isInsert=true;
           
         }
@@ -1596,6 +1596,12 @@ public class SuspectForm extends javax.swing.JDialog {
             @Override
             public void stateChanged(ChangeEvent e) {
             if(jRadioBail.isSelected()){ 
+               PlaceArrest.setVisible(true);
+                  jLabelArrestPlace.setVisible(true);
+            jPanelDateArrest.setVisible(true);
+            jLabelArrestDate.setVisible(true);
+            jLabelArrTime.setVisible(true);
+            jSpinnerArrTime.setVisible(true);   
              jLabelBailDate.setVisible(true);
             jPanelBailDate.setVisible(true);   
            
@@ -1604,7 +1610,12 @@ public class SuspectForm extends javax.swing.JDialog {
             else{
             jLabelBailDate.setVisible(false);
             jPanelBailDate.setVisible(false);  
-           
+           PlaceArrest.setVisible(false);
+                  jLabelArrestPlace.setVisible(false);
+                jPanelDateArrest.setVisible(false);
+                jLabelArrestDate.setVisible(false);
+                   jLabelArrTime.setVisible(false);
+            jSpinnerArrTime.setVisible(false);
               }
             }
         }

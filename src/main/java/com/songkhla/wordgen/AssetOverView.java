@@ -338,7 +338,7 @@ public class AssetOverView extends javax.swing.JDialog {
         
         String crimecaseno = txtCaseno.getText();
         String sql = "select EvidenceRecordNumber,Amount,DateSequester,DefectMark,"
-                     + "PlaceFoundExhibit,Name,Note,OccupantName,OrderAsset,PointFoundCheck,"
+                     + "PlaceFoundExhibit,Name,Remark,OccupantName,OrderAsset,PointFoundCheck,"
                      + "Value,StatusAsset from Asset where caseIdAsset='"+crimecaseno+"' and "+getFilterCondition();
             System.out.println(sql);
         ResultSet rs = stmt.executeQuery(sql);
