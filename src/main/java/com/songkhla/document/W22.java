@@ -216,7 +216,7 @@ public class W22 {
 					.load(new java.io.File("D:/TEMPLATE/w22.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/เอกสารสำนวนคดี "+cc+"/หนังสือส่งผู้ป่วย/ผู้ต้องหามาตรวจวินิจฉัย "+cc+".doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/คดีอาญา"+cs+"-"+ccYear+"/หนังสือส่งผู้ป่วย/ผู้ต้องหามาตรวจวินิจฉัย.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

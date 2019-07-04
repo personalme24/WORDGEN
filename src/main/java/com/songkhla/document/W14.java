@@ -191,7 +191,7 @@ public class W14 {
 					.load(new java.io.File("D:/TEMPLATE/w14.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/เอกสารสำนวนคดี "+cc+"/บัญชีทรัพย์ถูกประทุษร้ายไม่ได้คืน"+cc+".doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/คดีอาญา"+cs+"-"+ccYear+"/บัญชีทรัพย์ถูกประทุษร้ายไม่ได้คืน.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

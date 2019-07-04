@@ -208,7 +208,7 @@ public class W31 {
 					.load(new java.io.File("D:/TEMPLATE/w31.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/เอกสารสำนวนคดี "+cc+"/บันทึกการจับกุม "+cc+".doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/คดีอาญา"+cs+"-"+ccYear+"/บันทึกการจับกุม.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -334,7 +334,7 @@ public class W31 {
                date = df.parse(strDate);               
                ResultDate=dateto.format(date.getTime());
          } catch (ParseException ex) {
-             Logger.getLogger(W26.class.getName()).log(Level.SEVERE, null, ex);
+             Logger.getLogger(W31.class.getName()).log(Level.SEVERE, null, ex);
          }
                return ResultDate;
     }

@@ -206,7 +206,7 @@ public class W27 {
 					.load(new java.io.File("D:/TEMPLATE/w27.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/เอกสารสำนวนคดี "+cc+"/ฉลากปิดภาชนะบรรจุยาเสพติด "+cc+".doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/คดีอาญา"+cs+"-"+ccYear+"/ฉลากปิดภาชนะบรรจุยาเสพติด.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -332,7 +332,7 @@ public class W27 {
                date = df.parse(strDate);               
                ResultDate=dateto.format(date.getTime());
          } catch (ParseException ex) {
-             Logger.getLogger(W26.class.getName()).log(Level.SEVERE, null, ex);
+             Logger.getLogger(W27.class.getName()).log(Level.SEVERE, null, ex);
          }
                return ResultDate;
     }

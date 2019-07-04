@@ -191,7 +191,7 @@ public class W15 {
 					.load(new java.io.File("D:/TEMPLATE/w15.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/เอกสารสำนวนคดี "+cc+"/บัญชีทรัพย์ถูกเพลิงไหม้"+cc+".doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/คดีอาญา"+cs+"-"+ccYear+"/บัญชีทรัพย์ถูกเพลิงไหม้.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

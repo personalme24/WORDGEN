@@ -49,7 +49,7 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
     /**
      * Creates new form ReportforCrimesCase
      */
-    String caseid,caseyear,casetype,caseno;
+    String caseid,caseyear,casetype,caseno,PoliceStaionName;
     Connection con=null;
     PreparedStatement pst=null;;
     public ReportforCrimesCase(JFrame parrent,JSONObject datain) {
@@ -72,15 +72,21 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
         try{
         String sql="Select crimecasenoyear,crimecaseno,crimecaseyears,CaseType from CrimeCase where CaseId='"+caseid+"'";
          Statement stmt = con.createStatement();
-                ResultSet rs = stmt.executeQuery(sql);   
+                ResultSet rs = stmt.executeQuery(sql);  
+                
+        String sqlDataPoliceStation="SELECT * FROM PoliceStation";
+        Statement stmt1 = con.createStatement();
+                ResultSet rs1 = stmt1.executeQuery(sqlDataPoliceStation); 
                 
         if(rs.next()){
          
-            caseyear=rs.getString("crimecaseyears");
+             caseyear=rs.getString("crimecaseyears");
              caseno=rs.getString("crimecaseno");
-           
-            casetype=rs.getString("CaseType");
-        }System.out.println("ffffffffffffffff : "+caseyear);
+             casetype=rs.getString("CaseType");
+             PoliceStaionName=rs1.getString("PoliceStaionName");
+                    }
+        
+        System.out.println("ffffffffffffffff : "+PoliceStaionName);
         }
         catch(Exception e){
         e.printStackTrace();
@@ -666,9 +672,11 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
     private void jButtonPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrintActionPerformed
         // TODO add your handling code here:
         
-           String no=crimecaseno.getText();
-        File f3=new File("D:/คดีอาญา "+caseno+"-"+caseyear);
-        f3.mkdir();
+        String no=crimecaseno.getText();
+        File f3=new File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/คดีอาญา"+caseno+"-"+caseyear);
+        
+        f3.mkdirs();
+        System.out.print(f3);
         System.out.print("folder created");
          if(jCheckW1.isSelected()){
              W1.w1(no);

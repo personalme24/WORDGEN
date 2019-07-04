@@ -206,7 +206,7 @@ public class W18 {
 					.load(new java.io.File("D:/TEMPLATE/w18.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/เอกสารสำนวนคดี "+cc+"/บันทึกการตรวจสถานที่เกิดเหตุคดีจราจรทางบก "+cc+".doc"));
+			wordMLPackage.save(new java.io.File("D:/เอกสารสำนวนคดี "+cc+"/บันทึกการตรวจสถานที่เกิดเหตุคดีจราจรทางบก.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

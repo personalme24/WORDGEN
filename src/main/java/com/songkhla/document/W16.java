@@ -150,7 +150,7 @@ public class W16 {
 					.load(new java.io.File("D:/TEMPLATE/w16.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/เอกสารสำนวนคดี "+cc+"/บันทึกพนักงานสอบสวน"+cc+".doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/คดีอาญา"+cs+"-"+ccYear+"/บันทึกพนักงานสอบสวน.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
