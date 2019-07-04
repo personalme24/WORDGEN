@@ -50,7 +50,8 @@ public class W5 {
             PreparedStatement pst=null;
             String ccYear;
             String cs;
-             String SendIDocDate;
+            
+             String STATUS;
              String PoliceStationName="";
              String StationAmphur="";
              String StationProvince="";
@@ -85,9 +86,7 @@ public class W5 {
                          Position=rs1.getString("Position");
                       }
                   
-                   String sql="select crimecase.CaseId,crimecase.crimecasenoyear,crimecase.crimecaseno,crimecase.crimecaseyears,crimecase.SendIDocDate,crimecase.OccuredDate,crimecase.OccuredTime,"
-                           + "crimecase.CaseAcceptDate,crimecase.CaseAccepTime,crimecase.CrimeLocationDistrict,crimecase.AccureandOther,crimecase.SuspectandOther,crimecase.WitnessandOther,"
-                            + "Charge.*,P1.*,P2.*\n" +
+                   String sql="select crimecase.*,Charge.*,P1.*,P2.*\n" +
                                 "from crimecase inner join(\n" +
                               "SELECT  min(Person.NoPerson),Person.FullNamePerson AccuredName,Person.Age AgeAccured,Person.Race AccuredRace,Person.Nationality AccuredNati "
                             + "  FROM Person where Person.TypePerson='ผู้กล่าวหา'\n" +
@@ -108,6 +107,7 @@ public class W5 {
             while((s!=null) && (s.next()))
             {    cs =s.getString("crimecaseno");
                ccYear=s.getString("crimecaseyears");
+               STATUS=s.getString("Investigator_Result");
 
               String Date="";
                 String Month="";
@@ -134,6 +134,8 @@ public class W5 {
                 bookmarkvalue.put("C001",Checknull(Year));
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3",Checknull(ccYear));
+                bookmarkvalue.put("STATUS",Checknull(STATUS));
+                
                 
                 bookmarkvalue.put("S2",Checknull(PoliceStationName));
                 bookmarkvalue.put("S5",Checknull(StationAmphur));
