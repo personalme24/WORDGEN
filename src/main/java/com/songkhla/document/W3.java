@@ -14,11 +14,18 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
@@ -46,6 +53,7 @@ public class W3 {
              String SendIDocDate;
              String DocOrder;
              String DocSlash;
+             String THNumBook="";
              String PoliceStationName="";
              String ProvincProsecutor="";
              String TelStation="";
@@ -60,9 +68,11 @@ public class W3 {
                     String sqlDataPoliceStation="SELECT * FROM PoliceStation";
                       Statement sp = conn.createStatement();
                   ResultSet rs=sp.executeQuery(sqlDataPoliceStation); 
-                  while (rs.next()) {                    
+                  while (rs.next()) {   
+                      
                          PoliceStationName=rs.getString("PoliceStaionName");
                          ProvincProsecutor=rs.getString("ProvincProsecutor");
+                         THNumBook = rs.getString("THNumBook");
                          TelStation=rs.getString("TelStation");
                       }
             
@@ -101,19 +111,37 @@ public class W3 {
                     ccYear=s.getString("crimecaseyears");
                     DocOrder=s.getString("DocOrder");
                     DocSlash=s.getString("DocSlash");
-                    SendIDocDate=s.getString("SendIDocDate");
-//              
+                    String Date="";
+                String Month="";
+                String Year="";
+                
+                
+                SimpleDateFormat sdfstart ;
+                Calendar  calstart = Calendar.getInstance();
+                sdfstart = new SimpleDateFormat("dd", new Locale("th", "TH"));  
+               Date =sdfstart.format(calstart.getTime());
+              
+               sdfstart = new SimpleDateFormat("MMMM", new Locale("th", "TH"));  
+               Month=sdfstart.format(calstart.getTime());
+               
+               sdfstart = new SimpleDateFormat("yyyy", new Locale("th", "TH"));  
+               Year=sdfstart.format(calstart.getTime());
+                 
+//                System.out.print("ข้อหา :: "+s.getString("ChargeCode"));
+//                System.out.print(" - ");
                  JSONObject bookmarkvalue = new JSONObject();
-//                 bookmarkvalue.put("C1","Date");
-//                 bookmarkvalue.put("S27","-");
-               // bookmarkvalue.put("C1",SendIDocDate);
+//              
+                bookmarkvalue.put("C1",Date);
+                bookmarkvalue.put("C01",Month);
+                bookmarkvalue.put("C001",Year);
 		bookmarkvalue.put("C2",cs);
                 bookmarkvalue.put("C3", ccYear);
                 bookmarkvalue.put("C16", DocOrder);
                 bookmarkvalue.put("C17", DocSlash);
                  bookmarkvalue.put("S2",PoliceStationName);
-                  bookmarkvalue.put("S27",ProvincProsecutor);
-                   bookmarkvalue.put("S10",TelStation);
+                 bookmarkvalue.put("S27",ProvincProsecutor);
+                 bookmarkvalue.put("S29",THNumBook);
+                 bookmarkvalue.put("S10",TelStation);
                    
                  bookmarkvalue.put("PA7",s.getString("AccureandOther"));
                   bookmarkvalue.put("PA13", s.getString("AgeAccured"));
@@ -290,6 +318,19 @@ public class W3 {
 			tempTable.getContent().remove(templateRow);
 		}
 	}
+              private static String ToDate(String strDate){
+               String ResultDate="";
+         try {
+    	       SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", new Locale("th", "TH"));  
+               SimpleDateFormat dateto  = new SimpleDateFormat("dd MMMM yyyy", new Locale("th", "TH"));  
+               Date date=null;
+               date = df.parse(strDate);               
+               ResultDate=dateto.format(date.getTime());
+         } catch (ParseException ex) {
+             Logger.getLogger(W3.class.getName()).log(Level.SEVERE, null, ex);
+         }
+               return ResultDate;
+}
     
 }
 

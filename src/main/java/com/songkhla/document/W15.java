@@ -7,25 +7,21 @@ package com.songkhla.document;
 
 /**
  *
- * @author Computer
+ * @author Petpilin
  */
 import com.songkhla.wordgen.ConnectDatabase;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
@@ -43,127 +39,121 @@ import org.docx4j.wml.Tr;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-public class W5 {
-	public static void w5(String cc) {
+public class W15 {
+    public static void w15(String cc) {
             Connection conn=null;
             conn=ConnectDatabase.connect();
             PreparedStatement pst=null;
             String ccYear;
-             String SendIDocDate;
-             String PoliceStationName="";
-             String StationAmphur="";
-             String StationProvince="";
-             String ProvincProsecutor="";
-             String TelStation="";
+            String PoliceStationName="";
+            
              String RankPolice ="";
              String FirstName ="";
              String LastName ="";
              String Position ="";
-           
-             
-             
             try {
-//               
-                    String sqlDataPoliceStation="SELECT * FROM PoliceStation";
+                
+                 String sqlDataPoliceStation="SELECT * FROM PoliceStation";
                       Statement sp = conn.createStatement();
                   ResultSet rs=sp.executeQuery(sqlDataPoliceStation); 
                   while (rs.next()) {                    
                          PoliceStationName=rs.getString("PoliceStaionName");
-                         StationAmphur=rs.getString("StationAmphur");
-                         StationProvince=rs.getString("StationProvince");
-                         ProvincProsecutor=rs.getString("ProvincProsecutor");
-                         TelStation=rs.getString("TelStation");
-                      }
-            String sqlDataPolice="SELECT * FROM Police";
-                      Statement sp1 = conn.createStatement();
-                  ResultSet rs1=sp1.executeQuery(sqlDataPolice); 
-                  while (rs1.next()) {                    
-                         RankPolice =rs1.getString("RankPolice");
-                         FirstName=rs1.getString("FirstName");
-                         LastName=rs1.getString("LastName");
-                         Position=rs1.getString("Position");
+                        
                       }
                   
-                   String sql="select crimecase.CaseId,crimecase.crimecaseno,crimecase.crimecaseyears,crimecase.SendIDocDate,crimecase.OccuredDate,crimecase.OccuredTime,"
-                           + "crimecase.CaseAcceptDate,crimecase.CaseAccepTime,crimecase.CrimeLocationDistrict,crimecase.AccureandOther,crimecase.SuspectandOther,crimecase.WitnessandOther,"
-                            + "Charge.*,P1.*,P2.*\n" +
+            
+//                String ch;
+//                   String sql="SELECT * from CrimeCase Where crimecaseno = '"+cc+"'";
+                   String sql="select crimecase.*,Charge.*,Asset.*,P1.*,P2.*\n" +
                                 "from crimecase inner join(\n" +
-                              "SELECT  min(Person.NoPerson),Person.FullNamePerson AccuredName,Person.Age AgeAccured,Person.Race AccuredRace,Person.Nationality AccuredNati "
-                            + "  FROM Person where Person.TypePerson='ผู้กล่าวหา'\n" +
-                              ")P1\n" +
-                              "inner join(\n" +
-                                "SELECT min(Person.NoPerson),Person.FullNamePerson suspectName,Person.Age suspectAge,Person.Amphur suspectAmp,Person.Race suspectRace,\n"+
-                                "Person.Nationality suspectNati FROM Person where Person.TypePerson='ผู้ต้องหา'\n" +
+                                "SELECT  min(Person.NoPerson),Person.FullNamePerson AccuredName,Person.Age AgeAccured,Person.Race AccuredRace,Person.Nationality AccuredNati "
+                            +   "FROM Person where Person.TypePerson='ผู้กล่าวหา'\n" +
+                                ")P1\n" +
+                                "inner join(\n" +
+                                "SELECT min(Person.NoPerson),Person.FullNamePerson suspectName,Person.Age suspectAge,Person.Amphur suspectAmp,Person.Race suspectRace\n"+
+                                "FROM Person where Person.TypePerson='ผู้ต้องหา'\n" +
                                 ")P2\n" +
                                 "left join Charge on crimecase.ChargeCodeCase=Charge.ChargeCode\n" +
                                 "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
-                                "where crimecase.CaseId='"+cc+"'\n"+
-                                "group by crimecase.CaseId";
+                                "left join Asset  on crimecase.CaseId=Asset.caseIdAsset\n" +
+                                "where crimecase.CaseId='"+cc+"' and Asset.StatusAsset='เพลิงไหม้'\n" +
+                                "group by crimecase.CaseId,Asset.NoAsset";
 //                   pst=conn.prepareStatement(sql);
 //           pst=PreparedStatement(sql);
                 Statement st = conn.createStatement();
             ResultSet s=st.executeQuery(sql); 
                 System.out.println(sql);
+           String VarAS1 ="";
+            String VarAS3 ="";
+            String VarAS4 ="";
+            String VarAS5 ="";
+            String VarAS6 ="";
+            String VarAS7 ="";
+            String VarAS8 ="";
+            String VarAS9 ="";
+            String VarAS10 ="";
+            int OrderAsset=0;
+            int SumValue=0;
+            
+            
+            
+            
             while((s!=null) && (s.next()))
             {  String  cs =s.getString("crimecaseno");
-               ccYear=s.getString("crimecaseyears");
-              String Date="";
-                String Month="";
-                String Year="";
-                
+                    ccYear=s.getString("crimecaseyears");
+               String Date="";
                 
                 SimpleDateFormat sdfstart ;
                 Calendar  calstart = Calendar.getInstance();
-                sdfstart = new SimpleDateFormat("dd", new Locale("th", "TH"));  
+                sdfstart = new SimpleDateFormat("dd MMMM yyyy", new Locale("th", "TH"));  
                Date =sdfstart.format(calstart.getTime());
               
-               sdfstart = new SimpleDateFormat("MMMM", new Locale("th", "TH"));  
-               Month=sdfstart.format(calstart.getTime());
-               
-               sdfstart = new SimpleDateFormat("yyyy", new Locale("th", "TH"));  
-               Year=sdfstart.format(calstart.getTime());
-                 
-//                System.out.print("ข้อหา :: "+s.getString("ChargeCode"));
-//                System.out.print(" - ");
                  JSONObject bookmarkvalue = new JSONObject();
-//              
+
                 bookmarkvalue.put("C1",Date);
-                bookmarkvalue.put("C01",Month);
-                bookmarkvalue.put("C001",Year);
 		bookmarkvalue.put("C2",cs);
                 bookmarkvalue.put("C3", ccYear);
-                
                 bookmarkvalue.put("S2",PoliceStationName);
-                bookmarkvalue.put("S5", StationAmphur);
-                bookmarkvalue.put("S6", StationProvince);
-                bookmarkvalue.put("S27",ProvincProsecutor);
-                bookmarkvalue.put("S10",TelStation);
-                
-                  bookmarkvalue.put("PA7",s.getString("AccureandOther"));
-                  bookmarkvalue.put("PA13", s.getString("AgeAccured"));
-                  bookmarkvalue.put("PA14", s.getString("AccuredRace"));
-                  bookmarkvalue.put("PA15", s.getString("AccuredNati")); 
-//                    
+                 
+                 bookmarkvalue.put("PA7",s.getString("AccureandOther"));
+                 
                     bookmarkvalue.put("PS7",  s.getString("SuspectandOther")); 
-                    bookmarkvalue.put("PS13",  s.getString("suspectAge"));
-                    bookmarkvalue.put("PS14", s.getString("suspectRace"));
-                    bookmarkvalue.put("PS15",  s.getString("suspectNati"));
+                   
                          
-                        bookmarkvalue.put("B2", s.getString("ChargeName"));
-                       
-                            bookmarkvalue.put("C4",ToDate(s.getString("OccuredDate")));
-                            bookmarkvalue.put("C441", s.getString("OccuredTime"));
-                            bookmarkvalue.put("C12", s.getString("CrimeLocationDistrict"));
-                            bookmarkvalue.put("C5", ToDate(s.getString("CaseAcceptDate")));
-                            bookmarkvalue.put("C551", s.getString("CaseAccepTime"));
-                                
-                                bookmarkvalue.put("P02", RankPolice);
-                                bookmarkvalue.put("P03", FirstName);
-                                bookmarkvalue.put("P04", LastName);
-                                bookmarkvalue.put("P05", Position);
+                    bookmarkvalue.put("B2", s.getString("ChargeName"));
+                     //ทรัพย์
+                    VarAS1=VarAS1+"\n\r"+s.getString("EvidenceRecordNumber");
+                    bookmarkvalue.put("AS1", VarAS1);
+                   
                     
-    
-			JSONArray tablecolumn = new JSONArray();
+                    
+                     ++OrderAsset ;
+                    VarAS3=VarAS3+"\n\r"+(OrderAsset);
+                    bookmarkvalue.put("AS3", VarAS3);
+                    
+                    
+                    VarAS4=VarAS4+"\n\r"+s.getString("Name");
+                    bookmarkvalue.put("AS4", VarAS4);
+                    VarAS5=VarAS5+"\n\r"+s.getString("Amount");
+                    bookmarkvalue.put("AS5", VarAS5);
+                    
+                    
+                    VarAS6=VarAS6+"\n\r"+s.getString("Value");
+                    bookmarkvalue.put("AS6", VarAS6);
+                    if (s.getString("Value") != null)
+                    {
+                    SumValue = SumValue+s.getInt("Value");
+                    }
+                    VarAS8=VarAS8+"\n\r"+s.getString("OccupantName");
+                    bookmarkvalue.put("AS8", VarAS8);
+                    VarAS9=VarAS9+"\n\r"+s.getString("DateSequester");
+                    bookmarkvalue.put("AS9", VarAS9);
+                    VarAS10=VarAS10+"\n\r"+s.getString("Remark");
+                    bookmarkvalue.put("AS10",VarAS10);
+                    
+                    
+                    
+		JSONArray tablecolumn = new JSONArray();
 			tablecolumn.add("C2");
 			tablecolumn.add("C3");
 //			tablecolumn.add("SUSPECT");
@@ -192,21 +182,19 @@ public class W5 {
 		JSONArray TABLES = new JSONArray();
 		TABLES.add(tableobj);
 		bookmarkvalue.put("TABLES", TABLES);
-		System.out.println("e01 :"+bookmarkvalue.toJSONString());
+		System.out.println(bookmarkvalue.toJSONString());
 		
 		
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("D:/TEMPLATE/w5.docx"));
-                        
+					.load(new java.io.File("D:/TEMPLATE/w15.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/เอกสารสำนวนคดี "+cc+"/รายงานการสอบสวน "+cc+".doc"));
+			wordMLPackage.save(new java.io.File("D:/เอกสารสำนวนคดี "+cc+"/บัญชีทรัพย์ถูกเพลิงไหม้"+cc+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
-                
             }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -222,7 +210,6 @@ public class W5 {
 			String KEY = (String)KEYSET[i];
 			if(KEY.equals("TABLES")) { continue; }
 			map.put(new DataFieldName(KEY), inputdata.get(KEY)+"");
-                        System.out.println(KEY+"/"+inputdata.get(KEY)+"");
 		}
 		org.docx4j.model.fields.merge.MailMerger.performMerge(wordMLPackage, map, true);
 	}
@@ -321,18 +308,5 @@ public class W5 {
 			tempTable.getContent().remove(templateRow);
 		}
 	}
-         private static String ToDate(String strDate){
-               String ResultDate="";
-         try {
-    	       SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", new Locale("th", "TH"));  
-               SimpleDateFormat dateto  = new SimpleDateFormat("dd MMMM yyyy", new Locale("th", "TH"));  
-               Date date=null;
-               date = df.parse(strDate);               
-               ResultDate=dateto.format(date.getTime());
-         } catch (ParseException ex) {
-             Logger.getLogger(W5.class.getName()).log(Level.SEVERE, null, ex);
-         }
-               return ResultDate;
+    
 }
-}
-

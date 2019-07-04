@@ -9,7 +9,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.json.simple.JSONObject;
@@ -30,9 +29,6 @@ public class AssetNewEdit extends javax.swing.JDialog {
     public AssetNewEdit(JFrame parrent,JSONObject datain) {
         super(parrent,true);
         initComponents();
-        ImageIcon img = new ImageIcon("D://Master//WD.png");
-        setIconImage(img.getImage());
-         setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
         crimecaseno.setVisible(false);
           crimecaseno.setText(CrimesCaseEdit.crimecaseid.getText());
         try { Connection con = ConnectDatabase.connect();
@@ -109,7 +105,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
 
-        jPanel4.setBackground(new java.awt.Color(46, 156, 202));
+        jPanel4.setBackground(new java.awt.Color(77, 0, 0));
 
         jLabel8.setBackground(new java.awt.Color(0, 0, 0));
         jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 36)); // NOI18N
@@ -123,7 +119,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(272, Short.MAX_VALUE))
+                .addContainerGap(284, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,7 +251,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
                                         .addComponent(Remark, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(StatusAsset, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGap(0, 98, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -367,7 +363,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
       
         else{
         String sqlUpdate="Update Asset set EvidenceRecordNumber=?,Amount=?,DateSequester=?,\n" +
-                                    "DefectMark=?,PlaceFoundExhibit=?,Name=?,Note=?,OccupantName=?,\n" +
+                                    "DefectMark=?,PlaceFoundExhibit=?,Name=?,Remark=?,OccupantName=?,\n" +
                                     "OrderAsset=?,PointFoundCheck=?,Value=?,caseIdAsset=? where caseIdAsset=? and EvidenceRecordNumber=? and name=?  ";
                  try {
             pst=con.prepareStatement(sqlUpdate);

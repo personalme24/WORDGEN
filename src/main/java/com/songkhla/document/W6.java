@@ -14,11 +14,18 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
@@ -92,10 +99,29 @@ public class W6 {
             {  String  
                     cs =s.getString("crimecaseno");
                     ccYear=s.getString("crimecaseyears");
-                  CrimeLocationDistrict = s.getString("CrimeLocationDistrict");
+                String Date="";
+                String Month="";
+                String Year="";
+                
+                
+                SimpleDateFormat sdfstart ;
+                Calendar  calstart = Calendar.getInstance();
+                sdfstart = new SimpleDateFormat("dd", new Locale("th", "TH"));  
+               Date =sdfstart.format(calstart.getTime());
+              
+               sdfstart = new SimpleDateFormat("MMMM", new Locale("th", "TH"));  
+               Month=sdfstart.format(calstart.getTime());
+               
+               sdfstart = new SimpleDateFormat("yyyy", new Locale("th", "TH"));  
+               Year=sdfstart.format(calstart.getTime());
+                 
+//                System.out.print("ข้อหา :: "+s.getString("ChargeCode"));
+//                System.out.print(" - ");
                  JSONObject bookmarkvalue = new JSONObject();
-//                 bookmarkvalue.put("C1","Date");
-//                 bookmarkvalue.put("S27","-");
+//              
+                bookmarkvalue.put("C1",Date);
+                bookmarkvalue.put("C01",Month);
+                bookmarkvalue.put("C001",Year);
 		bookmarkvalue.put("C2",cs);
                 bookmarkvalue.put("C3", ccYear);
                 
@@ -120,11 +146,12 @@ public class W6 {
                       bookmarkvalue.put("B2", s.getString("ChargeName"));
                       bookmarkvalue.put("B3", s.getString("Law"));
                       
-                            bookmarkvalue.put("C4", s.getString("OccuredDate"));
-                            bookmarkvalue.put("C411", s.getString("OccuredDate"));
+                            bookmarkvalue.put("C4",ToDate(s.getString("OccuredDate")));
+                            bookmarkvalue.put("C441", s.getString("OccuredTime"));
+                            
+                            bookmarkvalue.put("C5", ToDate(s.getString("CaseAcceptDate")));
+                            bookmarkvalue.put("C551", s.getString("CaseAccepTime"));
                             bookmarkvalue.put("C12", s.getString("CrimeLocationDistrict"));
-                            bookmarkvalue.put("C5", s.getString("CaseAcceptDate"));
-                            bookmarkvalue.put("C511", s.getString("CaseAcceptDate"));
                     
                    
     
@@ -283,5 +310,17 @@ public class W6 {
 			tempTable.getContent().remove(templateRow);
 		}
 	}
-    
+    private static String ToDate(String strDate){
+               String ResultDate="";
+         try {
+    	       SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", new Locale("th", "TH"));  
+               SimpleDateFormat dateto  = new SimpleDateFormat("dd MMMM yyyy", new Locale("th", "TH"));  
+               Date date=null;
+               date = df.parse(strDate);               
+               ResultDate=dateto.format(date.getTime());
+         } catch (ParseException ex) {
+             Logger.getLogger(W6.class.getName()).log(Level.SEVERE, null, ex);
+         }
+               return ResultDate;
+}
 }

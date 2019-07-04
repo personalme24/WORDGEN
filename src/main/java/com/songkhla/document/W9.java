@@ -14,11 +14,18 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
@@ -41,82 +48,123 @@ public static void w9(String cc) {
             Connection conn=null;
             conn=ConnectDatabase.connect();
             PreparedStatement pst=null;
-            String ccYear,NameSus;
+            
+            String ccYear;
+            String SendIDocDate;
+             String PoliceStationName="";
+             String StationAmphur="";
+             String StationProvince="";
+             String ProvincProsecutor="";
+             String TelStation="";
+             String RankPolice ="";
+             String FirstName ="";
+             String LastName ="";
+             String Position ="";
             try {
-//                String ch;
-//                   String sql="SELECT * from CrimeCase Where crimecaseno = '"+cc+"'";
-                   String sql="select crimecase.*,Charge.*,P1.*,P2.*\n" +
-                                "from crimecase inner join(\n" +
-                                "SELECT  min(Person.NoPerson),Person.FullNamePerson AccuredName,Person.Age AgeAccured FROM Person where Person.TypePerson='ผู้กล่าวหา'\n" +
-                                 ")P1\n" +
-                                 "inner join(\n" +
-                                  "SELECT min(Person.NoPerson),Person.FullNamePerson suspectName FROM Person where Person.TypePerson='ผู้ต้องหา'\n" +
-                                  ")P2\n" +
-                                    "left join Charge on crimecase.ChargeCodeCase=Charge.ChargeCode\n" +
-                                    "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
-                                   "where crimecase.CaseId='"+cc+"'\n"+
-                                   "group by crimecase.CaseId";
-//                   pst=conn.prepareStatement(sql);
-//           pst=PreparedStatement(sql);
+                
+                 String sqlDataPoliceStation="SELECT * FROM PoliceStation";
+                      Statement sp = conn.createStatement();
+                  ResultSet rs=sp.executeQuery(sqlDataPoliceStation); 
+                  while (rs.next()) {                    
+                         PoliceStationName=rs.getString("PoliceStaionName");
+                         StationAmphur=rs.getString("StationAmphur");
+                         StationProvince=rs.getString("StationProvince");
+                         ProvincProsecutor=rs.getString("ProvincProsecutor");
+                         TelStation=rs.getString("TelStation");
+                      }
+            
+                    String sqlDataPolice="SELECT * FROM Police";
+                      Statement sp1 = conn.createStatement();
+                  ResultSet rs1=sp1.executeQuery(sqlDataPolice); 
+                  while (rs1.next()) {                    
+                         RankPolice =rs1.getString("RankPolice");
+                         FirstName=rs1.getString("FirstName");
+                         LastName=rs1.getString("LastName");
+                         Position=rs1.getString("Position");
+                      }
+//                
+
+                   String sql="select crimecase.*,Person.*,Charge.*\n" +
+                              "from crimecase \n" +
+                              "left join Charge on crimecase.ChargeCodeCase=Charge.ChargeCode\n" +
+                              "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
+                              "where crimecase.CaseId='"+cc+"'and Person.TypePerson='ผู้ต้องหา'\n" +
+                              "group by crimecase.CaseId,Person.NoPerson";
+
                 Statement st = conn.createStatement();
             ResultSet s=st.executeQuery(sql); 
                 System.out.println(sql);
             while((s!=null) && (s.next()))
             {  String  cs =s.getString("crimecaseno");
                  ccYear=s.getString("crimecaseyears");
-                 NameSus=s.getString("suspectName");
+                 
+                String Date="";
+                String Month="";
+                String Year="";
+                SimpleDateFormat sdfstart ;
+                Calendar  calstart = Calendar.getInstance();
+                sdfstart = new SimpleDateFormat("dd", new Locale("th", "TH"));  
+               Date =sdfstart.format(calstart.getTime());
+              
+               sdfstart = new SimpleDateFormat("MMMM", new Locale("th", "TH"));  
+               Month=sdfstart.format(calstart.getTime());
+               
+               sdfstart = new SimpleDateFormat("yyyy", new Locale("th", "TH"));  
+               Year=sdfstart.format(calstart.getTime());
+                 
 //                System.out.print("ข้อหา :: "+s.getString("ChargeCode"));
 //                System.out.print(" - ");
                  JSONObject bookmarkvalue = new JSONObject();
-//                 bookmarkvalue.put("C1","Date");
-//                 bookmarkvalue.put("S27","-");
-                 bookmarkvalue.put("S2", "-");
-                  bookmarkvalue.put("S5", "-");
-                   bookmarkvalue.put("S6", " ");
-//                   bookmarkvalue.put("S7", "สถานีตำรวจ");
+//              
+                bookmarkvalue.put("C1",Date);
+                bookmarkvalue.put("C01",Month);
+                bookmarkvalue.put("C001",Year);
+		bookmarkvalue.put("C2",cs);
+                bookmarkvalue.put("C3", ccYear);
+                
+                bookmarkvalue.put("S2",PoliceStationName);
+                bookmarkvalue.put("S5", StationAmphur);
+                bookmarkvalue.put("S6", StationProvince);
+                bookmarkvalue.put("S27",ProvincProsecutor);
+                bookmarkvalue.put("S10",TelStation);
                    
 //                   ----------------------------ผู้กล่าวหา--------------------
-                 bookmarkvalue.put("PA7","-");
-                  bookmarkvalue.put("PA13", "-");
-                   bookmarkvalue.put("PA14", "-");
-                    bookmarkvalue.put("PA15", "-"); 
-                     bookmarkvalue.put("PA3", "-"); 
-                    bookmarkvalue.put("PA4", "-"); 
-                    bookmarkvalue.put("PA5", "-"); 
-                      bookmarkvalue.put("PA2", "-"); 
+               
+                bookmarkvalue.put("PA7",s.getString("AccureandOther"));
+               
+                
+                
 //                   ----------------------------ผู้ต้องหา--------------------
-                    bookmarkvalue.put("PS2", "-"); 
-                    bookmarkvalue.put("PS3", "-"); 
-                    bookmarkvalue.put("PS4", "-"); 
-                    bookmarkvalue.put("PS5", "-"); 
-                    bookmarkvalue.put("PS7", "-"); 
-                    bookmarkvalue.put("PS13", "-");
-                     bookmarkvalue.put("PS14", "-");
-                     bookmarkvalue.put("PS15", "-");
-                     bookmarkvalue.put("PS16", "-");
-                      bookmarkvalue.put("PS17", "-");
-                     bookmarkvalue.put("PS22", "-");
-                     bookmarkvalue.put("PS23", "-");
-                     bookmarkvalue.put("PS24", "-");
-                     bookmarkvalue.put("PS25", "-");
-                     bookmarkvalue.put("PS26", "-");
-                     bookmarkvalue.put("PS29", "-");
-                     bookmarkvalue.put("PS30", "-");
-                     bookmarkvalue.put("PS31", "-");
-                     bookmarkvalue.put("PS32", "-");
-                     bookmarkvalue.put("PS33", "-");
-                     bookmarkvalue.put("PS34", "-");
-                     bookmarkvalue.put("PS35", "-");
+                    bookmarkvalue.put("PS2", s.getString("PeopleRegistrationID")); 
+                    bookmarkvalue.put("PS3",ToDate(s.getString("IssueDate"))); 
+                    bookmarkvalue.put("PS5", s.getString("IssuedBy")); 
+                    bookmarkvalue.put("PS7", s.getString("FullNamePerson")); 
+                    bookmarkvalue.put("PS13", s.getString("Age"));
+                    bookmarkvalue.put("PS14", s.getString("Race"));
+                    bookmarkvalue.put("PS15", s.getString("Nationality"));
+                    bookmarkvalue.put("PS16", s.getString("Religion"));
+                    bookmarkvalue.put("PS17", s.getString("Occupation"));
+                    bookmarkvalue.put("PS22", s.getString("HouseNumber"));
+                    bookmarkvalue.put("PS23", s.getString("Moo"));
+                    bookmarkvalue.put("PS24", s.getString("Tambon"));
+                    bookmarkvalue.put("PS25", s.getString("Amphur"));
+                    bookmarkvalue.put("PS26", s.getString("Province"));
+                    bookmarkvalue.put("PS29", s.getString("HeadmanName"));
+                    bookmarkvalue.put("PS30", s.getString("SubHeadmanName"));
+                    bookmarkvalue.put("PS31", s.getString("FatherFullName"));
+                    bookmarkvalue.put("PS32", s.getString("MotherFullName"));
+                    bookmarkvalue.put("PS33", s.getString("TambonBirthday"));
+                    bookmarkvalue.put("PS34", s.getString("AmphurBirthday"));
+                    bookmarkvalue.put("PS35", s.getString("ProvinceBirthday"));
                      
-//                      bookmarkvalue.put("B2", "-");
-//                     bookmarkvalue.put("C4", "-");
-//                     bookmarkvalue.put("C8", "-");
-//                     bookmarkvalue.put("C5", "-");
-//                     ---------------------------------------ตำรวจ-------------------------------------
-                     bookmarkvalue.put("P02", "-");
-                     bookmarkvalue.put("P03", "-");
-                     bookmarkvalue.put("P04", "-");
-//                     bookmarkvalue.put("P05", "-");
+
+                      bookmarkvalue.put("B2", s.getString("ChargeName"));
+                      
+                       bookmarkvalue.put("P02", RankPolice);
+                       bookmarkvalue.put("P03", FirstName);
+                       bookmarkvalue.put("P04", LastName);
+                       bookmarkvalue.put("P05", Position);
+                    
                                
                     
                     
@@ -166,10 +214,10 @@ public static void w9(String cc) {
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("D:/TEMPLATE/w81.docx"));
+					.load(new java.io.File("D:/TEMPLATE/w9.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/เอกสารสำนวนคดี2.doc"));
+			wordMLPackage.save(new java.io.File("D:/เอกสารสำนวนคดี "+cc+"/บันทึกคำให้การผู้ต้องหา "+cc+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -286,5 +334,18 @@ public static void w9(String cc) {
 			tempTable.getContent().remove(templateRow);
 		}
 	}
+        private static String ToDate(String strDate){
+               String ResultDate="";
+         try {
+    	       SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", new Locale("th", "TH"));  
+               SimpleDateFormat dateto  = new SimpleDateFormat("dd MMMM yyyy", new Locale("th", "TH"));  
+               Date date=null;
+               date = df.parse(strDate);               
+               ResultDate=dateto.format(date.getTime());
+         } catch (ParseException ex) {
+             Logger.getLogger(W9.class.getName()).log(Level.SEVERE, null, ex);
+         }
+               return ResultDate;
+}
 }
 
