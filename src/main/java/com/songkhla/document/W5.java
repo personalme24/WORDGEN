@@ -194,7 +194,7 @@ public class W5 {
 		JSONArray TABLES = new JSONArray();
 		TABLES.add(tableobj);
 		bookmarkvalue.put("TABLES", TABLES);
-		System.out.println("e01 :"+bookmarkvalue.toJSONString());
+		
 		
 		
 		try {
@@ -204,7 +204,9 @@ public class W5 {
                         
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/คดีอาญา "+cs+"-"+ccYear+"/อ"+cs+"-"+ccYear+" รายงานการสอบสวน.doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/คดีอาญา"+cs+"-"+ccYear+"/รายงานการสอบสวน.doc"));
+                        
+                        
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

@@ -182,7 +182,7 @@ public class W19 {
 					.load(new java.io.File("D:/TEMPLATE/w19.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/เอกสารสำนวนคดี "+cc+"/แผนที่สังเขปแสดงสถานที่เกิดเหตุ "+cc+".doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/คดีอาญา"+cs+"-"+ccYear+"/แผนที่สังเขปแสดงสถานที่เกิดเหตุ.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

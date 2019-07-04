@@ -193,7 +193,7 @@ public class W25 {
 					.load(new java.io.File("D:/TEMPLATE/w25.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/เอกสารสำนวนคดี "+cc+"/หนังสือส่งของกลางตรวจ "+cc+".doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/คดีอาญา"+cs+"-"+ccYear+"/หนังสือส่งของกลางตรวจ.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

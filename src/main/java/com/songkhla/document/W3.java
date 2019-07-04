@@ -201,7 +201,7 @@ public class W3 {
 					.load(new java.io.File("D:/TEMPLATE/w3.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/เอกสารสำนวนคดี "+cc+"/หนังสือส่งสำนวนที่เห็นควรสั่งฟ้อง(ผู้ต้องหาหลบหนี) "+cc+".doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/คดีอาญา"+cs+"-"+ccYear+"/หนังสือส่งสำนวนที่เห็นควรสั่งฟ้อง(ผู้ต้องหาหลบหนี).doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

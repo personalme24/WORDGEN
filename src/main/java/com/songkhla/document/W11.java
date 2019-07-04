@@ -196,7 +196,7 @@ public class W11 {
 					.load(new java.io.File("D:/TEMPLATE/w11.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/เอกสารสำนวนคดี "+cc+"/บัญชีทรัพย์ของกลางคดีอาญา "+cc+".doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/คดีอาญา"+cs+"-"+ccYear+"/บัญชีทรัพย์ของกลางคดีอาญา.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

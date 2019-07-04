@@ -199,7 +199,7 @@ public class W13 {
 					.load(new java.io.File("D:/TEMPLATE/w13.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/เอกสารสำนวนคดี "+cc+"/บัญชีทรัพย์ถูกประทุษร้ายได้คืน"+cc+".doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/คดีอาญา"+cs+"-"+ccYear+"/บัญชีทรัพย์ถูกประทุษร้ายได้คืน.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
