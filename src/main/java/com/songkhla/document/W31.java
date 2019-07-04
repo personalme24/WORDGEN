@@ -15,11 +15,18 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import org.docx4j.XmlUtils;
@@ -58,6 +65,7 @@ public class W31 {
                   ResultSet rs=sp.executeQuery(sqlDataPoliceStation); 
                   while (rs.next()) {                    
                          PoliceStationName=rs.getString("PoliceStaionName");
+                         
                          ProvincProsecutor=rs.getString("ProvincProsecutor");
                          TelStation=rs.getString("TelStation");
                       }
@@ -98,9 +106,22 @@ public class W31 {
                     cs =s.getString("crimecaseno");
                     ccYear=s.getString("crimecaseyears");
 //              
+                 String Date="";
+                
+                
+                SimpleDateFormat sdfstart ;
+                Calendar  calstart = Calendar.getInstance();
+                sdfstart = new SimpleDateFormat("dd MMMM yyyy", new Locale("th", "TH"));  
+               Date =sdfstart.format(calstart.getTime());
+              
+               
+                 
+//                System.out.print("ข้อหา :: "+s.getString("ChargeCode"));
+//                System.out.print(" - ");
                  JSONObject bookmarkvalue = new JSONObject();
-//                 bookmarkvalue.put("C1","Date");
-//                 bookmarkvalue.put("S27","-");
+             
+                bookmarkvalue.put("C1",Date);
+                
 		bookmarkvalue.put("C2",cs);
                 bookmarkvalue.put("C3", ccYear);
                  bookmarkvalue.put("S2",PoliceStationName);
@@ -109,9 +130,9 @@ public class W31 {
                  bookmarkvalue.put("S27",ProvincProsecutor);
                  bookmarkvalue.put("S10",TelStation);
                  
-                 bookmarkvalue.put("P54",s.getString("ArrestDate"));
+                 bookmarkvalue.put("P54",ToDate(s.getString("ArrestDate")));
                  bookmarkvalue.put("P55",s.getString("PlaceArrest"));
-                 bookmarkvalue.put("P88",s.getString("ArrestDateTime"));
+                 bookmarkvalue.put("P88",ToDate(s.getString("ArrestDateTime")));
                    
                   bookmarkvalue.put("PA7",s.getString("AccureandOther"));
                   
@@ -130,12 +151,13 @@ public class W31 {
                         bookmarkvalue.put("P04", LastName);
                         bookmarkvalue.put("P05", Position);
                          
-                            bookmarkvalue.put("C4", s.getString("OccuredDate"));
-                            bookmarkvalue.put("C411", s.getString("OccuredTime"));
-                            bookmarkvalue.put("C5", s.getString("CaseAcceptDate"));
-                            bookmarkvalue.put("C511", s.getString("CaseAccepTime"));
-                            bookmarkvalue.put("C6", s.getString("CaseRequestDate"));
-                            bookmarkvalue.put("C611", s.getString("CaseRequestTime"));
+                            bookmarkvalue.put("C4",ToDate(s.getString("OccuredDate")));
+                            bookmarkvalue.put("C441", s.getString("OccuredTime"));
+                            
+                            bookmarkvalue.put("C5", ToDate(s.getString("CaseAcceptDate")));
+                            bookmarkvalue.put("C551", s.getString("CaseAccepTime"));
+                            bookmarkvalue.put("C6", ToDate(s.getString("CaseRequestDate")));
+                            bookmarkvalue.put("C661", s.getString("CaseRequestTime"));
                             bookmarkvalue.put("C8", s.getString("CrimeLocation"));
                             bookmarkvalue.put("C9", s.getString("CrimeLocationMoo"));
                             bookmarkvalue.put("C10", s.getString("CrimeLocationSoi"));
@@ -303,6 +325,19 @@ public class W31 {
 			tempTable.getContent().remove(templateRow);
 		}
 	}
+        private static String ToDate(String strDate){
+               String ResultDate="";
+         try {
+    	       SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", new Locale("th", "TH"));  
+               SimpleDateFormat dateto  = new SimpleDateFormat("dd MMMM yyyy", new Locale("th", "TH"));  
+               Date date=null;
+               date = df.parse(strDate);               
+               ResultDate=dateto.format(date.getTime());
+         } catch (ParseException ex) {
+             Logger.getLogger(W26.class.getName()).log(Level.SEVERE, null, ex);
+         }
+               return ResultDate;
+    }
     
     
 }

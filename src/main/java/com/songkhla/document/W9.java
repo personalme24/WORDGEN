@@ -217,7 +217,7 @@ public static void w9(String cc) {
 					.load(new java.io.File("D:/TEMPLATE/w9.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/เอกสารสำนวนคดี "+cc+"/บันทึกคำให้การผู้ต้องหา "+cc+".doc"));
+			wordMLPackage.save(new java.io.File("D:/เอกสารสำนวนคดี "+cc+"/บันทึกคำให้การผู้ต้องหา "+s.getString("FullNamePerson")+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

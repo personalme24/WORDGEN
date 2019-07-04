@@ -16,11 +16,18 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import org.docx4j.XmlUtils;
@@ -101,9 +108,29 @@ public class W28 {
                     cs =s.getString("crimecaseno");
                     ccYear=s.getString("crimecaseyears");
 //              
+                String Date="";
+                String Month="";
+                String Year="";
+                
+                
+                SimpleDateFormat sdfstart ;
+                Calendar  calstart = Calendar.getInstance();
+                sdfstart = new SimpleDateFormat("dd", new Locale("th", "TH"));  
+               Date =sdfstart.format(calstart.getTime());
+              
+               sdfstart = new SimpleDateFormat("MMMM", new Locale("th", "TH"));  
+               Month=sdfstart.format(calstart.getTime());
+               
+               sdfstart = new SimpleDateFormat("yyyy", new Locale("th", "TH"));  
+               Year=sdfstart.format(calstart.getTime());
+                 
+//                System.out.print("ข้อหา :: "+s.getString("ChargeCode"));
+//                System.out.print(" - ");
                  JSONObject bookmarkvalue = new JSONObject();
-//                 bookmarkvalue.put("C1","Date");
-//                 bookmarkvalue.put("S27","-");
+//              
+                bookmarkvalue.put("C1",Date);
+                bookmarkvalue.put("C01",Month);
+                bookmarkvalue.put("C001",Year);
 		bookmarkvalue.put("C2",cs);
                 bookmarkvalue.put("C3", ccYear);
                  bookmarkvalue.put("S2",PoliceStationName);
@@ -130,12 +157,13 @@ public class W28 {
                         bookmarkvalue.put("P04", LastName);
                         bookmarkvalue.put("P05", Position);
                          
-                            bookmarkvalue.put("C4", s.getString("OccuredDate"));
-                            bookmarkvalue.put("C411", s.getString("OccuredTime"));
-                            bookmarkvalue.put("C5", s.getString("CaseAcceptDate"));
-                            bookmarkvalue.put("C511", s.getString("CaseAccepTime"));
-                            bookmarkvalue.put("C6", s.getString("CaseRequestDate"));
-                            bookmarkvalue.put("C611", s.getString("CaseRequestTime"));
+                            bookmarkvalue.put("C4",ToDate(s.getString("OccuredDate")));
+                            bookmarkvalue.put("C441", s.getString("OccuredTime"));
+                            
+                            bookmarkvalue.put("C5", ToDate(s.getString("CaseAcceptDate")));
+                            bookmarkvalue.put("C551", s.getString("CaseAccepTime"));
+                            bookmarkvalue.put("C6", ToDate(s.getString("CaseRequestDate")));
+                            bookmarkvalue.put("C661", s.getString("CaseRequestTime"));
                             bookmarkvalue.put("C9", s.getString("CrimeLocationMoo"));
                             bookmarkvalue.put("C10", s.getString("CrimeLocationSoi"));
                             bookmarkvalue.put("C11", s.getString("CrimeLocationRoad"));
@@ -308,6 +336,18 @@ public class W28 {
 			tempTable.getContent().remove(templateRow);
 		}
 	}
-    
+    private static String ToDate(String strDate){
+               String ResultDate="";
+         try {
+    	       SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", new Locale("th", "TH"));  
+               SimpleDateFormat dateto  = new SimpleDateFormat("dd MMMM yyyy", new Locale("th", "TH"));  
+               Date date=null;
+               date = df.parse(strDate);               
+               ResultDate=dateto.format(date.getTime());
+         } catch (ParseException ex) {
+             Logger.getLogger(W26.class.getName()).log(Level.SEVERE, null, ex);
+         }
+               return ResultDate;
+    }
     
 }
