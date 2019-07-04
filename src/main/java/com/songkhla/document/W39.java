@@ -117,55 +117,55 @@ public static void w39(String cc) {
 //                System.out.print(" - ");
                  JSONObject bookmarkvalue = new JSONObject();
 //              
-                bookmarkvalue.put("C1",Date);
-                bookmarkvalue.put("C01",Month);
-                bookmarkvalue.put("C001",Year);
-		bookmarkvalue.put("C2",cs);
-                bookmarkvalue.put("C3", ccYear);
+                bookmarkvalue.put("C1",Checknull(Date));
+                bookmarkvalue.put("C01",Checknull(Month));
+                bookmarkvalue.put("C001",Checknull(Year));
+		bookmarkvalue.put("C2",Checknull(cs));
+                bookmarkvalue.put("C3", Checknull(ccYear));
                 
-                bookmarkvalue.put("S2",PoliceStationName);
-                bookmarkvalue.put("S5", StationAmphur);
-                bookmarkvalue.put("S6", StationProvince);
-                bookmarkvalue.put("S27",ProvincProsecutor);
-                bookmarkvalue.put("S10",TelStation);
+                 bookmarkvalue.put("S2",Checknull(PoliceStationName));
+                 bookmarkvalue.put("S5", Checknull(StationAmphur));
+                 bookmarkvalue.put("S6", Checknull(StationProvince));
+                 bookmarkvalue.put("S10",Checknull(TelStation));
+                 bookmarkvalue.put("S27",Checknull(ProvincProsecutor));
                    
 //                   ----------------------------ผู้กล่าวหา--------------------
                
-                bookmarkvalue.put("PA7",s.getString("AccureandOther"));
-                bookmarkvalue.put("PS7",  s.getString("SuspectandOther")); 
+                bookmarkvalue.put("PA7",Checknull(s.getString("AccureandOther")));
+                bookmarkvalue.put("PA7",Checknull(s.getString("AccureandOther")));
                
                 
                 
 //                   ----------------------------ผู้ต้องหา--------------------
-                    bookmarkvalue.put("PW2", s.getString("PeopleRegistrationID")); 
-                    bookmarkvalue.put("PW3",ToDate(s.getString("IssueDate"))); 
-                    bookmarkvalue.put("PW5", s.getString("IssuedBy")); 
-                    bookmarkvalue.put("PW7", s.getString("FullNamePerson")); 
-                    bookmarkvalue.put("PW13", s.getString("Age"));
-                    bookmarkvalue.put("PW14", s.getString("Race"));
-                    bookmarkvalue.put("PW15", s.getString("Nationality"));
-                    bookmarkvalue.put("PW16", s.getString("Religion"));
-                    bookmarkvalue.put("PW17", s.getString("Occupation"));
-                    bookmarkvalue.put("PW22", s.getString("HouseNumber"));
-                    bookmarkvalue.put("PW23", s.getString("Moo"));
-                    bookmarkvalue.put("PW24", s.getString("Tambon"));
-                    bookmarkvalue.put("PW25", s.getString("Amphur"));
-                    bookmarkvalue.put("PW26", s.getString("Province"));
-                    bookmarkvalue.put("PW29", s.getString("HeadmanName"));
-                    bookmarkvalue.put("PW30", s.getString("SubHeadmanName"));
-                    bookmarkvalue.put("PW31", s.getString("FatherFullName"));
-                    bookmarkvalue.put("PW32", s.getString("MotherFullName"));
-                    bookmarkvalue.put("PW33", s.getString("TambonBirthday"));
-                    bookmarkvalue.put("PW34", s.getString("AmphurBirthday"));
-                    bookmarkvalue.put("PW35", s.getString("ProvinceBirthday"));
+                    bookmarkvalue.put("PW2", Checknull(s.getString("PeopleRegistrationID"))); 
+                    bookmarkvalue.put("PW3",Checknull(ToDate(s.getString("IssueDate")))); 
+                    bookmarkvalue.put("PW5", Checknull(s.getString("IssuedBy"))); 
+                    bookmarkvalue.put("PW7", Checknull(s.getString("FullNamePerson"))); 
+                    bookmarkvalue.put("PW13", Checknull(s.getString("Age")));
+                    bookmarkvalue.put("PW14", Checknull(s.getString("Race")));
+                    bookmarkvalue.put("PW15", Checknull(s.getString("Nationality")));
+                    bookmarkvalue.put("PW16", Checknull(s.getString("Religion")));
+                    bookmarkvalue.put("PW17", Checknull(s.getString("Occupation")));
+                    bookmarkvalue.put("PW22", Checknull(s.getString("HouseNumber")));
+                    bookmarkvalue.put("PW23", Checknull(s.getString("Moo")));
+                    bookmarkvalue.put("PW24", Checknull(s.getString("Tambon")));
+                    bookmarkvalue.put("PW25", Checknull(s.getString("Amphur")));
+                    bookmarkvalue.put("PW26", Checknull(s.getString("Province")));
+                    bookmarkvalue.put("PW29", Checknull(s.getString("HeadmanName")));
+                    bookmarkvalue.put("PW30", Checknull(s.getString("SubHeadmanName")));
+                    bookmarkvalue.put("PW31", Checknull(s.getString("FatherFullName")));
+                    bookmarkvalue.put("PW32", Checknull(s.getString("MotherFullName")));
+                    bookmarkvalue.put("PW33", Checknull(s.getString("TambonBirthday")));
+                    bookmarkvalue.put("PW34", Checknull(s.getString("AmphurBirthday")));
+                    bookmarkvalue.put("PW35", Checknull(s.getString("ProvinceBirthday")));
                      
 
-                      bookmarkvalue.put("B2", s.getString("ChargeName"));
+                       bookmarkvalue.put("B2", Checknull(s.getString("ChargeName")));
                       
-                       bookmarkvalue.put("P02", RankPolice);
-                       bookmarkvalue.put("P03", FirstName);
-                       bookmarkvalue.put("P04", LastName);
-                       bookmarkvalue.put("P05", Position);
+                     bookmarkvalue.put("P02", Checknull(RankPolice));
+                       bookmarkvalue.put("P03", Checknull(FirstName));
+                        bookmarkvalue.put("P04", Checknull(LastName));
+                         bookmarkvalue.put("P05", Checknull(Position));
                     
                                
                     
