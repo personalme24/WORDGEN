@@ -241,11 +241,16 @@ public class ActionPage extends javax.swing.JDialog {
            pst.setString(3, ActionDetail.getText());
            pst.setString(4, ActionNote.getText());
             
-           pst.execute();
-           System.out.println("SQLLLLL : "+intAc);
-           pst.close();
-           
-           JOptionPane.showMessageDialog(jPanel1,"ยืนยัน", "บันทึกข้อมูล", JOptionPane.INFORMATION_MESSAGE);
+          
+            int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
+        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if (response == JOptionPane.YES_OPTION) {
+                     pst.execute();
+                     System.out.println("SQLLLLL : "+intAc);
+                     pst.close();
+
+
+              } 
         } catch (Exception e) {
           JOptionPane.showMessageDialog(jPanel1,e,null, JOptionPane.INFORMATION_MESSAGE);
             
