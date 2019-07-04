@@ -324,4 +324,23 @@ public class W4 {
          }
                return ResultDate;
 }
+              public static String Checknull(String input){
+					if(input==null||input==""||input=="null") { return ""; }
+					return getThaiNumber(input);
+					}
+    
+    private static String getThaiNumber(String amount) {  
+        if(amount == null || amount.isEmpty()) return "";
+        String[] DIGIT_TH = { "๐", "๑", "๒", "๓", "๔", "๕", "๖", "๗", "๘", "๙" };
+        StringBuilder sb = new StringBuilder();
+        for(char c : amount.toCharArray()){
+            if(Character.isDigit(c)){
+                String index = DIGIT_TH[Character.getNumericValue(c)].toString();
+                sb.append(index);
+            } else {
+                sb.append(c);
+            }
+        }
+        return sb.toString();  
+    }  
 }

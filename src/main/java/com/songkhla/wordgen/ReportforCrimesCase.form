@@ -77,8 +77,8 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jCheckBox39" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jCheckBox38" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jCheckW39" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jCheckW38" alignment="0" max="32767" attributes="0"/>
                               <Component id="jCheckW37" alignment="0" max="32767" attributes="0"/>
                               <Component id="jCheckBox34" alignment="0" max="32767" attributes="0"/>
                               <Component id="jCheckBox33" alignment="0" max="32767" attributes="0"/>
@@ -118,7 +118,7 @@
                               <Component id="jCheckBox59" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jCheckBox40" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jCheckW40" min="-2" max="-2" attributes="0"/>
                                       <Component id="jCheckBox61" alignment="0" min="-2" pref="297" max="-2" attributes="0"/>
                                       <Component id="jCheckBox60" alignment="0" min="-2" pref="297" max="-2" attributes="0"/>
                                   </Group>
@@ -162,7 +162,7 @@
                       </Group>
                       <Group type="103" alignment="1" groupAlignment="3" attributes="0">
                           <Component id="jCheckW27" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox40" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckW40" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -259,13 +259,13 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jCheckW16" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox38" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jCheckW38" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jCheckBox61" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jCheckW17" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox39" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jCheckW39" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jCheckBox62" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -700,7 +700,7 @@
             <Property name="text" type="java.lang.String" value="&#xe15;&#xe33;&#xe2b;&#xe19;&#xe34;&#xe23;&#xe39;&#xe1b;&#xe1e;&#xe23;&#xe23;&#xe13;&#xe1c;&#xe39;&#xe49;&#xe01;&#xe23;&#xe30;&#xe17;&#xe33;&#xe04;&#xe27;&#xe32;&#xe21;&#xe1c;&#xe34;&#xe14;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBox38">
+        <Component class="javax.swing.JCheckBox" name="jCheckW38">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -711,7 +711,7 @@
             <Property name="text" type="java.lang.String" value="&#xe2b;&#xe21;&#xe32;&#xe22;&#xe40;&#xe23;&#xe35;&#xe22;&#xe01;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBox39">
+        <Component class="javax.swing.JCheckBox" name="jCheckW39">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -744,7 +744,7 @@
             <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe40;&#xe2a;&#xe19;&#xe2d;&#xe2a;&#xe31;&#xe0d;&#xe0d;&#xe32;&#xe1b;&#xe23;&#xe30;&#xe01;&#xe31;&#xe19;&#xe2a;&#xe34;&#xe48;&#xe07;&#xe02;&#xe2d;&#xe07;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBox40">
+        <Component class="javax.swing.JCheckBox" name="jCheckW40">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
