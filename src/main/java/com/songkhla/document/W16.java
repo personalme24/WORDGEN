@@ -86,9 +86,9 @@ public class W16 {
 //                 bookmarkvalue.put("C1","Date");
 //                 bookmarkvalue.put("S27","-");
 
-		bookmarkvalue.put("C2",cs);
-                bookmarkvalue.put("C3", ccYear);
-                bookmarkvalue.put("S2",PoliceStationName);
+		bookmarkvalue.put("C2",Checknull(cs));
+                bookmarkvalue.put("C3",Checknull(ccYear));
+                bookmarkvalue.put("S2",Checknull(PoliceStationName));
                  
                  
                      

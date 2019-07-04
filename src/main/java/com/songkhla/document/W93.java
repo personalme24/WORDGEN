@@ -122,51 +122,51 @@ public class W93 {
                  JSONObject bookmarkvalue = new JSONObject();
 //              
                 bookmarkvalue.put("C1",Checknull(Date));
-                bookmarkvalue.put("C01",Month);
-                bookmarkvalue.put("C001",Checknull(Year));
-		bookmarkvalue.put("C2",cs);
-                bookmarkvalue.put("C3", ccYear);
+                bookmarkvalue.put("C01",Checknull(Month));
+                bookmarkvalue.put("C001",Checknull(Checknull(Year)));
+		bookmarkvalue.put("C2",Checknull(cs));
+                bookmarkvalue.put("C3",Checknull(ccYear));
                 
-                bookmarkvalue.put("S2",PoliceStationName);
-                bookmarkvalue.put("S5", StationAmphur);
-                bookmarkvalue.put("S6", StationProvince);
-                bookmarkvalue.put("S27",ProvincProsecutor);
-                bookmarkvalue.put("S10",TelStation);
-                bookmarkvalue.put("S13",HeadName);
-                bookmarkvalue.put("S17",CriminalCourt);
+                bookmarkvalue.put("S2",Checknull(PoliceStationName));
+                bookmarkvalue.put("S5", Checknull(StationAmphur));
+                bookmarkvalue.put("S6", Checknull(StationProvince));
+                bookmarkvalue.put("S27",Checknull(ProvincProsecutor));
+                bookmarkvalue.put("S10",Checknull(TelStation));
+                bookmarkvalue.put("S13",Checknull(HeadName));
+                bookmarkvalue.put("S17",Checknull(CriminalCourt));
                 
                  
    
                     bookmarkvalue.put("PS2", Checknull(s.getString("PeopleRegistrationID"))); 
                     bookmarkvalue.put("PS3",Checknull(ToDate(s.getString("IssueDate")))); 
-                    bookmarkvalue.put("PS5", s.getString("IssuedBy")); 
-                    bookmarkvalue.put("PS7", s.getString("FullNamePerson")); 
-                    bookmarkvalue.put("PS13", s.getString("Age"));
-                    bookmarkvalue.put("PS14", s.getString("Race"));
-                    bookmarkvalue.put("PS15", s.getString("Nationality"));
-                    bookmarkvalue.put("PS16", s.getString("Religion"));
-                    bookmarkvalue.put("PS17", s.getString("Occupation"));
+                    bookmarkvalue.put("PS5", Checknull(s.getString("IssuedBy"))); 
+                    bookmarkvalue.put("PS7", Checknull(s.getString("FullNamePerson"))); 
+                    bookmarkvalue.put("PS13", Checknull(s.getString("Age")));
+                    bookmarkvalue.put("PS14", Checknull(s.getString("Race")));
+                    bookmarkvalue.put("PS15", Checknull(s.getString("Nationality")));
+                    bookmarkvalue.put("PS16", Checknull(s.getString("Religion")));
+                    bookmarkvalue.put("PS17", Checknull(s.getString("Occupation")));
                     bookmarkvalue.put("PS22", Checknull(s.getString("HouseNumber")));
-                    bookmarkvalue.put("PS23", s.getString("Moo"));
-                    bookmarkvalue.put("PS24", s.getString("Tambon"));
-                    bookmarkvalue.put("PS25", s.getString("Amphur"));
-                    bookmarkvalue.put("PS26", s.getString("Province"));
-                    bookmarkvalue.put("PS28", s.getString("PhonePerson"));
-                    bookmarkvalue.put("PS104", Checknull(s.getString("Road")));
-                    bookmarkvalue.put("PS105", Checknull(s.getString("Soi")));
+                    bookmarkvalue.put("PS23", Checknull(s.getString("Moo")));
+                    bookmarkvalue.put("PS24", Checknull(s.getString("Tambon")));
+                    bookmarkvalue.put("PS25", Checknull(s.getString("Amphur")));
+                    bookmarkvalue.put("PS26", Checknull(s.getString("Province")));
+                    bookmarkvalue.put("PS28", Checknull(s.getString("PhonePerson")));
+                    bookmarkvalue.put("PS104",Checknull(s.getString("Road")));
+                    bookmarkvalue.put("PS105",Checknull(s.getString("Soi")));
                          
-                        bookmarkvalue.put("B2", s.getString("ChargeName"));
+                        bookmarkvalue.put("B2", Checknull(s.getString("ChargeName")));
                        
-                            bookmarkvalue.put("C4",ToDate(s.getString("OccuredDate")));
-                            bookmarkvalue.put("C441", s.getString("OccuredTime"));
-                            bookmarkvalue.put("C12", s.getString("CrimeLocationDistrict"));
-                            bookmarkvalue.put("C5", ToDate(s.getString("CaseAcceptDate")));
-                            bookmarkvalue.put("C551", s.getString("CaseAccepTime"));
+                            bookmarkvalue.put("C4",(ToDate(s.getString("OccuredDate"))));
+                            bookmarkvalue.put("C441", Checknull(s.getString("OccuredTime")));
+                            bookmarkvalue.put("C12", Checknull(s.getString("CrimeLocationDistrict")));
+                            bookmarkvalue.put("C5", Checknull(ToDate(s.getString("CaseAcceptDate"))));
+                            bookmarkvalue.put("C551", Checknull(s.getString("CaseAccepTime")));
                                 
-                                bookmarkvalue.put("P02", RankPolice);
-                                bookmarkvalue.put("P03", FirstName);
-                                bookmarkvalue.put("P04", LastName);
-                                bookmarkvalue.put("P05", Position);
+                                bookmarkvalue.put("P02", Checknull(RankPolice));
+                                bookmarkvalue.put("P03", Checknull(FirstName));
+                                bookmarkvalue.put("P04", Checknull(LastName));
+                                bookmarkvalue.put("P05", Checknull(Position));
                     
     
 			JSONArray tablecolumn = new JSONArray();

@@ -119,39 +119,38 @@ public class W6 {
 //                System.out.print(" - ");
                  JSONObject bookmarkvalue = new JSONObject();
 //              
-                bookmarkvalue.put("C1",Date);
-                bookmarkvalue.put("C01",Month);
-                bookmarkvalue.put("C001",Year);
-		bookmarkvalue.put("C2",cs);
-                bookmarkvalue.put("C3", ccYear);
+                bookmarkvalue.put("C1",Checknull(Date));
+                bookmarkvalue.put("C01",Checknull(Month));
+                bookmarkvalue.put("C001",Checknull(Year));
+		bookmarkvalue.put("C2",Checknull(cs));
+                bookmarkvalue.put("C3",Checknull(ccYear));
                 
                 
-                 bookmarkvalue.put("S2",PoliceStationName);
-                 bookmarkvalue.put("S5",StationAmphur);
-                 bookmarkvalue.put("S6",StationProvince);
-                  bookmarkvalue.put("S10",TelStation);
-                  bookmarkvalue.put("S27",ProvincProsecutor);
+                 bookmarkvalue.put("S2",Checknull(PoliceStationName));
+                 bookmarkvalue.put("S5",Checknull(StationAmphur));
+                 bookmarkvalue.put("S6",Checknull(StationProvince));
+                  bookmarkvalue.put("S10",Checknull(TelStation));
+                  bookmarkvalue.put("S27",Checknull(ProvincProsecutor));
                   
-                 bookmarkvalue.put("PS7",s.getString("AccureandOther"));
-                  bookmarkvalue.put("PS13", s.getString("AgeAccured"));
-                   bookmarkvalue.put("PS14", s.getString("AccuredRace"));
-                    bookmarkvalue.put("PS15", s.getString("AccuredNati")); 
-//                     bookmarkvalue.put("P15", "-"); 
-//                    bookmarkvalue.put("PA75", "-"); 
-                    bookmarkvalue.put("PA7",  s.getString("SuspectandOther")); 
-                    bookmarkvalue.put("PA13",  s.getString("suspectAge"));
-                     bookmarkvalue.put("PA14", s.getString("suspectRace"));
-                         bookmarkvalue.put("PA15",  s.getString("suspectNati"));
+                 bookmarkvalue.put("PS7",Checknull(s.getString("AccureandOther")));
+                  bookmarkvalue.put("PS13", Checknull(s.getString("AgeAccured")));
+                   bookmarkvalue.put("PS14", Checknull(s.getString("AccuredRace")));
+                    bookmarkvalue.put("PS15", Checknull(s.getString("AccuredNati"))); 
+
+                    bookmarkvalue.put("PA7",  Checknull(s.getString("SuspectandOther"))); 
+                    bookmarkvalue.put("PA13", Checknull(s.getString("suspectAge")));
+                     bookmarkvalue.put("PA14", Checknull(s.getString("suspectRace")));
+                         bookmarkvalue.put("PA15",Checknull(s.getString("suspectNati")));
                          
-                      bookmarkvalue.put("B2", s.getString("ChargeName"));
-                      bookmarkvalue.put("B3", s.getString("Law"));
+                      bookmarkvalue.put("B2", Checknull(s.getString("ChargeName")));
+                      bookmarkvalue.put("B3", Checknull(s.getString("Law")));
                       
-                            bookmarkvalue.put("C4",ToDate(s.getString("OccuredDate")));
-                            bookmarkvalue.put("C441", s.getString("OccuredTime"));
+                            bookmarkvalue.put("C4",Checknull(ToDate(s.getString("OccuredDate"))));
+                            bookmarkvalue.put("C441", Checknull(s.getString("OccuredTime")));
                             
-                            bookmarkvalue.put("C5", ToDate(s.getString("CaseAcceptDate")));
-                            bookmarkvalue.put("C551", s.getString("CaseAccepTime"));
-                            bookmarkvalue.put("C12", s.getString("CrimeLocationDistrict"));
+                            bookmarkvalue.put("C5", Checknull(ToDate(s.getString("CaseAcceptDate"))));
+                            bookmarkvalue.put("C551", Checknull(s.getString("CaseAccepTime")));
+                            bookmarkvalue.put("C12", Checknull(s.getString("CrimeLocationDistrict")));
                     
                    
     

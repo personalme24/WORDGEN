@@ -109,35 +109,35 @@ public class W35 {
 //                System.out.print(" - ");
                  JSONObject bookmarkvalue = new JSONObject();
              
-                bookmarkvalue.put("C1",Date);
+                bookmarkvalue.put("C1",Checknull(Date));
                 
-		bookmarkvalue.put("C2",cs);
-                bookmarkvalue.put("C3", ccYear);
-                 bookmarkvalue.put("S2",PoliceStationName);
-                 bookmarkvalue.put("S5", StationAmphur);
-                 bookmarkvalue.put("S6", StationProvince);
-                 bookmarkvalue.put("S27",ProvincProsecutor);
-                 bookmarkvalue.put("S10",TelStation);
+		bookmarkvalue.put("C2",Checknull(cs));
+                bookmarkvalue.put("C3",Checknull(ccYear));
+                 bookmarkvalue.put("S2",Checknull(PoliceStationName));
+                 bookmarkvalue.put("S5", Checknull(StationAmphur));
+                 bookmarkvalue.put("S6", Checknull(StationProvince));
+                 bookmarkvalue.put("S27",Checknull(ProvincProsecutor));
+                 bookmarkvalue.put("S10",Checknull(TelStation));
                  
-                 bookmarkvalue.put("P54",ToDate(s.getString("ArrestDate")));
-                 bookmarkvalue.put("P55",s.getString("PlaceArrest"));
-                 bookmarkvalue.put("P88",ToDate(s.getString("ArrestDateTime")));
+                 bookmarkvalue.put("P54",Checknull(ToDate(s.getString("ArrestDate"))));
+                 bookmarkvalue.put("P55",Checknull(s.getString("PlaceArrest")));
+                 bookmarkvalue.put("P88",Checknull(s.getString("ArrestDateTime")));
                    
                   
                    
                         
-                      bookmarkvalue.put("B2", s.getString("ChargeName"));
+                      bookmarkvalue.put("B2", Checknull(s.getString("ChargeName")));
                       
                      
                       
-                        bookmarkvalue.put("P02", RankPolice);
-                        bookmarkvalue.put("P03", FirstName);
-                        bookmarkvalue.put("P04", LastName);
-                        bookmarkvalue.put("P05", Position);
+                        bookmarkvalue.put("P02", Checknull(RankPolice));
+                       bookmarkvalue.put("P03", Checknull(FirstName));
+                        bookmarkvalue.put("P04", Checknull(LastName));
+                         bookmarkvalue.put("P05", Checknull(Position));
                          
-                          bookmarkvalue.put("C15", s.getString("DailyNumber"));
-                          bookmarkvalue.put("C611", s.getString("CaseRequestTime")); 
-                          bookmarkvalue.put("C47", s.getString("AssetCode")); 
+                          bookmarkvalue.put("C15", Checknull(s.getString("DailyNumber")));
+                          bookmarkvalue.put("C611", Checknull(s.getString("CaseRequestTime"))); 
+                          bookmarkvalue.put("C47", Checknull(s.getString("AssetCode"))); 
                     
                    
     

@@ -131,35 +131,34 @@ public class W3 {
 //                System.out.print(" - ");
                  JSONObject bookmarkvalue = new JSONObject();
 //              
-                bookmarkvalue.put("C1",Date);
-                bookmarkvalue.put("C01",Month);
-                bookmarkvalue.put("C001",Year);
-		bookmarkvalue.put("C2",cs);
-                bookmarkvalue.put("C3", ccYear);
-                bookmarkvalue.put("C16", DocOrder);
-                bookmarkvalue.put("C17", DocSlash);
-                 bookmarkvalue.put("S2",PoliceStationName);
-                 bookmarkvalue.put("S27",ProvincProsecutor);
-                 bookmarkvalue.put("S29",THNumBook);
-                 bookmarkvalue.put("S10",TelStation);
+                bookmarkvalue.put("C1",Checknull(Date));
+                bookmarkvalue.put("C01",Checknull(Month));
+                bookmarkvalue.put("C001",Checknull(Year));
+		bookmarkvalue.put("C2",Checknull(cs));
+                bookmarkvalue.put("C3",Checknull(ccYear));
+                bookmarkvalue.put("C16",Checknull(DocOrder));
+                bookmarkvalue.put("C17", Checknull(DocSlash));
+                 bookmarkvalue.put("S2",Checknull(PoliceStationName));
+                 bookmarkvalue.put("S27",Checknull(ProvincProsecutor));
+                 bookmarkvalue.put("S29",Checknull(THNumBook));
+                 bookmarkvalue.put("S10",Checknull(TelStation));
                    
-                 bookmarkvalue.put("PA7",s.getString("AccureandOther"));
-                  bookmarkvalue.put("PA13", s.getString("AgeAccured"));
-                   bookmarkvalue.put("PA14", s.getString("AccuredRace"));
-                    bookmarkvalue.put("PA15", s.getString("AccuredNati")); 
-//                     bookmarkvalue.put("P15", "-"); 
-//                    bookmarkvalue.put("PA75", "-"); 
-                    bookmarkvalue.put("PS7",  s.getString("SuspectandOther")); 
-                    bookmarkvalue.put("PS13",  s.getString("suspectAge"));
-                     bookmarkvalue.put("PS14", s.getString("suspectRace"));
-                         bookmarkvalue.put("PS15",  s.getString("suspectNati"));
+                 bookmarkvalue.put("PA7",Checknull(s.getString("AccureandOther")));
+                  bookmarkvalue.put("PA13", Checknull(s.getString("AgeAccured")));
+                   bookmarkvalue.put("PA14", Checknull(s.getString("AccuredRace")));
+                    bookmarkvalue.put("PA15", Checknull(s.getString("AccuredNati"))); 
+ 
+                    bookmarkvalue.put("PS7",  Checknull(s.getString("SuspectandOther"))); 
+                    bookmarkvalue.put("PS13",  Checknull(s.getString("suspectAge")));
+                     bookmarkvalue.put("PS14", Checknull(s.getString("suspectRace")));
+                         bookmarkvalue.put("PS15",  Checknull(s.getString("suspectNati")));
                          
-                      bookmarkvalue.put("B2", s.getString("ChargeName"));
+                      bookmarkvalue.put("B2", Checknull(s.getString("ChargeName")));
                       
-                     bookmarkvalue.put("P02", RankPolice);
-                       bookmarkvalue.put("P03", FirstName);
-                        bookmarkvalue.put("P04", LastName);
-                         bookmarkvalue.put("P05", Position);
+                    bookmarkvalue.put("P02", Checknull(RankPolice));
+                       bookmarkvalue.put("P03", Checknull(FirstName));
+                        bookmarkvalue.put("P04", Checknull(LastName));
+                         bookmarkvalue.put("P05", Checknull(Position));
                     
                    
     
