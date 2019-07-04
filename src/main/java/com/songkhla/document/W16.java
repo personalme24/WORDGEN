@@ -93,11 +93,11 @@ public class W16 {
                  
                      
                     VarRE2=VarRE2+"\n\r"+s.getString("DateRecord");
-                    bookmarkvalue.put("AS1", VarRE2);
+                    bookmarkvalue.put("AS1", Checknull(VarRE2));
                     VarRE3=VarRE2+"\n\r"+s.getString("NameInguiry");
-                    bookmarkvalue.put("AS1", VarRE2);
+                    bookmarkvalue.put("AS1", Checknull(VarRE2));
                     VarRE4=VarRE2+"\n\r"+s.getString("DetailRecord");
-                    bookmarkvalue.put("AS1", VarRE2);
+                    bookmarkvalue.put("AS1", Checknull(VarRE2));
                    
                     
                    
@@ -267,5 +267,24 @@ public class W16 {
 			tempTable.getContent().remove(templateRow);
 		}
 	}
+    public static String Checknull(String input){
+					if(input==null||input==""||input=="null") { return ""; }
+					return getThaiNumber(input);
+					}
     
+    private static String getThaiNumber(String amount) {  
+        if(amount == null || amount.isEmpty()) return "";
+        String[] DIGIT_TH = { "๐", "๑", "๒", "๓", "๔", "๕", "๖", "๗", "๘", "๙" };
+        StringBuilder sb = new StringBuilder();
+        for(char c : amount.toCharArray()){
+            if(Character.isDigit(c)){
+                String index = DIGIT_TH[Character.getNumericValue(c)].toString();
+                sb.append(index);
+            } else {
+                sb.append(c);
+            }
+        }
+        return sb.toString();  
+    }  
+   
 }

@@ -121,9 +121,9 @@ public class W93 {
 
                  JSONObject bookmarkvalue = new JSONObject();
 //              
-                bookmarkvalue.put("C1",Date);
+                bookmarkvalue.put("C1",Checknull(Date));
                 bookmarkvalue.put("C01",Month);
-                bookmarkvalue.put("C001",Year);
+                bookmarkvalue.put("C001",Checknull(Year));
 		bookmarkvalue.put("C2",cs);
                 bookmarkvalue.put("C3", ccYear);
                 
@@ -137,8 +137,8 @@ public class W93 {
                 
                  
    
-                    bookmarkvalue.put("PS2", s.getString("PeopleRegistrationID")); 
-                    bookmarkvalue.put("PS3",ToDate(s.getString("IssueDate"))); 
+                    bookmarkvalue.put("PS2", Checknull(s.getString("PeopleRegistrationID"))); 
+                    bookmarkvalue.put("PS3",Checknull(ToDate(s.getString("IssueDate")))); 
                     bookmarkvalue.put("PS5", s.getString("IssuedBy")); 
                     bookmarkvalue.put("PS7", s.getString("FullNamePerson")); 
                     bookmarkvalue.put("PS13", s.getString("Age"));
@@ -146,14 +146,14 @@ public class W93 {
                     bookmarkvalue.put("PS15", s.getString("Nationality"));
                     bookmarkvalue.put("PS16", s.getString("Religion"));
                     bookmarkvalue.put("PS17", s.getString("Occupation"));
-                    bookmarkvalue.put("PS22", s.getString("HouseNumber"));
+                    bookmarkvalue.put("PS22", Checknull(s.getString("HouseNumber")));
                     bookmarkvalue.put("PS23", s.getString("Moo"));
                     bookmarkvalue.put("PS24", s.getString("Tambon"));
                     bookmarkvalue.put("PS25", s.getString("Amphur"));
                     bookmarkvalue.put("PS26", s.getString("Province"));
                     bookmarkvalue.put("PS28", s.getString("PhonePerson"));
-                    bookmarkvalue.put("PS104", s.getString("Road"));
-                    bookmarkvalue.put("PS105", s.getString("Soi"));
+                    bookmarkvalue.put("PS104", Checknull(s.getString("Road")));
+                    bookmarkvalue.put("PS105", Checknull(s.getString("Soi")));
                          
                         bookmarkvalue.put("B2", s.getString("ChargeName"));
                        
@@ -340,5 +340,23 @@ public class W93 {
          }
                return ResultDate;
 }
-    
+         public static String Checknull(String input){
+					if(input==null||input==""||input=="null") { return ""; }
+					return getThaiNumber(input);
+					}
+         
+    private static String getThaiNumber(String amount) {  
+        if(amount == null || amount.isEmpty()) return "";
+        String[] DIGIT_TH = { "๐", "๑", "๒", "๓", "๔", "๕", "๖", "๗", "๘", "๙" };
+        StringBuilder sb = new StringBuilder();
+        for(char c : amount.toCharArray()){
+            if(Character.isDigit(c)){
+                String index = DIGIT_TH[Character.getNumericValue(c)].toString();
+                sb.append(index);
+            } else {
+                sb.append(c);
+            }
+        }
+        return sb.toString();  
+    }  
 }
