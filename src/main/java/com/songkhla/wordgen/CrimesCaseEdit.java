@@ -64,7 +64,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
     Connection con=null;
     PreparedStatement pst=null;;
     boolean isInsert;
-    String caseid;
+    String caseid,caseidLast;
     DatePickerSettings ds;
 JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate;
     /**
@@ -216,6 +216,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate;
 	Date date = new Date();
         dateFormat.format(date);
 //	System.out.println(dateFormat.format(date));
+            caseidLast=IdCase();
            crimecaseid.setText(IdCase());       
 //           CaseAcceptDate.setDate(date);
 //           CaseRequestDateTime.setDate(date);
@@ -1017,10 +1018,10 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate;
                 pst.setString(7,requestTime);
                 pst.setString(8,CaseAcceptDate.getJFormattedTextField().getText());
                 pst.setString(9,acceptTime);
-                pst.setString(10,CrimeLocation.getText());
+                pst.setString(10,DailyNumber.getText());
                 pst.setString(11,OccuredDate.getJFormattedTextField().getText());
                 pst.setString(12,orcuredTime);
-                pst.setString(13,DailyNumber.getText());
+                pst.setString(13,CrimeLocation.getText());
                 pst.setString(14,CrimeLocationMoo.getText());
                 pst.setString(15,CrimeLocationSoi.getText());
                 pst.setString(16,CrimeLocationRoad.getText());
@@ -1073,14 +1074,17 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate;
       int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
         JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
   if (response == JOptionPane.YES_OPTION) {
+   
          pst.executeUpdate(); 
          pst.close();
          System.out.println("SQL : "+sql);
+         JSONObject data=new JSONObject();
+         data.put("caseid", caseidLast);
            JFrame frame = new JFrame();
         JDialog dialog = new JDialog(frame);//frame is owner
         JFrame fr = (JFrame)(dialog.getParent());
         fr.removeAll();
-        ReportforCrimesCase n=new ReportforCrimesCase(fr);
+        ReportforCrimesCase n=new ReportforCrimesCase(fr,data);
         n.pack();
         n.setLocationRelativeTo(null);
         n.setVisible(true);
@@ -1197,7 +1201,9 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate;
         JDialog dialog = new JDialog(frame);//frame is owner
         JFrame fr = (JFrame)(dialog.getParent());
         fr.removeAll();
-        ReportforCrimesCase n=new ReportforCrimesCase(fr);
+        JSONObject data=new JSONObject();
+         data.put("caseid", caseid);
+        ReportforCrimesCase n=new ReportforCrimesCase(fr,data);
         n.pack();
         n.setLocationRelativeTo(null);
         n.setVisible(true);

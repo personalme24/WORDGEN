@@ -274,8 +274,7 @@ public class InvesInformationFrom extends javax.swing.JDialog {
         con=ConnectDatabase.connect();
      
         if(isInsert){
-              int dialogResult = JOptionPane.showConfirmDialog (null, "ทำการบันทึกข้อมูล?", "ยืนยันการบันทึกข้อมูล",JOptionPane.YES_NO_OPTION);
-                if(dialogResult == JOptionPane.YES_OPTION){
+            
         try {
     
                 String sql="INSERT INTO InvestInformation (InvestId,InvestCardID,InvestName,"
@@ -288,20 +287,22 @@ public class InvesInformationFrom extends javax.swing.JDialog {
                 pst.setString(5,InvestBirthDay.getText());
                pst.setString(6,InvestAge.getText());
                 pst.setString(7,InvestTel.getText());
-                pst.executeUpdate();
+               
+                int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
+        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (response == JOptionPane.YES_OPTION) {
+           pst.executeUpdate();
                 pst.close();
-                JOptionPane.showMessageDialog(null, "บันทึกข้อมูลเรียบร้อย");
-                setVisible(false);
+          } 
         }
              catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
             System.out.println("SQL : "+pst);
              }
             }
-        }
+        
           else{
-          int dialogResult = JOptionPane.showConfirmDialog (null, "ทำการแก้ไขข้อมูล?", "ยืนยันการแก้ไขข้อมูล",JOptionPane.YES_NO_OPTION);
-          if(dialogResult == JOptionPane.YES_OPTION){
+        
             try{
                 String sqlUpdate= "UPDATE InvestInformation Set\n "
                 + "InvestName=?,"
@@ -329,7 +330,7 @@ public class InvesInformationFrom extends javax.swing.JDialog {
             System.out.println("SQL : "+pst);
         }
         }
-        }
+        
         setVisible(false);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonSaveActionPerformed

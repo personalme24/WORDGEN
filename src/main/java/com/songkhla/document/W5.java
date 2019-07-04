@@ -49,6 +49,7 @@ public class W5 {
             conn=ConnectDatabase.connect();
             PreparedStatement pst=null;
             String ccYear;
+            String cs;
              String SendIDocDate;
              String PoliceStationName="";
              String StationAmphur="";
@@ -84,7 +85,7 @@ public class W5 {
                          Position=rs1.getString("Position");
                       }
                   
-                   String sql="select crimecase.CaseId,crimecase.crimecaseno,crimecase.crimecaseyears,crimecase.SendIDocDate,crimecase.OccuredDate,crimecase.OccuredTime,"
+                   String sql="select crimecase.CaseId,crimecase.crimecasenoyear,crimecase.crimecaseno,crimecase.crimecaseyears,crimecase.SendIDocDate,crimecase.OccuredDate,crimecase.OccuredTime,"
                            + "crimecase.CaseAcceptDate,crimecase.CaseAccepTime,crimecase.CrimeLocationDistrict,crimecase.AccureandOther,crimecase.SuspectandOther,crimecase.WitnessandOther,"
                             + "Charge.*,P1.*,P2.*\n" +
                                 "from crimecase inner join(\n" +
@@ -105,8 +106,9 @@ public class W5 {
             ResultSet s=st.executeQuery(sql); 
                 System.out.println(sql);
             while((s!=null) && (s.next()))
-            {  String  cs =s.getString("crimecaseno");
+            {    cs =s.getString("crimecaseno");
                ccYear=s.getString("crimecaseyears");
+
               String Date="";
                 String Month="";
                 String Year="";
@@ -202,7 +204,7 @@ public class W5 {
                         
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/เอกสารสำนวนคดี "+cc+"/รายงานการสอบสวน "+cc+".doc"));
+			wordMLPackage.save(new java.io.File("D:/คดีอาญา "+cs+"-"+ccYear+"/อ"+cs+"-"+ccYear+" รายงานการสอบสวน.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

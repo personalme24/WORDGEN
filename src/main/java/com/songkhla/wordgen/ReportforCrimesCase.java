@@ -32,9 +32,14 @@ import com.songkhla.document.W9;
 import com.songkhla.document.W93;
 import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseno;
 import java.io.File;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import org.json.simple.JSONObject;
 /**
  *
  * @author Petpilin
@@ -44,7 +49,10 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
     /**
      * Creates new form ReportforCrimesCase
      */
-    public ReportforCrimesCase(JFrame parrent) {
+    String caseid,caseyear,casetype,caseno;
+    Connection con=null;
+    PreparedStatement pst=null;;
+    public ReportforCrimesCase(JFrame parrent,JSONObject datain) {
                 super(parrent,true);
 
         initComponents();
@@ -54,7 +62,31 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
          //jCheckW5.setSelected(true);
          //jCheckW6.setSelected(true);
         crimecaseno.setVisible(true);
-        crimecaseno.setText(CrimesCaseEdit.crimecaseid.getText());
+
+        if(datain != null){
+        caseid=datain.get("caseid")+"";
+                crimecaseno.setText(caseid);
+
+        con=ConnectDatabase.connect();
+
+        try{
+        String sql="Select crimecasenoyear,crimecaseno,crimecaseyears,CaseType from CrimeCase where CaseId='"+caseid+"'";
+         Statement stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery(sql);   
+                
+        if(rs.next()){
+         
+            caseyear=rs.getString("crimecaseyears");
+             caseno=rs.getString("crimecaseno");
+           
+            casetype=rs.getString("CaseType");
+        }System.out.println("ffffffffffffffff : "+caseyear);
+        }
+        catch(Exception e){
+        e.printStackTrace();
+        
+        }
+        }
         
     }
 
@@ -633,8 +665,9 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
 
     private void jButtonPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrintActionPerformed
         // TODO add your handling code here:
-          String no=crimecaseno.getText();
-        File f3=new File("D:/เอกสารสำนวนคดี "+no);
+        
+           String no=crimecaseno.getText();
+        File f3=new File("D:/คดีอาญา "+caseno+"-"+caseyear);
         f3.mkdir();
         System.out.print("folder created");
          if(jCheckW1.isSelected()){
@@ -718,7 +751,7 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
             W93.w93(no);
         }
        
-         JOptionPane.showMessageDialog(jPanel1,null, "Export successfully", JOptionPane.INFORMATION_MESSAGE);
+         JOptionPane.showMessageDialog(jPanel1,"Export successfully", "Export successfully", JOptionPane.INFORMATION_MESSAGE);
      
     }//GEN-LAST:event_jButtonPrintActionPerformed
 

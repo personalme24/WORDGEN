@@ -22,6 +22,7 @@ import java.util.Date;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.jdatepicker.impl.JDatePanelImpl;
@@ -46,6 +47,9 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
     public RecordInvestigatorForm(JFrame parrent,JSONObject datain) {
         super(parrent,true);
         initComponents();
+         ImageIcon img = new ImageIcon("D://Master//WD.png");
+            setIconImage(img.getImage());
+            setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
          UtilDateModel model2 = new UtilDateModel();
             model2.setValue(Calendar.getInstance().getTime());
             Properties p = new Properties();
@@ -102,7 +106,7 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel3.setBackground(new java.awt.Color(77, 0, 0));
+        jPanel3.setBackground(new java.awt.Color(46, 156, 202));
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
 
