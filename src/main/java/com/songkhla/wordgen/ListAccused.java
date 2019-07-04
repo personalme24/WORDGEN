@@ -101,7 +101,7 @@ String typeC;
                 .addContainerGap(256, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(77, 0, 0));
+        jPanel2.setBackground(new java.awt.Color(46, 156, 202));
 
         jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));

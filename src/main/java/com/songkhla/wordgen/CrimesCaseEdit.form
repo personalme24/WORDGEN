@@ -149,13 +149,13 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="jTabbedPane2" min="-2" pref="1166" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="88" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="jButtonSaveCase" min="-2" pref="102" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="jLabelChargeCode" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                           <Component id="jLabelActionCode" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
                       </Group>
@@ -168,7 +168,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelChargeCode" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelChargeCode" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
                           <Component id="jLabelActionCode" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -214,10 +214,10 @@
               <SubComponents>
                 <Component class="javax.swing.JButton" name="jButtonCharge">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="&#xe02;&#xe49;&#xe2d;&#xe2b;&#xe32;"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="TH SarabunPSK" size="20" style="1"/>
                     </Property>
+                    <Property name="text" type="java.lang.String" value="&#xe02;&#xe49;&#xe2d;&#xe2b;&#xe32;"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonChargeActionPerformed"/>
@@ -1457,9 +1457,6 @@
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelChargeCode">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="CodeCharge"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
           </AuxValues>

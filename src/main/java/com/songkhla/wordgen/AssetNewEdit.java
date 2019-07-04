@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.json.simple.JSONObject;
@@ -29,6 +30,9 @@ public class AssetNewEdit extends javax.swing.JDialog {
     public AssetNewEdit(JFrame parrent,JSONObject datain) {
         super(parrent,true);
         initComponents();
+         ImageIcon img = new ImageIcon("D://Master//WD.png");
+            setIconImage(img.getImage());
+            setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
         crimecaseno.setVisible(false);
           crimecaseno.setText(CrimesCaseEdit.crimecaseid.getText());
         try { Connection con = ConnectDatabase.connect();
@@ -331,7 +335,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
              con=ConnectDatabase.connect();
         if (isInsert) {
               String sql="INSERT INTO Asset (EvidenceRecordNumber,Amount,DateSequester,DefectMark,PlaceFoundExhibit,"
-                      + "Name,Remark,OccupantName,OrderAsset,PointFoundCheck,Value,caseIdAsset,StatusAsset) "           
+                      + "Name,Note,OccupantName,OrderAsset,PointFoundCheck,Value,caseIdAsset,StatusAsset) "           
                       + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
               
                try {
@@ -349,6 +353,9 @@ public class AssetNewEdit extends javax.swing.JDialog {
                               pst.setString(11,Value.getText());
                               pst.setString(12,crimecaseno.getText());
                               pst.setString(13,StatusAsset.getSelectedItem().toString());
+                             
+                              
+                              
                               pst.executeUpdate();
                               
                               JOptionPane.showMessageDialog(jPanel1, "Data Save",null, JOptionPane.INFORMATION_MESSAGE);

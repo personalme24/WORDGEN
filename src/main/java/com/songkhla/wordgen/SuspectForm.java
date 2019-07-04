@@ -218,7 +218,7 @@ public class SuspectForm extends javax.swing.JDialog {
 
         }else{
             eventJRadioManage();
-           crimecaseno.setText(ListSuspect.txtCaseNO.getText());
+           crimecaseno.setText(IdCase());
             isInsert=true;
           
         }
@@ -319,7 +319,7 @@ public class SuspectForm extends javax.swing.JDialog {
         jSpinnerArrTime = new javax.swing.JSpinner(sm);
         jPanelRestoreDate = new javax.swing.JPanel();
         jPanelBailDate = new javax.swing.JPanel();
-        jLabel39 = new javax.swing.JLabel();
+        jLabelBailDate = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         HouseNumber = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
@@ -671,13 +671,14 @@ public class SuspectForm extends javax.swing.JDialog {
                 .addGap(6, 6, 6)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(FullNamePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(PeopleRegistrationID, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
-                                .addComponent(jLabel2)))
+                                .addComponent(jLabel2))
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel5)
+                                .addComponent(FullNamePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(PeopleRegistrationID, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -900,8 +901,8 @@ public class SuspectForm extends javax.swing.JDialog {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jLabel39.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel39.setText("ัวันประกัน");
+        jLabelBailDate.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabelBailDate.setText("ัวันประกัน");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -942,23 +943,25 @@ public class SuspectForm extends javax.swing.JDialog {
                             .addGap(11, 11, 11)
                             .addComponent(PlaceArrest))
                         .addGroup(jPanel5Layout.createSequentialGroup()
-                            .addComponent(jLabelArrestDate, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(12, 12, 12)
-                            .addComponent(jPanelDateArrest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(10, 10, 10)
-                            .addComponent(jLabelArrTime)
-                            .addGap(18, 18, 18)
-                            .addComponent(jSpinnerArrTime, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel5Layout.createSequentialGroup()
-                            .addComponent(jLabelRestoreDate)
-                            .addGap(18, 18, 18)
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jPanelBailDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jPanelRestoreDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(135, 135, 135)))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                                    .addComponent(jLabelArrestDate, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(12, 12, 12))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                                    .addComponent(jLabelRestoreDate)
+                                    .addGap(25, 25, 25)))
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jPanelRestoreDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel5Layout.createSequentialGroup()
+                                    .addComponent(jPanelDateArrest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(10, 10, 10)
+                                    .addComponent(jLabelArrTime)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jSpinnerArrTime, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jPanelBailDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel39)))
+                        .addComponent(jLabelBailDate)))
                 .addContainerGap(53, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -1002,10 +1005,12 @@ public class SuspectForm extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanelRestoreDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(11, 11, 11)
-                .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelBailDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(32, 32, 32))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabelBailDate, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jPanelBailDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -1408,6 +1413,36 @@ public class SuspectForm extends javax.swing.JDialog {
         setVisible(false);
     }//GEN-LAST:event_BtSaveAccusedActionPerformed
 
+    private void PeopleRegistrationIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PeopleRegistrationIDKeyTyped
+     char vChar = evt.getKeyChar();
+         if(!(Character.isDigit(vChar) || (vChar==KeyEvent.VK_BACK_SPACE)||(vChar==KeyEvent.VK_DELETE)))
+         {
+             evt.consume();
+         }
+         if(PeopleRegistrationID.getText().length()>=13) {  
+           evt.consume();
+ }        // TODO add your handling code here:
+    }//GEN-LAST:event_PeopleRegistrationIDKeyTyped
+
+    private void AgeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AgeKeyTyped
+         char vChar = evt.getKeyChar();
+         if(!(Character.isDigit(vChar) || (vChar==KeyEvent.VK_BACK_SPACE)||(vChar==KeyEvent.VK_DELETE)))
+         {
+             evt.consume();
+         }// TODO add your handling code here:
+    }//GEN-LAST:event_AgeKeyTyped
+
+    private void ZipCodeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ZipCodeKeyTyped
+  char vChar = evt.getKeyChar();
+         if(!(Character.isDigit(vChar) || (vChar==KeyEvent.VK_BACK_SPACE)||(vChar==KeyEvent.VK_DELETE)))
+         {
+             evt.consume();
+         }  
+             if(ZipCode.getText().length()>=13) {  
+           evt.consume();
+ }  // TODO add your handling code here:
+    }//GEN-LAST:event_ZipCodeKeyTyped
+
     private void jButtonInsu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonInsu2MouseClicked
         // TODO add your handling code here:
         String idCase=crimecaseno.getText();
@@ -1461,49 +1496,19 @@ public class SuspectForm extends javax.swing.JDialog {
         }catch(Exception ex){
             ex.printStackTrace();
         }
-//                 String idCase=crimecaseno.getText();
-//        
-//                JSONObject s = new JSONObject();
-//                s.put("SueCaseId",idCase );
-//                s.put("SuePersonId",noPerson );
-//        
-//                JFrame frame = new JFrame();
-//                JDialog dialog = new JDialog(frame);//frame is owner
-//                JFrame fwit = (JFrame)(dialog.getParent());
-//                fwit.removeAll();
-//                SueCrimesFrom sa=new SueCrimesFrom(fwit, s);
-//                sa.setVisible(true);
+        //                 String idCase=crimecaseno.getText();
+        //
+        //                JSONObject s = new JSONObject();
+        //                s.put("SueCaseId",idCase );
+        //                s.put("SuePersonId",noPerson );
+        //
+        //                JFrame frame = new JFrame();
+        //                JDialog dialog = new JDialog(frame);//frame is owner
+        //                JFrame fwit = (JFrame)(dialog.getParent());
+        //                fwit.removeAll();
+        //                SueCrimesFrom sa=new SueCrimesFrom(fwit, s);
+        //                sa.setVisible(true);
     }//GEN-LAST:event_jButtonSue2MouseClicked
-
-    private void PeopleRegistrationIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PeopleRegistrationIDKeyTyped
-     char vChar = evt.getKeyChar();
-         if(!(Character.isDigit(vChar) || (vChar==KeyEvent.VK_BACK_SPACE)||(vChar==KeyEvent.VK_DELETE)))
-         {
-             evt.consume();
-         }
-         if(PeopleRegistrationID.getText().length()>=13) {  
-           evt.consume();
- }        // TODO add your handling code here:
-    }//GEN-LAST:event_PeopleRegistrationIDKeyTyped
-
-    private void AgeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AgeKeyTyped
-         char vChar = evt.getKeyChar();
-         if(!(Character.isDigit(vChar) || (vChar==KeyEvent.VK_BACK_SPACE)||(vChar==KeyEvent.VK_DELETE)))
-         {
-             evt.consume();
-         }// TODO add your handling code here:
-    }//GEN-LAST:event_AgeKeyTyped
-
-    private void ZipCodeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ZipCodeKeyTyped
-  char vChar = evt.getKeyChar();
-         if(!(Character.isDigit(vChar) || (vChar==KeyEvent.VK_BACK_SPACE)||(vChar==KeyEvent.VK_DELETE)))
-         {
-             evt.consume();
-         }  
-             if(ZipCode.getText().length()>=13) {  
-           evt.consume();
- }  // TODO add your handling code here:
-    }//GEN-LAST:event_ZipCodeKeyTyped
   public void eventJButtonManage(){
      
      jRadioSue.addChangeListener(new ChangeListener() {
@@ -1524,9 +1529,13 @@ public class SuspectForm extends javax.swing.JDialog {
             @Override
             public void stateChanged(ChangeEvent e) {
             if(jRadioBail.isSelected()){ 
+            jLabelBailDate.setVisible(true);
+            jPanelBailDate.setVisible(true);
             jButtonInsu2.setVisible(true);         
             }
             else{               
+             jLabelBailDate.setVisible(false);
+            jPanelBailDate.setVisible(false);   
              jButtonInsu2.setVisible(false);       
             }
             }
@@ -1603,18 +1612,21 @@ public class SuspectForm extends javax.swing.JDialog {
             public void stateChanged(ChangeEvent e) {
             if(jRadioRestore.isSelected()){ 
             jLabelRestoreDate.setVisible(true);
+             jPanelRestoreDate.setVisible(true);
 //            RestoreDate.setVisible(true);
            
             
             }
             else{
 //              RestoreDate.setVisible(false);  
-              jLabelRestoreDate.setVisible(false);  
+              jLabelRestoreDate.setVisible(false);
+              jPanelRestoreDate.setVisible(false);
+
               }
             }
         }
         );
-       if(jRadioResultImprison.isSelected()){
+    
    jRadioResultImprison.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
@@ -1633,7 +1645,24 @@ public class SuspectForm extends javax.swing.JDialog {
             }
         }
         );
-       }
+   jRadioBail.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+            if(jRadioBail.isSelected()){ 
+             jLabelBailDate.setVisible(true);
+            jPanelBailDate.setVisible(true);   
+           
+            
+            }
+            else{
+            jLabelBailDate.setVisible(false);
+            jPanelBailDate.setVisible(false);  
+           
+              }
+            }
+        }
+        );
+       
 
                }
     public void colseTextBox(){
@@ -1648,6 +1677,9 @@ public class SuspectForm extends javax.swing.JDialog {
     jSpinnerArrTime.setVisible(false);          
     PlaceArrest.setVisible(false); 
     jPanelRestoreDate.setVisible(false);
+     jLabelBailDate.setVisible(false);
+     
+            jPanelBailDate.setVisible(false);   
     }
     /**
      * @param args the command line arguments
@@ -1807,7 +1839,6 @@ public class SuspectForm extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1817,6 +1848,7 @@ public class SuspectForm extends javax.swing.JDialog {
     private javax.swing.JLabel jLabelArrTime;
     private javax.swing.JLabel jLabelArrestDate;
     private javax.swing.JLabel jLabelArrestPlace;
+    private javax.swing.JLabel jLabelBailDate;
     private javax.swing.JLabel jLabelRestoreDate;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

@@ -9,6 +9,7 @@ import com.songkhla.document.TestWord;
 import com.songkhla.document.W5;
 import com.songkhla.document.W9;
 import java.io.File;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,6 +23,9 @@ public class ReportAllForm extends javax.swing.JDialog {
      */
     public ReportAllForm() {
         initComponents();
+         ImageIcon img = new ImageIcon("D://Master//WD.png");
+            setIconImage(img.getImage());
+            setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
         jCheckW5.setSelected(true);
         crimecaseno.setVisible(true);
         crimecaseno.setText(CrimesCaseEdit.crimecaseid.getText());
@@ -129,7 +133,7 @@ public class ReportAllForm extends javax.swing.JDialog {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel3.setBackground(new java.awt.Color(77, 0, 0));
+        jPanel3.setBackground(new java.awt.Color(46, 156, 202));
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
 
@@ -141,15 +145,14 @@ public class ReportAllForm extends javax.swing.JDialog {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
         );
 
         crimecaseno.setText("jLabel2");
@@ -590,7 +593,7 @@ public class ReportAllForm extends javax.swing.JDialog {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -768,7 +771,7 @@ public class ReportAllForm extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1264, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1264, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

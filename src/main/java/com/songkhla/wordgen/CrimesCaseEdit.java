@@ -117,7 +117,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate;
        
 //        jTextPoliceName.setText(Data.getPolicName());
         jLabelActionCode.setVisible(false);
-        jLabelChargeCode.setVisible(false);
+        jLabelChargeCode.setVisible(true);
         crimecaseid.setVisible(true);
  
             comboInvest();
@@ -397,8 +397,8 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate;
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButtonCharge.setText("ข้อหา");
         jButtonCharge.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jButtonCharge.setText("ข้อหา");
         jButtonCharge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonChargeActionPerformed(evt);
@@ -933,8 +933,6 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate;
             }
         });
 
-        jLabelChargeCode.setText("CodeCharge");
-
         jLabelActionCode.setText("jLabel2");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -946,12 +944,12 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate;
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(88, Short.MAX_VALUE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jButtonSaveCase, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabelChargeCode)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(32, 32, 32)
                         .addComponent(jLabelActionCode)
                         .addGap(85, 85, 85))))
         );
@@ -960,7 +958,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate;
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabelChargeCode)
+                        .addComponent(jLabelChargeCode, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabelActionCode))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addContainerGap()

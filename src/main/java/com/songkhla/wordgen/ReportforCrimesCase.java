@@ -32,6 +32,7 @@ import com.songkhla.document.W9;
 import com.songkhla.document.W93;
 import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseno;
 import java.io.File;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 /**
@@ -47,6 +48,9 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
                 super(parrent,true);
 
         initComponents();
+         ImageIcon img = new ImageIcon("D://Master//WD.png");
+            setIconImage(img.getImage());
+            setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
          //jCheckW5.setSelected(true);
          //jCheckW6.setSelected(true);
         crimecaseno.setVisible(true);
@@ -126,10 +130,11 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
+        setPreferredSize(new java.awt.Dimension(1270, 728));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel3.setBackground(new java.awt.Color(77, 0, 0));
+        jPanel3.setBackground(new java.awt.Color(46, 156, 202));
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
 
@@ -450,7 +455,7 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
                             .addComponent(jCheckBox45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jCheckBox46, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jCheckBox48, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jCheckBox49, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE)
+                            .addComponent(jCheckBox49, javax.swing.GroupLayout.DEFAULT_SIZE, 544, Short.MAX_VALUE)
                             .addComponent(jCheckBox50, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jCheckBox51, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jCheckBox57, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -591,7 +596,7 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
                                 .addComponent(jCheckBox45)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jCheckBox46)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 397, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 369, Short.MAX_VALUE)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jCheckW19)
                             .addComponent(jCheckBox22)
@@ -616,7 +621,7 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
