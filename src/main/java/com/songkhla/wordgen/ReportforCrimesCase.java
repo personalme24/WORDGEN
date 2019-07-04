@@ -24,7 +24,10 @@ import com.songkhla.document.W3;
 import com.songkhla.document.W31;
 import com.songkhla.document.W35;
 import com.songkhla.document.W37;
+import com.songkhla.document.W38;
+import com.songkhla.document.W39;
 import com.songkhla.document.W4;
+import com.songkhla.document.W40;
 import com.songkhla.document.W5;
 import com.songkhla.document.W6;
 import com.songkhla.document.W8;
@@ -139,11 +142,11 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
         jCheckW35 = new javax.swing.JCheckBox();
         jCheckBox36 = new javax.swing.JCheckBox();
         jCheckW37 = new javax.swing.JCheckBox();
-        jCheckBox38 = new javax.swing.JCheckBox();
-        jCheckBox39 = new javax.swing.JCheckBox();
+        jCheckW38 = new javax.swing.JCheckBox();
+        jCheckW39 = new javax.swing.JCheckBox();
         jCheckBox41 = new javax.swing.JCheckBox();
         jCheckBox43 = new javax.swing.JCheckBox();
-        jCheckBox40 = new javax.swing.JCheckBox();
+        jCheckW40 = new javax.swing.JCheckBox();
         jCheckBox44 = new javax.swing.JCheckBox();
         jCheckBox45 = new javax.swing.JCheckBox();
         jCheckBox46 = new javax.swing.JCheckBox();
@@ -328,13 +331,13 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
         jCheckW37.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jCheckW37.setText("ตำหนิรูปพรรณผู้กระทำความผิด");
 
-        jCheckBox38.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox38.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jCheckBox38.setText("หมายเรียกผู้ต้องหา");
+        jCheckW38.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckW38.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW38.setText("หมายเรียกผู้ต้องหา");
 
-        jCheckBox39.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox39.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jCheckBox39.setText("หมายเรียกพยาน");
+        jCheckW39.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckW39.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW39.setText("หมายเรียกพยาน");
 
         jCheckBox41.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBox41.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
@@ -344,9 +347,9 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
         jCheckBox43.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jCheckBox43.setText("บันทึกเสนอสัญญาประกันสิ่งของ");
 
-        jCheckBox40.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox40.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jCheckBox40.setText("บันทึกการแจ้งสิทธิตามพระราชบัญญติค่าตอบแทนผู้เสียหาย และค่าทดแทน \n");
+        jCheckW40.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckW40.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW40.setText("บันทึกการแจ้งสิทธิตามพระราชบัญญติค่าตอบแทนผู้เสียหาย และค่าทดแทน \n");
 
         jCheckBox44.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBox44.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
@@ -471,8 +474,8 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jCheckBox39, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jCheckBox38, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jCheckW39, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jCheckW38, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jCheckW37, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jCheckBox34, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jCheckBox33, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -508,7 +511,7 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
                             .addComponent(jCheckBox59, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jCheckBox40)
+                                    .addComponent(jCheckW40)
                                     .addComponent(jCheckBox61, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jCheckBox60, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE))
@@ -539,7 +542,7 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
                         .addComponent(jCheckW1))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jCheckW27)
-                        .addComponent(jCheckBox40)))
+                        .addComponent(jCheckW40)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -620,12 +623,12 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jCheckW16)
-                                    .addComponent(jCheckBox38)
+                                    .addComponent(jCheckW38)
                                     .addComponent(jCheckBox61))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jCheckW17)
-                                    .addComponent(jCheckBox39)
+                                    .addComponent(jCheckW39)
                                     .addComponent(jCheckBox62))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
@@ -755,6 +758,16 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
        if(jCheckW37.isSelected()){
             W37.w37(no);
         }
+       if(jCheckW38.isSelected()){
+            W38.w38(no);
+        }
+       if(jCheckW39.isSelected()){
+            W39.w39(no);
+        }
+       if(jCheckW40.isSelected()){
+            W40.w40(no);
+        }
+       
        if(jCheckW93.isSelected()){
             W93.w93(no);
         }
@@ -822,9 +835,6 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
     private javax.swing.JCheckBox jCheckBox33;
     private javax.swing.JCheckBox jCheckBox34;
     private javax.swing.JCheckBox jCheckBox36;
-    private javax.swing.JCheckBox jCheckBox38;
-    private javax.swing.JCheckBox jCheckBox39;
-    private javax.swing.JCheckBox jCheckBox40;
     private javax.swing.JCheckBox jCheckBox41;
     private javax.swing.JCheckBox jCheckBox43;
     private javax.swing.JCheckBox jCheckBox44;
@@ -864,7 +874,10 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
     private javax.swing.JCheckBox jCheckW31;
     private javax.swing.JCheckBox jCheckW35;
     private javax.swing.JCheckBox jCheckW37;
+    private javax.swing.JCheckBox jCheckW38;
+    private javax.swing.JCheckBox jCheckW39;
     private javax.swing.JCheckBox jCheckW4;
+    private javax.swing.JCheckBox jCheckW40;
     private javax.swing.JCheckBox jCheckW5;
     private javax.swing.JCheckBox jCheckW6;
     private javax.swing.JCheckBox jCheckW8;
