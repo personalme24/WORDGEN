@@ -40,18 +40,15 @@ import org.docx4j.wml.Tr;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-public class W35 {
-     public static void w35(String cc) {
+public class W62 {
+     public static void w62(String cc) {
      
             Connection conn=null;
             conn=ConnectDatabase.connect();
             PreparedStatement pst=null;
              String ccYear;
              String PoliceStationName="";
-             String StationAmphur="";
-             String StationProvince="";
-             String ProvincProsecutor="";
-             String TelStation="";
+            
              String RankPolice ="";
              String FirstName ="";
              String LastName ="";
@@ -65,8 +62,7 @@ public class W35 {
                   ResultSet rs=sp.executeQuery(sqlDataPoliceStation); 
                   while (rs.next()) {                    
                          PoliceStationName=rs.getString("PoliceStaionName");
-                         ProvincProsecutor=rs.getString("ProvincProsecutor");
-                         TelStation=rs.getString("TelStation");
+                      
                       }
             
                     String sqlDataPolice="SELECT * FROM Police";
@@ -79,7 +75,7 @@ public class W35 {
                          Position=rs1.getString("Position");
                       }
                   
-                   String sql="select crimecase.*,Charge.*,Person.ArrestDate,Person.PlaceArrest,Person.ArrestDateTime \n" +
+                   String sql="select crimecase.*,Charge.*,Person.* \n" +
                                "from crimecase \n" +
                                "left join Charge on crimecase.ChargeCodeCase=Charge.ChargeCode\n" +
                                 "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
@@ -95,32 +91,22 @@ public class W35 {
             {  String  
                     cs =s.getString("crimecaseno");
                     ccYear=s.getString("crimecaseyears");
-                String Date="";
-                
-                
-                SimpleDateFormat sdfstart ;
-                Calendar  calstart = Calendar.getInstance();
-                sdfstart = new SimpleDateFormat("dd MMMM yyyy", new Locale("th", "TH"));  
-               Date =sdfstart.format(calstart.getTime());
-              
-               
-                 
-//                System.out.print("ข้อหา :: "+s.getString("ChargeCode"));
-//                System.out.print(" - ");
+                   
+  
+
+                    
                  JSONObject bookmarkvalue = new JSONObject();
              
-                bookmarkvalue.put("C1",Checknull(Date));
+                
                 
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3",Checknull(ccYear));
                  bookmarkvalue.put("S2",Checknull(PoliceStationName));
-                 bookmarkvalue.put("S5", Checknull(StationAmphur));
-                 bookmarkvalue.put("S6", Checknull(StationProvince));
-                 bookmarkvalue.put("S27",Checknull(ProvincProsecutor));
-                 bookmarkvalue.put("S10",Checknull(TelStation));
+                 
                  
                  bookmarkvalue.put("P54",Checknull(ToDate(s.getString("ArrestDateTime"))));
-                 bookmarkvalue.put("P55",Checknull(s.getString("PlaceArrest")));
+                
+                 
                  bookmarkvalue.put("P88",Checknull(ToTime(s.getString("ArrestDateTime"))));
                    
                   
@@ -128,6 +114,8 @@ public class W35 {
                         
                       bookmarkvalue.put("B2", Checknull(s.getString("ChargeName")));
                       
+                      bookmarkvalue.put("PA7",Checknull(s.getString("AccureandOther")));
+                      bookmarkvalue.put("PS7",  Checknull(s.getString("FullNamePerson"))); 
                      
                       
                         bookmarkvalue.put("P02", Checknull(RankPolice));
@@ -135,10 +123,7 @@ public class W35 {
                         bookmarkvalue.put("P04", Checknull(LastName));
                          bookmarkvalue.put("P05", Checknull(Position));
                          
-                          bookmarkvalue.put("C15", Checknull(s.getString("DailyNumber")));
-                          bookmarkvalue.put("C611", Checknull(s.getString("CaseRequestTime"))); 
-                          bookmarkvalue.put("C47", Checknull(s.getString("AssetCode"))); 
-                    
+                         
                    
     
 			JSONArray tablecolumn = new JSONArray();
@@ -176,10 +161,10 @@ public class W35 {
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("D:/TEMPLATE/w35.docx"));
+					.load(new java.io.File("D:/TEMPLATE/w62.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/คดีอาญา"+cs+"-"+ccYear+"/บันทึกการตรวจค้นโดยไม่มีหมายค้น.doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/คดีอาญา"+cs+"-"+ccYear+"/บันทึกการควบคุมผู้ต้องหา.doc"+s.getString("FullNamePerson")+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -305,11 +290,11 @@ public class W35 {
                date = df.parse(strDate);               
                ResultDate=dateto.format(date.getTime());
          } catch (ParseException ex) {
-             Logger.getLogger(W35.class.getName()).log(Level.SEVERE, null, ex);
+             Logger.getLogger(W62.class.getName()).log(Level.SEVERE, null, ex);
          }
                return ResultDate;
     }
-     private static String ToTime(String strTime){
+    private static String ToTime(String strTime){
                String ResultTime="";
          try {
     	       SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm", new Locale("th", "TH"));  

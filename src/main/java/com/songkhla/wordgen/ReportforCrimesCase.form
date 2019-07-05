@@ -115,7 +115,7 @@
                                   <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jCheckBox58" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jCheckBox59" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jCheckW62" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jCheckW40" min="-2" max="-2" attributes="0"/>
@@ -143,7 +143,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jCheckBox63" max="32767" attributes="0"/>
-                              <Component id="jCheckBox64" alignment="1" max="32767" attributes="0"/>
+                              <Component id="jCheckW80" alignment="1" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -248,7 +248,7 @@
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jCheckW14" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jCheckBox36" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox59" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jCheckW62" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
@@ -289,7 +289,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jCheckW20" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jCheckBox47" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBox64" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckW80" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
@@ -887,7 +887,7 @@
             <Property name="text" type="java.lang.String" value="&#xe41;&#xe1a;&#xe1a;&#xe23;&#xe32;&#xe22;&#xe01;&#xe32;&#xe23;&#xe23;&#xe16;&#xe22;&#xe19;&#xe15;&#xe4c;&#xe2b;&#xe23;&#xe37;&#xe2d;&#xe23;&#xe16;&#xe08;&#xe31;&#xe01;&#xe23;&#xe22;&#xe32;&#xe19;&#xe22;&#xe19;&#xe15;&#xe4c;&#xe17;&#xe35;&#xe48;&#xe44;&#xe14;&#xe49;&#xe04;&#xe37;&#xe19;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBox59">
+        <Component class="javax.swing.JCheckBox" name="jCheckW62">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -942,7 +942,7 @@
             <Property name="text" type="java.lang.String" value="&#xe04;&#xe33;&#xe23;&#xe49;&#xe2d;&#xe07;&#xe41;&#xe25;&#xe30;&#xe2a;&#xe31;&#xe0d;&#xe0d;&#xe32;&#xe1b;&#xe23;&#xe30;&#xe01;&#xe31;&#xe19;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBox64">
+        <Component class="javax.swing.JCheckBox" name="jCheckW80">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
