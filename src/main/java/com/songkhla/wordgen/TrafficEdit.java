@@ -1028,8 +1028,8 @@ public class TrafficEdit extends javax.swing.JDialog {
       }
       
 //        setVisible(false);
-          ReportAllForm n=new ReportAllForm();
-             n.setModal(true);
+          ReportForTraffic n=new ReportForTraffic();
+             //n.setModal(true);
         n.setVisible(true);
         
     }//GEN-LAST:event_jButtonSaveCaseActionPerformed
