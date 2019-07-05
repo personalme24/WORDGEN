@@ -130,9 +130,9 @@ public class W31 {
                  bookmarkvalue.put("S27",Checknull(ProvincProsecutor));
                  bookmarkvalue.put("S10",Checknull(TelStation));
                  
-                 bookmarkvalue.put("P54",Checknull(ToDate(s.getString("ArrestDate"))));
+                 bookmarkvalue.put("P54",Checknull(ToDate(s.getString("ArrestDateTime"))));
                  bookmarkvalue.put("P55",Checknull(s.getString("PlaceArrest")));
-                 bookmarkvalue.put("P88",Checknull(s.getString("ArrestDateTime")));
+                 bookmarkvalue.put("P88",Checknull(ToTime(s.getString("ArrestDateTime"))));
                    
                   bookmarkvalue.put("PA7",Checknull(s.getString("AccureandOther")));
                   
@@ -338,7 +338,19 @@ public class W31 {
          }
                return ResultDate;
     }
-    
+     private static String ToTime(String strTime){
+               String ResultTime="";
+         try {
+    	       SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm", new Locale("th", "TH"));  
+               SimpleDateFormat dateto  = new SimpleDateFormat("HH:mm", new Locale("th", "TH"));  
+               Date date=null;
+               date = df.parse(strTime);               
+               ResultTime=dateto.format(date.getTime());
+         } catch (ParseException ex) {
+             Logger.getLogger(W62.class.getName()).log(Level.SEVERE, null, ex);
+         }
+               return ResultTime;
+    }
     public static String Checknull(String input){
 					if(input==null||input==""||input=="null") { return ""; }
 					return getThaiNumber(input);

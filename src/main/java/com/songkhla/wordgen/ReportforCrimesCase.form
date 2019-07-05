@@ -27,12 +27,16 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+          <Component id="jPanel1" alignment="1" min="-2" pref="1249" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanel1" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -51,103 +55,104 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="jCheckW20" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jCheckW19" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jCheckW17" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jCheckW16" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jCheckW15" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jCheckW14" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jCheckW13" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jCheckW12" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jCheckW11" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jCheckBox10" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jCheckW9" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jCheckW8" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jCheckW1" alignment="0" min="-2" pref="327" max="-2" attributes="0"/>
-                          <Component id="jCheckW2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckW6" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jCheckW3" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jCheckW4" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jCheckW5" alignment="0" max="32767" attributes="0"/>
-                      </Group>
                       <Component id="jCheckW93" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="jCheckW20" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jCheckW19" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jCheckW17" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jCheckW16" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jCheckW15" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jCheckW14" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jCheckW13" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jCheckW12" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jCheckW11" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jCheckW9" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jCheckW8" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jCheckW1" alignment="0" min="-2" pref="327" max="-2" attributes="0"/>
+                                  <Component id="jCheckW2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jCheckW6" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jCheckW3" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jCheckW4" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="jCheckW5" alignment="0" min="-2" pref="369" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jCheckW39" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jCheckW38" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jCheckW37" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jCheckBox34" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jCheckBox33" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jCheckW31" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jCheckBox30" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jCheckBox29" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jCheckW28" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jCheckW25" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jCheckW26" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jCheckBox36" alignment="0" pref="347" max="32767" attributes="0"/>
-                              <Component id="jCheckW27" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jCheckBox41" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jCheckBox43" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jCheckW35" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jCheckBox34" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckW31" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBox36" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBox43" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBox41" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckW27" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckW25" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckW26" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckW28" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="jCheckBox30" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jCheckBox29" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="jCheckW39" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jCheckW38" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jCheckW37" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Component id="jCheckW35" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBox22" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBox47" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBox33" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jCheckW40" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBox57" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBox44" alignment="0" min="-2" pref="445" max="-2" attributes="0"/>
+                      <Component id="jCheckBox46" alignment="0" min="-2" pref="466" max="-2" attributes="0"/>
+                      <Component id="jCheckBox45" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jCheckBox44" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jCheckBox45" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jCheckBox46" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jCheckBox48" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jCheckBox49" alignment="0" pref="544" max="32767" attributes="0"/>
-                              <Component id="jCheckBox50" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jCheckBox51" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jCheckBox57" alignment="0" max="32767" attributes="0"/>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jCheckBox55" max="32767" attributes="0"/>
-                                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="jCheckBox56" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="jCheckBox58" alignment="0" max="32767" attributes="0"/>
                               <Component id="jCheckW62" alignment="0" max="32767" attributes="0"/>
-                              <Group type="102" attributes="0">
+                              <Component id="jCheckBox62" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jCheckW40" min="-2" max="-2" attributes="0"/>
                                       <Component id="jCheckBox61" alignment="0" min="-2" pref="297" max="-2" attributes="0"/>
                                       <Component id="jCheckBox60" alignment="0" min="-2" pref="297" max="-2" attributes="0"/>
+                                      <Component id="jCheckBox58" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="jCheckBox62" max="32767" attributes="0"/>
                           </Group>
+                          <EmptySpace min="-2" pref="238" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jCheckBox47" pref="347" max="32767" attributes="0"/>
-                                  <Component id="jCheckBox22" max="32767" attributes="0"/>
-                              </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="168" max="-2" attributes="0"/>
-                                  <Component id="crimecaseno" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jButtonPrint" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jCheckBox55" max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="jCheckBox56" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jCheckBox63" max="32767" attributes="0"/>
-                              <Component id="jCheckW80" alignment="1" max="32767" attributes="0"/>
-                          </Group>
+                          <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="jCheckBox49" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBox50" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBox48" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBox51" alignment="0" min="-2" pref="242" max="-2" attributes="0"/>
+                      <Component id="jCheckBox63" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBox64" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="517" max="-2" attributes="0"/>
+                  <Component id="crimecaseno" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jButtonPrint" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -158,66 +163,70 @@
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jCheckW1" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jCheckW1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckBox57" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                          <Component id="jCheckW27" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckW40" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jCheckW27" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jCheckBox41" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jCheckW2" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jCheckW3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox43" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jCheckW25" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jCheckW26" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jCheckW28" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jCheckBox29" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jCheckBox30" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jCheckBox48" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jCheckBox49" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jCheckBox50" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jCheckBox51" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="jCheckBox55" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jCheckBox56" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="jCheckW31" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="jCheckW40" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jCheckBox44" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jCheckBox45" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jCheckBox46" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jCheckBox48" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jCheckBox49" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jCheckBox50" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jCheckBox51" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jCheckBox55" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jCheckBox56" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jCheckBox58" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jCheckW62" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jCheckBox60" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jCheckBox61" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jCheckBox62" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jCheckBox63" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                          <Component id="jCheckBox64" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="jCheckW4" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jCheckW2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckBox41" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jCheckBox43" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckW3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jCheckW25" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckW4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
                                   <Component id="jCheckW5" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jCheckW6" min="-2" max="-2" attributes="0"/>
@@ -226,85 +235,73 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jCheckW9" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jCheckBox10" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jCheckW11" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox33" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="jCheckW11" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jCheckW12" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jCheckBox34" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox57" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jCheckW13" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCheckW35" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox58" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jCheckW14" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox36" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCheckW62" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jCheckW15" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCheckW37" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox60" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jCheckW16" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCheckW38" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox61" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jCheckW17" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCheckW39" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox62" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jCheckBox44" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jCheckW26" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jCheckBox45" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jCheckW28" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jCheckBox46" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="369" max="32767" attributes="0"/>
+                                  <Component id="jCheckBox29" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jCheckBox30" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jCheckW31" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jCheckW19" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jCheckBox22" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jCheckBox63" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckW13" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckW35" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                      </Group>
-                  </Group>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jCheckW20" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBox47" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckW80" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jCheckW14" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckBox36" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="jCheckW15" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jCheckW16" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jCheckW17" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jCheckW19" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                  <Component id="jCheckW20" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jCheckW93" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jCheckBox33" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="jCheckW37" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jCheckW38" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jCheckW39" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jCheckBox22" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                  <Component id="jCheckBox47" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="crimecaseno" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jButtonPrint" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
                           </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jCheckW93" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -441,17 +438,6 @@
               <Font name="TH SarabunPSK" size="20" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe04;&#xe33;&#xe43;&#xe2b;&#xe49;&#xe01;&#xe32;&#xe23;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBox10">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="TH SarabunPSK" size="20" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="&#xe43;&#xe1a;&#xe15;&#xe48;&#xe2d;&#xe04;&#xe33;&#xe43;&#xe2b;&#xe49;&#xe01;&#xe32;&#xe23;"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="jCheckW11">
@@ -942,7 +928,7 @@
             <Property name="text" type="java.lang.String" value="&#xe04;&#xe33;&#xe23;&#xe49;&#xe2d;&#xe07;&#xe41;&#xe25;&#xe30;&#xe2a;&#xe31;&#xe0d;&#xe0d;&#xe32;&#xe1b;&#xe23;&#xe30;&#xe01;&#xe31;&#xe19;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckW80">
+        <Component class="javax.swing.JCheckBox" name="jCheckBox64">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
