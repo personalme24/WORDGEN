@@ -82,6 +82,7 @@ public class ActionPage extends javax.swing.JDialog {
         setAutoRequestFocus(false);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setFont(new java.awt.Font("TH SarabunPSK", 0, 16)); // NOI18N
+        setForeground(java.awt.Color.white);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(46, 156, 202));

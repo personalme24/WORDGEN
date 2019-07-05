@@ -874,7 +874,11 @@ public class MainMenuWord extends javax.swing.JFrame {
 
     private void formmenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formmenuMouseClicked
         // TODO add your handling code here:
-    ReportAllForm rf =new ReportAllForm();
+         JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame in = (JFrame)(dialog.getParent());
+        in.removeAll();
+    ReportAllForm rf =new ReportAllForm(this,null);
         rf.pack();
         rf.setLocationRelativeTo(null);
         rf.setVisible(true);

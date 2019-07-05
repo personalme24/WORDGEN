@@ -84,10 +84,10 @@
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="AddEditBail" min="-2" max="-2" attributes="0"/>
                       <Component id="jPanelDateSearch" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButton1" alignment="1" max="32767" attributes="0"/>
                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                           <Component id="jCheckOnly" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jComboStatus" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton1" alignment="1" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
