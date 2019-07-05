@@ -40,8 +40,8 @@ import org.docx4j.wml.Tr;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-public class W35 {
-     public static void w35(String cc) {
+public class W80 {
+     public static void w80(String cc) {
      
             Connection conn=null;
             conn=ConnectDatabase.connect();
@@ -95,49 +95,19 @@ public class W35 {
             {  String  
                     cs =s.getString("crimecaseno");
                     ccYear=s.getString("crimecaseyears");
-                String Date="";
-                
-                
-                SimpleDateFormat sdfstart ;
-                Calendar  calstart = Calendar.getInstance();
-                sdfstart = new SimpleDateFormat("dd MMMM yyyy", new Locale("th", "TH"));  
-               Date =sdfstart.format(calstart.getTime());
-              
                
-                 
-//                System.out.print("ข้อหา :: "+s.getString("ChargeCode"));
-//                System.out.print(" - ");
                  JSONObject bookmarkvalue = new JSONObject();
              
-                bookmarkvalue.put("C1",Checknull(Date));
+               
                 
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3",Checknull(ccYear));
                  bookmarkvalue.put("S2",Checknull(PoliceStationName));
                  bookmarkvalue.put("S5", Checknull(StationAmphur));
                  bookmarkvalue.put("S6", Checknull(StationProvince));
-                 bookmarkvalue.put("S27",Checknull(ProvincProsecutor));
-                 bookmarkvalue.put("S10",Checknull(TelStation));
+                
                  
-                 bookmarkvalue.put("P54",Checknull(ToDate(s.getString("ArrestDateTime"))));
-                 bookmarkvalue.put("P55",Checknull(s.getString("PlaceArrest")));
-                 bookmarkvalue.put("P88",Checknull(ToTime(s.getString("ArrestDateTime"))));
-                   
-                  
-                   
-                        
-                      bookmarkvalue.put("B2", Checknull(s.getString("ChargeName")));
-                      
-                     
-                      
-                        bookmarkvalue.put("P02", Checknull(RankPolice));
-                       bookmarkvalue.put("P03", Checknull(FirstName));
-                        bookmarkvalue.put("P04", Checknull(LastName));
-                         bookmarkvalue.put("P05", Checknull(Position));
-                         
-                          bookmarkvalue.put("C15", Checknull(s.getString("DailyNumber")));
-                          bookmarkvalue.put("C611", Checknull(s.getString("CaseRequestTime"))); 
-                          bookmarkvalue.put("C47", Checknull(s.getString("AssetCode"))); 
+                
                     
                    
     
@@ -176,10 +146,10 @@ public class W35 {
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("D:/TEMPLATE/w35.docx"));
+					.load(new java.io.File("D:/TEMPLATE/w80.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/คดีอาญา"+cs+"-"+ccYear+"/บันทึกการตรวจค้นโดยไม่มีหมายค้น.doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/คดีอาญา"+cs+"-"+ccYear+"/บัญชีสำนวนการสอบสวน.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -305,22 +275,9 @@ public class W35 {
                date = df.parse(strDate);               
                ResultDate=dateto.format(date.getTime());
          } catch (ParseException ex) {
-             Logger.getLogger(W35.class.getName()).log(Level.SEVERE, null, ex);
+             Logger.getLogger(W80.class.getName()).log(Level.SEVERE, null, ex);
          }
                return ResultDate;
-    }
-     private static String ToTime(String strTime){
-               String ResultTime="";
-         try {
-    	       SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm", new Locale("th", "TH"));  
-               SimpleDateFormat dateto  = new SimpleDateFormat("HH:mm", new Locale("th", "TH"));  
-               Date date=null;
-               date = df.parse(strTime);               
-               ResultTime=dateto.format(date.getTime());
-         } catch (ParseException ex) {
-             Logger.getLogger(W62.class.getName()).log(Level.SEVERE, null, ex);
-         }
-               return ResultTime;
     }
     public static String Checknull(String input){
 					if(input==null||input==""||input=="null") { return ""; }
