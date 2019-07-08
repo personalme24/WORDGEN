@@ -5,7 +5,6 @@
  */
 package com.songkhla.wordgen;
 
-import com.github.lgooddatepicker.components.DatePickerSettings;
 import static com.songkhla.wordgen.CrimesCaseEdit.ChargeNameCase;
 import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseid;
 import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseno;
