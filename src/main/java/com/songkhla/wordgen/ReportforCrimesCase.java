@@ -40,14 +40,33 @@ import com.songkhla.document.W9;
 import com.songkhla.document.W93;
 import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseno;
 import java.awt.Desktop;
+import java.awt.EventQueue;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.URL;
+import java.net.URLConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JProgressBar;
+import javax.swing.SwingWorker;
 import org.json.simple.JSONObject;
 /**
  *
@@ -94,14 +113,25 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
              casetype=rs.getString("CaseType");
              PoliceStaionName=rs1.getString("PoliceStaionName");
                     }
-        
-        System.out.println("ffffffffffffffff : "+PoliceStaionName);
+
         }
         catch(Exception e){
         e.printStackTrace();
         
         }
         }
+//        jButtonPrint.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				jButtonPrint.setEnabled(false);
+//				                        EventQueue.invokeLater(new Runnable() {
+//					@Override
+//					public void run() {
+//						new BackgroundWorker().execute();
+//					}
+//				});
+//	
+//			}
+//		});
         
     }
 
@@ -687,7 +717,6 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
 
     private void jButtonPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrintActionPerformed
         // TODO add your handling code here:
-        
         String no=crimecaseno.getText();
         File f3=new File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/คดีอาญา"+caseno+"-"+caseyear);
         
@@ -799,6 +828,7 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
        if(jCheckW93.isSelected()){
             W93.w93(no);
         }
+        
         Desktop desktop = Desktop.getDesktop();
         File dirToOpen = null;
         try {    

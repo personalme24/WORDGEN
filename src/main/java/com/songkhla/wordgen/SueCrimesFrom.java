@@ -118,9 +118,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 //        jPanelSevDate.add(SueSevDate);
         if(datain != null){
             
-           DateEnd();
-            dateTot=SueFirstTotal.getText();   
-     
+         
             crimecaseno.setText(datain.get("crimecasenoyear")+"");
             PeopleRegistrationID.setText(datain.get("PeopleRegistrationID")+"");
             AccureandOther.setText(datain.get("AccureandOther")+"");
@@ -129,33 +127,14 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             PeopleRegistrationID.setText(datain.get("PeopleRegistrationID")+"");
             SueFirst.setText(datain.get("SueFirst")+"");
             SueFirstDate.setText(datain.get("SueFirstDate")+"");
-            if(datain.get("SueFirstEnd")==null){
-             SueFirstEnd.setText("");
-            }
-            else{
-//            SueFirstEnd.setText(CalculateDateEnd(dateF, dateTot));
-            }
-            SueFirstTotal.setText(datain.get("SueFirstTotal")+"");
+   
             PlaceArrest.setText(datain.get("PlaceArrest")+"");
             DateArrest.setText(datain.get("ArrestDateTime")+"");
-            if(datain.get("SueFirstEnd")==null){
-             SueSecDateT.setText("");
-            }
-            else{
-            SueSecDateT.setText(datain.get("SueSecDate")+""); }
-             if(datain.get("SueSecTotal")==null||datain.get("SueSecTotal").equals(" ")){
-             SueSecTotal.setText("");
-            }
-            else{
-            SueSecTotal.setText(datain.get("SueSecTotal")+""); }
-           
-           
-
-        
+      
         } 
        
     
-       DateEnd();
+
 
         RefreshData(); 
     }
@@ -867,35 +846,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
     private void SueSecEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueSecEndActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SueSecEndActionPerformed
-    public void DateEnd(){
-        
-    
-           SueFirstTotal.getDocument().addDocumentListener(new DocumentListener() {
-                    public void changedUpdate(DocumentEvent e) {
-                     SueFirstEnd.setText(CalculateDateEnd(dateF, SueFirstTotal.getText()));
-                    }
-                    public void removeUpdate(DocumentEvent e) {
-                   
-                    }
-                    public void insertUpdate(DocumentEvent e) {
-                      SueFirstEnd.setText(CalculateDateEnd(dateF, SueFirstTotal.getText()));
-                    }
-                    });
-           
-           SueSecTotal.getDocument().addDocumentListener(new DocumentListener() {
-                    public void changedUpdate(DocumentEvent e) {
-                     SueSecEnd.setText(CalculateDateEnd(SueSecDateT.getText(), SueSecTotal.getText()));
-                    }
-                    public void removeUpdate(DocumentEvent e) {
-                   
-                    }
-                    public void insertUpdate(DocumentEvent e) {
-                      SueSecEnd.setText(CalculateDateEnd(SueSecDateT.getText(), SueSecTotal.getText()));
-                    }
-                    });
-    
-    
-    }
+  
     private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
         // TODO add your handling code here:
          con=ConnectDatabase.connect();

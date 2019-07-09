@@ -239,20 +239,26 @@ public class IdentityFrom extends javax.swing.JDialog {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(22, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jButtonSaveCase.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jButtonSaveCase.setText("บันทึก");
+        jButtonSaveCase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSaveCaseActionPerformed(evt);
+            }
+        });
 
         jTabbedPane1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
 
@@ -1005,6 +1011,12 @@ public class IdentityFrom extends javax.swing.JDialog {
         ChargePage cp=new ChargePage(fr,null);
         cp.setVisible(true);
     }//GEN-LAST:event_jButtonChargeActionPerformed
+
+    private void jButtonSaveCaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveCaseActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_jButtonSaveCaseActionPerformed
     
     /**
      * @param args the command line arguments

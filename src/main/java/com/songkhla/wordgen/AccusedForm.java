@@ -239,7 +239,7 @@ public class AccusedForm extends javax.swing.JDialog {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jLabel2.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel2.setText("เลขบัตรประชาชน");
 
         PeopleRegistrationID.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -248,18 +248,19 @@ public class AccusedForm extends javax.swing.JDialog {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel1.setText("วันที่ออกบัตร");
 
-        jLabel9.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel9.setText("เลขหนังสือเดินทาง");
 
-        jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel6.setText("วันที่บัตรหมดอายุ");
 
-        jLabel5.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel5.setText("ชื่อ-สกุล");
 
+        BtSaveAccused.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         BtSaveAccused.setText("บันทึก");
         BtSaveAccused.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -267,10 +268,10 @@ public class AccusedForm extends javax.swing.JDialog {
             }
         });
 
-        jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel8.setText("อายุ");
 
-        jLabel10.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel10.setText("วันเกิด");
 
         Age.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -279,63 +280,64 @@ public class AccusedForm extends javax.swing.JDialog {
             }
         });
 
-        jLabel11.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel11.setText("ชื่อภาษาอังกฤษ");
 
-        jLabel12.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel12.setText("สัญชาติ");
 
-        jLabel13.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel13.setText("เชื้อชาติ");
 
-        jLabel14.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel14.setText("อาชีพ");
 
+        Gender.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         Gender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "หญิง", "ชาย", " " }));
 
-        jLabel15.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel15.setText("เพศ");
 
-        jLabel16.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel16.setText("สูง");
 
-        jLabel17.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel17.setText("น้ำหนัก");
 
-        jLabel18.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel18.setText("ศาสนา");
 
-        jLabel7.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel7.setText("ชื่อสกุลอื่น");
 
-        jLabel20.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel20.setText("หมู่โลหิต");
 
-        jLabel25.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel25.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel25.setText("หมายเลขโทรศัพท์");
 
-        jLabel26.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel26.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel26.setText("ชื่อบิดา");
 
-        jLabel29.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel29.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel29.setText("ชื่อมารดา");
 
-        jLabel21.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel21.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel21.setText("บ้านเลขที่");
 
-        jLabel22.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel22.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel22.setText("แขวง/ตำบล");
 
-        jLabel23.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel23.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel23.setText("เขต/อำเภอ");
 
-        jLabel24.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel24.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel24.setText("รหัสไปรษณีย์");
 
-        jLabel27.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel27.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel27.setText("จังหวัด");
 
-        jLabel30.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel30.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel30.setText("หมู่ที่");
 
         ZipCode.addActionListener(new java.awt.event.ActionListener() {

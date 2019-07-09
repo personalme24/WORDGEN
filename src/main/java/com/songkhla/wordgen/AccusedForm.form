@@ -440,7 +440,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel2">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="20" style="1"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="&#xe40;&#xe25;&#xe02;&#xe1a;&#xe31;&#xe15;&#xe23;&#xe1b;&#xe23;&#xe30;&#xe0a;&#xe32;&#xe0a;&#xe19;"/>
                   </Properties>
@@ -453,7 +453,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel1">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="20" style="1"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="&#xe27;&#xe31;&#xe19;&#xe17;&#xe35;&#xe48;&#xe2d;&#xe2d;&#xe01;&#xe1a;&#xe31;&#xe15;&#xe23;"/>
                   </Properties>
@@ -461,7 +461,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel9">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="20" style="1"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="&#xe40;&#xe25;&#xe02;&#xe2b;&#xe19;&#xe31;&#xe07;&#xe2a;&#xe37;&#xe2d;&#xe40;&#xe14;&#xe34;&#xe19;&#xe17;&#xe32;&#xe07;"/>
                   </Properties>
@@ -469,7 +469,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel6">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="20" style="1"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="&#xe27;&#xe31;&#xe19;&#xe17;&#xe35;&#xe48;&#xe1a;&#xe31;&#xe15;&#xe23;&#xe2b;&#xe21;&#xe14;&#xe2d;&#xe32;&#xe22;&#xe38;"/>
                   </Properties>
@@ -479,13 +479,16 @@
                 <Component class="javax.swing.JLabel" name="jLabel5">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="20" style="1"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="&#xe0a;&#xe37;&#xe48;&#xe2d;-&#xe2a;&#xe01;&#xe38;&#xe25;"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="BtSaveAccused">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;"/>
                   </Properties>
                   <Events>
@@ -501,7 +504,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel8">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="20" style="1"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="&#xe2d;&#xe32;&#xe22;&#xe38;"/>
                   </Properties>
@@ -509,7 +512,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel10">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="20" style="1"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="&#xe27;&#xe31;&#xe19;&#xe40;&#xe01;&#xe34;&#xe14;"/>
                   </Properties>
@@ -522,7 +525,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel11">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="20" style="1"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="&#xe0a;&#xe37;&#xe48;&#xe2d;&#xe20;&#xe32;&#xe29;&#xe32;&#xe2d;&#xe31;&#xe07;&#xe01;&#xe24;&#xe29;"/>
                   </Properties>
@@ -532,7 +535,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel12">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="20" style="1"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="&#xe2a;&#xe31;&#xe0d;&#xe0a;&#xe32;&#xe15;&#xe34;"/>
                   </Properties>
@@ -540,7 +543,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel13">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="20" style="1"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="&#xe40;&#xe0a;&#xe37;&#xe49;&#xe2d;&#xe0a;&#xe32;&#xe15;&#xe34;"/>
                   </Properties>
@@ -550,13 +553,16 @@
                 <Component class="javax.swing.JLabel" name="jLabel14">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="20" style="1"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="&#xe2d;&#xe32;&#xe0a;&#xe35;&#xe1e;"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="Gender">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
+                    </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="3">
                         <StringItem index="0" value="&#xe2b;&#xe0d;&#xe34;&#xe07;"/>
@@ -574,7 +580,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel15">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="20" style="1"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="&#xe40;&#xe1e;&#xe28;"/>
                   </Properties>
@@ -582,7 +588,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel16">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="20" style="1"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="&#xe2a;&#xe39;&#xe07;"/>
                   </Properties>
@@ -592,7 +598,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel17">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="20" style="1"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="&#xe19;&#xe49;&#xe33;&#xe2b;&#xe19;&#xe31;&#xe01;"/>
                   </Properties>
@@ -602,7 +608,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel18">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="20" style="1"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="&#xe28;&#xe32;&#xe2a;&#xe19;&#xe32;"/>
                   </Properties>
@@ -612,7 +618,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel7">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="20" style="1"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="&#xe0a;&#xe37;&#xe48;&#xe2d;&#xe2a;&#xe01;&#xe38;&#xe25;&#xe2d;&#xe37;&#xe48;&#xe19;"/>
                   </Properties>
@@ -622,7 +628,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel20">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="20" style="1"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="&#xe2b;&#xe21;&#xe39;&#xe48;&#xe42;&#xe25;&#xe2b;&#xe34;&#xe15;"/>
                   </Properties>
@@ -630,7 +636,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel25">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="20" style="1"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="&#xe2b;&#xe21;&#xe32;&#xe22;&#xe40;&#xe25;&#xe02;&#xe42;&#xe17;&#xe23;&#xe28;&#xe31;&#xe1e;&#xe17;&#xe4c;"/>
                   </Properties>
@@ -638,7 +644,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel26">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="20" style="1"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="&#xe0a;&#xe37;&#xe48;&#xe2d;&#xe1a;&#xe34;&#xe14;&#xe32;"/>
                   </Properties>
@@ -646,7 +652,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel29">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="20" style="1"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="&#xe0a;&#xe37;&#xe48;&#xe2d;&#xe21;&#xe32;&#xe23;&#xe14;&#xe32;"/>
                   </Properties>
@@ -654,7 +660,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel21">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="20" style="1"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="&#xe1a;&#xe49;&#xe32;&#xe19;&#xe40;&#xe25;&#xe02;&#xe17;&#xe35;&#xe48;"/>
                   </Properties>
@@ -662,7 +668,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel22">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="20" style="1"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="&#xe41;&#xe02;&#xe27;&#xe07;/&#xe15;&#xe33;&#xe1a;&#xe25;"/>
                   </Properties>
@@ -670,7 +676,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel23">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="20" style="1"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="&#xe40;&#xe02;&#xe15;/&#xe2d;&#xe33;&#xe40;&#xe20;&#xe2d;"/>
                   </Properties>
@@ -678,7 +684,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel24">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="20" style="1"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="&#xe23;&#xe2b;&#xe31;&#xe2a;&#xe44;&#xe1b;&#xe23;&#xe29;&#xe13;&#xe35;&#xe22;&#xe4c;"/>
                   </Properties>
@@ -686,7 +692,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel27">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="20" style="1"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="&#xe08;&#xe31;&#xe07;&#xe2b;&#xe27;&#xe31;&#xe14;"/>
                   </Properties>
@@ -705,7 +711,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel30">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="20" style="1"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="&#xe2b;&#xe21;&#xe39;&#xe48;&#xe17;&#xe35;&#xe48;"/>
                   </Properties>

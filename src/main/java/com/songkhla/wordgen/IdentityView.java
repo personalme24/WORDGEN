@@ -35,6 +35,10 @@ public class IdentityView extends javax.swing.JFrame {
     
     public IdentityView() {
         initComponents();
+        ImageIcon img = new ImageIcon("D://Master//WD.png");
+            setIconImage(img.getImage());
+            setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
+            
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
  
         jTable1.setOpaque(false);
