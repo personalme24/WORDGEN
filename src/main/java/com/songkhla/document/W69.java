@@ -43,8 +43,8 @@ import org.docx4j.wml.Tr;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-public class W68 {
-public static void w68(String cc) {
+public class W69 {
+public static void w69(String cc) {
             Connection conn=null;
             conn=ConnectDatabase.connect();
             PreparedStatement pst=null;
@@ -150,6 +150,8 @@ public static void w68(String cc) {
                             bookmarkvalue.put("C14", Checknull(s.getString("CrimeLocationProvince")));
                             bookmarkvalue.put("C30", Checknull(s.getString("BlackCaseNo")));
                             bookmarkvalue.put("C31", Checknull(s.getString("BlackCaseYear")));
+                            bookmarkvalue.put("C32", Checknull(s.getString("RedCaseNo")));
+                            bookmarkvalue.put("C33", Checknull(s.getString("RedCaseYear")));
                                
                     
                     
@@ -199,10 +201,10 @@ public static void w68(String cc) {
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("D:/TEMPLATE/w68.docx"));
+					.load(new java.io.File("D:/TEMPLATE/w69.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/คดีอาญา"+cs+"-"+ccYear+"/คำร้องขอผัดฟ้องหรือผัดฟ้องและฝากขังครั้งที่"+s.getString("FullNamePerson")+".doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/คดีอาญา"+cs+"-"+ccYear+"/คำร้องขอฝากขัง"+s.getString("FullNamePerson")+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -328,7 +330,7 @@ public static void w68(String cc) {
                date = df.parse(strDate);               
                ResultDate=dateto.format(date.getTime());
          } catch (ParseException ex) {
-             Logger.getLogger(W68.class.getName()).log(Level.SEVERE, null, ex);
+             Logger.getLogger(W69.class.getName()).log(Level.SEVERE, null, ex);
          }
                return ResultDate;
 }
