@@ -133,10 +133,11 @@
                           <EmptySpace pref="65" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jButtonSaveCase" min="-2" pref="102" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Component id="jLabelActionCode" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jButtonSaveCase" min="-2" pref="102" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -146,10 +147,10 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jLabelChargeCode" min="-2" pref="14" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="jButtonSaveCase" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelActionCode" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelActionCode" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonSaveCase" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jTabbedPane2" min="-2" pref="548" max="-2" attributes="0"/>
@@ -359,7 +360,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="70" y="150" width="-1" height="30"/>
+                      <AbsoluteConstraints x="60" y="150" width="-1" height="30"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -394,6 +395,16 @@
                     <Property name="editable" type="boolean" value="false"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="TH SarabunPSK" size="20" style="0"/>
+                    </Property>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                        <BevelBorder bevelType="1">
+                          <Color PropertyName="highlightOuter" blue="66" green="66" red="66" type="rgb"/>
+                          <Color PropertyName="highlightInner" blue="99" green="99" red="99" type="rgb"/>
+                          <Color PropertyName="shadowOuter" blue="66" green="66" red="66" type="rgb"/>
+                          <Color PropertyName="shadowInner" blue="99" green="99" red="99" type="rgb"/>
+                        </BevelBorder>
+                      </Border>
                     </Property>
                   </Properties>
                   <AuxValues>
@@ -439,7 +450,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="20" y="90" width="77" height="30"/>
+                      <AbsoluteConstraints x="20" y="100" width="77" height="30"/>
                     </Constraint>
                   </Constraints>
                 </Component>
