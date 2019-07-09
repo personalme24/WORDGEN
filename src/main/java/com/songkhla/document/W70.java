@@ -43,18 +43,18 @@ import org.docx4j.wml.Tr;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-public class W68 {
-public static void w68(String cc) {
+public class W70 {
+public static void w70(String cc) {
             Connection conn=null;
             conn=ConnectDatabase.connect();
             PreparedStatement pst=null;
             
             String ccYear;
-            
+            String SendIDocDate;
              String PoliceStationName="";
-             String StationAmphur="";
-             String StationProvince="";
-             String CriminalCourt="";
+             String HeadName="";
+             String HeadPosition="";
+             String ProvincProsecutor="";
              String TelStation="";
              String RankPolice ="";
              String FirstName ="";
@@ -67,9 +67,9 @@ public static void w68(String cc) {
                   ResultSet rs=sp.executeQuery(sqlDataPoliceStation); 
                   while (rs.next()) {                    
                          PoliceStationName=rs.getString("PoliceStaionName");
-                         StationAmphur=rs.getString("StationAmphur");
-                         StationProvince=rs.getString("StationProvince");
-                         CriminalCourt=rs.getString("CriminalCourt");
+                         HeadName=rs.getString("HeadName");
+                         HeadPosition=rs.getString("HeadPosition");
+                         ProvincProsecutor=rs.getString("ProvincProsecutor");
                          TelStation=rs.getString("TelStation");
                       }
             
@@ -123,17 +123,33 @@ public static void w68(String cc) {
                 bookmarkvalue.put("C3",Checknull(ccYear));
                 
                 bookmarkvalue.put("S2",Checknull(PoliceStationName));
-                bookmarkvalue.put("S5", Checknull(StationAmphur));
-                bookmarkvalue.put("S6", Checknull(StationProvince));
-                bookmarkvalue.put("S10",Checknull(TelStation));
-                bookmarkvalue.put("S17",Checknull(CriminalCourt));
+                bookmarkvalue.put("S27",Checknull(ProvincProsecutor));
+                bookmarkvalue.put("S13",Checknull(HeadName));
+                bookmarkvalue.put("S14",Checknull(HeadPosition));
                    
+//                   ----------------------------ผู้กล่าวหา--------------------
+               
+                bookmarkvalue.put("PA7",Checknull(s.getString("AccureandOther")));
+               
                 
-                //----------------------------ผู้ต้องหา--------------------
-                    
+                
+//                   ----------------------------ผู้ต้องหา--------------------
+                    bookmarkvalue.put("PS2", Checknull(s.getString("PeopleRegistrationID"))); 
+                    bookmarkvalue.put("PS3",Checknull(ToDate(s.getString("IssueDate")))); 
+                    bookmarkvalue.put("PS5",Checknull(s.getString("IssuedBy"))); 
                     bookmarkvalue.put("PS7", Checknull(s.getString("FullNamePerson"))); 
+                    bookmarkvalue.put("PS13", Checknull(s.getString("Age")));
+                    bookmarkvalue.put("PS14", Checknull(s.getString("Race")));
+                    bookmarkvalue.put("PS15", Checknull(s.getString("Nationality")));
+                    bookmarkvalue.put("PS16", Checknull(s.getString("Religion")));
+                    bookmarkvalue.put("PS17", Checknull(s.getString("Occupation")));
+                    bookmarkvalue.put("PS22", Checknull(s.getString("HouseNumber")));
+                    bookmarkvalue.put("PS23", Checknull(s.getString("Moo")));
+                    bookmarkvalue.put("PS24", Checknull(s.getString("Tambon")));
+                    bookmarkvalue.put("PS25", Checknull(s.getString("Amphur")));
+                    bookmarkvalue.put("PS26", Checknull(s.getString("Province")));
+                    bookmarkvalue.put("PS105", Checknull(s.getString("Soi")));
                     
-                  
                      
 
                       bookmarkvalue.put("B2", Checknull(s.getString("ChargeName")));
@@ -142,15 +158,20 @@ public static void w68(String cc) {
                        bookmarkvalue.put("P03", Checknull(FirstName));
                        bookmarkvalue.put("P04", Checknull(LastName));
                        bookmarkvalue.put("P05", Checknull(Position));
-                       
+                    
+                            bookmarkvalue.put("C4",Checknull(ToDate(s.getString("OccuredDate"))));
+                            bookmarkvalue.put("C441", Checknull(s.getString("OccuredTime")));
+                            bookmarkvalue.put("C5", Checknull(s.getString("CaseAcceptDate")));
+                            bookmarkvalue.put("C551", Checknull(s.getString("CaseAccepTime")));
+                            bookmarkvalue.put("C6", Checknull(ToDate(s.getString("CaseRequestDate"))));
+                            bookmarkvalue.put("C661", Checknull(s.getString("CaseRequestTime")));
+                            
                             bookmarkvalue.put("C8", Checknull(s.getString("CrimeLocation")));
                             bookmarkvalue.put("C11", Checknull(s.getString("CrimeLocationRoad")));
                             bookmarkvalue.put("C12", Checknull(s.getString("CrimeLocationDistrict")));
                             bookmarkvalue.put("C13", Checknull(s.getString("CrimeLocationAmphur")));
                             bookmarkvalue.put("C14", Checknull(s.getString("CrimeLocationProvince")));
-                            bookmarkvalue.put("C30", Checknull(s.getString("BlackCaseNo")));
-                            bookmarkvalue.put("C31", Checknull(s.getString("BlackCaseYear")));
-                               
+                            bookmarkvalue.put("C15", Checknull(s.getString("DailyNumber")));
                     
                     
                     
@@ -199,10 +220,10 @@ public static void w68(String cc) {
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("D:/TEMPLATE/w68.docx"));
+					.load(new java.io.File("D:/TEMPLATE/w70.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/คดีอาญา"+cs+"-"+ccYear+"/คำร้องขอผัดฟ้องหรือผัดฟ้องและฝากขังครั้งที่"+s.getString("FullNamePerson")+".doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/คดีอาญา"+cs+"-"+ccYear+"/บันทึกการเสนอสัญญาประกัน "+s.getString("FullNamePerson")+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -328,7 +349,7 @@ public static void w68(String cc) {
                date = df.parse(strDate);               
                ResultDate=dateto.format(date.getTime());
          } catch (ParseException ex) {
-             Logger.getLogger(W68.class.getName()).log(Level.SEVERE, null, ex);
+             Logger.getLogger(W70.class.getName()).log(Level.SEVERE, null, ex);
          }
                return ResultDate;
 }

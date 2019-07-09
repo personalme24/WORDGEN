@@ -152,8 +152,8 @@ public class W21 {
                             bookmarkvalue.put("C4",Checknull(ToDate(s.getString("OccuredDate"))));
                             bookmarkvalue.put("C441", Checknull(s.getString("OccuredTime")));
                             
-                        bookmarkvalue.put("P38", Checknull(ToDate(s.getString("DateSendInjured"))));
-                        bookmarkvalue.put("P39", Checknull(s.getString("NameSendInjured")));
+                        //bookmarkvalue.put("P38", Checknull(ToDate(s.getString("DateSendInjured"))));
+                        //bookmarkvalue.put("P39", Checknull(s.getString("NameSendInjured")));
                     
                    
     
