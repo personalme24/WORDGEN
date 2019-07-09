@@ -155,7 +155,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 //            CaseRequestDateTime.setText(datain.get("CaseRequestDate")+"");
             jTextAccused.setText(datain.get("AccureandOther")+"");
             CourtType.setSelectedItem(datain.get("TypeCourt"));
-            DailyNumber.setText(datain.get("CrimeLocation")+"");
+            CrimeLocation.setText(datain.get("CrimeLocation")+"");
             CrimeLocationDistrict.setText(datain.get("CrimeLocationDistrict")+"");
             CrimeLocationAmphur.setText(datain.get("CrimeLocationAmphur")+"");
             CrimeLocationProvince.setText(datain.get("CrimeLocationProvince")+"");
@@ -169,7 +169,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             CaseRequestTimee.setValue(timeReq);
             CaseAcceptDate.getJFormattedTextField().setText(datain.get("CaseAcceptDate")+"");
             CaseAcceptTimee.setValue(timeAcc);
-            CrimeLocation.setText(datain.get("DailyNumber")+"");
+            DailyNumber.setText(datain.get("DailyNumber")+"");
             String investSta=datain.get("Investigator_Result")+"";
             OccuredDate.getJFormattedTextField().setText(datain.get("OccuredDate")+"");
             OccuredDateTime.setValue(timeOccu);
@@ -404,7 +404,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         });
         jPanel1.add(jButtonCharge, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 150, 107, -1));
 
-        crimecaseno.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        crimecaseno.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         crimecaseno.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(204, 204, 204), new java.awt.Color(153, 153, 153), new java.awt.Color(153, 153, 153), new java.awt.Color(102, 102, 102)));
         jPanel1.add(crimecaseno, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 70, -1));
 
@@ -430,7 +430,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, -1, 30));
 
         ChargeNameCase.setEditable(false);
-        ChargeNameCase.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        ChargeNameCase.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         jPanel1.add(ChargeNameCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 342, -1));
 
         jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -443,7 +443,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         CaseAcceptTimee.setPreferredSize(new java.awt.Dimension(29, 25));
         jPanel1.add(CaseAcceptTimee, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, 120, 32));
 
-        CrimeLocation.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        CrimeLocation.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         jPanel1.add(CrimeLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 60, 440, -1));
 
         jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -459,7 +459,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, -1, 30));
 
         ActionCrimes.setEditable(false);
-        ActionCrimes.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        ActionCrimes.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         ActionCrimes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(102, 102, 102), new java.awt.Color(153, 153, 153), new java.awt.Color(102, 102, 102), new java.awt.Color(153, 153, 153)));
         jPanel1.add(ActionCrimes, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 342, -1));
 
@@ -480,14 +480,14 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jLabel11.setText("วันที่รับคำร้องทุกข์");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, 30));
 
-        DailyNumber.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        DailyNumber.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         jPanel1.add(DailyNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 448, -1));
 
         jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel3.setText("อำนาจศาล");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, -1, 30));
 
-        crimecaseyear.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        crimecaseyear.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         jPanel1.add(crimecaseyear, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 80, -1));
 
         jLabel5.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -513,7 +513,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jPanel1.add(CourtType, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, 220, -1));
 
         ListAsset.setEditable(false);
-        ListAsset.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        ListAsset.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         ListAsset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ListAssetActionPerformed(evt);
@@ -540,7 +540,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 240, 85, 30));
 
         EvidenceRecordCase.setEditable(false);
-        EvidenceRecordCase.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        EvidenceRecordCase.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         jPanel1.add(EvidenceRecordCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 240, 82, -1));
 
         jButton1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
@@ -560,17 +560,17 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jLabel17.setText("อำเภอ");
         jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 140, -1, 30));
 
-        CrimeLocationAmphur.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        CrimeLocationAmphur.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         jPanel1.add(CrimeLocationAmphur, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 140, 200, -1));
 
         jLabel18.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel18.setText("จังหวัด");
         jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 180, -1, 30));
 
-        CrimeLocationProvince.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        CrimeLocationProvince.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         jPanel1.add(CrimeLocationProvince, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 180, 363, -1));
 
-        CrimeLocationDistrict.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        CrimeLocationDistrict.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         jPanel1.add(CrimeLocationDistrict, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 140, 194, -1));
 
         jLabel45.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
@@ -592,22 +592,24 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jPanel1.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 320, 139, -1));
 
         RecordInvestCase.setEditable(false);
+        RecordInvestCase.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         jPanel1.add(RecordInvestCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 320, 328, 32));
 
+        jComboPoliceName.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jPanel1.add(jComboPoliceName, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 280, 330, 30));
 
         jLabel2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel2.setText("ถนน");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 100, -1, -1));
 
-        CrimeLocationRoad.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        CrimeLocationRoad.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         jPanel1.add(CrimeLocationRoad, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 100, 130, 31));
 
         jLabel23.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel23.setText("หมู่ที่");
         jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 100, -1, -1));
 
-        CrimeLocationMoo.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        CrimeLocationMoo.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         CrimeLocationMoo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CrimeLocationMooActionPerformed(evt);
@@ -619,7 +621,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jLabel24.setText("ตรอก/ซอย");
         jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 100, -1, -1));
 
-        CrimeLocationSoi.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        CrimeLocationSoi.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         jPanel1.add(CrimeLocationSoi, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 100, 128, -1));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));

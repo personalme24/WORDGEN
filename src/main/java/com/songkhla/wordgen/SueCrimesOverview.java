@@ -225,7 +225,7 @@ public class SueCrimesOverview extends javax.swing.JFrame {
                 String sql="select CaseId,crimecasenoyear,AccureandOther,ChargeName,Person.* from Person\n"+
                            "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId\n"+
                            "left join Charge on CrimeCase.ChargeCodeCase=Charge.ChargeCode\n"+
-                          " Where crimecasenoyear='"+crimecasenoyear+"' and FullNamePerson='"+nameSuspect+"' and SueFirstDate='"+dateArr+"'";
+                          " Where crimecasenoyear='"+crimecasenoyear+"' and FullNamePerson='"+nameSuspect+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);
@@ -242,11 +242,56 @@ public class SueCrimesOverview extends javax.swing.JFrame {
                     data.put("SueFirst", rs.getString("SueFirst"));
                     data.put("SueFirstTotal", rs.getString("SueFirstTotal"));
                      data.put("PlaceArrest", rs.getString("PlaceArrest"));
-                      data.put("ArrestDateTime", rs.getString("ArrestDateTime"));                    
-                    data.put("SueFirstTotal", rs.getString("SueFirstTotal"));
-                    data.put("SueFirstEnd", rs.getString("SueFirstEnd"));
-                     data.put("SueSecDate", rs.getString("SueSecDate"));
-                      data.put("SueSecTotal", rs.getString("SueSecTotal"));
+                      data.put("ArrestDateTime", rs.getString("ArrestDateTime")); 
+                    data.put("ArrestDateTimeEnd", rs.getString("ArrestDateTimeEnd"));                    
+
+                    data.put("SueFirst", rs.getString("SueFirst"));
+                    data.put("SueFirstDate", rs.getString("SueFirstDate"));
+                     data.put("SueFirstEnd", rs.getString("SueFirstEnd"));
+                      data.put("SueFirstTotal", rs.getString("SueFirstTotal"));
+                      data.put("SueFirstRequest", rs.getString("SueFirstRequest"));
+                    data.put("SueFirstCause", rs.getString("SueFirstCause"));
+                     data.put("SueSecond", rs.getString("SueSecond"));
+                      data.put("SueSecDate", rs.getString("SueSecDate"));
+                      data.put("SueSecEnd", rs.getString("SueSecEnd"));
+                    data.put("SueSecTotal", rs.getString("SueSecTotal"));
+                     data.put("SueSecRequest", rs.getString("SueSecRequest"));
+                      data.put("SueSecCause", rs.getString("SueSecCause"));
+                      data.put("SueThird", rs.getString("SueThird"));
+                    data.put("SueThirdDate", rs.getString("SueThirdDate"));
+                     data.put("SueThirdStart", rs.getString("SueThirdStart"));
+                      data.put("SueThirdEnd", rs.getString("SueThirdEnd"));
+                      data.put("SueThirdTotal", rs.getString("SueThirdTotal"));
+                    data.put("SueThirdRequest", rs.getString("SueThirdRequest"));
+                     data.put("SueThirdCause", rs.getString("SueThirdCause"));
+                      data.put("SueFourth", rs.getString("SueFourth"));
+                      data.put("SueFourthDate", rs.getString("SueFourthDate"));
+                    data.put("SueFourthEnd", rs.getString("SueFourthEnd"));
+                     data.put("SueFourthtotal", rs.getString("SueFourthtotal"));
+                      data.put("SueFourthRequest", rs.getString("SueFourthRequest"));
+                      data.put("SueFourthCause", rs.getString("SueFourthCause"));
+                      
+                                 data.put("SueFifth", rs.getString("SueFifth"));
+                    data.put("SueFifthDate", rs.getString("SueFifthDate"));
+                     data.put("SueFifthEnd", rs.getString("SueFifthEnd"));
+                      data.put("SueFifthTotal", rs.getString("SueFifthTotal"));
+                      data.put("SueFifthRequest", rs.getString("SueFifthRequest"));
+                    data.put("SueFifthCause", rs.getString("SueFifthCause"));
+
+                                data.put("SueSixth", rs.getString("SueSixth"));
+                    data.put("SueSixthDate", rs.getString("SueSixthDate"));
+                     data.put("SueSixthEnd", rs.getString("SueSixthEnd"));
+                      data.put("SueSixthTotal", rs.getString("SueSixthTotal"));
+                      data.put("SueSixthRequest", rs.getString("SueSixthRequest"));
+                    data.put("SueSixthCause", rs.getString("SueSixthCause"));
+        
+                                data.put("SueSeven", rs.getString("SueSeven"));
+                    data.put("SueSevenDate", rs.getString("SueSevenDate"));
+                      data.put("SueSevenEnd", rs.getString("SueSevenEnd"));
+                      data.put("SueSevenTotal", rs.getString("SueSevenTotal"));
+                    data.put("SueSevenRequest", rs.getString("SueSevenRequest"));
+                     data.put("SueSevenCause", rs.getString("SueSevenCause"));
+                     
                     
                     data.put("NoPerson", rs.getString("NoPerson"));
                     data.put("caseIdPerson", rs.getString("caseIdPerson"));
@@ -320,20 +365,7 @@ public class SueCrimesOverview extends javax.swing.JFrame {
         });
     }
    
-        public void TestDate(){
-            Calendar calendar = Calendar.getInstance();
-        System.out.println("Original = " + calendar.getTime());
- 
-        // Substract 2 hour from the current time
-        calendar.add(Calendar.HOUR, +48);
- 
-        // Add 30 minutes to the calendar time
-        calendar.add(Calendar.MINUTE, 0);
- 
-        // Add 300 seconds to the calendar time
-        calendar.add(Calendar.SECOND, 0);
-        System.out.println("Updated  = " + calendar.getTime());
-        }
+     
    
     public void RefreshData(){
         try{

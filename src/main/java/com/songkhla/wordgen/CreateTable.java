@@ -114,6 +114,7 @@ public class CreateTable {
                 "	InterrogateDate	VARCHAR(100)	,	\n"+
                 "	CurrentAddress	VARCHAR(100)	,	\n"+
                 "	ArrestDateTime	VARCHAR(100)	,	\n"+
+                "	ArrestDateTimeEnd	VARCHAR(100)	,	\n"+                   
                 "	StatusSueAndPutInJail	VARCHAR(100)	,	\n"+
                 "	NumberImprison	VARCHAR(100)	,	\n"+
                 "	SinceImprison	VARCHAR(100)	,	\n"+
@@ -131,49 +132,49 @@ public class CreateTable {
                 "	CourtSuspect	VARCHAR(100)	,	\n"+    
                 "	Test1	VARCHAR(100)	,	\n"+    
                 "	Test2	VARCHAR(100)	,	\n"+ 
-                "	SueFirst	INTEGER	,	\n"+
+                "	SueFirst	VARCHAR(100)	,	\n"+
                 "	SueFirstDate	DateTime	,	\n"+
                 "	SueFirstStart	DateTime	,	\n"+
                 "	SueFirstEnd	DateTime	,	\n"+
                 "	SueFirstTotal	INTEGER	,	\n"+
                 "	SueFirstRequest	VARCHAR(100)	,	\n"+
                 "	SueFirstCause	VARCHAR(100)	,	\n"+
-                "	SueSecond	INTEGER	,	\n"+
+                "	SueSecond	VARCHAR(100),	\n"+
                 "	SueSecDate	DateTime	,	\n"+
                 "	SueSecStart	DateTime	,	\n"+
                 "	SueSecEnd	DateTime	,	\n"+
                 "	SueSecTotal	INTEGER	,	\n"+
                 "	SueSecRequest	VARCHAR(100)	,	\n"+
                 "	SueSecCause	VARCHAR(100)	,	\n"+
-                "	SueThird	INTEGER	,	\n"+
+                "	SueThird	VARCHAR(100)	,	\n"+
                 "	SueThirdDate	DateTime	,	\n"+
                 "	SueThirdStart	DateTime	,	\n"+
                 "	SueThirdEnd	DateTime	,	\n"+
                 "	SueThirdTotal	INTEGER	,	\n"+
                 "	SueThirdRequest	VARCHAR(100)	,	\n"+
                 "	SueThirdCause	VARCHAR(100)	,	\n"+
-                "	SueFourth	INTEGER	,	\n"+
+                "	SueFourth	VARCHAR(100)	,	\n"+
                 "	SueFourthDate	DateTime	,	\n"+
                 "	SueFourthStart	DateTime	,	\n"+
                 "	SueFourthEnd	DateTime	,	\n"+
                 "	SueFourthtotal	INTEGER	,	\n"+
                 "	SueFourthRequest	VARCHAR(100)	,	\n"+
                 "	SueFourthCause	VARCHAR(100)	,	\n"+
-                "	SueFifth	INTEGER	,	\n"+
+                "	SueFifth	VARCHAR(100)	,	\n"+
                 "	SueFifthDate	DateTime	,	\n"+
                 "	SueFifthStart	DateTime	,	\n"+
                 "	SueFifthEnd	DateTime	,	\n"+
                 "	SueFifthTotal	INTEGER	,	\n"+
                 "	SueFifthRequest	VARCHAR(100)	,	\n"+
                 "	SueFifthCause	VARCHAR(100)	,	\n"+
-                "	SueSixth	INTEGER	,	\n"+
+                "	SueSixth	VARCHAR(100)	,	\n"+
                 "	SueSixthDate	DateTime	,	\n"+
                 "	SueSixthStart	DateTime	,	\n"+
                 "	SueSixthEnd	DateTime	,	\n"+
                 "	SueSixthTotal	INTEGER	,	\n"+
                 "	SueSixthRequest	VARCHAR(100)	,	\n"+
                 "	SueSixthCause	VARCHAR(100)	,	\n"+
-                "	SueSeven	INTEGER	,	\n"+
+                "	SueSeven	VARCHAR(100)	,	\n"+
                 "	SueSevenDate	DateTime	,	\n"+
                 "	SueSevenStart	DateTime	,	\n"+
                 "	SueSevenEnd	DateTime	,	\n"+

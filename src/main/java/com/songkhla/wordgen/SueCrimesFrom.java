@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package com.songkhla.wordgen;
+import static com.songkhla.document.W5.Checknull;
 import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseno;
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -49,6 +50,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
     public SueCrimesFrom(JFrame parrent,JSONObject datain) {
         super(parrent,true);
         initComponents();
+//        DataLastSue();
         ImageIcon img = new ImageIcon("D://Master//WD.png");
         setIconImage(img.getImage());
         setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
@@ -58,86 +60,116 @@ public class SueCrimesFrom extends javax.swing.JDialog {
           person=datain.get("NoPerson")+"";
             caseid=datain.get("caseIdPerson")+"";   
             dateF=datain.get("SueFirstDate")+"";
-//        
-//            UtilDateModel model = new UtilDateModel();
-//            model.setValue(Calendar.getInstance().getTime());
-//            Properties p = new Properties();
-//            p.put("text.today", "Today");
-//            p.put("text.month", "Month");
-//            p.put("text.year", "Year");
-//        JDatePanelImpl datePanel = new JDatePanelImpl(model, p);
-//         SueSecDate = new JDatePickerImpl(datePanel,new DateLabelFormatter());
-//        SueSecDate.getComponent(1).setEnabled(false);
-//        SueSecDate.setBackground(Color.WHITE);
-//        jPanelSecDate.setLayout(new FlowLayout());
-//        jPanelSecDate.add(SueSecDate);    
-//        
-//           UtilDateModel model2 = new UtilDateModel();
-//            model2.setValue(Calendar.getInstance().getTime());
-//         JDatePanelImpl datePanel2 = new JDatePanelImpl(model2, p);
-//        SueThirdDate = new JDatePickerImpl(datePanel2,new DateLabelFormatter());
-//        SueThirdDate.setTextEditable(true);
-//        SueThirdDate.setBackground(Color.WHITE);
-//        jPanelThirdDate.setLayout(new FlowLayout());
-//        jPanelThirdDate.add(SueThirdDate);
-//        
-//        UtilDateModel model3 = new UtilDateModel();
-//            model3.setValue(Calendar.getInstance().getTime());
-//         JDatePanelImpl datePanel3 = new JDatePanelImpl(model3, p);
-//        SueFourthDate= new JDatePickerImpl(datePanel3,new DateLabelFormatter());
-//        SueFourthDate.setTextEditable(true);
-//        SueFourthDate.setBackground(Color.WHITE);
-//        jPanelFourthDate.setLayout(new FlowLayout());
-//        jPanelFourthDate.add(SueFourthDate);
-//        
-//         UtilDateModel model4 = new UtilDateModel();
-//            model4.setValue(Calendar.getInstance().getTime());
-//         JDatePanelImpl datePanel4 = new JDatePanelImpl(model4, p);
-//        SueFifthDate= new JDatePickerImpl(datePanel4,new DateLabelFormatter());
-//        SueFifthDate.setTextEditable(true);
-//        SueFifthDate.setBackground(Color.WHITE);
-//        jPanelFifthDate.setLayout(new FlowLayout());
-//        jPanelFifthDate.add(SueFifthDate);
-//        
-//        UtilDateModel model5 = new UtilDateModel();
-//            model5.setValue(Calendar.getInstance().getTime());
-//         JDatePanelImpl datePanel5 = new JDatePanelImpl(model5, p);
-//        SueSixthDate= new JDatePickerImpl(datePanel5,new DateLabelFormatter());
-//        SueSixthDate.setTextEditable(true);
-//        SueSixthDate.setBackground(Color.WHITE);
-//        jPanelSixthDate.setLayout(new FlowLayout());
-//        jPanelSixthDate.add(SueSixthDate);
-//        
-//        UtilDateModel model6 = new UtilDateModel();
-//            model6.setValue(Calendar.getInstance().getTime());
-//         JDatePanelImpl datePanel6 = new JDatePanelImpl(model6, p);
-//        SueSevDate= new JDatePickerImpl(datePanel6,new DateLabelFormatter());
-//        SueSevDate.setTextEditable(true);
-//        SueSevDate.setBackground(Color.WHITE);
-//        jPanelSevDate.setLayout(new FlowLayout());
-//        jPanelSevDate.add(SueSevDate);
+         
+//        String a=txtCaseNO.getText();
+      try{   
+          Connection con = ConnectDatabase.connect();
+        Statement stmt = con.createStatement();
+           String sql= "select MAX(SueFirst,suesecond,SueThird,SueFourth,SueFifth,SueSixth,SueSeven) SueMax,"
+                   + "MAX(ifnull(SueFirstEnd,0),ifnull(SueSecEnd,0),ifnull(SueThirdEnd,0),ifnull(SueFourthEnd,0),ifnull(SueFifthEnd,0),ifnull(SueSixthEnd,0),ifnull(SueSevenEnd,0)) DateEndMax,"
+                   + "MAX(SueFirstDate,SueSecDate,SueThirdDate,SueFourthDate,SueFifthDate,SueSixthDate,SueSevenDate) DateStartMax"
+                   + " from person where caseIdPerson='"+caseid+"' and NoPerson='"+person+"'";
+            ResultSet rs = stmt.executeQuery(sql);
+          System.out.println("SQL : "+sql);
+          if(rs.next()){
+          
+           NumberImprison.setText(rs.getString("SueMax"));
+        SueStartLast.setText(rs.getString("DateStartMax"));
+        SueEndLast.setText(rs.getString("DateEndMax"));
+        String a=CalculateDateExpr(rs.getString("DateEndMax"))+"";
+              TotalDate.setText(a);
+//              SimpleDateFormat myFormat = new SimpleDateFormat("dd MM yyyy");
+//              String dateStart = rs.getString("SueEnd");
+//                 String dateStop = rs.getString("DateEndMax");
+//               
+//     
+//
+//    Date date1 = myFormat.parse(dateStart);
+//    Date date2 = myFormat.parse(dateStop);
+//    long diff = date2.getTime() - date1.getTime();
+          }
+    
+     
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
         if(datain != null){
             
-         
+         try{
             crimecaseno.setText(datain.get("crimecasenoyear")+"");
             PeopleRegistrationID.setText(datain.get("PeopleRegistrationID")+"");
             AccureandOther.setText(datain.get("AccureandOther")+"");
             FullNamePerson.setText(datain.get("FullNamePerson")+"");
             ChargeName.setText(datain.get("ChargeName")+"");
             PeopleRegistrationID.setText(datain.get("PeopleRegistrationID")+"");
-            SueFirst.setText(datain.get("SueFirst")+"");
-            SueFirstDate.setText(datain.get("SueFirstDate")+"");
-   
+//            SueFirst.setText(datain.get("SueFirst")+"");
+//            SueFirstDate.setText(datain.get("SueFirstDate")+"");   
             PlaceArrest.setText(datain.get("PlaceArrest")+"");
             DateArrest.setText(datain.get("ArrestDateTime")+"");
-      
-        } 
+            ArrestDateTimeEnd.setText(datain.get("ArrestDateTimeEnd")+"");
+            
+            SueFirst.setText(Checknull(datain.get("SueFirst")));
+            SueFirstDate.setText(Checknull(datain.get("SueFirstDate")));        
+            SueFirstEnd.setText(Checknull(datain.get("SueFirstEnd")));
+          
+                 SueFirstEnd.setText(Checknull(datain.get("SueFirstEnd")));
+          
+            SueFirstTotal.setText(Checknull(datain.get("SueFirstTotal")));
+           SueFirstRequest.setSelectedItem(Checknull(datain.get("SueFirstRequest")));
+           SueFirstCause.setSelectedItem(Checknull(datain.get("SueFirstCause")));
+            SueSecond.setText(Checknull(datain.get("SueSecond")));
+            SueSecDateT.setText(Checknull(datain.get("SueSecDate")));        
+            SueSecEnd.setText(Checknull(datain.get("SueSecEnd")));
+            SueSecTotal.setText(Checknull(datain.get("SueSecTotal")));
+           SueSecRequest.setSelectedItem(Checknull(datain.get("SueSecRequest")));
+           SueSecCause.setSelectedItem(Checknull(datain.get("SueSecCause")));
+             SueThird.setText(Checknull(datain.get("SueThird")));
+            ThirdDate.setText(Checknull(datain.get("SueThirdDate")));        
+            SueThirdEnd.setText(Checknull(datain.get("SueThirdEnd")));
+            SueThirdTotal.setText(Checknull(datain.get("SueThirdTotal")));
+           SueThirdRequest.setSelectedItem(Checknull(datain.get("SueThirdRequest")));
+           SueThirdCause.setSelectedItem(Checknull(datain.get("SueThirdCause")));
+             SueForth.setText(Checknull(datain.get("SueFourth")));
+            FourthDate.setText(Checknull(datain.get("SueFourthDate")));        
+            SueFourthEnd.setText(Checknull(datain.get("SueFourthEnd")));
+            SueFourthTotal.setText(Checknull(datain.get("SueFourthtotal")));
+           SueFourthRequest.setSelectedItem(Checknull(datain.get("SueFourthRequest")));
+           SueFourthCause.setSelectedItem(Checknull(datain.get("SueFourthCause")));
+             SueFifth.setText(Checknull(datain.get("SueFifth")));
+            FifthDate.setText(Checknull(datain.get("SueFifthDate")));        
+            SueFifthEnd.setText(Checknull(datain.get("SueFifthEnd")));
+            SueFifthTotal.setText(Checknull(datain.get("SueFifthTotal")));
+           SueFifthRequest.setSelectedItem(Checknull(datain.get("SueFifthRequest")));
+           SueFifthCause.setSelectedItem(Checknull(datain.get("SueFifthCause")));
+              SueSixth.setText(Checknull(datain.get("SueSixth")));
+            SixthDate.setText(Checknull(datain.get("SueSixthDate")));        
+            SueSixthEnd.setText(Checknull(datain.get("SueSixthEnd")));
+            SueSixthTotal.setText(Checknull(datain.get("SueSixthTotal")));
+           SueSixthRequest.setSelectedItem(Checknull(datain.get("SueSixthRequest")));
+           SueSixthCause.setSelectedItem(Checknull(datain.get("SueSixthCause")));       
+               SueSeventh.setText(Checknull(datain.get("SueSeven")));
+            SevDate.setText(Checknull(datain.get("SueSevenDate")));        
+            SueSevenEnd.setText(Checknull(datain.get("SueSevenEnd")));
+            SueSevenTotal.setText(Checknull(datain.get("SueSevenTotal")));
+           SueSevRequest.setSelectedItem(Checknull(datain.get("SueSevenRequest")));
+           SueSevCause.setSelectedItem(Checknull(datain.get("SueSevenCause")));        
        
-    
-
+            
+            String a=datain.get("ArrestDateTimeEnd")+"";
+             SimpleDateFormat  format = new SimpleDateFormat("dd/MM/yyyy");
+             Date aa=format.parse(a);
+            SueFirstDate.setText(format.format(aa)+"");
+         }
+         catch(Exception e)
+         {e.printStackTrace();}
+        } 
+       DateTotal();
+           
+     
 
         RefreshData(); 
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -168,6 +200,8 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         PlaceArrest = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         DateArrest = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        ArrestDateTimeEnd = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
@@ -186,7 +220,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         SueFirstTotal = new javax.swing.JTextField();
         SueFirstRequest = new javax.swing.JComboBox<>();
         SueFirstCause = new javax.swing.JComboBox<>();
-        SueFirst = new javax.swing.JTextField();
+        SueSeventh = new javax.swing.JTextField();
         jPanel8 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -218,20 +252,27 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         SueFourthCause = new javax.swing.JComboBox<>();
         SueFifthCause = new javax.swing.JComboBox<>();
         SueSixthCause = new javax.swing.JComboBox<>();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
         SevDate = new javax.swing.JTextField();
         SixthDate = new javax.swing.JTextField();
         FifthDate = new javax.swing.JTextField();
         FourthDate = new javax.swing.JTextField();
         ThirdDate = new javax.swing.JTextField();
         SueSecDateT = new javax.swing.JTextField();
+        Print1 = new javax.swing.JButton();
+        Print3 = new javax.swing.JButton();
+        Print4 = new javax.swing.JButton();
+        Print5 = new javax.swing.JButton();
+        Print6 = new javax.swing.JButton();
+        Print7 = new javax.swing.JButton();
+        Print8 = new javax.swing.JButton();
+        Print2 = new javax.swing.JButton();
+        SueFirst = new javax.swing.JTextField();
+        SueSecond = new javax.swing.JTextField();
+        SueThird = new javax.swing.JTextField();
+        SueForth = new javax.swing.JTextField();
+        SueFifth = new javax.swing.JTextField();
+        SueSixth = new javax.swing.JTextField();
         jButtonSave = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -245,7 +286,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 
         jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 28)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("ผู้ต้องหาผัดฟ้องฝากขัง");
+        jLabel1.setText("ผัดฟ้องฝากขัง");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -276,7 +317,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(299, 299, 299)
-                .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
                 .addGap(185, 185, 185))
         );
         jPanel6Layout.setVerticalGroup(
@@ -287,7 +328,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         );
 
         jLabel30.setBackground(java.awt.SystemColor.activeCaptionBorder);
-        jLabel30.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel30.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel30.setText("เลขคดีที่ ");
 
         crimecaseno.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
@@ -295,10 +336,10 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         crimecaseno.setEnabled(false);
 
         jLabel31.setBackground(java.awt.SystemColor.activeCaptionBorder);
-        jLabel31.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel31.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel31.setText("เลขประจำตัวบัตรประชาชน");
 
-        jLabel5.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel5.setText("ชื่อผู้ต้องหา");
 
         FullNamePerson.setEditable(false);
@@ -307,28 +348,34 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         PeopleRegistrationID.setEditable(false);
         PeopleRegistrationID.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        jLabel7.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel7.setText("ชื่อผู้กล่าวหา");
 
         AccureandOther.setEditable(false);
         AccureandOther.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel6.setText("ข้อหา");
 
         ChargeName.setEditable(false);
         ChargeName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        jLabel15.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel15.setText("สถานที่ควบคุม");
 
         PlaceArrest.setEditable(false);
         PlaceArrest.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel2.setText("วันที่จับกุม");
 
         DateArrest.setEditable(false);
+
+        jLabel18.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel18.setText("วันที่สิ้นสุดการจับกุม");
+
+        ArrestDateTimeEnd.setEditable(false);
+        ArrestDateTimeEnd.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -351,23 +398,26 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                                 .addComponent(jLabel31)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(PeopleRegistrationID)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(AccureandOther))
-                            .addComponent(PeopleRegistrationID)))
+                                .addComponent(AccureandOther))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ArrestDateTimeEnd)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(DateArrest, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(PlaceArrest)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(DateArrest, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addComponent(PlaceArrest, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ChargeName)))
                 .addContainerGap())
         );
@@ -393,13 +443,17 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
                     .addComponent(PlaceArrest, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(DateArrest, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ChargeName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21))
+                    .addComponent(ChargeName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(DateArrest, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel18)
+                        .addComponent(ArrestDateTimeEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(28, 28, 28))
         );
 
         jPanel4.setBackground(new java.awt.Color(204, 204, 204));
@@ -507,32 +561,39 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 
         jPanel5.setEnabled(false);
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        SueFirstDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SueFirstDateActionPerformed(evt);
+            }
+        });
         jPanel5.add(SueFirstDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 50, 200, 30));
 
-        SueFirstEnd.setEditable(false);
         SueFirstEnd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SueFirstEndActionPerformed(evt);
             }
         });
         jPanel5.add(SueFirstEnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 50, 164, 30));
-
-        SueFirstTotal.setText(" ");
         jPanel5.add(SueFirstTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(461, 50, 98, 30));
 
         SueFirstRequest.setEditable(true);
         SueFirstRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 2", "Item 3", "Item 4" }));
-        jPanel5.add(SueFirstRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(573, 46, 291, 30));
+        jPanel5.add(SueFirstRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(573, 46, 220, 30));
 
         SueFirstCause.setEditable(true);
         SueFirstCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
-        jPanel5.add(SueFirstCause, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 46, 371, 29));
+        jPanel5.add(SueFirstCause, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 50, 371, 29));
 
-        SueFirst.setEditable(false);
-        SueFirst.setBackground(new java.awt.Color(46, 156, 202));
-        SueFirst.setForeground(new java.awt.Color(255, 255, 255));
-        SueFirst.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel5.add(SueFirst, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 51, 50, 29));
+        SueSeventh.setBackground(new java.awt.Color(46, 156, 202));
+        SueSeventh.setForeground(new java.awt.Color(255, 255, 255));
+        SueSeventh.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        SueSeventh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SueSeventhActionPerformed(evt);
+            }
+        });
+        jPanel5.add(SueSeventh, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 50, 29));
 
         jPanel8.setBackground(new java.awt.Color(0, 102, 204));
 
@@ -575,9 +636,9 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
                 .addComponent(jLabel10)
-                .addGap(260, 260, 260)
+                .addGap(195, 195, 195)
                 .addComponent(jLabel12)
-                .addGap(151, 151, 151))
+                .addGap(216, 216, 216))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -594,15 +655,17 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 
         jPanel5.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
 
-        SueSecTotal.setText(" ");
+        SueSecTotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SueSecTotalActionPerformed(evt);
+            }
+        });
         jPanel5.add(SueSecTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(461, 86, 98, 30));
 
         SueSecRequest.setEditable(true);
         SueSecRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 2", "Item 3", "Item 4" }));
-        jPanel5.add(SueSecRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(573, 88, 291, 30));
+        jPanel5.add(SueSecRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(573, 88, 220, 30));
 
-        SueSecEnd.setEditable(false);
-        SueSecEnd.setText(" ");
         SueSecEnd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SueSecEndActionPerformed(evt);
@@ -612,10 +675,8 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 
         SueSecCause.setEditable(true);
         SueSecCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
-        jPanel5.add(SueSecCause, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 88, 371, 34));
+        jPanel5.add(SueSecCause, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 90, 371, 30));
 
-        SueThirdEnd.setEditable(false);
-        SueThirdEnd.setText(" ");
         SueThirdEnd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SueThirdEndActionPerformed(evt);
@@ -623,7 +684,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         });
         jPanel5.add(SueThirdEnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 123, 164, 29));
 
-        SueThirdTotal.setText(" ");
         SueThirdTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SueThirdTotalActionPerformed(evt);
@@ -633,14 +693,12 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 
         SueThirdRequest.setEditable(true);
         SueThirdRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 2", "Item 3", "Item 4" }));
-        jPanel5.add(SueThirdRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(573, 124, 291, 29));
+        jPanel5.add(SueThirdRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(573, 124, 220, 29));
 
         SueSevCause.setEditable(true);
         SueSevCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
-        jPanel5.add(SueSevCause, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 285, 371, 29));
+        jPanel5.add(SueSevCause, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 290, 371, 29));
 
-        SueSevenEnd.setEditable(false);
-        SueSevenEnd.setText(" ");
         SueSevenEnd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SueSevenEndActionPerformed(evt);
@@ -648,7 +706,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         });
         jPanel5.add(SueSevenEnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 284, 164, 30));
 
-        SueSevenTotal.setText(" ");
         SueSevenTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SueSevenTotalActionPerformed(evt);
@@ -658,10 +715,8 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 
         SueSevRequest.setEditable(true);
         SueSevRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 2", "Item 3", "Item 4" }));
-        jPanel5.add(SueSevRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(571, 284, 291, 30));
+        jPanel5.add(SueSevRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(571, 284, 220, 30));
 
-        SueFourthEnd.setEditable(false);
-        SueFourthEnd.setText(" ");
         SueFourthEnd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SueFourthEndActionPerformed(evt);
@@ -669,8 +724,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         });
         jPanel5.add(SueFourthEnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 164, 164, 30));
 
-        SueFifthEnd.setEditable(false);
-        SueFifthEnd.setText(" ");
         SueFifthEnd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SueFifthEndActionPerformed(evt);
@@ -678,8 +731,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         });
         jPanel5.add(SueFifthEnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 204, 164, 30));
 
-        SueSixthEnd.setEditable(false);
-        SueSixthEnd.setText(" ");
         SueSixthEnd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SueSixthEndActionPerformed(evt);
@@ -687,7 +738,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         });
         jPanel5.add(SueSixthEnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 244, 164, 30));
 
-        SueFourthTotal.setText(" ");
         SueFourthTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SueFourthTotalActionPerformed(evt);
@@ -695,7 +745,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         });
         jPanel5.add(SueFourthTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(461, 164, 98, 30));
 
-        SueFifthTotal.setText(" ");
         SueFifthTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SueFifthTotalActionPerformed(evt);
@@ -703,7 +752,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         });
         jPanel5.add(SueFifthTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(461, 204, 98, 30));
 
-        SueSixthTotal.setText(" ");
         SueSixthTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SueSixthTotalActionPerformed(evt);
@@ -713,72 +761,134 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 
         SueFourthRequest.setEditable(true);
         SueFourthRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 2", "Item 3", "Item 4" }));
-        jPanel5.add(SueFourthRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(573, 165, 291, 30));
+        jPanel5.add(SueFourthRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(573, 165, 220, 30));
 
         SueFifthRequest.setEditable(true);
         SueFifthRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 2", "Item 3", "Item 4" }));
-        jPanel5.add(SueFifthRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(571, 204, 291, 30));
+        jPanel5.add(SueFifthRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(571, 204, 220, 30));
 
         SueSixthRequest.setEditable(true);
         SueSixthRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 2", "Item 3", "Item 4" }));
-        jPanel5.add(SueSixthRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(571, 244, 291, 30));
+        jPanel5.add(SueSixthRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(571, 244, 220, 30));
 
         SueThirdCause.setEditable(true);
         SueThirdCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
-        jPanel5.add(SueThirdCause, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 124, 371, 29));
+        jPanel5.add(SueThirdCause, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 130, 371, 29));
 
         SueFourthCause.setEditable(true);
         SueFourthCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
-        jPanel5.add(SueFourthCause, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 163, 371, 29));
+        jPanel5.add(SueFourthCause, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 170, 371, 29));
 
         SueFifthCause.setEditable(true);
         SueFifthCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
-        jPanel5.add(SueFifthCause, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 203, 371, 29));
+        jPanel5.add(SueFifthCause, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 210, 371, 29));
 
         SueSixthCause.setEditable(true);
         SueSixthCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
-        jPanel5.add(SueSixthCause, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 245, 371, 29));
-
-        jButton2.setText("2");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel5.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 86, 51, 31));
-
-        jButton3.setText("3");
-        jPanel5.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 123, 51, 31));
-
-        jButton4.setText("4");
-        jPanel5.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 163, 51, 31));
-
-        jButton5.setText("6");
-        jPanel5.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 243, 51, 31));
-
-        jButton6.setText("5");
-        jPanel5.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 203, 51, 31));
-
-        jButton7.setText("7");
-        jPanel5.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 284, 51, 31));
-
-        SevDate.setText(" ");
+        jPanel5.add(SueSixthCause, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 250, 371, 29));
         jPanel5.add(SevDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(67, 284, 199, 31));
-
-        SixthDate.setText("  ");
         jPanel5.add(SixthDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(67, 243, 199, 31));
 
-        FifthDate.setText(" ");
+        FifthDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FifthDateActionPerformed(evt);
+            }
+        });
         jPanel5.add(FifthDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(67, 203, 199, 31));
-
-        FourthDate.setText(" ");
         jPanel5.add(FourthDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 163, 199, 31));
-
-        ThirdDate.setText(" ");
         jPanel5.add(ThirdDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 123, 199, 31));
-
-        SueSecDateT.setText(" ");
         jPanel5.add(SueSecDateT, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 86, 199, 31));
+
+        Print1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        Print1.setText("พิมพ์");
+        Print1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Print1ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(Print1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 50, -1, 30));
+
+        Print3.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        Print3.setText("พิมพ์");
+        jPanel5.add(Print3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 130, -1, 30));
+
+        Print4.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        Print4.setText("พิมพ์");
+        jPanel5.add(Print4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 170, -1, 30));
+
+        Print5.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        Print5.setText("พิมพ์");
+        jPanel5.add(Print5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 210, -1, 30));
+
+        Print6.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        Print6.setText("พิมพ์");
+        jPanel5.add(Print6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 250, -1, 30));
+
+        Print7.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        Print7.setText("พิมพ์");
+        jPanel5.add(Print7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 290, -1, 30));
+
+        Print8.setText("พิมพ์");
+        jPanel5.add(Print8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 290, -1, 30));
+
+        Print2.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        Print2.setText("พิมพ์");
+        jPanel5.add(Print2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 90, -1, 30));
+
+        SueFirst.setBackground(new java.awt.Color(46, 156, 202));
+        SueFirst.setForeground(new java.awt.Color(255, 255, 255));
+        SueFirst.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPanel5.add(SueFirst, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 51, 50, 29));
+
+        SueSecond.setBackground(new java.awt.Color(46, 156, 202));
+        SueSecond.setForeground(new java.awt.Color(255, 255, 255));
+        SueSecond.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        SueSecond.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SueSecondActionPerformed(evt);
+            }
+        });
+        jPanel5.add(SueSecond, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 50, 29));
+
+        SueThird.setBackground(new java.awt.Color(46, 156, 202));
+        SueThird.setForeground(new java.awt.Color(255, 255, 255));
+        SueThird.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        SueThird.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SueThirdActionPerformed(evt);
+            }
+        });
+        jPanel5.add(SueThird, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 50, 29));
+
+        SueForth.setBackground(new java.awt.Color(46, 156, 202));
+        SueForth.setForeground(new java.awt.Color(255, 255, 255));
+        SueForth.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        SueForth.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SueForthActionPerformed(evt);
+            }
+        });
+        jPanel5.add(SueForth, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 50, 29));
+
+        SueFifth.setBackground(new java.awt.Color(46, 156, 202));
+        SueFifth.setForeground(new java.awt.Color(255, 255, 255));
+        SueFifth.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        SueFifth.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SueFifthActionPerformed(evt);
+            }
+        });
+        jPanel5.add(SueFifth, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 50, 29));
+
+        SueSixth.setBackground(new java.awt.Color(46, 156, 202));
+        SueSixth.setForeground(new java.awt.Color(255, 255, 255));
+        SueSixth.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        SueSixth.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SueSixthActionPerformed(evt);
+            }
+        });
+        jPanel5.add(SueSixth, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 50, 29));
 
         jButtonSave.setText("บันทึก");
         jButtonSave.addActionListener(new java.awt.event.ActionListener() {
@@ -786,8 +896,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 jButtonSaveActionPerformed(evt);
             }
         });
-
-        jButton1.setText("พิมพ์เอกสาร");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -799,15 +907,12 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jButtonSave)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 625, Short.MAX_VALUE)))
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 615, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -818,13 +923,11 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75))
+                .addComponent(jButtonSave, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(83, 83, 83))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -904,37 +1007,37 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 pst.setString(4,SueFirstTotal.getText());
                 pst.setString(5,SueFirstRequest.getSelectedItem().toString());
                 pst.setString(6,SueFirstCause.getSelectedItem().toString());
-                pst.setString(7,"2");
+                pst.setString(7,SueSecond.getText());
                 pst.setString(8,SueSecDateT.getText());
                 pst.setString(9,SueSecEnd.getText());
                 pst.setString(10,SueSecTotal.getText());
                 pst.setString(11,SueSecRequest.getSelectedItem().toString());
                 pst.setString(12,SueSecCause.getSelectedItem().toString());
-                pst.setString(13,"3");
+                pst.setString(13,SueThird.getText());
                 pst.setString(14,ThirdDate.getText());
                 pst.setString(15,SueThirdEnd.getText());
                 pst.setString(16,SueThirdTotal.getText());
                 pst.setString(17,SueThirdRequest.getSelectedItem().toString());
                 pst.setString(18,SueThirdCause.getSelectedItem().toString());
-                pst.setString(19,"4");
+                pst.setString(19,SueForth.getText());
                 pst.setString(20,FourthDate.getText());
                 pst.setString(21,SueFourthEnd.getText());
                 pst.setString(22,SueFourthTotal.getText());
                 pst.setString(23,SueFourthRequest.getSelectedItem().toString());
                 pst.setString(24,SueFourthCause.getSelectedItem().toString());
-                pst.setString(25,"5");
+                pst.setString(25,SueFifth.getText());
                 pst.setString(26,FifthDate.getText());
                 pst.setString(27,SueFifthEnd.getText());
                 pst.setString(28,SueFifthTotal.getText());
                 pst.setString(29,SueFifthRequest.getSelectedItem().toString());
                 pst.setString(30,SueFifthCause.getSelectedItem().toString());
-                pst.setString(31,"6");
+                pst.setString(31,SueSixth.getText());
                 pst.setString(32,SixthDate.getText());
                 pst.setString(33,SueSixthEnd.getText());
                 pst.setString(34,SueSixthTotal.getText());
                 pst.setString(35,SueSixthRequest.getSelectedItem().toString());
                 pst.setString(36,SueSixthCause.getSelectedItem().toString());
-                pst.setString(37,"7");
+                pst.setString(37,SueSeventh.getText());
                 pst.setString(38,SevDate.getText());
                 pst.setString(39,SueSevenEnd.getText());
                 pst.setString(40,SueSevenTotal.getText());
@@ -1009,10 +1112,117 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_SueSevenTotalActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void SueSeventhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueSeventhActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SueSeventhActionPerformed
+
+    private void SueSecondActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueSecondActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SueSecondActionPerformed
+
+    private void Print1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Print1ActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_Print1ActionPerformed
+
+    private void SueThirdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueThirdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SueThirdActionPerformed
+
+    private void SueForthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueForthActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SueForthActionPerformed
+
+    private void SueFifthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueFifthActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SueFifthActionPerformed
+
+    private void SueSixthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueSixthActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SueSixthActionPerformed
+
+    private void SueFirstDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueFirstDateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SueFirstDateActionPerformed
+
+    private void SueSecTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueSecTotalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SueSecTotalActionPerformed
+
+    private void FifthDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FifthDateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FifthDateActionPerformed
+    public void DateTotal(){
+     SueFirstEnd.getDocument().addDocumentListener(new DocumentListener() {
+                           public void changedUpdate(DocumentEvent e) {
+                                SueFirstTotal.setText(CalculateDateTotal(SueFirstDate.getText(), SueFirstEnd.getText()));
+                           }
+                           public void removeUpdate(DocumentEvent e) {
+                                                       SueFirstTotal.setText(CalculateDateTotal(SueFirstDate.getText(), SueFirstEnd.getText()));
+
+                           }
+                           public void insertUpdate(DocumentEvent e) {
+                               SueFirstTotal.setText(CalculateDateTotal(SueFirstDate.getText(), SueFirstEnd.getText()));
+                           }
+             }
+             );
+              SueSecEnd.getDocument().addDocumentListener(new DocumentListener() {
+                           public void changedUpdate(DocumentEvent e) {
+                                SueSecTotal.setText(CalculateDateTotal(SueSecDateT.getText(), SueSecEnd.getText()));
+                           }
+                           public void removeUpdate(DocumentEvent e) {
+                                SueSecTotal.setText(CalculateDateTotal(SueSecDateT.getText(), SueSecEnd.getText()));
+
+
+                           }
+                           public void insertUpdate(DocumentEvent e) {
+                               SueSecTotal.setText(CalculateDateTotal(SueSecDateT.getText(), SueSecEnd.getText()));
+
+                           }
+             }
+             );
+    SueThirdEnd.getDocument().addDocumentListener(new DocumentListener() {
+                           public void changedUpdate(DocumentEvent e) {
+                                SueThirdTotal.setText(CalculateDateTotal(ThirdDate.getText(), SueThirdEnd.getText()));
+                           }
+                           public void removeUpdate(DocumentEvent e) {
+                                SueThirdTotal.setText(CalculateDateTotal(ThirdDate.getText(), SueThirdEnd.getText()));
+
+
+                           }
+                           public void insertUpdate(DocumentEvent e) {
+                               SueThirdTotal.setText(CalculateDateTotal(ThirdDate.getText(), SueThirdEnd.getText()));
+
+                           }
+             }
+             );
+    }
+      public int CalculateDateExpr(String DateEnd){
+       int diffDays =0;   
+       try{
+     
+               Locale lc = new Locale("th","TH");
+           SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy",lc);
+                        SimpleDateFormat  format = new SimpleDateFormat("dd/MM/yyyy",lc);  
+                        String d2Day=dateFormat.format(new Date());
+                        Date dateTo =null;
+                        Date dateArrEnd=null;
+                         dateTo=format.parse(d2Day);
+                          dateArrEnd=format.parse(DateEnd);
+                            long diff = dateArrEnd.getTime() - dateTo.getTime();
+                             diffDays = (int)(diff / (24 * 60 * 60 * 1000)); 
+                             if(diffDays<0){
+                             diffDays=0;
+                             }
+                             System.out.println("Time in Day: " + diffDays + " Days."); 
+                    
+       }catch(Exception e){
+           e.printStackTrace();
+       
+       }
+          return diffDays;               
+    
+    }
 
     /**
      * @param args the command line arguments
@@ -1048,91 +1258,96 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             }
         });
     }
-    public String CalculateDateEnd(String DateStart,String DateTotal) {
-//    String dateS=SueFirstDate.getText();
-//    String a=SueFirstTotal.getText();
-//        System.out.println("ssssssssssssssssss :"+dateF+dateTot);
-    int addDate=Integer.parseInt(DateTotal);
-    Calendar cal=null;
-    String Dateend=null;
+//     public void DataLastSue(){
+//          try{          
+//        Connection con = ConnectDatabase.connect();
+//        Statement stmt = con.createStatement();
+////        String a=txtCaseNO.getText();
+//      
+//           String sql= "select MAX(ifnull(SueFirst,0),ifnull(suesecond,0),ifnull(SueThird,0),ifnull(SueFourth,0),ifnull(SueFifth,0),ifnull(SueSixth,0),ifnull(SueSeven,0)) SueMax,"
+//                   + "MAX(SueFirstEnd,SueSecEnd,SueThirdEnd,SueFourthEnd,SueFifthEnd,SueSixthEnd,SueSevenEnd) DateEndMax,"
+//                   + "MAX(SueFirstDate,SueSecDate,SueThirdDate,SueFourthDate,SueFifthDate,SueSixthDate,SueSevenDate) DateStartMax"
+//                   + " from person where caseIdPerson='"+caseid+"' and NoPerson='"+person+"'";
+//            ResultSet rs = stmt.executeQuery(sql);
+//          System.out.println("SQL : "+sql);
+//          if(rs.next()){
+//          
+//           NumberImprison.setText(rs.getString("SueMax"));
+//        SueStartLast.setText(rs.getString("DateStartMax"));
+//        SueEndLast.setText(rs.getString("DateEndMax"));
+////              SimpleDateFormat myFormat = new SimpleDateFormat("dd MM yyyy");
+////              String dateStart = rs.getString("SueEnd");
+////                 String dateStop = rs.getString("DateEndMax");
+////               
+////     
+////
+////    Date date1 = myFormat.parse(dateStart);
+////    Date date2 = myFormat.parse(dateStop);
+////    long diff = date2.getTime() - date1.getTime();
+//          }
+//    
+//     
+//        }catch(Exception ex){
+//            ex.printStackTrace();
+//        }
+//    }
+    public String CalculateDateTotal(String DateStart,String DateEnd) {
+
+    String DateTotal="";
     
         try{
             Locale lc = new Locale("th","TH");
                         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-                        Date date = sdf.parse(DateStart);
-                         cal = Calendar.getInstance();
-                        cal.setTime(date);                      
-                        cal.add(Calendar.DAY_OF_MONTH,addDate);
-                        System.out.println("DateEnd : "+cal.getTime());
-                        Dateend=sdf.format(cal.getTime());
+                        Date dateS = sdf.parse(DateStart);
+                        Date dateE=sdf.parse(DateEnd);
+                long diff = dateE.getTime() - dateS.getTime();
+                int diffDays = (int)(diff / (24 * 60 * 60 * 1000));
+                DateTotal=diffDays+"";
+                 System.out.println("DaysTotallllllllll : "+DateTotal);
             } catch(Exception e){
                 System.out.println(e);
             }
-           return Dateend;
+           return DateTotal;
     
     }
-    public void DataCase(){
-          try{          
-        Connection con = ConnectDatabase.connect();
-        Statement stmt = con.createStatement();
-//        String a=txtCaseNO.getText();
+     public static String Checknull(Object input){
+         String a="";
+        
+		if(input==null||input==""||input=="null") { return ""; } 
+                a=input+"";
+		return a;
+		}
+    
+//    public void DataCase(){
+//          try{          
+//        Connection con = ConnectDatabase.connect();
+//        Statement stmt = con.createStatement();
+////        String a=txtCaseNO.getText();
+//      
+//           String sql= "select CaseId,PeopleRegistrationID,PlaceArrest,ArrestDateTime,crimecasenoyear,AccureandOther,ChargeName,FullNamePerson,PeopleRegistrationID,SueTimes,SueDate,SuePersonId,SueCaseId from Sue\n"+
+//                           "left join Person on Sue.SuePersonId=Person.NoPerson\n"+
+//                           "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId\n"+
+//                          "left join Charge on CrimeCase.ChargeCodeCase=Charge.ChargeCode Where CaseIdPerson='"+caseid+"' and NoPerson='"+person+"'";
+//            ResultSet rs = stmt.executeQuery(sql);
+//          System.out.println("SQL : "+sql);
+//          if(rs.next()){
+//          
+//           crimecaseno.setText(rs.getString("crimecasenoyear"));
+//        PeopleRegistrationID.setText(rs.getString("PeopleRegistrationID"));
+//        AccureandOther.setText(rs.getString("AccureandOther"));
+//        FullNamePerson.setText(rs.getString("FullNamePerson"));
+//        ChargeName.setText(rs.getString("ChargeName"));
+//        PlaceArrest.setText(rs.getString("PlaceArrest"));
+//        DateArrest.setText(rs.getString("ArrestDateTime"));
+//
+//          }
+//    
+//     
+//        }catch(Exception ex){
+//            ex.printStackTrace();
+//        }
+//    }
       
-           String sql= "select CaseId,PeopleRegistrationID,PlaceArrest,ArrestDateTime,crimecasenoyear,AccureandOther,ChargeName,FullNamePerson,PeopleRegistrationID,SueTimes,SueDate,SuePersonId,SueCaseId from Sue\n"+
-                           "left join Person on Sue.SuePersonId=Person.NoPerson\n"+
-                           "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId\n"+
-                          "left join Charge on CrimeCase.ChargeCodeCase=Charge.ChargeCode Where CaseIdPerson='"+caseid+"' and NoPerson='"+person+"'";
-            ResultSet rs = stmt.executeQuery(sql);
-          System.out.println("SQL : "+sql);
-          if(rs.next()){
-          
-           crimecaseno.setText(rs.getString("crimecasenoyear"));
-        PeopleRegistrationID.setText(rs.getString("PeopleRegistrationID"));
-        AccureandOther.setText(rs.getString("AccureandOther"));
-        FullNamePerson.setText(rs.getString("FullNamePerson"));
-        ChargeName.setText(rs.getString("ChargeName"));
-        PlaceArrest.setText(rs.getString("PlaceArrest"));
-        DateArrest.setText(rs.getString("ArrestDateTime"));
-
-          }
-    
-     
-        }catch(Exception ex){
-            ex.printStackTrace();
-        }
-    }
-       public void DataLastSue(){
-          try{          
-        Connection con = ConnectDatabase.connect();
-        Statement stmt = con.createStatement();
-//        String a=txtCaseNO.getText();
-      
-           String sql= "select max(suetimes) sueTime,SueDate,SueEnd,SueStart  from Sue where suecaseid='"+caseid+"' and suepersonid='"+person+"'";
-            ResultSet rs = stmt.executeQuery(sql);
-          System.out.println("SQL : "+sql);
-          if(rs.next()){
-          
-           NumberImprison.setText(rs.getString("sueTime"));
-        SueStartLast.setText(rs.getString("SueStart"));
-        SueEndLast.setText(rs.getString("SueEnd"));
-              SimpleDateFormat myFormat = new SimpleDateFormat("dd MM yyyy");
-              String dateStart = rs.getString("SueEnd");
-                 String dateStop = rs.getString("SueStart");
-     
-
-    Date date1 = myFormat.parse(dateStart);
-    Date date2 = myFormat.parse(dateStop);
-    long diff = date2.getTime() - date1.getTime();
-//    System.out.print(Days.daysBetween(dt1, dt2).getDays() + " days, ");
-//    String total=TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS;
-//    System.out.println ("Days: " + TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS));
-//    TotalDate.setText(sql);
-          }
-    
-     
-        }catch(Exception ex){
-            ex.printStackTrace();
-        }
-    }
    public void RefreshData(){
       try{
               
@@ -1197,6 +1412,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AccureandOther;
+    private javax.swing.JTextField ArrestDateTimeEnd;
     private javax.swing.JTextField ChargeName;
     private javax.swing.JTextField DateArrest;
     private javax.swing.JTextField FifthDate;
@@ -1205,9 +1421,18 @@ public class SueCrimesFrom extends javax.swing.JDialog {
     private javax.swing.JTextField NumberImprison;
     private javax.swing.JTextField PeopleRegistrationID;
     private javax.swing.JTextField PlaceArrest;
+    private javax.swing.JButton Print1;
+    private javax.swing.JButton Print2;
+    private javax.swing.JButton Print3;
+    private javax.swing.JButton Print4;
+    private javax.swing.JButton Print5;
+    private javax.swing.JButton Print6;
+    private javax.swing.JButton Print7;
+    private javax.swing.JButton Print8;
     private javax.swing.JTextField SevDate;
     private javax.swing.JTextField SixthDate;
     private javax.swing.JTextField SueEndLast;
+    private javax.swing.JTextField SueFifth;
     private javax.swing.JComboBox<String> SueFifthCause;
     private javax.swing.JTextField SueFifthEnd;
     private javax.swing.JComboBox<String> SueFifthRequest;
@@ -1218,6 +1443,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
     private javax.swing.JTextField SueFirstEnd;
     private javax.swing.JComboBox<String> SueFirstRequest;
     private javax.swing.JTextField SueFirstTotal;
+    private javax.swing.JTextField SueForth;
     private javax.swing.JComboBox<String> SueFourthCause;
     private javax.swing.JTextField SueFourthEnd;
     private javax.swing.JComboBox<String> SueFourthRequest;
@@ -1227,15 +1453,19 @@ public class SueCrimesFrom extends javax.swing.JDialog {
     private javax.swing.JTextField SueSecEnd;
     private javax.swing.JComboBox<String> SueSecRequest;
     private javax.swing.JTextField SueSecTotal;
+    private javax.swing.JTextField SueSecond;
     private javax.swing.JComboBox<String> SueSevCause;
     private javax.swing.JComboBox<String> SueSevRequest;
     private javax.swing.JTextField SueSevenEnd;
     private javax.swing.JTextField SueSevenTotal;
+    private javax.swing.JTextField SueSeventh;
+    private javax.swing.JTextField SueSixth;
     private javax.swing.JComboBox<String> SueSixthCause;
     private javax.swing.JTextField SueSixthEnd;
     private javax.swing.JComboBox<String> SueSixthRequest;
     private javax.swing.JTextField SueSixthTotal;
     private javax.swing.JTextField SueStartLast;
+    private javax.swing.JTextField SueThird;
     private javax.swing.JComboBox<String> SueThirdCause;
     private javax.swing.JTextField SueThirdEnd;
     private javax.swing.JComboBox<String> SueThirdRequest;
@@ -1243,13 +1473,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
     private javax.swing.JTextField ThirdDate;
     private javax.swing.JTextField TotalDate;
     private javax.swing.JTextField crimecaseno;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButtonSave;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1260,6 +1483,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
