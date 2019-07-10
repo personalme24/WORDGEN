@@ -21,6 +21,7 @@ import java.sql.Statement;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import org.docx4j.openpackaging.packages.WordprocessingMLPackage;
 import org.json.simple.JSONObject;
 
 /**
@@ -45,7 +46,7 @@ public class ReportAllForm extends javax.swing.JDialog {
          //jCheckW5.setSelected(true);
          //jCheckW6.setSelected(true);
         crimecaseno.setVisible(true);
-
+       
         if(datain != null){
         caseid=datain.get("caseid")+"";
                 crimecaseno.setText(caseid);
@@ -839,14 +840,24 @@ public class ReportAllForm extends javax.swing.JDialog {
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         // TODO add your handling code here:
+        System.out.println("ffffffffffffffff : "+PoliceStaionName);
         String no=crimecaseno.getText();
-        File f3=new File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/คดีอาญา"+caseno+"-"+caseyear);
+        File f3=new File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/แบบฟอร์มสำนวน");
         
         f3.mkdirs();
         System.out.print(f3);
         System.out.print("folder created");
-         if(jCheckW1.isSelected()){
-             W1.w1(no);
+        
+        if(jCheckW1.isSelected()){
+             
+		try {
+                  
+		 WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
+			.load(new java.io.File("D:/TEMPLATE/w1.docx"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/แบบฟอร์มสำนวน"+"/บันทึกการตรวจสำนวนการสอบสวน.doc"));
+		}catch( Exception ex) {
+			ex.printStackTrace();
+		}
         }
         
         if(jCheckW2.isSelected()){
