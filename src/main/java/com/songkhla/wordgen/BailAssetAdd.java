@@ -37,7 +37,8 @@ public class BailAssetAdd extends javax.swing.JDialog {
                 
                 
                 }
-                else{}
+                else{
+                isInsert=true;}
                 
     }
 
@@ -235,7 +236,7 @@ public class BailAssetAdd extends javax.swing.JDialog {
 
         try {
 
-                String sql="INSERT INTO BailAsset (BailAssetOrder,BailAssetDetail,BailAssetBath,BailAmount,BailAssetTotal,BailAssetRemark,BailCaseId,BailPersonId\n"
+                String sql="INSERT INTO BailAsset (BailAssetOrder,BailAssetDetail,BailAssetBath,BailAmount,BailAssetTotal,BailAssetRemark,BailCaseId,BailPersonId)\n"
                 + "VALUES (?,?,?,?,?,?,?,?)";
                 pst=con.prepareStatement(sql);
                

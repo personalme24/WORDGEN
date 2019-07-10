@@ -5,6 +5,7 @@
  */
 package com.songkhla.wordgen;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import org.json.simple.JSONObject;
 
@@ -21,6 +22,9 @@ public class PersonFrom extends javax.swing.JDialog {
                 super(parrent,true);
 
         initComponents();
+          ImageIcon img = new ImageIcon("D://Master//WD.png");
+            setIconImage(img.getImage());
+            setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
         if(datain != null){
         PeopleRegistrationID.setText(datain.get("PeopleRegistrationID")+"");
         FullNamePerson.setText(datain.get("FullNamePerson")+"");

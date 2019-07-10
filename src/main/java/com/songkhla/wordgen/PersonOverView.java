@@ -35,6 +35,9 @@ public class PersonOverView extends javax.swing.JFrame {
     
     public PersonOverView() {
         initComponents();
+          ImageIcon img = new ImageIcon("D://Master//WD.png");
+            setIconImage(img.getImage());
+            setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
  
         jTable1.setOpaque(false);

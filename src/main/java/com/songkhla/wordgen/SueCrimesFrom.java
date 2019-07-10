@@ -63,7 +63,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
           person=datain.get("NoPerson")+"";
             caseid=datain.get("caseIdPerson")+"";   
             dateF=datain.get("SueFirstDate")+"";
-         
+         comboInvest();
 //        String a=txtCaseNO.getText();
       try{   
           Connection con = ConnectDatabase.connect();
@@ -577,7 +577,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         });
 
         SueFirstRequest.setEditable(true);
-        SueFirstRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 2", "Item 3", "Item 4" }));
+        SueFirstRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
 
         SueFirstCause.setEditable(true);
         SueFirstCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
@@ -656,7 +656,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         });
 
         SueSecRequest.setEditable(true);
-        SueSecRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 2", "Item 3", "Item 4" }));
+        SueSecRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
 
         SueSecEnd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -680,7 +680,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         });
 
         SueThirdRequest.setEditable(true);
-        SueThirdRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 2", "Item 3", "Item 4" }));
+        SueThirdRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
 
         SueSevCause.setEditable(true);
         SueSevCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
@@ -698,7 +698,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         });
 
         SueSevRequest.setEditable(true);
-        SueSevRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 2", "Item 3", "Item 4" }));
+        SueSevRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
 
         SueFourthEnd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -737,13 +737,13 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         });
 
         SueFourthRequest.setEditable(true);
-        SueFourthRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 2", "Item 3", "Item 4" }));
+        SueFourthRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
 
         SueFifthRequest.setEditable(true);
-        SueFifthRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 2", "Item 3", "Item 4" }));
+        SueFifthRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
 
         SueSixthRequest.setEditable(true);
-        SueSixthRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 2", "Item 3", "Item 4" }));
+        SueSixthRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
 
         SueThirdCause.setEditable(true);
         SueThirdCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
@@ -1450,7 +1450,29 @@ public class SueCrimesFrom extends javax.swing.JDialog {
           return diffDays;               
     
     }
+        public void comboInvest(){
+    
+     try {
 
+         Connection con2 = ConnectDatabase.connect();
+	Statement st = con2.createStatement();
+        	String c = "Select InvestName from InvestInformation";
+        	ResultSet res = st.executeQuery(c);
+	//Vector<Object> v=new Vector<Object>();
+	
+	while(res.next())
+	{
+	SueFirstRequest.addItem(res.getString("InvestName"));
+        SueSecRequest.addItem(res.getString("InvestName"));
+
+	
+	}
+//        else{jComboPoliceName.addItem("");}
+	
+}
+catch (Exception d) {  //System.out.println(d);  
+}
+    }
     /**
      * @param args the command line arguments
      */

@@ -21,6 +21,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Calendar;
 import java.util.Properties;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.jdatepicker.impl.JDatePanelImpl;
@@ -46,6 +47,9 @@ public class WitnessForm extends javax.swing.JDialog {
     public WitnessForm(JFrame parrent,JSONObject datain) {
         super(parrent,true);
         initComponents();  
+          ImageIcon img = new ImageIcon("D://Master//WD.png");
+            setIconImage(img.getImage());
+            setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
       UtilDateModel model2 = new UtilDateModel();
             model2.setValue(Calendar.getInstance().getTime());
             Properties p = new Properties();
@@ -206,7 +210,7 @@ public class WitnessForm extends javax.swing.JDialog {
         jLabel4.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel4.setText("ประเภทบุคคล");
 
-        jPanel3.setBackground(new java.awt.Color(77, 0, 0));
+        jPanel3.setBackground(new java.awt.Color(46, 156, 202));
 
         jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));

@@ -46,6 +46,8 @@ public class BailCrimesAdd extends javax.swing.JDialog {
             DateArrest.setText(datain.get("ArrestDateTime")+"");
 
         }
+        refreshBailSendData();
+        refreshAssetData();
     }
 
     /**
@@ -670,7 +672,7 @@ public class BailCrimesAdd extends javax.swing.JDialog {
 
          System.out.println("SQL : "+sql);
      
-        jTableBailAsset.setModel(new javax.swing.table.DefaultTableModel(
+        jTableBailSend.setModel(new javax.swing.table.DefaultTableModel(
             tabledata,
             ColumnName
         ) {

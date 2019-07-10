@@ -596,6 +596,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jPanel1.add(RecordInvestCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 320, 328, 32));
 
         jComboPoliceName.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jComboPoliceName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
         jPanel1.add(jComboPoliceName, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 280, 330, 30));
 
         jLabel2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
