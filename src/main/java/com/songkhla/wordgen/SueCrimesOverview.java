@@ -215,56 +215,53 @@ public class SueCrimesOverview extends javax.swing.JFrame {
                     data.put("ChargeName", rs.getString("ChargeName"));
                     data.put("FullNamePerson", rs.getString("FullNamePerson"));
                     data.put("PeopleRegistrationID", rs.getString("PeopleRegistrationID"));
-                    data.put("SueFirstDate", rs.getString("SueFirstDate"));
-                    data.put("SueFirst", rs.getString("SueFirst"));
-                    data.put("SueFirstTotal", rs.getString("SueFirstTotal"));
                      data.put("PlaceArrest", rs.getString("PlaceArrest"));
                       data.put("ArrestDateTime", rs.getString("ArrestDateTime")); 
                     data.put("ArrestDateTimeEnd", rs.getString("ArrestDateTimeEnd"));                    
 
                     data.put("SueFirst", rs.getString("SueFirst"));
                     data.put("SueFirstDate", rs.getString("SueFirstDate"));
-                     data.put("SueFirstEnd", rs.getString("SueFirstEnd"));
+                     data.put("SueFirstEnd", ChangFormat(rs.getString("SueFirstEnd")));
                       data.put("SueFirstTotal", rs.getString("SueFirstTotal"));
                       data.put("SueFirstRequest", rs.getString("SueFirstRequest"));
                     data.put("SueFirstCause", rs.getString("SueFirstCause"));
                      data.put("SueSecond", rs.getString("SueSecond"));
-                      data.put("SueSecDate", rs.getString("SueSecDate"));
-                      data.put("SueSecEnd", rs.getString("SueSecEnd"));
+                      data.put("SueSecDate", ChangFormat(rs.getString("SueSecDate")));
+                      data.put("SueSecEnd", ChangFormat(rs.getString("SueSecEnd")));
                     data.put("SueSecTotal", rs.getString("SueSecTotal"));
                      data.put("SueSecRequest", rs.getString("SueSecRequest"));
                       data.put("SueSecCause", rs.getString("SueSecCause"));
                       data.put("SueThird", rs.getString("SueThird"));
-                    data.put("SueThirdDate", rs.getString("SueThirdDate"));
-                     data.put("SueThirdStart", rs.getString("SueThirdStart"));
-                      data.put("SueThirdEnd", rs.getString("SueThirdEnd"));
+                    data.put("SueThirdDate", ChangFormat(rs.getString("SueThirdDate")));
+                     data.put("SueThirdStart", ChangFormat(rs.getString("SueThirdStart")));
+                      data.put("SueThirdEnd", ChangFormat(rs.getString("SueThirdEnd")));
                       data.put("SueThirdTotal", rs.getString("SueThirdTotal"));
                     data.put("SueThirdRequest", rs.getString("SueThirdRequest"));
                      data.put("SueThirdCause", rs.getString("SueThirdCause"));
                       data.put("SueFourth", rs.getString("SueFourth"));
-                      data.put("SueFourthDate", rs.getString("SueFourthDate"));
-                    data.put("SueFourthEnd", rs.getString("SueFourthEnd"));
+                      data.put("SueFourthDate", ChangFormat(rs.getString("SueFourthDate")));
+                    data.put("SueFourthEnd", ChangFormat(rs.getString("SueFourthEnd")));
                      data.put("SueFourthtotal", rs.getString("SueFourthtotal"));
                       data.put("SueFourthRequest", rs.getString("SueFourthRequest"));
                       data.put("SueFourthCause", rs.getString("SueFourthCause"));
                       
                                  data.put("SueFifth", rs.getString("SueFifth"));
-                    data.put("SueFifthDate", rs.getString("SueFifthDate"));
-                     data.put("SueFifthEnd", rs.getString("SueFifthEnd"));
+                    data.put("SueFifthDate", ChangFormat(rs.getString("SueFifthDate")));
+                     data.put("SueFifthEnd", ChangFormat(rs.getString("SueFifthEnd")));
                       data.put("SueFifthTotal", rs.getString("SueFifthTotal"));
                       data.put("SueFifthRequest", rs.getString("SueFifthRequest"));
                     data.put("SueFifthCause", rs.getString("SueFifthCause"));
 
                                 data.put("SueSixth", rs.getString("SueSixth"));
-                    data.put("SueSixthDate", rs.getString("SueSixthDate"));
-                     data.put("SueSixthEnd", rs.getString("SueSixthEnd"));
+                    data.put("SueSixthDate", ChangFormat(rs.getString("SueSixthDate")));
+                     data.put("SueSixthEnd", ChangFormat(rs.getString("SueSixthEnd")));
                       data.put("SueSixthTotal", rs.getString("SueSixthTotal"));
                       data.put("SueSixthRequest", rs.getString("SueSixthRequest"));
                     data.put("SueSixthCause", rs.getString("SueSixthCause"));
         
                                 data.put("SueSeven", rs.getString("SueSeven"));
-                    data.put("SueSevenDate", rs.getString("SueSevenDate"));
-                      data.put("SueSevenEnd", rs.getString("SueSevenEnd"));
+                    data.put("SueSevenDate", ChangFormat(rs.getString("SueSevenDate")));
+                      data.put("SueSevenEnd", ChangFormat(rs.getString("SueSevenEnd")));
                       data.put("SueSevenTotal", rs.getString("SueSevenTotal"));
                     data.put("SueSevenRequest", rs.getString("SueSevenRequest"));
                      data.put("SueSevenCause", rs.getString("SueSevenCause"));
@@ -358,13 +355,13 @@ public class SueCrimesOverview extends javax.swing.JFrame {
             Vector<String> row = new Vector<String>();
             row.add(rs.getString("crimecasenoyear"));
             row.add(rs.getString("FullNamePerson"));
-            row.add(rs.getString("SueFirstDate"));
-            row.add(rs.getString("SueSecDate"));
-            row.add(rs.getString("SueThirdDate"));
-             row.add(rs.getString("SueFourthDate"));
-            row.add(rs.getString("SueFifthDate"));
-             row.add(rs.getString("SueSixthDate"));
-            row.add(rs.getString("SueSevenDate"));
+            row.add(ChangFormat(rs.getString("SueFirstDate")));
+            row.add(ChangFormat(rs.getString("SueSecDate")));
+            row.add(ChangFormat(rs.getString("SueThirdDate")));
+             row.add(ChangFormat(rs.getString("SueFourthDate")));
+            row.add(ChangFormat(rs.getString("SueFifthDate")));
+             row.add(ChangFormat(rs.getString("SueSixthDate")));
+            row.add(ChangFormat(rs.getString("SueSevenDate")));
 
                
 //            row.add(rs.getString("Age"));
@@ -434,7 +431,28 @@ public class SueCrimesOverview extends javax.swing.JFrame {
         
         return result;
     }
-  
+      public static String ChangFormat(String DateSue){
+        String newFormatDate=null;
+       try{   Calendar cal;
+       Locale lc = new Locale("th","TH");
+        SimpleDateFormat formatdate =new SimpleDateFormat("yyyy/MM/dd");     
+        if(DateSue != null && !"".equals(DateSue)){
+        Date b=formatdate.parse(DateSue);
+         cal = Calendar.getInstance();
+          cal.setTime(b); 
+          System.out.println("fffffff : "+cal.getTime());
+           SimpleDateFormat dateformat =new SimpleDateFormat("dd/MM/yyyy");   
+         newFormatDate=dateformat.format(cal.getTime()); 
+        
+        }
+         }
+         catch(Exception e){
+         e.printStackTrace();
+         }
+    return newFormatDate;
+    
+    }
+     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAddSue;
     private javax.swing.JLabel jLabel1;

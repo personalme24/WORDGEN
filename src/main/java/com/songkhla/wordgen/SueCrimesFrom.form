@@ -916,14 +916,8 @@
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JTextField" name="SueFirstDate">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SueFirstDateActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="SueFirstEnd">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SueFirstEndActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="SueFirstTotal">
             </Component>
@@ -969,9 +963,6 @@
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SueSeventhActionPerformed"/>
-              </Events>
             </Component>
             <Container class="javax.swing.JPanel" name="jPanel8">
               <Properties>
@@ -1133,9 +1124,6 @@
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="SueThirdTotal">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SueThirdTotalActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="SueThirdRequest">
               <Properties>
@@ -1208,9 +1196,6 @@
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="SueFourthTotal">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SueFourthTotalActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="SueFifthTotal">
               <Events>
@@ -1342,9 +1327,6 @@
             <Component class="javax.swing.JTextField" name="SixthDate">
             </Component>
             <Component class="javax.swing.JTextField" name="FifthDate">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FifthDateActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="FourthDate">
             </Component>
@@ -1446,9 +1428,6 @@
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SueSecondActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="SueThird">
               <Properties>
@@ -1460,9 +1439,6 @@
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SueThirdActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="SueForth">
               <Properties>
@@ -1474,9 +1450,6 @@
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SueForthActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="SueFifth">
               <Properties>
@@ -1488,9 +1461,6 @@
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SueFifthActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="SueSixth">
               <Properties>
@@ -1502,9 +1472,6 @@
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SueSixthActionPerformed"/>
-              </Events>
             </Component>
           </SubComponents>
         </Container>

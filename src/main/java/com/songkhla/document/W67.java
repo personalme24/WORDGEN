@@ -352,5 +352,26 @@ public static void w67(String cc) {
         }
         return sb.toString();  
     }  
+      public static String ChangFormat(String DateSue){
+        String newFormatDate=null;
+       try{   Calendar cal;
+       Locale lc = new Locale("th","TH");
+        SimpleDateFormat formatdate =new SimpleDateFormat("yyyy/MM/dd");     
+        if(DateSue != null && !"".equals(DateSue)){
+        Date b=formatdate.parse(DateSue);
+         cal = Calendar.getInstance();
+          cal.setTime(b); 
+          System.out.println("fffffff : "+cal.getTime());
+           SimpleDateFormat dateformat =new SimpleDateFormat("dd/MM/yyyy");   
+         newFormatDate=dateformat.format(cal.getTime()); 
+        
+        }
+         }
+         catch(Exception e){
+         e.printStackTrace();
+         }
+    return newFormatDate;
+    
+    }
 }
 

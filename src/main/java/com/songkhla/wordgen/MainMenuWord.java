@@ -51,7 +51,7 @@ public class MainMenuWord extends javax.swing.JFrame {
         setIconImage(img.getImage());
         setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
        
-        CalculateDate();
+//        CalculateDate();
         data();
 //        setIconImage(Toolkit.getDefaultToolkit().getImage(MainMenuWord.class.getResource("D://Master//user.png")));
         pack();
@@ -1309,7 +1309,7 @@ public class MainMenuWord extends javax.swing.JFrame {
                         noPer=rs.getString("NoPerson");
                         caseid=rs.getString("caseIdPerson");
                            Calendar cal;
-                        if(arrDateTime!=null){
+                        if(arrDateTime!=null || !"".equals(arrDateTime)){
                             System.out.println("DateOld : " +arrDateTime); 
                             Locale lc = new Locale("th","TH");
                         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm",lc);

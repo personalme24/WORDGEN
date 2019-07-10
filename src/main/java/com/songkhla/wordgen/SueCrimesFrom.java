@@ -70,16 +70,17 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         Statement stmt = con.createStatement();
            String sql= "select MAX(SueFirst,suesecond,SueThird,SueFourth,SueFifth,SueSixth,SueSeven) SueMax,"
                    + "MAX(ifnull(SueFirstEnd,0),ifnull(SueSecEnd,0),ifnull(SueThirdEnd,0),ifnull(SueFourthEnd,0),ifnull(SueFifthEnd,0),ifnull(SueSixthEnd,0),ifnull(SueSevenEnd,0)) DateEndMax,"
-                   + "MAX(SueFirstDate,SueSecDate,SueThirdDate,SueFourthDate,SueFifthDate,SueSixthDate,SueSevenDate) DateStartMax"
+                   + "MAX(ifnull(SueFirstDate,0),ifnull(SueSecDate,0),ifnull(SueThirdDate,0),ifnull(SueFourthDate,0),ifnull(SueFifthDate,0),ifnull(SueSixthDate,0),ifnull(SueSevenDate,0)) DateStartMax"
+                
                    + " from person where caseIdPerson='"+caseid+"' and NoPerson='"+person+"'";
             ResultSet rs = stmt.executeQuery(sql);
           System.out.println("SQL : "+sql);
           if(rs.next()){
           
            NumberImprison.setText(rs.getString("SueMax"));
-        SueStartLast.setText(rs.getString("DateStartMax"));
-        SueEndLast.setText(rs.getString("DateEndMax"));
-        String a=CalculateDateExpr(rs.getString("DateEndMax"))+"";
+        SueStartLast.setText(ChangFormatSQL(rs.getString("DateStartMax")));
+        SueEndLast.setText(ChangFormatSQL(rs.getString("DateEndMax")));
+        String a=CalculateDateExpr(ChangFormatSQL(rs.getString("DateEndMax")))+"";
               TotalDate.setText(a);
 //              SimpleDateFormat myFormat = new SimpleDateFormat("dd MM yyyy");
 //              String dateStart = rs.getString("SueEnd");
@@ -564,18 +565,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 
         jPanel5.setEnabled(false);
 
-        SueFirstDate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SueFirstDateActionPerformed(evt);
-            }
-        });
-
-        SueFirstEnd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SueFirstEndActionPerformed(evt);
-            }
-        });
-
         SueFirstRequest.setEditable(true);
         SueFirstRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
 
@@ -585,11 +574,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         SueSeventh.setBackground(new java.awt.Color(46, 156, 202));
         SueSeventh.setForeground(new java.awt.Color(255, 255, 255));
         SueSeventh.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        SueSeventh.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SueSeventhActionPerformed(evt);
-            }
-        });
 
         jPanel8.setBackground(new java.awt.Color(0, 102, 204));
 
@@ -673,12 +657,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             }
         });
 
-        SueThirdTotal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SueThirdTotalActionPerformed(evt);
-            }
-        });
-
         SueThirdRequest.setEditable(true);
         SueThirdRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
 
@@ -718,12 +696,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             }
         });
 
-        SueFourthTotal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SueFourthTotalActionPerformed(evt);
-            }
-        });
-
         SueFifthTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SueFifthTotalActionPerformed(evt);
@@ -756,12 +728,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 
         SueSixthCause.setEditable(true);
         SueSixthCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
-
-        FifthDate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FifthDateActionPerformed(evt);
-            }
-        });
 
         Print1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         Print1.setText("พิมพ์");
@@ -809,47 +775,22 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         SueSecond.setBackground(new java.awt.Color(46, 156, 202));
         SueSecond.setForeground(new java.awt.Color(255, 255, 255));
         SueSecond.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        SueSecond.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SueSecondActionPerformed(evt);
-            }
-        });
 
         SueThird.setBackground(new java.awt.Color(46, 156, 202));
         SueThird.setForeground(new java.awt.Color(255, 255, 255));
         SueThird.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        SueThird.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SueThirdActionPerformed(evt);
-            }
-        });
 
         SueForth.setBackground(new java.awt.Color(46, 156, 202));
         SueForth.setForeground(new java.awt.Color(255, 255, 255));
         SueForth.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        SueForth.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SueForthActionPerformed(evt);
-            }
-        });
 
         SueFifth.setBackground(new java.awt.Color(46, 156, 202));
         SueFifth.setForeground(new java.awt.Color(255, 255, 255));
         SueFifth.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        SueFifth.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SueFifthActionPerformed(evt);
-            }
-        });
 
         SueSixth.setBackground(new java.awt.Color(46, 156, 202));
         SueSixth.setForeground(new java.awt.Color(255, 255, 255));
         SueSixth.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        SueSixth.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SueSixthActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -1158,15 +1099,10 @@ public class SueCrimesFrom extends javax.swing.JDialog {
     private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
         // TODO add your handling code here:
          con=ConnectDatabase.connect();
-         String a=null;
-         try{
-        SimpleDateFormat formatdate =new SimpleDateFormat("yyyy-MM-dd");
-        Date b=formatdate.parse(SueFirstDate.getText());
-         a=formatdate.format(b);
-         }
-         catch(Exception e){
+         String a=SueFirstDate.getText();
+         String c=null;
          
-         }
+      
             String sqlUpdate="Update Person set "
                     + "SueFirst=?,"
                     + "SueFirstDate=?,"
@@ -1215,53 +1151,50 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             try {
                 pst=con.prepareStatement(sqlUpdate);
                 pst.setString(1,SueFirst.getText());
-                pst.setString(2,a);
-                pst.setString(3,SueFirstEnd.getText());
+                pst.setString(2,ChangFormat(SueFirstDate.getText()));
+                pst.setString(3,ChangFormat(SueFirstEnd.getText()));
                 pst.setString(4,SueFirstTotal.getText());
                 pst.setString(5,SueFirstRequest.getSelectedItem().toString());
                 pst.setString(6,SueFirstCause.getSelectedItem().toString());
                 pst.setString(7,SueSecond.getText());
-                pst.setString(8,SueSecDateT.getText());
-                pst.setString(9,SueSecEnd.getText());
+                pst.setString(8,ChangFormat(SueSecDateT.getText()));
+                pst.setString(9,ChangFormat(SueSecEnd.getText()));
                 pst.setString(10,SueSecTotal.getText());
                 pst.setString(11,SueSecRequest.getSelectedItem().toString());
                 pst.setString(12,SueSecCause.getSelectedItem().toString());
                 pst.setString(13,SueThird.getText());
-                pst.setString(14,ThirdDate.getText());
-                pst.setString(15,SueThirdEnd.getText());
+                pst.setString(14,ChangFormat(ThirdDate.getText()));
+                pst.setString(15,ChangFormat(SueThirdEnd.getText()));
                 pst.setString(16,SueThirdTotal.getText());
                 pst.setString(17,SueThirdRequest.getSelectedItem().toString());
                 pst.setString(18,SueThirdCause.getSelectedItem().toString());
                 pst.setString(19,SueForth.getText());
-                pst.setString(20,FourthDate.getText());
-                pst.setString(21,SueFourthEnd.getText());
+                pst.setString(20,ChangFormat(FourthDate.getText()));
+                pst.setString(21,ChangFormat(SueFourthEnd.getText()));
                 pst.setString(22,SueFourthTotal.getText());
                 pst.setString(23,SueFourthRequest.getSelectedItem().toString());
                 pst.setString(24,SueFourthCause.getSelectedItem().toString());
                 pst.setString(25,SueFifth.getText());
-                pst.setString(26,FifthDate.getText());
-                pst.setString(27,SueFifthEnd.getText());
+                pst.setString(26,ChangFormat(FifthDate.getText()));
+                pst.setString(27,ChangFormat(SueFifthEnd.getText()));
                 pst.setString(28,SueFifthTotal.getText());
                 pst.setString(29,SueFifthRequest.getSelectedItem().toString());
                 pst.setString(30,SueFifthCause.getSelectedItem().toString());
                 pst.setString(31,SueSixth.getText());
-                pst.setString(32,SixthDate.getText());
-                pst.setString(33,SueSixthEnd.getText());
+                pst.setString(32,ChangFormat(SixthDate.getText()));
+                pst.setString(33,ChangFormat(SueSixthEnd.getText()));
                 pst.setString(34,SueSixthTotal.getText());
                 pst.setString(35,SueSixthRequest.getSelectedItem().toString());
                 pst.setString(36,SueSixthCause.getSelectedItem().toString());
                 pst.setString(37,SueSeventh.getText());
-                pst.setString(38,SevDate.getText());
-                pst.setString(39,SueSevenEnd.getText());
+                pst.setString(38,ChangFormat(SevDate.getText()));
+                pst.setString(39,ChangFormat(SueSevenEnd.getText()));
                 pst.setString(40,SueSevenTotal.getText());
                 pst.setString(41,SueSevRequest.getSelectedItem().toString());
                 pst.setString(42,SueSevCause.getSelectedItem().toString());
                 pst.setString(43,person);
                 pst.setString(44,caseid);
 
-            
-                
-                
                    int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
         JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (response == JOptionPane.YES_OPTION) {
@@ -1279,11 +1212,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 
 //        setVisible(false);
     }//GEN-LAST:event_jButtonSaveActionPerformed
-
-    private void SueFirstEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueFirstEndActionPerformed
-        // TODO add your handling code here:
-       
-    }//GEN-LAST:event_SueFirstEndActionPerformed
 
     private void SueThirdEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueThirdEndActionPerformed
         // TODO add your handling code here:
@@ -1305,14 +1233,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_SueSevenEndActionPerformed
 
-    private void SueThirdTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueThirdTotalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SueThirdTotalActionPerformed
-
-    private void SueFourthTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueFourthTotalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SueFourthTotalActionPerformed
-
     private void SueFifthTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueFifthTotalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SueFifthTotalActionPerformed
@@ -1325,14 +1245,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_SueSevenTotalActionPerformed
 
-    private void SueSeventhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueSeventhActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SueSeventhActionPerformed
-
-    private void SueSecondActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueSecondActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SueSecondActionPerformed
-
     private void Print1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Print1ActionPerformed
         // TODO add your handling code here:
         if(SueFirst.getText().equals("")){
@@ -1343,33 +1255,9 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         
     }//GEN-LAST:event_Print1ActionPerformed
 
-    private void SueThirdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueThirdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SueThirdActionPerformed
-
-    private void SueForthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueForthActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SueForthActionPerformed
-
-    private void SueFifthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueFifthActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SueFifthActionPerformed
-
-    private void SueSixthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueSixthActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SueSixthActionPerformed
-
-    private void SueFirstDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueFirstDateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SueFirstDateActionPerformed
-
     private void SueSecTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueSecTotalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SueSecTotalActionPerformed
-
-    private void FifthDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FifthDateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FifthDateActionPerformed
 
     private void Print3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Print3ActionPerformed
         // TODO add your handling code here:
@@ -1432,10 +1320,27 @@ public class SueCrimesFrom extends javax.swing.JDialog {
              }
              );
     }
+    public static String ChangFormat(String DateSue){
+        String newFormatDate=null;
+       try{   Calendar cal;
+        SimpleDateFormat formatdate =new SimpleDateFormat("dd/MM/yyyy");     
+        Date b=formatdate.parse(DateSue);
+         cal = Calendar.getInstance();
+          cal.setTime(b); 
+           SimpleDateFormat dateformat =new SimpleDateFormat("yyyy/MM/dd");   
+         newFormatDate=dateformat.format(cal.getTime());
+    
+         }
+         catch(Exception e){
+         e.printStackTrace();
+         }
+    return newFormatDate;
+    
+    }
       public int CalculateDateExpr(String DateEnd){
        int diffDays =0;   
        try{
-     
+     if(DateEnd != null && !"".equals(DateEnd)){
                Locale lc = new Locale("th","TH");
            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy",lc);
                         SimpleDateFormat  format = new SimpleDateFormat("dd/MM/yyyy",lc);  
@@ -1450,6 +1355,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                              diffDays=0;
                              }
                              System.out.println("Time in Day: " + diffDays + " Days."); 
+     }
                     
        }catch(Exception e){
            e.printStackTrace();
@@ -1670,6 +1576,27 @@ catch (Exception d) {  //System.out.println(d);
         }catch(Exception ex){
             ex.printStackTrace();
         }
+    }
+     public static String ChangFormatSQL(String DateSue){
+        String newFormatDate=null;
+       try{   Calendar cal;
+       Locale lc = new Locale("th","TH");
+        SimpleDateFormat formatdate =new SimpleDateFormat("yyyy/MM/dd");     
+        if(DateSue != null && !"".equals(DateSue)){
+        Date b=formatdate.parse(DateSue);
+         cal = Calendar.getInstance();
+          cal.setTime(b); 
+          System.out.println("fffffff : "+cal.getTime());
+           SimpleDateFormat dateformat =new SimpleDateFormat("dd/MM/yyyy");   
+         newFormatDate=dateformat.format(cal.getTime()); 
+        
+        }
+         }
+         catch(Exception e){
+         e.printStackTrace();
+         }
+    return newFormatDate;
+    
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
