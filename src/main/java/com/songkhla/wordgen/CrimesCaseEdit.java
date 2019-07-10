@@ -125,7 +125,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 //        jTextPoliceName.setText(Data.getPolicName());
         jLabelActionCode.setVisible(false);
         jLabelChargeCode.setVisible(false);
-        crimecaseid.setVisible(true);
+        crimecaseid.setVisible(false);
  
             comboInvest();
  

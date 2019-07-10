@@ -5,6 +5,9 @@
  */
 package com.songkhla.wordgen;
 import static com.songkhla.document.W5.Checknull;
+import com.songkhla.document.W67;
+import com.songkhla.document.W68;
+
 import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseno;
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -198,8 +201,8 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         ChargeName = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         PlaceArrest = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         DateArrest = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         ArrestDateTimeEnd = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
@@ -317,7 +320,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(299, 299, 299)
-                .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
                 .addGap(185, 185, 185))
         );
         jPanel6Layout.setVerticalGroup(
@@ -366,10 +369,10 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         PlaceArrest.setEditable(false);
         PlaceArrest.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
+        DateArrest.setEditable(false);
+
         jLabel2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel2.setText("วันที่จับกุม");
-
-        DateArrest.setEditable(false);
 
         jLabel18.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel18.setText("วันที่สิ้นสุดการจับกุม");
@@ -383,8 +386,8 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel5)
@@ -403,22 +406,23 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(AccureandOther))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel18)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ArrestDateTimeEnd)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(DateArrest, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(PlaceArrest, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ChargeName)))
+                        .addComponent(ChargeName))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(DateArrest, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel18)
+                        .addGap(5, 5, 5)
+                        .addComponent(ArrestDateTimeEnd)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -446,14 +450,13 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                     .addComponent(ChargeName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(DateArrest, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel2))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(DateArrest, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel18)
                         .addComponent(ArrestDateTimeEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(28, 28, 28))
+                .addGap(25, 25, 25))
         );
 
         jPanel4.setBackground(new java.awt.Color(204, 204, 204));
@@ -556,34 +559,28 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                     .addComponent(jLabel16)
                     .addComponent(TotalDate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel17))
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel5.setEnabled(false);
-        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         SueFirstDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SueFirstDateActionPerformed(evt);
             }
         });
-        jPanel5.add(SueFirstDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 50, 200, 30));
 
         SueFirstEnd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SueFirstEndActionPerformed(evt);
             }
         });
-        jPanel5.add(SueFirstEnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 50, 164, 30));
-        jPanel5.add(SueFirstTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(461, 50, 98, 30));
 
         SueFirstRequest.setEditable(true);
         SueFirstRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 2", "Item 3", "Item 4" }));
-        jPanel5.add(SueFirstRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(573, 46, 220, 30));
 
         SueFirstCause.setEditable(true);
         SueFirstCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
-        jPanel5.add(SueFirstCause, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 50, 371, 29));
 
         SueSeventh.setBackground(new java.awt.Color(46, 156, 202));
         SueSeventh.setForeground(new java.awt.Color(255, 255, 255));
@@ -593,7 +590,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 SueSeventhActionPerformed(evt);
             }
         });
-        jPanel5.add(SueSeventh, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 50, 29));
 
         jPanel8.setBackground(new java.awt.Color(0, 102, 204));
 
@@ -653,151 +649,119 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                     .addComponent(jLabel12)))
         );
 
-        jPanel5.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
-
         SueSecTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SueSecTotalActionPerformed(evt);
             }
         });
-        jPanel5.add(SueSecTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(461, 86, 98, 30));
 
         SueSecRequest.setEditable(true);
         SueSecRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 2", "Item 3", "Item 4" }));
-        jPanel5.add(SueSecRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(573, 88, 220, 30));
 
         SueSecEnd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SueSecEndActionPerformed(evt);
             }
         });
-        jPanel5.add(SueSecEnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 86, 164, 30));
 
         SueSecCause.setEditable(true);
         SueSecCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
-        jPanel5.add(SueSecCause, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 90, 371, 30));
 
         SueThirdEnd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SueThirdEndActionPerformed(evt);
             }
         });
-        jPanel5.add(SueThirdEnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 123, 164, 29));
 
         SueThirdTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SueThirdTotalActionPerformed(evt);
             }
         });
-        jPanel5.add(SueThirdTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(461, 123, 98, 29));
 
         SueThirdRequest.setEditable(true);
         SueThirdRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 2", "Item 3", "Item 4" }));
-        jPanel5.add(SueThirdRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(573, 124, 220, 29));
 
         SueSevCause.setEditable(true);
         SueSevCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
-        jPanel5.add(SueSevCause, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 290, 371, 29));
 
         SueSevenEnd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SueSevenEndActionPerformed(evt);
             }
         });
-        jPanel5.add(SueSevenEnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 284, 164, 30));
 
         SueSevenTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SueSevenTotalActionPerformed(evt);
             }
         });
-        jPanel5.add(SueSevenTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(461, 284, 98, 30));
 
         SueSevRequest.setEditable(true);
         SueSevRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 2", "Item 3", "Item 4" }));
-        jPanel5.add(SueSevRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(571, 284, 220, 30));
 
         SueFourthEnd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SueFourthEndActionPerformed(evt);
             }
         });
-        jPanel5.add(SueFourthEnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 164, 164, 30));
 
         SueFifthEnd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SueFifthEndActionPerformed(evt);
             }
         });
-        jPanel5.add(SueFifthEnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 204, 164, 30));
 
         SueSixthEnd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SueSixthEndActionPerformed(evt);
             }
         });
-        jPanel5.add(SueSixthEnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 244, 164, 30));
 
         SueFourthTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SueFourthTotalActionPerformed(evt);
             }
         });
-        jPanel5.add(SueFourthTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(461, 164, 98, 30));
 
         SueFifthTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SueFifthTotalActionPerformed(evt);
             }
         });
-        jPanel5.add(SueFifthTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(461, 204, 98, 30));
 
         SueSixthTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SueSixthTotalActionPerformed(evt);
             }
         });
-        jPanel5.add(SueSixthTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(461, 244, 98, 30));
 
         SueFourthRequest.setEditable(true);
         SueFourthRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 2", "Item 3", "Item 4" }));
-        jPanel5.add(SueFourthRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(573, 165, 220, 30));
 
         SueFifthRequest.setEditable(true);
         SueFifthRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 2", "Item 3", "Item 4" }));
-        jPanel5.add(SueFifthRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(571, 204, 220, 30));
 
         SueSixthRequest.setEditable(true);
         SueSixthRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 2", "Item 3", "Item 4" }));
-        jPanel5.add(SueSixthRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(571, 244, 220, 30));
 
         SueThirdCause.setEditable(true);
         SueThirdCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
-        jPanel5.add(SueThirdCause, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 130, 371, 29));
 
         SueFourthCause.setEditable(true);
         SueFourthCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
-        jPanel5.add(SueFourthCause, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 170, 371, 29));
 
         SueFifthCause.setEditable(true);
         SueFifthCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
-        jPanel5.add(SueFifthCause, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 210, 371, 29));
 
         SueSixthCause.setEditable(true);
         SueSixthCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
-        jPanel5.add(SueSixthCause, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 250, 371, 29));
-        jPanel5.add(SevDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(67, 284, 199, 31));
-        jPanel5.add(SixthDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(67, 243, 199, 31));
 
         FifthDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FifthDateActionPerformed(evt);
             }
         });
-        jPanel5.add(FifthDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(67, 203, 199, 31));
-        jPanel5.add(FourthDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 163, 199, 31));
-        jPanel5.add(ThirdDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 123, 199, 31));
-        jPanel5.add(SueSecDateT, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 86, 199, 31));
 
         Print1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         Print1.setText("พิมพ์");
@@ -806,39 +770,41 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 Print1ActionPerformed(evt);
             }
         });
-        jPanel5.add(Print1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 50, -1, 30));
 
         Print3.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         Print3.setText("พิมพ์");
-        jPanel5.add(Print3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 130, -1, 30));
+        Print3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Print3ActionPerformed(evt);
+            }
+        });
 
         Print4.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         Print4.setText("พิมพ์");
-        jPanel5.add(Print4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 170, -1, 30));
 
         Print5.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         Print5.setText("พิมพ์");
-        jPanel5.add(Print5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 210, -1, 30));
 
         Print6.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         Print6.setText("พิมพ์");
-        jPanel5.add(Print6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 250, -1, 30));
 
         Print7.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         Print7.setText("พิมพ์");
-        jPanel5.add(Print7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 290, -1, 30));
 
+        Print8.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         Print8.setText("พิมพ์");
-        jPanel5.add(Print8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 290, -1, 30));
 
         Print2.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         Print2.setText("พิมพ์");
-        jPanel5.add(Print2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 90, -1, 30));
+        Print2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Print2ActionPerformed(evt);
+            }
+        });
 
         SueFirst.setBackground(new java.awt.Color(46, 156, 202));
         SueFirst.setForeground(new java.awt.Color(255, 255, 255));
         SueFirst.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel5.add(SueFirst, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 51, 50, 29));
 
         SueSecond.setBackground(new java.awt.Color(46, 156, 202));
         SueSecond.setForeground(new java.awt.Color(255, 255, 255));
@@ -848,7 +814,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 SueSecondActionPerformed(evt);
             }
         });
-        jPanel5.add(SueSecond, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 50, 29));
 
         SueThird.setBackground(new java.awt.Color(46, 156, 202));
         SueThird.setForeground(new java.awt.Color(255, 255, 255));
@@ -858,7 +823,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 SueThirdActionPerformed(evt);
             }
         });
-        jPanel5.add(SueThird, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 50, 29));
 
         SueForth.setBackground(new java.awt.Color(46, 156, 202));
         SueForth.setForeground(new java.awt.Color(255, 255, 255));
@@ -868,7 +832,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 SueForthActionPerformed(evt);
             }
         });
-        jPanel5.add(SueForth, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 50, 29));
 
         SueFifth.setBackground(new java.awt.Color(46, 156, 202));
         SueFifth.setForeground(new java.awt.Color(255, 255, 255));
@@ -878,7 +841,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 SueFifthActionPerformed(evt);
             }
         });
-        jPanel5.add(SueFifth, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 50, 29));
 
         SueSixth.setBackground(new java.awt.Color(46, 156, 202));
         SueSixth.setForeground(new java.awt.Color(255, 255, 255));
@@ -888,8 +850,251 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 SueSixthActionPerformed(evt);
             }
         });
-        jPanel5.add(SueSixth, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 50, 29));
 
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(SueFirst, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(SueFirstDate, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(19, 19, 19)
+                                .addComponent(SueFirstEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(SueFirstTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(14, 14, 14)
+                                .addComponent(SueFirstRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(SueSecond, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(8, 8, 8)
+                                .addComponent(SueSecDateT, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(SueSecEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(SueSecTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(14, 14, 14)
+                                .addComponent(SueSecRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(SueFifth, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(7, 7, 7)
+                                .addComponent(FifthDate, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(19, 19, 19)
+                                .addComponent(SueFifthEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(SueFifthTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(SueFifthRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(SueSixth, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(7, 7, 7)
+                                .addComponent(SixthDate, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(19, 19, 19)
+                                .addComponent(SueSixthEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(SueSixthTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(SueSixthRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addComponent(SueSeventh, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(SevDate, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(19, 19, 19)
+                                .addComponent(SueSevenEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(SueSevenTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(SueSevRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(SueForth, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(8, 8, 8)
+                                .addComponent(FourthDate, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(SueFourthEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(SueFourthTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(14, 14, 14)
+                                .addComponent(SueFourthRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(SueThird, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(8, 8, 8)
+                                .addComponent(ThirdDate, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(SueThirdEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(SueThirdTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(14, 14, 14)
+                                .addComponent(SueThirdRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(SueFirstCause, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(9, 9, 9)
+                                .addComponent(Print1))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(SueSecCause, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(9, 9, 9)
+                                .addComponent(Print2))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(SueFifthCause, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(9, 9, 9)
+                                .addComponent(Print5))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(SueSixthCause, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(9, 9, 9)
+                                .addComponent(Print6))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(SueSevCause, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(9, 9, 9)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Print7)
+                                    .addComponent(Print8)))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(SueFourthCause, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(9, 9, 9)
+                                .addComponent(Print4))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(SueThirdCause, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(9, 9, 9)
+                                .addComponent(Print3)))))
+                .addGap(10, 10, 10))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(5, 5, 5)
+                                .addComponent(SueFirst, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(SueFirstDate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(SueFirstEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(SueFirstTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(SueFirstRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(SueSecond, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(SueSecDateT, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(SueSecEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(SueSecTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addComponent(SueSecRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(4, 4, 4)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(ThirdDate, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(SueThird, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(SueThirdEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(SueThirdTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addComponent(SueThirdRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(FourthDate, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(SueForth, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(SueFourthEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(SueFourthTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addComponent(SueFourthRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(11, 11, 11)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(SueFifth, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(3, 3, 3)
+                                .addComponent(FifthDate, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(SueFifthEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(SueFifthTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(SueFifthRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(SueSixth, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(3, 3, 3)
+                                .addComponent(SixthDate, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(SueSixthEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(SueSixthTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(SueSixthRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(SevDate, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(SueSeventh, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(SueSevenEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(SueSevenTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(SueSevRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(SueFirstCause, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Print1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(SueSecCause, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Print2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(SueThirdCause, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Print3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(SueFourthCause, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Print4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(SueFifthCause, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Print5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(SueSixthCause, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Print6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(SueSevCause, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Print7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Print8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
+        );
+
+        jButtonSave.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         jButtonSave.setText("บันทึก");
         jButtonSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -909,7 +1114,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 615, Short.MAX_VALUE))
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -920,13 +1125,13 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonSave, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                .addComponent(jButtonSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(83, 83, 83))
         );
 
@@ -1122,6 +1327,11 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 
     private void Print1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Print1ActionPerformed
         // TODO add your handling code here:
+        if(SueFirst.getText().equals("")){
+                 JOptionPane.showMessageDialog(jPanel1,"แจ้งเตือน", "กรุณากรอกข้อมูล", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else
+        W67.w67(caseid);
         
     }//GEN-LAST:event_Print1ActionPerformed
 
@@ -1152,6 +1362,23 @@ public class SueCrimesFrom extends javax.swing.JDialog {
     private void FifthDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FifthDateActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_FifthDateActionPerformed
+
+    private void Print3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Print3ActionPerformed
+        // TODO add your handling code here:
+        if(SueThird.getText().equals("")){
+         JOptionPane.showMessageDialog(jPanel1,"กรุณากรอกข้อมูล", "แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);
+        }
+         W68.w68(caseid,SueThird.getText());
+    }//GEN-LAST:event_Print3ActionPerformed
+
+    private void Print2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Print2ActionPerformed
+        // TODO add your handling code here:
+          if(SueSecond.getText().equals("")){
+           JOptionPane.showMessageDialog(jPanel1,"กรุณากรอกข้อมูล", "แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);
+        }
+           W68.w68(caseid,SueSecond.getText());
+          
+    }//GEN-LAST:event_Print2ActionPerformed
     public void DateTotal(){
      SueFirstEnd.getDocument().addDocumentListener(new DocumentListener() {
                            public void changedUpdate(DocumentEvent e) {

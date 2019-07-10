@@ -64,8 +64,8 @@ public class SueCrimesOverview extends javax.swing.JFrame {
          DateFilter = new JDatePickerImpl(datePanel,new DateLabelFormatter());
         DateFilter.setTextEditable(true);
         DateFilter.setBackground(Color.WHITE);
-        jPanelDate.setLayout(new FlowLayout());
-        jPanelDate.add(DateFilter);   
+//        jPanelDate.setLayout(new FlowLayout());
+//        jPanelDate.add(DateFilter);   
 //------------------------------------------Date----------------------------------------
         
         RefreshData();
@@ -89,8 +89,6 @@ public class SueCrimesOverview extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableSue = new javax.swing.JTable();
         jButtonAddSue = new javax.swing.JButton();
-        jPanelDate = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -168,36 +166,15 @@ public class SueCrimesOverview extends javax.swing.JFrame {
         jTableSue.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTableSue);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 163, 1158, 269));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 1158, 269));
 
-        jButtonAddSue.setText("เเก้ไข/เพิ่ม");
+        jButtonAddSue.setText("เปิด");
         jButtonAddSue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAddSueActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonAddSue, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 127, -1, 30));
-
-        javax.swing.GroupLayout jPanelDateLayout = new javax.swing.GroupLayout(jPanelDate);
-        jPanelDate.setLayout(jPanelDateLayout);
-        jPanelDateLayout.setHorizontalGroup(
-            jPanelDateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 251, Short.MAX_VALUE)
-        );
-        jPanelDateLayout.setVerticalGroup(
-            jPanelDateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 32, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanelDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
-
-        jButton1.setText("ค้นหา");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, -1, 30));
+        jPanel1.add(jButtonAddSue, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 80, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -321,11 +298,6 @@ public class SueCrimesOverview extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jButtonAddSueActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-          RefreshData();
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -464,12 +436,10 @@ public class SueCrimesOverview extends javax.swing.JFrame {
     }
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAddSue;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanelDate;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableSue;
     // End of variables declaration//GEN-END:variables

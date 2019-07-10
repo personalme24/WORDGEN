@@ -39,6 +39,8 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
 import java.util.Date;
 import java.util.Locale;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 /**
  *
@@ -146,11 +148,53 @@ public class SuspectForm extends javax.swing.JDialog {
         kno.add(jRadioUnknowSuspect);
         kno.add(jRadioKnowSuspect);
         
+//             ArrestDateTimeEnd.setText(CalculateDateTime48(arrestDate));
+ ArrestDateTime.getJFormattedTextField().getDocument().addDocumentListener(new DocumentListener() {
+                           public void changedUpdate(DocumentEvent e) {
+                               
             SimpleDateFormat formatTime = new SimpleDateFormat("HH:mm");
             String arrestTime = formatTime.format(jSpinnerArrTime.getValue());
             String arrestDate=ArrestDateTime.getJFormattedTextField().getText()+" "+arrestTime;
+            
             CalculateDateTime48(arrestDate);
-             ArrestDateTimeEnd.setText(CalculateDateTime48(arrestDate));
+                                 ArrestDateTimeEnd.setText(CalculateDateTime48(arrestDate));
+                           }
+                           public void removeUpdate(DocumentEvent e) {
+                                                  
+            SimpleDateFormat formatTime = new SimpleDateFormat("HH:mm");
+            String arrestTime = formatTime.format(jSpinnerArrTime.getValue());
+            String arrestDate=ArrestDateTime.getJFormattedTextField().getText()+" "+arrestTime;
+            
+            CalculateDateTime48(arrestDate);
+                                 ArrestDateTimeEnd.setText(CalculateDateTime48(arrestDate));
+
+                           }
+                           public void insertUpdate(DocumentEvent e) {
+                                                  
+            SimpleDateFormat formatTime = new SimpleDateFormat("HH:mm");
+            String arrestTime = formatTime.format(jSpinnerArrTime.getValue());
+            String arrestDate=ArrestDateTime.getJFormattedTextField().getText()+" "+arrestTime;
+            
+            CalculateDateTime48(arrestDate);
+                                ArrestDateTimeEnd.setText(CalculateDateTime48(arrestDate));
+
+                           }
+             }
+             );
+ jSpinnerArrTime.addChangeListener(new ChangeListener() {
+
+        @Override
+        public void stateChanged(ChangeEvent e) {
+           SimpleDateFormat formatTime = new SimpleDateFormat("HH:mm");
+            String arrestTime = formatTime.format(jSpinnerArrTime.getValue());
+            String arrestDate=ArrestDateTime.getJFormattedTextField().getText()+" "+arrestTime;
+            
+            CalculateDateTime48(arrestDate);
+                                ArrestDateTimeEnd.setText(CalculateDateTime48(arrestDate));
+
+        }
+    });
+
           if(datain!=null){
            eventJButtonManage();
             isInsert=false;
@@ -240,8 +284,7 @@ public class SuspectForm extends javax.swing.JDialog {
             isInsert=true;
     
         }
-          
-
+         
       
     }
 
@@ -339,7 +382,7 @@ public class SuspectForm extends javax.swing.JDialog {
         jPanelRestoreDate = new javax.swing.JPanel();
         jPanelBailDate = new javax.swing.JPanel();
         jLabelBailDate = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jLabelArrestEnd = new javax.swing.JLabel();
         ArrestDateTimeEnd = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         HouseNumber = new javax.swing.JTextField();
@@ -925,8 +968,8 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabelBailDate.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabelBailDate.setText("วันประกัน");
 
-        jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel3.setText("วัน-เวลาที่สิ้นสุด");
+        jLabelArrestEnd.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabelArrestEnd.setText("วัน-เวลาที่สิ้นสุด");
 
         ArrestDateTimeEnd.setEditable(false);
 
@@ -972,7 +1015,7 @@ public class SuspectForm extends javax.swing.JDialog {
                             .addContainerGap()
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
-                                    .addComponent(jLabel3)
+                                    .addComponent(jLabelArrestEnd)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(ArrestDateTimeEnd))
                                 .addGroup(jPanel5Layout.createSequentialGroup()
@@ -1032,7 +1075,7 @@ public class SuspectForm extends javax.swing.JDialog {
                         .addComponent(jSpinnerArrTime, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                    .addComponent(jLabelArrestEnd, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                     .addComponent(ArrestDateTimeEnd))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1551,18 +1594,26 @@ public class SuspectForm extends javax.swing.JDialog {
             @Override
             public void stateChanged(ChangeEvent e) {
             if(jRadioSue.isSelected()){
-//            jButtonSue2.setVisible(true);
-            PlaceArrest.setVisible(true);
+    PlaceArrest.setVisible(true);
+                  jLabelArrestPlace.setVisible(true);
             jPanelDateArrest.setVisible(true);
+            jLabelArrestDate.setVisible(true);
+            jLabelArrTime.setVisible(true);
             jSpinnerArrTime.setVisible(true);
+                 jLabelArrestEnd.setVisible(true);
+            ArrestDateTimeEnd.setVisible(true);
             
             }
             else{
-                PlaceArrest.setVisible(false);
-            jPanelDateArrest.setVisible(false);
-             jSpinnerArrTime.setVisible(false);
-
-//              jButtonSue2.setVisible(false);  
+                   PlaceArrest.setVisible(false);
+                  jLabelArrestPlace.setVisible(false);
+                jPanelDateArrest.setVisible(false);
+                jLabelArrestDate.setVisible(false);
+                
+              jLabelArrTime.setVisible(false);
+            jSpinnerArrTime.setVisible(false);
+                 jLabelArrestEnd.setVisible(false);
+            ArrestDateTimeEnd.setVisible(false);  
             }
             }
         }
@@ -1571,13 +1622,29 @@ public class SuspectForm extends javax.swing.JDialog {
             @Override
             public void stateChanged(ChangeEvent e) {
             if(jRadioBail.isSelected()){ 
-            jLabelBailDate.setVisible(true);
-            jPanelBailDate.setVisible(true);
+                      PlaceArrest.setVisible(true);
+                  jLabelArrestPlace.setVisible(true);
+            jPanelDateArrest.setVisible(true);
+            jLabelArrestDate.setVisible(true);
+            jLabelArrTime.setVisible(true);
+            jSpinnerArrTime.setVisible(true);   
+             jLabelBailDate.setVisible(true);
+            jPanelBailDate.setVisible(true);   
+                jLabelArrestEnd.setVisible(true);
+            ArrestDateTimeEnd.setVisible(true);
          
             }
             else{               
-             jLabelBailDate.setVisible(false);
-            jPanelBailDate.setVisible(false);   
+               jLabelBailDate.setVisible(false);
+            jPanelBailDate.setVisible(false);  
+           PlaceArrest.setVisible(false);
+                  jLabelArrestPlace.setVisible(false);
+                jPanelDateArrest.setVisible(false);
+                jLabelArrestDate.setVisible(false);
+                   jLabelArrTime.setVisible(false);
+            jSpinnerArrTime.setVisible(false);
+                 jLabelArrestEnd.setVisible(false);
+            ArrestDateTimeEnd.setVisible(false);  
     
             }
             }
@@ -1600,6 +1667,8 @@ public class SuspectForm extends javax.swing.JDialog {
             jLabelArrestDate.setVisible(true);
             jLabelArrTime.setVisible(true);
             jSpinnerArrTime.setVisible(true);
+                 jLabelArrestEnd.setVisible(true);
+            ArrestDateTimeEnd.setVisible(true);
             
             }
             else {
@@ -1607,9 +1676,11 @@ public class SuspectForm extends javax.swing.JDialog {
                   jLabelArrestPlace.setVisible(false);
                 jPanelDateArrest.setVisible(false);
                 jLabelArrestDate.setVisible(false);
-
+                
               jLabelArrTime.setVisible(false);
             jSpinnerArrTime.setVisible(false);
+                 jLabelArrestEnd.setVisible(false);
+            ArrestDateTimeEnd.setVisible(false);
 
             }
 
@@ -1629,7 +1700,8 @@ public class SuspectForm extends javax.swing.JDialog {
             jSpinnerArrTime.setVisible(true);   
              jLabelBailDate.setVisible(true);
             jPanelBailDate.setVisible(true);   
-           
+                jLabelArrestEnd.setVisible(true);
+            ArrestDateTimeEnd.setVisible(true);
             
             }
             else{
@@ -1641,6 +1713,8 @@ public class SuspectForm extends javax.swing.JDialog {
                 jLabelArrestDate.setVisible(false);
                    jLabelArrTime.setVisible(false);
             jSpinnerArrTime.setVisible(false);
+                 jLabelArrestEnd.setVisible(false);
+            ArrestDateTimeEnd.setVisible(false);
               }
             }
         }
@@ -1663,6 +1737,8 @@ public class SuspectForm extends javax.swing.JDialog {
      jLabelBailDate.setVisible(false);
      
             jPanelBailDate.setVisible(false);   
+            jLabelArrestEnd.setVisible(false);
+            ArrestDateTimeEnd.setVisible(false);
     }
     /**
      * @param args the command line arguments
@@ -1839,7 +1915,6 @@ public class SuspectForm extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
@@ -1856,6 +1931,7 @@ public class SuspectForm extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelArrTime;
     private javax.swing.JLabel jLabelArrestDate;
+    private javax.swing.JLabel jLabelArrestEnd;
     private javax.swing.JLabel jLabelArrestPlace;
     private javax.swing.JLabel jLabelBailDate;
     private javax.swing.JLabel jLabelRestoreDate;

@@ -356,23 +356,24 @@ public class CreateTable {
                             "	BailAssetId	INTEGER	Primary Key AUTOINCREMENT,	\n"+
                             "	BailAssetOrder	INTEGER	,	\n"+
                             "	BailAssetDetail	VARCHAR(100)	,	\n"+
+                            "	BailAmount	VARCHAR(100)	,	\n"+
                             "	BailAssetBath	VARCHAR(100)	,	\n"+
                             "	BailAssetTotal	VARCHAR(100)	,	\n"+
                             "	BailAssetRemark	VARCHAR(100)	,	\n"+
                             "	BailCaseId	INTEGER	,	\n"+
                             "	BailPersonId	INTEGER		\n"+
                     "	);";
-             String sqlBail ="CREATE TABLE IF NOT EXISTS Bail (\n"+
-                              "	BailAssetId	INTEGER	Primary Key AUTOINCREMENT,	\n"+
-                                "	BailAssetOrder	INTEGER	,	\n"+
-                                "	BailAssetDetail	VARCHAR(100)	,	\n"+
-                                "	BailAssetBath	VARCHAR(100)	,	\n"+
-                                "	BailAmount	VARCHAR(100)	,	\n"+
-                                "	BailAssetTotal	VARCHAR(100)	,	\n"+
-                                "	BailAssetRemark	VARCHAR(100)	,	\n"+
-                                "	BailCaseId	INTEGER	,	\n"+
-                                "	BailPersonId	INTEGER		\n"+
-                    "	);";            
+//             String sqlBail ="CREATE TABLE IF NOT EXISTS Bail (\n"+
+//                              "	BailAssetId	INTEGER	Primary Key AUTOINCREMENT,	\n"+
+//                                "	BailAssetOrder	INTEGER	,	\n"+
+//                                "	BailAssetDetail	VARCHAR(100)	,	\n"+
+//                                "	BailAssetBath	VARCHAR(100)	,	\n"+
+//                                "	BailAmount	VARCHAR(100)	,	\n"+
+//                                "	BailAssetTotal	VARCHAR(100)	,	\n"+
+//                                "	BailAssetRemark	VARCHAR(100)	,	\n"+
+//                                "	BailCaseId	INTEGER	,	\n"+
+//                                "	BailPersonId	INTEGER		\n"+
+//                    "	);";            
                 String sqlDeliverySuspect ="CREATE TABLE IF NOT EXISTS DeliverySuspect (\n"+
                                 "	DeliId	INTEGER	Primary Key AUTOINCREMENT,	\n"+
                                 "	DeliOrder	INTEGER	,	\n"+
@@ -452,7 +453,7 @@ public class CreateTable {
                       stmt.execute(sqlInvest);
                       stmt.execute(sqlSue);
                        stmt.execute(sqlBailAsset);
-                      stmt.execute(sqlBail);
+//                      stmt.execute(sqlBail);
                       stmt.execute(sqlDeliverySuspect);
                       stmt.execute(sqlSueCrimeCase);
 

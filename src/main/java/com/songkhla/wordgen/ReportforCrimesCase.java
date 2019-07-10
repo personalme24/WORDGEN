@@ -84,7 +84,7 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
          //jCheckW5.setSelected(true);
          //jCheckW6.setSelected(true);
-        crimecaseno.setVisible(true);
+        crimecaseno.setVisible(false);
 
         if(datain != null){
         caseid=datain.get("caseid")+"";
@@ -846,9 +846,9 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
        if(jCheckW67.isSelected()){
             W67.w67(no);
         }
-       if(jCheckW68.isSelected()){
-            W68.w68(no);
-        }
+//       if(jCheckW68.isSelected()){
+//            W68.w68(no);
+//        }
        if(jCheckW69.isSelected()){
             W69.w69(no);
         }

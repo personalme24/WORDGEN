@@ -44,7 +44,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 public class W68 {
-public static void w68(String cc) {
+public static void w68(String cc,String sueTime) {
             Connection conn=null;
             conn=ConnectDatabase.connect();
             PreparedStatement pst=null;
@@ -114,8 +114,16 @@ public static void w68(String cc) {
                  
 //                System.out.print("ข้อหา :: "+s.getString("ChargeCode"));
 //                System.out.print(" - ");
-                 JSONObject bookmarkvalue = new JSONObject();
-//              
+                 JSONObject bookmarkvalue = new JSONObject();  
+               
+                 bookmarkvalue.put("PS90", Checknull(s.getString("SueSecond")));
+                  bookmarkvalue.put("PS106", Checknull(s.getString("SueFirstTotal")));
+              
+                 bookmarkvalue.put("PS107", Checknull(s.getString("SueFirstEnd")));               
+                bookmarkvalue.put("PS109", Checknull(s.getString("SueSecTotal")));
+                bookmarkvalue.put("PS110", Checknull(s.getString("SueSecDate")));                
+                bookmarkvalue.put("PS111", Checknull(s.getString("SueSecEnd")));   
+                
                 bookmarkvalue.put("C1",Checknull(Date));
                 bookmarkvalue.put("C01",Checknull(Month));
                 bookmarkvalue.put("C001",Checknull(Year));
@@ -202,7 +210,7 @@ public static void w68(String cc) {
 					.load(new java.io.File("D:/TEMPLATE/w68.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/คดีอาญา"+cs+"-"+ccYear+"/คำร้องขอผัดฟ้องหรือผัดฟ้องและฝากขังครั้งที่"+s.getString("FullNamePerson")+".doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/คดีอาญา"+cs+"-"+ccYear+"/คำร้องขอผัดฟ้องหรือผัดฟ้องและฝากขังครั้งที่ "+s.getString("SueSecond")+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
