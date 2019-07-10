@@ -332,6 +332,7 @@ public class CreateTable {
              String sqlInvest ="CREATE TABLE IF NOT EXISTS InvestInformation (\n"+
 	             "	InvestId	INTEGER	Primary Key Not Null,	\n"+
                      "	InvestCardID	VARCHAR(100)	,	\n"+
+                    "	InvestRank	VARCHAR(100)	,	\n"+                     
                     "	InvestName	VARCHAR(100)	,	\n"+
                     "	InvestPosition	VARCHAR(100)	,	\n"+
                     "	InvestBirthDay	VARCHAR(100)	,	\n"+

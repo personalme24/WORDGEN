@@ -14,6 +14,9 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -39,6 +42,7 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
 import java.util.Date;
 import java.util.Locale;
+import javax.swing.JRadioButton;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
@@ -133,16 +137,7 @@ public class SuspectForm extends javax.swing.JDialog {
 
         colseTextBox();
         
-         ButtonGroup g=new ButtonGroup();
-        g.add(jRadioSue);
-        g.add(jRadioBail);
-        g.add(jRadioResultImprison);
-        g.add(jRadioResultRelease);
-        g.add(jRadioCantCatch);
-        g.add(jRadioVerbal);
-        g.add(jRadioRestore);
-        g.add(jRadioCatch);
-        g.add(jRadioOther);
+        
 
          ButtonGroup kno=new ButtonGroup();
         kno.add(jRadioUnknowSuspect);
@@ -1656,12 +1651,30 @@ public class SuspectForm extends javax.swing.JDialog {
   }   
     
     public void eventJRadioManage(){
-    
-       jRadioSue.addChangeListener(new ChangeListener() {
-            @Override
-            public void stateChanged(ChangeEvent e) {
-            if(jRadioSue.isSelected()){
-                  PlaceArrest.setVisible(true);
+     ButtonGroup g=new ButtonGroup();
+        g.add(jRadioSue);
+        g.add(jRadioBail);
+        g.add(jRadioResultImprison);
+        g.add(jRadioResultRelease);
+        g.add(jRadioCantCatch);
+        g.add(jRadioVerbal);
+        g.add(jRadioRestore);
+        g.add(jRadioCatch);
+        g.add(jRadioOther);
+        
+       
+jRadioSue.addActionListener ( new ActionListener ( ) 
+     { 
+          @Override 
+          public void actionPerformed ( ActionEvent event ) 
+          { 
+               JRadioButton radioButton = ( JRadioButton ) event.getSource ( ); 
+
+               boolean isSelected = jRadioSue.isSelected (); 
+
+               if ( isSelected ) 
+               { 
+                                      PlaceArrest.setVisible(true);
                   jLabelArrestPlace.setVisible(true);
             jPanelDateArrest.setVisible(true);
             jLabelArrestDate.setVisible(true);
@@ -1669,9 +1682,9 @@ public class SuspectForm extends javax.swing.JDialog {
             jSpinnerArrTime.setVisible(true);
                  jLabelArrestEnd.setVisible(true);
             ArrestDateTimeEnd.setVisible(true);
-            
-            }
-            else {
+               } 
+               else 
+               { 
                   PlaceArrest.setVisible(false);
                   jLabelArrestPlace.setVisible(false);
                 jPanelDateArrest.setVisible(false);
@@ -1680,45 +1693,108 @@ public class SuspectForm extends javax.swing.JDialog {
               jLabelArrTime.setVisible(false);
             jSpinnerArrTime.setVisible(false);
                  jLabelArrestEnd.setVisible(false);
-            ArrestDateTimeEnd.setVisible(false);
+            ArrestDateTimeEnd.setVisible(false); 
+               } 
+          } 
+     } 
+);
+jRadioBail.addActionListener ( new ActionListener ( ) 
+     { 
+          @Override 
+          public void actionPerformed ( ActionEvent event ) 
+          { 
+               JRadioButton radioButton = ( JRadioButton ) event.getSource ( ); 
 
-            }
+               boolean isSelected = jRadioBail.isSelected (); 
 
-            }
-        }
-        );
-      
-   jRadioBail.addChangeListener(new ChangeListener() {
-            @Override
-            public void stateChanged(ChangeEvent e) {
-            if(jRadioBail.isSelected()){ 
-               PlaceArrest.setVisible(true);
+               if ( isSelected ) 
+               { 
+                                      PlaceArrest.setVisible(true);
                   jLabelArrestPlace.setVisible(true);
             jPanelDateArrest.setVisible(true);
             jLabelArrestDate.setVisible(true);
             jLabelArrTime.setVisible(true);
-            jSpinnerArrTime.setVisible(true);   
-             jLabelBailDate.setVisible(true);
-            jPanelBailDate.setVisible(true);   
-                jLabelArrestEnd.setVisible(true);
+            jSpinnerArrTime.setVisible(true);
+                 jLabelArrestEnd.setVisible(true);
             ArrestDateTimeEnd.setVisible(true);
-            
-            }
-            else{
-            jLabelBailDate.setVisible(false);
-            jPanelBailDate.setVisible(false);  
-           PlaceArrest.setVisible(false);
+               } 
+               else 
+               { 
+                  PlaceArrest.setVisible(false);
                   jLabelArrestPlace.setVisible(false);
                 jPanelDateArrest.setVisible(false);
                 jLabelArrestDate.setVisible(false);
-                   jLabelArrTime.setVisible(false);
+                
+              jLabelArrTime.setVisible(false);
             jSpinnerArrTime.setVisible(false);
                  jLabelArrestEnd.setVisible(false);
-            ArrestDateTimeEnd.setVisible(false);
-              }
-            }
-        }
-        );
+            ArrestDateTimeEnd.setVisible(false); 
+               } 
+          } 
+     } 
+);
+//       jRadioSue.addChangeListener(new ChangeListener() {
+//            @Override
+//            public void stateChanged(ChangeEvent e) {
+//            if(jRadioSue.isSelected()){
+//                  PlaceArrest.setVisible(true);
+//                  jLabelArrestPlace.setVisible(true);
+//            jPanelDateArrest.setVisible(true);
+//            jLabelArrestDate.setVisible(true);
+//            jLabelArrTime.setVisible(true);
+//            jSpinnerArrTime.setVisible(true);
+//                 jLabelArrestEnd.setVisible(true);
+//            ArrestDateTimeEnd.setVisible(true);
+//            
+//            }
+//            else {
+//                  PlaceArrest.setVisible(false);
+//                  jLabelArrestPlace.setVisible(false);
+//                jPanelDateArrest.setVisible(false);
+//                jLabelArrestDate.setVisible(false);
+//                
+//              jLabelArrTime.setVisible(false);
+//            jSpinnerArrTime.setVisible(false);
+//                 jLabelArrestEnd.setVisible(false);
+//            ArrestDateTimeEnd.setVisible(false);
+//
+//            }
+//
+//            }
+//        }
+//        );
+      
+//   jRadioBail.addChangeListener(new ChangeListener() {
+//            @Override
+//            public void stateChanged(ChangeEvent e) {
+//            if(jRadioBail.isSelected()){ 
+//               PlaceArrest.setVisible(true);
+//                  jLabelArrestPlace.setVisible(true);
+//            jPanelDateArrest.setVisible(true);
+//            jLabelArrestDate.setVisible(true);
+//            jLabelArrTime.setVisible(true);
+//            jSpinnerArrTime.setVisible(true);   
+//             jLabelBailDate.setVisible(true);
+//            jPanelBailDate.setVisible(true);   
+//                jLabelArrestEnd.setVisible(true);
+//            ArrestDateTimeEnd.setVisible(true);
+//            
+//            }
+//            else{
+//            jLabelBailDate.setVisible(false);
+//            jPanelBailDate.setVisible(false);  
+//           PlaceArrest.setVisible(false);
+//                  jLabelArrestPlace.setVisible(false);
+//                jPanelDateArrest.setVisible(false);
+//                jLabelArrestDate.setVisible(false);
+//                   jLabelArrTime.setVisible(false);
+//            jSpinnerArrTime.setVisible(false);
+//                 jLabelArrestEnd.setVisible(false);
+//            ArrestDateTimeEnd.setVisible(false);
+//              }
+//            }
+//        }
+//        );
        
 
                }

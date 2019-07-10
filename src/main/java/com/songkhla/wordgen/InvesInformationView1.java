@@ -216,7 +216,7 @@ public class InvesInformationView1 extends javax.swing.JDialog{
             try{
                 String investId = jTableInvest.getModel().getValueAt(jTableInvest.getSelectedRow(), 0)+"";
 
-                String sql="select InvestId,InvestCardID,InvestName,InvestPosition,"
+                String sql="select InvestId,InvestCardID,InvestRank,InvestName,InvestPosition,"
                         + "InvestBirthDay,InvestAge,InvestTel from InvestInformation where InvestId="+investId;
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
@@ -226,6 +226,7 @@ public class InvesInformationView1 extends javax.swing.JDialog{
                     JSONObject data = new JSONObject();
                     data.put("InvestId", rs.getString("InvestId"));
                     data.put("InvestCardID", rs.getString("InvestCardID"));
+                     data.put("InvestRank", rs.getString("InvestRank"));           
                     data.put("InvestName", rs.getString("InvestName"));
                     data.put("InvestPosition", rs.getString("InvestPosition"));
                     data.put("InvestBirthDay", rs.getString("InvestBirthDay"));

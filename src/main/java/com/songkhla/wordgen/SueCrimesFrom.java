@@ -1158,7 +1158,15 @@ public class SueCrimesFrom extends javax.swing.JDialog {
     private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
         // TODO add your handling code here:
          con=ConnectDatabase.connect();
-        
+         String a=null;
+         try{
+        SimpleDateFormat formatdate =new SimpleDateFormat("yyyy-MM-dd");
+        Date b=formatdate.parse(SueFirstDate.getText());
+         a=formatdate.format(b);
+         }
+         catch(Exception e){
+         
+         }
             String sqlUpdate="Update Person set "
                     + "SueFirst=?,"
                     + "SueFirstDate=?,"
@@ -1207,7 +1215,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             try {
                 pst=con.prepareStatement(sqlUpdate);
                 pst.setString(1,SueFirst.getText());
-                pst.setString(2,SueFirstDate.getText());
+                pst.setString(2,a);
                 pst.setString(3,SueFirstEnd.getText());
                 pst.setString(4,SueFirstTotal.getText());
                 pst.setString(5,SueFirstRequest.getSelectedItem().toString());
@@ -1456,14 +1464,19 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 
          Connection con2 = ConnectDatabase.connect();
 	Statement st = con2.createStatement();
-        	String c = "Select InvestName from InvestInformation";
+        	String c = "Select InvestRank,InvestName from InvestInformation";
         	ResultSet res = st.executeQuery(c);
 	//Vector<Object> v=new Vector<Object>();
 	
 	while(res.next())
 	{
-	SueFirstRequest.addItem(res.getString("InvestName"));
-        SueSecRequest.addItem(res.getString("InvestName"));
+	SueFirstRequest.addItem(res.getString("InvestRank")+res.getString("InvestName"));
+        SueSecRequest.addItem(res.getString("InvestRank")+res.getString("InvestName"));
+        SueThirdRequest.addItem(res.getString("InvestRank")+res.getString("InvestName"));
+        SueFourthRequest.addItem(res.getString("InvestRank")+res.getString("InvestName"));
+        SueFifthRequest.addItem(res.getString("InvestRank")+res.getString("InvestName"));
+        SueSixthRequest.addItem(res.getString("InvestRank")+res.getString("InvestName"));
+        SueSevRequest.addItem(res.getString("InvestRank")+res.getString("InvestName"));
 
 	
 	}

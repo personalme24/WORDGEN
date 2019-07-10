@@ -943,6 +943,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jButtonSaveCase.setBackground(new java.awt.Color(0, 51, 102));
         jButtonSaveCase.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButtonSaveCase.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonSaveCase.setIcon(new javax.swing.ImageIcon("D:\\Master\\user.png")); // NOI18N
         jButtonSaveCase.setText("บันทึก");
         jButtonSaveCase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1488,13 +1489,13 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 
          Connection con2 = ConnectDatabase.connect();
 	Statement st = con2.createStatement();
-        	String c = "Select InvestName from InvestInformation";
+        	String c = "Select InvestRank,InvestName from InvestInformation";
         	ResultSet res = st.executeQuery(c);
 	//Vector<Object> v=new Vector<Object>();
 	
 	while(res.next())
 	{
-	jComboPoliceName.addItem(res.getString("InvestName"));
+	jComboPoliceName.addItem(res.getString("InvestRank")+res.getString("InvestName"));
 
 	
 	}

@@ -160,6 +160,8 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
         DetailRecord.setRows(5);
         jScrollPane1.setViewportView(DetailRecord);
 
+        NameInguiry.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -294,15 +296,15 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
 
          Connection con2 = ConnectDatabase.connect();
 	Statement st = con2.createStatement();
-        	String c = "Select InvestName from InvestInformation";
+        	String c = "Select InvestName,InvestRank from InvestInformation";
         	ResultSet res = st.executeQuery(c);
 	//Vector<Object> v=new Vector<Object>();
 	
 	if(res.next())
 	{
-	NameInguiry.addItem(res.getString("InvestName"));	
+	NameInguiry.addItem(res.getString("InvestRank")+res.getString("InvestName"));	
 	}
-        else{NameInguiry.addItem("");}
+
 	
 }
 catch (Exception d) {  //System.out.println(d);  

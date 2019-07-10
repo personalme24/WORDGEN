@@ -310,16 +310,17 @@ public class InvesInformationFrom extends javax.swing.JDialog {
             
         try {
     
-                String sql="INSERT INTO InvestInformation (InvestId,InvestCardID,InvestName,"
-                        + "InvestPosition,InvestBirthDay,InvestAge,InvestTel) VALUES (?,?,?,?,?,?,?)";
+                String sql="INSERT INTO InvestInformation (InvestId,InvestCardID,InvestRank,InvestName,"
+                        + "InvestPosition,InvestBirthDay,InvestAge,InvestTel) VALUES (?,?,?,?,?,?,?,?)";
                 pst=con.prepareStatement(sql);
                 pst.setString(1,InvestId.getText());
                 pst.setString(2,InvestCardID.getText());
-                pst.setString(3,InvestRank.getText()+InvestName.getText());
-                pst.setString(4,InvestPosition.getText());
-                pst.setString(5,InvestBirthDay.getJFormattedTextField().getText());
-               pst.setString(6,InvestAge.getText());
-                pst.setString(7,InvestTel.getText());
+                pst.setString(3,InvestRank.getText());
+                pst.setString(4,InvestName.getText());
+                pst.setString(5,InvestPosition.getText());
+                pst.setString(6,InvestBirthDay.getJFormattedTextField().getText());
+               pst.setString(7,InvestAge.getText());
+                pst.setString(8,InvestTel.getText());
                
                 int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
         JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
@@ -338,6 +339,7 @@ public class InvesInformationFrom extends javax.swing.JDialog {
         
             try{
                 String sqlUpdate= "UPDATE InvestInformation Set\n "
+                + "InvestRank=?,"        
                 + "InvestName=?,"
                 + "InvestPosition=?,"
                 + "InvestBirthDay=?,"
@@ -345,16 +347,20 @@ public class InvesInformationFrom extends javax.swing.JDialog {
                 + "InvestTel=?"   
                 + "Where InvestId=?";
                 pst=con.prepareStatement(sqlUpdate);
-                pst.setString(1,InvestName.getText());
-                pst.setString(2,InvestPosition.getText());
-                pst.setString(3,InvestBirthDay.getJFormattedTextField().getText());
-                pst.setString(4,InvestAge.getText());
-                pst.setString(5,InvestTel.getText());
-                pst.setString(6,InvestCardID.getText());
+                pst.setString(1,InvestRank.getText());
+                pst.setString(2,InvestName.getText());
+                pst.setString(3,InvestPosition.getText());
+                pst.setString(4,InvestBirthDay.getJFormattedTextField().getText());
+                pst.setString(5,InvestAge.getText());
+                pst.setString(6,InvestTel.getText());
+                pst.setString(7,InvestCardID.getText());
                 pst.executeUpdate();
-                 JOptionPane.showMessageDialog(null, "แก้ไขข้อมูลสำเร็จแล้ว");
-                System.out.println("SQL : "+sqlUpdate);
-              setVisible(false);
+                 int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
+                 JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                 if (response == JOptionPane.YES_OPTION) {
+                     pst.executeUpdate();
+                        pst.close();
+                    } 
             }
           
         

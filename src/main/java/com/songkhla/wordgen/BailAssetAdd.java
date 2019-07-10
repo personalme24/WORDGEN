@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.json.simple.JSONObject;
@@ -34,7 +35,16 @@ public class BailAssetAdd extends javax.swing.JDialog {
                 jLabel2.setText(caseId);
                 jLabel3.setText(personId);
                 if(datain!=null){
-                
+                    BailAssetOrder.setText(datain.get("BailAssetOrder")+"");
+                     BailAssetDetail.setText(datain.get("BailAssetDetail")+"");
+                    BailAssetBath.setText(datain.get("BailAssetBath")+"");
+                    BailAmount.setText(datain.get("BailAmount")+"");
+                    BailAssetTotal.setText(datain.get("BailAssetTotal")+"");
+                    BailAssetRemark.setText(datain.get("BailAssetRemark")+"");
+//                    jLabel2.setText(datain.get("BailCaseId")+"");
+//                     jLabel3.setText(datain.get("BailPersonId")+"");
+//                  
+         
                 
                 }
                 else{
@@ -249,9 +259,13 @@ public class BailAssetAdd extends javax.swing.JDialog {
                 pst.setString(7,caseId);
                 pst.setString(8,personId);
           
-                pst.executeUpdate();
- JOptionPane.showMessageDialog(jPanel1, "test info", "บันทึกข้อมูลแล้ว", JOptionPane.INFORMATION_MESSAGE);
-                pst.close();
+                
+                 int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
+        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (response == JOptionPane.YES_OPTION) {
+             pst.executeUpdate();
+                      pst.close();
+          } 
         }
                  catch (Exception e) {
  JOptionPane.showMessageDialog(jPanel1, "test info", "Cannot Save", JOptionPane.INFORMATION_MESSAGE);
@@ -260,26 +274,33 @@ public class BailAssetAdd extends javax.swing.JDialog {
         }  
             else{
             try{
-                String sqlUpdate= "UPDATE Person Set\n "
-                + "AssetAmount=?,"
-                + "AssetsName=?,"
-                + "AssetsTotalValueBaht=?,"
-                + "AssetsTotalValueSatang=?,"
-                + "AssetsUnitValueBaht=?"
-                + "AssetsUnitValueSatang=?"
-                + "Remark=?"
+                String sqlUpdate= "UPDATE BailAsset Set\n "
+                + "BailAssetOrder=?,"
+                + "BailAssetDetail=?,"
+                + "BailAssetBath=?,"
+                + "BailAmount=?,"
+                + "BailAssetTotal=?,"
+                + "BailAssetRemark=?"
                 
-                + "Where IdCardPolice=?";
+                + "Where BailCaseId=? and BailPersonId=?";
                 
                 pst=con.prepareStatement(sqlUpdate);
-                pst.setString(1,BailAmount.getText());
+                
+                pst.setString(1,BailAssetOrder.getText());
                 pst.setString(2,BailAssetDetail.getText());
-                pst.setString(3,BailAssetTotal.getText());      
-                pst.setString(5,BailAssetBath.getText());
-                pst.setString(7,BailAssetRemark.getText());
-                pst.executeUpdate();
-                JOptionPane.showMessageDialog(null, "Data Saved successfully");
-                System.out.println("SQL : "+sqlUpdate);
+                pst.setString(3,BailAssetBath.getText());
+                pst.setString(4,BailAmount.getText());           
+                pst.setString(5,BailAssetTotal.getText());
+                pst.setString(6,BailAssetRemark.getText());
+                pst.setString(7,caseId);
+                pst.setString(8,personId);
+   
+                int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการแก้ไขข้อมูล", "ยืนยัน",
+        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (response == JOptionPane.YES_OPTION) {
+             pst.executeUpdate();
+                      pst.close();
+          } 
             }
         
         catch (Exception e) {
