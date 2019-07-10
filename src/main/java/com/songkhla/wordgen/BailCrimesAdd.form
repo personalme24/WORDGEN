@@ -86,9 +86,9 @@
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="DateArrest1" min="-2" pref="214" max="-2" attributes="0"/>
+                                  <Component id="DateArrestEnd" min="-2" pref="214" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="DateArrest2" min="-2" pref="215" max="-2" attributes="0"/>
+                              <Component id="DateBail" min="-2" pref="215" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" attributes="0">
@@ -115,14 +115,14 @@
                       <Component id="DateArrest" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="DateArrest1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="DateArrestEnd" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel6" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="ChargeName" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="DateArrest2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="DateBail" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -637,7 +637,7 @@
             <Property name="text" type="java.lang.String" value="&#xe27;&#xe31;&#xe19;&#xe17;&#xe35;&#xe48;&#xe2a;&#xe34;&#xe49;&#xe19;&#xe2a;&#xe38;&#xe14;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="DateArrest1">
+        <Component class="javax.swing.JTextField" name="DateArrestEnd">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -660,7 +660,7 @@
             <Property name="text" type="java.lang.String" value="&#xe27;&#xe31;&#xe19;&#xe1b;&#xe23;&#xe30;&#xe01;&#xe31;&#xe19;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="DateArrest2">
+        <Component class="javax.swing.JTextField" name="DateBail">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">

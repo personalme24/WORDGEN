@@ -94,7 +94,7 @@ public static void w68(String cc,String sueTime) {
                 Statement st = conn.createStatement();
             ResultSet s=st.executeQuery(sql); 
                 System.out.println(sql);
-            while((s!=null) && (s.next()))
+            if((s!=null) && (s.next()))
             {  String  cs =s.getString("crimecaseno");
                  ccYear=s.getString("crimecaseyears");
                  
@@ -119,10 +119,10 @@ public static void w68(String cc,String sueTime) {
                  bookmarkvalue.put("PS90", Checknull(s.getString("SueSecond")));
                   bookmarkvalue.put("PS106", Checknull(s.getString("SueFirstTotal")));
               
-                 bookmarkvalue.put("PS107", Checknull(s.getString("SueFirstEnd")));               
+                 bookmarkvalue.put("PS107", Checknull(ChangFormat(s.getString("SueFirstEnd"))));               
                 bookmarkvalue.put("PS109", Checknull(s.getString("SueSecTotal")));
-                bookmarkvalue.put("PS110", Checknull(s.getString("SueSecDate")));                
-                bookmarkvalue.put("PS111", Checknull(s.getString("SueSecEnd")));   
+                bookmarkvalue.put("PS110", Checknull(ChangFormat(s.getString("SueSecDate"))));                
+                bookmarkvalue.put("PS111", Checknull(ChangFormat(s.getString("SueSecEnd"))));   
                 
                 bookmarkvalue.put("C1",Checknull(Date));
                 bookmarkvalue.put("C01",Checknull(Month));
@@ -358,6 +358,27 @@ public static void w68(String cc,String sueTime) {
             }
         }
         return sb.toString();  
-    }  
+    } 
+     public static String ChangFormat(String DateSue){
+        String newFormatDate=null;
+       try{   Calendar cal;
+       Locale lc = new Locale("th","TH");
+        SimpleDateFormat formatdate =new SimpleDateFormat("yyyy/MM/dd");     
+        if(DateSue != null && !"".equals(DateSue)){
+        Date b=formatdate.parse(DateSue);
+         cal = Calendar.getInstance();
+          cal.setTime(b); 
+          System.out.println("fffffff : "+cal.getTime());
+           SimpleDateFormat dateformat =new SimpleDateFormat("dd/MM/yyyy");   
+         newFormatDate=dateformat.format(cal.getTime()); 
+        
+        }
+         }
+         catch(Exception e){
+         e.printStackTrace();
+         }
+    return newFormatDate;
+    
+    }
 }
 

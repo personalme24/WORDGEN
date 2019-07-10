@@ -234,6 +234,8 @@ public class InvesInformationView1 extends javax.swing.JDialog{
                     data.put("InvestTel", rs.getString("InvestTel"));
                  
                     InvesInformationFrom iif =new InvesInformationFrom(fwit,data);
+                    iif.pack();
+                    iif.setLocationRelativeTo(null);
                     iif.setVisible(true);
                 }
 

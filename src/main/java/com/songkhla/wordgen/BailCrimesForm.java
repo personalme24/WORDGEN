@@ -282,7 +282,9 @@ public class BailCrimesForm extends javax.swing.JFrame {
             }
         });
 
-        AddEditBail.setText("เพิ่ม/แก้ไข");
+        AddEditBail.setIcon(new javax.swing.ImageIcon("D:\\Master\\edit (1).png")); // NOI18N
+        AddEditBail.setText("แก้ไข");
+        AddEditBail.setPreferredSize(new java.awt.Dimension(79, 30));
         AddEditBail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AddEditBailActionPerformed(evt);
@@ -319,7 +321,7 @@ public class BailCrimesForm extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(AddEditBail)
+                        .addComponent(AddEditBail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanelDateSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -338,13 +340,18 @@ public class BailCrimesForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(AddEditBail)
-                    .addComponent(jPanelDateSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jCheckOnly)
-                        .addComponent(jComboStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jCheckOnly)
+                            .addComponent(jComboStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanelDateSearch, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AddEditBail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(232, 232, 232))
@@ -379,7 +386,7 @@ public class BailCrimesForm extends javax.swing.JFrame {
                 String crimecaseid = jTableBail.getModel().getValueAt(jTableBail.getSelectedRow(), 0)+"";
                 String fullname = jTableBail.getModel().getValueAt(jTableBail.getSelectedRow(), 1)+"";
 
-                String sql="select crimecasenoyear,NoPerson,crimecaseno,Investigator_Result,TypePerson,BailDate,"
+                String sql="select crimecasenoyear,NoPerson,crimecaseno,Investigator_Result,TypePerson,ArrestDateTimeEnd,BailDate,"
                         + "PeopleRegistrationID,PlaceArrest,ArrestDateTime,FullNamePerson,StatusSuspect,CaseId,CaseIdPerson,"
                         + "CaseAcceptDate,ChargeCode,ChargeName\n" +
                      "from Person\n" +
@@ -402,6 +409,8 @@ public class BailCrimesForm extends javax.swing.JFrame {
                     data.put("NoPerson", rs.getString("NoPerson"));
                                         data.put("PlaceArrest", rs.getString("PlaceArrest"));
                     data.put("ArrestDateTime", rs.getString("ArrestDateTime"));
+                     data.put("ArrestDateTimeEnd", rs.getString("ArrestDateTimeEnd"));                   
+                    data.put("BailDate", rs.getString("BailDate"));
 
 
                     BailCrimesAdd bca =new BailCrimesAdd(this,data);

@@ -395,6 +395,7 @@ public class ChargePage extends javax.swing.JDialog {
             }
         });
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JTextField ChargeCode;

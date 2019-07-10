@@ -94,7 +94,7 @@ public static void w67(String cc) {
                 Statement st = conn.createStatement();
             ResultSet s=st.executeQuery(sql); 
                 System.out.println(sql);
-            while((s!=null) && (s.next()))
+            if((s!=null) && (s.next()))
             {  String  cs =s.getString("crimecaseno");
                  ccYear=s.getString("crimecaseyears");
                  

@@ -339,25 +339,28 @@ public class InvesInformationFrom extends javax.swing.JDialog {
         
             try{
                 String sqlUpdate= "UPDATE InvestInformation Set\n "
+                + "InvestCardID=?,"                          
                 + "InvestRank=?,"        
                 + "InvestName=?,"
                 + "InvestPosition=?,"
                 + "InvestBirthDay=?,"
                 + "InvestAge=?,"
                 + "InvestTel=?"   
-                + "Where InvestId=?";
+                + " Where InvestId=?";
                 pst=con.prepareStatement(sqlUpdate);
-                pst.setString(1,InvestRank.getText());
-                pst.setString(2,InvestName.getText());
-                pst.setString(3,InvestPosition.getText());
-                pst.setString(4,InvestBirthDay.getJFormattedTextField().getText());
-                pst.setString(5,InvestAge.getText());
-                pst.setString(6,InvestTel.getText());
-                pst.setString(7,InvestCardID.getText());
+                pst.setString(1,InvestCardID.getText());               
+                pst.setString(2,InvestRank.getText());
+                pst.setString(3,InvestName.getText());
+                pst.setString(4,InvestPosition.getText());
+                pst.setString(5,InvestBirthDay.getJFormattedTextField().getText());
+                pst.setString(6,InvestAge.getText());
+                pst.setString(7,InvestTel.getText());
+                pst.setString(8,InvestId.getText());
                 pst.executeUpdate();
-                 int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
+                 int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการแก้ไขข้อมูล", "ยืนยัน",
                  JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                  if (response == JOptionPane.YES_OPTION) {
+                     System.out.println("gggggggggggg : "+sqlUpdate);
                      pst.executeUpdate();
                         pst.close();
                     } 

@@ -143,6 +143,19 @@ public class SuspectForm extends javax.swing.JDialog {
         kno.add(jRadioUnknowSuspect);
         kno.add(jRadioKnowSuspect);
         
+             ButtonGroup g=new ButtonGroup();
+        g.add(jRadioSue);
+        g.add(jRadioBail);
+        g.add(jRadioResultImprison);
+        g.add(jRadioResultRelease);
+        g.add(jRadioCantCatch);
+        g.add(jRadioVerbal);
+        g.add(jRadioRestore);
+        g.add(jRadioCatch);
+        g.add(jRadioOther);
+        
+       
+        
 //             ArrestDateTimeEnd.setText(CalculateDateTime48(arrestDate));
  ArrestDateTime.getJFormattedTextField().getDocument().addDocumentListener(new DocumentListener() {
                            public void changedUpdate(DocumentEvent e) {
@@ -1651,93 +1664,19 @@ public class SuspectForm extends javax.swing.JDialog {
   }   
     
     public void eventJRadioManage(){
-     ButtonGroup g=new ButtonGroup();
-        g.add(jRadioSue);
-        g.add(jRadioBail);
-        g.add(jRadioResultImprison);
-        g.add(jRadioResultRelease);
-        g.add(jRadioCantCatch);
-        g.add(jRadioVerbal);
-        g.add(jRadioRestore);
-        g.add(jRadioCatch);
-        g.add(jRadioOther);
-        
-       
-jRadioSue.addActionListener ( new ActionListener ( ) 
-     { 
-          @Override 
-          public void actionPerformed ( ActionEvent event ) 
-          { 
-               JRadioButton radioButton = ( JRadioButton ) event.getSource ( ); 
 
-               boolean isSelected = jRadioSue.isSelected (); 
-
-               if ( isSelected ) 
-               { 
-                                      PlaceArrest.setVisible(true);
-                  jLabelArrestPlace.setVisible(true);
-            jPanelDateArrest.setVisible(true);
-            jLabelArrestDate.setVisible(true);
-            jLabelArrTime.setVisible(true);
-            jSpinnerArrTime.setVisible(true);
-                 jLabelArrestEnd.setVisible(true);
-            ArrestDateTimeEnd.setVisible(true);
-               } 
-               else 
-               { 
-                  PlaceArrest.setVisible(false);
-                  jLabelArrestPlace.setVisible(false);
-                jPanelDateArrest.setVisible(false);
-                jLabelArrestDate.setVisible(false);
-                
-              jLabelArrTime.setVisible(false);
-            jSpinnerArrTime.setVisible(false);
-                 jLabelArrestEnd.setVisible(false);
-            ArrestDateTimeEnd.setVisible(false); 
-               } 
-          } 
-     } 
-);
-jRadioBail.addActionListener ( new ActionListener ( ) 
-     { 
-          @Override 
-          public void actionPerformed ( ActionEvent event ) 
-          { 
-               JRadioButton radioButton = ( JRadioButton ) event.getSource ( ); 
-
-               boolean isSelected = jRadioBail.isSelected (); 
-
-               if ( isSelected ) 
-               { 
-                                      PlaceArrest.setVisible(true);
-                  jLabelArrestPlace.setVisible(true);
-            jPanelDateArrest.setVisible(true);
-            jLabelArrestDate.setVisible(true);
-            jLabelArrTime.setVisible(true);
-            jSpinnerArrTime.setVisible(true);
-                 jLabelArrestEnd.setVisible(true);
-            ArrestDateTimeEnd.setVisible(true);
-               } 
-               else 
-               { 
-                  PlaceArrest.setVisible(false);
-                  jLabelArrestPlace.setVisible(false);
-                jPanelDateArrest.setVisible(false);
-                jLabelArrestDate.setVisible(false);
-                
-              jLabelArrTime.setVisible(false);
-            jSpinnerArrTime.setVisible(false);
-                 jLabelArrestEnd.setVisible(false);
-            ArrestDateTimeEnd.setVisible(false); 
-               } 
-          } 
-     } 
-);
-//       jRadioSue.addChangeListener(new ChangeListener() {
-//            @Override
-//            public void stateChanged(ChangeEvent e) {
-//            if(jRadioSue.isSelected()){
-//                  PlaceArrest.setVisible(true);
+//jRadioSue.addActionListener ( new ActionListener ( ) 
+//     { 
+//          @Override 
+//          public void actionPerformed ( ActionEvent event ) 
+//          { 
+//               JRadioButton radioButton = ( JRadioButton ) event.getSource ( ); 
+//
+//               boolean isSelected = jRadioSue.isSelected (); 
+//
+//               if ( isSelected ) 
+//               { 
+//                                      PlaceArrest.setVisible(true);
 //                  jLabelArrestPlace.setVisible(true);
 //            jPanelDateArrest.setVisible(true);
 //            jLabelArrestDate.setVisible(true);
@@ -1745,9 +1684,9 @@ jRadioBail.addActionListener ( new ActionListener ( )
 //            jSpinnerArrTime.setVisible(true);
 //                 jLabelArrestEnd.setVisible(true);
 //            ArrestDateTimeEnd.setVisible(true);
-//            
-//            }
-//            else {
+//               } 
+//               else 
+//               { 
 //                  PlaceArrest.setVisible(false);
 //                  jLabelArrestPlace.setVisible(false);
 //                jPanelDateArrest.setVisible(false);
@@ -1756,45 +1695,108 @@ jRadioBail.addActionListener ( new ActionListener ( )
 //              jLabelArrTime.setVisible(false);
 //            jSpinnerArrTime.setVisible(false);
 //                 jLabelArrestEnd.setVisible(false);
-//            ArrestDateTimeEnd.setVisible(false);
+//            ArrestDateTimeEnd.setVisible(false); 
+//               } 
+//          } 
+//     } 
+//);
+//jRadioBail.addActionListener ( new ActionListener ( ) 
+//     { 
+//          @Override 
+//          public void actionPerformed ( ActionEvent event ) 
+//          { 
+//               JRadioButton radioButton = ( JRadioButton ) event.getSource ( ); 
 //
-//            }
+//               boolean isSelected = jRadioBail.isSelected (); 
 //
-//            }
-//        }
-//        );
-      
-//   jRadioBail.addChangeListener(new ChangeListener() {
-//            @Override
-//            public void stateChanged(ChangeEvent e) {
-//            if(jRadioBail.isSelected()){ 
-//               PlaceArrest.setVisible(true);
+//               if ( isSelected ) 
+//               { 
+//                                      PlaceArrest.setVisible(true);
 //                  jLabelArrestPlace.setVisible(true);
 //            jPanelDateArrest.setVisible(true);
 //            jLabelArrestDate.setVisible(true);
 //            jLabelArrTime.setVisible(true);
-//            jSpinnerArrTime.setVisible(true);   
-//             jLabelBailDate.setVisible(true);
-//            jPanelBailDate.setVisible(true);   
-//                jLabelArrestEnd.setVisible(true);
+//            jSpinnerArrTime.setVisible(true);
+//                 jLabelArrestEnd.setVisible(true);
 //            ArrestDateTimeEnd.setVisible(true);
-//            
-//            }
-//            else{
-//            jLabelBailDate.setVisible(false);
-//            jPanelBailDate.setVisible(false);  
-//           PlaceArrest.setVisible(false);
+//               } 
+//               else 
+//               { 
+//                  PlaceArrest.setVisible(false);
 //                  jLabelArrestPlace.setVisible(false);
 //                jPanelDateArrest.setVisible(false);
 //                jLabelArrestDate.setVisible(false);
-//                   jLabelArrTime.setVisible(false);
+//                
+//              jLabelArrTime.setVisible(false);
 //            jSpinnerArrTime.setVisible(false);
 //                 jLabelArrestEnd.setVisible(false);
-//            ArrestDateTimeEnd.setVisible(false);
-//              }
-//            }
-//        }
-//        );
+//            ArrestDateTimeEnd.setVisible(false); 
+//               } 
+//          } 
+//     } 
+//);
+       jRadioSue.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+            if(jRadioSue.isSelected()){
+                  PlaceArrest.setVisible(true);
+                  jLabelArrestPlace.setVisible(true);
+            jPanelDateArrest.setVisible(true);
+            jLabelArrestDate.setVisible(true);
+            jLabelArrTime.setVisible(true);
+            jSpinnerArrTime.setVisible(true);
+                 jLabelArrestEnd.setVisible(true);
+            ArrestDateTimeEnd.setVisible(true);
+            
+            }
+            else {
+                  PlaceArrest.setVisible(false);
+                  jLabelArrestPlace.setVisible(false);
+                jPanelDateArrest.setVisible(false);
+                jLabelArrestDate.setVisible(false);
+                
+              jLabelArrTime.setVisible(false);
+            jSpinnerArrTime.setVisible(false);
+                 jLabelArrestEnd.setVisible(false);
+            ArrestDateTimeEnd.setVisible(false);
+
+            }
+
+            }
+        }
+        );
+      
+   jRadioBail.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+            if(jRadioBail.isSelected()){ 
+               PlaceArrest.setVisible(true);
+                  jLabelArrestPlace.setVisible(true);
+            jPanelDateArrest.setVisible(true);
+            jLabelArrestDate.setVisible(true);
+            jLabelArrTime.setVisible(true);
+            jSpinnerArrTime.setVisible(true);   
+             jLabelBailDate.setVisible(true);
+            jPanelBailDate.setVisible(true);   
+                jLabelArrestEnd.setVisible(true);
+            ArrestDateTimeEnd.setVisible(true);
+            
+            }
+            else{
+            jLabelBailDate.setVisible(false);
+            jPanelBailDate.setVisible(false);  
+           PlaceArrest.setVisible(false);
+                  jLabelArrestPlace.setVisible(false);
+                jPanelDateArrest.setVisible(false);
+                jLabelArrestDate.setVisible(false);
+                   jLabelArrTime.setVisible(false);
+            jSpinnerArrTime.setVisible(false);
+                 jLabelArrestEnd.setVisible(false);
+            ArrestDateTimeEnd.setVisible(false);
+              }
+            }
+        }
+        );
        
 
                }

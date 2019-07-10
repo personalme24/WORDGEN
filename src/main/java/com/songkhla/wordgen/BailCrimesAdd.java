@@ -44,7 +44,9 @@ public class BailCrimesAdd extends javax.swing.JDialog {
             ChargeName.setText(datain.get("ChargeName")+"");
             PlaceArrest.setText(datain.get("PlaceArrest")+"");
             DateArrest.setText(datain.get("ArrestDateTime")+"");
-
+             DateArrestEnd.setText(datain.get("ArrestDateTimeEnd")+"");
+              DateBail.setText(datain.get("BailDate")+"");
+     
         }
         refreshBailSendData();
         refreshAssetData();
@@ -91,9 +93,9 @@ public class BailCrimesAdd extends javax.swing.JDialog {
         DateArrest = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        DateArrest1 = new javax.swing.JTextField();
+        DateArrestEnd = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        DateArrest2 = new javax.swing.JTextField();
+        DateBail = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -400,20 +402,20 @@ public class BailCrimesAdd extends javax.swing.JDialog {
         jLabel4.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel4.setText("วันที่สิ้นสุด");
 
-        DateArrest1.setEditable(false);
-        DateArrest1.setBackground(new java.awt.Color(204, 204, 204));
-        DateArrest1.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        DateArrest1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        DateArrest1.setBorder(null);
+        DateArrestEnd.setEditable(false);
+        DateArrestEnd.setBackground(new java.awt.Color(204, 204, 204));
+        DateArrestEnd.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        DateArrestEnd.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        DateArrestEnd.setBorder(null);
 
         jLabel7.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel7.setText("วันประกัน");
 
-        DateArrest2.setEditable(false);
-        DateArrest2.setBackground(new java.awt.Color(204, 204, 204));
-        DateArrest2.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        DateArrest2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        DateArrest2.setBorder(null);
+        DateBail.setEditable(false);
+        DateBail.setBackground(new java.awt.Color(204, 204, 204));
+        DateBail.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        DateBail.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        DateBail.setBorder(null);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -449,8 +451,8 @@ public class BailCrimesAdd extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(DateArrest1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(DateArrest2, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(DateArrestEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(DateBail, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -471,13 +473,13 @@ public class BailCrimesAdd extends javax.swing.JDialog {
                     .addComponent(DateArrest, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4)
-                    .addComponent(DateArrest1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(DateArrestEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ChargeName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
-                    .addComponent(DateArrest2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(DateBail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -761,8 +763,8 @@ public class BailCrimesAdd extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ChargeName;
     private javax.swing.JTextField DateArrest;
-    private javax.swing.JTextField DateArrest1;
-    private javax.swing.JTextField DateArrest2;
+    private javax.swing.JTextField DateArrestEnd;
+    private javax.swing.JTextField DateBail;
     private javax.swing.JTextField PlaceArrest;
     private javax.swing.JTextField SuspectFullName;
     private javax.swing.JTextField crimecaseno;
