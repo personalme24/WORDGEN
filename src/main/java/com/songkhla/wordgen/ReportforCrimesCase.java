@@ -40,6 +40,7 @@ import com.songkhla.document.W47;
 import com.songkhla.document.W48;
 import com.songkhla.document.W49;
 import com.songkhla.document.W5;
+import com.songkhla.document.W50;
 import com.songkhla.document.W6;
 import com.songkhla.document.W62;
 import com.songkhla.document.W67;
@@ -839,6 +840,9 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
         }
        if(jCheckW49.isSelected()){
             W49.w49(no);
+        }
+       if(jCheckW50.isSelected()){
+            W50.w50(no);
         }
        if(jCheckW62.isSelected()){
             W62.w62(no);

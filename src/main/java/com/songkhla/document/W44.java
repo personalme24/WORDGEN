@@ -45,43 +45,25 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 
-public class W71 {
-    public static void w71(String cc) {
+public class W44 {
+    public static void w44(String cc) {
      
             Connection conn=null;
             conn=ConnectDatabase.connect();
             PreparedStatement pst=null;
              String ccYear;
+             String SendIDocDate;
              String PoliceStationName="";
+             String StationAmphur="";
+             String StationProvince="";
+             String ProvincProsecutor="";
+             String TelStation="";
              String RankPolice ="";
              String FirstName ="";
              String LastName ="";
              String Position ="";
              
-             String DeliOrder="";
-             String DeliDate="";
-             String DeliTimes="";
-             String DeliPlace="";
-             int DeliId=0;
-             int DeliPersonId =0;
-            
-            String VarD1 ="";
-            String VarD2 ="";
-            String VarD3 ="";
-            String VarD4 ="";
-            String Date="";
-            String Month="";
-            String Year="";
-            String Time="";
-            String VarBA2 ="";
-            String VarBA3 ="";
-            String VarBA4 ="";
-            String VarBA5 ="";
-            String VarBA6 ="";
-            String VarBA7 ="";
-            
-            
-            
+             
             try {
 //               
                     String sqlDataPoliceStation="SELECT * FROM PoliceStation";
@@ -89,9 +71,12 @@ public class W71 {
                   ResultSet rs=sp.executeQuery(sqlDataPoliceStation); 
                   while (rs.next()) {                    
                          PoliceStationName=rs.getString("PoliceStaionName");
-                         
+                         StationAmphur=rs.getString("StationAmphur");
+                         StationProvince=rs.getString("StationProvince");
+                         ProvincProsecutor=rs.getString("ProvincProsecutor");
+                         TelStation=rs.getString("TelStation");
                       }
-                    rs.close();
+            
                     String sqlDataPolice="SELECT * FROM Police";
                       Statement sp1 = conn.createStatement();
                   ResultSet rs1=sp1.executeQuery(sqlDataPolice); 
@@ -101,46 +86,33 @@ public class W71 {
                          LastName=rs1.getString("LastName");
                          Position=rs1.getString("Position");
                       }
-                    rs1.close();
-                    
-                  String sqlDataDeliverySuspect ="select DeliverySuspect.*\n" +
-                              "from crimecase \n" +
-                              "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
-                              "left join DeliverySuspect on Person.caseIdPerson = DeliverySuspect.DeliId\n" +
-                              "where crimecase.CaseId='"+cc+"' and Person.Related='นายประกัน'\n" +
-                              "group by crimecase.CaseId,Person.NoPerson,DeliverySuspect.DeliId";
-                  
-                      Statement sp2 = conn.createStatement();
-                  ResultSet rs2=sp2.executeQuery(sqlDataDeliverySuspect); 
-                  while (rs2.next()) {     
-                         DeliOrder =rs2.getString("DeliOrder");
-                         DeliDate=rs2.getString("DeliDate");
-                         DeliTimes=rs2.getString("DeliTimes");
-                         DeliPlace=rs2.getString("DeliPlace");
-                    
-                      }
-                    rs2.close();
                   
                    String sql="select crimecase.*,Person.*,Charge.*,BailAsset.*\n" +
                               "from crimecase \n" +
-                              "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
                               "left join Charge on crimecase.ChargeCodeCase=Charge.ChargeCode\n" +
-                              "left join BailAsset on Person.caseIdPerson = BailAsset.BailCaseId\n" +
-                              "where crimecase.CaseId='"+cc+"' and Person.Related='นายประกัน'\n" +
-                              "group by crimecase.CaseId,Person.NoPerson,BailAsset.BailAssetId";
-       
+                              "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
+                              "left join BailAsset on Person.caseIdPerson = BailAsset.BailPersonId\n" +
+                              "left join DeliverySuspect on Person.caseIdPerson = DeliverySuspect.DeliPersonId\n" +
+                              "where crimecase.CaseId='1'and Person.Related='นายประกัน'\n" +
+                              "group by crimecase.CaseId,Person.NoPerson";
                    
-            int BailAssetId=0;
-            int DeliOrderID=0;
-            
-            Statement st = conn.createStatement();
+//                   pst=conn.prepareStatement(sql);
+//           pst=PreparedStatement(sql);
+                Statement st = conn.createStatement();
             ResultSet s=st.executeQuery(sql); 
-            System.out.println(sql);
+                System.out.println(sql);
             while((s!=null) && (s.next()))
             {  String  
                     cs =s.getString("crimecaseno");
                     ccYear=s.getString("crimecaseyears");
-            
+                 
+                String Date="";
+                String Month="";
+                String Year="";
+                String Time="";
+           
+                
+                
                 SimpleDateFormat sdfstart ;
                 Calendar  calstart = Calendar.getInstance();
                 sdfstart = new SimpleDateFormat("dd", new Locale("th", "TH"));  
@@ -194,42 +166,8 @@ public class W71 {
                        bookmarkvalue.put("P04", Checknull(LastName));
                        bookmarkvalue.put("P05", Checknull(Position));
                        
-                     ++BailAssetId ;
-                    VarBA2=VarBA2+"\n\r"+(BailAssetId);
-                    bookmarkvalue.put("BA2",Checknull(VarBA2));
-                    System.out.println(BailAssetId);
-              
-                    VarBA3=VarBA3+"\n\r"+s.getString("BailAssetDetail");
-                    bookmarkvalue.put("BA3",Checknull(VarBA3));
-                    VarBA4=VarBA4+"\n\r"+s.getString("BailAssetBath");
-                    bookmarkvalue.put("BA4",Checknull(VarBA4));
                    
-                    VarBA5=VarBA5+"\n\r"+s.getString("BailAmount");
-                    bookmarkvalue.put("BA5",Checknull(VarBA5));
-                     
-                    VarBA6=VarBA6+"\n\r"+s.getString("BailAssetTotal");
-                    bookmarkvalue.put("BA6", Checknull(VarBA6));
-                   
-                    VarBA7=VarBA7+"\n\r"+s.getString("BailAssetRemark");
-                    bookmarkvalue.put("BA7",Checknull(VarBA7));
                     
-                    
-                    ++DeliOrderID;
-                   
-                        
-                       VarD1=VarD1+"\n\r"+(DeliOrderID);
-                       bookmarkvalue.put("D1",Checknull(VarD1));
-                       
-                       VarD2=VarD2+"\n\r"+(ToDate(DeliDate));
-                       bookmarkvalue.put("D2",Checknull(VarD2));
-                       
-                       VarD3=VarD3+"\n\r"+(DeliTimes);
-                       bookmarkvalue.put("D3",Checknull(VarD3));
-                       
-                       VarD4=VarD4+"\n\r"+(DeliPlace);
-                       bookmarkvalue.put("D4",Checknull(VarD4));
-                    
-                      
 			JSONArray tablecolumn = new JSONArray();
 			tablecolumn.add("C2");
 			tablecolumn.add("C3");
@@ -265,10 +203,10 @@ public class W71 {
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("D:/TEMPLATE/w71.docx"));
+					.load(new java.io.File("D:/TEMPLATE/w44.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/คดีอาญา"+cs+"-"+ccYear+"/คำร้องและสัญญาประกัน.doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/คดีอาญา"+cs+"-"+ccYear+"/คำร้องขอคืนสิ่งของ.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -394,7 +332,7 @@ public class W71 {
                date = df.parse(strDate);               
                ResultDate=dateto.format(date.getTime());
          } catch (ParseException ex) {
-             Logger.getLogger(W71.class.getName()).log(Level.SEVERE, null, ex);
+             Logger.getLogger(W44.class.getName()).log(Level.SEVERE, null, ex);
          }
                return ResultDate;
 }
