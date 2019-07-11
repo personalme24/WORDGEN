@@ -373,7 +373,7 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
 
         jCheckW41.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW41.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW41.setText("บันทึกการตกลงค่าาเสียหาย");
+        jCheckW41.setText("บันทึกการตกลงค่าเสียหาย");
 
         jCheckW43.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW43.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -381,7 +381,7 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
 
         jCheckW40.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW40.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW40.setText("บันทึกการแจ้งสิทธิตามพระราชบัญญติค่าตอบแทนผู้เสียหาย และค่าทดแทน \n");
+        jCheckW40.setText("บันทึกการแจ้งสิทธิ์ตามพระราชบัญญติค่าตอบแทนผู้เสียหาย และค่าทดแทน \n");
 
         jCheckW46.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW46.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -417,7 +417,7 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
 
         jCheckW59.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW59.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW59.setText("แบบรูปพรรณรถยนต์หรือรถจักรยนต์ที่ถูกโจรกรรม");
+        jCheckW59.setText("แบบรูปพรรณรถยนต์หรือรถจักรยานยนต์ที่ถูกโจรกรรม");
 
         jCheckW68.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW68.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -438,7 +438,7 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
 
         jCheckW67.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW67.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW67.setText("คำร้องขอผัดฟ้องหรือผัดฟ้องและฝากขังครั้งที่1");
+        jCheckW67.setText("คำร้องขอผัดฟ้องหรือผัดฟ้องและฝากขังครั้งที่ 1");
 
         jCheckW70.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW70.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -590,7 +590,6 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
                         .addComponent(jCheckBox50)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jCheckW53)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(131, 131, 131)
@@ -608,7 +607,6 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jCheckW68)
                                 .addGap(98, 98, 98)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jCheckW37)
                         .addGap(118, 118, 118))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -616,9 +614,9 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
                             .addComponent(jCheckW2)
                             .addComponent(jCheckW41))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jCheckW43)
-                            .addComponent(jCheckW3))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jCheckW3)
+                            .addComponent(jCheckW43))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
