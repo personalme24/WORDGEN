@@ -840,9 +840,8 @@ public class ReportAllForm extends javax.swing.JDialog {
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         // TODO add your handling code here:
-        System.out.println("ffffffffffffffff : "+PoliceStaionName);
-        String no=crimecaseno.getText();
-        File f3=new File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/แบบฟอร์มสำนวน");
+       
+        File f3=new File("D:/สำนวนอิเล็กทรอนิกส์"+"/แบบฟอร์มสำนวน");
         
         f3.mkdirs();
         System.out.print(f3);
@@ -850,31 +849,25 @@ public class ReportAllForm extends javax.swing.JDialog {
         
         if(jCheckW1.isSelected()){
              
-		try {
-                  
-		 WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-			.load(new java.io.File("D:/TEMPLATE/w1.docx"));
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/แบบฟอร์มสำนวน"+"/บันทึกการตรวจสำนวนการสอบสวน.doc"));
-		}catch( Exception ex) {
-			ex.printStackTrace();
-		}
+		W1.nw1();
+             
         }
         
         if(jCheckW2.isSelected()){
-             W2.w2(no);
+            
              
         }
         if(jCheckW3.isSelected()){
-             W3.w3(no);
+             
         }
         if(jCheckW4.isSelected()){
-             W4.w4(no);
+             
         }
          if(jCheckW5.isSelected()){
-            W5.w5(no);
+            
         }
         if(jCheckW6.isSelected()){
-            W6.w6(no);
+           
         }
          JOptionPane.showMessageDialog(jPanel1,"Export successfully", "Export successfully", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_button1ActionPerformed

@@ -194,7 +194,93 @@ public class W1 {
         
               
 	}
+    //เรียกเอกสารเปล่า
+        public static void nw1() {
+     
+     
+                 JSONObject bookmarkvalue = new JSONObject();
+//                 bookmarkvalue.put("C1","Date");
+//                 bookmarkvalue.put("S27","-");
+		bookmarkvalue.put("C2","");
+                bookmarkvalue.put("C3","");
+                 bookmarkvalue.put("S2","");
+                 bookmarkvalue.put("S5", "");
+                 bookmarkvalue.put("S6", "");
+                 bookmarkvalue.put("S27","");
+                 bookmarkvalue.put("S10","");
+                   
+                  bookmarkvalue.put("PA7","");
+                  bookmarkvalue.put("PS7",""); 
+                   
+                         
+                      bookmarkvalue.put("B2","");
+                      
+                        bookmarkvalue.put("P02", "");
+                        bookmarkvalue.put("P03", "");
+                        bookmarkvalue.put("P04", "");
+                        bookmarkvalue.put("P05", "");
+                         
+                            bookmarkvalue.put("C4","");
+                            bookmarkvalue.put("C441","");
+                            
+                            bookmarkvalue.put("C5", "");
+                            bookmarkvalue.put("C551","");
+                            bookmarkvalue.put("C6", "");
+                            bookmarkvalue.put("C661","");
+                            bookmarkvalue.put("C12","");
+                            bookmarkvalue.put("C13","");
+                            bookmarkvalue.put("C14","");
+                            bookmarkvalue.put("C15","");
+                            
+                    
+                   
+    
+			JSONArray tablecolumn = new JSONArray();
+			tablecolumn.add("C2");
+			tablecolumn.add("C3");
+//			tablecolumn.add("SUSPECT");
+//			tablecolumn.add("VICTIM");
+//			tablecolumn.add("REMARK");
+			JSONArray table1 = new JSONArray();
+			JSONObject row1 = new JSONObject();
+			//row1.put("C2","");
+			//row1.put("C3", ccYear);
+//			row1.put("SUSPECT", "period1");
+//			row1.put("VICTIM", "period1");
+//			row1.put("REMARK", "period1");
+			table1.add(row1);
+			
+//			JSONObject repl2 = new JSONObject();
+//			repl2.put("CRIMESNO", "function1");
+//			repl2.put("DESCRIPTION", "desc1");
+//			repl2.put("SUSPECT", "period1");
+//			repl2.put("VICTIM", "period1");
+//			repl2.put("REMARK", "period1");
+//			table1.add(repl2);
+		JSONObject tableobj = new JSONObject();
+		tableobj.put("COLUMNS", tablecolumn);
+		tableobj.put("TABLEDATA", table1);
+			
+		JSONArray TABLES = new JSONArray();
+		TABLES.add(tableobj);
+		bookmarkvalue.put("TABLES", TABLES);
+		System.out.println(bookmarkvalue.toJSONString());
+		
+		
+		try {
+                  
+			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
+					.load(new java.io.File("D:/TEMPLATE/w1.docx"));
+			processVariable(bookmarkvalue,wordMLPackage);
+			processTABLE(bookmarkvalue,wordMLPackage);
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/แบบฟอร์มสำนวน/บันทึกการตรวจสำนวนการสอบสวน.doc"));
+		}catch( Exception ex) {
+			ex.printStackTrace();
+		}
+        }
 
+   /// ฟังก์ชั่นต่างๆ 
+        
 	public static void processVariable(JSONObject inputdata,WordprocessingMLPackage wordMLPackage) throws Exception {
 		Object KEYSET[] = inputdata.keySet().toArray();
 		Map<DataFieldName, String> map = new HashMap<DataFieldName, String>();

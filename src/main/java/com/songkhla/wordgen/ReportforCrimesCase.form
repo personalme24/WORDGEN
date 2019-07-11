@@ -188,7 +188,6 @@
                           <Component id="jCheckBox50" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jCheckW53" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="131" pref="131" max="-2" attributes="0"/>
@@ -209,7 +208,6 @@
                                   <EmptySpace min="98" pref="98" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="jCheckW37" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
                       </Group>
@@ -219,9 +217,9 @@
                               <Component id="jCheckW41" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jCheckW43" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jCheckW3" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckW43" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
@@ -719,7 +717,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="22" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe01;&#xe32;&#xe23;&#xe15;&#xe01;&#xe25;&#xe07;&#xe04;&#xe48;&#xe32;&#xe32;&#xe40;&#xe2a;&#xe35;&#xe22;&#xe2b;&#xe32;&#xe22;"/>
+            <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe01;&#xe32;&#xe23;&#xe15;&#xe01;&#xe25;&#xe07;&#xe04;&#xe48;&#xe32;&#xe40;&#xe2a;&#xe35;&#xe22;&#xe2b;&#xe32;&#xe22;"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="jCheckW43">
@@ -741,7 +739,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="22" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe01;&#xe32;&#xe23;&#xe41;&#xe08;&#xe49;&#xe07;&#xe2a;&#xe34;&#xe17;&#xe18;&#xe34;&#xe15;&#xe32;&#xe21;&#xe1e;&#xe23;&#xe30;&#xe23;&#xe32;&#xe0a;&#xe1a;&#xe31;&#xe0d;&#xe0d;&#xe15;&#xe34;&#xe04;&#xe48;&#xe32;&#xe15;&#xe2d;&#xe1a;&#xe41;&#xe17;&#xe19;&#xe1c;&#xe39;&#xe49;&#xe40;&#xe2a;&#xe35;&#xe22;&#xe2b;&#xe32;&#xe22; &#xe41;&#xe25;&#xe30;&#xe04;&#xe48;&#xe32;&#xe17;&#xe14;&#xe41;&#xe17;&#xe19; &#xa;"/>
+            <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe01;&#xe32;&#xe23;&#xe41;&#xe08;&#xe49;&#xe07;&#xe2a;&#xe34;&#xe17;&#xe18;&#xe34;&#xe4c;&#xe15;&#xe32;&#xe21;&#xe1e;&#xe23;&#xe30;&#xe23;&#xe32;&#xe0a;&#xe1a;&#xe31;&#xe0d;&#xe0d;&#xe15;&#xe34;&#xe04;&#xe48;&#xe32;&#xe15;&#xe2d;&#xe1a;&#xe41;&#xe17;&#xe19;&#xe1c;&#xe39;&#xe49;&#xe40;&#xe2a;&#xe35;&#xe22;&#xe2b;&#xe32;&#xe22; &#xe41;&#xe25;&#xe30;&#xe04;&#xe48;&#xe32;&#xe17;&#xe14;&#xe41;&#xe17;&#xe19; &#xa;"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="jCheckW46">
@@ -840,7 +838,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="22" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&#xe41;&#xe1a;&#xe1a;&#xe23;&#xe39;&#xe1b;&#xe1e;&#xe23;&#xe23;&#xe13;&#xe23;&#xe16;&#xe22;&#xe19;&#xe15;&#xe4c;&#xe2b;&#xe23;&#xe37;&#xe2d;&#xe23;&#xe16;&#xe08;&#xe31;&#xe01;&#xe23;&#xe22;&#xe19;&#xe15;&#xe4c;&#xe17;&#xe35;&#xe48;&#xe16;&#xe39;&#xe01;&#xe42;&#xe08;&#xe23;&#xe01;&#xe23;&#xe23;&#xe21;"/>
+            <Property name="text" type="java.lang.String" value="&#xe41;&#xe1a;&#xe1a;&#xe23;&#xe39;&#xe1b;&#xe1e;&#xe23;&#xe23;&#xe13;&#xe23;&#xe16;&#xe22;&#xe19;&#xe15;&#xe4c;&#xe2b;&#xe23;&#xe37;&#xe2d;&#xe23;&#xe16;&#xe08;&#xe31;&#xe01;&#xe23;&#xe22;&#xe32;&#xe19;&#xe22;&#xe19;&#xe15;&#xe4c;&#xe17;&#xe35;&#xe48;&#xe16;&#xe39;&#xe01;&#xe42;&#xe08;&#xe23;&#xe01;&#xe23;&#xe23;&#xe21;"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="jCheckW68">
@@ -887,7 +885,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="22" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&#xe04;&#xe33;&#xe23;&#xe49;&#xe2d;&#xe07;&#xe02;&#xe2d;&#xe1c;&#xe31;&#xe14;&#xe1f;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe23;&#xe37;&#xe2d;&#xe1c;&#xe31;&#xe14;&#xe1f;&#xe49;&#xe2d;&#xe07;&#xe41;&#xe25;&#xe30;&#xe1d;&#xe32;&#xe01;&#xe02;&#xe31;&#xe07;&#xe04;&#xe23;&#xe31;&#xe49;&#xe07;&#xe17;&#xe35;&#xe48;1"/>
+            <Property name="text" type="java.lang.String" value="&#xe04;&#xe33;&#xe23;&#xe49;&#xe2d;&#xe07;&#xe02;&#xe2d;&#xe1c;&#xe31;&#xe14;&#xe1f;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe23;&#xe37;&#xe2d;&#xe1c;&#xe31;&#xe14;&#xe1f;&#xe49;&#xe2d;&#xe07;&#xe41;&#xe25;&#xe30;&#xe1d;&#xe32;&#xe01;&#xe02;&#xe31;&#xe07;&#xe04;&#xe23;&#xe31;&#xe49;&#xe07;&#xe17;&#xe35;&#xe48; 1"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="jCheckW70">

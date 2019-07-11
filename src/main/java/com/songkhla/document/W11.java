@@ -135,52 +135,68 @@ public class W11 {
                          
                     bookmarkvalue.put("B2",(s.getString("ChargeName")));
                      //ทรัพย์
+                     
                     VarAS1=VarAS1+"\n\r"+s.getString("EvidenceRecordNumber");
-                    bookmarkvalue.put("AS1",Checknull(VarAS1));
+                    //bookmarkvalue.put("AS1",Checknull(VarAS1));
+                 
+                    
+                    VarAS3=VarAS3+"\n\r"+(OrderAsset);
+                    //bookmarkvalue.put("AS3",Checknull(VarAS3));
                    
+                    VarAS4=VarAS4+"\n\r"+s.getString("Name");
+                    //bookmarkvalue.put("AS4",Checknull(VarAS4));
+                    VarAS5=VarAS5+"\n\r"+s.getString("Amount");
+                   // bookmarkvalue.put("AS5",Checknull(VarAS5));
+                   
+                    VarAS6=VarAS6+"\n\r"+s.getString("Value");
+                    //bookmarkvalue.put("AS6",Checknull(VarAS6));
+                    
+                    VarAS8=VarAS8+"\n\r"+s.getString("OccupantName");
+                   // bookmarkvalue.put("AS8", Checknull(VarAS8));
+                    VarAS9=VarAS9+"\n\r"+s.getString("DateSequester");
+                   // bookmarkvalue.put("AS9", Checknull(VarAS9));
+                    VarAS10=VarAS10+"\n\r"+s.getString("Remark");
+                   // bookmarkvalue.put("AS10",Checknull(VarAS10));
+                   // bookmarkvalue.put("AS331",Checknull(Integer.toString(OrderAsset)));
+                   // bookmarkvalue.put("AS661",Checknull(Integer.toString(SumValue)));
                     
                     ++OrderAsset ;
-                    VarAS3=VarAS3+"\n\r"+(OrderAsset);
-                    bookmarkvalue.put("AS3",Checknull(VarAS3));
-                    
-                    
-                    VarAS4=VarAS4+"\n\r"+s.getString("Name");
-                    bookmarkvalue.put("AS4",Checknull(VarAS4));
-                    VarAS5=VarAS5+"\n\r"+s.getString("Amount");
-                    bookmarkvalue.put("AS5",Checknull(VarAS5));
-                    
-                    
-                    VarAS6=VarAS6+"\n\r"+s.getString("Value");
-                    bookmarkvalue.put("AS6",Checknull(VarAS6));
-                    if (s.getString("Value") != null)
-                    {
-                    SumValue = SumValue+s.getInt("Value");
-                    } 
-                    VarAS8=VarAS8+"\n\r"+s.getString("OccupantName");
-                    bookmarkvalue.put("AS8", Checknull(VarAS8));
-                    VarAS9=VarAS9+"\n\r"+s.getString("DateSequester");
-                    bookmarkvalue.put("AS9", Checknull(VarAS9));
-                    VarAS10=VarAS10+"\n\r"+s.getString("Remark");
-                    bookmarkvalue.put("AS10",Checknull(VarAS10));
-                    bookmarkvalue.put("AS331",Checknull(Integer.toString(OrderAsset)));
-                    bookmarkvalue.put("AS661",Checknull(Integer.toString(SumValue)));
-                    
-                 
-    
+                   
 			JSONArray tablecolumn = new JSONArray();
-			tablecolumn.add("C2");
-			tablecolumn.add("C3");
-//			tablecolumn.add("SUSPECT");
-//			tablecolumn.add("VICTIM");
-//			tablecolumn.add("REMARK");
+			tablecolumn.add("AS1");
+			tablecolumn.add("AS3");
+                        tablecolumn.add("AS4");
+			tablecolumn.add("AS5");
+                        tablecolumn.add("AS6");
+			tablecolumn.add("AS8");
+                        tablecolumn.add("AS9");
+			tablecolumn.add("AS10");
+                        tablecolumn.add("AS331");
+			tablecolumn.add("AS661");
+
 			JSONArray table1 = new JSONArray();
 			JSONObject row1 = new JSONObject();
-			row1.put("C2",cs);
-			row1.put("C3", ccYear);
+			row1.put("AS1",Checknull(VarAS1));
+			row1.put("AS3",Checknull(VarAS3));
+                        row1.put("AS4",Checknull(VarAS4));
+                        row1.put("AS5",Checknull(VarAS5));
+                        row1.put("AS6",Checknull(VarAS6));
+                        row1.put("AS8", Checknull(VarAS8));
+                        row1.put("AS9", Checknull(VarAS9));
+                        row1.put("AS10",Checknull(VarAS10));
+                        row1.put("AS331",Checknull(Integer.toString(OrderAsset)));
+                        row1.put("AS661",Checknull(Integer.toString(SumValue)));
+                        
 //			row1.put("SUSPECT", "period1");
 //			row1.put("VICTIM", "period1");
 //			row1.put("REMARK", "period1");
 			table1.add(row1);
+                        
+                        if (s.getString("Value") != null)
+                            {
+                               SumValue = SumValue+s.getInt("Value");
+                                  } 
+    
 			
 //			JSONObject repl2 = new JSONObject();
 //			repl2.put("CRIMESNO", "function1");
