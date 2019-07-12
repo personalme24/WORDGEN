@@ -278,6 +278,8 @@ public class IdentityView extends javax.swing.JFrame {
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
         // TODO add your handling code here:
         IdentityFrom cce =new IdentityFrom(this,null);
+        cce.pack();
+        cce.setLocationRelativeTo(null);
         cce.setVisible(true);
         RefreshData();
     }//GEN-LAST:event_jButtonAddActionPerformed
