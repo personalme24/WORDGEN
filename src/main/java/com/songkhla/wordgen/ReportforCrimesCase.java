@@ -707,7 +707,7 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
         // TODO add your handling code here:
         
         String no=crimecaseno.getText();
-        File f3=new File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/คดีอาญา"+caseno+"-"+caseyear);
+        File f3=new File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/คดีอาญา"+caseno+"-"+caseyear);
         
         f3.mkdirs();
         System.out.print(f3);
