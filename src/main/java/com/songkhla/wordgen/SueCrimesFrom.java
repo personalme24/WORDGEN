@@ -101,15 +101,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         SueEndLast.setText(ChangFormatSQL(rs.getString("DateEndMax")));
         String a=CalculateDateExpr(ChangFormatSQL(rs.getString("DateEndMax")))+"";
               TotalDate.setText(a);
-//              SimpleDateFormat myFormat = new SimpleDateFormat("dd MM yyyy");
-//              String dateStart = rs.getString("SueEnd");
-//                 String dateStop = rs.getString("DateEndMax");
-//               
-//     
-//
-//    Date date1 = myFormat.parse(dateStart);
-//    Date date2 = myFormat.parse(dateStop);
-//    long diff = date2.getTime() - date1.getTime();
           }
     
      
@@ -130,7 +121,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             PlaceArrest.setText(datain.get("PlaceArrest")+"");
             DateArrest.setText(datain.get("ArrestDateTime")+"");
             ArrestDateTimeEnd.setText(datain.get("ArrestDateTimeEnd")+"");
-            
+            CourtSuspect.setText(datain.get("CourtSuspect")+"");            
             SueFirst.setText(Checknull(datain.get("SueFirst")));
             SueFirstDate.setText(Checknull(datain.get("SueFirstDate")));        
             SueFirstEnd.setText(Checknull(datain.get("SueFirstEnd")));
@@ -187,9 +178,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
          {e.printStackTrace();}
         } 
        DateTotal();
-           
-     
-
+          
         RefreshData(); 
    
     }
@@ -215,7 +204,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         jLabel31 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         FullNamePerson = new javax.swing.JTextField();
-        PeopleRegistrationID = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         AccureandOther = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -226,6 +214,8 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         ArrestDateTimeEnd = new javax.swing.JTextField();
+        CourtSuspect = new javax.swing.JLabel();
+        PeopleRegistrationID = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
@@ -341,7 +331,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(299, 299, 299)
-                .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
+                .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(185, 185, 185))
         );
         jPanel6Layout.setVerticalGroup(
@@ -368,9 +358,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 
         FullNamePerson.setEditable(false);
         FullNamePerson.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-
-        PeopleRegistrationID.setEditable(false);
-        PeopleRegistrationID.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel7.setText("ชื่อผู้กล่าวหา");
@@ -401,6 +388,12 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         ArrestDateTimeEnd.setEditable(false);
         ArrestDateTimeEnd.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
+        CourtSuspect.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        CourtSuspect.setText("ศาล");
+
+        PeopleRegistrationID.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        PeopleRegistrationID.setText("PeopleRegistrationID");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -409,11 +402,11 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(FullNamePerson))
+                                .addGap(22, 22, 22)
+                                .addComponent(FullNamePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel30)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -422,11 +415,16 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                                 .addComponent(jLabel31)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(PeopleRegistrationID)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(AccureandOther))))
+                                .addComponent(AccureandOther))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addComponent(PeopleRegistrationID)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(CourtSuspect)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -453,9 +451,10 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(crimecaseno)
+                        .addComponent(crimecaseno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(PeopleRegistrationID, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(CourtSuspect)
+                        .addComponent(PeopleRegistrationID))
                     .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -495,9 +494,9 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(236, 236, 236)
+                .addGap(158, 158, 158)
                 .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(253, 253, 253))
+                .addGap(331, 331, 331))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -509,7 +508,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         NumberImprison.setEditable(false);
 
         jLabel11.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel11.setText("ครั้งที่ผัดฟ้องฝากขัง");
+        jLabel11.setText("ครั้งที่");
 
         jLabel13.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel13.setText("วันที่เริ่ม");
@@ -531,55 +530,57 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         jLabel14.setText("วันที่สิ้นสุด");
 
         SueStartLast.setEditable(false);
+        SueStartLast.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SueStartLastActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(4, 4, 4)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(SueStartLast)
+                    .addComponent(NumberImprison, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(NumberImprison))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(SueStartLast))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel16)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TotalDate, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(TotalDate, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel17)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SueEndLast, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62))
+                        .addComponent(jLabel17))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(SueEndLast, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(NumberImprison, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel13)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel14)
-                        .addComponent(SueEndLast, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(SueStartLast))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
                     .addComponent(jLabel16)
                     .addComponent(TotalDate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel17))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(SueStartLast, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SueEndLast, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1073,12 +1074,12 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -1090,10 +1091,10 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonSave, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(83, 83, 83))
+                .addGap(71, 71, 71))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1104,9 +1105,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 726, Short.MAX_VALUE)
         );
 
         pack();
@@ -1301,50 +1300,54 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(jPanel1,"พิมพ์เอกสารเรียบร้อย", "แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);}
           
     }//GEN-LAST:event_Print2ActionPerformed
+
+    private void SueStartLastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueStartLastActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SueStartLastActionPerformed
     public void DateTotal(){
-     SueFirstEnd.getDocument().addDocumentListener(new DocumentListener() {
+     SueFirstTotal.getDocument().addDocumentListener(new DocumentListener() {
                            public void changedUpdate(DocumentEvent e) {
-                                SueFirstTotal.setText(CalculateDateTotal(SueFirstDate.getText(), SueFirstEnd.getText()));
+                                SueFirstEnd.setText(CalculateDateEnd(SueFirstDate.getText(), SueFirstTotal.getText()));
                            }
-                           public void removeUpdate(DocumentEvent e) {
-                                                       SueFirstTotal.setText(CalculateDateTotal(SueFirstDate.getText(), SueFirstEnd.getText()));
-
+                           public void removeUpdate(DocumentEvent e) {                              
+                                SueFirstEnd.setText(CalculateDateEnd(SueFirstDate.getText(), SueFirstTotal.getText()));
+                                                   
                            }
                            public void insertUpdate(DocumentEvent e) {
-                               SueFirstTotal.setText(CalculateDateTotal(SueFirstDate.getText(), SueFirstEnd.getText()));
-                           }
-             }
-             );
-              SueSecEnd.getDocument().addDocumentListener(new DocumentListener() {
-                           public void changedUpdate(DocumentEvent e) {
-                                SueSecTotal.setText(CalculateDateTotal(SueSecDateT.getText(), SueSecEnd.getText()));
-                           }
-                           public void removeUpdate(DocumentEvent e) {
-                                SueSecTotal.setText(CalculateDateTotal(SueSecDateT.getText(), SueSecEnd.getText()));
-
-
-                           }
-                           public void insertUpdate(DocumentEvent e) {
-                               SueSecTotal.setText(CalculateDateTotal(SueSecDateT.getText(), SueSecEnd.getText()));
+                                SueFirstEnd.setText(CalculateDateEnd(SueFirstDate.getText(), SueFirstTotal.getText()));
 
                            }
              }
              );
-    SueThirdEnd.getDocument().addDocumentListener(new DocumentListener() {
+              SueSecTotal.getDocument().addDocumentListener(new DocumentListener() {
                            public void changedUpdate(DocumentEvent e) {
-                                SueThirdTotal.setText(CalculateDateTotal(ThirdDate.getText(), SueThirdEnd.getText()));
+                                SueSecEnd.setText(CalculateDateEnd(SueSecDateT.getText(), SueSecTotal.getText()));
                            }
                            public void removeUpdate(DocumentEvent e) {
-                                SueThirdTotal.setText(CalculateDateTotal(ThirdDate.getText(), SueThirdEnd.getText()));
+                                SueSecEnd.setText(CalculateDateEnd(SueSecDateT.getText(), SueSecTotal.getText()));
 
 
                            }
                            public void insertUpdate(DocumentEvent e) {
-                               SueThirdTotal.setText(CalculateDateTotal(ThirdDate.getText(), SueThirdEnd.getText()));
-
+                               SueSecEnd.setText(CalculateDateEnd(SueSecDateT.getText(), SueSecTotal.getText()));
                            }
              }
              );
+//    SueThirdEnd.getDocument().addDocumentListener(new DocumentListener() {
+//                           public void changedUpdate(DocumentEvent e) {
+//                                SueThirdTotal.setText(CalculateDateTotal(ThirdDate.getText(), SueThirdEnd.getText()));
+//                           }
+//                           public void removeUpdate(DocumentEvent e) {
+//                                SueThirdTotal.setText(CalculateDateTotal(ThirdDate.getText(), SueThirdEnd.getText()));
+//
+//
+//                           }
+//                           public void insertUpdate(DocumentEvent e) {
+//                               SueThirdTotal.setText(CalculateDateTotal(ThirdDate.getText(), SueThirdEnd.getText()));
+//
+//                           }
+//             }
+//             );
     }
     public static String ChangFormat(String DateSue){
         String newFormatDate=null;
@@ -1419,33 +1422,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 
 		}
 	}
-      public int CalculateDateExpr(String DateEnd){
-       int diffDays =0;   
-       try{
-     if(DateEnd != null && !"".equals(DateEnd)){
-               Locale lc = new Locale("th","TH");
-           SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy",lc);
-                        SimpleDateFormat  format = new SimpleDateFormat("dd/MM/yyyy",lc);  
-                        String d2Day=dateFormat.format(new Date());
-                        Date dateTo =null;
-                        Date dateArrEnd=null;
-                         dateTo=format.parse(d2Day);
-                          dateArrEnd=format.parse(DateEnd);
-                            long diff = dateArrEnd.getTime() - dateTo.getTime();
-                             diffDays = (int)(diff / (24 * 60 * 60 * 1000)); 
-                             if(diffDays<0){
-                             diffDays=0;
-                             }
-                             System.out.println("Time in Day: " + diffDays + " Days."); 
-     }
-                    
-       }catch(Exception e){
-           e.printStackTrace();
-       
-       }
-          return diffDays;               
-    
-    }
+
         public void comboInvest(){
     
      try {
@@ -1508,95 +1485,6 @@ catch (Exception d) {  //System.out.println(d);
             }
         });
     }
-//     public void DataLastSue(){
-//          try{          
-//        Connection con = ConnectDatabase.connect();
-//        Statement stmt = con.createStatement();
-////        String a=txtCaseNO.getText();
-//      
-//           String sql= "select MAX(ifnull(SueFirst,0),ifnull(suesecond,0),ifnull(SueThird,0),ifnull(SueFourth,0),ifnull(SueFifth,0),ifnull(SueSixth,0),ifnull(SueSeven,0)) SueMax,"
-//                   + "MAX(SueFirstEnd,SueSecEnd,SueThirdEnd,SueFourthEnd,SueFifthEnd,SueSixthEnd,SueSevenEnd) DateEndMax,"
-//                   + "MAX(SueFirstDate,SueSecDate,SueThirdDate,SueFourthDate,SueFifthDate,SueSixthDate,SueSevenDate) DateStartMax"
-//                   + " from person where caseIdPerson='"+caseid+"' and NoPerson='"+person+"'";
-//            ResultSet rs = stmt.executeQuery(sql);
-//          System.out.println("SQL : "+sql);
-//          if(rs.next()){
-//          
-//           NumberImprison.setText(rs.getString("SueMax"));
-//        SueStartLast.setText(rs.getString("DateStartMax"));
-//        SueEndLast.setText(rs.getString("DateEndMax"));
-////              SimpleDateFormat myFormat = new SimpleDateFormat("dd MM yyyy");
-////              String dateStart = rs.getString("SueEnd");
-////                 String dateStop = rs.getString("DateEndMax");
-////               
-////     
-////
-////    Date date1 = myFormat.parse(dateStart);
-////    Date date2 = myFormat.parse(dateStop);
-////    long diff = date2.getTime() - date1.getTime();
-//          }
-//    
-//     
-//        }catch(Exception ex){
-//            ex.printStackTrace();
-//        }
-//    }
-    public String CalculateDateTotal(String DateStart,String DateEnd) {
-
-    String DateTotal="";
-    
-        try{
-            Locale lc = new Locale("th","TH");
-                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-                        Date dateS = sdf.parse(DateStart);
-                        Date dateE=sdf.parse(DateEnd);
-                long diff = dateE.getTime() - dateS.getTime();
-                int diffDays = (int)(diff / (24 * 60 * 60 * 1000));
-                DateTotal=diffDays+"";
-                 System.out.println("DaysTotallllllllll : "+DateTotal);
-            } catch(Exception e){
-                System.out.println(e);
-            }
-           return DateTotal;
-    
-    }
-     public static String Checknull(Object input){
-         String a="";
-        
-		if(input==null||input==""||input=="null") { return ""; } 
-                a=input+"";
-		return a;
-		}
-    
-//    public void DataCase(){
-//          try{          
-//        Connection con = ConnectDatabase.connect();
-//        Statement stmt = con.createStatement();
-////        String a=txtCaseNO.getText();
-//      
-//           String sql= "select CaseId,PeopleRegistrationID,PlaceArrest,ArrestDateTime,crimecasenoyear,AccureandOther,ChargeName,FullNamePerson,PeopleRegistrationID,SueTimes,SueDate,SuePersonId,SueCaseId from Sue\n"+
-//                           "left join Person on Sue.SuePersonId=Person.NoPerson\n"+
-//                           "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId\n"+
-//                          "left join Charge on CrimeCase.ChargeCodeCase=Charge.ChargeCode Where CaseIdPerson='"+caseid+"' and NoPerson='"+person+"'";
-//            ResultSet rs = stmt.executeQuery(sql);
-//          System.out.println("SQL : "+sql);
-//          if(rs.next()){
-//          
-//           crimecaseno.setText(rs.getString("crimecasenoyear"));
-//        PeopleRegistrationID.setText(rs.getString("PeopleRegistrationID"));
-//        AccureandOther.setText(rs.getString("AccureandOther"));
-//        FullNamePerson.setText(rs.getString("FullNamePerson"));
-//        ChargeName.setText(rs.getString("ChargeName"));
-//        PlaceArrest.setText(rs.getString("PlaceArrest"));
-//        DateArrest.setText(rs.getString("ArrestDateTime"));
-//
-//          }
-//    
-//     
-//        }catch(Exception ex){
-//            ex.printStackTrace();
-//        }
-//    }
       
    public void RefreshData(){
       try{
@@ -1659,6 +1547,38 @@ catch (Exception d) {  //System.out.println(d);
             ex.printStackTrace();
         }
     }
+    public String CalculateDateEnd(String DateStart,String DateTotal) {
+
+    String DateEnd="";
+    int totalDate=Integer.parseInt(DateTotal);
+        try{
+            Calendar cal;
+            Locale lc = new Locale("th","TH");
+                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                        Date dateS = sdf.parse(DateStart);
+                        cal=Calendar.getInstance();
+                        cal.setTime(dateS);
+                        cal.add(Calendar.DATE, totalDate);
+                        DateEnd=sdf.format(cal.getTime());
+//                        Date dateE=sdf.parse(DateEnd);
+//                long diff = dateE.getTime() - dateS.getTime();
+//                int diffDays = (int)(diff / (24 * 60 * 60 * 1000));
+//                DateTotal=diffDays+"";
+//                 System.out.println("DaysTotallllllllll : "+DateTotal);
+            } catch(Exception e){
+                System.out.println(e);
+            }
+           return DateEnd;
+    
+    }
+     public static String Checknull(Object input){
+         String a="";
+        
+		if(input==null||input==""||input=="null") { return ""; } 
+                a=input+"";
+		return a;
+		}
+    
      public static String ChangFormatSQL(String DateSue){
         String newFormatDate=null;
        try{   Calendar cal;
@@ -1680,17 +1600,95 @@ catch (Exception d) {  //System.out.println(d);
     return newFormatDate;
     
     }
+      public String CalculateDateNextTimes(String DateEnd) {
+
+    String DateNextTime="";
+//    int totalDate=Integer.parseInt(DateTotal);
+        try{
+            Calendar cal;
+            Locale lc = new Locale("th","TH");
+                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                        Date dateS = sdf.parse(DateEnd);
+                        CalculateDateExpr(DateEnd);
+                        if(CalculateDateExpr(DateEnd)<=0){
+                        cal=Calendar.getInstance();
+                        cal.setTime(dateS);
+                        cal.add(Calendar.DATE, 1);
+                        DateNextTime=sdf.format(cal.getTime());}                   
+//                        Date dateE=sdf.parse(DateEnd);
+//                long diff = dateE.getTime() - dateS.getTime();
+//                int diffDays = (int)(diff / (24 * 60 * 60 * 1000));
+//                DateTotal=diffDays+"";
+//                 System.out.println("DaysTotallllllllll : "+DateTotal);
+            } catch(Exception e){
+                System.out.println(e);
+            }
+           return DateNextTime;
+    
+    }
+            public int CalculateDateExpr(String DateEnd){
+       int diffDays =0;   
+       try{
+     if(DateEnd != null && !"".equals(DateEnd)){
+               Locale lc = new Locale("th","TH");
+           SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy",lc);
+                        SimpleDateFormat  format = new SimpleDateFormat("dd/MM/yyyy",lc);  
+                        String d2Day=dateFormat.format(new Date());
+                        Date dateTo =null;
+                        Date dateArrEnd=null;
+                         dateTo=format.parse(d2Day);
+                          dateArrEnd=format.parse(DateEnd);
+                            long diff = dateArrEnd.getTime() - dateTo.getTime();
+                             diffDays = (int)(diff / (24 * 60 * 60 * 1000)); 
+                             if(diffDays<0){
+                             diffDays=0;
+                             }
+                             System.out.println("Time in Day: " + diffDays + " Days."); 
+     }
+                    
+       }catch(Exception e){
+           e.printStackTrace();
+       
+       }
+          return diffDays;               
+    
+    }
+  public String CalculateDateExpir(String DateEnd) {
+
+    String DateNextTime="";
+//    int totalDate=Integer.parseInt(DateTotal);
+        try{
+            Calendar cal;
+            Locale lc = new Locale("th","TH");
+                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                        Date dateS = sdf.parse(DateEnd);
+                        cal=Calendar.getInstance();
+                        cal.setTime(dateS);
+                        cal.add(Calendar.DATE, 1);
+                        DateNextTime=sdf.format(cal.getTime());
+//                        Date dateE=sdf.parse(DateEnd);
+//                long diff = dateE.getTime() - dateS.getTime();
+//                int diffDays = (int)(diff / (24 * 60 * 60 * 1000));
+//                DateTotal=diffDays+"";
+//                 System.out.println("DaysTotallllllllll : "+DateTotal);
+            } catch(Exception e){
+                System.out.println(e);
+            }
+           return DateNextTime;
+    
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AccureandOther;
     private javax.swing.JTextField ArrestDateTimeEnd;
     private javax.swing.JTextField ChargeName;
+    private javax.swing.JLabel CourtSuspect;
     private javax.swing.JTextField DateArrest;
     private javax.swing.JTextField FifthDate;
     private javax.swing.JTextField FourthDate;
     private javax.swing.JTextField FullNamePerson;
     private javax.swing.JTextField NumberImprison;
-    private javax.swing.JTextField PeopleRegistrationID;
+    private javax.swing.JLabel PeopleRegistrationID;
     private javax.swing.JTextField PlaceArrest;
     private javax.swing.JButton Print1;
     private javax.swing.JButton Print2;

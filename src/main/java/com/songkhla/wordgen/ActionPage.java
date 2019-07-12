@@ -48,6 +48,8 @@ public class ActionPage extends javax.swing.JDialog {
             ActionCrimes.setText(datain.get("ActionCrimes")+"");
              ActionDetail.setText(datain.get("ActionDetail")+"");
               ActionNote.setText(datain.get("ActionNote")+"");
+               AnswerAccuser.setText(datain.get("AnswerAccuser")+"");
+              AnswerSuspect.setText(datain.get("AnswerSuspect")+"");
              }
     }
 
@@ -75,6 +77,12 @@ public class ActionPage extends javax.swing.JDialog {
         jScrollPane2 = new javax.swing.JScrollPane();
         ActionNote = new javax.swing.JTextArea();
         ActionCode = new javax.swing.JTextField();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        AnswerAccuser = new javax.swing.JTextArea();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        AnswerSuspect = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("ข้อมูลข้อหา");
@@ -86,15 +94,16 @@ public class ActionPage extends javax.swing.JDialog {
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(46, 156, 202));
+        jPanel1.setPreferredSize(new java.awt.Dimension(744, 720));
 
         jLabel6.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 36)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 30)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("พฤติการณ์คดี");
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel3.setText("หมายเหตุ");
 
         ActionDetail.setColumns(10);
@@ -103,15 +112,15 @@ public class ActionPage extends javax.swing.JDialog {
         ActionDetail.setRows(3);
         jScrollPane4.setViewportView(ActionDetail);
 
-        jLabel2.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel2.setText("รายละเอียดพฤติการณ์คดี");
 
         ActionCrimes.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel4.setText("พฤติการณ์คดี");
 
-        jLabel5.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel5.setText("รหัสพฤติการณ์");
 
         ButtonAddAction.setBackground(java.awt.SystemColor.windowText);
@@ -141,6 +150,20 @@ public class ActionPage extends javax.swing.JDialog {
         ActionNote.setRows(3);
         jScrollPane2.setViewportView(ActionNote);
 
+        AnswerAccuser.setColumns(20);
+        AnswerAccuser.setRows(5);
+        jScrollPane5.setViewportView(AnswerAccuser);
+
+        jLabel21.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel21.setText("คำให้การผู้กล่าวหา/พยาน");
+
+        jLabel20.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel20.setText("คำให้การผู้ต้องหา");
+
+        AnswerSuspect.setColumns(20);
+        AnswerSuspect.setRows(5);
+        jScrollPane6.setViewportView(AnswerSuspect);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -148,11 +171,13 @@ public class ActionPage extends javax.swing.JDialog {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane4)
+                    .addComponent(jLabel20)
                     .addComponent(jLabel3)
+                    .addComponent(jLabel21)
+                    .addComponent(ButtonAddAction)
+                    .addComponent(jScrollPane4)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(ButtonAddAction, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel2)
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -165,32 +190,44 @@ public class ActionPage extends javax.swing.JDialog {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(ActionCode, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGap(18, 18, 18)
-                            .addComponent(jButton2))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jButton2)))
+                    .addComponent(jScrollPane5)
+                    .addComponent(jScrollPane6))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
-                    .addComponent(ActionCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(ActionCode, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(ActionCrimes)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(1, 1, 1)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel21)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ButtonAddAction, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(238, 238, 238))
+                .addGap(47, 47, 47))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -200,20 +237,19 @@ public class ActionPage extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 412, Short.MAX_VALUE))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(183, 183, 183))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -224,7 +260,7 @@ public class ActionPage extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE)
         );
 
         pack();
@@ -232,7 +268,7 @@ public class ActionPage extends javax.swing.JDialog {
 
     private void ButtonAddActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAddActionActionPerformed
         // TODO add your handling code here: 
-        String intAc="INSERT into ActionsCase(ActionCode,ActionCrimes,ActionDetail,ActionNote) values(?,?,?,?) ";
+        String intAc="INSERT into ActionsCase(ActionCode,ActionCrimes,ActionDetail,ActionNote,AnswerAccuser,AnswerSuspect) values(?,?,?,?,?,?) ";
 //          String intCr="insert into CrimesCase(AnswerSuspect,AnswerAccuse) values(?,?) ";
         try {
            
@@ -241,7 +277,8 @@ public class ActionPage extends javax.swing.JDialog {
            pst.setString(2, ActionCrimes.getText());
            pst.setString(3, ActionDetail.getText());
            pst.setString(4, ActionNote.getText());
-            
+           pst.setString(3, AnswerAccuser.getText());
+           pst.setString(4, AnswerSuspect.getText()); 
           
             int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
         JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
@@ -314,9 +351,13 @@ public class ActionPage extends javax.swing.JDialog {
     public static javax.swing.JTextField ActionCrimes;
     public static javax.swing.JTextArea ActionDetail;
     public static javax.swing.JTextArea ActionNote;
+    private javax.swing.JTextArea AnswerAccuser;
+    private javax.swing.JTextArea AnswerSuspect;
     private javax.swing.JButton ButtonAddAction;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -325,5 +366,7 @@ public class ActionPage extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     // End of variables declaration//GEN-END:variables
 }

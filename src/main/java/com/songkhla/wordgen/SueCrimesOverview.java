@@ -89,6 +89,10 @@ public class SueCrimesOverview extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableSue = new javax.swing.JTable();
         jButtonAddSue = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -166,7 +170,7 @@ public class SueCrimesOverview extends javax.swing.JFrame {
         jTableSue.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTableSue);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 1158, 269));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 1158, 269));
 
         jButtonAddSue.setText("เปิด");
         jButtonAddSue.addActionListener(new java.awt.event.ActionListener() {
@@ -174,7 +178,41 @@ public class SueCrimesOverview extends javax.swing.JFrame {
                 jButtonAddSueActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonAddSue, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 80, 30));
+        jPanel1.add(jButtonAddSue, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 80, 30));
+
+        jLabel2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel2.setText("วันที่");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 80, -1, -1));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 170, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 80, 170, 30));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 170, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 80, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel3.setText("วันที่");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 80, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -218,6 +256,8 @@ public class SueCrimesOverview extends javax.swing.JFrame {
                      data.put("PlaceArrest", rs.getString("PlaceArrest"));
                       data.put("ArrestDateTime", rs.getString("ArrestDateTime")); 
                     data.put("ArrestDateTimeEnd", rs.getString("ArrestDateTimeEnd"));                    
+                    data.put("StatusBail", rs.getString("StatusBail"));                    
+                    data.put("CourtSuspect", rs.getString("CourtSuspect"));                    
 
                     data.put("SueFirst", rs.getString("SueFirst"));
                     data.put("SueFirstDate", rs.getString("SueFirstDate"));
@@ -344,7 +384,7 @@ public class SueCrimesOverview extends javax.swing.JFrame {
 //        String a=txtCaseNO.getText();
         String sql;
                 sql=    "select crimecasenoyear,StatusSuspect,CaseIdPerson,CaseId,SueFirstDate,SueSecDate,SueThirdDate,SueFourthDate,SueFifthDate,SueSixthDate,SueSevenDate,FullNamePerson from Person\n"+
-                        "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId where StatusSuspect='ผัดฟ้องฝากขัง'"+getFilterCondition();
+                        "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId where StatusSuspect='ผัดฟ้องฝากขัง' or StatusSuspect='ผัดฟ้อง'"+getFilterCondition();
                         
                 
         ResultSet rs = stmt.executeQuery(sql);
@@ -355,6 +395,7 @@ public class SueCrimesOverview extends javax.swing.JFrame {
             Vector<String> row = new Vector<String>();
             row.add(rs.getString("crimecasenoyear"));
             row.add(rs.getString("FullNamePerson"));
+            row.add(rs.getString("StatusSuspect"));
             row.add(ChangFormat(rs.getString("SueFirstDate")));
             row.add(ChangFormat(rs.getString("SueSecDate")));
             row.add(ChangFormat(rs.getString("SueThirdDate")));
@@ -375,7 +416,8 @@ public class SueCrimesOverview extends javax.swing.JFrame {
         Vector ColumnName = new Vector(); 
     
          ColumnName.add("เลขคดี");
-         ColumnName.add("ผู้ต้องหา");    
+         ColumnName.add("ผู้ต้องหา");
+         ColumnName.add("สถานะ");
          ColumnName.add("ครั้งที่ 1");         
          ColumnName.add("ครั้งที่ 2");
          ColumnName.add("ครั้งที่ 3");
@@ -456,8 +498,12 @@ public class SueCrimesOverview extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAddSue;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableSue;
     // End of variables declaration//GEN-END:variables

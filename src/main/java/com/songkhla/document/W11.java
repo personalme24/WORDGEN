@@ -163,7 +163,7 @@ public class W11 {
                     ++OrderAsset ;
                    
 			JSONArray tablecolumn = new JSONArray();
-			tablecolumn.add("AS1");
+//			tablecolumn.add("AS1");
 			tablecolumn.add("AS3");
                         tablecolumn.add("AS4");
 			tablecolumn.add("AS5");
@@ -171,12 +171,14 @@ public class W11 {
 			tablecolumn.add("AS8");
                         tablecolumn.add("AS9");
 			tablecolumn.add("AS10");
-                        tablecolumn.add("AS331");
-			tablecolumn.add("AS661");
+//                        tablecolumn.add("AS331");
+//			tablecolumn.add("AS661");
 
 			JSONArray table1 = new JSONArray();
-			JSONObject row1 = new JSONObject();
-			row1.put("AS1",Checknull(VarAS1));
+                        JSONObject row1 = new JSONObject();
+                       
+			
+//			row1.put("AS1",Checknull(VarAS1));
 			row1.put("AS3",Checknull(VarAS3));
                         row1.put("AS4",Checknull(VarAS4));
                         row1.put("AS5",Checknull(VarAS5));
@@ -184,8 +186,8 @@ public class W11 {
                         row1.put("AS8", Checknull(VarAS8));
                         row1.put("AS9", Checknull(VarAS9));
                         row1.put("AS10",Checknull(VarAS10));
-                        row1.put("AS331",Checknull(Integer.toString(OrderAsset)));
-                        row1.put("AS661",Checknull(Integer.toString(SumValue)));
+//                        row1.put("AS331",Checknull(Integer.toString(OrderAsset)));
+//                        row1.put("AS661",Checknull(Integer.toString(SumValue)));
                         
 //			row1.put("SUSPECT", "period1");
 //			row1.put("VICTIM", "period1");
@@ -196,7 +198,9 @@ public class W11 {
                             {
                                SumValue = SumValue+s.getInt("Value");
                                   } 
-    
+
+//			row1.put("AS1",Checknull(VarAS1));
+
 			
 //			JSONObject repl2 = new JSONObject();
 //			repl2.put("CRIMESNO", "function1");
@@ -204,7 +208,7 @@ public class W11 {
 //			repl2.put("SUSPECT", "period1");
 //			repl2.put("VICTIM", "period1");
 //			repl2.put("REMARK", "period1");
-//			table1.add(repl2);
+
 		JSONObject tableobj = new JSONObject();
 		tableobj.put("COLUMNS", tablecolumn);
 		tableobj.put("TABLEDATA", table1);

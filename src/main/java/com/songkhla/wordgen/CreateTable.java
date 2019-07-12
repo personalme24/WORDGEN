@@ -116,6 +116,8 @@ public class CreateTable {
                 "	ArrestDateTime	VARCHAR(100)	,	\n"+
                 "	ArrestDateTimeEnd	VARCHAR(100)	,	\n"+                   
                 "	StatusSueAndPutInJail	VARCHAR(100)	,	\n"+
+                "	StatusBail	VARCHAR(100)	,	\n"+
+                "	RatePrison	VARCHAR(100)	,	\n"+                        
                 "	NumberImprison	VARCHAR(100)	,	\n"+
                 "	SinceImprison	VARCHAR(100)	,	\n"+
                 "	SinceImprisonTime	VARCHAR(100)	,	\n"+
@@ -130,8 +132,6 @@ public class CreateTable {
                 "	Soi     	VARCHAR(100)	,	\n"+  
                 "	SueLastEndDate	VARCHAR(100)	,	\n"+  
                 "	CourtSuspect	VARCHAR(100)	,	\n"+    
-                "	Test1	VARCHAR(100)	,	\n"+    
-                "	Test2	VARCHAR(100)	,	\n"+ 
                 "	SueFirst	VARCHAR(100)	,	\n"+
                 "	SueFirstDate	DateTime	,	\n"+
                 "	SueFirstStart	DateTime	,	\n"+
@@ -221,8 +221,6 @@ public class CreateTable {
                         "	BlackCaseYear	VARCHAR(100)	,	\n"+
                         "	RedCaseNo	VARCHAR(100)	,	\n"+
                         "	RedCaseYear	VARCHAR(100)	,	\n"+
-                        "	AnswerSuspect	VARCHAR(100)	,	\n"+
-                        "	AnswerAccuser   	VARCHAR(100)	,	\n"+
                         "	Investigator_Result	VARCHAR(100)	,	\n"+
                         "	Invest_SendtoDepartment	VARCHAR(100)	,	\n"+
                         "	Investigator_Number	VARCHAR(100)	,	\n"+
@@ -320,7 +318,9 @@ public class CreateTable {
                     "	ActionCode	VARCHAR(100)	Primary Key,	\n"+
                     "	ActionCrimes	VARCHAR(100)	,	\n"+
                     "	ActionDetail	VARCHAR(100)	,	\n"+
-                    "	ActionNote	VARCHAR(100)		\n"+
+                        "	AnswerSuspect	VARCHAR(100)	,	\n"+
+                        "	AnswerAccuser   	VARCHAR(100)	,	\n"+                    
+                    "	ActionNote	VARCHAR(100) 		\n"+
                     "	);";    
             String sqlRecord ="CREATE TABLE IF NOT EXISTS RecordInquiry (\n"+
                     "	IdRecord	INTEGER	Primary Key AUTOINCREMENT,	\n"+
@@ -364,7 +364,7 @@ public class CreateTable {
                             "	BailCaseId	INTEGER	,	\n"+
                             "	BailPersonId	INTEGER		\n"+
                     "	);";
-//             String sqlBail ="CREATE TABLE IF NOT EXISTS Bail (\n"+
+//             String sqlDayOff ="CREATE TABLE IF NOT EXISTS Bail (\n"+
 //                              "	BailAssetId	INTEGER	Primary Key AUTOINCREMENT,	\n"+
 //                                "	BailAssetOrder	INTEGER	,	\n"+
 //                                "	BailAssetDetail	VARCHAR(100)	,	\n"+

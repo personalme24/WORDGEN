@@ -25,12 +25,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+          <Component id="jPanel1" alignment="0" pref="1225" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" pref="704" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="0" pref="737" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -48,7 +48,6 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jPanel3" alignment="0" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
@@ -118,6 +117,7 @@
                   <Component id="BtSaveAccused" min="-2" pref="108" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
               </Group>
+              <Component id="jPanel3" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -254,27 +254,6 @@
                                       <Component id="CourtSuspect" min="-2" pref="105" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                      <Component id="jPanelIssueDate" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                              <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="FullNamePersonEn" pref="241" max="32767" attributes="0"/>
-                                          <Component id="jPanelExpiredDate" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -292,14 +271,39 @@
                                           <Component id="OtherName" min="-2" pref="175" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="jPanelIssueDate" max="32767" attributes="0"/>
+                                          <Component id="PeopleRegistrationID" pref="175" max="32767" attributes="0"/>
+                                      </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="PeopleRegistrationID" min="-2" pref="234" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                              <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="FullNamePerson" min="-2" pref="236" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="FullNamePerson" max="32767" attributes="0"/>
+                                          <Component id="FullNamePersonEn" pref="241" max="32767" attributes="0"/>
+                                          <Component id="jPanelExpiredDate" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -372,15 +376,15 @@
                   <Group type="102" attributes="0">
                       <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="CourtSuspect" alignment="1" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel37" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                               <Component id="jRadioUnknowSuspect" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jRadioKnowSuspect" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="CourtSuspect" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -840,7 +844,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="201" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -937,7 +941,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="195" max="-2" attributes="0"/>
-                          <Component id="jLabel28" pref="138" max="32767" attributes="0"/>
+                          <Component id="jLabel28" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="174" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -976,83 +980,86 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
-                                  <Component id="jRadioSue" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                  <Component id="jRadioBail" min="-2" pref="105" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                  <Component id="jRadioResultImprison" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                  <Component id="jRadioResultRelease" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
-                                  <Component id="jRadioCantCatch" min="-2" pref="101" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                  <Component id="jRadioVerbal" min="-2" pref="101" max="-2" attributes="0"/>
-                                  <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
-                                  <Component id="jRadioRestore" min="-2" pref="129" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
-                                  <Component id="jRadioCatch" min="-2" pref="101" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                  <Component id="jRadioOther" min="-2" pref="105" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jButtonSue2" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jButtonInsu2" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                      <Component id="jLabelArrestPlace" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                                      <Component id="PlaceArrest" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jLabelArrestEnd" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="ArrestDateTimeEnd" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabelArrestEnd" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabelArrestDate" alignment="0" min="-2" pref="86" max="-2" attributes="0"/>
                                           </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="jLabelArrestDate" min="-2" pref="86" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                                              <Component id="jPanelDateArrest" min="-2" max="-2" attributes="0"/>
-                                          </Group>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                      <Component id="jLabelArrTime" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jSpinnerArrTime" min="-2" pref="94" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabelArrestPlace" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="jPanelDateArrest" max="32767" attributes="0"/>
+                                              <Component id="ArrestDateTimeEnd" pref="211" max="32767" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                          <Component id="jLabelArrTime" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="jSpinnerArrTime" min="-2" pref="94" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="PlaceArrest" alignment="0" min="-2" pref="362" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabelRestoreDate" max="32767" attributes="0"/>
-                                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="jLabelBailDate" min="-2" pref="72" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jLabelRestoreDate" min="-2" pref="86" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="jLabelBailDate" max="32767" attributes="0"/>
+                                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jPanelRestoreDate" max="32767" attributes="0"/>
+                                      <Component id="jPanelBailDate" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="105" pref="105" max="-2" attributes="0"/>
+                                  <Component id="jCheckBail" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="RatePrison" min="-2" pref="91" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jLabel35" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jPanelBailDate" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jPanelRestoreDate" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioCantCatch" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                                      <Component id="jRadioSue" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioCatch" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jRadioOther" min="-2" pref="105" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jRadioResultImprison" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jRadioVerbal" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jRadioRestore" min="-2" pref="129" max="-2" attributes="0"/>
+                                              <Component id="jRadioResultRelease" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="75" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1060,29 +1067,41 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jRadioSue" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioBail" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioResultImprison" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioResultRelease" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jRadioSue" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioResultImprison" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioResultRelease" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jRadioCantCatch" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioVerbal" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioRestore" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jRadioVerbal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jRadioRestore" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jRadioCatch" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioOther" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jRadioCatch" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioOther" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jButtonSue2" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButtonInsu2" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jCheckBail" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel35" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RatePrison" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace pref="11" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabelArrestPlace" min="-2" max="-2" attributes="0"/>
                               <Component id="PlaceArrest" min="-2" pref="29" max="-2" attributes="0"/>
@@ -1091,27 +1110,32 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabelArrestDate" min="-2" pref="30" max="-2" attributes="0"/>
                               <Component id="jPanelDateArrest" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                   <Component id="jLabelArrTime" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="jSpinnerArrTime" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jLabelArrestEnd" pref="30" max="32767" attributes="0"/>
-                              <Component id="ArrestDateTimeEnd" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="ArrestDateTimeEnd" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="jLabelArrestEnd" alignment="3" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabelRestoreDate" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                               <Component id="jPanelRestoreDate" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jPanelBailDate" max="32767" attributes="0"/>
-                              <Component id="jLabelBailDate" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                                  <Component id="jPanelBailDate" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabelBailDate" min="-2" pref="32" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace pref="14" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1170,17 +1194,6 @@
                       <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="&#xe1c;&#xe31;&#xe14;&#xe1f;&#xe49;&#xe2d;&#xe07;&#xe1d;&#xe32;&#xe01;&#xe02;&#xe31;&#xe07;"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioBail">
-                  <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="22" style="1"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="&#xe1b;&#xe23;&#xe30;&#xe01;&#xe31;&#xe19;"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="jRadioResultImprison">
@@ -1242,84 +1255,6 @@
                     <Property name="text" type="java.lang.String" value="&#xe27;&#xe31;&#xe19;&#xe17;&#xe35;&#xe48;&#xe2a;&#xe48;&#xe07;&#xe1f;&#xe37;&#xe49;&#xe19;&#xe1f;&#xe39;"/>
                   </Properties>
                 </Component>
-                <Container class="javax.swing.JPanel" name="jButtonSue2">
-                  <Properties>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
-                        <BevelBorder/>
-                      </Border>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonSue2MouseClicked"/>
-                  </Events>
-
-                  <Layout>
-                    <DimensionLayout dim="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="18" max="32767" attributes="0"/>
-                              <Component id="jLabel36" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
-                    <DimensionLayout dim="1">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel36" alignment="1" pref="32" max="32767" attributes="0"/>
-                      </Group>
-                    </DimensionLayout>
-                  </Layout>
-                  <SubComponents>
-                    <Component class="javax.swing.JLabel" name="jLabel36">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="TH SarabunPSK" size="18" style="1"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="&#xe1c;&#xe31;&#xe14;&#xe1f;&#xe49;&#xe2d;&#xe07;&#xe1d;&#xe32;&#xe01;&#xe02;&#xe31;&#xe07;"/>
-                      </Properties>
-                    </Component>
-                  </SubComponents>
-                </Container>
-                <Container class="javax.swing.JPanel" name="jButtonInsu2">
-                  <Properties>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
-                        <BevelBorder/>
-                      </Border>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonInsu2MouseClicked"/>
-                  </Events>
-
-                  <Layout>
-                    <DimensionLayout dim="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                              <Component id="jLabel38" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="18" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
-                    <DimensionLayout dim="1">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel38" alignment="1" pref="32" max="32767" attributes="0"/>
-                      </Group>
-                    </DimensionLayout>
-                  </Layout>
-                  <SubComponents>
-                    <Component class="javax.swing.JLabel" name="jLabel38">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="TH SarabunPSK" size="18" style="1"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="&#xe1b;&#xe23;&#xe30;&#xe01;&#xe31;&#xe19;"/>
-                      </Properties>
-                    </Component>
-                  </SubComponents>
-                </Container>
                 <Container class="javax.swing.JPanel" name="jPanelDateArrest">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -1330,7 +1265,7 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="220" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
@@ -1365,7 +1300,7 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="227" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="212" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
@@ -1380,12 +1315,12 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="241" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="32" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                   </Layout>
@@ -1410,6 +1345,54 @@
                   <Properties>
                     <Property name="editable" type="boolean" value="false"/>
                   </Properties>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="jCheckBail">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="&#xe1b;&#xe23;&#xe30;&#xe01;&#xe31;&#xe19;"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel3">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="&#xe2a;&#xe16;&#xe32;&#xe19;&#xe30;&#xe1b;&#xe23;&#xe30;&#xe01;&#xe31;&#xe19;"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel19">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="&#xe2d;&#xe31;&#xe15;&#xe23;&#xe32;&#xe42;&#xe17;&#xe29;&#xe08;&#xe33;&#xe04;&#xe38;&#xe01;"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel35">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="10 &#xe1b;&#xe35;"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="RatePrison">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
+                    </Property>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="2">
+                        <StringItem index="0" value="&#xe19;&#xe49;&#xe2d;&#xe22;&#xe01;&#xe27;&#xe48;&#xe32;"/>
+                        <StringItem index="1" value="&#xe21;&#xe32;&#xe01;&#xe01;&#xe27;&#xe48;&#xe32;"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>

@@ -303,8 +303,6 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
                       data.put("OccuredDate", rs.getString("OccuredDate"));
                      data.put("OccuredTime", rs.getString("OccuredTime"));
                      data.put("StatusKnowSuspect", rs.getString("StatusKnowSuspect"));  
-                      data.put("AnswerAccuser", rs.getString("AnswerAccuser"));
-                        data.put("AnswerSuspect", rs.getString("AnswerSuspect"));
                         data.put("Invest_SendtoDepartment", rs.getString("Invest_SendtoDepartment"));     
                         
                       data.put("Investigator_Number", rs.getString("Investigator_Number"));
