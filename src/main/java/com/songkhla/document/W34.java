@@ -127,7 +127,7 @@ public class W34 {
                 bookmarkvalue.put("C001",Checknull(Year));
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3",Checknull(ccYear));
-                bookmarkvalue.put("S2",Checknull(PoliceStationName));
+                bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
                  
                 
                      //ทรัพย์
@@ -201,7 +201,7 @@ public class W34 {
 					.load(new java.io.File("D:/TEMPLATE/w34.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/คดีอาญา"+cs+"-"+ccYear+"/บัญชีทรัพย์ประกอบบันทึกการตรวจค้น.doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/คดีอาญา"+cs+"-"+ccYear+"/บัญชีทรัพย์ประกอบบันทึกการตรวจค้น"+cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
