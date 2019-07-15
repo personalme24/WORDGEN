@@ -132,7 +132,7 @@ public class W4 {
                 bookmarkvalue.put("C001",Checknull(Year));
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3", Checknull(ccYear));
-                 bookmarkvalue.put("S2",Checknull(PoliceStationName));
+                 bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
                   bookmarkvalue.put("S27",Checknull(ProvincProsecutor));
                   bookmarkvalue.put("S29",Checknull(THNumBook));
                    bookmarkvalue.put("S10",Checknull(TelStation));
@@ -194,7 +194,7 @@ public class W4 {
 					.load(new java.io.File("D:/TEMPLATE/w4.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/คดีอาญา"+cs+"-"+ccYear+"/หนังสือส่งสำนวนคดีสั่งฟ้องหรือไม่สั่งฟ้อง.doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/คดีอาญา"+cs+"-"+ccYear+"/หนังสือส่งสำนวนคดีสั่งฟ้องหรือสั่งไม่ฟ้อง"+cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
