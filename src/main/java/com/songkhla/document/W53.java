@@ -127,7 +127,7 @@ public class W53 {
                 bookmarkvalue.put("C6", Checknull(ToDate(s.getString("CaseRequestDate"))));
                 bookmarkvalue.put("C15", Checknull(s.getString("DailyNumber")));
                 
-                bookmarkvalue.put("S2",Checknull(PoliceStationName));
+                bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
                 bookmarkvalue.put("S11", Checknull(PhonePolice));
                 bookmarkvalue.put("S29", Checknull(THNumBook));
                 bookmarkvalue.put("S12",Checknull(Fax));
@@ -179,7 +179,7 @@ public class W53 {
 					.load(new java.io.File("D:/TEMPLATE/w53.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/คดีอาญา"+cs+"-"+ccYear+"/หนังสือแจ้งความคืบหน้าคดีอาญา.doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/คดีอาญา"+cs+"-"+ccYear+"/หนังสือแจ้งความคืบหน้าคดีอาญา"+cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
