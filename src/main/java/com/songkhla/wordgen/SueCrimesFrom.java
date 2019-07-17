@@ -64,7 +64,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
     DataCase dc =new DataCase();
     String person;
     String caseid;
-    String dateF,dateTot;
+    String dateF,dateTot,Court,StatusBail,RatePrison;
 //    JDatePickerImpl SueSecDate,SueThirdDate,SueFourthDate,SueFifthDate,SueSixthDate,SueSevDate;
     /**
      * Creates new form SueCrimesFrom
@@ -110,6 +110,10 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         if(datain != null){
             
          try{
+             Court=datain.get("CourtSuspect")+"";
+             StatusBail=datain.get("StatusBail")+"";
+             RatePrison=datain.get("RatePrison")+"";
+             Block();
             crimecaseno.setText(datain.get("crimecasenoyear")+"");
             PeopleRegistrationID.setText(datain.get("PeopleRegistrationID")+"");
             AccureandOther.setText(datain.get("AccureandOther")+"");
@@ -177,9 +181,10 @@ public class SueCrimesFrom extends javax.swing.JDialog {
          catch(Exception e)
          {e.printStackTrace();}
         } 
+     
        DateTotal();
-          
-        RefreshData(); 
+       RefreshData(); 
+       
    
     }
     
@@ -422,9 +427,9 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(17, 17, 17)
                                 .addComponent(PeopleRegistrationID)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(CourtSuspect)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                .addGap(97, 97, 97))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -906,15 +911,15 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                                 .addComponent(Print2))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(SueFifthCause, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(9, 9, 9)
+                                .addGap(11, 11, 11)
                                 .addComponent(Print5))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(SueSixthCause, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(9, 9, 9)
+                                .addGap(11, 11, 11)
                                 .addComponent(Print6))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(SueSevCause, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(9, 9, 9)
+                                .addGap(11, 11, 11)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(Print7)
                                     .addComponent(Print8)))
@@ -1000,7 +1005,9 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                                 .addComponent(SueFifthTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGap(4, 4, 4)
-                                .addComponent(SueFifthRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(SueFifthRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(SueFifthCause, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(6, 6, 6)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(SueSixth, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1015,7 +1022,9 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                                 .addComponent(SueSixthTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGap(4, 4, 4)
-                                .addComponent(SueSixthRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(SueSixthRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(SueSixthCause, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(10, 10, 10)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1023,7 +1032,9 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                                 .addComponent(SueSeventh, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(SueSevenEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(SueSevenTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SueSevRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(SueSevRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(SueSevCause, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(SueFirstCause, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1041,16 +1052,11 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                             .addComponent(SueFourthCause, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Print4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(10, 10, 10)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(SueFifthCause, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Print5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Print5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(Print6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(SueSixthCause, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Print6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(SueSevCause, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Print7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Print8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
@@ -1101,7 +1107,10 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1114,7 +1123,102 @@ public class SueCrimesFrom extends javax.swing.JDialog {
     private void SueSecEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueSecEndActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SueSecEndActionPerformed
-  
+   public void Block(){
+       if(Court.equals("ศาลแขวง")&&StatusBail.equals("ประกัน"))
+       {
+       SueSeventh.setEnabled(false);
+       SevDate.setEnabled(false);
+       SueSevenEnd.setEnabled(false);
+       SueSevenTotal.setEnabled(false);
+       SueSevRequest.setEnabled(false);
+       SueSevCause.setEnabled(false);
+       Print7.setEnabled(false);
+        SueSixth.setEnabled(false);
+       SixthDate.setEnabled(false);
+       SueSixthEnd.setEnabled(false);
+       SueSixthTotal.setEnabled(false);
+       SueSixthRequest.setEnabled(false);
+       SueSixthCause.setEnabled(false);
+       Print6.setEnabled(false);
+       }
+        if(Court.equals("ศาลแขวง"))
+       {
+       SueSeventh.setEnabled(false);
+       SevDate.setEnabled(false);
+       SueSevenEnd.setEnabled(false);
+       SueSevenTotal.setEnabled(false);
+       SueSevRequest.setEnabled(false);
+       SueSevCause.setEnabled(false);
+       Print7.setEnabled(false);
+        SueSixth.setEnabled(false);
+       SixthDate.setEnabled(false);
+       SueSixthEnd.setEnabled(false);
+       SueSixthTotal.setEnabled(false);
+       SueSixthRequest.setEnabled(false);
+       SueSixthCause.setEnabled(false);
+       Print6.setEnabled(false);
+       }
+        if(Court.equals("ศาลอาญา")&&RatePrison.equals("น้อยกว่า"))
+       {
+       SueSeventh.setEnabled(false);
+       SevDate.setEnabled(false);
+       SueSevenEnd.setEnabled(false);
+       SueSevenTotal.setEnabled(false);
+       SueSevRequest.setEnabled(false);
+       SueSevCause.setEnabled(false);
+       Print7.setEnabled(false);
+       SueSixth.setEnabled(false);
+       SixthDate.setEnabled(false);
+       SueSixthEnd.setEnabled(false);
+       SueSixthTotal.setEnabled(false);
+       SueSixthRequest.setEnabled(false);
+       SueSixthCause.setEnabled(false);
+       Print6.setEnabled(false);
+          SueFifth.setEnabled(false);
+       FifthDate.setEnabled(false);
+       SueFifthEnd.setEnabled(false);
+       SueFifthTotal.setEnabled(false);
+       SueFifthRequest.setEnabled(false);
+       SueFifthCause.setEnabled(false);
+       Print5.setEnabled(false);
+       }
+ 
+//   try{
+//     Connection con = ConnectDatabase.connect();
+//        Statement stmt = con.createStatement();
+////        String a=txtCaseNO.getText();
+//        String sql;
+//                sql= "select SueTimes,SueDate,SueStart,SueEnd,SueTotal,\n"+ 
+//                    "SueCause,SueRequest from Sue Where SuePersonId='"+person+"' and SueCaseId='"+caseid+"'";
+//            ResultSet rs = stmt.executeQuery(sql);}
+//   catch(Exception e){}
+       
+   }
+   public void CheckDateTotal(String DateTotal){
+       int totaldate=Integer.parseInt(DateTotal);
+       if(Court.equals("ศาลแขวง")&&StatusBail.equals("ประกัน")){      
+           if(totaldate>6){
+            JOptionPane.showMessageDialog(jPanel1,"แจ้งเตือน", "ไม่เกิน 6 วัน", JOptionPane.INFORMATION_MESSAGE); 
+           }      
+       }
+          if(Court.equals("ศาลแขวง")){      
+           if(totaldate>6){
+            JOptionPane.showMessageDialog(jPanel1,"แจ้งเตือน", "ไม่เกิน 6 วัน", JOptionPane.INFORMATION_MESSAGE); 
+           }      
+       }
+            if(Court.equals("ศาลอาญา")&&RatePrison.equals("มากกว่า")){      
+           if(totaldate>12){
+            JOptionPane.showMessageDialog(jPanel1,"แจ้งเตือน", "ไม่เกิน 12 วัน", JOptionPane.INFORMATION_MESSAGE); 
+           }      
+       }
+           if(Court.equals("ศาลอาญา")&&RatePrison.equals("น้อยกว่า")){      
+           if(totaldate>12){
+            JOptionPane.showMessageDialog(jPanel1,"แจ้งเตือน", "ไม่เกิน 12 วัน", JOptionPane.INFORMATION_MESSAGE); 
+           }      
+       }
+   }
+   
+   
     private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
         // TODO add your handling code here:
          con=ConnectDatabase.connect();
@@ -1307,24 +1411,42 @@ public class SueCrimesFrom extends javax.swing.JDialog {
     public void DateTotal(){
      SueFirstTotal.getDocument().addDocumentListener(new DocumentListener() {
                            public void changedUpdate(DocumentEvent e) {
+                    
                                 SueFirstEnd.setText(CalculateDateEnd(SueFirstDate.getText(), SueFirstTotal.getText()));
                            }
-                           public void removeUpdate(DocumentEvent e) {                              
-                                SueFirstEnd.setText(CalculateDateEnd(SueFirstDate.getText(), SueFirstTotal.getText()));
+                           public void removeUpdate(DocumentEvent e) {    
+                         
+//                                SueFirstEnd.setText(CalculateDateEnd(SueFirstDate.getText(), SueFirstTotal.getText()));
                                                    
                            }
                            public void insertUpdate(DocumentEvent e) {
+                             
                                 SueFirstEnd.setText(CalculateDateEnd(SueFirstDate.getText(), SueFirstTotal.getText()));
 
                            }
              }
              );
+       SueFirstEnd.getDocument().addDocumentListener(new DocumentListener() {
+                           public void changedUpdate(DocumentEvent e) {
+                                  SueSecDateT.setText(CalculateDateNextTimes(SueFirstEnd.getText()));
+                           }
+                           public void removeUpdate(DocumentEvent e) {                              
+//                                  SueSecDateT.setText(CalculateDateNextTimes(SueFirstEnd.getText()));
+                                                   
+                           }
+                           public void insertUpdate(DocumentEvent e) {
+                                  SueSecDateT.setText(CalculateDateNextTimes(SueFirstEnd.getText()));
+
+                           }
+             }
+             );
+                
               SueSecTotal.getDocument().addDocumentListener(new DocumentListener() {
                            public void changedUpdate(DocumentEvent e) {
                                 SueSecEnd.setText(CalculateDateEnd(SueSecDateT.getText(), SueSecTotal.getText()));
                            }
                            public void removeUpdate(DocumentEvent e) {
-                                SueSecEnd.setText(CalculateDateEnd(SueSecDateT.getText(), SueSecTotal.getText()));
+//                                SueSecEnd.setText(CalculateDateEnd(SueSecDateT.getText(), SueSecTotal.getText()));
 
 
                            }
@@ -1333,21 +1455,51 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                            }
              }
              );
-//    SueThirdEnd.getDocument().addDocumentListener(new DocumentListener() {
-//                           public void changedUpdate(DocumentEvent e) {
+    SueThirdTotal.getDocument().addDocumentListener(new DocumentListener() {
+                           public void changedUpdate(DocumentEvent e) {
+                                SueThirdEnd.setText(CalculateDateEnd(ThirdDate.getText(), SueThirdTotal.getText()));
+                           }
+                           public void removeUpdate(DocumentEvent e) {
 //                                SueThirdTotal.setText(CalculateDateTotal(ThirdDate.getText(), SueThirdEnd.getText()));
-//                           }
-//                           public void removeUpdate(DocumentEvent e) {
+
+
+                           }
+                           public void insertUpdate(DocumentEvent e) {
+                               SueThirdEnd.setText(CalculateDateEnd(ThirdDate.getText(), SueThirdTotal.getText()));
+
+                           }
+             }
+             );
+       SueFourthTotal.getDocument().addDocumentListener(new DocumentListener() {
+                           public void changedUpdate(DocumentEvent e) {
+                                SueFourthEnd.setText(CalculateDateEnd(FourthDate.getText(), SueFourthTotal.getText()));
+                           }
+                           public void removeUpdate(DocumentEvent e) {
 //                                SueThirdTotal.setText(CalculateDateTotal(ThirdDate.getText(), SueThirdEnd.getText()));
-//
-//
-//                           }
-//                           public void insertUpdate(DocumentEvent e) {
-//                               SueThirdTotal.setText(CalculateDateTotal(ThirdDate.getText(), SueThirdEnd.getText()));
-//
-//                           }
-//             }
-//             );
+
+
+                           }
+                           public void insertUpdate(DocumentEvent e) {
+                               SueFourthEnd.setText(CalculateDateEnd(FourthDate.getText(), SueFourthTotal.getText()));
+
+                           }
+             }
+             );
+        SueFifthTotal.getDocument().addDocumentListener(new DocumentListener() {
+                           public void changedUpdate(DocumentEvent e) {
+                                SueFifthEnd.setText(CalculateDateEnd(FifthDate.getText(), SueFifthTotal.getText()));
+                           }
+                           public void removeUpdate(DocumentEvent e) {
+//                                SueThirdTotal.setText(CalculateDateTotal(ThirdDate.getText(), SueThirdEnd.getText()));
+
+
+                           }
+                           public void insertUpdate(DocumentEvent e) {
+                               SueFifthEnd.setText(CalculateDateEnd(FifthDate.getText(), SueFifthTotal.getText()));
+
+                           }
+             }
+             );
     }
     public static String ChangFormat(String DateSue){
         String newFormatDate=null;
@@ -1600,7 +1752,7 @@ catch (Exception d) {  //System.out.println(d);
     return newFormatDate;
     
     }
-      public String CalculateDateNextTimes(String DateEnd) {
+  public String CalculateDateNextTimes(String DateEnd) {
 
     String DateNextTime="";
 //    int totalDate=Integer.parseInt(DateTotal);

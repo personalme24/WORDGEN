@@ -7,6 +7,7 @@ package com.songkhla.wordgen;
 
 import com.songkhla.wordgen.*;
 import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseid;
+import static com.songkhla.wordgen.CrimesCaseEdit.jLabelNumberAcc;
 import static com.songkhla.wordgen.CrimesCaseEdit.jTextAccused;
 import static com.songkhla.wordgen.ListAccused.jTableAccure;
 import java.sql.Connection;
@@ -224,7 +225,7 @@ String typeC;
                 String PeopleRegistrationID = jTableAccure.getModel().getValueAt(jTableAccure.getSelectedRow(), 0)+"";            
                 String sql = "select NoPerson,Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,Weight,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                        "PhonePerson,Province,Race,Religion,Tambon,TypePerson,ZipCode,caseIdPerson from person where PeopleRegistrationID='"+PeopleRegistrationID+ "' and caseIdPerson='"+crimecaseno+"' TypePerson='ผู้กล่าวหา'";
+                        "PhonePerson,Province,Race,Religion,Tambon,TypePerson,ZipCode,caseIdPerson from person where PeopleRegistrationID='"+PeopleRegistrationID+ "' and caseIdPerson='"+crimecaseno+"' and TypePerson='ผู้กล่าวหา'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);
@@ -406,6 +407,8 @@ String typeC;
             IdentityFrom.jTextAccused.setText(jTableAccure.getValueAt(0, 1).toString()+"และคนอื่นๆ"); 
             }
             }
+               int rows = jTableAccure.getRowCount();
+                       CrimesCaseEdit.jLabelNumberAcc.setText(rows+"");
         }catch(Exception ex){
             ex.printStackTrace();
         }

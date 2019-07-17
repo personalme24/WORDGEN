@@ -236,7 +236,10 @@ public class CreateTable {
                         "	AssetList	VARCHAR(100)	,	\n"+
                           "	CauseDead	VARCHAR(100)	,	\n"+
                           "	RecordInvestCase	VARCHAR(100)	,	\n"+
-                          "	StatusKnowSuspect	VARCHAR(100)	,	\n"+                         
+                          "	StatusKnowSuspect	VARCHAR(100)	,	\n"+ 
+                          "	TotalAccured	VARCHAR(100)	,	\n"+
+                            "	TotalSuspect	VARCHAR(100)	,	\n"+
+                            "	TotalWitness	VARCHAR(100)	,	\n"+
                          "	CircumstancesOfDeath	VARCHAR(100)		\n"+
                          "	);";
           String sqlAsset ="CREATE TABLE IF NOT EXISTS Asset (\n"+                 

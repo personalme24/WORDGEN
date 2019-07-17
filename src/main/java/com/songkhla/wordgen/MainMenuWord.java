@@ -145,6 +145,7 @@ public class MainMenuWord extends javax.swing.JFrame {
             .addGap(0, 4, Short.MAX_VALUE)
         );
 
+        jLabel7.setForeground(new java.awt.Color(0, 86, 167));
         jLabel7.setIcon(new javax.swing.ImageIcon("D:\\Master\\E-DOC2.jpg")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -165,11 +166,11 @@ public class MainMenuWord extends javax.swing.JFrame {
 
         jPanel5.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 193));
 
-        jPanel2.setBackground(new java.awt.Color(46, 156, 202));
+        jPanel2.setBackground(new java.awt.Color(4, 93, 179));
         jPanel2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jPanel2.setPreferredSize(new java.awt.Dimension(220, 500));
 
-        policemenu.setBackground(new java.awt.Color(46, 156, 202));
+        policemenu.setBackground(new java.awt.Color(4, 93, 179));
         policemenu.setPreferredSize(new java.awt.Dimension(155, 54));
         policemenu.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -206,7 +207,7 @@ public class MainMenuWord extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        personmenu.setBackground(new java.awt.Color(46, 156, 202));
+        personmenu.setBackground(new java.awt.Color(4, 93, 179));
         personmenu.setPreferredSize(new java.awt.Dimension(155, 54));
         personmenu.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -244,7 +245,7 @@ public class MainMenuWord extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        profilemenu.setBackground(new java.awt.Color(46, 156, 202));
+        profilemenu.setBackground(new java.awt.Color(4, 93, 179));
         profilemenu.setPreferredSize(new java.awt.Dimension(145, 54));
         profilemenu.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -281,7 +282,7 @@ public class MainMenuWord extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        formmenu.setBackground(new java.awt.Color(46, 156, 202));
+        formmenu.setBackground(new java.awt.Color(4, 93, 179));
         formmenu.setPreferredSize(new java.awt.Dimension(149, 54));
         formmenu.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -324,7 +325,7 @@ public class MainMenuWord extends javax.swing.JFrame {
             .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
         );
 
-        howtomenu.setBackground(new java.awt.Color(46, 156, 202));
+        howtomenu.setBackground(new java.awt.Color(4, 93, 179));
         howtomenu.setPreferredSize(new java.awt.Dimension(136, 54));
         howtomenu.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -361,7 +362,7 @@ public class MainMenuWord extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        SueMenu.setBackground(new java.awt.Color(46, 156, 202));
+        SueMenu.setBackground(new java.awt.Color(4, 93, 179));
         SueMenu.setPreferredSize(new java.awt.Dimension(147, 54));
         SueMenu.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -406,7 +407,7 @@ public class MainMenuWord extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        BailMenu.setBackground(new java.awt.Color(46, 156, 202));
+        BailMenu.setBackground(new java.awt.Color(4, 93, 179));
         BailMenu.setPreferredSize(new java.awt.Dimension(122, 54));
         BailMenu.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -451,7 +452,7 @@ public class MainMenuWord extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        howtomenu1.setBackground(new java.awt.Color(46, 156, 202));
+        howtomenu1.setBackground(new java.awt.Color(4, 93, 179));
         howtomenu1.setPreferredSize(new java.awt.Dimension(136, 54));
         howtomenu1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -1234,7 +1235,7 @@ public class MainMenuWord extends javax.swing.JFrame {
         jp.setBackground(new Color(41,100,138));
     }
      public void resetPanelBackground (JPanel jp){
-        jp.setBackground(new Color(46,156,202));
+        jp.setBackground(new Color(4,93,179));
     }
     /**
      * @param args the command line arguments

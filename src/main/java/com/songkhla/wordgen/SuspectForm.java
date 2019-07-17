@@ -117,7 +117,7 @@ public class SuspectForm extends javax.swing.JDialog {
         jPanelRestoreDate.add(RestoreDate);
         
            UtilDateModel model6 = new UtilDateModel();
-            model6.setValue(Calendar.getInstance().getTime());
+//            model6.setValue(Calendar.getInstance().getTime());
         JDatePanelImpl datePanel6 = new JDatePanelImpl(model6, p);
          BailDate = new JDatePickerImpl(datePanel6,new DateLabelFormatter());
         BailDate.setTextEditable(true);
@@ -911,7 +911,7 @@ public class SuspectForm extends javax.swing.JDialog {
         jPanelBailDate.setLayout(jPanelBailDateLayout);
         jPanelBailDateLayout.setHorizontalGroup(
             jPanelBailDateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 212, Short.MAX_VALUE)
         );
         jPanelBailDateLayout.setVerticalGroup(
             jPanelBailDateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -975,9 +975,7 @@ public class SuspectForm extends javax.swing.JDialog {
                                 .addComponent(jLabelBailDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(2, 2, 2)))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanelRestoreDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanelBailDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jPanelRestoreDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(105, 105, 105)
                         .addComponent(jCheckBail))
@@ -1003,7 +1001,10 @@ public class SuspectForm extends javax.swing.JDialog {
                                 .addGap(10, 10, 10)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jRadioRestore, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jRadioResultRelease))))))
+                                    .addComponent(jRadioResultRelease)))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addComponent(jPanelBailDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(151, 151, 151)))
                 .addContainerGap(75, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -1033,9 +1034,7 @@ public class SuspectForm extends javax.swing.JDialog {
                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel35)
                         .addComponent(RatePrison, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel19)))
+                    .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelArrestPlace)
@@ -1055,13 +1054,10 @@ public class SuspectForm extends javax.swing.JDialog {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelRestoreDate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanelRestoreDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(jPanelBailDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabelBailDate, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabelBailDate, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelBailDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -1298,11 +1294,13 @@ public class SuspectForm extends javax.swing.JDialog {
                 if(jRadioSue.isSelected()){ 
                     String court=CourtSuspect.getSelectedItem().toString();
                     if(court.equals("ศาลแขวง") && jCheckBail.isSelected()){
-                    pst.setString(28,"ผัดฟ้องฝากขัง");       }
-                    else if(court.equals("ศาลแขวง")){
                     pst.setString(28,"ผัดฟ้อง");       }
+                    else if(court.equals("ศาลแขวง")){
+                    pst.setString(28,"ผัดฟ้องฝากขัง");       }
                     else if(court.equals("ศาลอาญา") && jCheckBail.isSelected()){
                     pst.setString(28,"ฝากขัง");       }
+                    else if(court.equals("ศาลอาญา")){
+                    pst.setString(28,"ผัดฟ้องฝากขัง");       }
 //                    else if(court.equals("ศาลอาญา")){
 //                    pst.setString(28,"ฝากขัง");       }
                 }

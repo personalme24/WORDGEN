@@ -24,7 +24,11 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -165,12 +169,12 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="AccureandOther" max="32767" attributes="0"/>
                                   </Group>
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                                       <Component id="PeopleRegistrationID" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                       <Component id="CourtSuspect" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -723,17 +727,17 @@
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="SueFifthCause" min="-2" pref="371" max="-2" attributes="0"/>
-                                      <EmptySpace min="9" pref="9" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                                       <Component id="Print5" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="SueSixthCause" min="-2" pref="371" max="-2" attributes="0"/>
-                                      <EmptySpace min="9" pref="9" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                                       <Component id="Print6" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="SueSevCause" min="-2" pref="371" max="-2" attributes="0"/>
-                                      <EmptySpace min="9" pref="9" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="Print7" min="-2" max="-2" attributes="0"/>
                                           <Component id="Print8" min="-2" max="-2" attributes="0"/>
@@ -848,7 +852,10 @@
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                                      <Component id="SueFifthRequest" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="SueFifthRequest" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                          <Component id="SueFifthCause" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
@@ -868,7 +875,10 @@
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                                      <Component id="SueSixthRequest" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="SueSixthRequest" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                          <Component id="SueSixthCause" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
@@ -879,7 +889,10 @@
                                   </Group>
                                   <Component id="SueSevenEnd" min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="SueSevenTotal" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="SueSevRequest" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="SueSevRequest" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="SueSevCause" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
@@ -903,18 +916,11 @@
                                   <Component id="Print4" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="SueFifthCause" alignment="0" min="-2" pref="29" max="-2" attributes="0"/>
-                                  <Component id="Print5" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="Print5" min="-2" pref="30" max="-2" attributes="0"/>
+                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                              <Component id="Print6" min="-2" pref="30" max="-2" attributes="0"/>
                               <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="SueSixthCause" alignment="0" min="-2" pref="29" max="-2" attributes="0"/>
-                                  <Component id="Print6" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="SueSevCause" alignment="0" min="-2" pref="29" max="-2" attributes="0"/>
                                   <Component id="Print7" min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="Print8" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>

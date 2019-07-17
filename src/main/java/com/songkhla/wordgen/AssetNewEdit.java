@@ -64,7 +64,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
         } catch (Exception e) {
         }
         UtilDateModel model = new UtilDateModel();
-            model.setValue(Calendar.getInstance().getTime());
+//            model.setValue(Calendar.getInstance().getTime());
             Properties p = new Properties();
             p.put("text.today", "Today");
             p.put("text.month", "Month");

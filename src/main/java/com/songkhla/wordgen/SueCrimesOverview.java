@@ -8,6 +8,8 @@ import static com.songkhla.wordgen.ListSuspect.txtCaseNO;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -36,8 +38,8 @@ public class SueCrimesOverview extends javax.swing.JFrame {
     Connection con=null;
     PreparedStatement pst=null;
     DataCase dc =new DataCase();
-    JDatePickerImpl DateFilter;
-
+    JDatePickerImpl DateFilterStart,DateFilterEnd;
+    String sqlRefresh;
 
     /**
      * Creates new form BailCrimesForm
@@ -61,11 +63,21 @@ public class SueCrimesOverview extends javax.swing.JFrame {
             p.put("text.month", "Month");
             p.put("text.year", "Year");
         JDatePanelImpl datePanel = new JDatePanelImpl(model, p);
-         DateFilter = new JDatePickerImpl(datePanel,new DateLabelFormatter());
-        DateFilter.setTextEditable(true);
-        DateFilter.setBackground(Color.WHITE);
-//        jPanelDate.setLayout(new FlowLayout());
-//        jPanelDate.add(DateFilter);   
+         DateFilterStart = new JDatePickerImpl(datePanel,new DateLabelFormatter());
+        DateFilterStart.setTextEditable(true);
+        DateFilterStart.setBackground(Color.WHITE);
+        jPanelDateStart.setLayout(new FlowLayout());
+        jPanelDateStart.add(DateFilterStart);   
+        
+         UtilDateModel model2 = new UtilDateModel();
+            model2.setValue(Calendar.getInstance().getTime());
+         
+        JDatePanelImpl datePanel2 = new JDatePanelImpl(model2, p);
+         DateFilterEnd = new JDatePickerImpl(datePanel2,new DateLabelFormatter());
+        DateFilterEnd.setTextEditable(true);
+        DateFilterEnd.setBackground(Color.WHITE);
+        jPanelDateEnd.setLayout(new FlowLayout());
+        jPanelDateEnd.add(DateFilterEnd);   
 //------------------------------------------Date----------------------------------------
         
         RefreshData();
@@ -90,9 +102,10 @@ public class SueCrimesOverview extends javax.swing.JFrame {
         jTableSue = new javax.swing.JTable();
         jButtonAddSue = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
+        jPanelDateStart = new javax.swing.JPanel();
+        jPanelDateEnd = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        jButtonDate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -100,7 +113,7 @@ public class SueCrimesOverview extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(1280, 720));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.setBackground(new java.awt.Color(46, 156, 202));
+        jPanel3.setBackground(new java.awt.Color(0, 35, 102));
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
         jPanel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 18)); // NOI18N
@@ -181,38 +194,46 @@ public class SueCrimesOverview extends javax.swing.JFrame {
         jPanel1.add(jButtonAddSue, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 80, 30));
 
         jLabel2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel2.setText("วันที่");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 80, -1, -1));
+        jLabel2.setText("ถึง");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 80, -1, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 170, Short.MAX_VALUE)
+        javax.swing.GroupLayout jPanelDateStartLayout = new javax.swing.GroupLayout(jPanelDateStart);
+        jPanelDateStart.setLayout(jPanelDateStartLayout);
+        jPanelDateStartLayout.setHorizontalGroup(
+            jPanelDateStartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 210, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 80, 170, 30));
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 170, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
+        jPanelDateStartLayout.setVerticalGroup(
+            jPanelDateStartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 80, -1, -1));
+        jPanel1.add(jPanelDateStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 70, 210, 40));
+
+        javax.swing.GroupLayout jPanelDateEndLayout = new javax.swing.GroupLayout(jPanelDateEnd);
+        jPanelDateEnd.setLayout(jPanelDateEndLayout);
+        jPanelDateEndLayout.setHorizontalGroup(
+            jPanelDateEndLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 210, Short.MAX_VALUE)
+        );
+        jPanelDateEndLayout.setVerticalGroup(
+            jPanelDateEndLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanelDateEnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 70, 210, 40));
 
         jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel3.setText("วันที่");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 80, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 80, -1, -1));
+
+        jButtonDate.setText("jButton1");
+        jButtonDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDateActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 80, -1, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -258,7 +279,7 @@ public class SueCrimesOverview extends javax.swing.JFrame {
                     data.put("ArrestDateTimeEnd", rs.getString("ArrestDateTimeEnd"));                    
                     data.put("StatusBail", rs.getString("StatusBail"));                    
                     data.put("CourtSuspect", rs.getString("CourtSuspect"));                    
-
+                    data.put("RatePrison", rs.getString("RatePrison")); 
                     data.put("SueFirst", rs.getString("SueFirst"));
                     data.put("SueFirstDate", rs.getString("SueFirstDate"));
                      data.put("SueFirstEnd", ChangFormat(rs.getString("SueFirstEnd")));
@@ -336,6 +357,11 @@ public class SueCrimesOverview extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButtonAddSueActionPerformed
 
+    private void jButtonDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDateActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButtonDateActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -385,8 +411,13 @@ public class SueCrimesOverview extends javax.swing.JFrame {
         String sql;
                 sql=    "select crimecasenoyear,StatusSuspect,CaseIdPerson,CaseId,SueFirstDate,SueSecDate,SueThirdDate,SueFourthDate,SueFifthDate,SueSixthDate,SueSevenDate,FullNamePerson from Person\n"+
                         "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId where StatusSuspect='ผัดฟ้องฝากขัง' or StatusSuspect='ผัดฟ้อง'"+getFilterCondition();
-                        
-                
+        sql=sql+" and\n" +
+        "SueFirstEnd  between '"+ChangFormatDate(DateFilterStart.getJFormattedTextField().getText())+"' and '"+ChangFormatDate(DateFilterEnd.getJFormattedTextField().getText())+"' or\n" +
+        "SueSecEnd    between '"+ChangFormatDate(DateFilterStart.getJFormattedTextField().getText())+"' and '"+ChangFormatDate(DateFilterEnd.getJFormattedTextField().getText())+"' " ;
+//        "SueThirdEnd  between '2562/07/20' and '2562/07/21' or\n" +
+//        "SueFourthEnd between '2562/07/20' and '2562/07/21'";   
+
+  
         ResultSet rs = stmt.executeQuery(sql);
           System.out.println("SQL : "+sql);
         Vector<Vector> tabledata = new Vector<Vector>();
@@ -494,16 +525,34 @@ public class SueCrimesOverview extends javax.swing.JFrame {
     return newFormatDate;
     
     }
+       public static String ChangFormatDate(String DateSue){
+        String newFormatDate=null;
+       try{   Calendar cal;
+        SimpleDateFormat formatdate =new SimpleDateFormat("dd/MM/yyyy");     
+        Date b=formatdate.parse(DateSue);
+         cal = Calendar.getInstance();
+          cal.setTime(b); 
+           SimpleDateFormat dateformat =new SimpleDateFormat("yyyy/MM/dd");   
+         newFormatDate=dateformat.format(cal.getTime());
+    
+         }
+         catch(Exception e){
+         e.printStackTrace();
+         }
+    return newFormatDate;
+    
+    }
      
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAddSue;
+    private javax.swing.JButton jButtonDate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanelDateEnd;
+    private javax.swing.JPanel jPanelDateStart;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableSue;
     // End of variables declaration//GEN-END:variables

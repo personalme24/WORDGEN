@@ -467,15 +467,15 @@ public class BailCrimesForm extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jTableBailMouseClicked
 
-    private void jComboStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboStatusActionPerformed
-        // TODO add your handling code here:
-        RefreshData();
-    }//GEN-LAST:event_jComboStatusActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         RefreshData();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jComboStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboStatusActionPerformed
+        // TODO add your handling code here:
+        RefreshData();
+    }//GEN-LAST:event_jComboStatusActionPerformed
  public void eventJStatusManage(){
 //     String a= jComboStatus.getSelectedItem()+"";
 //     if(a.equals("ประกัน"))
@@ -563,10 +563,10 @@ public class BailCrimesForm extends javax.swing.JFrame {
         Statement stmt = con.createStatement();
 //        String a=txtCaseNO.getText();
         String sql;
-                sql= "select CaseId,crimecasenoyear,SueFirstDate,Investigator_Result,TypePerson,BailDate,PeopleRegistrationID,FullNamePerson,StatusSuspect,CaseIdPerson,CaseAcceptDate \n" +
+                sql= "select StatusBail,CaseId,crimecasenoyear,SueFirstDate,Investigator_Result,TypePerson,BailDate,PeopleRegistrationID,FullNamePerson,StatusSuspect,CaseIdPerson,CaseAcceptDate \n" +
                      "from Person\n" +
                      "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId "
-                   + "where TypePerson='ผู้ต้องหา' and StatusSuspect='"+jComboStatus.getSelectedItem()+"'";
+                   + "where TypePerson='ผู้ต้องหา' and StatusBail='ประกัน' or StatusSuspect='"+jComboStatus.getSelectedItem()+"'";
       if(jCheckOnly.isSelected())
       {
       sql=sql+" and Investigator_Result='อยู่ระหว่างสอบสวน'";
