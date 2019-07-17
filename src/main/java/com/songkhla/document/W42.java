@@ -136,7 +136,7 @@ public class W42 {
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3",Checknull(ccYear));
                 
-                bookmarkvalue.put("S2",Checknull(PoliceStationName));
+                bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
                 
                 bookmarkvalue.put("PA7",Checknull(s.getString("AccureandOther")));
                   
@@ -199,7 +199,7 @@ public class W42 {
 					.load(new java.io.File("D:/TEMPLATE/w42.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/คดีอาญา"+cs+"-"+ccYear+"/แบบคำขอรับชดใช้ค่าใช้จ่ายเบื้อต้นอันเกิดจากการขนส่ง.doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/คดีอาญา"+cs+"-"+ccYear+"/แบบคำขอรับชดใช้ค่าใช้จ่ายเบื้อต้นอันเกิดจากการขนส่ง"+cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
