@@ -274,7 +274,7 @@ public class W1 {
 					.load(new java.io.File("D:/TEMPLATE/w1.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/แบบฟอร์มสำนวน/บันทึกการตรวจสำนวนการสอบสวน.doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/บันทึกการตรวจสำนวนการสอบสวน.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

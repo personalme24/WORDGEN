@@ -203,7 +203,7 @@ public class W2 {
         
               
 	}
-    public static void nw2(String cc) {
+    public static void nw2() {
      
            
 //              
@@ -263,7 +263,7 @@ public class W2 {
 					.load(new java.io.File("D:/TEMPLATE/w2.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/แบบฟอร์มสำนวน/หนังสือส่งสำนวนงดการสอบสวน.doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/หนังสือส่งสำนวนงดการสอบสวน.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
