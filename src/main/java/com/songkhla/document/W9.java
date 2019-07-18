@@ -228,7 +228,89 @@ public static void w9(String cc) {
         
               
 	}
+public static void nw9( ) {
+        
+                 JSONObject bookmarkvalue = new JSONObject();
+//              
+                bookmarkvalue.put("C1","");
+                bookmarkvalue.put("C01","");
+                bookmarkvalue.put("C001","");
+		bookmarkvalue.put("C2","");
+                bookmarkvalue.put("C3","");
+                
+                bookmarkvalue.put("S2","");
+                bookmarkvalue.put("S5","");
+                bookmarkvalue.put("S6","");
+                bookmarkvalue.put("S27","");
+                bookmarkvalue.put("S10","");
+                   
+//                   ----------------------------ผู้กล่าวหา--------------------
+               
+                bookmarkvalue.put("PA7","");
+               
+                
+                
+//                   ----------------------------ผู้ต้องหา--------------------
+                    bookmarkvalue.put("PS2", ""); 
+                    bookmarkvalue.put("PS3",""); 
+                    bookmarkvalue.put("PS5",""); 
+                    bookmarkvalue.put("PS7",""); 
+                    bookmarkvalue.put("PS13", "");
+                    bookmarkvalue.put("PS14","");
+                    bookmarkvalue.put("PS15","");
+                    bookmarkvalue.put("PS16","");
+                    bookmarkvalue.put("PS17","");
+                    bookmarkvalue.put("PS22","");
+                    bookmarkvalue.put("PS23","");
+                    bookmarkvalue.put("PS24","");
+                    bookmarkvalue.put("PS25","");
+                    bookmarkvalue.put("PS26","");
+                    bookmarkvalue.put("PS29","");
+                    bookmarkvalue.put("PS30","");
+                    bookmarkvalue.put("PS31","");
+                    bookmarkvalue.put("PS32","");
+                    bookmarkvalue.put("PS33","");
+                    bookmarkvalue.put("PS34","");
+                    bookmarkvalue.put("PS35","");
+                     
 
+                      bookmarkvalue.put("B2","");
+                      
+                        bookmarkvalue.put("P02", "");
+                        bookmarkvalue.put("P03", "");
+                        bookmarkvalue.put("P04", "");
+                        bookmarkvalue.put("P05", "");
+                   
+    
+			JSONArray tablecolumn = new JSONArray();
+			
+			JSONArray table1 = new JSONArray();
+			JSONObject row1 = new JSONObject();
+			
+			table1.add(row1);
+		JSONObject tableobj = new JSONObject();
+		tableobj.put("COLUMNS", tablecolumn);
+		tableobj.put("TABLEDATA", table1);
+			
+		JSONArray TABLES = new JSONArray();
+		TABLES.add(tableobj);
+		bookmarkvalue.put("TABLES", TABLES);
+		System.out.println(bookmarkvalue.toJSONString());
+		
+		
+		
+		try {
+                  
+			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
+					.load(new java.io.File("D:/TEMPLATE/w9.docx"));
+			processVariable(bookmarkvalue,wordMLPackage);
+			processTABLE(bookmarkvalue,wordMLPackage);
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/บันทึกคำให้การผู้ต้องหา.doc"));
+		}catch( Exception ex) {
+			ex.printStackTrace();
+		}
+}
+            
 	public static void processVariable(JSONObject inputdata,WordprocessingMLPackage wordMLPackage) throws Exception {
 		Object KEYSET[] = inputdata.keySet().toArray();
 		Map<DataFieldName, String> map = new HashMap<DataFieldName, String>();
