@@ -186,7 +186,7 @@ public class MainMenuWord extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 28)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("ข้อมูลสถานีตำรวจ");
 
@@ -195,7 +195,7 @@ public class MainMenuWord extends javax.swing.JFrame {
         policemenuLayout.setHorizontalGroup(
             policemenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, policemenuLayout.createSequentialGroup()
-                .addContainerGap(61, Short.MAX_VALUE)
+                .addContainerGap(30, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addGap(50, 50, 50))
         );
@@ -223,7 +223,7 @@ public class MainMenuWord extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 28)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Master\\group (1).png")); // NOI18N
         jLabel1.setText("ข้อมูลบุคคล");
@@ -241,7 +241,7 @@ public class MainMenuWord extends javax.swing.JFrame {
             personmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(personmenuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -261,7 +261,7 @@ public class MainMenuWord extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("TH SarabunPSK", 1, 28)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("ข้อมูลผู้ใช้");
 
@@ -278,7 +278,7 @@ public class MainMenuWord extends javax.swing.JFrame {
             profilemenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(profilemenuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -305,7 +305,7 @@ public class MainMenuWord extends javax.swing.JFrame {
         });
 
         jLabel18.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel18.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("TH SarabunPSK", 1, 28)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel18.setIcon(new javax.swing.ImageIcon("D:\\Master\\document.png")); // NOI18N
@@ -341,7 +341,7 @@ public class MainMenuWord extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 28)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("ข้อมูลพื้นฐาน");
 
@@ -358,7 +358,7 @@ public class MainMenuWord extends javax.swing.JFrame {
             howtomenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(howtomenuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -385,7 +385,7 @@ public class MainMenuWord extends javax.swing.JFrame {
         });
 
         jLabel12.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel12.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("TH SarabunPSK", 1, 28)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText("ผัดฟ้องฝากขัง");
@@ -403,7 +403,7 @@ public class MainMenuWord extends javax.swing.JFrame {
             SueMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SueMenuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -430,7 +430,7 @@ public class MainMenuWord extends javax.swing.JFrame {
         });
 
         jLabel15.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel15.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("TH SarabunPSK", 1, 28)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel15.setText("ประกัน");
@@ -448,7 +448,7 @@ public class MainMenuWord extends javax.swing.JFrame {
             BailMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BailMenuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -468,7 +468,7 @@ public class MainMenuWord extends javax.swing.JFrame {
             }
         });
 
-        jLabel16.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("TH SarabunPSK", 1, 28)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setIcon(new javax.swing.ImageIcon("D:\\Master\\information.png")); // NOI18N
         jLabel16.setText("วิธีใช้");
@@ -486,7 +486,7 @@ public class MainMenuWord extends javax.swing.JFrame {
             howtomenu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(howtomenu1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
