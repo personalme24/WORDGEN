@@ -1534,7 +1534,25 @@ public class SuspectForm extends javax.swing.JDialog {
         }
         );
    
+jCheckBail.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+            if(jCheckBail.isSelected()){
 
+           jLabelBailDate.setVisible(true);
+           jPanelBailDate.setVisible(true);
+
+            }
+            else {
+                 
+           jLabelBailDate.setVisible(false);
+           jPanelBailDate.setVisible(false);
+
+            }
+
+            }
+        }
+        );
   
   }   
     
@@ -1610,6 +1628,25 @@ public class SuspectForm extends javax.swing.JDialog {
 //          } 
 //     } 
 //);
+        jCheckBail.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+            if(jCheckBail.isSelected()){
+
+           jLabelBailDate.setVisible(true);
+           jPanelBailDate.setVisible(true);
+
+            }
+            else {
+                 
+           jLabelBailDate.setVisible(false);
+           jPanelBailDate.setVisible(false);
+
+            }
+
+            }
+        }
+        );
        jRadioSue.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
@@ -1625,8 +1662,8 @@ public class SuspectForm extends javax.swing.JDialog {
                   jLabelRate.setVisible(true);
             jLabelRateNumber.setVisible(true);
              RatePrison.setVisible(true);
-           jLabelBailDate.setVisible(true);
-           jPanelBailDate.setVisible(true);
+//           jLabelBailDate.setVisible(true);
+//           jPanelBailDate.setVisible(true);
 
             }
             else {
@@ -1642,8 +1679,8 @@ public class SuspectForm extends javax.swing.JDialog {
       jLabelRate.setVisible(false);
             jLabelRateNumber.setVisible(false);
              RatePrison.setVisible(false);
-           jLabelBailDate.setVisible(false);
-           jPanelBailDate.setVisible(false);
+//           jLabelBailDate.setVisible(false);
+//           jPanelBailDate.setVisible(false);
 
             }
 

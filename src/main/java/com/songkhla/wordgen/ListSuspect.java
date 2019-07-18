@@ -417,7 +417,8 @@ String typeC;
             }
             }
         
-        
+         int rows = jTableSuspect.getRowCount();
+                       CrimesCaseEdit.jLabelNumberSus.setText(rows+"");
         }catch(Exception ex){
             ex.printStackTrace();
         }

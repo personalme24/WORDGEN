@@ -146,7 +146,7 @@ public class MainMenuWord extends javax.swing.JFrame {
         );
 
         jLabel7.setForeground(new java.awt.Color(0, 86, 167));
-        jLabel7.setIcon(new javax.swing.ImageIcon("D:\\Master\\E-DOC2.jpg")); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon("D:\\Master\\E-DOCBandner.jpg")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -805,7 +805,7 @@ public class MainMenuWord extends javax.swing.JFrame {
 
         jPanel5.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 217, -1, -1));
 
-        jPanel6.setBackground(new java.awt.Color(0, 102, 153));
+        jPanel6.setBackground(new java.awt.Color(0, 51, 153));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -820,7 +820,7 @@ public class MainMenuWord extends javax.swing.JFrame {
 
         jPanel5.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 727, 1280, -1));
 
-        jPanel8.setBackground(new java.awt.Color(0, 102, 153));
+        jPanel8.setBackground(new java.awt.Color(0, 51, 153));
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);

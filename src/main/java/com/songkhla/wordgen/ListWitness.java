@@ -411,7 +411,8 @@ String noPerson;
             }
             }
         
-        
+          int rows = jTableWitness.getRowCount();
+                       CrimesCaseEdit.jLabelNumberWitness.setText(rows+"");
         }catch(Exception ex){
             ex.printStackTrace();
         }

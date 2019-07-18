@@ -131,7 +131,7 @@ public class CreateTable {
                 "	Road     	VARCHAR(100)	,	\n"+
                 "	Soi     	VARCHAR(100)	,	\n"+  
                 "	SueLastEndDate	VARCHAR(100)	,	\n"+  
-                "	CourtSuspect	VARCHAR(100)	,	\n"+    
+                "	CourtSuspect	VARCHAR(100)	,	\n"+
                 "	SueFirst	VARCHAR(100)	,	\n"+
                 "	SueFirstDate	DateTime	,	\n"+
                 "	SueFirstStart	DateTime	,	\n"+
@@ -237,9 +237,9 @@ public class CreateTable {
                           "	CauseDead	VARCHAR(100)	,	\n"+
                           "	RecordInvestCase	VARCHAR(100)	,	\n"+
                           "	StatusKnowSuspect	VARCHAR(100)	,	\n"+ 
-                          "	TotalAccured	VARCHAR(100)	,	\n"+
-                            "	TotalSuspect	VARCHAR(100)	,	\n"+
-                            "	TotalWitness	VARCHAR(100)	,	\n"+
+                        "	TotalAcc     	VARCHAR(100)	,	\n"+  
+                         "	TotalSus	VARCHAR(100)	,	\n"+  
+                          "	TotalWitness	VARCHAR(100)	,	\n"+   
                          "	CircumstancesOfDeath	VARCHAR(100)		\n"+
                          "	);";
           String sqlAsset ="CREATE TABLE IF NOT EXISTS Asset (\n"+                 

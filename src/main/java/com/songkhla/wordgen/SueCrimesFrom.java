@@ -15,6 +15,7 @@ import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -48,6 +49,7 @@ import java.util.concurrent.TimeUnit;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
+import javax.swing.JTextField;
 import javax.swing.SwingWorker;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -184,7 +186,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
      
        DateTotal();
        RefreshData(); 
-       
+
    
     }
     
@@ -1201,29 +1203,36 @@ public class SueCrimesFrom extends javax.swing.JDialog {
        
    }
    public void CheckDateTotal(String DateTotal){
+   
        int totaldate=Integer.parseInt(DateTotal);
        if(Court.equals("ศาลแขวง")&&StatusBail.equals("ประกัน")){      
-           if(totaldate>6){
-            JOptionPane.showMessageDialog(jPanel1,"แจ้งเตือน", "ไม่เกิน 6 วัน", JOptionPane.INFORMATION_MESSAGE); 
+           if(totaldate>6){ 
+                  
+            JOptionPane.showMessageDialog(jPanel1,"ไม่เกิน 6 วัน","แจ้งเตือน",  JOptionPane.INFORMATION_MESSAGE);
+            
            }      
        }
           if(Court.equals("ศาลแขวง")){      
-           if(totaldate>6){
-            JOptionPane.showMessageDialog(jPanel1,"แจ้งเตือน", "ไม่เกิน 6 วัน", JOptionPane.INFORMATION_MESSAGE); 
+           if(totaldate>6){  
+                     
+            JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 6 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE); 
+            
            }      
        }
             if(Court.equals("ศาลอาญา")&&RatePrison.equals("มากกว่า")){      
            if(totaldate>12){
-            JOptionPane.showMessageDialog(jPanel1,"แจ้งเตือน", "ไม่เกิน 12 วัน", JOptionPane.INFORMATION_MESSAGE); 
+            JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 12 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE); 
            }      
        }
            if(Court.equals("ศาลอาญา")&&RatePrison.equals("น้อยกว่า")){      
            if(totaldate>12){
-            JOptionPane.showMessageDialog(jPanel1,"แจ้งเตือน", "ไม่เกิน 12 วัน", JOptionPane.INFORMATION_MESSAGE); 
+            JOptionPane.showMessageDialog(jPanel1,"ไม่เกิน 12 วัน","แจ้งเตือน",  JOptionPane.INFORMATION_MESSAGE); 
            }      
        }
+     
+//       return totalDate;
    }
-   
+
    
     private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
         // TODO add your handling code here:
@@ -1421,7 +1430,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
     public void DateTotal(){
      SueFirstTotal.getDocument().addDocumentListener(new DocumentListener() {
                            public void changedUpdate(DocumentEvent e) {
-                    
+                         
                                 SueFirstEnd.setText(CalculateDateEnd(SueFirstDate.getText(), SueFirstTotal.getText()));
                            }
                            public void removeUpdate(DocumentEvent e) {    
@@ -1430,7 +1439,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                                                    
                            }
                            public void insertUpdate(DocumentEvent e) {
-                             
+                        
                                 SueFirstEnd.setText(CalculateDateEnd(SueFirstDate.getText(), SueFirstTotal.getText()));
 
                            }
@@ -1462,6 +1471,20 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                            }
                            public void insertUpdate(DocumentEvent e) {
                                SueSecEnd.setText(CalculateDateEnd(SueSecDateT.getText(), SueSecTotal.getText()));
+                           }
+             }
+             );
+            SueSecEnd.getDocument().addDocumentListener(new DocumentListener() {
+                           public void changedUpdate(DocumentEvent e) {
+                                 ThirdDate.setText(CalculateDateNextTimes(SueSecEnd.getText()));
+                           }
+                           public void removeUpdate(DocumentEvent e) {                              
+//                                  SueSecDateT.setText(CalculateDateNextTimes(SueFirstEnd.getText()));
+                                                   
+                           }
+                           public void insertUpdate(DocumentEvent e) {
+                                  ThirdDate.setText(CalculateDateNextTimes(SueSecEnd.getText()));
+
                            }
              }
              );
@@ -1506,6 +1529,37 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                            }
                            public void insertUpdate(DocumentEvent e) {
                                SueFifthEnd.setText(CalculateDateEnd(FifthDate.getText(), SueFifthTotal.getText()));
+
+                           }
+             }
+             );
+        
+         SueSixthTotal.getDocument().addDocumentListener(new DocumentListener() {
+                           public void changedUpdate(DocumentEvent e) {
+                                SueSixthEnd.setText(CalculateDateEnd(SixthDate.getText(), SueSixthTotal.getText()));
+                           }
+                           public void removeUpdate(DocumentEvent e) {
+//                                SueThirdTotal.setText(CalculateDateTotal(ThirdDate.getText(), SueThirdEnd.getText()));
+
+
+                           }
+                           public void insertUpdate(DocumentEvent e) {
+                               SueSixthEnd.setText(CalculateDateEnd(SixthDate.getText(), SueSixthTotal.getText()));
+
+                           }
+             }
+             );
+           SueSevenTotal.getDocument().addDocumentListener(new DocumentListener() {
+                           public void changedUpdate(DocumentEvent e) {
+                                SueSevenEnd.setText(CalculateDateEnd(SevDate.getText(), SueSevenTotal.getText()));
+                           }
+                           public void removeUpdate(DocumentEvent e) {
+//                                SueThirdTotal.setText(CalculateDateTotal(ThirdDate.getText(), SueThirdEnd.getText()));
+
+
+                           }
+                           public void insertUpdate(DocumentEvent e) {
+                               SueSevenEnd.setText(CalculateDateEnd(SevDate.getText(), SueSevenTotal.getText()));
 
                            }
              }
