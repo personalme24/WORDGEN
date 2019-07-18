@@ -194,10 +194,10 @@ public class MainMenuWord extends javax.swing.JFrame {
         policemenu.setLayout(policemenuLayout);
         policemenuLayout.setHorizontalGroup(
             policemenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, policemenuLayout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
+            .addGroup(policemenuLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
                 .addComponent(jLabel3)
-                .addGap(50, 50, 50))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         policemenuLayout.setVerticalGroup(
             policemenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

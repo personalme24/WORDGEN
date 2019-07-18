@@ -285,7 +285,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonDate">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jButton1"/>
+            <Property name="text" type="java.lang.String" value="&#xe40;&#xe25;&#xe37;&#xe2d;&#xe01;"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonDateActionPerformed"/>

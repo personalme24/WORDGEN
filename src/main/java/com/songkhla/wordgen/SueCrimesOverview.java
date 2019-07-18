@@ -228,7 +228,7 @@ public class SueCrimesOverview extends javax.swing.JFrame {
         jLabel3.setText("วันที่");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 80, -1, -1));
 
-        jButtonDate.setText("jButton1");
+        jButtonDate.setText("เลือก");
         jButtonDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDateActionPerformed(evt);
@@ -414,7 +414,7 @@ public class SueCrimesOverview extends javax.swing.JFrame {
                         + "SueThirdDate,SueFourthDate,SueFifthDate,SueSixthDate,SueSevenDate,"
                         + "FullNamePerson,SueFirstEnd,SueSecEnd,SueThirdEnd,SueFourthEnd,SueFifthEnd,SueSixthEnd,SueSevenEnd\n"
                         + "from Person\n"+
-                        "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId where StatusSuspect IN('ผัดฟ้องฝากขัง','ผัดฟ้อง')";
+                        "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId where StatusSuspect IN('ผัดฟ้องฝากขัง','ผัดฟ้อง','ฝากขัง')";
 //                if(jButtonDate.getModel().isPressed()){
 //        sql=sql+" and\n" +
 //        "SueFirstEnd  between '"+ChangFormatDate(DateFilterStart.getJFormattedTextField().getText())+"' and '"+ChangFormatDate(DateFilterEnd.getJFormattedTextField().getText())+"' or\n" +

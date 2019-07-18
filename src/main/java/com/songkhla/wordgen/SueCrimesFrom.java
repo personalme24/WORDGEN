@@ -1190,6 +1190,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
        SueFifthCause.setEnabled(false);
        Print5.setEnabled(false);
        }
+
  
 //   try{
 //     Connection con = ConnectDatabase.connect();
