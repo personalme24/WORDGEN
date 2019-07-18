@@ -288,8 +288,7 @@ public class SuspectForm extends javax.swing.JDialog {
             isInsert=true;
     
         }
-         
-      
+
     }
 
     SuspectForm(ListAccused aThis, boolean b) {
