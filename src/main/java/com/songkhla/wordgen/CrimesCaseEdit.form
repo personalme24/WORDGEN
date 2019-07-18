@@ -1564,20 +1564,28 @@
                           <Component id="jButtonPrintDoc" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jCheckW1" alignment="0" min="-2" pref="327" max="-2" attributes="0"/>
-                              <Component id="jCheckW2" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jCheckW3" alignment="0" min="-2" pref="387" max="-2" attributes="0"/>
-                              <Component id="jCheckW4" alignment="0" min="-2" pref="387" max="-2" attributes="0"/>
-                              <Component id="jCheckW5" alignment="0" min="-2" pref="369" max="-2" attributes="0"/>
-                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jCheckW11" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jCheckW9" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jCheckW8" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jCheckW1" alignment="0" min="-2" pref="327" max="-2" attributes="0"/>
+                                      <Component id="jCheckW2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jCheckW3" alignment="0" min="-2" pref="387" max="-2" attributes="0"/>
+                                      <Component id="jCheckW4" alignment="0" min="-2" pref="387" max="-2" attributes="0"/>
+                                      <Component id="jCheckW5" alignment="0" min="-2" pref="369" max="-2" attributes="0"/>
+                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="jCheckW11" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jCheckW9" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jCheckW8" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="jCheckW6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <Component id="jCheckW6" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                  <Component id="jLabel32" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace pref="759" max="32767" attributes="0"/>
                       </Group>
@@ -1604,7 +1612,9 @@
                           <Component id="jCheckW9" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jCheckW11" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="157" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jLabel32" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="125" max="32767" attributes="0"/>
                           <Component id="jButtonPrintDoc" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -1726,6 +1736,11 @@
                       <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe0d;&#xe0a;&#xe35;&#xe02;&#xe2d;&#xe07;&#xe01;&#xe25;&#xe32;&#xe07;&#xe04;&#xe14;&#xe35;&#xe2d;&#xe32;&#xe0d;&#xe32;"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel32">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jLabel32"/>
                   </Properties>
                 </Component>
               </SubComponents>

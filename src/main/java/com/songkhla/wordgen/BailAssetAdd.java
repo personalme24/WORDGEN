@@ -48,6 +48,7 @@ public class BailAssetAdd extends javax.swing.JDialog {
                 
                 }
                 else{
+                    BailAssetOrder.setText(IdBailAsset());
                 isInsert=true;}
                 
     }
@@ -65,7 +66,6 @@ public class BailAssetAdd extends javax.swing.JDialog {
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        BailAssetOrder = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         BailAssetDetail = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
@@ -80,6 +80,7 @@ public class BailAssetAdd extends javax.swing.JDialog {
         jButtonSave = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        BailAssetOrder = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -110,8 +111,6 @@ public class BailAssetAdd extends javax.swing.JDialog {
 
         jLabel16.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel16.setText("ลำดับ");
-
-        BailAssetOrder.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel17.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel17.setText("ทรัพย์สิน");
@@ -152,6 +151,9 @@ public class BailAssetAdd extends javax.swing.JDialog {
 
         jLabel3.setText("jLabel3");
 
+        BailAssetOrder.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        BailAssetOrder.setText("jLabel4");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -168,7 +170,7 @@ public class BailAssetAdd extends javax.swing.JDialog {
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel3)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -179,13 +181,17 @@ public class BailAssetAdd extends javax.swing.JDialog {
                             .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BailAssetOrder)
-                            .addComponent(BailAssetDetail)
-                            .addComponent(BailAmount)
-                            .addComponent(jScrollPane4)
-                            .addComponent(BailAssetBath)
-                            .addComponent(BailAssetTotal))
-                        .addGap(58, 58, 58))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(BailAssetDetail)
+                                    .addComponent(BailAmount)
+                                    .addComponent(jScrollPane4)
+                                    .addComponent(BailAssetBath)
+                                    .addComponent(BailAssetTotal))
+                                .addGap(58, 58, 58))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(BailAssetOrder)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,7 +204,7 @@ public class BailAssetAdd extends javax.swing.JDialog {
                 .addGap(8, 8, 8)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BailAssetOrder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BailAssetOrder))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -346,12 +352,39 @@ public class BailAssetAdd extends javax.swing.JDialog {
             }
         });
     }
-
+   public  String IdBailAsset(){
+         Connection con=null;
+         
+         con=ConnectDatabase.connect();
+            String sqlId="Select max(BailAssetOrder) BailAssetOrder from BailAsset where BailCaseId='"+caseId+"' and BailPersonId='"+personId+"'";
+        int id=0;
+        try {
+            Statement s=con.createStatement();
+            ResultSet rs=s.executeQuery(sqlId);
+            
+            if (rs.next()) {
+                id=rs.getInt("BailAssetOrder"); 
+            }
+            
+            if(id==0){
+                id=1;
+            }
+            else{
+                id=id+1;
+            }
+             return String.valueOf(id);
+        
+        } catch (Exception e) {
+            return null;
+//            System.out.println(e);
+        } 
+    
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField BailAmount;
     private javax.swing.JTextField BailAssetBath;
     private javax.swing.JTextField BailAssetDetail;
-    private javax.swing.JTextField BailAssetOrder;
+    private javax.swing.JLabel BailAssetOrder;
     private javax.swing.JTextArea BailAssetRemark;
     private javax.swing.JTextField BailAssetTotal;
     private javax.swing.JButton jButtonSave;

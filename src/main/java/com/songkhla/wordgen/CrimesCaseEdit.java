@@ -218,6 +218,8 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                 isInsert=false;
                 caseid= "" + datain.get("CaseId");
                 crimecaseid.setText(datain.get("CaseId")+"");
+                caseyear=datain.get("crimecaseyears")+"";
+                caseno=datain.get("crimecaseno")+"";
 //          ID.setText(datain.get("CaseId")+"");
             crimecaseno.setText(datain.get("crimecaseno")+"");
             crimecaseyear.setText(datain.get("crimecaseyears")+"");
@@ -302,7 +304,10 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         dateFormat.format(date);
 //	System.out.println(dateFormat.format(date));
             caseidLast=IdCase();
-           crimecaseid.setText(IdCase());       
+           crimecaseid.setText(IdCase());
+           caseyear=crimecaseyear.getText();
+           caseno=crimecaseno.getText();
+           
 //           CaseAcceptDate.setDate(date);
 //           CaseRequestDateTime.setDate(date);
 //           OccuredDate.setDate(date);
@@ -444,6 +449,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jCheckW8 = new javax.swing.JCheckBox();
         jCheckW9 = new javax.swing.JCheckBox();
         jCheckW11 = new javax.swing.JCheckBox();
+        jLabel32 = new javax.swing.JLabel();
         jLabelChargeCode = new javax.swing.JLabel();
         jLabelActionCode = new javax.swing.JLabel();
         jButtonSaveCase = new javax.swing.JButton();
@@ -1127,6 +1133,8 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jCheckW11.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW11.setText("บัญชีของกลางคดีอาญา");
 
+        jLabel32.setText("jLabel32");
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
@@ -1136,18 +1144,23 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                 .addComponent(jButtonPrintDoc)
                 .addGap(23, 23, 23))
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckW1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckW2)
-                    .addComponent(jCheckW3, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckW4, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckW5, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jCheckW11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jCheckW9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jCheckW8, javax.swing.GroupLayout.Alignment.LEADING))
-                    .addComponent(jCheckW6))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jCheckW1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCheckW2)
+                            .addComponent(jCheckW3, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCheckW4, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCheckW5, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jCheckW11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jCheckW9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jCheckW8, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(jCheckW6)))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel32)))
                 .addContainerGap(759, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
@@ -1171,7 +1184,9 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                 .addComponent(jCheckW9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jCheckW11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel32)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
                 .addComponent(jButtonPrintDoc)
                 .addContainerGap())
         );
@@ -1331,7 +1346,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
       int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
         JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
   if (response == JOptionPane.YES_OPTION) {
-   
+//             con=ConnectDatabase.connect();
          pst.executeUpdate(); 
          pst.close();
          System.out.println("SQL : "+sql);
@@ -1861,7 +1876,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         Desktop desktop = Desktop.getDesktop();
         File dirToOpen = null;
         try {    
-            dirToOpen = new File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/คดีอาญา"+caseno+"-"+caseyear);
+            dirToOpen = new File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/คดีอาญา"+caseno+"-"+caseyear);
             desktop.open(dirToOpen);
         } catch (Exception iae) {
             System.out.println("File Not Found");
@@ -2092,6 +2107,7 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel43;
