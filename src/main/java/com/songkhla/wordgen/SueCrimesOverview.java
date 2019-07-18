@@ -57,7 +57,7 @@ public class SueCrimesOverview extends javax.swing.JFrame {
 
 //------------------------------------------Date----------------------------------------
          UtilDateModel model = new UtilDateModel();
-            model.setValue(Calendar.getInstance().getTime());
+//            model.setValue(Calendar.getInstance().getTime());
             Properties p = new Properties();
             p.put("text.today", "Today");
             p.put("text.month", "Month");
@@ -70,7 +70,7 @@ public class SueCrimesOverview extends javax.swing.JFrame {
         jPanelDateStart.add(DateFilterStart);   
         
          UtilDateModel model2 = new UtilDateModel();
-            model2.setValue(Calendar.getInstance().getTime());
+//            model2.setValue(Calendar.getInstance().getTime());
          
         JDatePanelImpl datePanel2 = new JDatePanelImpl(model2, p);
          DateFilterEnd = new JDatePickerImpl(datePanel2,new DateLabelFormatter());
@@ -185,6 +185,7 @@ public class SueCrimesOverview extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 1158, 269));
 
+        jButtonAddSue.setFont(new java.awt.Font("TH SarabunPSK", 1, 18)); // NOI18N
         jButtonAddSue.setText("เปิด");
         jButtonAddSue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -359,7 +360,7 @@ public class SueCrimesOverview extends javax.swing.JFrame {
 
     private void jButtonDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDateActionPerformed
         // TODO add your handling code here:
-        
+        RefreshData();
     }//GEN-LAST:event_jButtonDateActionPerformed
 
     /**
@@ -409,15 +410,30 @@ public class SueCrimesOverview extends javax.swing.JFrame {
         Statement stmt = con.createStatement();
 //        String a=txtCaseNO.getText();
         String sql;
-                sql=    "select crimecasenoyear,StatusSuspect,CaseIdPerson,CaseId,SueFirstDate,SueSecDate,SueThirdDate,SueFourthDate,SueFifthDate,SueSixthDate,SueSevenDate,FullNamePerson from Person\n"+
-                        "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId where StatusSuspect='ผัดฟ้องฝากขัง' or StatusSuspect='ผัดฟ้อง'"+getFilterCondition();
-        sql=sql+" and\n" +
-        "SueFirstEnd  between '"+ChangFormatDate(DateFilterStart.getJFormattedTextField().getText())+"' and '"+ChangFormatDate(DateFilterEnd.getJFormattedTextField().getText())+"' or\n" +
-        "SueSecEnd    between '"+ChangFormatDate(DateFilterStart.getJFormattedTextField().getText())+"' and '"+ChangFormatDate(DateFilterEnd.getJFormattedTextField().getText())+"' " ;
+                sql=    "select crimecasenoyear,StatusSuspect,CaseIdPerson,CaseId,SueFirstDate,SueSecDate,CourtSuspect,"
+                        + "SueThirdDate,SueFourthDate,SueFifthDate,SueSixthDate,SueSevenDate,"
+                        + "FullNamePerson,SueFirstEnd,SueSecEnd,SueThirdEnd,SueFourthEnd,SueFifthEnd,SueSixthEnd,SueSevenEnd\n"
+                        + "from Person\n"+
+                        "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId where StatusSuspect IN('ผัดฟ้องฝากขัง','ผัดฟ้อง')";
+//                if(jButtonDate.getModel().isPressed()){
+//        sql=sql+" and\n" +
+//        "SueFirstEnd  between '"+ChangFormatDate(DateFilterStart.getJFormattedTextField().getText())+"' and '"+ChangFormatDate(DateFilterEnd.getJFormattedTextField().getText())+"' or\n" +
+//        "SueSecEnd    between '"+ChangFormatDate(DateFilterStart.getJFormattedTextField().getText())+"' and '"+ChangFormatDate(DateFilterEnd.getJFormattedTextField().getText())+"' " ;
+//       }
 //        "SueThirdEnd  between '2562/07/20' and '2562/07/21' or\n" +
 //        "SueFourthEnd between '2562/07/20' and '2562/07/21'";   
+        if(DateFilterStart.getJFormattedTextField().getText() != null && DateFilterEnd.getJFormattedTextField().getText() != null && !"".equals(DateFilterStart.getJFormattedTextField().getText())&& !"".equals(DateFilterEnd.getJFormattedTextField().getText())){
+          sql=sql+" and\n"+
+        "SueFirstEnd  between '"+ChangFormatDate(DateFilterStart.getJFormattedTextField().getText())+"' and '"+ChangFormatDate(DateFilterEnd.getJFormattedTextField().getText())+"' or\n" +
+        "SueSecEnd  between '"+ChangFormatDate(DateFilterStart.getJFormattedTextField().getText())+"' and '"+ChangFormatDate(DateFilterEnd.getJFormattedTextField().getText())+"' or\n" +
+        "SueThirdEnd  between '"+ChangFormatDate(DateFilterStart.getJFormattedTextField().getText())+"' and '"+ChangFormatDate(DateFilterEnd.getJFormattedTextField().getText())+"' or\n" +
+        "SueFourthEnd  between '"+ChangFormatDate(DateFilterStart.getJFormattedTextField().getText())+"' and '"+ChangFormatDate(DateFilterEnd.getJFormattedTextField().getText())+"' or\n" +
+        "SueFifthEnd  between '"+ChangFormatDate(DateFilterStart.getJFormattedTextField().getText())+"' and '"+ChangFormatDate(DateFilterEnd.getJFormattedTextField().getText())+"' or\n" +
+        "SueSixthEnd  between '"+ChangFormatDate(DateFilterStart.getJFormattedTextField().getText())+"' and '"+ChangFormatDate(DateFilterEnd.getJFormattedTextField().getText())+"' or\n" +
+        "SueSevenEnd    between '"+ChangFormatDate(DateFilterStart.getJFormattedTextField().getText())+"' and '"+ChangFormatDate(DateFilterEnd.getJFormattedTextField().getText())+"' " ;
+        }
+//  
 
-  
         ResultSet rs = stmt.executeQuery(sql);
           System.out.println("SQL : "+sql);
         Vector<Vector> tabledata = new Vector<Vector>();
@@ -426,14 +442,15 @@ public class SueCrimesOverview extends javax.swing.JFrame {
             Vector<String> row = new Vector<String>();
             row.add(rs.getString("crimecasenoyear"));
             row.add(rs.getString("FullNamePerson"));
+            row.add(rs.getString("CourtSuspect"));            
             row.add(rs.getString("StatusSuspect"));
-            row.add(ChangFormat(rs.getString("SueFirstDate")));
-            row.add(ChangFormat(rs.getString("SueSecDate")));
-            row.add(ChangFormat(rs.getString("SueThirdDate")));
-             row.add(ChangFormat(rs.getString("SueFourthDate")));
-            row.add(ChangFormat(rs.getString("SueFifthDate")));
-             row.add(ChangFormat(rs.getString("SueSixthDate")));
-            row.add(ChangFormat(rs.getString("SueSevenDate")));
+            row.add(ChangFormat(rs.getString("SueFirstEnd")));
+            row.add(ChangFormat(rs.getString("SueSecEnd")));
+            row.add(ChangFormat(rs.getString("SueThirdEnd")));
+             row.add(ChangFormat(rs.getString("SueFourthEnd")));
+            row.add(ChangFormat(rs.getString("SueFifthEnd")));
+             row.add(ChangFormat(rs.getString("SueSixthEnd")));
+            row.add(ChangFormat(rs.getString("SueSevenEnd")));
 
                
 //            row.add(rs.getString("Age"));
@@ -447,8 +464,9 @@ public class SueCrimesOverview extends javax.swing.JFrame {
         Vector ColumnName = new Vector(); 
     
          ColumnName.add("เลขคดี");
-         ColumnName.add("ผู้ต้องหา");
-         ColumnName.add("สถานะ");
+         ColumnName.add("ผู้ต้องหา"); 
+         ColumnName.add("ศาล");  
+         ColumnName.add("สถานะ");              
          ColumnName.add("ครั้งที่ 1");         
          ColumnName.add("ครั้งที่ 2");
          ColumnName.add("ครั้งที่ 3");
@@ -482,23 +500,29 @@ public class SueCrimesOverview extends javax.swing.JFrame {
             ex.printStackTrace();
         }
     }
+
      private String getFilterCondition(){
         HashMap<String,String> filter = new HashMap<String,String>();
-//        if(textSearch.getText() != null){
-//            filter.put("FullNamePerson", textSearch.getText().trim());
-//        }
+        String result="";
+        if(DateFilterStart.getJFormattedTextField().getText() != null && DateFilterEnd.getJFormattedTextField().getText() != null){
+          result=" and\n"+
+         "SueFirstEnd  between '"+ChangFormatDate(DateFilterStart.getJFormattedTextField().getText())+"' and '"+ChangFormatDate(DateFilterEnd.getJFormattedTextField().getText())+"' or\n" +
+        "SueSecEnd    between '"+ChangFormatDate(DateFilterStart.getJFormattedTextField().getText())+"' and '"+ChangFormatDate(DateFilterEnd.getJFormattedTextField().getText())+"' " ;
+        }
         
         String[] key = filter.keySet().toArray(new String[0]);
-        String result="";
+        
         for(int i=0;i<key.length;i++){
-            if(i==0){
-                result=" and ";
-            }
-            if(i==key.length-1){
-                result+= " "+key[i]+" LIKE '%"+filter.get(key[i])+"%'";
-            }else{
-                result+= " "+key[i]+" LIKE "+filter.get(key[i]);
-            }
+//            if(i==0){
+//                result=" and\n"+
+//         "SueFirstEnd  between '"+ChangFormatDate(DateFilterStart.getJFormattedTextField().getText())+"' and '"+ChangFormatDate(DateFilterEnd.getJFormattedTextField().getText())+"' or\n" +
+//        "SueSecEnd    between '"+ChangFormatDate(DateFilterStart.getJFormattedTextField().getText())+"' and '"+ChangFormatDate(DateFilterEnd.getJFormattedTextField().getText())+"' " ;
+//            }
+//            if(i==key.length-1){
+//                result+= " "+key[i]+" LIKE '%"+filter.get(key[i])+"%'";
+//            }else{
+//                result+= " "+key[i]+" LIKE "+filter.get(key[i]);
+//            }
             System.out.println(result);
         }
         

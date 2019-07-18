@@ -385,8 +385,8 @@ public class SuspectForm extends javax.swing.JDialog {
         ArrestDateTimeEnd = new javax.swing.JTextField();
         jCheckBail = new javax.swing.JCheckBox();
         jLabel3 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
+        jLabelRate = new javax.swing.JLabel();
+        jLabelRateNumber = new javax.swing.JLabel();
         RatePrison = new javax.swing.JComboBox<>();
         jLabel21 = new javax.swing.JLabel();
         HouseNumber = new javax.swing.JTextField();
@@ -932,11 +932,11 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel3.setText("สถานะประกัน");
 
-        jLabel19.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel19.setText("อัตราโทษจำคุก");
+        jLabelRate.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabelRate.setText("อัตราโทษจำคุก");
 
-        jLabel35.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel35.setText("10 ปี");
+        jLabelRateNumber.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabelRateNumber.setText("10 ปี");
 
         RatePrison.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         RatePrison.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "น้อยกว่า", "มากกว่า" }));
@@ -974,18 +974,17 @@ public class SuspectForm extends javax.swing.JDialog {
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(jLabelBailDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(2, 2, 2)))
-                        .addGap(18, 18, 18)
                         .addComponent(jPanelRestoreDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(105, 105, 105)
                         .addComponent(jCheckBail))
                     .addComponent(jLabel3)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel19)
+                        .addComponent(jLabelRate)
                         .addGap(18, 18, 18)
                         .addComponent(RatePrison, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel35))
+                        .addComponent(jLabelRateNumber))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jRadioCantCatch, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1032,9 +1031,9 @@ public class SuspectForm extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel35)
+                        .addComponent(jLabelRateNumber)
                         .addComponent(RatePrison, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jLabelRate, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelArrestPlace)
@@ -1623,7 +1622,12 @@ public class SuspectForm extends javax.swing.JDialog {
             jSpinnerArrTime.setVisible(true);
                  jLabelArrestEnd.setVisible(true);
             ArrestDateTimeEnd.setVisible(true);
-            
+                  jLabelRate.setVisible(true);
+            jLabelRateNumber.setVisible(true);
+             RatePrison.setVisible(true);
+           jLabelBailDate.setVisible(true);
+           jPanelBailDate.setVisible(true);
+
             }
             else {
                   PlaceArrest.setVisible(false);
@@ -1635,6 +1639,11 @@ public class SuspectForm extends javax.swing.JDialog {
             jSpinnerArrTime.setVisible(false);
                  jLabelArrestEnd.setVisible(false);
             ArrestDateTimeEnd.setVisible(false);
+      jLabelRate.setVisible(false);
+            jLabelRateNumber.setVisible(false);
+             RatePrison.setVisible(false);
+           jLabelBailDate.setVisible(false);
+           jPanelBailDate.setVisible(false);
 
             }
 
@@ -1661,6 +1670,12 @@ public class SuspectForm extends javax.swing.JDialog {
 //            jPanelBailDate.setVisible(false);   
             jLabelArrestEnd.setVisible(false);
             ArrestDateTimeEnd.setVisible(false);
+            jLabelRate.setVisible(false);
+            jLabelRateNumber.setVisible(false);
+             RatePrison.setVisible(false);
+           jLabelBailDate.setVisible(false);
+           jPanelBailDate.setVisible(false);
+
     }
     /**
      * @param args the command line arguments
@@ -1826,7 +1841,6 @@ public class SuspectForm extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
@@ -1844,7 +1858,6 @@ public class SuspectForm extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1857,6 +1870,8 @@ public class SuspectForm extends javax.swing.JDialog {
     private javax.swing.JLabel jLabelArrestEnd;
     private javax.swing.JLabel jLabelArrestPlace;
     private javax.swing.JLabel jLabelBailDate;
+    private javax.swing.JLabel jLabelRate;
+    private javax.swing.JLabel jLabelRateNumber;
     private javax.swing.JLabel jLabelRestoreDate;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
