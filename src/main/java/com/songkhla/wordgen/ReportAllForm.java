@@ -42,6 +42,7 @@ import com.songkhla.document.W6;
 import com.songkhla.document.W7;
 import com.songkhla.document.W8;
 import com.songkhla.document.W9;
+import java.awt.Desktop;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -1032,8 +1033,19 @@ public class ReportAllForm extends javax.swing.JDialog {
             W39 .nw39();
            
         }
+         JOptionPane.showMessageDialog(jPanel1,"สร้างเอกสารสำเร็จ", "สร้างเอกสารสำเร็จ", JOptionPane.INFORMATION_MESSAGE);
+         
+        Desktop desktop = Desktop.getDesktop();
+        File dirToOpen = null;
+        try {    
+            dirToOpen = new File("D:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน");
+            desktop.open(dirToOpen);
+        } catch (Exception iae) {
+            System.out.println("File Not Found");
+        }
+        setVisible(false);
         
-         JOptionPane.showMessageDialog(jPanel1,"Export successfully", "สร้างเอกสารสำเร็จ", JOptionPane.INFORMATION_MESSAGE);
+        
     }//GEN-LAST:event_button1ActionPerformed
 
     private void jCheckW93ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW93ActionPerformed
