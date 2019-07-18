@@ -260,35 +260,14 @@ public class W18 {
                             bookmarkvalue.put("C13", "");
                             bookmarkvalue.put("C14", "");
                             bookmarkvalue.put("C15", "");
-                            
-                    
-                   
-    
-			JSONArray tablecolumn = new JSONArray();
-			tablecolumn.add("C2");
-			tablecolumn.add("C3");
-
-			JSONArray table1 = new JSONArray();
-			JSONObject row1 = new JSONObject();
-			
-			table1.add(row1);
-
-		JSONObject tableobj = new JSONObject();
-		tableobj.put("COLUMNS", tablecolumn);
-		tableobj.put("TABLEDATA", table1);
-			
-		JSONArray TABLES = new JSONArray();
-		TABLES.add(tableobj);
-		bookmarkvalue.put("TABLES", TABLES);
-		System.out.println(bookmarkvalue.toJSONString());
-		
+                  
 		
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
 					.load(new java.io.File("D:/TEMPLATE/w18.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
-			processTABLE(bookmarkvalue,wordMLPackage);
+			
 			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์//บันทึกการตรวจสถานที่เกิดเหตุคดีจราจรทางบก.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();

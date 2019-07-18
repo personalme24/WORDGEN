@@ -275,30 +275,14 @@ public static void nw11() {
                     
                     
 
-			JSONArray tablecolumn = new JSONArray();
 			
-
-			JSONArray table1 = new JSONArray();
-			JSONObject row1 = new JSONObject();
-			
-                        
-			table1.add(row1);
-
-		JSONObject tableobj = new JSONObject();
-		tableobj.put("COLUMNS", tablecolumn);
-		tableobj.put("TABLEDATA", table1);
-			
-		JSONArray TABLES = new JSONArray();
-		TABLES.add(tableobj);
-		bookmarkvalue.put("TABLES", TABLES);
-		System.out.println(bookmarkvalue.toJSONString());
 		
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
 					.load(new java.io.File("D:/TEMPLATE/w11.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
-			processTABLE(bookmarkvalue,wordMLPackage);
+			
 			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/บัญชีทรัพย์ของกลางคดีอาญา.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();

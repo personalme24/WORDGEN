@@ -243,35 +243,16 @@ public class W6 {
                             bookmarkvalue.put("C5","");
                             bookmarkvalue.put("C551","");
                             bookmarkvalue.put("C12","");
-                    
-                   
-    
-			  bookmarkvalue.put("B2","");
+                            bookmarkvalue.put("B2","");
                   
-			JSONArray tablecolumn = new JSONArray();
 			
-			JSONArray table1 = new JSONArray();
-			JSONObject row1 = new JSONObject();
-			
-			table1.add(row1);
-			
-//			
-		JSONObject tableobj = new JSONObject();
-		tableobj.put("COLUMNS", tablecolumn);
-		tableobj.put("TABLEDATA", table1);
-			
-		JSONArray TABLES = new JSONArray();
-		TABLES.add(tableobj);
-		bookmarkvalue.put("TABLES", TABLES);
-		System.out.println(bookmarkvalue.toJSONString());
-		
 		
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
 					.load(new java.io.File("D:/TEMPLATE/w6.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
-			processTABLE(bookmarkvalue,wordMLPackage);
+			
 			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/รายงานการสอบสวนคดีไม่ปรากฎว่าผู้ใดเป็นผู้กระทำผิด.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
