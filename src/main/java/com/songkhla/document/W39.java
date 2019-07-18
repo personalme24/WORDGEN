@@ -219,7 +219,7 @@ public static void w39(String cc) {
 					.load(new java.io.File("D:/TEMPLATE/w39.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/คดีอาญา"+cs+"-"+ccYear+"/หมายเรียกผู้ต้องหา"+s.getString("FullNamePerson")+""+cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/คดีอาญา"+cs+"-"+ccYear+"/หมายเรียกพยาน"+s.getString("FullNamePerson")+""+cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -230,6 +230,85 @@ public static void w39(String cc) {
         
               
 	}
+public static void nw39() {
+            
+                 JSONObject bookmarkvalue = new JSONObject();
+//              
+                bookmarkvalue.put("C1","");
+                bookmarkvalue.put("C01","");
+                bookmarkvalue.put("C001","");
+		bookmarkvalue.put("C2","");
+                bookmarkvalue.put("C3","");
+                
+                bookmarkvalue.put("S2","");
+                bookmarkvalue.put("S5","");
+                bookmarkvalue.put("S6","");
+                bookmarkvalue.put("S27","");
+                bookmarkvalue.put("S10","");
+                   
+//                   ----------------------------ผู้กล่าวหา--------------------
+               
+                bookmarkvalue.put("PA7","");
+                bookmarkvalue.put("PA7","");
+               
+                
+                
+//                   ----------------------------ผู้ต้องหา--------------------
+                    bookmarkvalue.put("PW2", ""); 
+                    bookmarkvalue.put("PW3",""); 
+                    bookmarkvalue.put("PW5", ""); 
+                    bookmarkvalue.put("PW7", ""); 
+                    bookmarkvalue.put("PW13", "");
+                    bookmarkvalue.put("PW14", "");
+                    bookmarkvalue.put("PW15", "");
+                    bookmarkvalue.put("PW16", "");
+                    bookmarkvalue.put("PW17", "");
+                    bookmarkvalue.put("PW22", "");
+                    bookmarkvalue.put("PW23", "");
+                    bookmarkvalue.put("PW24", "");
+                    bookmarkvalue.put("PW25", "");
+                    bookmarkvalue.put("PW26", "");
+                    bookmarkvalue.put("PW29", "");
+                    bookmarkvalue.put("PW30", "");
+                    bookmarkvalue.put("PW31", "");
+                    bookmarkvalue.put("PW32", "");
+                    bookmarkvalue.put("PW33", "");
+                    bookmarkvalue.put("PW34", "");
+                    bookmarkvalue.put("PW35", "");
+                     
+
+                        bookmarkvalue.put("B2", "");
+                      
+                        bookmarkvalue.put("P02", "");
+                        bookmarkvalue.put("P03", "");
+                        bookmarkvalue.put("P04", "");
+                        bookmarkvalue.put("P05", "");
+                    
+
+    
+			JSONArray tablecolumn = new JSONArray();
+
+			JSONArray table1 = new JSONArray();
+			JSONObject row1 = new JSONObject();
+//	
+			table1.add(row1);
+
+		JSONObject tableobj = new JSONObject();
+
+		System.out.println(bookmarkvalue.toJSONString());
+		
+		
+		try {
+                  
+			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
+					.load(new java.io.File("D:/TEMPLATE/w39.docx"));
+			processVariable(bookmarkvalue,wordMLPackage);
+			processTABLE(bookmarkvalue,wordMLPackage);
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/หมายเรียกพยาน.doc"));
+		}catch( Exception ex) {
+			ex.printStackTrace();
+		}
+            }
 
 	public static void processVariable(JSONObject inputdata,WordprocessingMLPackage wordMLPackage) throws Exception {
 		Object KEYSET[] = inputdata.keySet().toArray();

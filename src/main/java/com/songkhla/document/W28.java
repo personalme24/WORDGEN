@@ -230,7 +230,93 @@ public class W28 {
         
               
 	}
+public static void nw28() {
+     
+        
+                 JSONObject bookmarkvalue = new JSONObject();
+//              
+                bookmarkvalue.put("C1","");
+                bookmarkvalue.put("C01","");
+                bookmarkvalue.put("C001","");
+		bookmarkvalue.put("C2","");
+                bookmarkvalue.put("C3", "");
+                bookmarkvalue.put("S2","");
+                 bookmarkvalue.put("S5", "");
+                 bookmarkvalue.put("S6", "");
+                 bookmarkvalue.put("S10","");
+                 bookmarkvalue.put("S22","");
+                 bookmarkvalue.put("S27","");
+                 
+                 
+                   
+                 bookmarkvalue.put("PA7","");
+                  
+                  bookmarkvalue.put("PS7", ""); 
+                  bookmarkvalue.put("PS13", "");
+                  bookmarkvalue.put("PS15", "");
+                   
+                      bookmarkvalue.put("A2", "");  
+                      bookmarkvalue.put("B2", "");
+                      bookmarkvalue.put("AS64","");;
+                      
+                        bookmarkvalue.put("P02", "");
+                        bookmarkvalue.put("P03", "");
+                        bookmarkvalue.put("P04", "");
+                        bookmarkvalue.put("P05", "");
+                         
+                            bookmarkvalue.put("C4","");
+                            bookmarkvalue.put("C441","");
+                            
+                            bookmarkvalue.put("C5", "");
+                            bookmarkvalue.put("C551","");
+                            bookmarkvalue.put("C6", "");
+                            bookmarkvalue.put("C661", "");
+                             bookmarkvalue.put("C9", "");
+                            bookmarkvalue.put("C10", "");
+                            bookmarkvalue.put("C11", "");
+                            bookmarkvalue.put("C12", "");
+                            bookmarkvalue.put("C13", "");
+                            bookmarkvalue.put("C14", "");
+                            bookmarkvalue.put("C16", "");
+                            bookmarkvalue.put("C17", "");
+                            
+                            
+                            bookmarkvalue.put("AS87","");
+                            bookmarkvalue.put("AS88","");
+                            bookmarkvalue.put("AS90","");
+                            
+                    
+                   
+    
+			JSONArray tablecolumn = new JSONArray();
+	
+			JSONArray table1 = new JSONArray();
+			JSONObject row1 = new JSONObject();
+	
+			table1.add(row1);
 
+		JSONObject tableobj = new JSONObject();
+		tableobj.put("COLUMNS", tablecolumn);
+		tableobj.put("TABLEDATA", table1);
+			
+		JSONArray TABLES = new JSONArray();
+		TABLES.add(tableobj);
+		bookmarkvalue.put("TABLES", TABLES);
+		System.out.println(bookmarkvalue.toJSONString());
+		
+		
+		try {
+                  
+			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
+					.load(new java.io.File("D:/TEMPLATE/w28.docx"));
+			processVariable(bookmarkvalue,wordMLPackage);
+			processTABLE(bookmarkvalue,wordMLPackage);
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/บันทึกการตรวจสภาพรถ.doc"));
+		}catch( Exception ex) {
+			ex.printStackTrace();
+		}
+            }
+            
 	public static void processVariable(JSONObject inputdata,WordprocessingMLPackage wordMLPackage) throws Exception {
 		Object KEYSET[] = inputdata.keySet().toArray();
 		Map<DataFieldName, String> map = new HashMap<DataFieldName, String>();
