@@ -338,6 +338,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jLabel1 = new javax.swing.JLabel();
         CaseType = new javax.swing.JLabel();
         crimecaseid = new javax.swing.JLabel();
+        jLabelActionCode = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
@@ -438,6 +439,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         Prosecutor_Result = new javax.swing.JTextArea();
         jLabelNumberSus = new javax.swing.JLabel();
         jLabelNumberWitness = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
         jPanel8 = new javax.swing.JPanel();
         jButtonPrintDoc = new javax.swing.JButton();
         jLabel32 = new javax.swing.JLabel();
@@ -494,10 +496,10 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jCheckW27 = new javax.swing.JCheckBox();
         jCheckW12 = new javax.swing.JCheckBox();
         jLabelChargeCode = new javax.swing.JLabel();
-        jLabelActionCode = new javax.swing.JLabel();
         jButtonSaveCase = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1214, 720));
         setResizable(false);
 
         jPanel3.setBackground(new java.awt.Color(46, 156, 202));
@@ -514,6 +516,8 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 
         crimecaseid.setText("NoCaseId");
 
+        jLabelActionCode.setText("jLabel2");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -525,6 +529,8 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                 .addComponent(CaseType)
                 .addGap(18, 18, 18)
                 .addComponent(crimecaseid)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelActionCode)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -533,7 +539,8 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CaseType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(crimecaseid))
+                    .addComponent(crimecaseid)
+                    .addComponent(jLabelActionCode))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1197,6 +1204,11 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jCheckW41.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW41.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jCheckW41.setText("บันทึกการตกลงค่าเสียหาย");
+        jCheckW41.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckW41ActionPerformed(evt);
+            }
+        });
 
         jCheckW8.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW8.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
@@ -1233,6 +1245,11 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jCheckW69.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW69.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jCheckW69.setText("คำร้องขอฝากขัง");
+        jCheckW69.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckW69ActionPerformed(evt);
+            }
+        });
 
         jCheckW47.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW47.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
@@ -1282,6 +1299,11 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jCheckW40.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW40.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jCheckW40.setText("บันทึกการแจ้งสิทธิ์ตามพระราชบัญญติค่าตอบแทนผู้เสียหาย และค่าทดแทน \n");
+        jCheckW40.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckW40ActionPerformed(evt);
+            }
+        });
 
         jCheckW28.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW28.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
@@ -1379,20 +1401,85 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addContainerGap(972, Short.MAX_VALUE)
-                .addComponent(jLabel32)
-                .addGap(18, 18, 18)
-                .addComponent(jButtonPrintDoc)
-                .addGap(111, 111, 111))
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jCheckW2)
+                    .addComponent(jCheckW3, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckW4, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jCheckW43))
+                            .addComponent(jCheckW41)
+                            .addComponent(jCheckW27))
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGap(130, 130, 130)
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jCheckW59)
+                                    .addComponent(jCheckW40)))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGap(128, 128, 128)
+                                .addComponent(jCheckW46, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jCheckW26)
+                            .addComponent(jCheckW31)
+                            .addComponent(jCheckW36)
+                            .addComponent(jCheckW28)
+                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jCheckW30, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jCheckW29, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jCheckW39, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jCheckW38, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(jCheckW35)
+                            .addComponent(jCheckW21)
+                            .addComponent(jCheckW49)
+                            .addComponent(jCheckW34)
+                            .addComponent(jCheckW33)
+                            .addComponent(jCheckW25))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(jCheckW47, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE)
+                                .addGap(8, 8, 8))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jCheckW70, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
+                                    .addGroup(jPanel8Layout.createSequentialGroup()
+                                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jCheckW50)
+                                            .addComponent(jCheckW51)
+                                            .addComponent(jCheckBox50)
+                                            .addComponent(jCheckW53, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jCheckW62, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jCheckW69, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jCheckW67, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jCheckW68)
+                                            .addComponent(jCheckW71))
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(jCheckBox64))
+                                .addContainerGap())
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(jCheckW37)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel32)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButtonPrintDoc)
+                                .addGap(26, 26, 26))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(jCheckW48, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
             .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel8Layout.createSequentialGroup()
                     .addContainerGap()
                     .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jCheckW1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jCheckW2)
-                        .addComponent(jCheckW3, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jCheckW4, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jCheckW5, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jCheckW13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1409,181 +1496,132 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                             .addComponent(jCheckW14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jCheckW93, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jCheckW6))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jCheckW31)
-                        .addComponent(jCheckW36)
-                        .addComponent(jCheckW43)
-                        .addComponent(jCheckW41)
-                        .addComponent(jCheckW27)
-                        .addComponent(jCheckW25)
-                        .addComponent(jCheckW26)
-                        .addComponent(jCheckW28)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jCheckW30, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jCheckW29, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jCheckW39, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jCheckW38, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addComponent(jCheckW35)
-                        .addComponent(jCheckW21)
-                        .addComponent(jCheckW49)
-                        .addComponent(jCheckW34)
-                        .addComponent(jCheckW33))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel8Layout.createSequentialGroup()
-                            .addComponent(jCheckW70, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGap(189, 189, 189))
-                        .addComponent(jCheckW47, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jCheckW62, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel8Layout.createSequentialGroup()
-                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jCheckW71)
-                                .addComponent(jCheckBox64)
-                                .addComponent(jCheckW69, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jCheckW67, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jCheckW68)
-                                .addComponent(jCheckW40)
-                                .addComponent(jCheckW59)
-                                .addComponent(jCheckW46, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jCheckW48, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jCheckW51)
-                                .addComponent(jCheckBox50)
-                                .addComponent(jCheckW50)
-                                .addComponent(jCheckW53, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jCheckW37))
-                            .addGap(56, 56, 56)))
-                    .addContainerGap()))
+                    .addContainerGap(801, Short.MAX_VALUE)))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap(570, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonPrintDoc)
-                    .addComponent(jLabel32))
-                .addContainerGap())
+                    .addComponent(jCheckW27)
+                    .addComponent(jCheckW59))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckW2)
+                    .addComponent(jCheckW41)
+                    .addComponent(jCheckW40))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckW3)
+                    .addComponent(jCheckW43)
+                    .addComponent(jCheckW46))
+                .addGap(0, 0, 0)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckW25)
+                    .addComponent(jCheckW4)
+                    .addComponent(jCheckW47))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckW26)
+                    .addComponent(jCheckW48))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckW28)
+                    .addComponent(jCheckW50))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckW29)
+                    .addComponent(jCheckW51))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckW30)
+                    .addComponent(jCheckBox50))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckW31)
+                    .addComponent(jCheckW53))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckW35)
+                    .addComponent(jCheckW62))
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jCheckW36)
+                            .addComponent(jCheckW69))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jCheckW34)
+                            .addComponent(jCheckW67))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jCheckW38)
+                            .addComponent(jCheckW68))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jCheckW39)
+                            .addComponent(jCheckW70))
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jCheckW21)
+                                .addGap(0, 0, 0)
+                                .addComponent(jCheckW49)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jCheckW33)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 6, Short.MAX_VALUE)
+                                .addComponent(jCheckW71)
+                                .addGap(0, 0, 0)
+                                .addComponent(jCheckBox64)
+                                .addGap(1, 1, 1)
+                                .addComponent(jCheckW37)
+                                .addGap(16, 16, 16))))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonPrintDoc)
+                            .addComponent(jLabel32))))
+                .addGap(23, 23, 23))
             .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel8Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jCheckW27)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckW1)
-                            .addComponent(jCheckW59)))
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                            .addComponent(jCheckW40)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jCheckW46)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jCheckW47)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jCheckW48)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jCheckW50)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jCheckW51)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jCheckBox50)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jCheckW53)
-                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel8Layout.createSequentialGroup()
-                                    .addGap(131, 131, 131)
-                                    .addComponent(jCheckW70)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jCheckW71)
-                                    .addGap(0, 0, 0)
-                                    .addComponent(jCheckBox64))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                                    .addComponent(jCheckW62)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jCheckW69)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jCheckW67)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jCheckW68)
-                                    .addGap(98, 98, 98)))
-                            .addComponent(jCheckW37)
-                            .addGap(35, 35, 35))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jCheckW2)
-                                .addComponent(jCheckW41))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jCheckW3)
-                                .addComponent(jCheckW43))
-                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel8Layout.createSequentialGroup()
-                                    .addGap(1, 1, 1)
-                                    .addComponent(jCheckW4)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jCheckW6)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jCheckW5)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jCheckW8)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jCheckW9)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jCheckW11)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jCheckW12)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jCheckW13)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jCheckW14)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jCheckW15)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jCheckW16)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jCheckW17)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jCheckW19)
-                                    .addGap(0, 0, 0)
-                                    .addComponent(jCheckW20)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jCheckW93))
-                                .addGroup(jPanel8Layout.createSequentialGroup()
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jCheckW25)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jCheckW26)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jCheckW28)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jCheckW29)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jCheckW30)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jCheckW31)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jCheckW35)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jCheckW36)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jCheckW34)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jCheckW38)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jCheckW39)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jCheckW21)
-                                    .addGap(0, 0, 0)
-                                    .addComponent(jCheckW49)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jCheckW33)))))
+                    .addComponent(jCheckW1)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
+                    .addComponent(jCheckW6)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jCheckW5)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jCheckW8)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jCheckW9)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jCheckW11)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jCheckW12)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jCheckW13)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jCheckW14)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jCheckW15)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jCheckW16)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jCheckW17)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jCheckW19)
+                    .addGap(0, 0, 0)
+                    .addComponent(jCheckW20)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jCheckW93)
                     .addContainerGap()))
         );
 
-        jTabbedPane2.addTab("รายงาน", jPanel8);
+        jScrollPane1.setViewportView(jPanel8);
 
-        jLabelActionCode.setText("jLabel2");
+        jTabbedPane2.addTab("รายงาน", jScrollPane1);
 
         jButtonSaveCase.setBackground(new java.awt.Color(0, 51, 102));
         jButtonSaveCase.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -1599,50 +1637,44 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelChargeCode)
-                .addGap(151, 151, 151))
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(59, 59, 59)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(48, Short.MAX_VALUE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabelActionCode)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonSaveCase, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(59, 59, 59))))
+                        .addGap(10, 10, 10)
+                        .addComponent(jButtonSaveCase, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(151, 151, 151))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jLabelChargeCode, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelActionCode)
-                    .addComponent(jButtonSaveCase))
-                .addGap(18, 18, 18)
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 656, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelChargeCode, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 557, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonSaveCase)
+                .addContainerGap(288, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 1214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -2102,195 +2134,25 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         // TODO add your handling code here:
     }//GEN-LAST:event_CrimeLocationMooActionPerformed
 
-    private void jButtonPrintDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrintDocActionPerformed
+    private void jCheckW68ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW68ActionPerformed
         // TODO add your handling code here:
-          String no=crimecaseid.getText();
-        File f3=new File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/คดีอาญา"+caseno+"-"+caseyear);
-        
-        f3.mkdirs();
-        System.out.print(f3);
-        System.out.print("folder created");
-         if(jCheckW1.isSelected()){
-             W1.w1(no);
-        }
-        
-        if(jCheckW2.isSelected()){
-             W2.w2(no);
-             
-        }
-        if(jCheckW3.isSelected()){
-             W3.w3(no);
-        }
-        if(jCheckW4.isSelected()){
-             W4.w4(no);
-        }
-         if(jCheckW5.isSelected()){
-            W5.w5(no);
-        }
-        if(jCheckW6.isSelected()){
-            W6.w6(no);
-        }
-        if(jCheckW8.isSelected()){
-            W8.w8(no);
-        }
-        if(jCheckW9.isSelected()){
-            W9.w9(no);
-        }
-       if(jCheckW11.isSelected()){
-            W11.w11(no);
-        }
-//        if(jCheckW12.isSelected()){
-//            W12.w12(no);
-//        }
-//        if(jCheckW13.isSelected()){
-//            W13.w13(no);
-//        }
-//        if(jCheckW14.isSelected()){
-//            W14.w14(no);
-//        }
-//        if(jCheckW15.isSelected()){
-//            W15.w15(no);
-//        }
-//       if(jCheckW16.isSelected()){
-//            W16.w16(no);
-//        }
-//       if(jCheckW17.isSelected()){
-//            W17.w17(no);
-//        }
-//      // if(jCheckW18.isSelected()){
-//      //      W18.w18(no);
-//      //  }
-//       if(jCheckW19.isSelected()){
-//            W19.w19(no);
-//        }
-//       if(jCheckW20.isSelected()){
-//            W20.w20(no);
-//        }
-//       if(jCheckW21.isSelected()){
-//            W21.w21(no);
-//        }
-//       if(jCheckW25.isSelected()){
-//            W25.w25(no);
-//        }
-//       if(jCheckW26.isSelected()){
-//            W26.w26(no);
-//        }
-//       if(jCheckW27.isSelected()){
-//            W27.w27(no);
-//        }
-//       if(jCheckW28.isSelected()){
-//            W28.w28(no);
-//        }
-//       if(jCheckW29.isSelected()){
-//            W29.w29(no);
-//        }
-//       if(jCheckW30.isSelected()){
-//            W30.w30(no);
-//        }
-//       if(jCheckW31.isSelected()){
-//            W31.w31(no);
-//        }
-//    
-//       if(jCheckW33.isSelected()){
-//            W33.w33(no);
-//        }
-//       if(jCheckW34.isSelected()){
-//            W34.w34(no);
-//        }
-//       if(jCheckW35.isSelected()){
-//            W35.w35(no);
-//        }
-//       if(jCheckW36.isSelected()){
-//            W36.w36(no);
-//        }
-//       if(jCheckW37.isSelected()){
-//            W37.w37(no);
-//        }
-//       if(jCheckW38.isSelected()){
-//            W38.w38(no);
-//        }
-//       if(jCheckW39.isSelected()){
-//            W39.w39(no);
-//        }
-//       if(jCheckW40.isSelected()){
-//            W40.w40(no);
-//        }
-//       if(jCheckW41.isSelected()){
-//            W41.w41(no);
-//        }
-//      if(jCheckW43.isSelected()){
-//            W43.w43(no);
-//        }
-//       if(jCheckW46.isSelected()){
-//            W46.w46(no);
-//        }
-//       if(jCheckW47.isSelected()){
-//            W47.w47(no);
-//        }
-//       if(jCheckW48.isSelected()){
-//            W48.w48(no);
-//        }
-//       if(jCheckW49.isSelected()){
-//            W49.w49(no);
-//        }
-//       if(jCheckW50.isSelected()){
-//            W50.w50(no);
-//        }
-//       if(jCheckW51.isSelected()){
-//            W51.w51(no);
-//        }
-//       if(jCheckW53.isSelected()){
-//            W53.w53(no);
-//        }
-//       if(jCheckW62.isSelected()){
-//            W62.w62(no);
-//        }
-//       if(jCheckW67.isSelected()){
-//            W67.w67(no);
-//        }
-////       if(jCheckW68.isSelected()){
-////            W68.w68(no);
-////        }
-//       if(jCheckW69.isSelected()){
-//            W69.w69(no);
-//        }
-//       if(jCheckW70.isSelected()){
-//            W70.w70(no);
-//        }
-//       if(jCheckW71.isSelected()){
-//            W71.w71(no);
-//        }
-//       if(jCheckW93.isSelected()){
-//            W93.w93(no);
-//        }
-        Desktop desktop = Desktop.getDesktop();
-        File dirToOpen = null;
-        try {    
-            dirToOpen = new File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/คดีอาญา"+caseno+"-"+caseyear);
-            desktop.open(dirToOpen);
-        } catch (Exception iae) {
-            System.out.println("File Not Found");
-        }
- 
-    }//GEN-LAST:event_jButtonPrintDocActionPerformed
+    }//GEN-LAST:event_jCheckW68ActionPerformed
 
-    private void jCheckW93ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW93ActionPerformed
+    private void jCheckW19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW19ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW93ActionPerformed
+    }//GEN-LAST:event_jCheckW19ActionPerformed
 
-    private void jCheckW1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckW1MouseClicked
+    private void jCheckW19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckW19MouseClicked
         // TODO add your handling code here:
-        /*
-        String no=crimecaseno.getText();
-        File f3=new File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/คดีอาญา"+caseno+"-"+caseyear);
+    }//GEN-LAST:event_jCheckW19MouseClicked
 
-        f3.mkdirs();
-        W1.w1(no);
-        System.out.print(f3);
-        System.out.print("folder created");
-        OpenFile(PoliceStaionName, caseyear, caseno,"บันทึกการตรวจสำนวนการสอบสวน.doc");
-        */
-    }//GEN-LAST:event_jCheckW1MouseClicked
+    private void jCheckW37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW37ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckW37ActionPerformed
+
+    private void jCheckW40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW40ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckW40ActionPerformed
 
     private void jCheckW2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckW2MouseClicked
         // TODO add your handling code here:
@@ -2306,22 +2168,203 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         */
     }//GEN-LAST:event_jCheckW2MouseClicked
 
-    private void jCheckW37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW37ActionPerformed
+    private void jCheckW1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckW1MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW37ActionPerformed
+        /*
+        String no=crimecaseno.getText();
+        File f3=new File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/คดีอาญา"+caseno+"-"+caseyear);
 
-    private void jCheckW19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckW19MouseClicked
+        f3.mkdirs();
+        W1.w1(no);
+        System.out.print(f3);
+        System.out.print("folder created");
+        OpenFile(PoliceStaionName, caseyear, caseno,"บันทึกการตรวจสำนวนการสอบสวน.doc");
+        */
+    }//GEN-LAST:event_jCheckW1MouseClicked
+
+    private void jCheckW93ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW93ActionPerformed
         // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckW93ActionPerformed
 
-    }//GEN-LAST:event_jCheckW19MouseClicked
-
-    private void jCheckW19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW19ActionPerformed
+    private void jButtonPrintDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrintDocActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW19ActionPerformed
+        String no=crimecaseid.getText();
+        File f3=new File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/คดีอาญา"+caseno+"-"+caseyear);
 
-    private void jCheckW68ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW68ActionPerformed
+        f3.mkdirs();
+        System.out.print(f3);
+        System.out.print("folder created");
+        if(jCheckW1.isSelected()){
+            W1.w1(no);
+        }
+
+        if(jCheckW2.isSelected()){
+            W2.w2(no);
+
+        }
+        if(jCheckW3.isSelected()){
+            W3.w3(no);
+        }
+        if(jCheckW4.isSelected()){
+            W4.w4(no);
+        }
+        if(jCheckW5.isSelected()){
+            W5.w5(no);
+        }
+        if(jCheckW6.isSelected()){
+            W6.w6(no);
+        }
+        if(jCheckW8.isSelected()){
+            W8.w8(no);
+        }
+        if(jCheckW9.isSelected()){
+            W9.w9(no);
+        }
+        if(jCheckW11.isSelected()){
+            W11.w11(no);
+        }
+        //        if(jCheckW12.isSelected()){
+            //            W12.w12(no);
+            //        }
+        //        if(jCheckW13.isSelected()){
+            //            W13.w13(no);
+            //        }
+        //        if(jCheckW14.isSelected()){
+            //            W14.w14(no);
+            //        }
+        //        if(jCheckW15.isSelected()){
+            //            W15.w15(no);
+            //        }
+        //       if(jCheckW16.isSelected()){
+            //            W16.w16(no);
+            //        }
+        //       if(jCheckW17.isSelected()){
+            //            W17.w17(no);
+            //        }
+        //      // if(jCheckW18.isSelected()){
+            //      //      W18.w18(no);
+            //      //  }
+        //       if(jCheckW19.isSelected()){
+            //            W19.w19(no);
+            //        }
+        //       if(jCheckW20.isSelected()){
+            //            W20.w20(no);
+            //        }
+        //       if(jCheckW21.isSelected()){
+            //            W21.w21(no);
+            //        }
+        //       if(jCheckW25.isSelected()){
+            //            W25.w25(no);
+            //        }
+        //       if(jCheckW26.isSelected()){
+            //            W26.w26(no);
+            //        }
+        //       if(jCheckW27.isSelected()){
+            //            W27.w27(no);
+            //        }
+        //       if(jCheckW28.isSelected()){
+            //            W28.w28(no);
+            //        }
+        //       if(jCheckW29.isSelected()){
+            //            W29.w29(no);
+            //        }
+        //       if(jCheckW30.isSelected()){
+            //            W30.w30(no);
+            //        }
+        //       if(jCheckW31.isSelected()){
+            //            W31.w31(no);
+            //        }
+        //
+        //       if(jCheckW33.isSelected()){
+            //            W33.w33(no);
+            //        }
+        //       if(jCheckW34.isSelected()){
+            //            W34.w34(no);
+            //        }
+        //       if(jCheckW35.isSelected()){
+            //            W35.w35(no);
+            //        }
+        //       if(jCheckW36.isSelected()){
+            //            W36.w36(no);
+            //        }
+        //       if(jCheckW37.isSelected()){
+            //            W37.w37(no);
+            //        }
+        //       if(jCheckW38.isSelected()){
+            //            W38.w38(no);
+            //        }
+        //       if(jCheckW39.isSelected()){
+            //            W39.w39(no);
+            //        }
+        //       if(jCheckW40.isSelected()){
+            //            W40.w40(no);
+            //        }
+        //       if(jCheckW41.isSelected()){
+            //            W41.w41(no);
+            //        }
+        //      if(jCheckW43.isSelected()){
+            //            W43.w43(no);
+            //        }
+        //       if(jCheckW46.isSelected()){
+            //            W46.w46(no);
+            //        }
+        //       if(jCheckW47.isSelected()){
+            //            W47.w47(no);
+            //        }
+        //       if(jCheckW48.isSelected()){
+            //            W48.w48(no);
+            //        }
+        //       if(jCheckW49.isSelected()){
+            //            W49.w49(no);
+            //        }
+        //       if(jCheckW50.isSelected()){
+            //            W50.w50(no);
+            //        }
+        //       if(jCheckW51.isSelected()){
+            //            W51.w51(no);
+            //        }
+        //       if(jCheckW53.isSelected()){
+            //            W53.w53(no);
+            //        }
+        //       if(jCheckW62.isSelected()){
+            //            W62.w62(no);
+            //        }
+        //       if(jCheckW67.isSelected()){
+            //            W67.w67(no);
+            //        }
+        ////       if(jCheckW68.isSelected()){
+            ////            W68.w68(no);
+            ////        }
+        //       if(jCheckW69.isSelected()){
+            //            W69.w69(no);
+            //        }
+        //       if(jCheckW70.isSelected()){
+            //            W70.w70(no);
+            //        }
+        //       if(jCheckW71.isSelected()){
+            //            W71.w71(no);
+            //        }
+        //       if(jCheckW93.isSelected()){
+            //            W93.w93(no);
+            //        }
+        Desktop desktop = Desktop.getDesktop();
+        File dirToOpen = null;
+        try {
+            dirToOpen = new File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/คดีอาญา"+caseno+"-"+caseyear);
+            desktop.open(dirToOpen);
+        } catch (Exception iae) {
+            System.out.println("File Not Found");
+        }
+
+    }//GEN-LAST:event_jButtonPrintDocActionPerformed
+
+    private void jCheckW69ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW69ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW68ActionPerformed
+    }//GEN-LAST:event_jCheckW69ActionPerformed
+
+    private void jCheckW41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW41ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckW41ActionPerformed
      private void closeAllDialogs()
 {
     Window[] windows = getWindows();
@@ -2588,6 +2631,7 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JPanel jPanelInvestSend;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
