@@ -220,6 +220,66 @@ public class W43 {
         
               
 	}
+    public static void nw43() {
+     
+          
+                 JSONObject bookmarkvalue = new JSONObject();
+//              
+                bookmarkvalue.put("C1","");
+                bookmarkvalue.put("C01","");
+                bookmarkvalue.put("C001","");
+                bookmarkvalue.put("C0011","");
+                
+		bookmarkvalue.put("C2","");
+                bookmarkvalue.put("C3","");
+                
+                bookmarkvalue.put("S2","");
+                
+                bookmarkvalue.put("PA7","");
+                  
+                bookmarkvalue.put("PS7",  ""); 
+               
+                bookmarkvalue.put("C4","");
+                bookmarkvalue.put("C441", "");
+                
+                bookmarkvalue.put("A2", "");
+                bookmarkvalue.put("AS1", "");
+                
+                
+                    bookmarkvalue.put("C12", "");
+                    bookmarkvalue.put("C13", "");
+                    bookmarkvalue.put("C14", "");
+                    
+                    
+                bookmarkvalue.put("PB7",  "");
+                bookmarkvalue.put("PB13", "");
+                bookmarkvalue.put("PB14", "");
+                bookmarkvalue.put("PB15", "");
+                bookmarkvalue.put("PB22", ""); 
+                bookmarkvalue.put("PB23", ""); 
+                bookmarkvalue.put("PB24", ""); 
+                bookmarkvalue.put("PB25", ""); 
+                bookmarkvalue.put("PB26", ""); 
+                      
+                        bookmarkvalue.put("P02", "");
+                        bookmarkvalue.put("P03", "");
+                        bookmarkvalue.put("P04", "");
+                        bookmarkvalue.put("P05", "");
+                    
+                    
+                
+		
+		try {
+                  
+			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
+					.load(new java.io.File("D:/TEMPLATE/w43.docx"));
+			processVariable(bookmarkvalue,wordMLPackage);
+			
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/บันทึกเสนอสัญญาประกันสิ่งของ.doc"));
+		}catch( Exception ex) {
+			ex.printStackTrace();
+		}
+            }
 
 	public static void processVariable(JSONObject inputdata,WordprocessingMLPackage wordMLPackage) throws Exception {
 		Object KEYSET[] = inputdata.keySet().toArray();

@@ -164,7 +164,7 @@ public class W62 {
 					.load(new java.io.File("D:/TEMPLATE/w62.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/คดีอาญา"+cs+"-"+ccYear+"/บันทึกการควบคุมผู้ต้องหา.doc"+s.getString("FullNamePerson")+""+cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/คดีอาญา"+cs+"-"+ccYear+"/บันทึกการควบคุมผู้ต้องหา"+s.getString("FullNamePerson")+""+cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -175,7 +175,55 @@ public class W62 {
         
               
 	}
+ public static void nw62() {
+     
+  
+  
 
+                    
+                 JSONObject bookmarkvalue = new JSONObject();
+             
+                
+                
+		bookmarkvalue.put("C2","");
+                bookmarkvalue.put("C3","");
+                 bookmarkvalue.put("S2","");
+                 
+                 
+                 bookmarkvalue.put("P54","");
+                
+                 
+                 bookmarkvalue.put("P88","");
+                   
+                  
+                   
+                        
+                      bookmarkvalue.put("B2", "");
+                      
+                      bookmarkvalue.put("PA7","");
+                      bookmarkvalue.put("PS7",""); 
+                     
+                      
+                        bookmarkvalue.put("P02", "");
+                        bookmarkvalue.put("P03", "");
+                        bookmarkvalue.put("P04", "");
+                        bookmarkvalue.put("P05", "");
+                    
+                         
+                         
+  
+		
+		try {
+                  
+			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
+					.load(new java.io.File("D:/TEMPLATE/w62.docx"));
+			processVariable(bookmarkvalue,wordMLPackage);
+			
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/บันทึกการควบคุมผู้ต้องหา.doc"));
+		}catch( Exception ex) {
+			ex.printStackTrace();
+		}
+            }
 	public static void processVariable(JSONObject inputdata,WordprocessingMLPackage wordMLPackage) throws Exception {
 		Object KEYSET[] = inputdata.keySet().toArray();
 		Map<DataFieldName, String> map = new HashMap<DataFieldName, String>();

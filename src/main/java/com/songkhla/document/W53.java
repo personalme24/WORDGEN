@@ -190,6 +190,46 @@ public class W53 {
         
               
 	}
+     public static void nw53() {
+  
+//              
+                 JSONObject bookmarkvalue = new JSONObject();
+//                 bookmarkvalue.put("C1","Date");
+//                 bookmarkvalue.put("S27","-");
+                bookmarkvalue.put("C1","");
+                bookmarkvalue.put("C01","");
+                bookmarkvalue.put("C001","");
+		bookmarkvalue.put("C2","");
+                bookmarkvalue.put("C3", "");
+                bookmarkvalue.put("C6", "");
+                bookmarkvalue.put("C15", "");
+                
+                bookmarkvalue.put("S2","");
+                bookmarkvalue.put("S11", "");
+                bookmarkvalue.put("S29", "");
+                bookmarkvalue.put("S12","");
+                bookmarkvalue.put("S10","");
+               
+                      
+                        bookmarkvalue.put("P02", "");
+                        bookmarkvalue.put("P03", "");
+                        bookmarkvalue.put("P04", "");
+                        bookmarkvalue.put("P05", "");
+                    
+       
+		
+		
+		try {
+                  
+			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
+					.load(new java.io.File("D:/TEMPLATE/w53.docx"));
+			processVariable(bookmarkvalue,wordMLPackage);
+			
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/หนังสือแจ้งความคืบหน้าคดีอาญา.doc"));
+		}catch( Exception ex) {
+			ex.printStackTrace();
+		}
+            }
 
 	public static void processVariable(JSONObject inputdata,WordprocessingMLPackage wordMLPackage) throws Exception {
 		Object KEYSET[] = inputdata.keySet().toArray();
