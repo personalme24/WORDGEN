@@ -30,15 +30,14 @@ public class ReportForTraffic extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
+        jCheckW1 = new javax.swing.JCheckBox();
+        jCheckW2 = new javax.swing.JCheckBox();
+        jCheckW3 = new javax.swing.JCheckBox();
+        jCheckW4 = new javax.swing.JCheckBox();
         jCheckW5 = new javax.swing.JCheckBox();
-        jCheckBox6 = new javax.swing.JCheckBox();
+        jCheckW6 = new javax.swing.JCheckBox();
         jCheckBox8 = new javax.swing.JCheckBox();
         jCheckW9 = new javax.swing.JCheckBox();
-        jCheckBox10 = new javax.swing.JCheckBox();
         jCheckBox12 = new javax.swing.JCheckBox();
         jCheckBox13 = new javax.swing.JCheckBox();
         jCheckBox14 = new javax.swing.JCheckBox();
@@ -112,220 +111,216 @@ public class ReportForTraffic extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jCheckBox1.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jCheckBox1.setText("บันทึกการตรวจสำนวนการสอบสวน");
+        jCheckW1.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckW1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jCheckW1.setText("บันทึกการตรวจสำนวนการสอบสวน");
 
-        jCheckBox2.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox2.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jCheckBox2.setText("หนังสือส่งสำนวนคดีที่เห็นควรงดหรือให้งดการสอบสวน");
+        jCheckW2.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckW2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jCheckW2.setText("หนังสือส่งสำนวนคดีที่เห็นควรงดหรือให้งดการสอบสวน");
 
-        jCheckBox3.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox3.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jCheckBox3.setText("หนังสือส่งสำนวนคดีที่เห็นควรสั่งฟ้อง แต่ยังไม่ได้ตัวผู้ต้องหา");
+        jCheckW3.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckW3.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jCheckW3.setText("หนังสือส่งสำนวนคดีที่เห็นควรสั่งฟ้อง แต่ยังไม่ได้ตัวผู้ต้องหา");
 
-        jCheckBox4.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox4.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jCheckBox4.setText("หนังสือส่งสำนวนคดีที่เห็นควรสั่งฟ้องหรือไม่สั่งฟ้อง");
+        jCheckW4.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckW4.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jCheckW4.setText("หนังสือส่งสำนวนคดีที่เห็นควรสั่งฟ้องหรือไม่สั่งฟ้อง");
 
         jCheckW5.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW5.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW5.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW5.setText("รายงานการสอบสวน");
 
-        jCheckBox6.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox6.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jCheckBox6.setText("รายงานการสอบสวนสำนวนคดีไม่ปรากฎว่าผู้ใดเป็นผู้กระทำผิด");
+        jCheckW6.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckW6.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jCheckW6.setText("รายงานการสอบสวนสำนวนคดีไม่ปรากฎว่าผู้ใดเป็นผู้กระทำผิด");
 
         jCheckBox8.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox8.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox8.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox8.setText("บันทึกคำให้การผู้กล่าวหา หรือพยาน");
 
         jCheckW9.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW9.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW9.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW9.setText("บันทึกคำให้การผู้ต้องหา");
 
-        jCheckBox10.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox10.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jCheckBox10.setText("ใบต่อคำให้การ");
-
         jCheckBox12.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox12.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox12.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox12.setText("บัญชีทรัพย์ถูกประทุษร้าย");
 
         jCheckBox13.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox13.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox13.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox13.setText("บัญชีทรัพย์ถูกประทุษร้ายได้คืน");
 
         jCheckBox14.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox14.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox14.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox14.setText("บัญชีทรัพย์ถูกประทุษร้ายไม่ได้คืน");
 
         jCheckBox15.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox15.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox15.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox15.setText("บัญชีทรัพย์ที่ถูกเพลิงไหม้");
 
         jCheckBox16.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox16.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox16.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox16.setText("บันทึกพนักงานสอบสวน");
 
         jCheckBox17.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox17.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox17.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox17.setText("บันทึกการตรวจสอบสถานที่เกิดเหตุคดีจราจรทางบก");
 
         jCheckBox19.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox19.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox19.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox19.setText("แผนที่สังเขปแสดงสถานที่เกิดเหตุ");
 
         jCheckBox21.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox21.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox21.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox21.setText("บันทึกการนำชี้ที่เกิดเหตุประกอบคำรับสารภาพ");
 
         jCheckBox23.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox23.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox23.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox23.setText("หนังสือส่งผู้ต้องหาป่วยทางจิตตรวจวินิจฉัย");
 
         jCheckBox41.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox41.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox41.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox41.setText("บันทึกการตกลงค่าาเสียหาย");
 
         jCheckBox43.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox43.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox43.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox43.setText("บันทึกเสนอสัญญาประกันสิ่งของ");
 
         jCheckBox26.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox26.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox26.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox26.setText("หนังสือส่งของกลางไปตรวจพิสูจน์");
 
         jCheckBox27.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox27.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox27.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox27.setText("หนังสือส่งยาเสพติดของกลางไปตรวจพิสูจน์");
 
         jCheckBox28.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox28.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox28.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox28.setText("บันทึกการตรวจสภาพสภาพรถยนต์");
 
         jCheckBox29.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox29.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox29.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox29.setText("บันทึกการชี้ตัวผู้ต้องหา");
 
         jCheckBox30.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox30.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox30.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox30.setText("บันทึกการชี้รูปผู้ต้องหา");
 
         jCheckBox31.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox31.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox31.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox31.setText("บันทึกการจับกุม");
 
         jCheckBox33.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox33.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox33.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox33.setText("บันทึกการตรวจค้น");
 
         jCheckBox34.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox34.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox34.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox34.setText("บัญชีทรัพย์ประกอบบันทึกการตรวจค้น");
 
         jCheckBox35.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox35.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox35.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox35.setText("บัญชีการตรวจค้นโดยไม่มีหมายค้น");
 
         jCheckBox36.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox36.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox36.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox36.setText("บัญชีทรัพย์ประกอบบันทึกการตรวจค้นโดยไม่มีหมายค้น");
 
         jCheckBox37.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox37.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox37.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox37.setText("ตำหนิรูปพรรณผู้กระทำความผิด");
 
         jCheckBox38.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox38.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox38.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox38.setText("หมายเรียกผู้ต้องหา");
 
         jCheckBox39.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox39.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox39.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox39.setText("หมายเรียกพยาน");
 
         jCheckBox22.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox22.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox22.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox22.setText("ใบนำส่งผู้บาดเจ็บหรือศพ");
 
         jCheckBox47.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox47.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox47.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox47.setText("หนังสือขอส่งตัวคนต่างด้าว");
 
         jCheckBox64.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox64.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox64.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox64.setText("บัญชีสำนวนการสอบสวน");
 
         jCheckBox63.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox63.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox63.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox63.setText("คำร้องและสัญญาประกัน");
 
         jCheckBox62.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox62.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox62.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox62.setText("บันทึกเสนอสัญญาประกัน");
 
         jCheckBox61.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox61.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox61.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox61.setText("คำร้องขอผัดฟ้องหรือผัดฟ้องและฝากขังครั้งที่1");
 
         jCheckBox60.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox60.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox60.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox60.setText("คำร้องขอฝากขัง");
 
         jCheckBox59.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox59.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox59.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox59.setText("บันทึกการควบคุมผู้ต้องหา");
 
         jCheckBox58.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox58.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox58.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox58.setText("แบบรายการรถยนต์หรือรถจักรยานยนต์ที่ได้คืน");
 
         jCheckBox57.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox57.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox57.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox57.setText("แบบรูปพรรณรถยนต์หรือรถจักรยนต์ที่ถูกโจรกรรม");
 
         jCheckBox56.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox56.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox56.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox56.setText("ตำหนิรูปพรรณทรัพย์หายได้คืน");
 
         jCheckBox55.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox55.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox55.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox55.setText("ตำหนิรูปพรรณทรัพย์หาย");
 
         jCheckBox51.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox51.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox51.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox51.setText("หนังสือแจ้งความคืบหน้าการสอบสวน");
 
         jCheckBox50.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox50.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox50.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox50.setText("หนังสือขอให้ตรวจสอบหนังสือเดินทางหรือเอกสารที่ใช้แทนการเดินทางของบุคคลต่างด้าว");
 
         jCheckBox49.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox49.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox49.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox49.setText("หนังสือขอส่งตัวคนต่างด้าวหลบหนีเข้าเมืองมาเพื่อดำเนินการผลักดันออกไปนอกราชอาณาจักร");
 
         jCheckBox48.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox48.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox48.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox48.setText("หนังสือขอส่งรายละเอียดเกี่ยวกับคนต่างด้าวถูกกักขังหรือกักขังแทนค่าปรับ");
 
         jCheckBox46.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox46.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox46.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox46.setText("คำร้องขอคืนสิ่งของ");
 
         jCheckBox44.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox44.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox44.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox44.setText("หนังสือแจ้งการขอประกันสิ่งของไปดูแลรักษาหรือใช้ประโยชน์");
 
         jCheckBox40.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox40.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox40.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox40.setText("บันทึกการแจ้งสิทธิตามพระราชบัญญติค่าตอบแทนผู้เสียหาย และค่าทดแทน \n");
 
         jCheckBox11.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox11.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox11.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox11.setText("บัญชีของกลางคดีอาญา");
 
         jCheckBox42.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox42.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox42.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox42.setText("บันทึกคำขอรับชดใช้ค่าใช้จ่ายเบื้องต้นอันเกิดจากการขนส่ง");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -344,14 +339,13 @@ public class ReportForTraffic extends javax.swing.JFrame {
                     .addComponent(jCheckBox14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jCheckBox13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jCheckBox12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jCheckBox10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jCheckW9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jCheckBox8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jCheckBox1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox2, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jCheckBox3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jCheckBox4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jCheckW1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckW2, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jCheckW6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jCheckW3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jCheckW4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jCheckW5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCheckBox11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -416,7 +410,7 @@ public class ReportForTraffic extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jCheckW1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jCheckBox23)
                         .addComponent(jCheckBox40)))
@@ -426,10 +420,10 @@ public class ReportForTraffic extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jCheckBox41)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jCheckBox2)
+                                .addComponent(jCheckW2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jCheckBox3)
+                                    .addComponent(jCheckW3)
                                     .addComponent(jCheckBox43)
                                     .addComponent(jCheckBox42))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -463,18 +457,16 @@ public class ReportForTraffic extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jCheckBox4)
+                                .addComponent(jCheckW4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jCheckW5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jCheckBox6)
+                                .addComponent(jCheckW6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jCheckBox8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jCheckW9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jCheckBox10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(33, 33, 33)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jCheckBox11)
                                     .addComponent(jCheckBox33))
@@ -518,7 +510,6 @@ public class ReportForTraffic extends javax.swing.JFrame {
                             .addComponent(jCheckBox19)
                             .addComponent(jCheckBox22)
                             .addComponent(jCheckBox63))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCheckBox21)
                     .addComponent(jCheckBox47)
@@ -576,8 +567,6 @@ public class ReportForTraffic extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox10;
     private javax.swing.JCheckBox jCheckBox11;
     private javax.swing.JCheckBox jCheckBox12;
     private javax.swing.JCheckBox jCheckBox13;
@@ -586,7 +575,6 @@ public class ReportForTraffic extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox16;
     private javax.swing.JCheckBox jCheckBox17;
     private javax.swing.JCheckBox jCheckBox19;
-    private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox21;
     private javax.swing.JCheckBox jCheckBox22;
     private javax.swing.JCheckBox jCheckBox23;
@@ -594,7 +582,6 @@ public class ReportForTraffic extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox27;
     private javax.swing.JCheckBox jCheckBox28;
     private javax.swing.JCheckBox jCheckBox29;
-    private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JCheckBox jCheckBox30;
     private javax.swing.JCheckBox jCheckBox31;
     private javax.swing.JCheckBox jCheckBox33;
@@ -604,7 +591,6 @@ public class ReportForTraffic extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox37;
     private javax.swing.JCheckBox jCheckBox38;
     private javax.swing.JCheckBox jCheckBox39;
-    private javax.swing.JCheckBox jCheckBox4;
     private javax.swing.JCheckBox jCheckBox40;
     private javax.swing.JCheckBox jCheckBox41;
     private javax.swing.JCheckBox jCheckBox42;
@@ -621,14 +607,18 @@ public class ReportForTraffic extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox57;
     private javax.swing.JCheckBox jCheckBox58;
     private javax.swing.JCheckBox jCheckBox59;
-    private javax.swing.JCheckBox jCheckBox6;
     private javax.swing.JCheckBox jCheckBox60;
     private javax.swing.JCheckBox jCheckBox61;
     private javax.swing.JCheckBox jCheckBox62;
     private javax.swing.JCheckBox jCheckBox63;
     private javax.swing.JCheckBox jCheckBox64;
     private javax.swing.JCheckBox jCheckBox8;
+    private javax.swing.JCheckBox jCheckW1;
+    private javax.swing.JCheckBox jCheckW2;
+    private javax.swing.JCheckBox jCheckW3;
+    private javax.swing.JCheckBox jCheckW4;
     private javax.swing.JCheckBox jCheckW5;
+    private javax.swing.JCheckBox jCheckW6;
     private javax.swing.JCheckBox jCheckW9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
