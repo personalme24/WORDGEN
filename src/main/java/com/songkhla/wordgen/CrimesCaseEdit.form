@@ -140,13 +140,15 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="jLabelChargeCode" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                           <Component id="jButtonSaveCase" min="-2" pref="102" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jTabbedPane2" min="-2" pref="1166" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jTabbedPane2" min="-2" pref="1152" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
               </Group>
@@ -157,7 +159,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabelChargeCode" min="-2" pref="14" max="-2" attributes="0"/>
-                      <Component id="jTabbedPane2" min="-2" pref="557" max="-2" attributes="0"/>
+                      <Component id="jTabbedPane2" min="-2" pref="566" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButtonSaveCase" min="-2" max="-2" attributes="0"/>
@@ -1386,20 +1388,18 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jCheckDuringInvest" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jCheckNoInvest" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jCheckDuringInvest" max="32767" attributes="0"/>
+                                  <Component id="jCheckNoInvest" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="95" max="32767" attributes="0"/>
+                              <EmptySpace pref="78" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="jCheckSue" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                                      <Component id="jCheckNotSue" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="jCheckSue" min="-2" max="-2" attributes="0"/>
                                   <Component id="jCheckOtherInvest" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                              <Component id="jCheckNotSue" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1407,15 +1407,15 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jCheckDuringInvest" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jCheckSue" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jCheckNotSue" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jCheckDuringInvest" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jCheckSue" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jCheckNotSue" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jCheckNoInvest" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jCheckOtherInvest" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jCheckNoInvest" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jCheckOtherInvest" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="16" max="32767" attributes="0"/>
                           </Group>
@@ -1423,7 +1423,7 @@
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JCheckBox" name="jCheckDuringInvest">
+                    <Component class="javax.swing.JRadioButton" name="jCheckDuringInvest">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="TH SarabunPSK" size="22" style="1"/>
@@ -1431,7 +1431,7 @@
                         <Property name="text" type="java.lang.String" value="&#xe2d;&#xe22;&#xe39;&#xe48;&#xe23;&#xe30;&#xe2b;&#xe27;&#xe48;&#xe32;&#xe07;&#xe2a;&#xe2d;&#xe1a;&#xe2a;&#xe27;&#xe19;"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JCheckBox" name="jCheckSue">
+                    <Component class="javax.swing.JRadioButton" name="jCheckSue">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="TH SarabunPSK" size="22" style="1"/>
@@ -1439,7 +1439,7 @@
                         <Property name="text" type="java.lang.String" value="&#xe2a;&#xe31;&#xe48;&#xe07;&#xe1f;&#xe49;&#xe2d;&#xe07;"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JCheckBox" name="jCheckNotSue">
+                    <Component class="javax.swing.JRadioButton" name="jCheckNotSue">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="TH SarabunPSK" size="22" style="1"/>
@@ -1447,7 +1447,7 @@
                         <Property name="text" type="java.lang.String" value="&#xe2a;&#xe31;&#xe48;&#xe07;&#xe44;&#xe21;&#xe48;&#xe1f;&#xe49;&#xe2d;&#xe07;"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JCheckBox" name="jCheckNoInvest">
+                    <Component class="javax.swing.JRadioButton" name="jCheckNoInvest">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="TH SarabunPSK" size="22" style="1"/>
@@ -1455,7 +1455,7 @@
                         <Property name="text" type="java.lang.String" value="&#xe07;&#xe14;&#xe01;&#xe32;&#xe23;&#xe2a;&#xe2d;&#xe1a;&#xe2a;&#xe27;&#xe19;"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JCheckBox" name="jCheckOtherInvest">
+                    <Component class="javax.swing.JRadioButton" name="jCheckOtherInvest">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="TH SarabunPSK" size="22" style="1"/>
@@ -1550,6 +1550,9 @@
               </SubComponents>
             </Container>
             <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+              <Properties>
+                <Property name="opaque" type="boolean" value="false"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                   <JTabbedPaneConstraints tabName="&#xe23;&#xe32;&#xe22;&#xe07;&#xe32;&#xe19;">

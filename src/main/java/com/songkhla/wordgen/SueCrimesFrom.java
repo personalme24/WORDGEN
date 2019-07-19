@@ -594,6 +594,12 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 
         jPanel5.setEnabled(false);
 
+        SueFirstTotal.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                SueFirstTotalKeyTyped(evt);
+            }
+        });
+
         SueFirstRequest.setEditable(true);
         SueFirstRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
 
@@ -662,29 +668,11 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                     .addComponent(jLabel12)))
         );
 
-        SueSecTotal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SueSecTotalActionPerformed(evt);
-            }
-        });
-
         SueSecRequest.setEditable(true);
         SueSecRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
 
-        SueSecEnd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SueSecEndActionPerformed(evt);
-            }
-        });
-
         SueSecCause.setEditable(true);
         SueSecCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
-
-        SueThirdEnd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SueThirdEndActionPerformed(evt);
-            }
-        });
 
         SueThirdRequest.setEditable(true);
         SueThirdRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
@@ -692,50 +680,8 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         SueSevCause.setEditable(true);
         SueSevCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
 
-        SueSevenEnd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SueSevenEndActionPerformed(evt);
-            }
-        });
-
-        SueSevenTotal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SueSevenTotalActionPerformed(evt);
-            }
-        });
-
         SueSevRequest.setEditable(true);
         SueSevRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
-
-        SueFourthEnd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SueFourthEndActionPerformed(evt);
-            }
-        });
-
-        SueFifthEnd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SueFifthEndActionPerformed(evt);
-            }
-        });
-
-        SueSixthEnd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SueSixthEndActionPerformed(evt);
-            }
-        });
-
-        SueFifthTotal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SueFifthTotalActionPerformed(evt);
-            }
-        });
-
-        SueSixthTotal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SueSixthTotalActionPerformed(evt);
-            }
-        });
 
         SueFourthRequest.setEditable(true);
         SueFourthRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
@@ -1127,11 +1073,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    private void SueSecEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueSecEndActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SueSecEndActionPerformed
-   public void Block(){
+       public void Block(){
        if(Court.equals("ศาลแขวง")&&StatusBail.equals("ประกัน"))
        {
        SueSeventh.setEnabled(false);
@@ -1352,38 +1294,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 //        setVisible(false);
     }//GEN-LAST:event_jButtonSaveActionPerformed
 
-    private void SueThirdEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueThirdEndActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SueThirdEndActionPerformed
-
-    private void SueFourthEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueFourthEndActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SueFourthEndActionPerformed
-
-    private void SueFifthEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueFifthEndActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SueFifthEndActionPerformed
-
-    private void SueSixthEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueSixthEndActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SueSixthEndActionPerformed
-
-    private void SueSevenEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueSevenEndActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SueSevenEndActionPerformed
-
-    private void SueFifthTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueFifthTotalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SueFifthTotalActionPerformed
-
-    private void SueSixthTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueSixthTotalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SueSixthTotalActionPerformed
-
-    private void SueSevenTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueSevenTotalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SueSevenTotalActionPerformed
-
     private void Print1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Print1ActionPerformed
         // TODO add your handling code here:
         if(SueFirst.getText().equals("")){
@@ -1394,10 +1304,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         JOptionPane.showMessageDialog(jPanel1,"พิมพ์เอกสารเรียบร้อย", "แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);}
         
     }//GEN-LAST:event_Print1ActionPerformed
-
-    private void SueSecTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueSecTotalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SueSecTotalActionPerformed
 
     private void Print3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Print3ActionPerformed
         // TODO add your handling code here:
@@ -1428,6 +1334,28 @@ public class SueCrimesFrom extends javax.swing.JDialog {
     private void Print5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Print5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Print5ActionPerformed
+
+    private void SueFirstTotalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SueFirstTotalKeyTyped
+        // TODO add your handling code here:
+//        int totaldate=Integer.parseInt(SueFirstTotal.getText());
+          if(Court.equals("ศาลแขวง")&&StatusBail.equals("ประกัน")){      
+
+       }
+          if(Court.equals("ศาลแขวง")){      
+                 
+       }
+            if(Court.equals("ศาลอาญา")&&RatePrison.equals("มากกว่า")){      
+//           if(totaldate>12){
+//            JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 12 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE); 
+//           }      
+       }
+           if(Court.equals("ศาลอาญา")&&RatePrison.equals("น้อยกว่า")){      
+//           if(totaldate>12){
+//            JOptionPane.showMessageDialog(jPanel1,"ไม่เกิน 12 วัน","แจ้งเตือน",  JOptionPane.INFORMATION_MESSAGE); 
+//           }      
+       }
+        
+    }//GEN-LAST:event_SueFirstTotalKeyTyped
     public void DateTotal(){
      SueFirstTotal.getDocument().addDocumentListener(new DocumentListener() {
                            public void changedUpdate(DocumentEvent e) {
@@ -1504,6 +1432,20 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                            }
              }
              );
+      SueThirdEnd.getDocument().addDocumentListener(new DocumentListener() {
+                           public void changedUpdate(DocumentEvent e) {
+                                 FourthDate.setText(CalculateDateNextTimes(SueThirdEnd.getText()));
+                           }
+                           public void removeUpdate(DocumentEvent e) {                              
+//                                  SueSecDateT.setText(CalculateDateNextTimes(SueFirstEnd.getText()));
+                                                   
+                           }
+                           public void insertUpdate(DocumentEvent e) {
+                                  FourthDate.setText(CalculateDateNextTimes(SueThirdEnd.getText()));
+
+                           }
+             }
+             );
        SueFourthTotal.getDocument().addDocumentListener(new DocumentListener() {
                            public void changedUpdate(DocumentEvent e) {
                                 SueFourthEnd.setText(CalculateDateEnd(FourthDate.getText(), SueFourthTotal.getText()));
@@ -1515,6 +1457,20 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                            }
                            public void insertUpdate(DocumentEvent e) {
                                SueFourthEnd.setText(CalculateDateEnd(FourthDate.getText(), SueFourthTotal.getText()));
+
+                           }
+             }
+             );
+             SueFourthEnd.getDocument().addDocumentListener(new DocumentListener() {
+                           public void changedUpdate(DocumentEvent e) {
+                                 FifthDate.setText(CalculateDateNextTimes(SueFourthEnd.getText()));
+                           }
+                           public void removeUpdate(DocumentEvent e) {                              
+//                                  SueSecDateT.setText(CalculateDateNextTimes(SueFirstEnd.getText()));
+                                                   
+                           }
+                           public void insertUpdate(DocumentEvent e) {
+                                  FifthDate.setText(CalculateDateNextTimes(SueFourthEnd.getText()));
 
                            }
              }
@@ -1534,7 +1490,20 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                            }
              }
              );
-        
+        SueFifthEnd.getDocument().addDocumentListener(new DocumentListener() {
+                           public void changedUpdate(DocumentEvent e) {
+                                 SixthDate.setText(CalculateDateNextTimes(SueFifthEnd.getText()));
+                           }
+                           public void removeUpdate(DocumentEvent e) {                              
+//                                  SueSecDateT.setText(CalculateDateNextTimes(SueFirstEnd.getText()));
+                                                   
+                           }
+                           public void insertUpdate(DocumentEvent e) {
+                                  SixthDate.setText(CalculateDateNextTimes(SueFifthEnd.getText()));
+
+                           }
+             }
+             );
          SueSixthTotal.getDocument().addDocumentListener(new DocumentListener() {
                            public void changedUpdate(DocumentEvent e) {
                                 SueSixthEnd.setText(CalculateDateEnd(SixthDate.getText(), SueSixthTotal.getText()));
@@ -1546,6 +1515,20 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                            }
                            public void insertUpdate(DocumentEvent e) {
                                SueSixthEnd.setText(CalculateDateEnd(SixthDate.getText(), SueSixthTotal.getText()));
+
+                           }
+             }
+             );
+          SueSixthEnd.getDocument().addDocumentListener(new DocumentListener() {
+                           public void changedUpdate(DocumentEvent e) {
+                                 SevDate.setText(CalculateDateNextTimes(SueSixthEnd.getText()));
+                           }
+                           public void removeUpdate(DocumentEvent e) {                              
+//                                  SueSecDateT.setText(CalculateDateNextTimes(SueFirstEnd.getText()));
+                                                   
+                           }
+                           public void insertUpdate(DocumentEvent e) {
+                                  SevDate.setText(CalculateDateNextTimes(SueSixthEnd.getText()));
 
                            }
              }
@@ -1565,6 +1548,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                            }
              }
              );
+
     }
     public static String ChangFormat(String DateSue){
         String newFormatDate=null;

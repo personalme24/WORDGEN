@@ -130,6 +130,15 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             ImageIcon img = new ImageIcon("D://Master//WD.png");
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
+            jScrollPane1.getVerticalScrollBar().setUI(new CustomScrollBarUI());
+            jScrollPane1.getHorizontalScrollBar().setUI(new CustomScrollBarUI());
+        ButtonGroup g=new ButtonGroup();
+        g.add(jCheckDuringInvest);
+        g.add(jCheckSue);
+        g.add(jCheckNotSue);
+        g.add(jCheckNoInvest);
+        g.add(jCheckOtherInvest);
+
 //====================================== Police==========================================
         try{
             con=ConnectDatabase.connect();
@@ -427,11 +436,11 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jLabel30 = new javax.swing.JLabel();
         jLabelNumberAcc = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
-        jCheckDuringInvest = new javax.swing.JCheckBox();
-        jCheckSue = new javax.swing.JCheckBox();
-        jCheckNotSue = new javax.swing.JCheckBox();
-        jCheckNoInvest = new javax.swing.JCheckBox();
-        jCheckOtherInvest = new javax.swing.JCheckBox();
+        jCheckDuringInvest = new javax.swing.JRadioButton();
+        jCheckSue = new javax.swing.JRadioButton();
+        jCheckNotSue = new javax.swing.JRadioButton();
+        jCheckNoInvest = new javax.swing.JRadioButton();
+        jCheckOtherInvest = new javax.swing.JRadioButton();
         jLabel31 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         CapitalCrimeCaseNumber = new javax.swing.JTextArea();
@@ -942,28 +951,27 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jCheckDuringInvest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jCheckNoInvest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckDuringInvest)
-                    .addComponent(jCheckNoInvest))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addComponent(jCheckSue)
-                        .addGap(52, 52, 52)
-                        .addComponent(jCheckNotSue))
+                    .addComponent(jCheckSue)
                     .addComponent(jCheckOtherInvest))
-                .addGap(68, 68, 68))
+                .addGap(73, 73, 73)
+                .addComponent(jCheckNotSue)
+                .addGap(38, 38, 38))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jCheckDuringInvest)
                     .addComponent(jCheckSue)
                     .addComponent(jCheckNotSue))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jCheckNoInvest)
                     .addComponent(jCheckOtherInvest))
                 .addContainerGap(16, Short.MAX_VALUE))
@@ -1126,6 +1134,8 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         );
 
         jTabbedPane2.addTab("ข้อมูลประกอบสำนวนคดี", jPanel5);
+
+        jScrollPane1.setOpaque(false);
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1636,12 +1646,13 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelChargeCode)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
+                        .addGap(14, 14, 14)
                         .addComponent(jButtonSaveCase, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1152, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(151, 151, 151))
         );
         jPanel4Layout.setVerticalGroup(
@@ -1649,7 +1660,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelChargeCode, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 557, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonSaveCase)
                 .addContainerGap(288, Short.MAX_VALUE))
@@ -2523,11 +2534,11 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JButton jButtonWitness;
     private javax.swing.JCheckBox jCheckBox50;
     private javax.swing.JCheckBox jCheckBox64;
-    private javax.swing.JCheckBox jCheckDuringInvest;
-    private javax.swing.JCheckBox jCheckNoInvest;
-    private javax.swing.JCheckBox jCheckNotSue;
-    private javax.swing.JCheckBox jCheckOtherInvest;
-    private javax.swing.JCheckBox jCheckSue;
+    private javax.swing.JRadioButton jCheckDuringInvest;
+    private javax.swing.JRadioButton jCheckNoInvest;
+    private javax.swing.JRadioButton jCheckNotSue;
+    private javax.swing.JRadioButton jCheckOtherInvest;
+    private javax.swing.JRadioButton jCheckSue;
     private javax.swing.JCheckBox jCheckW1;
     private javax.swing.JCheckBox jCheckW11;
     private javax.swing.JCheckBox jCheckW12;

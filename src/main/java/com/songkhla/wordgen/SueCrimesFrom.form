@@ -943,6 +943,9 @@
             <Component class="javax.swing.JTextField" name="SueFirstEnd">
             </Component>
             <Component class="javax.swing.JTextField" name="SueFirstTotal">
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SueFirstTotalKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="SueFirstRequest">
               <Properties>
@@ -1100,9 +1103,6 @@
               </SubComponents>
             </Container>
             <Component class="javax.swing.JTextField" name="SueSecTotal">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SueSecTotalActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="SueSecRequest">
               <Properties>
@@ -1118,9 +1118,6 @@
               </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="SueSecEnd">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SueSecEndActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="SueSecCause">
               <Properties>
@@ -1142,9 +1139,6 @@
               </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="SueThirdEnd">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SueThirdEndActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="SueThirdTotal">
             </Component>
@@ -1181,14 +1175,8 @@
               </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="SueSevenEnd">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SueSevenEndActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="SueSevenTotal">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SueSevenTotalActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="SueSevRequest">
               <Properties>
@@ -1204,31 +1192,16 @@
               </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="SueFourthEnd">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SueFourthEndActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="SueFifthEnd">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SueFifthEndActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="SueSixthEnd">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SueSixthEndActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="SueFourthTotal">
             </Component>
             <Component class="javax.swing.JTextField" name="SueFifthTotal">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SueFifthTotalActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="SueSixthTotal">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SueSixthTotalActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="SueFourthRequest">
               <Properties>

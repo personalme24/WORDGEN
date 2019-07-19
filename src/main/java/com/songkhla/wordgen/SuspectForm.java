@@ -17,6 +17,7 @@ import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -63,6 +64,7 @@ public class SuspectForm extends javax.swing.JDialog {
     public SuspectForm(JFrame parrent,JSONObject datain) {
         super(parrent,true);     
         initComponents();  
+         eventJRadioManage();
             ImageIcon img = new ImageIcon("D://Master//WD.png");
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
@@ -126,14 +128,6 @@ public class SuspectForm extends javax.swing.JDialog {
         jPanelBailDate.add(BailDate);
  //  ---------------------------------------------Date Filed----------------------------------------------
         
-//        knowSuspect();
-//        jRadioUnknowSuspect.setSelected(true);
-//        if(jRadioUnknowSuspect.isSelected()){
-//            PeopleRegistrationID.setEnabled(false);
-//            FullNamePerson.setEnabled(false);
-//            IssueDate.setEnabled(false);
-//            OtherName.setEnabled(false);
-//        }
 
         colseTextBox();
         
@@ -151,12 +145,13 @@ public class SuspectForm extends javax.swing.JDialog {
         g.add(jRadioVerbal);
         g.add(jRadioRestore);
         g.add(jRadioCatch);
-        g.add(jRadioOther);
-        
+        g.add(jRadioOther); 
+        eventJButtonManage();
+      
        
         
 //             ArrestDateTimeEnd.setText(CalculateDateTime48(arrestDate));
- ArrestDateTime.getJFormattedTextField().getDocument().addDocumentListener(new DocumentListener() {
+            ArrestDateTime.getJFormattedTextField().getDocument().addDocumentListener(new DocumentListener() {
                            public void changedUpdate(DocumentEvent e) {
                                
             SimpleDateFormat formatTime = new SimpleDateFormat("HH:mm");
@@ -203,7 +198,7 @@ public class SuspectForm extends javax.swing.JDialog {
     });
 
           if(datain!=null){
-           eventJButtonManage();
+        
             isInsert=false;
             String statusSus;
             statusSus=datain.get("StatusSuspect")+"";
@@ -283,8 +278,9 @@ public class SuspectForm extends javax.swing.JDialog {
                    
 
         }else{
-            eventJRadioManage();
+           
            crimecaseno.setText(ListSuspect.txtCaseNO.getText());
+             jRadioUnknowSuspect.setSelected(true);
             isInsert=true;
     
         }
@@ -708,10 +704,11 @@ public class SuspectForm extends javax.swing.JDialog {
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(264, 264, 264)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
                                         .addComponent(jLabel8)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(Age))
+                                        .addComponent(Age, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel4Layout.createSequentialGroup()
                                         .addComponent(jLabel18)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -732,7 +729,7 @@ public class SuspectForm extends javax.swing.JDialog {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(MotherFullName)
                             .addComponent(Occupation))))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 9, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -914,7 +911,7 @@ public class SuspectForm extends javax.swing.JDialog {
         jPanelRestoreDate.setLayout(jPanelRestoreDateLayout);
         jPanelRestoreDateLayout.setHorizontalGroup(
             jPanelRestoreDateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 212, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanelRestoreDateLayout.setVerticalGroup(
             jPanelRestoreDateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -927,7 +924,7 @@ public class SuspectForm extends javax.swing.JDialog {
         jPanelBailDate.setLayout(jPanelBailDateLayout);
         jPanelBailDateLayout.setHorizontalGroup(
             jPanelBailDateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 212, Short.MAX_VALUE)
+            .addGap(0, 230, Short.MAX_VALUE)
         );
         jPanelBailDateLayout.setVerticalGroup(
             jPanelBailDateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -991,8 +988,9 @@ public class SuspectForm extends javax.swing.JDialog {
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(jLabelBailDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(2, 2, 2)))
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanelRestoreDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanelBailDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanelRestoreDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(105, 105, 105)
                         .addComponent(jCheckBail))
@@ -1018,10 +1016,7 @@ public class SuspectForm extends javax.swing.JDialog {
                                 .addGap(10, 10, 10)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jRadioRestore, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jRadioResultRelease)))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addComponent(jPanelBailDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(151, 151, 151)))
+                                    .addComponent(jRadioResultRelease))))))
                 .addContainerGap(121, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -1536,159 +1531,83 @@ public class SuspectForm extends javax.swing.JDialog {
          {
              evt.consume();
          }  
-             if(ZipCode.getText().length()>=13) {  
+         if(ZipCode.getText().length()>=13) {  
            evt.consume();
- }  // TODO add your handling code here:
+        }  // TODO add your handling code here:
     }//GEN-LAST:event_ZipCodeKeyTyped
   public void eventJButtonManage(){
-     
-     jRadioSue.addChangeListener(new ChangeListener() {
-            @Override
-            public void stateChanged(ChangeEvent e) {
-            if(jRadioSue.isSelected()){
-    PlaceArrest.setVisible(true);
-                  jLabelArrestPlace.setVisible(true);
-            jPanelDateArrest.setVisible(true);
-            jLabelArrestDate.setVisible(true);
-            jLabelArrTime.setVisible(true);
-            jSpinnerArrTime.setVisible(true);
-                 jLabelArrestEnd.setVisible(true);
-            ArrestDateTimeEnd.setVisible(true);
-            
-            }
-            else{
-                   PlaceArrest.setVisible(false);
-                  jLabelArrestPlace.setVisible(false);
-                jPanelDateArrest.setVisible(false);
-                jLabelArrestDate.setVisible(false);
-                
-              jLabelArrTime.setVisible(false);
-            jSpinnerArrTime.setVisible(false);
-                 jLabelArrestEnd.setVisible(false);
-            ArrestDateTimeEnd.setVisible(false);  
-            }
-            }
-        }
-        );
-   
-jCheckBail.addChangeListener(new ChangeListener() {
-            @Override
-            public void stateChanged(ChangeEvent e) {
-            if(jCheckBail.isSelected()){
-
-           jLabelBailDate.setVisible(true);
-           jPanelBailDate.setVisible(true);
-
-            }
-            else {
-                 
-           jLabelBailDate.setVisible(false);
-           jPanelBailDate.setVisible(false);
-
-            }
-
-            }
-        }
-        );
-  
+ 
+   jRadioUnknowSuspect.addItemListener(new ItemListener() {
+    @Override
+    public void itemStateChanged(ItemEvent event) {
+        int state = event.getStateChange();
+        if (state == ItemEvent.SELECTED) {
+             PeopleRegistrationID.setEnabled(false);
+       FullNamePerson.setEnabled(false);
+       OtherName.setEnabled(false);
+       FullNamePersonEn.setEnabled(false);
+       PassportNumber.setEnabled(false);
+       Age.setEnabled(false);
+       Nationality.setEnabled(false);
+       Race.setEnabled(false);
+       Religion.setEnabled(false);
+       Height.setEnabled(false);
+       Weight.setEnabled(false);
+       BloodGroup.setEnabled(false);
+       FatherFullName.setEnabled(false);
+       MotherFullName.setEnabled(false);
+       PhonePerson.setEnabled(false);
+       Occupation.setEnabled(false);
+       HouseNumber.setEnabled(false);
+       Gender.setEnabled(false);
+       Moo.setEnabled(false);
+       Tambon.setEnabled(false);
+       Amphur.setEnabled(false);
+       Province.setEnabled(false);
+       ZipCode1.setEnabled(false);
+       Gender1.setEnabled(false);
+       ZipCode2.setEnabled(false);
+    
+            // do something when the button is selected
+ 
+        } 
+//        else if (state == ItemEvent.DESELECTED) {
+//             jLabelBailDate.setVisible(false);
+//           jPanelBailDate.setVisible(false);
+//            // do something else when the button is deselected
+// 
+//        }
+    }
+});
   }   
     
     public void eventJRadioManage(){
 
-//jRadioSue.addActionListener ( new ActionListener ( ) 
-//     { 
-//          @Override 
-//          public void actionPerformed ( ActionEvent event ) 
-//          { 
-//               JRadioButton radioButton = ( JRadioButton ) event.getSource ( ); 
-//
-//               boolean isSelected = jRadioSue.isSelected (); 
-//
-//               if ( isSelected ) 
-//               { 
-//                                      PlaceArrest.setVisible(true);
-//                  jLabelArrestPlace.setVisible(true);
-//            jPanelDateArrest.setVisible(true);
-//            jLabelArrestDate.setVisible(true);
-//            jLabelArrTime.setVisible(true);
-//            jSpinnerArrTime.setVisible(true);
-//                 jLabelArrestEnd.setVisible(true);
-//            ArrestDateTimeEnd.setVisible(true);
-//               } 
-//               else 
-//               { 
-//                  PlaceArrest.setVisible(false);
-//                  jLabelArrestPlace.setVisible(false);
-//                jPanelDateArrest.setVisible(false);
-//                jLabelArrestDate.setVisible(false);
-//                
-//              jLabelArrTime.setVisible(false);
-//            jSpinnerArrTime.setVisible(false);
-//                 jLabelArrestEnd.setVisible(false);
-//            ArrestDateTimeEnd.setVisible(false); 
-//               } 
-//          } 
-//     } 
-//);
-//jRadioBail.addActionListener ( new ActionListener ( ) 
-//     { 
-//          @Override 
-//          public void actionPerformed ( ActionEvent event ) 
-//          { 
-//               JRadioButton radioButton = ( JRadioButton ) event.getSource ( ); 
-//
-//               boolean isSelected = jRadioBail.isSelected (); 
-//
-//               if ( isSelected ) 
-//               { 
-//                                      PlaceArrest.setVisible(true);
-//                  jLabelArrestPlace.setVisible(true);
-//            jPanelDateArrest.setVisible(true);
-//            jLabelArrestDate.setVisible(true);
-//            jLabelArrTime.setVisible(true);
-//            jSpinnerArrTime.setVisible(true);
-//                 jLabelArrestEnd.setVisible(true);
-//            ArrestDateTimeEnd.setVisible(true);
-//               } 
-//               else 
-//               { 
-//                  PlaceArrest.setVisible(false);
-//                  jLabelArrestPlace.setVisible(false);
-//                jPanelDateArrest.setVisible(false);
-//                jLabelArrestDate.setVisible(false);
-//                
-//              jLabelArrTime.setVisible(false);
-//            jSpinnerArrTime.setVisible(false);
-//                 jLabelArrestEnd.setVisible(false);
-//            ArrestDateTimeEnd.setVisible(false); 
-//               } 
-//          } 
-//     } 
-//);
-        jCheckBail.addChangeListener(new ChangeListener() {
-            @Override
-            public void stateChanged(ChangeEvent e) {
-            if(jCheckBail.isSelected()){
-
-           jLabelBailDate.setVisible(true);
+    jCheckBail.addItemListener(new ItemListener() {
+    @Override
+    public void itemStateChanged(ItemEvent event) {
+        int state = event.getStateChange();
+        if (state == ItemEvent.SELECTED) {
+              jLabelBailDate.setVisible(true);
            jPanelBailDate.setVisible(true);
-
-            }
-            else {
-                 
-           jLabelBailDate.setVisible(false);
+    
+            // do something when the button is selected
+ 
+        } else if (state == ItemEvent.DESELECTED) {
+             jLabelBailDate.setVisible(false);
            jPanelBailDate.setVisible(false);
-
-            }
-
-            }
+            // do something else when the button is deselected
+ 
         }
-        );
-       jRadioSue.addChangeListener(new ChangeListener() {
-            @Override
-            public void stateChanged(ChangeEvent e) {
-            if(jRadioSue.isSelected()){
-                  PlaceArrest.setVisible(true);
+    }
+});
+     
+        jRadioSue.addItemListener(new ItemListener() {
+    @Override
+    public void itemStateChanged(ItemEvent event) {
+        int state = event.getStateChange();
+        if (state == ItemEvent.SELECTED) {
+            PlaceArrest.setVisible(true);
                   jLabelArrestPlace.setVisible(true);
             jPanelDateArrest.setVisible(true);
             jLabelArrestDate.setVisible(true);
@@ -1699,12 +1618,10 @@ jCheckBail.addChangeListener(new ChangeListener() {
                   jLabelRate.setVisible(true);
             jLabelRateNumber.setVisible(true);
              RatePrison.setVisible(true);
-//           jLabelBailDate.setVisible(true);
-//           jPanelBailDate.setVisible(true);
-
-            }
-            else {
-                  PlaceArrest.setVisible(false);
+            // do something when the button is selected
+ 
+        } else if (state == ItemEvent.DESELECTED) {
+                 PlaceArrest.setVisible(false);
                   jLabelArrestPlace.setVisible(false);
                 jPanelDateArrest.setVisible(false);
                 jLabelArrestDate.setVisible(false);
@@ -1716,19 +1633,33 @@ jCheckBail.addChangeListener(new ChangeListener() {
       jLabelRate.setVisible(false);
             jLabelRateNumber.setVisible(false);
              RatePrison.setVisible(false);
-//           jLabelBailDate.setVisible(false);
-//           jPanelBailDate.setVisible(false);
-
-            }
-
-            }
+            // do something else when the button is deselected
+ 
         }
-        );
-      
+    }
+});
+        jRadioRestore.addItemListener(new ItemListener() {
+    @Override
+    public void itemStateChanged(ItemEvent event) {
+        int state = event.getStateChange();
+        if (state == ItemEvent.SELECTED) {
+                    jLabelRestoreDate.setVisible(true);
+                  jPanelRestoreDate.setVisible(true);     
+            // do something when the button is selected
+ 
+        } else if (state == ItemEvent.DESELECTED) {
+                 jLabelRestoreDate.setVisible(false);
+                  jPanelRestoreDate.setVisible(false);
+            // do something else when the button is deselected
+ 
+        }
+    }
+});
+
  
        
 
-               }
+               } 
     public void colseTextBox(){
 //    RestoreDate.setVisible(false);  
     jLabelRestoreDate.setVisible(false); 
