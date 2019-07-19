@@ -148,7 +148,7 @@ public class W80 {
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
 					.load(new java.io.File("D:/TEMPLATE/w80.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
-			processTABLE(bookmarkvalue,wordMLPackage);
+			
 			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/คดีอาญา"+cs+"-"+ccYear+"/บัญชีสำนวนการสอบสวน"+cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
@@ -160,7 +160,35 @@ public class W80 {
         
               
 	}
+ public static void nw80() {
+     
+      
+               
+                 JSONObject bookmarkvalue = new JSONObject();
+             
+               
+                
+		bookmarkvalue.put("C2","");
+                bookmarkvalue.put("C3","");
+                 bookmarkvalue.put("S2","");
+                 bookmarkvalue.put("S5", "");
+                 bookmarkvalue.put("S6", "");
+                
+                 
 
+		
+		try {
+                  
+			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
+					.load(new java.io.File("D:/TEMPLATE/w80.docx"));
+			processVariable(bookmarkvalue,wordMLPackage);
+			processTABLE(bookmarkvalue,wordMLPackage);
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/บัญชีสำนวนการสอบสวน.doc"));
+		}catch( Exception ex) {
+			ex.printStackTrace();
+		}
+            }
+            
 	public static void processVariable(JSONObject inputdata,WordprocessingMLPackage wordMLPackage) throws Exception {
 		Object KEYSET[] = inputdata.keySet().toArray();
 		Map<DataFieldName, String> map = new HashMap<DataFieldName, String>();

@@ -105,7 +105,7 @@ public class W11 {
             String VarAS10 ="";
             int OrderAsset=0;
             int SumValue=0;
-            
+            JSONArray JSONArray = new JSONArray();
             
             
             
@@ -146,34 +146,36 @@ public class W11 {
                          
                     bookmarkvalue.put("B2",(s.getString("ChargeName")));
                      //ทรัพย์
-                    
-                    
+                 
+                    ++OrderAsset ;
+                   /*
+                    VarAS3=VarAS3+"\n\r"+(OrderAsset);
+                    bookmarkvalue.put("AS3",Checknull(VarAS3));
                    
                     
-                    ++OrderAsset ;
-                    VarAS3=VarAS3+"\n\r"+(OrderAsset);
-                    //bookmarkvalue.put("AS3",Checknull(VarAS3));
-                    
-                    
                     VarAS4=VarAS4+"\n\r"+s.getString("Name");
-                    //bookmarkvalue.put("AS4",Checknull(VarAS4));
+                    bookmarkvalue.put("AS4",Checknull(VarAS4));
                     VarAS5=VarAS5+"\n\r"+s.getString("Amount");
-                    //bookmarkvalue.put("AS5",Checknull(VarAS5));
+                    bookmarkvalue.put("AS5",Checknull(VarAS5));
                     
                     
                     VarAS6=VarAS6+"\n\r"+s.getString("Value");
-                    //bookmarkvalue.put("AS6",Checknull(VarAS6));
+                    bookmarkvalue.put("AS6",Checknull(VarAS6));
                     if (s.getString("Value") != null)
                     {
                     SumValue = SumValue+s.getInt("Value");
                     } 
                     VarAS8=VarAS8+"\n\r"+s.getString("OccupantName");
-                   // bookmarkvalue.put("AS8", Checknull(VarAS8));
+                    bookmarkvalue.put("AS8", Checknull(VarAS8));
                     VarAS9=VarAS9+"\n\r"+s.getString("DateSequester");
-                    //bookmarkvalue.put("AS9", Checknull(VarAS9));
+                    bookmarkvalue.put("AS9", Checknull(VarAS9));
                     VarAS10=VarAS10+"\n\r"+s.getString("Remark");
-                    //bookmarkvalue.put("AS10",Checknull(VarAS10));
-                    
+                    bookmarkvalue.put("AS10",Checknull(VarAS10));
+                    */
+                    if (s.getString("Value") != null)
+                    {
+                    SumValue = SumValue+s.getInt("Value");
+                    } 
                     bookmarkvalue.put("AS331",Checknull(Integer.toString(OrderAsset)));
                     bookmarkvalue.put("AS661",Checknull(Integer.toString(SumValue)));
                     bookmarkvalue.put("AS1",Checknull(s.getString("EvidenceRecordNumber")));
@@ -181,7 +183,7 @@ public class W11 {
                     
 
 			JSONArray tablecolumn = new JSONArray();
-			tablecolumn.add("AS1");
+			
 			tablecolumn.add("AS3");
                         tablecolumn.add("AS4");
 			tablecolumn.add("AS5");
@@ -191,34 +193,30 @@ public class W11 {
 			tablecolumn.add("AS10");
                        
 
-			JSONArray table1 = new JSONArray();
-			JSONObject row1 = new JSONObject();
-			row1.put("AS1",Checknull(VarAS1));
-			row1.put("AS3",Checknull(VarAS3));
-                        row1.put("AS4",Checknull(VarAS4));
-                        row1.put("AS5",Checknull(VarAS5));
-                        row1.put("AS6",Checknull(VarAS6));
-                        row1.put("AS8", Checknull(VarAS8));
-                        row1.put("AS9", Checknull(VarAS9));
-                        row1.put("AS10",Checknull(VarAS10));
-                        
-			table1.add(row1);
 			
-//			JSONObject repl2 = new JSONObject();
-//			repl2.put("CRIMESNO", "function1");
-//			repl2.put("DESCRIPTION", "desc1");
-//			repl2.put("SUSPECT", "period1");
-//			repl2.put("VICTIM", "period1");
-//			repl2.put("REMARK", "period1");
-//			table1.add(repl2);
+			JSONObject row1 = new JSONObject();
+			
+			row1.put("AS3",Checknull(s.getString("OrderAsset")));
+                        row1.put("AS4",Checknull(s.getString("Name")));
+                        row1.put("AS5",Checknull(s.getString("Amount")));
+                        row1.put("AS6",Checknull(s.getString("Value")));
+                        row1.put("AS8",Checknull(s.getString("OccupantName")));
+                        row1.put("AS9",Checknull(s.getString("DateSequester")));
+                        row1.put("AS10",Checknull(s.getString("Remark")));
+                        
+			JSONArray.add(row1);
+                        
+
 		JSONObject tableobj = new JSONObject();
 		tableobj.put("COLUMNS", tablecolumn);
-		tableobj.put("TABLEDATA", table1);
+		tableobj.put("TABLEDATA", JSONArray);
 			
 		JSONArray TABLES = new JSONArray();
 		TABLES.add(tableobj);
+
 		bookmarkvalue.put("TABLES", TABLES);
 		System.out.println(bookmarkvalue.toJSONString());
+
 		
 		try {
                   

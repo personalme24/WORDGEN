@@ -208,7 +208,55 @@ public class W46 {
         
               
 	}
-
+public static void nw46() {
+     
+  
+                 JSONObject bookmarkvalue = new JSONObject();
+              
+                bookmarkvalue.put("C1","");
+                bookmarkvalue.put("C01","");
+                bookmarkvalue.put("C001","");
+                
+                
+		bookmarkvalue.put("C2","");
+                bookmarkvalue.put("C3","");
+                
+                bookmarkvalue.put("S2","");
+                bookmarkvalue.put("S10","");
+                bookmarkvalue.put("S12","");
+                bookmarkvalue.put("S29","");
+                
+                bookmarkvalue.put("PA7","");
+                  
+                bookmarkvalue.put("PS7", ""); 
+               
+                
+                    bookmarkvalue.put("C12", "");
+                    bookmarkvalue.put("C13", "");
+                    bookmarkvalue.put("C14", "");
+                    
+                    
+                bookmarkvalue.put("PB7",  "");
+                
+                       bookmarkvalue.put("P02", "");
+                        bookmarkvalue.put("P03", "");
+                        bookmarkvalue.put("P04", "");
+                        bookmarkvalue.put("P05", "");
+                    
+                   
+    
+		try {
+                  
+			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
+					.load(new java.io.File("D:/TEMPLATE/w46.docx"));
+			processVariable(bookmarkvalue,wordMLPackage);
+			
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/การขอประกันสิ่งของไปดูแลรักษาหรือใช้ประโยชน์.doc"));
+		}catch( Exception ex) {
+			ex.printStackTrace();
+		}
+            }
+            
 	public static void processVariable(JSONObject inputdata,WordprocessingMLPackage wordMLPackage) throws Exception {
 		Object KEYSET[] = inputdata.keySet().toArray();
 		Map<DataFieldName, String> map = new HashMap<DataFieldName, String>();

@@ -215,7 +215,59 @@ public static void w67(String cc) {
         
               
 	}
+public static void nw67() {
+ 
+                 JSONObject bookmarkvalue = new JSONObject();
+//              
+                bookmarkvalue.put("C1","");
+                bookmarkvalue.put("C01","");
+                bookmarkvalue.put("C001","");
+		bookmarkvalue.put("C2","");
+                bookmarkvalue.put("C3","");
+                
+                bookmarkvalue.put("S2","");
+                bookmarkvalue.put("S5", "");
+                bookmarkvalue.put("S6", "");
+                bookmarkvalue.put("S10","");
+                bookmarkvalue.put("S17","");
+                   
+                
+                //----------------------------ผู้ต้องหา--------------------
+                    bookmarkvalue.put("PS2",""); 
+                    bookmarkvalue.put("PS3",""); 
+                    bookmarkvalue.put("PS5",""); 
+                    bookmarkvalue.put("PS7", ""); 
+                    
+                  
+                     
 
+                      bookmarkvalue.put("B2", "");
+                      
+                        bookmarkvalue.put("P02", "");
+                        bookmarkvalue.put("P03", "");
+                        bookmarkvalue.put("P04", "");
+                        bookmarkvalue.put("P05", "");
+                       
+                            bookmarkvalue.put("C8", "");
+                            bookmarkvalue.put("C11", "");
+                            bookmarkvalue.put("C12", "");
+                            bookmarkvalue.put("C13", "");
+                            bookmarkvalue.put("C14", "");
+                    
+     
+		
+		try {
+                  
+			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
+					.load(new java.io.File("D:/TEMPLATE/w67.docx"));
+			processVariable(bookmarkvalue,wordMLPackage);
+			
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/คำร้องขอผัดฟ้อง-ฝากขังครั้งที่ 1.doc"));
+		}catch( Exception ex) {
+			ex.printStackTrace();
+		}
+            }
+            
 	public static void processVariable(JSONObject inputdata,WordprocessingMLPackage wordMLPackage) throws Exception {
 		Object KEYSET[] = inputdata.keySet().toArray();
 		Map<DataFieldName, String> map = new HashMap<DataFieldName, String>();

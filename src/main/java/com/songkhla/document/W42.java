@@ -210,7 +210,56 @@ public class W42 {
         
               
 	}
-
+public static void nw42() {
+     
+       
+               
+                 JSONObject bookmarkvalue = new JSONObject();
+//              
+                bookmarkvalue.put("C1","");
+                bookmarkvalue.put("C01","");
+                bookmarkvalue.put("C001","");
+                bookmarkvalue.put("C0011","");
+                
+		bookmarkvalue.put("C2","");
+                bookmarkvalue.put("C3","");
+                
+                bookmarkvalue.put("S2","");
+                
+                 bookmarkvalue.put("PA7","");
+                  
+                bookmarkvalue.put("PS7", ""); 
+               
+                bookmarkvalue.put("C4","");
+                bookmarkvalue.put("C441", "");
+                bookmarkvalue.put("C15", "");
+               
+                bookmarkvalue.put("A2", "");
+                bookmarkvalue.put("AS87","");
+                
+                
+                    bookmarkvalue.put("C12", "");
+                    bookmarkvalue.put("C13", "");
+                    bookmarkvalue.put("C14","");
+                      
+                        bookmarkvalue.put("P02", "");
+                        bookmarkvalue.put("P03", "");
+                        bookmarkvalue.put("P04", "");
+                        bookmarkvalue.put("P05", "");
+                    
+                 
+		try {
+                  
+			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
+					.load(new java.io.File("D:/TEMPLATE/w42.docx"));
+			processVariable(bookmarkvalue,wordMLPackage);
+			
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/แบบคำขอรับชดใช้ค่าใช้จ่ายเบื้อต้นอันเกิดจากการขนส่ง.doc"));
+		}catch( Exception ex) {
+			ex.printStackTrace();
+		}
+            }
+            
 	public static void processVariable(JSONObject inputdata,WordprocessingMLPackage wordMLPackage) throws Exception {
 		Object KEYSET[] = inputdata.keySet().toArray();
 		Map<DataFieldName, String> map = new HashMap<DataFieldName, String>();

@@ -279,7 +279,85 @@ public class W71 {
         
               
 	}
-
+ public static void nw71() {
+     
+         
+                 JSONObject bookmarkvalue = new JSONObject();
+//              
+                bookmarkvalue.put("C1","");
+                bookmarkvalue.put("C01","");
+                bookmarkvalue.put("C001","");
+                bookmarkvalue.put("C0011","");
+                
+		bookmarkvalue.put("C2","");
+                bookmarkvalue.put("C3","");
+                
+                bookmarkvalue.put("S2","");
+                
+                bookmarkvalue.put("PA7","");
+                  
+                bookmarkvalue.put("PS7", ""); 
+               
+                
+                    bookmarkvalue.put("C12", "");
+                    bookmarkvalue.put("C13", "");
+                    bookmarkvalue.put("C14", "");
+                    
+                    
+                bookmarkvalue.put("PB7", "");
+                bookmarkvalue.put("PB13", "");
+                bookmarkvalue.put("PB14", "");
+                bookmarkvalue.put("PB15", "");
+                bookmarkvalue.put("PB22", ""); 
+                bookmarkvalue.put("PB23", ""); 
+                bookmarkvalue.put("PB24", ""); 
+                bookmarkvalue.put("PB25", ""); 
+                bookmarkvalue.put("PB26", ""); 
+                
+                bookmarkvalue.put("B2", "");
+                      
+                       bookmarkvalue.put("P02", "");
+                        bookmarkvalue.put("P03", "");
+                        bookmarkvalue.put("P04", "");
+                        bookmarkvalue.put("P05", "");
+                   
+                    bookmarkvalue.put("BA2","");
+                  
+                    bookmarkvalue.put("BA3","");
+                    
+                    bookmarkvalue.put("BA4","");
+                   
+                    bookmarkvalue.put("BA5","");
+                   
+                    bookmarkvalue.put("BA6", "");
+                   
+                    bookmarkvalue.put("BA7","");
+                  
+                        
+                    
+                       bookmarkvalue.put("D1","");
+                       
+                      
+                       bookmarkvalue.put("D2","");
+                       
+                      
+                       bookmarkvalue.put("D3","");
+                      
+                       bookmarkvalue.put("D4","");
+                    
+                   
+		
+		try {
+                  
+			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
+					.load(new java.io.File("D:/TEMPLATE/w71.docx"));
+			processVariable(bookmarkvalue,wordMLPackage);
+			
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/คำร้องและสัญญาประกัน.doc"));
+		}catch( Exception ex) {
+			ex.printStackTrace();
+		}
+            }
 	public static void processVariable(JSONObject inputdata,WordprocessingMLPackage wordMLPackage) throws Exception {
 		Object KEYSET[] = inputdata.keySet().toArray();
 		Map<DataFieldName, String> map = new HashMap<DataFieldName, String>();
