@@ -7,9 +7,8 @@ package com.songkhla.document;
 
 /**
  *
- * @author Petpilin
+ * @author Computer
  */
-
 import com.songkhla.wordgen.ConnectDatabase;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,6 +17,7 @@ import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -43,14 +43,15 @@ import org.docx4j.wml.Tr;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-public class W1 {
-    public static void w1(String cc) {
-     
+public class W23 {
+public static void w23(String cc) {
             Connection conn=null;
             conn=ConnectDatabase.connect();
             PreparedStatement pst=null;
-             String ccYear;
-             String casetype;
+            
+            String ccYear;
+            String casetype;
+            
              String PoliceStationName="";
              String StationAmphur="";
              String StationProvince="";
@@ -60,11 +61,9 @@ public class W1 {
              String FirstName ="";
              String LastName ="";
              String Position ="";
-             
-             
             try {
-//               
-                    String sqlDataPoliceStation="SELECT * FROM PoliceStation";
+                
+                 String sqlDataPoliceStation="SELECT * FROM PoliceStation";
                       Statement sp = conn.createStatement();
                   ResultSet rs=sp.executeQuery(sqlDataPoliceStation); 
                   while (rs.next()) {                    
@@ -84,109 +83,116 @@ public class W1 {
                          LastName=rs1.getString("LastName");
                          Position=rs1.getString("Position");
                       }
-                  
-                   String sql="select crimecase.*,Charge.*,P1.*,P2.*\n" +
-                               "from crimecase inner join(\n" +
-                              "SELECT  min(Person.NoPerson),Person.FullNamePerson AccuredName,Person.Age AgeAccured,Person.Race AccuredRace,Person.Nationality AccuredNati "
-                           + "  FROM Person where Person.TypePerson='ผู้กล่าวหา'\n" +
-                              ")P1\n" +
-                              "inner join(\n" +
-                                "SELECT min(Person.NoPerson),Person.FullNamePerson suspectName,Person.Age suspectAge,Person.Amphur suspectAmp,Person.Race suspectRace,\n"+
-                                "Person.Nationality suspectNati FROM Person where Person.TypePerson='ผู้ต้องหา'\n" +
-                                ")P2\n" +
-                                "left join Charge on crimecase.ChargeCodeCase=Charge.ChargeCode\n" +
-                                "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
-                                "where crimecase.CaseId='"+cc+"'\n"+
-                                "group by crimecase.CaseId";
-                   
-//                   pst=conn.prepareStatement(sql);
-//           pst=PreparedStatement(sql);
+//                
+
+                   String sql="select crimecase.*,Person.*,Charge.*\n" +
+                              "from crimecase \n" +
+                              "left join Charge on crimecase.ChargeCodeCase=Charge.ChargeCode\n" +
+                              "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
+                              "where crimecase.CaseId='"+cc+"'and Person.TypePerson='ผู้ตาย'\n" +
+                              "group by crimecase.CaseId,Person.NoPerson";
+
                 Statement st = conn.createStatement();
             ResultSet s=st.executeQuery(sql); 
                 System.out.println(sql);
+                
             while((s!=null) && (s.next()))
-            {  String  
-                    cs =s.getString("crimecaseno");
-                    ccYear=s.getString("crimecaseyears");
-                    casetype = s.getString("casetype");
-//              
-                 JSONObject bookmarkvalue = new JSONObject();
-//                 bookmarkvalue.put("C1","Date");
-//                 bookmarkvalue.put("S27","-");
-		bookmarkvalue.put("C2",Checknull(cs));
-                bookmarkvalue.put("C3",Checknull(ccYear));
-                bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
+            {  String  cs =s.getString("crimecaseno");
+                 ccYear=s.getString("crimecaseyears");
+                 casetype=s.getString("casetype");
+                 
+                String Date="";
+                String Month="";
+                String Year="";
+                SimpleDateFormat sdfstart ;
+                Calendar  calstart = Calendar.getInstance();
+                sdfstart = new SimpleDateFormat("dd", new Locale("th", "TH"));  
+               Date =sdfstart.format(calstart.getTime());
               
+               sdfstart = new SimpleDateFormat("MMMM", new Locale("th", "TH"));  
+               Month=sdfstart.format(calstart.getTime());
+               
+               sdfstart = new SimpleDateFormat("yyyy", new Locale("th", "TH"));  
+               Year=sdfstart.format(calstart.getTime());
+                 
+//                System.out.print("ข้อหา :: "+s.getString("ChargeCode"));
+//                System.out.print(" - ");
+                 JSONObject bookmarkvalue = new JSONObject();
+//              
+                bookmarkvalue.put("C1",Checknull(Date));
+                bookmarkvalue.put("C01",Checknull(Month));
+                bookmarkvalue.put("C001",Checknull(Year));
+		bookmarkvalue.put("C2",Checknull(cs));
+                bookmarkvalue.put("C3", Checknull(ccYear));
+                bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
                  bookmarkvalue.put("S5", Checknull(StationAmphur));
                  bookmarkvalue.put("S6", Checknull(StationProvince));
-                 bookmarkvalue.put("S27",Checknull(ProvincProsecutor));
                  bookmarkvalue.put("S10",Checknull(TelStation));
+                 bookmarkvalue.put("S27",Checknull(ProvincProsecutor));
                    
-                  bookmarkvalue.put("PA7",Checknull(s.getString("AccureandOther")));
-                  bookmarkvalue.put("PS7",Checknull(s.getString("SuspectandOther"))); 
+//              
+//                   ----------------------------ผู้ตาย--------------------
                    
-                         
-                      bookmarkvalue.put("B2",Checknull(s.getString("ChargeName")));
-                      
-                        bookmarkvalue.put("P02", Checknull(RankPolice));
-                        bookmarkvalue.put("P03", Checknull(FirstName));
-                        bookmarkvalue.put("P04", Checknull(LastName));
-                        bookmarkvalue.put("P05", Checknull(Position));
-                         
-                            bookmarkvalue.put("C4",Checknull(ToDate(s.getString("OccuredDate"))));
-                            bookmarkvalue.put("C441",Checknull(s.getString("OccuredTime")));
-                            
-                            bookmarkvalue.put("C5", Checknull(ToDate(s.getString("CaseAcceptDate"))));
-                            bookmarkvalue.put("C551",Checknull(s.getString("CaseAccepTime")));
-                            bookmarkvalue.put("C6", Checknull(ToDate(s.getString("CaseRequestDate"))));
-                            bookmarkvalue.put("C661",Checknull(s.getString("CaseRequestTime")));
-                            bookmarkvalue.put("C12",Checknull(s.getString("CrimeLocationDistrict")));
-                            bookmarkvalue.put("C13",Checknull(s.getString("CrimeLocationAmphur")));
-                            bookmarkvalue.put("C14",Checknull(s.getString("CrimeLocationProvince")));
-                            bookmarkvalue.put("C15",Checknull(s.getString("DailyNumber")));
-                            
+                    bookmarkvalue.put("PD7", Checknull(s.getString("FullNamePerson"))); 
+                    bookmarkvalue.put("PD13", Checknull(s.getString("Age")));
+                    bookmarkvalue.put("PD14", Checknull(s.getString("Race")));
+                    bookmarkvalue.put("PD15", Checknull(s.getString("Nationality")));
+                    bookmarkvalue.put("PD16", Checknull(s.getString("Religion")));
+                    bookmarkvalue.put("PD17", Checknull(s.getString("Occupation")));
+                    bookmarkvalue.put("PD22", Checknull(s.getString("HouseNumber")));
+                    bookmarkvalue.put("PD23", Checknull(s.getString("Moo")));
+                    bookmarkvalue.put("PD24", Checknull(s.getString("Tambon")));
+                    bookmarkvalue.put("PD25", Checknull(s.getString("Amphur")));
+                    bookmarkvalue.put("PD26", Checknull(s.getString("Province")));
+                    bookmarkvalue.put("PD29", Checknull(s.getString("HeadmanName")));
+                    bookmarkvalue.put("PD30", Checknull(s.getString("SubHeadmanName")));
+                    bookmarkvalue.put("PD31", Checknull(s.getString("FatherFullName")));
+                    bookmarkvalue.put("PD32", Checknull(s.getString("MotherFullName")));
+                    bookmarkvalue.put("PD45", Checknull(s.getString("DeathLocation")));
+                    bookmarkvalue.put("PD46", Checknull(s.getString("TambomDie")));
+                    bookmarkvalue.put("PD47", Checknull(s.getString("AmphurDie")));
+                    bookmarkvalue.put("PD48", Checknull(s.getString("ProvinceDie")));
+                    bookmarkvalue.put("PD49", Checknull(s.getString("PlaceOfFoundBody")));
+                    bookmarkvalue.put("PD50", Checknull(s.getString("TambomFoundBody")));
+                    bookmarkvalue.put("PD51", Checknull(s.getString("AmphurFoundBody")));
+                    bookmarkvalue.put("PD52", Checknull(s.getString("ProvinceFoundBody")));
+                    bookmarkvalue.put("PD53", Checknull(s.getString("CircumstancesOfDeath")));
+                    bookmarkvalue.put("PD83", Checknull(s.getString("TimeOfDie")));
+                    bookmarkvalue.put("PD84", Checknull(s.getString("BodyFoundTime")));
                     
-                   
-    
+
+                       bookmarkvalue.put("C59", Checknull(s.getString("CircumstancesOfDeath")));
+                      
+                     bookmarkvalue.put("P02", Checknull(RankPolice));
+                     bookmarkvalue.put("P03", Checknull(FirstName));
+                     bookmarkvalue.put("P04", Checknull(LastName));
+                     bookmarkvalue.put("P05", Checknull(Position));
+                    
+
 			JSONArray tablecolumn = new JSONArray();
-			tablecolumn.add("C2");
-			tablecolumn.add("C3");
+//			tablecolumn.add("P03");
+//			tablecolumn.add("P02");
 //			tablecolumn.add("SUSPECT");
 //			tablecolumn.add("VICTIM");
 //			tablecolumn.add("REMARK");
 			JSONArray table1 = new JSONArray();
 			JSONObject row1 = new JSONObject();
-			row1.put("C2",cs);
-			row1.put("C3", ccYear);
-//			row1.put("SUSPECT", "period1");
-//			row1.put("VICTIM", "period1");
-//			row1.put("REMARK", "period1");
+
 			table1.add(row1);
 			
-//			JSONObject repl2 = new JSONObject();
-//			repl2.put("CRIMESNO", "function1");
-//			repl2.put("DESCRIPTION", "desc1");
-//			repl2.put("SUSPECT", "period1");
-//			repl2.put("VICTIM", "period1");
-//			repl2.put("REMARK", "period1");
-//			table1.add(repl2);
+
 		JSONObject tableobj = new JSONObject();
-		tableobj.put("COLUMNS", tablecolumn);
-		tableobj.put("TABLEDATA", table1);
-			
-		JSONArray TABLES = new JSONArray();
-		TABLES.add(tableobj);
-		bookmarkvalue.put("TABLES", TABLES);
+
 		System.out.println(bookmarkvalue.toJSONString());
 		
 		
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("D:/TEMPLATE/w1.docx"));
+					.load(new java.io.File("D:/TEMPLATE/w28.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+cs+"-"+ccYear+"/บันทึกการตรวจสำนวนการสอบสวน"+cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+cs+"-"+ccYear+"/รายงานการชันสูตรพลิกศพ"+s.getString("FullNamePerson")+""+cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -197,93 +203,77 @@ public class W1 {
         
               
 	}
-    //เรียกเอกสารเปล่า
-        public static void nw1() {
-     
-     
+public static void nw38() {
+        
                  JSONObject bookmarkvalue = new JSONObject();
-//                 bookmarkvalue.put("C1","Date");
-//                 bookmarkvalue.put("S27","-");
+//              
+                bookmarkvalue.put("C1","");
+                bookmarkvalue.put("C01","");
+                bookmarkvalue.put("C001","");
 		bookmarkvalue.put("C2","");
                 bookmarkvalue.put("C3","");
-                 bookmarkvalue.put("S2","");
-                 bookmarkvalue.put("S5", "");
-                 bookmarkvalue.put("S6", "");
-                 bookmarkvalue.put("S27","");
-                 bookmarkvalue.put("S10","");
-                   
-                  bookmarkvalue.put("PA7","");
-                  bookmarkvalue.put("PS7",""); 
-                   
-                         
-                      bookmarkvalue.put("B2","");
+                
+                bookmarkvalue.put("S2","");
+                bookmarkvalue.put("S5","");
+                bookmarkvalue.put("S6","");
+                bookmarkvalue.put("S27","");
+                bookmarkvalue.put("S10","");
+                
+                bookmarkvalue.put("PA7","");
+             
+                    bookmarkvalue.put("PS2", ""); 
+                    bookmarkvalue.put("PS3",""); 
+                    bookmarkvalue.put("PS5", ""); 
+                    bookmarkvalue.put("PS7", ""); 
+                    bookmarkvalue.put("PS13", "");
+                    bookmarkvalue.put("PS14","");
+                    bookmarkvalue.put("PS15", "");
+                    bookmarkvalue.put("PS16", "");
+                    bookmarkvalue.put("PS17", "");
+                    bookmarkvalue.put("PS22", "");
+                    bookmarkvalue.put("PS23", "");
+                    bookmarkvalue.put("PS24", "");
+                    bookmarkvalue.put("PS25", "");
+                    bookmarkvalue.put("PS26", "");
+                    bookmarkvalue.put("PS29", "");
+                    bookmarkvalue.put("PS30", "");
+                    bookmarkvalue.put("PS31", "");
+                    bookmarkvalue.put("PS32", "");
+                    bookmarkvalue.put("PD45", "");
+                    bookmarkvalue.put("PD46", "");
+                    bookmarkvalue.put("PD47", "");
+                    bookmarkvalue.put("PD48", "");
+                    bookmarkvalue.put("PD49", "");
+                    bookmarkvalue.put("PD50", "");
+                    bookmarkvalue.put("PD51", "");
+                    bookmarkvalue.put("PD52", "");
+                    bookmarkvalue.put("PD53", "");
+
+                       bookmarkvalue.put("C59","");
+                     
+
+                      bookmarkvalue.put("B2", "");
                       
                         bookmarkvalue.put("P02", "");
                         bookmarkvalue.put("P03", "");
                         bookmarkvalue.put("P04", "");
                         bookmarkvalue.put("P05", "");
-                         
-                            bookmarkvalue.put("C4","");
-                            bookmarkvalue.put("C441","");
-                            
-                            bookmarkvalue.put("C5", "");
-                            bookmarkvalue.put("C551","");
-                            bookmarkvalue.put("C6", "");
-                            bookmarkvalue.put("C661","");
-                            bookmarkvalue.put("C12","");
-                            bookmarkvalue.put("C13","");
-                            bookmarkvalue.put("C14","");
-                            bookmarkvalue.put("C15","");
-                            
                     
-                   
-    
-			JSONArray tablecolumn = new JSONArray();
-			tablecolumn.add("C2");
-			tablecolumn.add("C3");
-//			tablecolumn.add("SUSPECT");
-//			tablecolumn.add("VICTIM");
-//			tablecolumn.add("REMARK");
-			JSONArray table1 = new JSONArray();
-			JSONObject row1 = new JSONObject();
-			//row1.put("C2","");
-			//row1.put("C3", ccYear);
-//			row1.put("SUSPECT", "period1");
-//			row1.put("VICTIM", "period1");
-//			row1.put("REMARK", "period1");
-			table1.add(row1);
-			
-//			JSONObject repl2 = new JSONObject();
-//			repl2.put("CRIMESNO", "function1");
-//			repl2.put("DESCRIPTION", "desc1");
-//			repl2.put("SUSPECT", "period1");
-//			repl2.put("VICTIM", "period1");
-//			repl2.put("REMARK", "period1");
-//			table1.add(repl2);
-		JSONObject tableobj = new JSONObject();
-		tableobj.put("COLUMNS", tablecolumn);
-		tableobj.put("TABLEDATA", table1);
-			
-		JSONArray TABLES = new JSONArray();
-		TABLES.add(tableobj);
-		bookmarkvalue.put("TABLES", TABLES);
-		System.out.println(bookmarkvalue.toJSONString());
-		
+
 		
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("D:/TEMPLATE/w1.docx"));
+					.load(new java.io.File("D:/TEMPLATE/w23.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
-			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/บันทึกการตรวจสำนวนการสอบสวน.doc"));
+			
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/รายงานการชันสูตรพลิกศพ.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
-        }
+            }
+            
 
-   /// ฟังก์ชั่นต่างๆ 
-        
 	public static void processVariable(JSONObject inputdata,WordprocessingMLPackage wordMLPackage) throws Exception {
 		Object KEYSET[] = inputdata.keySet().toArray();
 		Map<DataFieldName, String> map = new HashMap<DataFieldName, String>();
@@ -389,7 +379,7 @@ public class W1 {
 			tempTable.getContent().remove(templateRow);
 		}
 	}
-     private static String ToDate(String strDate){
+        private static String ToDate(String strDate){
                String ResultDate="";
          try {
     	       SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", new Locale("th", "TH"));  
@@ -398,11 +388,11 @@ public class W1 {
                date = df.parse(strDate);               
                ResultDate=dateto.format(date.getTime());
          } catch (ParseException ex) {
-             Logger.getLogger(W1.class.getName()).log(Level.SEVERE, null, ex);
+             Logger.getLogger(W23.class.getName()).log(Level.SEVERE, null, ex);
          }
                return ResultDate;
-     }
-     public static String Checknull(String input){
+}
+public static String Checknull(String input){
 					if(input==null||input==""||input=="null") { return ""; }
 					return getThaiNumber(input);
 					}
@@ -422,3 +412,4 @@ public class W1 {
         return sb.toString();  
     }  
 }
+
