@@ -20,6 +20,8 @@ import com.songkhla.document.W2;
 import com.songkhla.document.W20;
 import com.songkhla.document.W21;
 import com.songkhla.document.W22;
+import com.songkhla.document.W23;
+import com.songkhla.document.W24;
 import com.songkhla.document.W25;
 import com.songkhla.document.W26;
 import com.songkhla.document.W27;
@@ -150,8 +152,8 @@ public class ReportAllForm extends javax.swing.JDialog {
         jCheckW20 = new javax.swing.JCheckBox();
         jCheckW21 = new javax.swing.JCheckBox();
         jCheckW22 = new javax.swing.JCheckBox();
+        jCheckW23 = new javax.swing.JCheckBox();
         jCheckW24 = new javax.swing.JCheckBox();
-        jCheckBox25 = new javax.swing.JCheckBox();
         jCheckW25 = new javax.swing.JCheckBox();
         jCheckW26 = new javax.swing.JCheckBox();
         jCheckW27 = new javax.swing.JCheckBox();
@@ -335,13 +337,13 @@ public class ReportAllForm extends javax.swing.JDialog {
         jCheckW22.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW22.setText("หนังสือส่งผู้ต้องหาป่วยทางจิตตรวจวินิจฉัย");
 
+        jCheckW23.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckW23.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jCheckW23.setText("รายงานชันสูตรพลิกศพ");
+
         jCheckW24.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW24.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW24.setText("รายงานชันสูตรพลิกศพ");
-
-        jCheckBox25.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox25.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckBox25.setText("แบบรายงานพบศพไม่ทราบชื่อ");
+        jCheckW24.setText("แบบรายงานพบศพไม่ทราบชื่อ");
 
         jCheckW25.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW25.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -614,8 +616,8 @@ public class ReportAllForm extends javax.swing.JDialog {
                     .addComponent(jCheckW27, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jCheckW26, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jCheckW25, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jCheckBox25, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jCheckW24, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jCheckW23, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jCheckW22, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jCheckW21, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jCheckW20, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -802,7 +804,7 @@ public class ReportAllForm extends javax.swing.JDialog {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jCheckW22)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jCheckW24))
+                                        .addComponent(jCheckW23))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jCheckBox40)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -814,7 +816,7 @@ public class ReportAllForm extends javax.swing.JDialog {
                                             .addComponent(jCheckBox81))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jCheckBox25)
+                                    .addComponent(jCheckW24)
                                     .addComponent(jCheckBox43)
                                     .addComponent(jCheckBox63))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -973,6 +975,14 @@ public class ReportAllForm extends javax.swing.JDialog {
             W22.nw22();
            
         }
+        if(jCheckW23.isSelected()){
+            W23.nw23();
+           
+        }
+        if(jCheckW24.isSelected()){
+            W24.nw24();
+           
+        }
         if(jCheckW25.isSelected()){
             W25.nw25();
            
@@ -1091,7 +1101,6 @@ public class ReportAllForm extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button button1;
     private javax.swing.JLabel crimecaseno;
-    private javax.swing.JCheckBox jCheckBox25;
     private javax.swing.JCheckBox jCheckBox40;
     private javax.swing.JCheckBox jCheckBox41;
     private javax.swing.JCheckBox jCheckBox42;
@@ -1147,6 +1156,7 @@ public class ReportAllForm extends javax.swing.JDialog {
     private javax.swing.JCheckBox jCheckW20;
     private javax.swing.JCheckBox jCheckW21;
     private javax.swing.JCheckBox jCheckW22;
+    private javax.swing.JCheckBox jCheckW23;
     private javax.swing.JCheckBox jCheckW24;
     private javax.swing.JCheckBox jCheckW25;
     private javax.swing.JCheckBox jCheckW26;

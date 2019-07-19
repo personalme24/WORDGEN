@@ -43,8 +43,8 @@ import org.docx4j.wml.Tr;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-public class W23 {
-public static void w23(String cc) {
+public class W24 {
+public static void w24(String cc) {
             Connection conn=null;
             conn=ConnectDatabase.connect();
             PreparedStatement pst=null;
@@ -53,10 +53,11 @@ public static void w23(String cc) {
             String casetype;
             
              String PoliceStationName="";
-             String StationAmphur="";
-             String StationProvince="";
-             String ProvincProsecutor="";
-             String TelStation="";
+             String PoliceStaionShort="";
+             String KK="";
+             String HeadName="";
+             String BK="";
+             String BH="";
              String RankPolice ="";
              String FirstName ="";
              String LastName ="";
@@ -68,10 +69,11 @@ public static void w23(String cc) {
                   ResultSet rs=sp.executeQuery(sqlDataPoliceStation); 
                   while (rs.next()) {                    
                          PoliceStationName=rs.getString("PoliceStaionName");
-                         StationAmphur=rs.getString("StationAmphur");
-                         StationProvince=rs.getString("StationProvince");
-                         ProvincProsecutor=rs.getString("ProvincProsecutor");
-                         TelStation=rs.getString("TelStation");
+                         PoliceStaionShort=rs.getString("PoliceStaionShort");
+                         KK=rs.getString("KK");
+                         HeadName=rs.getString("HeadName");
+                         BK=rs.getString("BK");
+                         BH=rs.getString("BH");
                       }
             
                     String sqlDataPolice="SELECT * FROM Police";
@@ -125,43 +127,24 @@ public static void w23(String cc) {
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3", Checknull(ccYear));
                 bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
-                 bookmarkvalue.put("S5", Checknull(StationAmphur));
-                 bookmarkvalue.put("S6", Checknull(StationProvince));
-                 bookmarkvalue.put("S10",Checknull(TelStation));
-                 bookmarkvalue.put("S27",Checknull(ProvincProsecutor));
+                 bookmarkvalue.put("S3", Checknull(PoliceStaionShort));
+                 bookmarkvalue.put("S7", Checknull(KK));
+                 bookmarkvalue.put("S8",Checknull(BK));
+                 bookmarkvalue.put("S9",Checknull(BH));
+                 bookmarkvalue.put("S13",Checknull(HeadName));
                    
 //              
 //                   ----------------------------ผู้ตาย--------------------
                    
-                    bookmarkvalue.put("PD7", Checknull(s.getString("FullNamePerson"))); 
+                    bookmarkvalue.put("PD12", Checknull(s.getString("Gender"))); 
                     bookmarkvalue.put("PD13", Checknull(s.getString("Age")));
-                    bookmarkvalue.put("PD14", Checknull(s.getString("Race")));
-                    bookmarkvalue.put("PD15", Checknull(s.getString("Nationality")));
-                    bookmarkvalue.put("PD16", Checknull(s.getString("Religion")));
-                    bookmarkvalue.put("PD17", Checknull(s.getString("Occupation")));
-                    bookmarkvalue.put("PD22", Checknull(s.getString("HouseNumber")));
-                    bookmarkvalue.put("PD23", Checknull(s.getString("Moo")));
-                    bookmarkvalue.put("PD24", Checknull(s.getString("Tambon")));
-                    bookmarkvalue.put("PD25", Checknull(s.getString("Amphur")));
-                    bookmarkvalue.put("PD26", Checknull(s.getString("Province")));
-                    bookmarkvalue.put("PD29", Checknull(s.getString("HeadmanName")));
-                    bookmarkvalue.put("PD30", Checknull(s.getString("SubHeadmanName")));
-                    bookmarkvalue.put("PD31", Checknull(s.getString("FatherFullName")));
-                    bookmarkvalue.put("PD32", Checknull(s.getString("MotherFullName")));
-                    bookmarkvalue.put("PD45", Checknull(s.getString("DeathLocation")));
-                    bookmarkvalue.put("PD46", Checknull(s.getString("TambomDie")));
-                    bookmarkvalue.put("PD47", Checknull(s.getString("AmphurDie")));
-                    bookmarkvalue.put("PD48", Checknull(s.getString("ProvinceDie")));
-                    bookmarkvalue.put("PD49", Checknull(s.getString("PlaceOfFoundBody")));
-                    bookmarkvalue.put("PD50", Checknull(s.getString("TambomFoundBody")));
-                    bookmarkvalue.put("PD51", Checknull(s.getString("AmphurFoundBody")));
-                    bookmarkvalue.put("PD52", Checknull(s.getString("ProvinceFoundBody")));
-                    bookmarkvalue.put("PD53", Checknull(s.getString("CircumstancesOfDeath")));
-                    bookmarkvalue.put("PD83", Checknull(s.getString("TimeOfDie")));
-                    bookmarkvalue.put("PD84", Checknull(s.getString("BodyFoundTime")));
                     
-
-                       bookmarkvalue.put("C59", Checknull(s.getString("CircumstancesOfDeath")));
+                    bookmarkvalue.put("PD44", Checknull(ToDate(s.getString("BodyFoundDate"))));
+                   
+                    
+                    bookmarkvalue.put("C6", Checknull(ToDate(s.getString("CaseRequestDate"))));
+                    bookmarkvalue.put("C661",Checknull(s.getString("CaseRequestTime")));
+                    bookmarkvalue.put("C15",Checknull(s.getString("DailyNumber")));
                       
                      bookmarkvalue.put("P02", Checknull(RankPolice));
                      bookmarkvalue.put("P03", Checknull(FirstName));
@@ -189,10 +172,10 @@ public static void w23(String cc) {
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("D:/TEMPLATE/w23.docx"));
+					.load(new java.io.File("D:/TEMPLATE/w24.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+cs+"-"+ccYear+"/รายงานการชันสูตรพลิกศพ"+s.getString("FullNamePerson")+""+cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+cs+"-"+ccYear+"/แบบรายงานศพไม่ทราบชื่อ"+""+cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -203,7 +186,7 @@ public static void w23(String cc) {
         
               
 	}
-public static void nw23() {
+public static void nw24() {
         
                  JSONObject bookmarkvalue = new JSONObject();
 //              
@@ -214,44 +197,22 @@ public static void nw23() {
                 bookmarkvalue.put("C3","");
                 
                 bookmarkvalue.put("S2","");
-                bookmarkvalue.put("S5","");
-                bookmarkvalue.put("S6","");
-                bookmarkvalue.put("S27","");
-                bookmarkvalue.put("S10","");
+                 bookmarkvalue.put("S3", "");
+                 bookmarkvalue.put("S7", "");
+                 bookmarkvalue.put("S8","");
+                 bookmarkvalue.put("S9","");
+                 bookmarkvalue.put("S13","");
                 
-                bookmarkvalue.put("PA7","");
-             
-                    bookmarkvalue.put("PD2", ""); 
-                    bookmarkvalue.put("PD3",""); 
-                    bookmarkvalue.put("PD5", ""); 
-                    bookmarkvalue.put("PD7", ""); 
+               
+                   
+                    bookmarkvalue.put("PD12", ""); 
                     bookmarkvalue.put("PD13", "");
-                    bookmarkvalue.put("PD14","");
-                    bookmarkvalue.put("PD15", "");
-                    bookmarkvalue.put("PD16", "");
-                    bookmarkvalue.put("PD17", "");
-                    bookmarkvalue.put("PD22", "");
-                    bookmarkvalue.put("PD23", "");
-                    bookmarkvalue.put("PD24", "");
-                    bookmarkvalue.put("PD25", "");
-                    bookmarkvalue.put("PD26", "");
-                    bookmarkvalue.put("PD29", "");
-                    bookmarkvalue.put("PD30", "");
-                    bookmarkvalue.put("PD31", "");
-                    bookmarkvalue.put("PD32", "");
-                    bookmarkvalue.put("PD45", "");
-                    bookmarkvalue.put("PD46", "");
-                    bookmarkvalue.put("PD47", "");
-                    bookmarkvalue.put("PD48", "");
-                    bookmarkvalue.put("PD49", "");
-                    bookmarkvalue.put("PD50", "");
-                    bookmarkvalue.put("PD51", "");
-                    bookmarkvalue.put("PD52", "");
-                    bookmarkvalue.put("PD53", "");
-                    bookmarkvalue.put("PD83", "");
-                    bookmarkvalue.put("PD84", "");
+                    bookmarkvalue.put("PD44","");
+                   
 
-                       bookmarkvalue.put("C59","");
+                    bookmarkvalue.put("C6", "");
+                    bookmarkvalue.put("C661","");
+                    bookmarkvalue.put("C15","");
                      
 
                       bookmarkvalue.put("B2", "");
@@ -266,10 +227,10 @@ public static void nw23() {
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("D:/TEMPLATE/w23.docx"));
+					.load(new java.io.File("D:/TEMPLATE/w24.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/รายงานการชันสูตรพลิกศพ.doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/แบบรายงานศพไม่ทราบชื่อ.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -390,7 +351,7 @@ public static void nw23() {
                date = df.parse(strDate);               
                ResultDate=dateto.format(date.getTime());
          } catch (ParseException ex) {
-             Logger.getLogger(W23.class.getName()).log(Level.SEVERE, null, ex);
+             Logger.getLogger(W24.class.getName()).log(Level.SEVERE, null, ex);
          }
                return ResultDate;
 }
