@@ -58,6 +58,7 @@ public class SuspectForm extends javax.swing.JDialog {
      boolean isInsert;
      String noPerson,caseid;
      JDatePickerImpl ArrestDateTime,IssueDate,ExpiredDate,BirthDay,RestoreDate,BailDate;
+      JDatePanelImpl datePanel3;
     /**
      * Creates new form AccusedForm
      */
@@ -93,7 +94,7 @@ public class SuspectForm extends javax.swing.JDialog {
         
         UtilDateModel model3 = new UtilDateModel();
             model3.setValue(Calendar.getInstance().getTime());
-        JDatePanelImpl datePanel3 = new JDatePanelImpl(model3, p);
+         datePanel3 = new JDatePanelImpl(model3, p);
          ExpiredDate = new JDatePickerImpl(datePanel3,new DateLabelFormatter());
         ExpiredDate.setTextEditable(true);
         ExpiredDate.setBackground(Color.WHITE);
@@ -146,6 +147,7 @@ public class SuspectForm extends javax.swing.JDialog {
         g.add(jRadioRestore);
         g.add(jRadioCatch);
         g.add(jRadioOther); 
+       
         eventJButtonManage();
       
        
@@ -210,6 +212,7 @@ public class SuspectForm extends javax.swing.JDialog {
             if(known.equals("ไม่รู้ตัว")){
             jRadioUnknowSuspect.setSelected(true);
             }
+            else{jRadioKnowSuspect.setSelected(true);}
             FullNamePerson.setText(datain.get("FullNamePerson")+"");
             Age.setText(datain.get("Age")+"");
             Amphur.setText(datain.get("Amphur")+"");
@@ -398,7 +401,7 @@ public class SuspectForm extends javax.swing.JDialog {
         ZipCode1 = new javax.swing.JTextField();
         jLabel33 = new javax.swing.JLabel();
         Gender1 = new javax.swing.JComboBox<>();
-        ZipCode2 = new javax.swing.JTextField();
+        Identification = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
         BtSaveAccused = new javax.swing.JButton();
 
@@ -584,7 +587,7 @@ public class SuspectForm extends javax.swing.JDialog {
         jPanelExpiredDate.setLayout(jPanelExpiredDateLayout);
         jPanelExpiredDateLayout.setHorizontalGroup(
             jPanelExpiredDateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 180, Short.MAX_VALUE)
         );
         jPanelExpiredDateLayout.setVerticalGroup(
             jPanelExpiredDateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -676,7 +679,9 @@ public class SuspectForm extends javax.swing.JDialog {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(FullNamePersonEn)
-                                            .addComponent(jPanelExpiredDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                                .addComponent(jPanelExpiredDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(0, 0, Short.MAX_VALUE))))
                                     .addGroup(jPanel4Layout.createSequentialGroup()
                                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanel4Layout.createSequentialGroup()
@@ -691,7 +696,7 @@ public class SuspectForm extends javax.swing.JDialog {
                                                     .addComponent(jPanelBirthDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(Race, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGap(105, 105, 105))
-                                            .addComponent(FullNamePerson, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)))
+                                            .addComponent(FullNamePerson, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)))
                                     .addGroup(jPanel4Layout.createSequentialGroup()
                                         .addGap(47, 47, 47)
                                         .addComponent(jLabel20)
@@ -729,7 +734,7 @@ public class SuspectForm extends javax.swing.JDialog {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(MotherFullName)
                             .addComponent(Occupation))))
-                .addGap(0, 9, Short.MAX_VALUE))
+                .addGap(0, 8, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1135,7 +1140,7 @@ public class SuspectForm extends javax.swing.JDialog {
         Gender1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         Gender1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "รับสารภาพ", "ปฏิเสธ", "ภาคเสธ" }));
 
-        ZipCode2.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        Identification.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
 
         jLabel34.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel34.setText("ตำหนิรูปพรรณ");
@@ -1205,7 +1210,7 @@ public class SuspectForm extends javax.swing.JDialog {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel34)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ZipCode2)))))
+                                .addComponent(Identification)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -1241,7 +1246,7 @@ public class SuspectForm extends javax.swing.JDialog {
                             .addComponent(Gender1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ZipCode2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Identification, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
@@ -1273,8 +1278,8 @@ public class SuspectForm extends javax.swing.JDialog {
             String sql="INSERT INTO Person (Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
             "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
             "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,StatusSuspect,"
-            + "caseIdPerson,ArrestDateTime,PlaceArrest,CourtSuspect,BailDate,ArrestDateTimeEnd,StatusBail,RatePrison)\n"
-                    + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            + "caseIdPerson,ArrestDateTime,PlaceArrest,CourtSuspect,BailDate,ArrestDateTimeEnd,StatusBail,RatePrison,Identification)\n"
+                    + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 //           String sqlSueFirst="insert into sue (SueTimes,SueDate,)";
             System.out.println("SQL : "+sql);
             try {
@@ -1355,6 +1360,8 @@ public class SuspectForm extends javax.swing.JDialog {
                 pst.setString(35,"ประกัน");}
                 else{pst.setString(35,"");}
                  pst.setString(36,RatePrison.getSelectedItem().toString());
+                 pst.setString(37,Identification.getText());
+                
 
                int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
                             JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
@@ -1566,17 +1573,70 @@ public class SuspectForm extends javax.swing.JDialog {
        Province.setEnabled(false);
        ZipCode1.setEnabled(false);
        Gender1.setEnabled(false);
-       ZipCode2.setEnabled(false);
-    
+       Identification.setEnabled(false);
+       ExpiredDate.getComponent(1).setEnabled(false);
+      ExpiredDate.getJFormattedTextField().setEnabled(false);
+      IssueDate.getComponent(1).setEnabled(false);
+       IssueDate.getJFormattedTextField().setEnabled(false);
+       BirthDay.getComponent(1).setEnabled(false);
+       BirthDay.getJFormattedTextField().setEnabled(false);
+        jRadioSue.setEnabled(false);
+        jRadioResultImprison.setEnabled(false);
+        jRadioResultRelease.setEnabled(false);
+        jRadioCantCatch.setEnabled(false);
+        jRadioVerbal.setEnabled(false);
+        jRadioRestore.setEnabled(false);
+        jRadioCatch.setEnabled(false);
+        jRadioOther.setEnabled(false);
+        jCheckBail.setEnabled(false);
             // do something when the button is selected
  
         } 
-//        else if (state == ItemEvent.DESELECTED) {
-//             jLabelBailDate.setVisible(false);
-//           jPanelBailDate.setVisible(false);
-//            // do something else when the button is deselected
-// 
-//        }
+        else if (state == ItemEvent.DESELECTED) {
+                      PeopleRegistrationID.setEnabled(true);
+       FullNamePerson.setEnabled(true);
+       OtherName.setEnabled(true);
+       FullNamePersonEn.setEnabled(true);
+       PassportNumber.setEnabled(true);
+       Age.setEnabled(true);
+       Nationality.setEnabled(true);
+       Race.setEnabled(true);
+       Religion.setEnabled(true);
+       Height.setEnabled(true);
+       Weight.setEnabled(true);
+       BloodGroup.setEnabled(true);
+       FatherFullName.setEnabled(true);
+       MotherFullName.setEnabled(true);
+       PhonePerson.setEnabled(true);
+       Occupation.setEnabled(true);
+       HouseNumber.setEnabled(true);
+       Gender.setEnabled(true);
+       Moo.setEnabled(true);
+       Tambon.setEnabled(true);
+       Amphur.setEnabled(true);
+       Province.setEnabled(true);
+       ZipCode1.setEnabled(true);
+       Gender1.setEnabled(true);
+       Identification.setEnabled(true);
+      ExpiredDate.getComponent(1).setEnabled(true);
+      ExpiredDate.getJFormattedTextField().setEnabled(true);
+      IssueDate.getComponent(1).setEnabled(true);
+       IssueDate.getJFormattedTextField().setEnabled(true);
+     BirthDay.getComponent(1).setEnabled(true);
+       BirthDay.getJFormattedTextField().setEnabled(true);
+             jRadioSue.setEnabled(true);
+        jRadioResultImprison.setEnabled(true);
+        jRadioResultRelease.setEnabled(true);
+        jRadioCantCatch.setEnabled(true);
+        jRadioVerbal.setEnabled(true);
+        jRadioRestore.setEnabled(true);
+        jRadioCatch.setEnabled(true);
+        jRadioOther.setEnabled(true);
+        jCheckBail.setEnabled(true);
+
+            // do something else when the button is deselected
+ 
+        }
     }
 });
   }   
@@ -1817,6 +1877,7 @@ public class SuspectForm extends javax.swing.JDialog {
     private javax.swing.JComboBox<String> Gender1;
     private javax.swing.JTextField Height;
     private javax.swing.JTextField HouseNumber;
+    private javax.swing.JTextField Identification;
     private javax.swing.JTextField Moo;
     private javax.swing.JTextField MotherFullName;
     private javax.swing.JTextField Nationality;
@@ -1834,7 +1895,6 @@ public class SuspectForm extends javax.swing.JDialog {
     private javax.swing.JTextField Weight;
     private javax.swing.JTextField ZipCode;
     private javax.swing.JTextField ZipCode1;
-    private javax.swing.JTextField ZipCode2;
     private javax.swing.JCheckBox jCheckBail;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

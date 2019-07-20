@@ -441,6 +441,16 @@ public class CreateTable {
                 "	SueCaseId	INTEGER	 not null,	\n"+
                 "	SueSuspectId	INTEGER	not null	\n"+
                                 "	);"; 
+             String sqlTambon ="CREATE TABLE IF NOT EXISTS Tambon (\n"+ 
+                "	IdTambon	INTEGER	Primary Key AUTOINCREMENT,	\n"+                     
+                "	NAME	VARCHAR(100),	\n"+
+                "	AMPHURID	VARCHAR(100)	,	\n"+
+                "	PROVINCEID	VARCHAR(100)	,	\n"+
+                "	TAMBONID	VARCHAR(100)	,	\n"+
+                "	ZIPCODE	VARCHAR(100)	,	\n"+
+                "	LOC_CODE	VARCHAR(100)	,	\n"+
+                "	DOPA_CODE	VARCHAR(100)		\n"+        
+                                "	);"; 
 
 	        try ( 
                         Statement stmt = cc.createStatement()) {
@@ -457,7 +467,7 @@ public class CreateTable {
                       stmt.execute(sqlInvest);
                       stmt.execute(sqlSue);
                        stmt.execute(sqlBailAsset);
-//                      stmt.execute(sqlBail);
+                      stmt.execute(sqlTambon);
                       stmt.execute(sqlDeliverySuspect);
                       stmt.execute(sqlSueCrimeCase);
 
@@ -468,21 +478,40 @@ public class CreateTable {
 	        }
                 
                 
-//                String intCharge="INSERT INTO Charge (ChargeCode,ChargeName,Law,RateOfPenalty,Note) VALUES ('1','ลักทรัพย์','dsfdfs','asdasdsadda','');\n"+
-//                                 "INSERT INTO Charge (ChargeCode,ChargeName,Law,RateOfPenalty,Note) VALUES ('2','ค้ายา','','','');\n"+
-//                                 "INSERT INTO Charge (ChargeCode,ChargeName,Law,RateOfPenalty,Note) VALUES ('3','ฆ่าผู้อื่นโดยเจตนา','','','');";
-//                 System.out.println("insert completely : "+intCharge);
-//        PreparedStatement pst=null;
-//         try { 
-//            pst=cc.prepareStatement(intCharge);
-//            pst.executeUpdate();
-//            pst.close();
-//            System.out.println("insert completely : "+intCharge);
-//           
-//        } catch (Exception e) {
-//             JOptionPane.showMessageDialog(null, e); 
-//             System.out.println("SQL : "+pst);
-//        }
+
+
+                
+	    }
+	 
+          public static void InsertBaseData() {
+               
+	        // SQLite connection string
+	       Connection cc= ConnectDatabase.connect();
+//             String url = "jdbc:sqlite:D://db/SR2.db";
+                Connection connect = null;
+	       Statement s=null;
+	        // SQL statement for creating a new table
+	     
+
+	        try {   
+                    connect=ConnectDatabase.connect();
+                    s=connect.createStatement();
+                    String insertTambon = "Insert into Tambon (NAME,AMPHURID,PROVINCEID,TAMBONID,ZIPCODE,LOC_CODE,DOPA_CODE) values ('นามะตูม','06','203','22','20140','22','20062200' );\n" +
+                                                "Insert into Tambon (NAME,AMPHURID,PROVINCEID,TAMBONID,ZIPCODE,LOC_CODE,DOPA_CODE) values ('บ่อทอง','07','203','01','20270','01','20100100' );\n" +
+                                                "Insert into Tambon (NAME,AMPHURID,PROVINCEID,TAMBONID,ZIPCODE,LOC_CODE,DOPA_CODE) values ('วัดสุวรรณ','07','203','02','20270','02','20100200' );\n" +
+                                                "Insert into Tambon (NAME,AMPHURID,PROVINCEID,TAMBONID,ZIPCODE,LOC_CODE,DOPA_CODE) values ('บ่อกวางทอง','07','203','03','20270','03','20100300' );\n" +
+                                                "Insert into Tambon (NAME,AMPHURID,PROVINCEID,TAMBONID,ZIPCODE,LOC_CODE,DOPA_CODE) values ('ธาตุทอง','07','203','04','20270','04','20100400' );";
+
+                        
+                        s.execute(insertTambon); 
+//                         pst.close();
+	            // create a new table
+System.out.println("SQLINSERT : "+insertTambon);
+                    System.out.println("Insert Data Complete");
+	        } catch (Exception e) {
+	            System.out.println(e.getMessage());
+	        }
+                
 
                 
 	    }
@@ -492,6 +521,7 @@ public class CreateTable {
 	     */
 	    public static void main(String[] args) {
 	        createNewTable();
+                InsertBaseData();
 	    }
     
 }
