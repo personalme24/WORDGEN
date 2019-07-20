@@ -50,7 +50,7 @@ public static void w68(String cc,String sueTime) {
             PreparedStatement pst=null;
             
             String ccYear;
-            
+            String casetype;
              String PoliceStationName="";
              String StationAmphur="";
              String StationProvince="";
@@ -99,6 +99,7 @@ public static void w68(String cc,String sueTime) {
             if((s!=null) && (s.next()))
             {  String  cs =s.getString("crimecaseno");
                  ccYear=s.getString("crimecaseyears");
+                 casetype=s.getString("casetype");
                  StatusSue=Checknull(s.getString("StatusSuspect"));
                 String Date="";
                 String Month="";
@@ -212,7 +213,7 @@ public static void w68(String cc,String sueTime) {
 					.load(new java.io.File("D:/TEMPLATE/w68.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/คดีอาญา"+cs+"-"+ccYear+"/คำร้องขอ"+StatusSue+"ครั้งที่ "+cs+"-"+ccYear+""+s.getString("SueSecond")+".doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+cs+"-"+ccYear+"/คำร้องขอ"+StatusSue+"ครั้งที่ "+cs+"-"+ccYear+""+s.getString("SueSecond")+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

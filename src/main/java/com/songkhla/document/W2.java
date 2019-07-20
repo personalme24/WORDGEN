@@ -47,6 +47,7 @@ public class W2 {
             conn=ConnectDatabase.connect();
             PreparedStatement pst=null;
              String ccYear;
+             String casetype;
              String PoliceStationName="";
              String ProvincProsecutor="";
              String THNumBook ="";
@@ -103,7 +104,7 @@ public class W2 {
             {  String  
                     cs =s.getString("crimecaseno");
                     ccYear=s.getString("crimecaseyears");
-//              
+                    casetype =s.getString("casetype");
                 String Date="";
                 String Month="";
                 String Year="";
@@ -192,7 +193,7 @@ public class W2 {
 					.load(new java.io.File("D:/TEMPLATE/w2.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/คดีอาญา"+cs+"-"+ccYear+"/หนังสือส่งสำนวนงดการสอบสวน"+cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+cs+"-"+ccYear+"/หนังสือส่งสำนวนงดการสอบสวน"+cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

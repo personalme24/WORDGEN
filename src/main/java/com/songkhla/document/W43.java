@@ -52,7 +52,7 @@ public class W43 {
             conn=ConnectDatabase.connect();
             PreparedStatement pst=null;
              String ccYear;
-             String SendIDocDate;
+             String casetype;
              String PoliceStationName="";
              String StationAmphur="";
              String StationProvince="";
@@ -105,6 +105,7 @@ public class W43 {
             {  String  
                     cs =s.getString("crimecaseno");
                     ccYear=s.getString("crimecaseyears");
+                    casetype =s.getString("casetype");
                  
                 String Date="";
                 String Month="";
@@ -209,7 +210,7 @@ public class W43 {
 					.load(new java.io.File("D:/TEMPLATE/w43.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/คดีอาญา"+cs+"-"+ccYear+"/บันทึกเสนอสัญญาประกันสิ่งของ"+cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+cs+"-"+ccYear+"/บันทึกเสนอสัญญาประกันสิ่งของ"+cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

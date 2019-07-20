@@ -50,6 +50,7 @@ public class W3 {
             conn=ConnectDatabase.connect();
             PreparedStatement pst=null;
              String ccYear;
+             String casetype;
              String SendIDocDate;
              String DocOrder;
              String DocSlash;
@@ -109,6 +110,7 @@ public class W3 {
             {  String  
                     cs =s.getString("crimecaseno");
                     ccYear=s.getString("crimecaseyears");
+                    casetype =s.getString("casetype");
                     DocOrder=s.getString("DocOrder");
                     DocSlash=s.getString("DocSlash");
                     String Date="";
@@ -200,7 +202,7 @@ public class W3 {
 					.load(new java.io.File("D:/TEMPLATE/w3.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/คดีอาญา"+cs+"-"+ccYear+"/หนังสือส่งสำนวนคดีสั่งฟ้อง(ผู้ต้องหาหลบหนี)"+cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+cs+"-"+ccYear+"/หนังสือส่งสำนวนคดีสั่งฟ้อง(ผู้ต้องหาหลบหนี)"+cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

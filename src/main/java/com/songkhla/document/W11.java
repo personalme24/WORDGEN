@@ -150,7 +150,7 @@ public class W11 {
                      //ทรัพย์
                  
                     ++OrderAsset ;
-                   /*
+                   
                     VarAS3=VarAS3+"\n\r"+(OrderAsset);
                     bookmarkvalue.put("AS3",Checknull(VarAS3));
                    
@@ -173,7 +173,12 @@ public class W11 {
                     bookmarkvalue.put("AS9", Checknull(VarAS9));
                     VarAS10=VarAS10+"\n\r"+s.getString("Remark");
                     bookmarkvalue.put("AS10",Checknull(VarAS10));
-                    */
+                    
+                    bookmarkvalue.put("AS331",Checknull(Integer.toString(OrderAsset)));
+                    bookmarkvalue.put("AS661",Checknull(Integer.toString(SumValue)));
+                    bookmarkvalue.put("AS1",Checknull(s.getString("EvidenceRecordNumber")));
+                    /*
+                   
                     if (s.getString("Value") != null)
                     {
                     SumValue = SumValue+s.getInt("Value");
@@ -219,13 +224,13 @@ public class W11 {
 		bookmarkvalue.put("TABLES", TABLES);
 		System.out.println(bookmarkvalue.toJSONString());
 
-		
+		*/
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
 					.load(new java.io.File("D:/TEMPLATE/w11.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
-			processTABLE(bookmarkvalue,wordMLPackage);
+			//processTABLE(bookmarkvalue,wordMLPackage);
 			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+cs+"-"+ccYear+"/บัญชีทรัพย์ของกลางคดีอาญา"+cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();

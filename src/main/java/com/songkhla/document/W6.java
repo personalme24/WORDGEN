@@ -50,6 +50,7 @@ public class W6 {
             conn=ConnectDatabase.connect();
             PreparedStatement pst=null;
              String ccYear;
+             String casetype;
              String CrimeLocationDistrict;
              String PoliceStationName="";
              String StationAmphur="";
@@ -74,9 +75,7 @@ public class W6 {
             
                   
                    
-                   String sql="select crimecase.CaseId,crimecase.crimecaseno,crimecase.crimecaseyears,crimecase.SendIDocDate,crimecase.OccuredDate,crimecase.OccuredTime,"
-                           + "crimecase.CaseAcceptDate,crimecase.CaseAccepTime,crimecase.CrimeLocationDistrict,crimecase.AccureandOther,crimecase.SuspectandOther,crimecase.WitnessandOther,"
-                            + "Charge.*,P1.*,P2.*\n" +
+                   String sql="select crimecase.*,Charge.*,P1.*,P2.*\n" +
                                 "from crimecase inner join(\n" +
                               "SELECT  min(Person.NoPerson),Person.FullNamePerson AccuredName,Person.Age AgeAccured,Person.Race AccuredRace,Person.Nationality AccuredNati "
                             + "  FROM Person where Person.TypePerson='ผู้กล่าวหา'\n" +
@@ -99,6 +98,7 @@ public class W6 {
             {  String  
                     cs =s.getString("crimecaseno");
                     ccYear=s.getString("crimecaseyears");
+                    casetype =s.getString("casetype");
                 String Date="";
                 String Month="";
                 String Year="";
@@ -192,7 +192,7 @@ public class W6 {
 					.load(new java.io.File("D:/TEMPLATE/w6.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/คดีอาญา"+cs+"-"+ccYear+"/รายงานการสอบสวนคดีไม่ปรากฎว่าผู้ใดเป็นผู้กระทำผิด"+cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+cs+"-"+ccYear+"/รายงานการสอบสวนคดีไม่ปรากฎว่าผู้ใดเป็นผู้กระทำผิด"+cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

@@ -51,6 +51,7 @@ public class W4 {
             conn=ConnectDatabase.connect();
             PreparedStatement pst=null;
              String ccYear;
+             String casetype;
              String PoliceStationName="";
              String ProvincProsecutor="";
              String THNumBook ="";
@@ -83,7 +84,7 @@ public class W4 {
                          Position=rs1.getString("Position");
                       }
                   
-                   String sql="select crimecase.CaseId,crimecase.crimecaseno,crimecase.crimecaseyears,crimecase.SendIDocDate,"
+                   String sql="select crimecase.CaseId,crimecase.crimecaseno,crimecase.crimecaseyears,crimecase.casetype,"
                             + "crimecase.AccureandOther,crimecase.SuspectandOther,crimecase.WitnessandOther,Charge.*,P1.*,P2.*\n" +
                                 "from crimecase inner join(\n" +
                               "SELECT  min(Person.NoPerson),Person.FullNamePerson AccuredName,Person.Age AgeAccured,Person.Race AccuredRace,Person.Nationality AccuredNati "
@@ -107,6 +108,7 @@ public class W4 {
             {  String  
                     cs =s.getString("crimecaseno");
                     ccYear=s.getString("crimecaseyears");
+                    casetype =s.getString("casetype");
                 String Date="";
                 String Month="";
                 String Year="";
@@ -194,7 +196,7 @@ public class W4 {
 					.load(new java.io.File("D:/TEMPLATE/w4.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/คดีอาญา"+cs+"-"+ccYear+"/หนังสือส่งสำนวนคดีสั่งฟ้องหรือสั่งไม่ฟ้อง"+cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+cs+"-"+ccYear+"/หนังสือส่งสำนวนคดีสั่งฟ้องหรือสั่งไม่ฟ้อง"+cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

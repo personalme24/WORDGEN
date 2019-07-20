@@ -154,7 +154,7 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
+                .addContainerGap(31, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -187,10 +187,15 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "เลขที่คดี", "ผู้ร้องทุกข์", "ผู้ต้องหา", "ข้อหา", "วันที่รับคำร้องทุกข์", "วันที่รับแจ้งเหตุ", "ผลคดีชั้นพนักงานสอบสวน", "Title 8", "Title 9"
+                "เลขที่คดี", "ผู้ร้องทุกข์", "ผู้ต้องหา", "ข้อหา", "วันที่รับคำร้องทุกข์", "วันที่รับแจ้งเหตุ", "ผลคดีชั้นพนักงานสอบสวน", "สถานะผู้ต้องหา", "Title 9"
             }
         ) {
             Class[] types = new Class [] {
@@ -208,8 +213,6 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
         jTable1.setSelectionBackground(new java.awt.Color(77, 0, 0));
         jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable1);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon("D:\\Master\\Book11.png")); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel3.setText("สมุดคุมคดีอาญา");
@@ -439,7 +442,7 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
         try{
         Connection con = ConnectDatabase.connect();
         Statement stmt = con.createStatement();
-        String sql = "select crimecase.*,Charge.* from crimecase left join Charge on Charge.ChargeCode=crimecase.ChargeCodeCase where CaseType='คดีอาญา'"+getFilterCondition();
+        String sql = "select crimecase.*,Charge.* ,person.* from crimecase left join Charge on Charge.ChargeCode=crimecase.ChargeCodeCase left join Person on Person.caseIdPerson = CrimeCase.CaseId where crimecase.CaseType='คดีอาญา' and Person.TypePerson='ผู้ต้องหา' group by crimecase.CaseId"+getFilterCondition();
         ResultSet rs = stmt.executeQuery(sql);
         Vector<Vector> tabledata = new Vector<Vector>();
         while(rs.next()){
@@ -452,7 +455,8 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
 //            row.add("-");
             row.add(rs.getString("CaseAcceptDate"));
             row.add(rs.getString("CaseRequestDate"));
-//            row.add("-");
+            row.add(rs.getString("Investigator_Result"));
+            row.add(rs.getString("StatusSuspect"));
             tabledata.add(row);
         }
         rs.close();
@@ -465,13 +469,15 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
         ColumnName.add("ข้อหา");     
         ColumnName.add("วันที่รับคำร้องทุกข์");
         ColumnName.add("วันที่รับแจ้งเหตุ");
-//        ColumnName.add("ผลคดีชั้นพนักงานสอบสวน");
+        ColumnName.add("ผลคดีชั้นพนักงานสอบสวน");
+        ColumnName.add("สถานะผู้ต้องหา");
+
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             tabledata,
             ColumnName
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {

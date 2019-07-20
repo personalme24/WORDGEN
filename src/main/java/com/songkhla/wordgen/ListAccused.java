@@ -73,12 +73,29 @@ String typeC;
         jTableAccure.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         jTableAccure.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "ชื่อ-นามสกุล", "เลขบัตรประชน", "เลขคดี"
+                "เลขคดี", "เลขบัตรประชน", "ชื่อ-นามสกุล"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jTableAccure.setGridColor(new java.awt.Color(255, 255, 255));
         jTableAccure.setRowHeight(25);
         jTableAccure.setRowMargin(2);

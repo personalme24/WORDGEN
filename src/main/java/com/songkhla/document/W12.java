@@ -45,6 +45,7 @@ public class W12 {
             conn=ConnectDatabase.connect();
             PreparedStatement pst=null;
             String ccYear;
+            String casetype;
             String PoliceStationName="";
             
              String RankPolice ="";
@@ -101,6 +102,7 @@ public class W12 {
             while((s!=null) && (s.next()))
             {  String  cs =s.getString("crimecaseno");
                     ccYear=s.getString("crimecaseyears");
+                    casetype=s.getString("casetype");
                 String Date="";
                 String Month="";
                 String Year="";
@@ -141,33 +143,33 @@ public class W12 {
                     
                     ++OrderAsset ;
                     VarAS3=VarAS3+"\n\r"+(OrderAsset);
-                    //bookmarkvalue.put("AS3",Checknull(VarAS3));
+                    bookmarkvalue.put("AS3",Checknull(VarAS3));
                     
                     
                     VarAS4=VarAS4+"\n\r"+s.getString("Name");
-                    //bookmarkvalue.put("AS4",Checknull(VarAS4));
+                    bookmarkvalue.put("AS4",Checknull(VarAS4));
                     VarAS5=VarAS5+"\n\r"+s.getString("Amount");
-                    //bookmarkvalue.put("AS5",Checknull(VarAS5));
+                    bookmarkvalue.put("AS5",Checknull(VarAS5));
                     
                     
                     VarAS6=VarAS6+"\n\r"+s.getString("Value");
-                    //bookmarkvalue.put("AS6",Checknull(VarAS6));
+                    bookmarkvalue.put("AS6",Checknull(VarAS6));
                     if (s.getString("Value") != null)
                     {
                     SumValue = SumValue+s.getInt("Value");
                     } 
                     VarAS8=VarAS8+"\n\r"+s.getString("OccupantName");
-                   // bookmarkvalue.put("AS8", Checknull(VarAS8));
+                   bookmarkvalue.put("AS8", Checknull(VarAS8));
                     VarAS9=VarAS9+"\n\r"+s.getString("DateSequester");
-                    //bookmarkvalue.put("AS9", Checknull(VarAS9));
+                    bookmarkvalue.put("AS9", Checknull(VarAS9));
                     VarAS10=VarAS10+"\n\r"+s.getString("Remark");
-                    //bookmarkvalue.put("AS10",Checknull(VarAS10));
+                    bookmarkvalue.put("AS10",Checknull(VarAS10));
                     
                     bookmarkvalue.put("AS331",Checknull(Integer.toString(OrderAsset)));
                     bookmarkvalue.put("AS661",Checknull(Integer.toString(SumValue)));
                     bookmarkvalue.put("AS1",Checknull(s.getString("EvidenceRecordNumber")));
                     
-                    
+                    /*
 
 			JSONArray tablecolumn = new JSONArray();
 			tablecolumn.add("AS1");
@@ -208,15 +210,15 @@ public class W12 {
 		TABLES.add(tableobj);
 		bookmarkvalue.put("TABLES", TABLES);
 		System.out.println(bookmarkvalue.toJSONString());
-		
+		*/
 		
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
 					.load(new java.io.File("D:/TEMPLATE/w12.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
-			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/คดีอาญา"+cs+"-"+ccYear+"/บัญชีทรพย์ถูกประทุษร้าย"+cs+"-"+ccYear+".doc"));
+			//processTABLE(bookmarkvalue,wordMLPackage);
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+cs+"-"+ccYear+"/บัญชีทรพย์ถูกประทุษร้าย"+cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

@@ -52,7 +52,7 @@ public class W44 {
             conn=ConnectDatabase.connect();
             PreparedStatement pst=null;
              String ccYear;
-             String SendIDocDate;
+             String casetype;
              String PoliceStationName="";
              String StationAmphur="";
              String StationProvince="";
@@ -105,6 +105,7 @@ public class W44 {
             {  String  
                     cs =s.getString("crimecaseno");
                     ccYear=s.getString("crimecaseyears");
+                    casetype =s.getString("casetype");
                  
                 String Date="";
                 String Month="";
@@ -206,7 +207,7 @@ public class W44 {
 					.load(new java.io.File("D:/TEMPLATE/w44.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/คดีอาญา"+cs+"-"+ccYear+"/คำร้องขอคืนสิ่งของ"+cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+cs+"-"+ccYear+"/คำร้องขอคืนสิ่งของ"+cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

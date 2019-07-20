@@ -189,7 +189,7 @@ public static void w23(String cc) {
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("D:/TEMPLATE/w28.docx"));
+					.load(new java.io.File("D:/TEMPLATE/w23.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
 			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+cs+"-"+ccYear+"/รายงานการชันสูตรพลิกศพ"+s.getString("FullNamePerson")+""+cs+"-"+ccYear+".doc"));
@@ -203,7 +203,7 @@ public static void w23(String cc) {
         
               
 	}
-public static void nw38() {
+public static void nw23() {
         
                  JSONObject bookmarkvalue = new JSONObject();
 //              
@@ -221,24 +221,24 @@ public static void nw38() {
                 
                 bookmarkvalue.put("PA7","");
              
-                    bookmarkvalue.put("PS2", ""); 
-                    bookmarkvalue.put("PS3",""); 
-                    bookmarkvalue.put("PS5", ""); 
-                    bookmarkvalue.put("PS7", ""); 
-                    bookmarkvalue.put("PS13", "");
-                    bookmarkvalue.put("PS14","");
-                    bookmarkvalue.put("PS15", "");
-                    bookmarkvalue.put("PS16", "");
-                    bookmarkvalue.put("PS17", "");
-                    bookmarkvalue.put("PS22", "");
-                    bookmarkvalue.put("PS23", "");
-                    bookmarkvalue.put("PS24", "");
-                    bookmarkvalue.put("PS25", "");
-                    bookmarkvalue.put("PS26", "");
-                    bookmarkvalue.put("PS29", "");
-                    bookmarkvalue.put("PS30", "");
-                    bookmarkvalue.put("PS31", "");
-                    bookmarkvalue.put("PS32", "");
+                    bookmarkvalue.put("PD2", ""); 
+                    bookmarkvalue.put("PD3",""); 
+                    bookmarkvalue.put("PD5", ""); 
+                    bookmarkvalue.put("PD7", ""); 
+                    bookmarkvalue.put("PD13", "");
+                    bookmarkvalue.put("PD14","");
+                    bookmarkvalue.put("PD15", "");
+                    bookmarkvalue.put("PD16", "");
+                    bookmarkvalue.put("PD17", "");
+                    bookmarkvalue.put("PD22", "");
+                    bookmarkvalue.put("PD23", "");
+                    bookmarkvalue.put("PD24", "");
+                    bookmarkvalue.put("PD25", "");
+                    bookmarkvalue.put("PD26", "");
+                    bookmarkvalue.put("PD29", "");
+                    bookmarkvalue.put("PD30", "");
+                    bookmarkvalue.put("PD31", "");
+                    bookmarkvalue.put("PD32", "");
                     bookmarkvalue.put("PD45", "");
                     bookmarkvalue.put("PD46", "");
                     bookmarkvalue.put("PD47", "");
@@ -248,6 +248,8 @@ public static void nw38() {
                     bookmarkvalue.put("PD51", "");
                     bookmarkvalue.put("PD52", "");
                     bookmarkvalue.put("PD53", "");
+                    bookmarkvalue.put("PD83", "");
+                    bookmarkvalue.put("PD84", "");
 
                        bookmarkvalue.put("C59","");
                      

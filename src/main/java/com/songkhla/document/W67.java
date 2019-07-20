@@ -50,7 +50,7 @@ public static void w67(String cc) {
             PreparedStatement pst=null;
             
             String ccYear;
-            
+            String casetype;
              String PoliceStationName="";
              String StationAmphur="";
              String StationProvince="";
@@ -98,6 +98,7 @@ public static void w67(String cc) {
             if((s!=null) && (s.next()))
             {  String  cs =s.getString("crimecaseno");
                  ccYear=s.getString("crimecaseyears");
+                 casetype =s.getString("casetype");
                  StatusSue=Checknull(s.getString("StatusSuspect"));
                 String Date="";
                 String Month="";
@@ -204,7 +205,7 @@ public static void w67(String cc) {
 					.load(new java.io.File("D:/TEMPLATE/w67.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/คดีอาญา"+cs+"-"+ccYear+"/คำร้องขอ"+StatusSue+"ครั้งที่ 1 "+s.getString("FullNamePerson")+""+cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+cs+"-"+ccYear+"/คำร้องขอ"+StatusSue+"ครั้งที่ 1 "+s.getString("FullNamePerson")+""+cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
