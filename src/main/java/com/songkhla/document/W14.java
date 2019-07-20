@@ -46,7 +46,7 @@ public class W14 {
             PreparedStatement pst=null;
             String ccYear;
             String PoliceStationName="";
-            
+            String casetype;
              String RankPolice ="";
              String FirstName ="";
              String LastName ="";
@@ -101,6 +101,8 @@ public class W14 {
             while((s!=null) && (s.next()))
             {  String  cs =s.getString("crimecaseno");
                     ccYear=s.getString("crimecaseyears");
+                    casetype =s.getString("casetype");
+                    
                 String Date="";
                 String Month="";
                 String Year="";
@@ -206,7 +208,7 @@ public class W14 {
 					.load(new java.io.File("D:/TEMPLATE/w14.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/คดีอาญา"+cs+"-"+ccYear+"/บัญชีทรัพย์ถูกประทุษร้ายไม่ได้คืน"+cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+cs+"-"+ccYear+"/บัญชีทรัพย์ถูกประทุษร้ายไม่ได้คืน"+cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

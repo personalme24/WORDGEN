@@ -50,7 +50,7 @@ public class W5 {
             PreparedStatement pst=null;
             String ccYear;
             String cs;
-            
+            String casetype;
              String STATUS;
              String PoliceStationName="";
              String StationAmphur="";
@@ -108,6 +108,7 @@ public class W5 {
             {    cs =s.getString("crimecaseno");
                ccYear=s.getString("crimecaseyears");
                STATUS=s.getString("Investigator_Result");
+               casetype =s.getString("casetype");
 
               String Date="";
                 String Month="";
@@ -206,7 +207,7 @@ public class W5 {
                         
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/คดีอาญา"+cs+"-"+ccYear+"/รายงานการสอบสวน"+cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+cs+"-"+ccYear+"/รายงานการสอบสวน"+cs+"-"+ccYear+".doc"));
                         
                         
 		}catch( Exception ex) {

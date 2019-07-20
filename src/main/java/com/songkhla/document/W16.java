@@ -44,6 +44,7 @@ public class W16 {
             conn=ConnectDatabase.connect();
             PreparedStatement pst=null;
             String ccYear;
+            String casetype;
             String PoliceStationName="";
             
             
@@ -80,8 +81,7 @@ public class W16 {
             while((s!=null) && (s.next()))
             {  String  cs =s.getString("crimecaseno");
                     ccYear=s.getString("crimecaseyears");
-//                System.out.print("ข้อหา :: "+s.getString("ChargeCode"));
-//                System.out.print(" - ");
+                    casetype=s.getString("casetype");
                  JSONObject bookmarkvalue = new JSONObject();
 //                 bookmarkvalue.put("C1","Date");
 //                 bookmarkvalue.put("S27","-");
@@ -150,7 +150,7 @@ public class W16 {
 					.load(new java.io.File("D:/TEMPLATE/w16.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/คดีอาญา"+cs+"-"+ccYear+"/บันทึกพนักงานสอบสวน"+cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+cs+"-"+ccYear+"/บันทึกพนักงานสอบสวน"+cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

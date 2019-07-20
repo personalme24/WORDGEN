@@ -868,7 +868,7 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
         Desktop desktop = Desktop.getDesktop();
         File dirToOpen = null;
         try {    
-            dirToOpen = new File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/คดีอาญา"+caseno+"-"+caseyear);
+            dirToOpen = new File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+caseno+"-"+caseyear);
             desktop.open(dirToOpen);
         } catch (Exception iae) {
             System.out.println("File Not Found");

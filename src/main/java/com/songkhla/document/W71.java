@@ -52,6 +52,7 @@ public class W71 {
             conn=ConnectDatabase.connect();
             PreparedStatement pst=null;
              String ccYear;
+             String casetype;
              String PoliceStationName="";
              String RankPolice ="";
              String FirstName ="";
@@ -140,6 +141,7 @@ public class W71 {
             {  String  
                     cs =s.getString("crimecaseno");
                     ccYear=s.getString("crimecaseyears");
+                    casetype =s.getString("casetype");
             
                 SimpleDateFormat sdfstart ;
                 Calendar  calstart = Calendar.getInstance();
@@ -268,7 +270,7 @@ public class W71 {
 					.load(new java.io.File("D:/TEMPLATE/w71.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/คดีอาญา"+cs+"-"+ccYear+"/คำร้องและสัญญาประกัน"+cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+cs+"-"+ccYear+"/คำร้องและสัญญาประกัน"+cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

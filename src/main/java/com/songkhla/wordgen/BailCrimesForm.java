@@ -132,28 +132,28 @@ public class BailCrimesForm extends javax.swing.JFrame {
         jTableBail.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jTableBail.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "เลขคดี", "คดี", "ผู้ต้องหา", "วันรับคำร้องทุกข์", "วันประกัน", "ครบ 1 เดือน", "ครบ 2 เดือน", "ครบ 3 เดือน", "ครบ 4 เดือน", "ครบ 5 เดือน", "ครบ 6 เดือน", "ครบ 1 ปี"
+                "เลขคดี", "คดี", "ผู้ต้องหา", "ศาล", "วันรับคำร้องทุกข์", "วันประกัน", "ครบ 1 เดือน", "ครบ 2 เดือน", "ครบ 3 เดือน", "ครบ 4 เดือน", "ครบ 5 เดือน", "ครบ 6 เดือน", "ครบ 1 ปี"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -386,7 +386,7 @@ public class BailCrimesForm extends javax.swing.JFrame {
                 String crimecaseid = jTableBail.getModel().getValueAt(jTableBail.getSelectedRow(), 0)+"";
                 String fullname = jTableBail.getModel().getValueAt(jTableBail.getSelectedRow(), 1)+"";
 
-                String sql="select crimecasenoyear,NoPerson,crimecaseno,Investigator_Result,TypePerson,ArrestDateTimeEnd,BailDate,"
+                String sql="select crimecasenoyear,NoPerson,crimecaseno,Investigator_Result,TypePerson,ArrestDateTimeEnd,BailDate,CourtSuspect,"
                         + "PeopleRegistrationID,PlaceArrest,ArrestDateTime,FullNamePerson,StatusSuspect,CaseId,CaseIdPerson,"
                         + "CaseAcceptDate,ChargeCode,ChargeName\n" +
                      "from Person\n" +
@@ -411,6 +411,7 @@ public class BailCrimesForm extends javax.swing.JFrame {
                     data.put("ArrestDateTime", rs.getString("ArrestDateTime"));
                      data.put("ArrestDateTimeEnd", rs.getString("ArrestDateTimeEnd"));                   
                     data.put("BailDate", rs.getString("BailDate"));
+                    data.put("CourtSuspect", rs.getString("CourtSuspect"));
 
 
                     BailCrimesAdd bca =new BailCrimesAdd(this,data);
@@ -643,6 +644,7 @@ public class BailCrimesForm extends javax.swing.JFrame {
         String StatusSus=jComboStatus.getSelectedItem()+"";        
          ColumnName.add("เลขคดี/ปี");    
          ColumnName.add("ผู้ต้องหา");
+         //ColumnName.add("ศาล");
          ColumnName.add("วันรับคำร้องทุกข์");
          if(StatusSus.equals("ประกัน")){
            ColumnName.add("วันประกัน");
