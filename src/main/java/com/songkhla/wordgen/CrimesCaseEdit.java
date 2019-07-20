@@ -141,6 +141,11 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 
 //====================================== Police==========================================
         try{
+            
+            String sql="Select crimecasenoyear,crimecaseno,crimecaseyears,CaseType from CrimeCase where CaseId='"+caseid+"'";
+         Statement stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery(sql);  
+                
             con=ConnectDatabase.connect();
       
         String sqlDataPoliceStation="SELECT * FROM PoliceStation";
@@ -153,6 +158,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 //             caseno=rs.getString("crimecaseno");
 //             casetype=rs.getString("CaseType");
              PoliceStaionName=rs1.getString("PoliceStaionName");
+             casetype=rs.getString("CaseType");
                     }
 
         }
@@ -1058,7 +1064,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel5Layout.createSequentialGroup()
                                         .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGap(12, 12, 12)
                                         .addComponent(jTextWitness, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel26)
@@ -1150,7 +1156,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jLabel32.setText("jLabel32");
 
         jCheckW93.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW93.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW93.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW93.setText("หมายจับ");
         jCheckW93.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1159,31 +1165,31 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         });
 
         jCheckBox64.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox64.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox64.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox64.setText("บัญชีสำนวนการสอบสวน");
 
         jCheckW34.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW34.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW34.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW34.setText("บัญชีทรัพย์ประกอบบันทึกการตรวจค้น");
 
         jCheckW38.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW38.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW38.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW38.setText("หมายเรียกผู้ต้องหา");
 
         jCheckW53.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW53.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW53.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW53.setText("หนังสือแจ้งความคืบหน้าคดีอาญา");
 
         jCheckW4.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW4.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW4.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW4.setText("หนังสือส่งสำนวนคดีที่เห็นควรสั่งฟ้องหรือไม่สั่งฟ้อง");
 
         jCheckW6.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW6.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW6.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW6.setText("รายงานการสอบสวนสำนวนคดีไม่ปรากฎว่าผู้ใดเป็นผู้กระทำผิด");
 
         jCheckW43.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW43.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW43.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW43.setText("บันทึกเสนอสัญญาประกันสิ่งของ");
 
         jCheckW20.setBackground(new java.awt.Color(255, 255, 255));
@@ -1191,19 +1197,19 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jCheckW20.setText("บันทึกการนำชี้ที่เกิดเหตุประกอบคำรับสารภาพ");
 
         jCheckW5.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW5.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW5.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW5.setText("รายงานการสอบสวน");
 
         jCheckW29.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW29.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW29.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW29.setText("บันทึกการชี้ตัวผู้ต้องหา");
 
         jCheckW14.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW14.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW14.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW14.setText("บัญชีทรัพย์ถูกประทุษร้ายไม่ได้คืน");
 
         jCheckW1.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW1.setText("บันทึกการตรวจสำนวนการสอบสวน");
         jCheckW1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1217,7 +1223,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         });
 
         jCheckW41.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW41.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW41.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW41.setText("บันทึกการตกลงค่าเสียหาย");
         jCheckW41.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1226,7 +1232,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         });
 
         jCheckW8.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW8.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW8.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW8.setText("บันทึกคำให้การผู้กล่าวหา หรือพยาน");
 
         jCheckW71.setBackground(new java.awt.Color(255, 255, 255));
@@ -1234,31 +1240,31 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jCheckW71.setText("คำร้องและสัญญาประกัน");
 
         jCheckW62.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW62.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW62.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW62.setText("บันทึกการควบคุมผู้ต้องหา");
 
         jCheckW51.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW51.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW51.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW51.setText("หนังสือขอส่งตัวคนต่างด้าวผลักดันฯ");
 
         jCheckW50.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW50.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW50.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW50.setText("หนังสือขอส่งรายละเอียดเกี่ยวกับคนต่างด้าวถูกกักขังหรือกักขังแทนค่าปรับ");
 
         jCheckW16.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW16.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW16.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW16.setText("บันทึกพนักงานสอบสวน");
 
         jCheckW17.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW17.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW17.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW17.setText("บันทึกการตรวจสอบสถานที่เกิดเหตุคดีอาญา");
 
         jCheckW11.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW11.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW11.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW11.setText("บัญชีของกลางคดีอาญา");
 
         jCheckW69.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW69.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW69.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW69.setText("คำร้องขอฝากขัง");
         jCheckW69.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1267,15 +1273,15 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         });
 
         jCheckW47.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW47.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW47.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW47.setText("หนังสือรายงานคนต่างด้าวเป็นผู้เสียหายในคดีอุกฉกรรจ์หรือตายโดยธรรมชาติ");
 
         jCheckW9.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW9.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW9.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW9.setText("บันทึกคำให้การผู้ต้องหา");
 
         jCheckW59.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW59.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW59.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW59.setText("แบบรูปพรรณรถยนต์หรือรถจักรยานยนต์ที่ถูกโจรกรรม");
 
         jCheckW70.setBackground(new java.awt.Color(255, 255, 255));
@@ -1283,23 +1289,23 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jCheckW70.setText("บันทึกเสนอสัญญาประกัน");
 
         jCheckW3.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW3.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW3.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW3.setText("หนังสือส่งสำนวนคดีที่เห็นควรสั่งฟ้อง แต่ยังไม่ได้ตัวผู้ต้องหา");
 
         jCheckW48.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW48.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW48.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW48.setText("หนังสือรายงานคนต่างด้าวกระทำความผิดและถูกจับกุมตัวดำเนินคดี");
 
         jCheckW21.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW21.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW21.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW21.setText("ใบนำส่งผู้บาดเจ็บหรือศพ");
 
         jCheckW15.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW15.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW15.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW15.setText("บัญชีทรัพย์ที่ถูกเพลิงไหม้");
 
         jCheckW2.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW2.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW2.setText("หนังสือส่งสำนวนคดีที่เห็นควรงดหรือให้งดการสอบสวน");
         jCheckW2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1308,11 +1314,11 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         });
 
         jCheckW26.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW26.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW26.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW26.setText("หนังสือส่งยาเสพติดของกลางไปตรวจพิสูจน์");
 
         jCheckW40.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW40.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW40.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW40.setText("บันทึกการแจ้งสิทธิ์ตามพระราชบัญญติค่าตอบแทนผู้เสียหาย และค่าทดแทน \n");
         jCheckW40.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1321,27 +1327,27 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         });
 
         jCheckW28.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW28.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW28.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW28.setText("บันทึกการตรวจสภาพสภาพรถยนต์");
 
         jCheckW30.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW30.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW30.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW30.setText("บันทึกการชี้รูปผู้ต้องหา");
 
         jCheckW67.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW67.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW67.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW67.setText("คำร้องขอผัดฟ้องหรือผัดฟ้องและฝากขังครั้งที่ 1");
 
         jCheckW36.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW36.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW36.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW36.setText("บัญชีทรัพย์ประกอบบันทึกการตรวจค้นโดยไม่มีหมายค้น");
 
         jCheckW31.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW31.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW31.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW31.setText("บันทึกการจับกุม");
 
         jCheckW46.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW46.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW46.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW46.setText("หนังสือแจ้งการขอประกันสิ่งของไปดูแลรักษาหรือใช้ประโยชน์");
 
         jCheckW37.setBackground(new java.awt.Color(255, 255, 255));
@@ -1354,31 +1360,31 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         });
 
         jCheckW35.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW35.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW35.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW35.setText("บัญชีการตรวจค้นโดยไม่มีหมายค้น");
 
         jCheckW39.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW39.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW39.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW39.setText("หมายเรียกพยาน");
 
         jCheckW13.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW13.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW13.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW13.setText("บัญชีทรัพย์ถูกประทุษร้ายได้คืน");
 
         jCheckW49.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW49.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW49.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW49.setText("หนังสือขอส่งตัวคนต่างด้าว");
 
         jCheckW25.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW25.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW25.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW25.setText("หนังสือส่งของกลางไปตรวจพิสูจน์");
 
         jCheckW33.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW33.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW33.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW33.setText("บันทึกการตรวจค้น");
 
         jCheckW19.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW19.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW19.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW19.setText("แผนที่สังเขปแสดงสถานที่เกิดเหตุ");
         jCheckW19.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1392,7 +1398,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         });
 
         jCheckW68.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW68.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW68.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW68.setText("คำร้องขอผัดฟ้องหรือผัดฟ้องและฝากขังครั้งที่.....");
         jCheckW68.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1401,15 +1407,15 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         });
 
         jCheckBox50.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox50.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckBox50.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox50.setText("หนังสือขอให้ตรวจสอบหนังสือเดินทางฯ ของบุคคลต่างด้าว");
 
         jCheckW27.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW27.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW27.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW27.setText("ฉลากปิดภาชนะบรรจุยาเสพติด");
 
         jCheckW12.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW12.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jCheckW12.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW12.setText("บัญชีทรัพย์ถูกประทุษร้าย");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
@@ -1499,7 +1505,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                 .addGroup(jPanel8Layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(jCheckW1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(1217, Short.MAX_VALUE)))
+                    .addContainerGap(1273, Short.MAX_VALUE)))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1622,7 +1628,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                 .addGroup(jPanel8Layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(jCheckW1)
-                    .addContainerGap(465, Short.MAX_VALUE)))
+                    .addContainerGap(476, Short.MAX_VALUE)))
         );
 
         jScrollPane1.setViewportView(jPanel8);
@@ -2196,7 +2202,8 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
     private void jButtonPrintDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrintDocActionPerformed
         // TODO add your handling code here:
         String no=crimecaseid.getText();
-        File f3=new File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/คดีอาญา"+caseno+"-"+caseyear);
+        
+        File f3=new File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+caseno+"-"+caseyear);
 
         f3.mkdirs();
         System.out.print(f3);
@@ -2230,15 +2237,15 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         if(jCheckW11.isSelected()){
             W11.w11(no);
         }
-        //        if(jCheckW12.isSelected()){
-            //            W12.w12(no);
-            //        }
-        //        if(jCheckW13.isSelected()){
-            //            W13.w13(no);
-            //        }
-        //        if(jCheckW14.isSelected()){
-            //            W14.w14(no);
-            //        }
+        if(jCheckW12.isSelected()){
+            W12.w12(no);
+          }
+        if(jCheckW13.isSelected()){
+            W13.w13(no);
+            }
+         if(jCheckW14.isSelected()){
+             W14.w14(no);
+             }
         //        if(jCheckW15.isSelected()){
             //            W15.w15(no);
             //        }
@@ -2357,7 +2364,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         Desktop desktop = Desktop.getDesktop();
         File dirToOpen = null;
         try {
-            dirToOpen = new File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/คดีอาญา"+caseno+"-"+caseyear);
+            dirToOpen = new File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+caseno+"-"+caseyear);
             desktop.open(dirToOpen);
         } catch (Exception iae) {
             System.out.println("File Not Found");

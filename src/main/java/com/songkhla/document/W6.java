@@ -75,9 +75,7 @@ public class W6 {
             
                   
                    
-                   String sql="select crimecase.CaseId,crimecase.crimecaseno,crimecase.crimecaseyears,crimecase.SendIDocDate,crimecase.OccuredDate,crimecase.OccuredTime,"
-                           + "crimecase.CaseAcceptDate,crimecase.CaseAccepTime,crimecase.CrimeLocationDistrict,crimecase.AccureandOther,crimecase.SuspectandOther,crimecase.WitnessandOther,"
-                            + "Charge.*,P1.*,P2.*\n" +
+                   String sql="select crimecase.*,Charge.*,P1.*,P2.*\n" +
                                 "from crimecase inner join(\n" +
                               "SELECT  min(Person.NoPerson),Person.FullNamePerson AccuredName,Person.Age AgeAccured,Person.Race AccuredRace,Person.Nationality AccuredNati "
                             + "  FROM Person where Person.TypePerson='ผู้กล่าวหา'\n" +

@@ -84,7 +84,7 @@ public class W4 {
                          Position=rs1.getString("Position");
                       }
                   
-                   String sql="select crimecase.CaseId,crimecase.crimecaseno,crimecase.crimecaseyears,crimecase.SendIDocDate,"
+                   String sql="select crimecase.CaseId,crimecase.crimecaseno,crimecase.crimecaseyears,crimecase.casetype,"
                             + "crimecase.AccureandOther,crimecase.SuspectandOther,crimecase.WitnessandOther,Charge.*,P1.*,P2.*\n" +
                                 "from crimecase inner join(\n" +
                               "SELECT  min(Person.NoPerson),Person.FullNamePerson AccuredName,Person.Age AgeAccured,Person.Race AccuredRace,Person.Nationality AccuredNati "
