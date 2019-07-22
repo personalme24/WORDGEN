@@ -108,9 +108,7 @@ public class SueCrimesOverview extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButtonDate = new javax.swing.JButton();
         jButtonClearSearch = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -119,7 +117,7 @@ public class SueCrimesOverview extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(1280, 720));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.setBackground(new java.awt.Color(0, 35, 102));
+        jPanel3.setBackground(new java.awt.Color(4, 93, 179));
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
         jPanel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 18)); // NOI18N
@@ -189,7 +187,7 @@ public class SueCrimesOverview extends javax.swing.JFrame {
         jTableSue.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTableSue);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 1158, 269));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 1158, 269));
 
         jButtonAddSue.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jButtonAddSue.setText("เปิด");
@@ -198,11 +196,11 @@ public class SueCrimesOverview extends javax.swing.JFrame {
                 jButtonAddSueActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonAddSue, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 80, 30));
+        jPanel1.add(jButtonAddSue, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 80, 30));
 
         jLabel2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel2.setText("ถึง");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 130, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 70, -1, -1));
 
         javax.swing.GroupLayout jPanelDateStartLayout = new javax.swing.GroupLayout(jPanelDateStart);
         jPanelDateStart.setLayout(jPanelDateStartLayout);
@@ -212,10 +210,10 @@ public class SueCrimesOverview extends javax.swing.JFrame {
         );
         jPanelDateStartLayout.setVerticalGroup(
             jPanelDateStartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
+            .addGap(0, 30, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanelDateStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 120, 210, 40));
+        jPanel1.add(jPanelDateStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, 210, 30));
 
         javax.swing.GroupLayout jPanelDateEndLayout = new javax.swing.GroupLayout(jPanelDateEnd);
         jPanelDateEnd.setLayout(jPanelDateEndLayout);
@@ -225,14 +223,14 @@ public class SueCrimesOverview extends javax.swing.JFrame {
         );
         jPanelDateEndLayout.setVerticalGroup(
             jPanelDateEndLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
+            .addGap(0, 30, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanelDateEnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 120, 210, 40));
+        jPanel1.add(jPanelDateEnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 70, 210, 30));
 
         jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel3.setText("วันที่ครบกำหนด");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, -1, -1));
 
         jButtonDate.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jButtonDate.setText("เลือก");
@@ -241,7 +239,7 @@ public class SueCrimesOverview extends javax.swing.JFrame {
                 jButtonDateActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 130, -1, -1));
+        jPanel1.add(jButtonDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 70, -1, -1));
 
         jButtonClearSearch.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jButtonClearSearch.setText("ล้างข้อมูล");
@@ -250,20 +248,15 @@ public class SueCrimesOverview extends javax.swing.JFrame {
                 jButtonClearSearchActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonClearSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 130, 100, -1));
-
-        jLabel4.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel4.setText("อำนาจศาล");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, -1, -1));
+        jPanel1.add(jButtonClearSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 70, 100, -1));
 
         jLabel5.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel5.setText("สถานะ");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, -1, -1));
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 150, 30));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, -1, 30));
 
         jComboBox1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ผัดฟ้อง", "ฝากขัง", "ผัดฟ้องฝากขัง", " " }));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 150, 30));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ผัดฟ้อง", "ฝากขัง", "ผัดฟ้องฝากขัง" }));
+        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 150, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -614,7 +607,6 @@ public class SueCrimesOverview extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
@@ -622,6 +614,5 @@ public class SueCrimesOverview extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelDateStart;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableSue;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }

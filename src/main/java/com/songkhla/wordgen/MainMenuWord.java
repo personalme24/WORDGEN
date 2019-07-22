@@ -190,6 +190,7 @@ public class MainMenuWord extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 28)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setIcon(new javax.swing.ImageIcon("D:\\Master\\police-station.png")); // NOI18N
         jLabel3.setText("ข้อมูลสถานีตำรวจ");
         jLabel3.setPreferredSize(new java.awt.Dimension(77, 33));
 
@@ -268,6 +269,7 @@ public class MainMenuWord extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("TH SarabunPSK", 1, 28)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setIcon(new javax.swing.ImageIcon("D:\\Master\\user.png")); // NOI18N
         jLabel4.setText("ข้อมูลผู้ใช้");
 
         javax.swing.GroupLayout profilemenuLayout = new javax.swing.GroupLayout(profilemenu);
@@ -350,6 +352,7 @@ public class MainMenuWord extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 28)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setIcon(new javax.swing.ImageIcon("D:\\Master\\folder.png")); // NOI18N
         jLabel6.setText("ข้อมูลพื้นฐาน");
 
         javax.swing.GroupLayout howtomenuLayout = new javax.swing.GroupLayout(howtomenu);
@@ -396,6 +399,7 @@ public class MainMenuWord extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("TH SarabunPSK", 1, 28)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel12.setIcon(new javax.swing.ImageIcon("D:\\Master\\jail.png")); // NOI18N
         jLabel12.setText("ผัดฟ้องฝากขัง");
 
         javax.swing.GroupLayout SueMenuLayout = new javax.swing.GroupLayout(SueMenu);
@@ -442,6 +446,7 @@ public class MainMenuWord extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("TH SarabunPSK", 1, 28)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel15.setIcon(new javax.swing.ImageIcon("D:\\Master\\bail.png")); // NOI18N
         jLabel15.setText("ประกัน");
 
         javax.swing.GroupLayout BailMenuLayout = new javax.swing.GroupLayout(BailMenu);
