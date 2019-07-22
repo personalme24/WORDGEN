@@ -165,6 +165,8 @@ public class W43 {
                 bookmarkvalue.put("PB25", Checknull(s.getString("Amphur"))); 
                 bookmarkvalue.put("PB26", Checknull(s.getString("Province"))); 
                       
+                bookmarkvalue.put("B2", Checknull(s.getString("ChargeName")));
+                
                        bookmarkvalue.put("P02", Checknull(RankPolice));
                        bookmarkvalue.put("P03", Checknull(FirstName));
                        bookmarkvalue.put("P04", Checknull(LastName));
@@ -210,7 +212,7 @@ public class W43 {
 					.load(new java.io.File("D:/TEMPLATE/w43.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+cs+"-"+ccYear+"/บันทึกเสนอสัญญาประกันสิ่งของ"+cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/บันทึกเสนอสัญญาประกันสิ่งของ"+cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -261,6 +263,7 @@ public class W43 {
                 bookmarkvalue.put("PB24", ""); 
                 bookmarkvalue.put("PB25", ""); 
                 bookmarkvalue.put("PB26", ""); 
+                bookmarkvalue.put("B2", "");
                       
                         bookmarkvalue.put("P02", "");
                         bookmarkvalue.put("P03", "");
