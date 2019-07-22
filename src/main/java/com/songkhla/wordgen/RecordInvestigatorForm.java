@@ -50,6 +50,7 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
          ImageIcon img = new ImageIcon("D://Master//WD.png");
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
+            caseId.setVisible(false);
          UtilDateModel model2 = new UtilDateModel();
             model2.setValue(Calendar.getInstance().getTime());
             Properties p = new Properties();
@@ -76,6 +77,7 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
          
        isInsert=true;
        caseId.setText(RecordInvestigatorView.caseId.getText());
+       
        }
     }
 

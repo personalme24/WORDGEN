@@ -72,7 +72,7 @@ public class RecordInvestigatorView extends javax.swing.JDialog {
         jTableRecord.setSelectionBackground(new java.awt.Color(51, 153, 255));
         jScrollPane1.setViewportView(jTableRecord);
 
-        jPanel3.setBackground(new java.awt.Color(77, 0, 0));
+        jPanel3.setBackground(new java.awt.Color(4, 93, 179));
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
 
