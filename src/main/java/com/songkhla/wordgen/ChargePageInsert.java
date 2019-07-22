@@ -9,6 +9,11 @@ import static com.songkhla.wordgen.ActionPage.ActionCode;
 import static com.songkhla.wordgen.ActionPage.ActionCrimes;
 import static com.songkhla.wordgen.ActionPage.ActionDetail;
 import static com.songkhla.wordgen.ActionPage.ActionNote;
+import static com.songkhla.wordgen.ChargePage.ChargeCode;
+import static com.songkhla.wordgen.ChargePage.ChargeName;
+import static com.songkhla.wordgen.ChargePage.Law;
+import static com.songkhla.wordgen.ChargePage.Note;
+import static com.songkhla.wordgen.ChargePage.RateOfPenalty;
 import static com.songkhla.wordgen.CrimesCaseEdit.ChargeNameCase;
 import static com.songkhla.wordgen.CrimesCaseEdit.jLabelChargeCode;
 import java.awt.Dimension;
@@ -27,24 +32,24 @@ import org.json.simple.JSONObject;
  *
  * @author Matazz
  */
-public class ChargePage extends javax.swing.JDialog {
+public class ChargePageInsert extends javax.swing.JDialog {
  
     Connection con=null;
     PreparedStatement pst=null;
-//    boolean isInsert;
+    boolean isInsert;
     
     /**
      * Creates new form ChangPage
      */
     String chargeNo; 
-    public ChargePage(JFrame parrent,JSONObject datain) {
+    public ChargePageInsert(JFrame parrent,JSONObject datain) {
         super(parrent,true);
         initComponents();
          ImageIcon img = new ImageIcon("D://Master//WD.png");
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
-        caseno.setVisible(false);
-         
+         ChargeCode.setText(IdCharge());
+         con=ConnectDatabase.connect();
             if(datain!=null){
                 
 //            caseid= "" + datain.get("CaseId"); 
@@ -59,9 +64,9 @@ public class ChargePage extends javax.swing.JDialog {
            
         }
    
-//            else{
-//            isInsert=true;
-//        }
+            else{
+            isInsert=true;
+        }
      
     }
 
@@ -94,10 +99,8 @@ public class ChargePage extends javax.swing.JDialog {
         ChargeName = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        ChargeCode = new javax.swing.JTextField();
         jButtonSaveCharge = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        caseno = new javax.swing.JLabel();
+        ChargeCode = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("ข้อมูลข้อหา");
@@ -163,31 +166,18 @@ public class ChargePage extends javax.swing.JDialog {
         jLabel5.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel5.setText("รหัสข้อหา");
 
-        ChargeCode.setEditable(false);
-        ChargeCode.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-
         jButtonSaveCharge.setBackground(java.awt.SystemColor.windowText);
         jButtonSaveCharge.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButtonSaveCharge.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonSaveCharge.setText("บันทึก");
+        jButtonSaveCharge.setText("บันทึกข้อมูล");
         jButtonSaveCharge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSaveChargeActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(java.awt.SystemColor.windowText);
-        jButton2.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("เลือกข้อหา");
-        jButton2.setToolTipText("");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        caseno.setText("jLabel7");
+        ChargeCode.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        ChargeCode.setText("ChargeCode");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -212,29 +202,22 @@ public class ChargePage extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(ChargeCode, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(caseno))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(ChargeName, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton2)))))
+                                .addGap(20, 20, 20)
+                                .addComponent(ChargeCode))
+                            .addComponent(ChargeName, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(12, 12, 12)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(ChargeCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(caseno))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ChargeCode))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(ChargeName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton2)))
+                    .addComponent(ChargeName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -249,7 +232,7 @@ public class ChargePage extends javax.swing.JDialog {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonSaveCharge, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -272,65 +255,66 @@ public class ChargePage extends javax.swing.JDialog {
 
     private void jButtonSaveChargeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveChargeActionPerformed
         // TODO add your handling code here:
-   
-         con=ConnectDatabase.connect();
-         try {
-  
-                 String sql="UPDATE Charge SET "
+         if(isInsert){
+    String intCh="INSERT into Charge(ChargeCode,ChargeName,Law,RateOfPenalty,Note) values(?,?,?,?,?) ";
+//          String intCr="insert into CrimesCase(AnswerSuspect,AnswerAccuse) values(?,?) ";
+        try {
+           
+           pst=con.prepareStatement(intCh);
+               pst.setString(1,ChargeCode.getText());
+            pst.setString(2,ChargeName.getText());
+            pst.setString(3,Law.getText());
+            pst.setString(4,RateOfPenalty.getText());
+             pst.setString(5,Note.getText());
+            
+           
+             int response = JOptionPane.showConfirmDialog(jPanel2, "ต้องการบันทึกข้อมูล", "ยืนยัน",
+        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (response == JOptionPane.YES_OPTION) {
+               pst.execute();
+           System.out.println("SQLLLLL : "+intCh);
+           pst.close();
+          } 
+
+        } catch (Exception e) {
+         JOptionPane.showMessageDialog(jPanel2,"Cannot Save", null , JOptionPane.INFORMATION_MESSAGE);    
+        }
+         }
+         else{
+             try{
+         String sqlUpdate="UPDATE Charge SET "
                 + "ChargeName=?,"
                 + "Law=?,"
                 + "RateOfPenalty=?,"
                 + "Note=?"
                  + "Where ChargeCode=?";
-            pst=con.prepareStatement(sql);       
+            pst=con.prepareStatement(sqlUpdate);       
             pst.setString(1,ChargeName.getText());
             pst.setString(2,Law.getText());
             pst.setString(3,RateOfPenalty.getText());
              pst.setString(4,Note.getText());
              pst.setString(5,ChargeCode.getText());
-          JSONObject data = new JSONObject();
-          data.put("ChargeName", ChargeName.getText());
-          data.put("ChargeCode", ChargeCode.getText());
           
-  
-         int response = JOptionPane.showConfirmDialog(jPanel2, "ต้องการบันทึกข้อมูล", "ยืนยัน",
+            int response = JOptionPane.showConfirmDialog(jPanel2, "ต้องการบันทึกข้อมูล", "ยืนยัน",
         JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        if (response == JOptionPane.YES_OPTION) {
-               pst.executeUpdate(); 
-               pst.close();
-               System.out.println("SQLUP :"+sql);
-          } 
-        } catch (Exception e) {
-             JOptionPane.showMessageDialog(null, e); 
-             System.out.println("SQL : "+pst);
-        }    
-         
+            if (response == JOptionPane.YES_OPTION) {
+                     pst.execute();
+                     System.out.println("SQLLLLL : "+sqlUpdate);
+                     pst.close();
 
-           CrimesCaseEdit.ChargeNameCase.setText(ChargeName.getText());
-           CrimesCaseEdit.jLabelChargeCode.setText(ChargeCode.getText());
+
+              } 
+        } catch (Exception e) {
+          JOptionPane.showMessageDialog(jPanel1,e,null, JOptionPane.INFORMATION_MESSAGE);
+            
+        }
+         
+         }
+
            setVisible(false);
         
         
     }//GEN-LAST:event_jButtonSaveChargeActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       JFrame frame = new JFrame();
-             JDialog dialog = new JDialog(frame);//frame is owner
-             JFrame f = (JFrame)(dialog.getParent());               
-             f.removeAll();
-        ChargeOverView coList=new ChargeOverView(f);
-        coList.pack();
-       coList.setLocationRelativeTo(null);  
-        coList.setVisible(true);
-             
-         
-              //  rs.close();
-             
-       
-          
-                 
-            
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -349,14 +333,16 @@ public class ChargePage extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ChargePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChargePageInsert.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ChargePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChargePageInsert.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ChargePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChargePageInsert.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ChargePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChargePageInsert.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
@@ -370,15 +356,40 @@ public class ChargePage extends javax.swing.JDialog {
         });
     }
     
-
+   public static String IdCharge(){
+         Connection con=null;
+         
+         con=ConnectDatabase.connect();
+            String sqlId="Select max(ChargeCode) ChargeCode from Charge";
+        int id=0;
+        try {
+            Statement s=con.createStatement();
+            ResultSet rs=s.executeQuery(sqlId);
+            
+            if (rs.next()) {
+                id=rs.getInt("ChargeCode"); 
+            }
+            
+            if(id==0){
+                id=1;
+            }
+            else{
+                id=id+1;
+            }
+             return String.valueOf(id);
+        
+        } catch (Exception e) {
+            return null;
+//            System.out.println(e);
+        } 
+    
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JTextField ChargeCode;
+    private javax.swing.JLabel ChargeCode;
     public static javax.swing.JTextField ChargeName;
     public static javax.swing.JTextArea Law;
     public static javax.swing.JTextArea Note;
     public static javax.swing.JTextArea RateOfPenalty;
-    private javax.swing.JLabel caseno;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonSaveCharge;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

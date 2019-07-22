@@ -85,6 +85,11 @@ public class BaseDataMenu extends javax.swing.JDialog {
         );
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel3MouseClicked(evt);
+            }
+        });
 
         jLabel3.setIcon(new javax.swing.ImageIcon("D:\\Master\\Charge.png")); // NOI18N
 
@@ -114,6 +119,11 @@ public class BaseDataMenu extends javax.swing.JDialog {
         );
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel4MouseClicked(evt);
+            }
+        });
 
         jLabel5.setIcon(new javax.swing.ImageIcon("D:\\Master\\Circumstance.png")); // NOI18N
 
@@ -249,9 +259,9 @@ public class BaseDataMenu extends javax.swing.JDialog {
                     .addContainerGap(390, Short.MAX_VALUE)))
         );
 
-        jPanel5.setBackground(new java.awt.Color(0, 102, 255));
+        jPanel5.setBackground(new java.awt.Color(4, 93, 179));
 
-        jLabel13.setFont(new java.awt.Font("TH SarabunPSK", 1, 24)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("TH SarabunPSK", 1, 36)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("ข้อมูลพื้นฐาน");
 
@@ -282,8 +292,8 @@ public class BaseDataMenu extends javax.swing.JDialog {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -313,6 +323,31 @@ public class BaseDataMenu extends javax.swing.JDialog {
             iv.setLocationRelativeTo(null);
         iv.setVisible(true);
     }//GEN-LAST:event_jPanel8MouseClicked
+
+    private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
+        // TODO add your handling code here:
+        JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame ch = (JFrame)(dialog.getParent());
+        ch.removeAll();
+        ChargeOverViewMenu iv=new ChargeOverViewMenu(ch);
+         iv.pack();
+            iv.setLocationRelativeTo(null);
+        iv.setVisible(true);
+    }//GEN-LAST:event_jPanel3MouseClicked
+
+    private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
+        // TODO add your handling code here:
+        
+         JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame ac = (JFrame)(dialog.getParent());
+        ac.removeAll();
+        ActionListMenu iv=new ActionListMenu(ac);
+         iv.pack();
+            iv.setLocationRelativeTo(null);
+        iv.setVisible(true);
+    }//GEN-LAST:event_jPanel4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -360,15 +395,12 @@ public class BaseDataMenu extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanelInvest;
     // End of variables declaration//GEN-END:variables

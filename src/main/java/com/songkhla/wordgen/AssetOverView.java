@@ -75,7 +75,7 @@ public class AssetOverView extends javax.swing.JDialog {
         setAlwaysOnTop(true);
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(46, 156, 202));
+        jPanel1.setBackground(new java.awt.Color(4, 93, 179));
 
         jLabel6.setBackground(new java.awt.Color(0, 0, 0));
         jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 36)); // NOI18N

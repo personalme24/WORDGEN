@@ -4,14 +4,26 @@
  * and open the template in the editor.
  */
 package com.songkhla.wordgen;
+import java.awt.Color;
+import java.awt.FlowLayout;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Properties;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
+import org.jdatepicker.impl.UtilDateModel;
 import org.json.simple.JSONObject;
+import javax.swing.SpinnerDateModel;
+import java.util.Date;
+import javax.swing.JDialog;
+import javax.swing.JSpinner;
+
 /**
  *
  * @author Petpilin
@@ -22,7 +34,7 @@ public class DeliverySuspect extends javax.swing.JDialog {
     DataCase dc =new DataCase();
     String personid;
     boolean isInsert;
-    JDatePickerImpl CaseRequestDateTime;
+    JDatePickerImpl DeliDate;
     /**
      * Creates new form DeliverySuspect
      */
@@ -33,6 +45,20 @@ public class DeliverySuspect extends javax.swing.JDialog {
         personid=dataId.get("BailPersonId")+"";
         jLabel2.setText(personid);
         jLabel2.setVisible(false);
+        
+         UtilDateModel model = new UtilDateModel();
+//            model.setValue(Calendar.getInstance().getTime());
+            Properties p = new Properties();        
+            p.put("text.today", "Today");
+            p.put("text.month", "Month");
+            p.put("text.year", "Year");
+        JDatePanelImpl datePanel = new JDatePanelImpl(model,p);
+         DeliDate = new JDatePickerImpl(datePanel,new DateLabelFormatter());
+        DeliDate.setTextEditable(true);
+        DeliDate.setBackground(Color.WHITE);
+        jPanelDeliDate.setLayout(new FlowLayout());
+        jPanelDeliDate.add(DeliDate);    
+        
         if(datain != null){
         }
         else{
@@ -55,20 +81,22 @@ public class DeliverySuspect extends javax.swing.JDialog {
         DeliOrder = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        DeliDate = new javax.swing.JTextField();
-        DeliTimes = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         DeliPlace = new javax.swing.JTextField();
         jButtonSave = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jPanelDeliDate = new javax.swing.JPanel();
+        Date date2=new Date();
+        SpinnerDateModel sm2=new SpinnerDateModel(date2,null,null,Calendar.HOUR_OF_DAY);
+        DeliTimes = new javax.swing.JSpinner(sm2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel3.setBackground(new java.awt.Color(46, 156, 202));
+        jPanel3.setBackground(new java.awt.Color(4, 93, 179));
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
 
@@ -98,10 +126,6 @@ public class DeliverySuspect extends javax.swing.JDialog {
         jLabel17.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel17.setText("วันเดือนปีที่ส่งตัว");
 
-        DeliDate.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-
-        DeliTimes.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-
         jLabel18.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel18.setText("เวลา");
 
@@ -120,66 +144,82 @@ public class DeliverySuspect extends javax.swing.JDialog {
 
         jLabel2.setText("jLabel2");
 
+        javax.swing.GroupLayout jPanelDeliDateLayout = new javax.swing.GroupLayout(jPanelDeliDate);
+        jPanelDeliDate.setLayout(jPanelDeliDateLayout);
+        jPanelDeliDateLayout.setHorizontalGroup(
+            jPanelDeliDateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 228, Short.MAX_VALUE)
+        );
+        jPanelDeliDateLayout.setVerticalGroup(
+            jPanelDeliDateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 33, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(280, Short.MAX_VALUE)
-                .addComponent(jButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(270, 270, 270))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(99, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jPanelDeliDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel18)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(DeliTimes, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(DeliOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(DeliPlace, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(DeliDate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
-                                    .addComponent(DeliOrder, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(DeliTimes)))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(jLabel2)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(DeliPlace, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(83, 83, 83))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(274, 274, 274))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DeliOrder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DeliDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DeliTimes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jPanelDeliDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(DeliTimes, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DeliPlace, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(37, 37, 37)
+                .addGap(46, 46, 46)
                 .addComponent(jButtonSave)
-                .addGap(0, 99, Short.MAX_VALUE))
+                .addGap(0, 55, Short.MAX_VALUE))
         );
+
+        JSpinner.DateEditor te = new JSpinner.DateEditor(DeliTimes, "HH:mm");
+        DeliTimes.setEditor(te);
+        //jSpinner1.setValue(new Date());
+        DeliTimes.setPreferredSize(new java.awt.Dimension(29, 25));
+
+        jPanel1.add(DeliTimes, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, 100, 32));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -189,7 +229,7 @@ public class DeliverySuspect extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -199,6 +239,8 @@ public class DeliverySuspect extends javax.swing.JDialog {
         // TODO add your handling code here:
 
         con=ConnectDatabase.connect();
+         SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+        String deliTimes = format.format(DeliTimes.getValue());
         if(isInsert){
         try {
      
@@ -207,14 +249,22 @@ public class DeliverySuspect extends javax.swing.JDialog {
                 pst=con.prepareStatement(sql);
                
                 pst.setString(1,DeliOrder.getText());
-                pst.setString(2,DeliDate.getText());
-                pst.setString(3,DeliTimes.getText());
+                pst.setString(2,DeliDate.getJFormattedTextField().getText());
+                pst.setString(3,deliTimes);
                 pst.setString(4,DeliPlace.getText());
                 pst.setString(5,personid);
               
-                pst.executeUpdate();
- JOptionPane.showMessageDialog(jPanel1,null, "Data Save", JOptionPane.INFORMATION_MESSAGE);
-                pst.close();
+  
+                 int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
+        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+  if (response == JOptionPane.YES_OPTION) {
+//             con=ConnectDatabase.connect();
+         pst.executeUpdate(); 
+         pst.close();
+         System.out.println("SQL : "+sql);
+        setVisible(false);
+
+    } 
             }
           catch (Exception e) {
  JOptionPane.showMessageDialog(jPanel1, null, "Cannot Save", JOptionPane.INFORMATION_MESSAGE);
@@ -229,8 +279,8 @@ public class DeliverySuspect extends javax.swing.JDialog {
                 + "Where =?";
                 
                 pst=con.prepareStatement(sqlUpdate);
-                pst.setString(1,DeliDate.getText());
-                pst.setString(2,DeliTimes.getText());
+                pst.setString(1,DeliDate.getJFormattedTextField().getText());
+                pst.setString(2,deliTimes);
                 pst.setString(3,DeliPlace.getText());
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Data Saved successfully");
@@ -284,10 +334,9 @@ public class DeliverySuspect extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField DeliDate;
     private javax.swing.JTextField DeliOrder;
     private javax.swing.JTextField DeliPlace;
-    private javax.swing.JTextField DeliTimes;
+    private javax.swing.JSpinner DeliTimes;
     private javax.swing.JButton jButtonSave;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;
@@ -297,5 +346,6 @@ public class DeliverySuspect extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanelDeliDate;
     // End of variables declaration//GEN-END:variables
 }

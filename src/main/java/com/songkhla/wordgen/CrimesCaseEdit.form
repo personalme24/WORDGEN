@@ -49,7 +49,7 @@
     <Container class="javax.swing.JPanel" name="jPanel3">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ca" green="9c" red="2e" type="rgb"/>
+          <Color blue="b3" green="5d" red="4" type="rgb"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
@@ -74,6 +74,8 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jLabelActionCode" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
+                  <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -85,6 +87,7 @@
                       <Component id="CaseType" alignment="3" max="32767" attributes="0"/>
                       <Component id="crimecaseid" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabelActionCode" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -129,6 +132,20 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
           </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton2">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="TH SarabunPSK" size="22" style="1"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="D:\Master\home.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="&#xe40;&#xe21;&#xe19;&#xe39;&#xe2b;&#xe25;&#xe31;&#xe01;"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -1578,6 +1595,27 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jCheckW2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckW3" alignment="0" min="-2" pref="387" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jCheckW43" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jCheckW41" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckW27" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="128" pref="128" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jCheckW59" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckW46" alignment="0" min="-2" pref="367" max="-2" attributes="0"/>
+                                          <Component id="jCheckW40" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace pref="415" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jCheckW6" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jCheckW5" alignment="0" min="-2" pref="369" max="-2" attributes="0"/>
                                           <Component id="jCheckW8" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -1624,7 +1662,6 @@
                                           <Component id="jCheckW21" min="-2" max="-2" attributes="0"/>
                                           <Component id="jCheckW47" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
                                               <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
@@ -1636,38 +1673,20 @@
                                                   <Component id="jCheckW69" min="-2" pref="297" max="-2" attributes="0"/>
                                                   <Component id="jCheckW67" min="-2" pref="297" max="-2" attributes="0"/>
                                                   <Component id="jCheckW70" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
-                                                  <Component id="jCheckW68" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jCheckW68" min="-2" max="-2" attributes="0"/>
                                               </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
+                                              <EmptySpace max="32767" attributes="0"/>
                                               <Component id="jLabel32" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Component id="jButtonPrintDoc" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                                           </Group>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jCheckW2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jCheckW3" alignment="0" min="-2" pref="387" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jCheckW43" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="jCheckW41" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jCheckW27" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="128" pref="128" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jCheckW59" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jCheckW46" alignment="0" min="-2" pref="367" max="-2" attributes="0"/>
-                                          <Component id="jCheckW40" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="42" max="32767" attributes="0"/>
                           </Group>
                           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
@@ -1763,7 +1782,11 @@
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="jCheckW39" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jCheckW33" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                                      <Component id="jCheckW33" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jButtonPrintDoc" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jLabel32" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
                                               </Group>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
@@ -1794,11 +1817,7 @@
                                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                       <Component id="jCheckW17" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace max="-2" attributes="0"/>
-                                                      <Group type="103" groupAlignment="3" attributes="0">
-                                                          <Component id="jCheckW19" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="jLabel32" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="jButtonPrintDoc" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
+                                                      <Component id="jCheckW19" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>

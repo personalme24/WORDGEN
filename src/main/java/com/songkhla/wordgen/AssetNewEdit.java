@@ -134,7 +134,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
 
-        jPanel4.setBackground(new java.awt.Color(46, 156, 202));
+        jPanel4.setBackground(new java.awt.Color(4, 93, 179));
 
         jLabel8.setBackground(new java.awt.Color(46, 156, 202));
         jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 36)); // NOI18N

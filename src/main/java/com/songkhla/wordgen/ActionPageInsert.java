@@ -5,6 +5,8 @@
  */
 package com.songkhla.wordgen;
 
+import static com.songkhla.wordgen.ActionPage.ActionCode;
+
 import static com.songkhla.wordgen.ChargePage.ChargeCode;
 import static com.songkhla.wordgen.ChargePage.ChargeName;
 import static com.songkhla.wordgen.ChargePage.Law;
@@ -26,7 +28,7 @@ import org.json.simple.JSONObject;
  *
  * @author Matazz
  */
-public class ActionPage extends javax.swing.JDialog {
+public class ActionPageInsert extends javax.swing.JDialog {
     Connection con=null;
     PreparedStatement pst=null;
         boolean isInsert;
@@ -36,7 +38,7 @@ public class ActionPage extends javax.swing.JDialog {
      * Creates new form ChangPage
      */
 //    String chargeNo; 
-    public ActionPage(JFrame parrent,JSONObject datain) {
+    public ActionPageInsert(JFrame parrent,JSONObject datain) {
         super(parrent,true);
         initComponents();       
          ImageIcon img = new ImageIcon("D://Master//WD.png");
@@ -53,7 +55,10 @@ public class ActionPage extends javax.swing.JDialog {
                AnswerAccuser.setText(datain.get("AnswerAccuser")+"");
               AnswerSuspect.setText(datain.get("AnswerSuspect")+"");
              }
-      
+          else{
+        isInsert=true;
+        ActionCode.setText(IdAction());
+        }
     }
 
     /**
@@ -271,19 +276,45 @@ public class ActionPage extends javax.swing.JDialog {
 
     private void ButtonAddActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAddActionActionPerformed
         // TODO add your handling code here: 
-     
-     
+        String intAc="INSERT into ActionsCase(ActionCode,ActionCrimes,ActionDetail,ActionNote,AnswerAccuser,AnswerSuspect) values(?,?,?,?,?,?) ";
 //          String intCr="insert into CrimesCase(AnswerSuspect,AnswerAccuse) values(?,?) ";
-       String updateAcc="UPDATE ActionsCase set "
+       if(isInsert){
+            try {
+           
+           pst=con.prepareStatement(intAc);
+           pst.setString(1, ActionCode.getText());
+           pst.setString(2, ActionCrimes.getText());
+           pst.setString(3, ActionDetail.getText());
+           pst.setString(4, ActionNote.getText());
+           pst.setString(5, AnswerAccuser.getText());
+           pst.setString(6, AnswerSuspect.getText()); 
+          
+            int response = JOptionPane.showConfirmDialog(jPanel2, "ต้องการบันทึกข้อมูล", "ยืนยัน",
+        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if (response == JOptionPane.YES_OPTION) {
+                     pst.execute();
+                     System.out.println("SQLLLLL : "+intAc);
+                     pst.close();
+
+
+              } 
+        } catch (Exception e) {
+          JOptionPane.showMessageDialog(jPanel1,e,null, JOptionPane.INFORMATION_MESSAGE);
+            
+        }
+    }
+          else{
+//          String intCr="insert into CrimesCase(AnswerSuspect,AnswerAccuse) values(?,?) ";
+        try {
+            String sqlUpdate="UPDATE ActionsCase set "
                 + "ActionCrimes=?,"
                 + "ActionDetail=?,"
                 + "ActionNote=?,"
                 + "AnswerAccuser=?,"
                 + "AnswerSuspect=?"
                  + "Where ActionCode=?";
-            try {
-           
-           pst=con.prepareStatement(updateAcc);
+      
+           pst=con.prepareStatement(sqlUpdate);
            pst.setString(1, ActionCrimes.getText());
            pst.setString(2, ActionDetail.getText());
            pst.setString(3, ActionNote.getText());
@@ -294,15 +325,16 @@ public class ActionPage extends javax.swing.JDialog {
         JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (response == JOptionPane.YES_OPTION) {
                      pst.execute();
-                     System.out.println("SQLLLLL : "+updateAcc);
+                     System.out.println("SQLLLLL : "+sqlUpdate);
                      pst.close();
+
+
               } 
         } catch (Exception e) {
           JOptionPane.showMessageDialog(jPanel1,e,null, JOptionPane.INFORMATION_MESSAGE);
             
         }
-        
-     
+        }
         CrimesCaseEdit.ActionCrimes.setText(ActionCrimes.getText());
         CrimesCaseEdit.jLabelActionCode.setText(ActionCode.getText());
         setVisible(false);
@@ -337,14 +369,16 @@ public class ActionPage extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ActionPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ActionPageInsert.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ActionPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ActionPageInsert.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ActionPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ActionPageInsert.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ActionPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ActionPageInsert.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
@@ -355,7 +389,34 @@ public class ActionPage extends javax.swing.JDialog {
             }
         });
     }
- 
+   public static String IdAction(){
+         Connection con=null;
+         
+         con=ConnectDatabase.connect();
+            String sqlId="Select max(ActionCode) ActionCode from ActionsCase";
+        int id=0;
+        try {
+            Statement s=con.createStatement();
+            ResultSet rs=s.executeQuery(sqlId);
+            
+            if (rs.next()) {
+                id=rs.getInt("ActionCode"); 
+            }
+            
+            if(id==0){
+                id=1;
+            }
+            else{
+                id=id+1;
+            }
+             return String.valueOf(id);
+        
+        } catch (Exception e) {
+            return null;
+//            System.out.println(e);
+        } 
+    
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JTextField ActionCode;
     public static javax.swing.JTextField ActionCrimes;

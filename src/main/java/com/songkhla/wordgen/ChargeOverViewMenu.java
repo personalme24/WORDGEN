@@ -7,6 +7,8 @@ package com.songkhla.wordgen;
 
 import static com.songkhla.wordgen.ChargePage.ChargeCode;
 import static com.songkhla.wordgen.ChargePage.ChargeName;
+import static com.songkhla.wordgen.ListAccused.jTableAccure;
+import static com.songkhla.wordgen.ListAccused.txtCaseNO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,7 +23,7 @@ import org.json.simple.JSONObject;
  *
  * @author Matazz
  */
-public class ChargeOverView extends javax.swing.JDialog {
+public class ChargeOverViewMenu extends javax.swing.JDialog {
     
   
     Connection con=null;
@@ -32,7 +34,7 @@ public class ChargeOverView extends javax.swing.JDialog {
      */
     
     // boolean isInsert;
-    public ChargeOverView(JFrame parrent) {
+    public ChargeOverViewMenu(JFrame parrent) {
       super(parrent,true);
         initComponents();
          ImageIcon img = new ImageIcon("D://Master//WD.png");
@@ -53,15 +55,14 @@ public class ChargeOverView extends javax.swing.JDialog {
         jPanel4 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        ChargeCode = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
         ChargeName = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableAction = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -71,19 +72,11 @@ public class ChargeOverView extends javax.swing.JDialog {
         jLabel8.setBackground(new java.awt.Color(0, 0, 0));
         jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 36)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("เลือกข้อหา");
+        jLabel8.setText("ข้อมูลข้อหา");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-
-        jLabel9.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel9.setText("รหัสข้อหา");
-
-        ChargeCode.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-
-        jLabel10.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel10.setText("ข้อหา");
 
         ChargeName.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
 
@@ -102,9 +95,9 @@ public class ChargeOverView extends javax.swing.JDialog {
             }
         });
 
-        jTable1.setFont(new java.awt.Font("TH SarabunPSK", 1, 18)); // NOI18N
-        jTable1.setForeground(new java.awt.Color(51, 51, 51));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableAction.setFont(new java.awt.Font("TH SarabunPSK", 1, 18)); // NOI18N
+        jTableAction.setForeground(new java.awt.Color(51, 51, 51));
+        jTableAction.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -126,24 +119,40 @@ public class ChargeOverView extends javax.swing.JDialog {
                 return types [columnIndex];
             }
         });
-        jTable1.setFocusable(false);
-        jTable1.setGridColor(new java.awt.Color(255, 255, 255));
-        jTable1.setIntercellSpacing(new java.awt.Dimension(0, 0));
-        jTable1.setRowHeight(25);
-        jTable1.setSelectionBackground(new java.awt.Color(77, 0, 0));
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTableAction.setFocusable(false);
+        jTableAction.setGridColor(new java.awt.Color(255, 255, 255));
+        jTableAction.setIntercellSpacing(new java.awt.Dimension(0, 0));
+        jTableAction.setRowHeight(25);
+        jTableAction.setSelectionBackground(new java.awt.Color(77, 0, 0));
+        jTableAction.getTableHeader().setReorderingAllowed(false);
+        jTableAction.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
+                jTableActionMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTableAction);
 
         jButton1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jButton1.setText("เพิ่มข้อหา");
+        jButton1.setText("เพิ่ม");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jButton2.setText("แก้ไข");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton5.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jButton5.setText("ลบ");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
             }
         });
 
@@ -159,39 +168,35 @@ public class ChargeOverView extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 554, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jButton1)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ChargeCode, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButton2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel10)
+                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 663, Short.MAX_VALUE)
+                                .addComponent(ChargeName, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(ChargeName)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton3)))))
+                                .addComponent(jButton3)
+                                .addGap(9, 9, 9)))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(64, 64, 64)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ChargeCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel10)
                     .addComponent(ChargeName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
+                    .addComponent(jButton3)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(9, 9, 9)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton4)
-                .addGap(13, 13, 13))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -203,14 +208,14 @@ public class ChargeOverView extends javax.swing.JDialog {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(23, 23, 23))
         );
 
@@ -228,15 +233,10 @@ public class ChargeOverView extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+    private void jTableActionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableActionMouseClicked
         // TODO add your handling code here:
-         int number=jTable1.getSelectedRow();
-        ChargePage.ChargeCode.setText(jTable1.getValueAt(number, 0).toString());
-        ChargePage.ChargeName.setText(jTable1.getValueAt(number, 1).toString());
-        ChargePage.Law.setText(jTable1.getValueAt(number, 2).toString());
-        ChargePage.RateOfPenalty.setText(jTable1.getValueAt(number, 3).toString());
-         ChargePage.Note.setText(jTable1.getValueAt(number, 4).toString());
-    }//GEN-LAST:event_jTable1MouseClicked
+       
+    }//GEN-LAST:event_jTableActionMouseClicked
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
@@ -246,17 +246,81 @@ public class ChargeOverView extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-  
-        JFrame frame = new JFrame();
+         JFrame frame = new JFrame();
         JDialog dialog = new JDialog(frame);//frame is owner
-        JFrame a = (JFrame)(dialog.getParent());
-        a.removeAll();
-        ChargePageInsert ri =new ChargePageInsert(a,null);
-        ri.pack();
-        ri.setLocationRelativeTo(null);
-        ri.setVisible(true);
+        JFrame fwit = (JFrame)(dialog.getParent());
+        fwit.removeAll();
+        ChargePageInsert lw=new ChargePageInsert(fwit,null);
+        lw.pack();
+        lw.setLocationRelativeTo(null);
+        lw.setVisible(true);
         RefreshData();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        
+       JFrame frame = new JFrame();
+             JDialog dialog = new JDialog(frame);//frame is owner
+             JFrame f = (JFrame)(dialog.getParent());               
+             f.removeAll();
+        if(jTableAction.getSelectedRow()>=0){
+           
+            try{
+                String ChargeCode = jTableAction.getModel().getValueAt(jTableAction.getSelectedRow(), 0)+"";            
+                String sql = "select * from Charge where ChargeCode='"+ChargeCode+"'";
+                   
+                Connection con = ConnectDatabase.connect();
+                Statement stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery(sql);
+//                System.out.println("dddddddddddddd:"+sql);
+                if(rs.next()){
+                    JSONObject data = new JSONObject();
+                      data.put("ChargeCode", rs.getString("ChargeCode"));
+                    data.put("ChargeName", rs.getString("ChargeName"));
+                    data.put("Law", rs.getString("Law"));
+                    data.put("RateOfPenalty", rs.getString("RateOfPenalty"));
+                    data.put("Note", rs.getString("Note"));
+             
+                            ChargePageInsert chIn=new ChargePageInsert(f,data);
+                             chIn.pack();
+                             chIn.setLocationRelativeTo(null);
+                            chIn.setVisible(true);    		
+                }
+                
+                rs.close();
+                stmt.close();
+                RefreshData();
+            }catch(Exception ex){
+                ex.printStackTrace();
+            }
+            
+        
+       
+        }else{
+
+        }
+                                              
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        if(jTableAction.getSelectedRow()>=0){
+            try{
+                String ActionCode= jTableAction.getModel().getValueAt(jTableAction.getSelectedRow(), 0)+"";
+                String sql = "Delete from ActionsCase WHERE ActionCode='"+ActionCode+"'";
+                Connection con = ConnectDatabase.connect();
+                Statement stmt = con.createStatement();
+                stmt.executeUpdate(sql);
+
+                //            rs.close();
+                stmt.close();
+                RefreshData();
+            }catch(Exception ex){
+                ex.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -275,14 +339,16 @@ public class ChargeOverView extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ChargeOverView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChargeOverViewMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ChargeOverView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChargeOverViewMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ChargeOverView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChargeOverViewMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ChargeOverView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChargeOverViewMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
@@ -317,7 +383,7 @@ public class ChargeOverView extends javax.swing.JDialog {
         ColumnName.add("กฏหมาย");
         ColumnName.add("อัตราโทษ");
         ColumnName.add("หมายเหตุ");
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableAction.setModel(new javax.swing.table.DefaultTableModel(
             tabledata,
             ColumnName
         ) {
@@ -336,17 +402,16 @@ public class ChargeOverView extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField ChargeCode;
     private javax.swing.JTextField ChargeName;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel10;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    public static javax.swing.JTable jTable1;
+    public static javax.swing.JTable jTableAction;
     // End of variables declaration//GEN-END:variables
 }

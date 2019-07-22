@@ -102,7 +102,7 @@ public class BailCrimesAdd extends javax.swing.JDialog {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel3.setBackground(new java.awt.Color(46, 156, 202));
+        jPanel3.setBackground(new java.awt.Color(4, 93, 179));
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
 
@@ -518,8 +518,11 @@ public class BailCrimesAdd extends javax.swing.JDialog {
         JSONObject data=new JSONObject();
         data.put("BailCaseId",caseId );
         data.put("BailPersonId",personId );
-        
-        DeliverySuspect baa=new DeliverySuspect(null,null,data);
+        JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame fr = (JFrame)(dialog.getParent());
+        fr.removeAll();
+        DeliverySuspect baa=new DeliverySuspect(fr,null,data);
         baa.pack();
         baa.setLocationRelativeTo(null);
         baa.setVisible(true);

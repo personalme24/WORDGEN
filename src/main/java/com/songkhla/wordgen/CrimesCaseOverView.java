@@ -7,6 +7,7 @@ package com.songkhla.wordgen;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Rectangle;
 import java.io.File;
@@ -14,36 +15,59 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Vector;
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
+import org.jdatepicker.impl.JDatePanelImpl;
+import org.jdatepicker.impl.JDatePickerImpl;
+import org.jdatepicker.impl.UtilDateModel;
 import org.json.simple.JSONObject;
-
+import java.util.Properties;
 /**
  *
  * @author Petpilin
  */
-public class CrimesCaseOverView extends javax.swing.JFrame {
+public class CrimesCaseOverView extends javax.swing.JDialog {
 
     /**
      * Creates new form CrimesCaseView
      */
     
-    
-    public CrimesCaseOverView() {
+     JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame facc = (JFrame)(dialog.getParent());
+      JDatePickerImpl DateAcceptSearch;
+
+    public CrimesCaseOverView(JFrame parrent) {
+                super(parrent,true);
+
         initComponents();
         ImageIcon img = new ImageIcon("D://Master//WD.png");
         setIconImage(img.getImage());
         setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
         
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
- 
+        
         jTable1.setOpaque(false);
         jTable1.getTableHeader().setFont(new Font("TH SarabunPSK",Font.BOLD,20));
-
+        UtilDateModel model = new UtilDateModel();
+//            model.setValue(Calendar.getInstance().getTime());
+            Properties p = new Properties();        
+            p.put("text.today", "Today");
+            p.put("text.month", "Month");
+            p.put("text.year", "Year");
+        JDatePanelImpl datePanel = new JDatePanelImpl(model,p);
+         DateAcceptSearch = new JDatePickerImpl(datePanel,new DateLabelFormatter());
+        DateAcceptSearch.setTextEditable(true);
+        DateAcceptSearch.setBackground(Color.WHITE);
+        jPanelAcceptDate.setLayout(new FlowLayout());
+        jPanelAcceptDate.add(DateAcceptSearch);    
 
         RefreshData();
  
@@ -61,10 +85,8 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButtonDelete = new javax.swing.JButton();
-        txtSearchCase = new javax.swing.JTextField();
         jButtonEdit = new javax.swing.JButton();
         jButtonAdd = new javax.swing.JButton();
-        jButtonSearch = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -72,22 +94,32 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txtSearchCase = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        txtSearchAcc = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        txtSearchSus = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jPanelAcceptDate = new javax.swing.JPanel();
+        jButtonSearch = new javax.swing.JButton();
+        jButtonClearSearch = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1270, 720));
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(46, 156, 202));
+        jPanel1.setBackground(new java.awt.Color(4, 93, 179));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.setPreferredSize(new java.awt.Dimension(1280, 720));
         jPanel1.setMaximumSize(new Dimension(1280, 720));
         jPanel1.setMinimumSize(new Dimension(1280, 720));
 
-        jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 28)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("ข้อมูลคดีอาญา");
 
-        jButtonDelete.setBackground(new java.awt.Color(255, 51, 0));
+        jButtonDelete.setBackground(new java.awt.Color(102, 102, 102));
         jButtonDelete.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButtonDelete.setForeground(new java.awt.Color(255, 255, 255));
         jButtonDelete.setText("ลบ");
@@ -97,13 +129,7 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
             }
         });
 
-        txtSearchCase.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSearchCaseActionPerformed(evt);
-            }
-        });
-
-        jButtonEdit.setBackground(new java.awt.Color(255, 51, 0));
+        jButtonEdit.setBackground(new java.awt.Color(102, 102, 102));
         jButtonEdit.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButtonEdit.setForeground(new java.awt.Color(255, 255, 255));
         jButtonEdit.setText("แก้ไข");
@@ -113,21 +139,13 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
             }
         });
 
-        jButtonAdd.setBackground(new java.awt.Color(255, 51, 0));
+        jButtonAdd.setBackground(new java.awt.Color(51, 51, 51));
         jButtonAdd.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButtonAdd.setForeground(new java.awt.Color(255, 255, 255));
         jButtonAdd.setText("เพิ่ม");
         jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAddActionPerformed(evt);
-            }
-        });
-
-        jButtonSearch.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButtonSearch.setText("ค้นหา");
-        jButtonSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSearchActionPerformed(evt);
             }
         });
 
@@ -144,11 +162,7 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonEdit)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtSearchCase, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -158,12 +172,10 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtSearchCase, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonSearch)
                     .addComponent(jButtonDelete)
                     .addComponent(jButtonEdit)
                     .addComponent(jButtonAdd))
-                .addGap(20, 20, 20))
+                .addGap(22, 22, 22))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -239,24 +251,127 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLabel4.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel4.setText("เลขคดี/ปี");
+
+        txtSearchCase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchCaseActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel5.setText("ผู้ร้องทุกข์");
+
+        txtSearchAcc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchAccActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel6.setText("ผู้ต้องหา");
+
+        txtSearchSus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchSusActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel7.setText("วันที่รับคำร้องทุกข์");
+
+        jPanelAcceptDate.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanelAcceptDateLayout = new javax.swing.GroupLayout(jPanelAcceptDate);
+        jPanelAcceptDate.setLayout(jPanelAcceptDateLayout);
+        jPanelAcceptDateLayout.setHorizontalGroup(
+            jPanelAcceptDateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 202, Short.MAX_VALUE)
+        );
+        jPanelAcceptDateLayout.setVerticalGroup(
+            jPanelAcceptDateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 35, Short.MAX_VALUE)
+        );
+
+        jButtonSearch.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jButtonSearch.setText("ค้นหา");
+        jButtonSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSearchActionPerformed(evt);
+            }
+        });
+
+        jButtonClearSearch.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jButtonClearSearch.setText("ล้างข้อมูล");
+        jButtonClearSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonClearSearchActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(52, 52, 52)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(1040, 1040, 1040)
+                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(67, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtSearchCase, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtSearchAcc, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+                                    .addComponent(txtSearchSus))))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanelAcceptDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonClearSearch)
+                        .addGap(238, 238, 238))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtSearchCase, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelAcceptDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButtonSearch)
+                        .addComponent(jButtonClearSearch))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtSearchAcc, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtSearchSus, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(126, 126, 126)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -363,8 +478,9 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
                       data.put("Investigator_Number", rs.getString("Investigator_Number"));
                      data.put("Invest_SendCaseDate", rs.getString("Invest_SendCaseDate"));
                      data.put("Prosecutor_Result", rs.getString("Prosecutor_Result"));  
-                      data.put("CapitalCrimeCaseNumber", rs.getString("CapitalCrimeCaseNumber"));            
-                    CrimesCaseEdit cce =new CrimesCaseEdit(this,data);
+                      data.put("CapitalCrimeCaseNumber", rs.getString("CapitalCrimeCaseNumber"));      
+                        facc.removeAll();
+                    CrimesCaseEdit cce =new CrimesCaseEdit(facc,data);
                     cce.pack();
                      cce.setLocationRelativeTo(null);                   
                     cce.setVisible(true);
@@ -384,7 +500,7 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
 
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
         // TODO add your handling code here:
-        CrimesCaseEdit cce =new CrimesCaseEdit(this,null);
+        CrimesCaseEdit cce =new CrimesCaseEdit(facc,null);
         cce.pack();
         cce.setLocationRelativeTo(null);
         cce.setVisible(true);
@@ -395,6 +511,20 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
         // TODO add your handling code here:
         RefreshData();
     }//GEN-LAST:event_jButtonSearchActionPerformed
+
+    private void txtSearchAccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchAccActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchAccActionPerformed
+
+    private void txtSearchSusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchSusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchSusActionPerformed
+
+    private void jButtonClearSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClearSearchActionPerformed
+        // TODO add your handling code here:
+        
+        RefreshData();
+    }//GEN-LAST:event_jButtonClearSearchActionPerformed
 
     /**
      * @param args the command line arguments
@@ -429,11 +559,11 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                CrimesCaseOverView aa=  new CrimesCaseOverView();
-                    aa.setVisible(true);
-                    aa.setSize ( 1264, 728 );
-        aa.setMinimumSize ( new Dimension ( 1264, 728 ) );
-        aa.setMaximizedBounds ( new Rectangle ( 1264, 728 ) );
+//                CrimesCaseOverView aa=  new CrimesCaseOverView();
+//                    aa.setVisible(true);
+//                    aa.setSize ( 1264, 728 );
+//        aa.setMinimumSize ( new Dimension ( 1264, 728 ) );
+//        aa.setMaximizedBounds ( new Rectangle ( 1264, 728 ) );
             }
         });
         
@@ -443,11 +573,12 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
         try{
         Connection con = ConnectDatabase.connect();
         Statement stmt = con.createStatement();
-        String sql = "select crimecase.*,Charge.* ,person.* from crimecase left join Charge on"
-                + " Charge.ChargeCode=crimecase.ChargeCodeCase "
-                + "left join Person on Person.caseIdPerson = CrimeCase.CaseId "+getFilterCondition();
+        String sql = "select crimecase.*,Charge.* from crimecase left join Charge on"
+                + " Charge.ChargeCode=crimecase.ChargeCodeCase "+getFilterCondition();
+//                + "left join Person on Person.caseIdPerson = CrimeCase.CaseId "+getFilterCondition();
 
         ResultSet rs = stmt.executeQuery(sql);
+            System.out.println("Sqll : "+sql);
         Vector<Vector> tabledata = new Vector<Vector>();
         while(rs.next()){
             Vector<String> row = new Vector<String>();
@@ -497,10 +628,14 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
     private String getFilterCondition(){
         HashMap<String,String> filter = new HashMap<String,String>();
         if(txtSearchCase.getText().trim().length()>0){
-            filter.put("crimecasenoyear", txtSearchCase.getText().trim());
-            filter.put("AccureandOther", txtSearchCase.getText().trim());
+            filter.put("crimecasenoyear", txtSearchCase.getText().trim());       
         }
-        
+         if(txtSearchAcc.getText().trim().length()>0){
+            filter.put("AccureandOther", txtSearchAcc.getText().trim());       
+        }
+         if(txtSearchSus.getText().trim().length()>0){
+            filter.put("SuspectandOther", txtSearchSus.getText().trim());       
+        }
         String[] key = filter.keySet().toArray(new String[0]);
         String result="";
         for(int i=0;i<key.length;i++){
@@ -520,18 +655,26 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAdd;
+    private javax.swing.JButton jButtonClearSearch;
     private javax.swing.JButton jButtonDelete;
     private javax.swing.JButton jButtonEdit;
     private javax.swing.JButton jButtonSearch;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanelAcceptDate;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField txtSearchAcc;
     private javax.swing.JTextField txtSearchCase;
+    private javax.swing.JTextField txtSearchSus;
     // End of variables declaration//GEN-END:variables
 }
