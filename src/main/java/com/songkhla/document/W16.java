@@ -61,10 +61,8 @@ public class W16 {
             
 //                String ch;
 //                   String sql="SELECT * from CrimeCase Where crimecaseno = '"+cc+"'";
-                   String sql= "select crimecase.*,RecordInquiry.* "
-                              + "from crimecase \n" +
-                               "left join RecordInquiry on crimecase.CaseId= RecordInquiry.CaseIdRecord\n" +
-                               "group by crimecase.CaseId";
+                   String sql= "select RecordInquiry.*,crimecase.* from RecordInquiry \n" +
+                               "left join crimecase on RecordInquiry.CaseIdRecord =crimecase.CaseId";
                            
 //                   pst=conn.prepareStatement(sql);
 //           pst=PreparedStatement(sql);
@@ -93,11 +91,11 @@ public class W16 {
                  
                      
                     VarRE2=VarRE2+"\n\r"+s.getString("DateRecord");
-                    bookmarkvalue.put("AS1", Checknull(VarRE2));
-                    VarRE3=VarRE2+"\n\r"+s.getString("NameInguiry");
-                    bookmarkvalue.put("AS1", Checknull(VarRE2));
-                    VarRE4=VarRE2+"\n\r"+s.getString("DetailRecord");
-                    bookmarkvalue.put("AS1", Checknull(VarRE2));
+                    bookmarkvalue.put("RE2", Checknull(VarRE2));
+                    VarRE3=VarRE3+"\n\r"+s.getString("NameInguiry");
+                    bookmarkvalue.put("RE3", Checknull(VarRE3));
+                    VarRE4=VarRE4+"\n\r"+s.getString("DetailRecord");
+                    bookmarkvalue.put("RE4", Checknull(VarRE4));
                    
                     
                    
@@ -150,7 +148,7 @@ public class W16 {
 					.load(new java.io.File("D:/TEMPLATE/w16.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+cs+"-"+ccYear+"/บันทึกพนักงานสอบสวน"+cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/บันทึกพนักงานสอบสวน"+cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -176,9 +174,9 @@ public class W16 {
                  
                      
                     
-                    bookmarkvalue.put("AS1", "");
-                    bookmarkvalue.put("AS1", "");
-                    bookmarkvalue.put("AS1", "");
+                    bookmarkvalue.put("RE2", "");
+                    bookmarkvalue.put("RE3", "");
+                    bookmarkvalue.put("RE4", "");
                    
 
 		

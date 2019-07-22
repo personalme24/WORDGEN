@@ -19,9 +19,10 @@ import javax.swing.JOptionPane;
  */
 public class CreateTable {
     	 public static void createNewTable() {
-               
+         
 	        // SQLite connection string
 	       Connection cc= ConnectDatabase.connect();
+               
 //             String url = "jdbc:sqlite:D://db/SR2.db";
 	        
 	        // SQL statement for creating a new table
