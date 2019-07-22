@@ -46,6 +46,7 @@ import com.songkhla.document.W51;
 import com.songkhla.document.W53;
 import com.songkhla.document.W6;
 import com.songkhla.document.W62;
+import com.songkhla.document.W64;
 import com.songkhla.document.W67;
 import com.songkhla.document.W68;
 import com.songkhla.document.W69;
