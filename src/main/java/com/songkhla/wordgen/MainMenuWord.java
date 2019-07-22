@@ -172,6 +172,7 @@ public class MainMenuWord extends javax.swing.JFrame {
         jPanel2.setPreferredSize(new java.awt.Dimension(220, 500));
 
         policemenu.setBackground(new java.awt.Color(4, 93, 179));
+        policemenu.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         policemenu.setPreferredSize(new java.awt.Dimension(155, 54));
         policemenu.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -190,25 +191,27 @@ public class MainMenuWord extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 28)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("ข้อมูลสถานีตำรวจ");
+        jLabel3.setPreferredSize(new java.awt.Dimension(77, 33));
 
         javax.swing.GroupLayout policemenuLayout = new javax.swing.GroupLayout(policemenu);
         policemenu.setLayout(policemenuLayout);
         policemenuLayout.setHorizontalGroup(
             policemenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(policemenuLayout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(jLabel3)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         policemenuLayout.setVerticalGroup(
             policemenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(policemenuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         personmenu.setBackground(new java.awt.Color(4, 93, 179));
+        personmenu.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         personmenu.setPreferredSize(new java.awt.Dimension(155, 54));
         personmenu.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -233,10 +236,10 @@ public class MainMenuWord extends javax.swing.JFrame {
         personmenu.setLayout(personmenuLayout);
         personmenuLayout.setHorizontalGroup(
             personmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, personmenuLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(56, 56, 56))
+            .addGroup(personmenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
+                .addContainerGap())
         );
         personmenuLayout.setVerticalGroup(
             personmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,6 +250,7 @@ public class MainMenuWord extends javax.swing.JFrame {
         );
 
         profilemenu.setBackground(new java.awt.Color(4, 93, 179));
+        profilemenu.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         profilemenu.setPreferredSize(new java.awt.Dimension(145, 54));
         profilemenu.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -270,10 +274,10 @@ public class MainMenuWord extends javax.swing.JFrame {
         profilemenu.setLayout(profilemenuLayout);
         profilemenuLayout.setHorizontalGroup(
             profilemenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, profilemenuLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(73, 73, 73))
+            .addGroup(profilemenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         profilemenuLayout.setVerticalGroup(
             profilemenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -284,6 +288,7 @@ public class MainMenuWord extends javax.swing.JFrame {
         );
 
         formmenu.setBackground(new java.awt.Color(4, 93, 179));
+        formmenu.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         formmenu.setPreferredSize(new java.awt.Dimension(149, 54));
         formmenu.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -308,7 +313,7 @@ public class MainMenuWord extends javax.swing.JFrame {
         jLabel18.setBackground(new java.awt.Color(255, 255, 255));
         jLabel18.setFont(new java.awt.Font("TH SarabunPSK", 1, 28)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel18.setIcon(new javax.swing.ImageIcon("D:\\Master\\document.png")); // NOI18N
         jLabel18.setText("แบบฟอร์ม");
 
@@ -316,17 +321,18 @@ public class MainMenuWord extends javax.swing.JFrame {
         formmenu.setLayout(formmenuLayout);
         formmenuLayout.setHorizontalGroup(
             formmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formmenuLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel18)
-                .addGap(60, 60, 60))
+            .addGroup(formmenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         formmenuLayout.setVerticalGroup(
             formmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
+            .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
         );
 
         howtomenu.setBackground(new java.awt.Color(4, 93, 179));
+        howtomenu.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         howtomenu.setPreferredSize(new java.awt.Dimension(136, 54));
         howtomenu.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -350,10 +356,10 @@ public class MainMenuWord extends javax.swing.JFrame {
         howtomenu.setLayout(howtomenuLayout);
         howtomenuLayout.setHorizontalGroup(
             howtomenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, howtomenuLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addGap(62, 62, 62))
+            .addGroup(howtomenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         howtomenuLayout.setVerticalGroup(
             howtomenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -364,6 +370,7 @@ public class MainMenuWord extends javax.swing.JFrame {
         );
 
         SueMenu.setBackground(new java.awt.Color(4, 93, 179));
+        SueMenu.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         SueMenu.setPreferredSize(new java.awt.Dimension(147, 54));
         SueMenu.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -388,17 +395,17 @@ public class MainMenuWord extends javax.swing.JFrame {
         jLabel12.setBackground(new java.awt.Color(255, 255, 255));
         jLabel12.setFont(new java.awt.Font("TH SarabunPSK", 1, 28)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel12.setText("ผัดฟ้องฝากขัง");
 
         javax.swing.GroupLayout SueMenuLayout = new javax.swing.GroupLayout(SueMenu);
         SueMenu.setLayout(SueMenuLayout);
         SueMenuLayout.setHorizontalGroup(
             SueMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SueMenuLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel12)
-                .addGap(58, 58, 58))
+            .addGroup(SueMenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         SueMenuLayout.setVerticalGroup(
             SueMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -409,6 +416,7 @@ public class MainMenuWord extends javax.swing.JFrame {
         );
 
         BailMenu.setBackground(new java.awt.Color(4, 93, 179));
+        BailMenu.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         BailMenu.setPreferredSize(new java.awt.Dimension(122, 54));
         BailMenu.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -433,17 +441,17 @@ public class MainMenuWord extends javax.swing.JFrame {
         jLabel15.setBackground(new java.awt.Color(255, 255, 255));
         jLabel15.setFont(new java.awt.Font("TH SarabunPSK", 1, 28)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel15.setText("ประกัน");
 
         javax.swing.GroupLayout BailMenuLayout = new javax.swing.GroupLayout(BailMenu);
         BailMenu.setLayout(BailMenuLayout);
         BailMenuLayout.setHorizontalGroup(
             BailMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BailMenuLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel15)
-                .addGap(82, 82, 82))
+            .addGroup(BailMenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         BailMenuLayout.setVerticalGroup(
             BailMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -454,6 +462,7 @@ public class MainMenuWord extends javax.swing.JFrame {
         );
 
         howtomenu1.setBackground(new java.awt.Color(4, 93, 179));
+        howtomenu1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         howtomenu1.setPreferredSize(new java.awt.Dimension(136, 54));
         howtomenu1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -478,10 +487,10 @@ public class MainMenuWord extends javax.swing.JFrame {
         howtomenu1.setLayout(howtomenu1Layout);
         howtomenu1Layout.setHorizontalGroup(
             howtomenu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, howtomenu1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel16)
-                .addGap(74, 74, 74))
+            .addGroup(howtomenu1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         howtomenu1Layout.setVerticalGroup(
             howtomenu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
