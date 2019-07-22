@@ -141,6 +141,7 @@ public class W3 {
                 bookmarkvalue.put("C16",Checknull(DocOrder));
                 bookmarkvalue.put("C17", Checknull(DocSlash));
                 bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
+                bookmarkvalue.put("S02",Checknull(PoliceStationName));
                  bookmarkvalue.put("S27",Checknull(ProvincProsecutor));
                  bookmarkvalue.put("S29",Checknull(THNumBook));
                  bookmarkvalue.put("S10",Checknull(TelStation));
