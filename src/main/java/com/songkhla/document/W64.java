@@ -111,6 +111,11 @@ public class W64 {
                 String Time="";
                 
                 
+                String Date1="";
+                String Month1="";
+                String Year1="";
+                             
+              
                 SimpleDateFormat sdfstart ;
                 Calendar  calstart = Calendar.getInstance();
                 sdfstart = new SimpleDateFormat("dd", new Locale("th", "TH"));  
@@ -121,22 +126,46 @@ public class W64 {
                
                sdfstart = new SimpleDateFormat("yyyy", new Locale("th", "TH"));  
                Year=sdfstart.format(calstart.getTime());
-
-               sdfstart = new SimpleDateFormat("HH:mm", new Locale("th", "TH"));  
-               Time=sdfstart.format(calstart.getTime());
+                 
+               ///วันที่จุดเกิดเหตุ
+               SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", new Locale("th", "TH"));
+                Date date=null;
+                date = df.parse((s.getString("OccuredDate")));  
+                sdfstart = new SimpleDateFormat("dd", new Locale("th", "TH"));  
+               Date1 =sdfstart.format(date.getTime());
                
+               sdfstart = new SimpleDateFormat("MMMM", new Locale("th", "TH"));  
+               Month1=sdfstart.format(date.getTime());
+               
+               sdfstart = new SimpleDateFormat("yyyy", new Locale("th", "TH"));  
+               Year1=sdfstart.format(date.getTime());
+//                System.out.print("ข้อหา :: "+s.getString("ChargeCode"));
+//                System.out.print(" - ");
                  JSONObject bookmarkvalue = new JSONObject();
 //              
                 bookmarkvalue.put("C1",Checknull(Date));
                 bookmarkvalue.put("C01",Checknull(Month));
                 bookmarkvalue.put("C001",Checknull(Year));
-                bookmarkvalue.put("C0011",Checknull(Time));
                 
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3",Checknull(ccYear));
                 
                 bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
-                bookmarkvalue.put("S27",Checknull(ProvincProsecutor));
+                bookmarkvalue.put("PS7", Checknull(s.getString("FullNamePerson"))); 
+                bookmarkvalue.put("B2", Checknull(s.getString("ChargeName")));
+                
+               
+                
+                bookmarkvalue.put("C4",Checknull(Date1));
+                bookmarkvalue.put("C044",Checknull(Month1));
+                bookmarkvalue.put("C004",Checknull(Year1));
+                
+               
+                
+                bookmarkvalue.put("C8", Checknull(s.getString("CrimeLocation")));
+                bookmarkvalue.put("C12", Checknull(s.getString("CrimeLocationDistrict")));
+                bookmarkvalue.put("C13", Checknull(s.getString("CrimeLocationAmphur")));
+                bookmarkvalue.put("C14", Checknull(s.getString("CrimeLocationProvince")));
                 
                
                        bookmarkvalue.put("P02", Checknull(RankPolice));
@@ -204,13 +233,19 @@ public static void nw64() {
                 bookmarkvalue.put("C1","");
                 bookmarkvalue.put("C01","");
                 bookmarkvalue.put("C001","");
-                bookmarkvalue.put("C0011","");
                 
 		bookmarkvalue.put("C2","");
                 bookmarkvalue.put("C3","");
                 
                 bookmarkvalue.put("S2","");
-                bookmarkvalue.put("S27","");
+                bookmarkvalue.put("PS7",""); 
+                bookmarkvalue.put("B2", "");
+                bookmarkvalue.put("C4","");
+                
+                bookmarkvalue.put("C8", "");
+                bookmarkvalue.put("C12", "");
+                bookmarkvalue.put("C13", "");
+                bookmarkvalue.put("C14", "");
                 
                 
                 
