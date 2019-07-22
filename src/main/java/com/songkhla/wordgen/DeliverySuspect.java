@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import org.jdatepicker.impl.JDatePickerImpl;
 import org.json.simple.JSONObject;
 /**
  *
@@ -21,7 +22,7 @@ public class DeliverySuspect extends javax.swing.JDialog {
     DataCase dc =new DataCase();
     String personid;
     boolean isInsert;
-    
+    JDatePickerImpl CaseRequestDateTime;
     /**
      * Creates new form DeliverySuspect
      */

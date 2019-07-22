@@ -142,9 +142,9 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 //====================================== Police==========================================
         try{
             
-            String sql="Select crimecasenoyear,crimecaseno,crimecaseyears,CaseType from CrimeCase where CaseId='"+caseid+"'";
-         Statement stmt = con.createStatement();
-                ResultSet rs = stmt.executeQuery(sql);  
+//            String sql="Select crimecasenoyear,crimecaseno,crimecaseyears,CaseType from CrimeCase where CaseId='"+caseid+"'";
+//         Statement stmt = con.createStatement();
+//                ResultSet rs = stmt.executeQuery(sql);  
                 
             con=ConnectDatabase.connect();
       
@@ -158,7 +158,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 //             caseno=rs.getString("crimecaseno");
 //             casetype=rs.getString("CaseType");
              PoliceStaionName=rs1.getString("PoliceStaionName");
-             casetype=rs.getString("CaseType");
+//             casetype=rs.getString("CaseType");
                     }
 
         }
@@ -235,6 +235,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                 crimecaseid.setText(datain.get("CaseId")+"");
                 caseyear=datain.get("crimecaseyears")+"";
                 caseno=datain.get("crimecaseno")+"";
+                casetype=datain.get("CaseType")+"";
 //          ID.setText(datain.get("CaseId")+"");
             crimecaseno.setText(datain.get("crimecaseno")+"");
             crimecaseyear.setText(datain.get("crimecaseyears")+"");

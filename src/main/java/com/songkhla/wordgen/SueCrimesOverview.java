@@ -467,13 +467,13 @@ public class SueCrimesOverview extends javax.swing.JFrame {
          ColumnName.add("ผู้ต้องหา"); 
          ColumnName.add("ศาล");  
          ColumnName.add("สถานะ");              
-         ColumnName.add("ครั้งที่ 1");         
-         ColumnName.add("ครั้งที่ 2");
-         ColumnName.add("ครั้งที่ 3");
-         ColumnName.add("ครั้งที่ 4");
-         ColumnName.add("ครั้งที่ 5");
-         ColumnName.add("ครั้งที่ 6");
-         ColumnName.add("ครั้งที่ 7");
+         ColumnName.add("ครั้งที่ 1 ครบ");         
+         ColumnName.add("ครั้งที่ 2 ครบ");
+         ColumnName.add("ครั้งที่ 3 ครบ");
+         ColumnName.add("ครั้งที่ 4 ครบ");
+         ColumnName.add("ครั้งที่ 5 ครบ");
+         ColumnName.add("ครั้งที่ 6 ครบ");
+         ColumnName.add("ครั้งที่ 7 ครบ");
          
         
 

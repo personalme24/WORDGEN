@@ -63,7 +63,7 @@ public class MainMenuWord extends javax.swing.JFrame {
         
         con=ConnectDatabase.connect();
         CreateTable.createNewTable();      
-        CreateTable.InsertBaseData();
+//        CreateTable.InsertBaseData();
 
         
     }
@@ -1131,11 +1131,12 @@ public class MainMenuWord extends javax.swing.JFrame {
 
     private void howtomenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_howtomenuMouseClicked
         // TODO add your handling code here:
-        JFrame frame = new JFrame();
+    
+           JFrame frame = new JFrame();
         JDialog dialog = new JDialog(frame);//frame is owner
         JFrame in = (JFrame)(dialog.getParent());
         in.removeAll();
-        InvesInformationView1 iv=new InvesInformationView1(this);
+        BaseDataMenu iv=new BaseDataMenu(in);
          iv.pack();
             iv.setLocationRelativeTo(null);
         iv.setVisible(true);

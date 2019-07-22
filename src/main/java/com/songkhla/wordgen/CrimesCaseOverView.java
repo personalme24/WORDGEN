@@ -154,7 +154,7 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(31, Short.MAX_VALUE)
+                .addContainerGap(30, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -325,6 +325,7 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
                 if(rs.next()){
                     JSONObject data = new JSONObject();
                     data.put("CaseId", rs.getString("CaseId"));
+                    data.put("CaseType", rs.getString("CaseType"));                          
                     data.put("crimecaseno", rs.getString("crimecaseno"));
                     data.put("crimecaseyears", rs.getString("crimecaseyears"));
                     data.put("ChargeCode", rs.getString("ChargeCode"));
@@ -442,7 +443,10 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
         try{
         Connection con = ConnectDatabase.connect();
         Statement stmt = con.createStatement();
-        String sql = "select crimecase.*,Charge.* ,person.* from crimecase left join Charge on Charge.ChargeCode=crimecase.ChargeCodeCase left join Person on Person.caseIdPerson = CrimeCase.CaseId where crimecase.CaseType='คดีอาญา' and Person.TypePerson='ผู้ต้องหา' group by crimecase.CaseId"+getFilterCondition();
+        String sql = "select crimecase.*,Charge.* ,person.* from crimecase left join Charge on"
+                + " Charge.ChargeCode=crimecase.ChargeCodeCase "
+                + "left join Person on Person.caseIdPerson = CrimeCase.CaseId "+getFilterCondition();
+
         ResultSet rs = stmt.executeQuery(sql);
         Vector<Vector> tabledata = new Vector<Vector>();
         while(rs.next()){
@@ -456,7 +460,7 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
             row.add(rs.getString("CaseAcceptDate"));
             row.add(rs.getString("CaseRequestDate"));
             row.add(rs.getString("Investigator_Result"));
-            row.add(rs.getString("StatusSuspect"));
+//            row.add(rs.getString("StatusSuspect"));
             tabledata.add(row);
         }
         rs.close();
@@ -470,7 +474,7 @@ public class CrimesCaseOverView extends javax.swing.JFrame {
         ColumnName.add("วันที่รับคำร้องทุกข์");
         ColumnName.add("วันที่รับแจ้งเหตุ");
         ColumnName.add("ผลคดีชั้นพนักงานสอบสวน");
-        ColumnName.add("สถานะผู้ต้องหา");
+//        ColumnName.add("สถานะผู้ต้องหา");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             tabledata,
