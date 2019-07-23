@@ -203,7 +203,7 @@ public class W50 {
 					.load(new java.io.File("D:/TEMPLATE/w50.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+cs+"-"+ccYear+"/หนังสือขอส่งรายละเอียดเกี่ยวกับคนต่างด้าวถูกกักขขังฯ "+s.getString("FullNamePerson")+""+cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/หนังสือขอส่งรายละเอียดเกี่ยวกับคนต่างด้าวถูกกักขขังฯ "+s.getString("FullNamePerson")+""+cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
