@@ -81,6 +81,8 @@ public class W71 {
             String VarBA6 ="";
             String VarBA7 ="";
             
+            int BailAssetId=0;
+            int DeliOrderID=0;
             
             
             try {
@@ -113,12 +115,42 @@ public class W71 {
                   
                       Statement sp2 = conn.createStatement();
                   ResultSet rs2=sp2.executeQuery(sqlDataDeliverySuspect); 
-                  while (rs2.next()) {     
+                  while (rs2.next()) { 
+                      JSONObject bookmarkvalue = new JSONObject();
                          DeliOrder =rs2.getString("DeliOrder");
                          DeliDate=rs2.getString("DeliDate");
                          DeliTimes=rs2.getString("DeliTimes");
                          DeliPlace=rs2.getString("DeliPlace");
-                    
+                         
+                          ++DeliOrderID;
+                   
+                        
+                       VarD1=VarD1+"\n\r"+(DeliOrderID);
+                       bookmarkvalue.put("D1",VarD1);
+                       
+                       VarD2=VarD2+"\n\r"+(ToDate(Checknull(DeliDate)));
+                       bookmarkvalue.put("D2",VarD2);
+                       
+                       VarD3=VarD3+"\n\r"+(Checknull(DeliTimes));
+                       bookmarkvalue.put("D3",VarD3);
+                       
+                       VarD4=VarD4+"\n\r"+(Checknull(DeliPlace));
+                       bookmarkvalue.put("D4",VarD4);
+                       JSONArray tablecolumn = new JSONArray();
+			
+			JSONArray table1 = new JSONArray();
+			JSONObject row1 = new JSONObject();
+			
+
+		JSONObject tableobj = new JSONObject();
+		tableobj.put("COLUMNS", tablecolumn);
+		tableobj.put("TABLEDATA", table1);
+			
+		JSONArray TABLES = new JSONArray();
+		TABLES.add(tableobj);
+		bookmarkvalue.put("TABLES", TABLES);
+		System.out.println(bookmarkvalue.toJSONString());
+                     
                       }
                     rs2.close();
                   
@@ -131,8 +163,7 @@ public class W71 {
                               "group by crimecase.CaseId,Person.NoPerson,BailAsset.BailAssetId";
        
                    
-            int BailAssetId=0;
-            int DeliOrderID=0;
+            
             
             Statement st = conn.createStatement();
             ResultSet s=st.executeQuery(sql); 
@@ -168,6 +199,7 @@ public class W71 {
                 bookmarkvalue.put("C3",Checknull(ccYear));
                 
                 bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
+                bookmarkvalue.put("S02",Checknull(PoliceStationName));
                 
                 bookmarkvalue.put("PA7",Checknull(s.getString("AccureandOther")));
                   
@@ -201,35 +233,22 @@ public class W71 {
                     bookmarkvalue.put("BA2",Checknull(VarBA2));
                     System.out.println(BailAssetId);
               
-                    VarBA3=VarBA3+"\n\r"+s.getString("BailAssetDetail");
-                    bookmarkvalue.put("BA3",Checknull(VarBA3));
-                    VarBA4=VarBA4+"\n\r"+s.getString("BailAssetBath");
-                    bookmarkvalue.put("BA4",Checknull(VarBA4));
+                    VarBA3=VarBA3+"\n\r"+(Checknull(s.getString("BailAssetDetail")));
+                    bookmarkvalue.put("BA3",VarBA3);
+                    VarBA4=VarBA4+"\n\r"+(Checknull(s.getString("BailAssetBath")));
+                    bookmarkvalue.put("BA4",VarBA4);
                    
-                    VarBA5=VarBA5+"\n\r"+s.getString("BailAmount");
-                    bookmarkvalue.put("BA5",Checknull(VarBA5));
+                    VarBA5=VarBA5+"\n\r"+(Checknull(s.getString("BailAmount")));
+                    bookmarkvalue.put("BA5",VarBA5);
                      
-                    VarBA6=VarBA6+"\n\r"+s.getString("BailAssetTotal");
-                    bookmarkvalue.put("BA6", Checknull(VarBA6));
+                    VarBA6=VarBA6+"\n\r"+(Checknull(s.getString("BailAssetTotal")));
+                    bookmarkvalue.put("BA6", VarBA6);
                    
-                    VarBA7=VarBA7+"\n\r"+s.getString("BailAssetRemark");
-                    bookmarkvalue.put("BA7",Checknull(VarBA7));
+                    VarBA7=VarBA7+"\n\r"+(Checknull(s.getString("BailAssetRemark")));
+                    bookmarkvalue.put("BA7",VarBA7);
                     
                     
-                    ++DeliOrderID;
                    
-                        
-                       VarD1=VarD1+"\n\r"+(DeliOrderID);
-                       bookmarkvalue.put("D1",Checknull(VarD1));
-                       
-                       VarD2=VarD2+"\n\r"+(ToDate(DeliDate));
-                       bookmarkvalue.put("D2",Checknull(VarD2));
-                       
-                       VarD3=VarD3+"\n\r"+(DeliTimes);
-                       bookmarkvalue.put("D3",Checknull(VarD3));
-                       
-                       VarD4=VarD4+"\n\r"+(DeliPlace);
-                       bookmarkvalue.put("D4",Checknull(VarD4));
                     
                       
 			JSONArray tablecolumn = new JSONArray();
@@ -270,7 +289,7 @@ public class W71 {
 					.load(new java.io.File("D:/TEMPLATE/w71.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+cs+"-"+ccYear+"/คำร้องและสัญญาประกัน"+cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/คำร้องและสัญญาประกัน"+cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -295,6 +314,7 @@ public class W71 {
                 bookmarkvalue.put("C3","");
                 
                 bookmarkvalue.put("S2","");
+                bookmarkvalue.put("S02","");
                 
                 bookmarkvalue.put("PA7","");
                   
