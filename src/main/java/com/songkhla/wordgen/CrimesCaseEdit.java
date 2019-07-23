@@ -311,6 +311,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
          
         }
         else{
+//            jButtonEditCase.setEnabled(false);
               jTabbedPane2.setEnabledAt(jTabbedPane2.getTabCount()-1, false);
 //            Date date2=new Date();
 //            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
@@ -321,8 +322,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 //	System.out.println(dateFormat.format(date));
             caseidLast=IdCase();
            crimecaseid.setText(IdCase());
-           caseyear=crimecaseyear.getText();
-           caseno=crimecaseno.getText();
+         
            
 //           CaseAcceptDate.setDate(date);
 //           CaseRequestDateTime.setDate(date);
@@ -1684,12 +1684,11 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(151, 151, 151))
+                        .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1152, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(14, 14, 14)
-                        .addComponent(jButtonSaveCase, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(164, 164, 164))))
+                        .addComponent(jButtonSaveCase, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(151, 151, 151))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1735,7 +1734,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 
 
         if(isInsert){
-            String sql="INSERT OR REPLACE INTO CrimeCase (CaseType,crimecaseno,crimecaseyears,ChargeCodeCase,ActionCodeCase,CaseRequestDate,CaseRequestTime,"+
+            String sql="INSERT INTO CrimeCase (CaseType,crimecaseno,crimecaseyears,ChargeCodeCase,ActionCodeCase,CaseRequestDate,CaseRequestTime,"+
             "CaseAcceptDate,CaseAccepTime,DailyNumber,OccuredDate,OccuredTime,CrimeLocation,CrimeLocationMoo,CrimeLocationSoi,CrimeLocationRoad,CrimeLocationDistrict,CrimeLocationAmphur,"+
             "CrimeLocationProvince,TypeCourt,AccureandOther,SuspectandOther,WitnessandOther,Investigator_Result,CourtResult,Invest_SendtoDepartment,"+
             "PoliceNameCase,AssetList,AssetCode,crimecasenoyear,RecordInvestCase,Investigator_Number,Invest_SendCaseDate,Prosecutor_Result,"
@@ -1816,6 +1815,9 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
          pst.executeUpdate(); 
          pst.close();
          System.out.println("SQL : "+sql);
+//         jButtonSaveCase.setEnabled(false);
+//         jButtonEditCase.setEnabled(true);
+//         closeTextBox();
          JSONObject data=new JSONObject();
          data.put("caseid", caseidLast);
            JFrame frame = new JFrame();
@@ -2233,8 +2235,10 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
     private void jButtonPrintDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrintDocActionPerformed
         // TODO add your handling code here:
         String no=crimecaseid.getText();
-        
-        File f3=new File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+caseno+"-"+caseyear);
+          caseyear=crimecaseyear.getText();
+           caseno=crimecaseno.getText();
+           casetype=CaseType.getText();
+        File f3=new File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
 
         f3.mkdirs();
         System.out.print(f3);
@@ -2277,128 +2281,128 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
          if(jCheckW14.isSelected()){
              W14.w14(no);
              }
-        //        if(jCheckW15.isSelected()){
-            //            W15.w15(no);
+                if(jCheckW15.isSelected()){
+                        W15.w15(no);
+                    }
+               if(jCheckW16.isSelected()){
+                        W16.w16(no);
+                    }
+               if(jCheckW17.isSelected()){
+                        W17.w17(no);
+                    }
+              // if(jCheckW18.isSelected()){
+                  //      W18.w18(no);
+                  //  }
+               if(jCheckW19.isSelected()){
+                        W19.w19(no);
+                    }
+               if(jCheckW20.isSelected()){
+                        W20.w20(no);
+                    }
+               if(jCheckW21.isSelected()){
+                        W21.w21(no);
+                    }
+               if(jCheckW25.isSelected()){
+                        W25.w25(no);
+                    }
+               if(jCheckW26.isSelected()){
+                        W26.w26(no);
+                    }
+               if(jCheckW27.isSelected()){
+                        W27.w27(no);
+                    }
+               if(jCheckW28.isSelected()){
+                        W28.w28(no);
+                    }
+               if(jCheckW29.isSelected()){
+                        W29.w29(no);
+                    }
+               if(jCheckW30.isSelected()){
+                        W30.w30(no);
+                    }
+               if(jCheckW31.isSelected()){
+                        W31.w31(no);
+                    }
+        
+               if(jCheckW33.isSelected()){
+                        W33.w33(no);
+                    }
+               if(jCheckW34.isSelected()){
+                        W34.w34(no);
+                    }
+               if(jCheckW35.isSelected()){
+                        W35.w35(no);
+                    }
+               if(jCheckW36.isSelected()){
+                        W36.w36(no);
+                    }
+               if(jCheckW37.isSelected()){
+                        W37.w37(no);
+                    }
+               if(jCheckW38.isSelected()){
+                        W38.w38(no);
+                    }
+               if(jCheckW39.isSelected()){
+                        W39.w39(no);
+                    }
+               if(jCheckW40.isSelected()){
+                        W40.w40(no);
+                    }
+               if(jCheckW41.isSelected()){
+                        W41.w41(no);
+                    }
+              if(jCheckW43.isSelected()){
+                        W43.w43(no);
+                    }
+               if(jCheckW46.isSelected()){
+                        W46.w46(no);
+                    }
+               if(jCheckW47.isSelected()){
+                        W47.w47(no);
+                    }
+               if(jCheckW48.isSelected()){
+                        W48.w48(no);
+                    }
+               if(jCheckW49.isSelected()){
+                        W49.w49(no);
+                    }
+               if(jCheckW50.isSelected()){
+                        W50.w50(no);
+                    }
+               if(jCheckW51.isSelected()){
+                        W51.w51(no);
+                    }
+               if(jCheckW53.isSelected()){
+                        W53.w53(no);
+                    }
+               if(jCheckW62.isSelected()){
+                        W62.w62(no);
+                    }
+               if(jCheckW67.isSelected()){
+                        W67.w67(no);
+                    }
+        //       if(jCheckW68.isSelected()){
+            //            W68.w68(no);
             //        }
-        //       if(jCheckW16.isSelected()){
-            //            W16.w16(no);
-            //        }
-        //       if(jCheckW17.isSelected()){
-            //            W17.w17(no);
-            //        }
-        //      // if(jCheckW18.isSelected()){
-            //      //      W18.w18(no);
-            //      //  }
-        //       if(jCheckW19.isSelected()){
-            //            W19.w19(no);
-            //        }
-        //       if(jCheckW20.isSelected()){
-            //            W20.w20(no);
-            //        }
-        //       if(jCheckW21.isSelected()){
-            //            W21.w21(no);
-            //        }
-        //       if(jCheckW25.isSelected()){
-            //            W25.w25(no);
-            //        }
-        //       if(jCheckW26.isSelected()){
-            //            W26.w26(no);
-            //        }
-        //       if(jCheckW27.isSelected()){
-            //            W27.w27(no);
-            //        }
-        //       if(jCheckW28.isSelected()){
-            //            W28.w28(no);
-            //        }
-        //       if(jCheckW29.isSelected()){
-            //            W29.w29(no);
-            //        }
-        //       if(jCheckW30.isSelected()){
-            //            W30.w30(no);
-            //        }
-        //       if(jCheckW31.isSelected()){
-            //            W31.w31(no);
-            //        }
-        //
-        //       if(jCheckW33.isSelected()){
-            //            W33.w33(no);
-            //        }
-        //       if(jCheckW34.isSelected()){
-            //            W34.w34(no);
-            //        }
-        //       if(jCheckW35.isSelected()){
-            //            W35.w35(no);
-            //        }
-        //       if(jCheckW36.isSelected()){
-            //            W36.w36(no);
-            //        }
-        //       if(jCheckW37.isSelected()){
-            //            W37.w37(no);
-            //        }
-        //       if(jCheckW38.isSelected()){
-            //            W38.w38(no);
-            //        }
-        //       if(jCheckW39.isSelected()){
-            //            W39.w39(no);
-            //        }
-        //       if(jCheckW40.isSelected()){
-            //            W40.w40(no);
-            //        }
-        //       if(jCheckW41.isSelected()){
-            //            W41.w41(no);
-            //        }
-        //      if(jCheckW43.isSelected()){
-            //            W43.w43(no);
-            //        }
-        //       if(jCheckW46.isSelected()){
-            //            W46.w46(no);
-            //        }
-        //       if(jCheckW47.isSelected()){
-            //            W47.w47(no);
-            //        }
-        //       if(jCheckW48.isSelected()){
-            //            W48.w48(no);
-            //        }
-        //       if(jCheckW49.isSelected()){
-            //            W49.w49(no);
-            //        }
-        //       if(jCheckW50.isSelected()){
-            //            W50.w50(no);
-            //        }
-        //       if(jCheckW51.isSelected()){
-            //            W51.w51(no);
-            //        }
-        //       if(jCheckW53.isSelected()){
-            //            W53.w53(no);
-            //        }
-        //       if(jCheckW62.isSelected()){
-            //            W62.w62(no);
-            //        }
-        //       if(jCheckW67.isSelected()){
-            //            W67.w67(no);
-            //        }
-        ////       if(jCheckW68.isSelected()){
-            ////            W68.w68(no);
-            ////        }
-        //       if(jCheckW69.isSelected()){
-            //            W69.w69(no);
-            //        }
-        //       if(jCheckW70.isSelected()){
-            //            W70.w70(no);
-            //        }
-        //       if(jCheckW71.isSelected()){
-            //            W71.w71(no);
-            //        }
-        //       if(jCheckW93.isSelected()){
-            //            W93.w93(no);
-            //        }
+               if(jCheckW69.isSelected()){
+                        W69.w69(no);
+                    }
+               if(jCheckW70.isSelected()){
+                        W70.w70(no);
+                    }
+               if(jCheckW71.isSelected()){
+                        W71.w71(no);
+                    }
+               if(jCheckW93.isSelected()){
+                        W93.w93(no);
+                    }
         Desktop desktop = Desktop.getDesktop();
         File dirToOpen = null;
         try {
-            dirToOpen = new File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+caseno+"-"+caseyear);
+            dirToOpen = new File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
             desktop.open(dirToOpen);
         } catch (Exception iae) {
-            System.out.println("File Not Found");
+            System.out.println("File Not Found :"+iae);
         }
 
     }//GEN-LAST:event_jButtonPrintDocActionPerformed
@@ -2536,8 +2540,96 @@ catch (Exception d) {  //System.out.println(d);
             }
         });
     }
-    
+    public void closeTextBox(){
+//    RestoreDate.setVisible(false);  
+  
+   crimecaseno.setEnabled(false);
+       crimecaseyear.setEnabled(false);
+       jButtonAction.setEnabled(false);
+       jButtonCharge.setEnabled(false);
+//       Age.setEnabled(true);
+//       Nationality.setEnabled(true);
+//       Race.setEnabled(true);
+//       Religion.setEnabled(true);
+//       Height.setEnabled(true);
+//       Weight.setEnabled(true);
+//       BloodGroup.setEnabled(true);
+//       FatherFullName.setEnabled(true);
+//       MotherFullName.setEnabled(true);
+//       PhonePerson.setEnabled(true);
+//       Occupation.setEnabled(true);
+//       HouseNumber.setEnabled(true);
+//       Gender.setEnabled(true);
+//       Moo.setEnabled(true);
+//       Tambon.setEnabled(true);
+//       Amphur.setEnabled(true);
+//       Province.setEnabled(true);
+//       ZipCode1.setEnabled(true);
+//       Gender1.setEnabled(true);
+//       Identification.setEnabled(true);
+//      ExpiredDate.getComponent(1).setEnabled(true);
+//      ExpiredDate.getJFormattedTextField().setEnabled(true);
+//      IssueDate.getComponent(1).setEnabled(true);
+//       IssueDate.getJFormattedTextField().setEnabled(true);
+//     BirthDay.getComponent(1).setEnabled(true);
+//       BirthDay.getJFormattedTextField().setEnabled(true);
+//             jRadioSue.setEnabled(true);
+//        jRadioResultImprison.setEnabled(true);
+//        jRadioResultRelease.setEnabled(true);
+//        jRadioCantCatch.setEnabled(true);
+//        jRadioVerbal.setEnabled(true);
+//        jRadioRestore.setEnabled(true);
+//        jRadioFreeze.setEnabled(true);
+//        jRadioWithdrawComplaint.setEnabled(true);
+//        jRadioOther.setEnabled(true);
+//        jCheckBail.setEnabled(true);
 
+    }
+   public void openTextBox(){
+//    RestoreDate.setVisible(false);  
+  
+   crimecaseno.setEnabled(true);
+       crimecaseyear.setEnabled(true);
+       jButtonAction.setEnabled(true);
+       jButtonCharge.setEnabled(true);
+//       Age.setEnabled(true);
+//       Nationality.setEnabled(true);
+//       Race.setEnabled(true);
+//       Religion.setEnabled(true);
+//       Height.setEnabled(true);
+//       Weight.setEnabled(true);
+//       BloodGroup.setEnabled(true);
+//       FatherFullName.setEnabled(true);
+//       MotherFullName.setEnabled(true);
+//       PhonePerson.setEnabled(true);
+//       Occupation.setEnabled(true);
+//       HouseNumber.setEnabled(true);
+//       Gender.setEnabled(true);
+//       Moo.setEnabled(true);
+//       Tambon.setEnabled(true);
+//       Amphur.setEnabled(true);
+//       Province.setEnabled(true);
+//       ZipCode1.setEnabled(true);
+//       Gender1.setEnabled(true);
+//       Identification.setEnabled(true);
+//      ExpiredDate.getComponent(1).setEnabled(true);
+//      ExpiredDate.getJFormattedTextField().setEnabled(true);
+//      IssueDate.getComponent(1).setEnabled(true);
+//       IssueDate.getJFormattedTextField().setEnabled(true);
+//     BirthDay.getComponent(1).setEnabled(true);
+//       BirthDay.getJFormattedTextField().setEnabled(true);
+//             jRadioSue.setEnabled(true);
+//        jRadioResultImprison.setEnabled(true);
+//        jRadioResultRelease.setEnabled(true);
+//        jRadioCantCatch.setEnabled(true);
+//        jRadioVerbal.setEnabled(true);
+//        jRadioRestore.setEnabled(true);
+//        jRadioFreeze.setEnabled(true);
+//        jRadioWithdrawComplaint.setEnabled(true);
+//        jRadioOther.setEnabled(true);
+//        jCheckBail.setEnabled(true);
+
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JTextField ActionCrimes;
