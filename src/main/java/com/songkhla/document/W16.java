@@ -14,11 +14,17 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
@@ -90,7 +96,7 @@ public class W16 {
                  
                  
                      
-                    VarRE2=VarRE2+"\n\r"+s.getString("DateRecord");
+                    VarRE2=VarRE2+"\n\r"+s.getString(ToDate("DateRecord"));
                     bookmarkvalue.put("RE2", Checknull(VarRE2));
                     VarRE3=VarRE3+"\n\r"+s.getString("NameInguiry");
                     bookmarkvalue.put("RE3", Checknull(VarRE3));
@@ -297,6 +303,19 @@ public class W16 {
 			tempTable.getContent().remove(templateRow);
 		}
 	}
+        private static String ToDate(String strDate){
+               String ResultDate="";
+         try {
+    	       SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", new Locale("th", "TH"));  
+               SimpleDateFormat dateto  = new SimpleDateFormat("dd MMMM yyyy", new Locale("th", "TH"));  
+               Date date=null;
+               date = df.parse(strDate);               
+               ResultDate=dateto.format(date.getTime());
+         } catch (ParseException ex) {
+             Logger.getLogger(W71.class.getName()).log(Level.SEVERE, null, ex);
+         }
+               return ResultDate;
+}
     public static String Checknull(String input){
 					if(input==null||input==""||input=="null") { return ""; }
 					return getThaiNumber(input);
