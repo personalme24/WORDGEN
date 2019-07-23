@@ -104,7 +104,6 @@ public class ChargePageInsert extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("ข้อมูลข้อหา");
-        setAlwaysOnTop(true);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setFont(new java.awt.Font("TH SarabunPSK", 0, 16)); // NOI18N
         setResizable(false);

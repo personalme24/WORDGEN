@@ -24,6 +24,8 @@ import java.util.Locale;
 import java.util.Properties;
 import java.util.Vector;
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.apache.xalan.trace.SelectionEvent;
 import org.jdatepicker.impl.JDatePanelImpl;
@@ -35,7 +37,7 @@ import org.json.simple.JSONObject;
  *
  * @author Petpilin
  */
-public class SueCrimesOverview extends javax.swing.JFrame {
+public class SueCrimesOverview extends javax.swing.JDialog {
     Connection con=null;
     PreparedStatement pst=null;
     DataCase dc =new DataCase();
@@ -45,7 +47,9 @@ public class SueCrimesOverview extends javax.swing.JFrame {
     /**
      * Creates new form BailCrimesForm
      */
-    public SueCrimesOverview() {
+    public SueCrimesOverview(JFrame parrent) {
+        super(parrent,true);
+
         initComponents();
         ImageIcon img = new ImageIcon("D://Master//WD.png");
         setIconImage(img.getImage());
@@ -112,6 +116,7 @@ public class SueCrimesOverview extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(1280, 720));
@@ -359,9 +364,12 @@ public class SueCrimesOverview extends javax.swing.JFrame {
                    
 
 
-                    
+                    JFrame frame = new JFrame();
+                    JDialog dialog = new JDialog(frame);//frame is owner
+                    JFrame in = (JFrame)(dialog.getParent());
+                    in.removeAll();
 
-                    SueCrimesFrom scf =new SueCrimesFrom(this,data);
+                    SueCrimesFrom scf =new SueCrimesFrom(in,data);
                     scf.pack();
                     scf.setLocationRelativeTo(null);
                     scf.setVisible(true);
@@ -428,7 +436,7 @@ public class SueCrimesOverview extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SueCrimesOverview().setVisible(true);
+//                new SueCrimesOverview().setVisible(true);
             }
         });
     }

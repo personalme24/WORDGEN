@@ -66,7 +66,6 @@ public class ChargeOverView extends javax.swing.JDialog {
         jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setAlwaysOnTop(true);
 
         jPanel4.setBackground(new java.awt.Color(4, 93, 179));
 

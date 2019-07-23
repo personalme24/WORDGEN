@@ -54,8 +54,8 @@ public class RecordInvestigatorView extends javax.swing.JDialog {
         caseId = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setAlwaysOnTop(true);
         setBackground(new java.awt.Color(255, 255, 255));
+        setResizable(false);
 
         jTableRecord.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jTableRecord.setModel(new javax.swing.table.DefaultTableModel(

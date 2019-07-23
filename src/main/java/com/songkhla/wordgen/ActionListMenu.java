@@ -61,8 +61,8 @@ public class ActionListMenu extends javax.swing.JDialog {
         jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setAlwaysOnTop(true);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setResizable(false);
 
         jPanel4.setBackground(new java.awt.Color(4, 93, 179));
 
@@ -225,9 +225,7 @@ public class ActionListMenu extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -273,11 +271,10 @@ public class ActionListMenu extends javax.swing.JDialog {
                       data.put("ActionCode", rs.getString("ActionCode"));
                     data.put("ActionCrimes", rs.getString("ActionCrimes"));
                     data.put("ActionDetail", rs.getString("ActionDetail"));
-                    data.put("RateOfPenalty", rs.getString("RateOfPenalty"));
-                    data.put("ActionNote", rs.getString("ActionNote"));
                     data.put("AnswerAccuser", rs.getString("AnswerAccuser"));
                     data.put("AnswerSuspect", rs.getString("AnswerSuspect"));                    
-     
+                         data.put("ActionNote", rs.getString("ActionNote"));                    
+
                             ActionPageInsert chIn=new ActionPageInsert(f,data);
                              chIn.pack();
                              chIn.setLocationRelativeTo(null);

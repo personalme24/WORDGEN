@@ -446,7 +446,6 @@ public class SuspectForm extends javax.swing.JDialog {
         BtSaveAccused = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setAlwaysOnTop(true);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -578,7 +577,7 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabel15.setText("เพศ");
 
         Gender.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        Gender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "หญิง", "ชาย", "ไม่ระบุ" }));
+        Gender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ชาย", "หญิง", "ไม่ระบุ" }));
 
         jLabel14.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel14.setText("อาชีพ");

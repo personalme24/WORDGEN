@@ -81,20 +81,18 @@ public class ActionPageInsert extends javax.swing.JDialog {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         ButtonAddAction = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         ActionNote = new javax.swing.JTextArea();
-        ActionCode = new javax.swing.JTextField();
         jScrollPane5 = new javax.swing.JScrollPane();
         AnswerAccuser = new javax.swing.JTextArea();
         jLabel21 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
         AnswerSuspect = new javax.swing.JTextArea();
+        ActionCode = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("ข้อมูลข้อหา");
-        setAlwaysOnTop(true);
         setAutoRequestFocus(false);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setFont(new java.awt.Font("TH SarabunPSK", 0, 16)); // NOI18N
@@ -141,17 +139,6 @@ public class ActionPageInsert extends javax.swing.JDialog {
             }
         });
 
-        jButton2.setBackground(java.awt.SystemColor.windowText);
-        jButton2.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("เลือกพฤติการณ์");
-        jButton2.setToolTipText("");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         ActionNote.setColumns(20);
         ActionNote.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         ActionNote.setLineWrap(true);
@@ -159,6 +146,8 @@ public class ActionPageInsert extends javax.swing.JDialog {
         jScrollPane2.setViewportView(ActionNote);
 
         AnswerAccuser.setColumns(20);
+        AnswerAccuser.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        AnswerAccuser.setLineWrap(true);
         AnswerAccuser.setRows(5);
         jScrollPane5.setViewportView(AnswerAccuser);
 
@@ -169,8 +158,13 @@ public class ActionPageInsert extends javax.swing.JDialog {
         jLabel20.setText("คำให้การผู้ต้องหา");
 
         AnswerSuspect.setColumns(20);
+        AnswerSuspect.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        AnswerSuspect.setLineWrap(true);
         AnswerSuspect.setRows(5);
         jScrollPane6.setViewportView(AnswerSuspect);
+
+        ActionCode.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        ActionCode.setText("jLabel1");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -185,20 +179,18 @@ public class ActionPageInsert extends javax.swing.JDialog {
                     .addComponent(ButtonAddAction)
                     .addComponent(jScrollPane4)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel2)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(11, 11, 11)
-                                    .addComponent(ActionCrimes, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(ActionCode, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(18, 18, 18)
-                            .addComponent(jButton2)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(11, 11, 11)
+                                .addComponent(ActionCrimes, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(ActionCode)))
+                        .addGap(137, 137, 137))
                     .addComponent(jScrollPane5)
                     .addComponent(jScrollPane6))
                 .addContainerGap(41, Short.MAX_VALUE))
@@ -207,16 +199,13 @@ public class ActionPageInsert extends javax.swing.JDialog {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(ActionCode, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(ActionCode))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(ActionCrimes)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ActionCrimes))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addGap(1, 1, 1)
@@ -224,18 +213,18 @@ public class ActionPageInsert extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel21)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel20)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ButtonAddAction, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47))
+                .addGap(23, 23, 23)
+                .addComponent(ButtonAddAction)
+                .addGap(160, 160, 160))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -254,10 +243,10 @@ public class ActionPageInsert extends javax.swing.JDialog {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 653, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -268,7 +257,9 @@ public class ActionPageInsert extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 718, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -335,21 +326,9 @@ public class ActionPageInsert extends javax.swing.JDialog {
             
         }
         }
-        CrimesCaseEdit.ActionCrimes.setText(ActionCrimes.getText());
-        CrimesCaseEdit.jLabelActionCode.setText(ActionCode.getText());
+   
         setVisible(false);
     }//GEN-LAST:event_ButtonAddActionActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        JFrame frame = new JFrame();
-             JDialog dialog = new JDialog(frame);//frame is owner
-             JFrame f = (JFrame)(dialog.getParent());               
-             f.removeAll();
-                   ActionList d = new ActionList(f);
-                    d.pack();
-                     d.setLocationRelativeTo(null);                   
-                    d.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -418,14 +397,13 @@ public class ActionPageInsert extends javax.swing.JDialog {
     
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JTextField ActionCode;
+    private javax.swing.JLabel ActionCode;
     public static javax.swing.JTextField ActionCrimes;
     public static javax.swing.JTextArea ActionDetail;
     public static javax.swing.JTextArea ActionNote;
     private javax.swing.JTextArea AnswerAccuser;
     private javax.swing.JTextArea AnswerSuspect;
     private javax.swing.JButton ButtonAddAction;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;

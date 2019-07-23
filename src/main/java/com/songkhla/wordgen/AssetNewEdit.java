@@ -132,7 +132,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
         jPanelDateAsset = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setAlwaysOnTop(true);
+        setResizable(false);
 
         jPanel4.setBackground(new java.awt.Color(4, 93, 179));
 

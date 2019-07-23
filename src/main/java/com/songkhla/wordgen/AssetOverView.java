@@ -72,7 +72,6 @@ public class AssetOverView extends javax.swing.JDialog {
         EvidenceRecordNumber = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setAlwaysOnTop(true);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(4, 93, 179));

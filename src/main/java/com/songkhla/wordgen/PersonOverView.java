@@ -17,6 +17,8 @@ import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Vector;
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
@@ -26,14 +28,16 @@ import org.json.simple.JSONObject;
  *
  * @author Petpilin
  */
-public class PersonOverView extends javax.swing.JFrame {
+public class PersonOverView extends javax.swing.JDialog {
 
     /**
      * Creates new form CrimesCaseView
      */
     
     
-    public PersonOverView() {
+    public PersonOverView(JFrame parrent) {
+                super(parrent,true);
+
         initComponents();
           ImageIcon img = new ImageIcon("D://Master//WD.png");
             setIconImage(img.getImage());
@@ -67,9 +71,10 @@ public class PersonOverView extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jComboBox1 = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(46, 156, 202));
+        jPanel1.setBackground(new java.awt.Color(4, 93, 179));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.setPreferredSize(new java.awt.Dimension(1261, 52));
 
@@ -255,8 +260,11 @@ public class PersonOverView extends javax.swing.JFrame {
                     data.put("TypePerson", rs.getString("TypePerson"));
                     data.put("OtherName", rs.getString("OtherName"));
                     
-                  
-                    PersonFrom pf =new PersonFrom(this,data);
+                     JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame ps = (JFrame)(dialog.getParent());
+        ps.removeAll();
+                    PersonFrom pf =new PersonFrom(ps,data);
                     pf.setVisible(true);
                 }
 
@@ -312,11 +320,11 @@ public class PersonOverView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                PersonOverView aa=  new PersonOverView();
-                    aa.setVisible(true);
-                    aa.setSize ( 1264, 728 );
-        aa.setMinimumSize ( new Dimension ( 1264, 728 ) );
-        aa.setMaximizedBounds ( new Rectangle ( 1264, 728 ) );
+//                PersonOverView aa=  new PersonOverView();
+//                    aa.setVisible(true);
+//                    aa.setSize ( 1264, 728 );
+//        aa.setMinimumSize ( new Dimension ( 1264, 728 ) );
+//        aa.setMaximizedBounds ( new Rectangle ( 1264, 728 ) );
             }
         });
         

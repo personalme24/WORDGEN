@@ -69,7 +69,7 @@ String typeC;
         jButtonAddAccused = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setAlwaysOnTop(true);
+        setResizable(false);
 
         jTableSuspect.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         jTableSuspect.setModel(new javax.swing.table.DefaultTableModel(

@@ -667,7 +667,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 
         jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel3.setText("อำนาจศาล");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, 50, 30));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 70, 30));
 
         crimecaseyear.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         jPanel1.add(crimecaseyear, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 70, -1));
@@ -1818,16 +1818,16 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 //         jButtonSaveCase.setEnabled(false);
 //         jButtonEditCase.setEnabled(true);
 //         closeTextBox();
-         JSONObject data=new JSONObject();
-         data.put("caseid", caseidLast);
-           JFrame frame = new JFrame();
-        JDialog dialog = new JDialog(frame);//frame is owner
-        JFrame fr = (JFrame)(dialog.getParent());
-        fr.removeAll();
-        ReportforCrimesCase n=new ReportforCrimesCase(fr,data);
-        n.pack();
-        n.setLocationRelativeTo(null);
-        n.setVisible(true);
+//         JSONObject data=new JSONObject();
+//         data.put("caseid", caseidLast);
+//           JFrame frame = new JFrame();
+//        JDialog dialog = new JDialog(frame);//frame is owner
+//        JFrame fr = (JFrame)(dialog.getParent());
+//        fr.removeAll();
+//        ReportforCrimesCase n=new ReportforCrimesCase(fr,data);
+//        n.pack();
+//        n.setLocationRelativeTo(null);
+//        n.setVisible(true);
 
     } 
             } catch (Exception e) {

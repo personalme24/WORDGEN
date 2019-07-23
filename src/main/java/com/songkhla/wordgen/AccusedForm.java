@@ -198,7 +198,7 @@ public class AccusedForm extends javax.swing.JDialog {
         crimecaseno = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setAlwaysOnTop(true);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(249, 249, 249));
 
@@ -374,7 +374,7 @@ public class AccusedForm extends javax.swing.JDialog {
 
         Moo.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
 
-        Tambon.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        Tambon.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
 
         Amphur.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
 

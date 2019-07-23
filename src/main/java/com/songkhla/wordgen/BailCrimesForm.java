@@ -22,6 +22,8 @@ import java.util.Properties;
 import java.util.Vector;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.event.ChangeEvent;
@@ -37,7 +39,7 @@ import org.xlsx4j.sml.Col;
  *
  * @author Petpilin
  */
-public class BailCrimesForm extends javax.swing.JFrame {
+public class BailCrimesForm extends javax.swing.JDialog {
     Connection con=null;
     PreparedStatement pst=null;
     DataCase dc =new DataCase();
@@ -47,7 +49,8 @@ public class BailCrimesForm extends javax.swing.JFrame {
     /**
      * Creates new form BailCrimesForm
      */
-    public BailCrimesForm() {
+    public BailCrimesForm(JFrame parrent) {
+                super(parrent,true);
         initComponents();
             ImageIcon img = new ImageIcon("D://Master//WD.png");
             setIconImage(img.getImage());
@@ -104,6 +107,7 @@ public class BailCrimesForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1270, 700));
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -413,8 +417,11 @@ public class BailCrimesForm extends javax.swing.JFrame {
                     data.put("BailDate", rs.getString("BailDate"));
                     data.put("CourtSuspect", rs.getString("CourtSuspect"));
 
-
-                    BailCrimesAdd bca =new BailCrimesAdd(this,data);
+                      JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame in = (JFrame)(dialog.getParent());
+        in.removeAll();    
+                    BailCrimesAdd bca =new BailCrimesAdd(in,data);
                     bca.pack();
                     bca.setLocationRelativeTo(null);
                     bca.setVisible(true);
@@ -518,7 +525,7 @@ public class BailCrimesForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BailCrimesForm().setVisible(true);
+//                new BailCrimesForm().setVisible(true);
             }
         });
     }

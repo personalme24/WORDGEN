@@ -59,7 +59,6 @@ public class ActionList extends javax.swing.JDialog {
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setAlwaysOnTop(true);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -257,7 +256,9 @@ public class ActionList extends javax.swing.JDialog {
         ActionPage.ActionCode.setText(jTableAction.getValueAt(number, 0).toString());
         ActionPage.ActionCrimes.setText(jTableAction.getValueAt(number, 1).toString());
         ActionPage.ActionDetail.setText(jTableAction.getValueAt(number, 2).toString());
-        ActionPage.ActionNote.setText(jTableAction.getValueAt(number, 3).toString());
+        ActionPage.AnswerAccuser.setText(jTableAction.getValueAt(number, 3).toString());
+        ActionPage.AnswerSuspect.setText(jTableAction.getValueAt(number, 4).toString());
+        ActionPage.ActionNote.setText(jTableAction.getValueAt(number, 5).toString());
     }//GEN-LAST:event_jTableActionMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -300,7 +301,9 @@ public class ActionList extends javax.swing.JDialog {
             Vector<String> row = new Vector<String>();
             row.add(rs.getString("ActionCode"));
             row.add(rs.getString("ActionCrimes"));
-             row.add(rs.getString("ActionDetail"));
+             row.add(rs.getString("ActionDetail"));          
+            row.add(rs.getString("AnswerAccuser"));  
+            row.add(rs.getString("AnswerSuspect"));
               row.add(rs.getString("ActionNote"));
             tabledata.add(row);
         }
@@ -310,6 +313,8 @@ public class ActionList extends javax.swing.JDialog {
         ColumnName.add("รหัส");
         ColumnName.add("พฤติการณ์");
         ColumnName.add("รายละเอียด");
+        ColumnName.add("คำให้การผู้กล่าวหา"); 
+        ColumnName.add("คำให้การผู้ต้องหา");               
         ColumnName.add("หมายเหตุ");
         jTableAction.setModel(new javax.swing.table.DefaultTableModel(
             tabledata,

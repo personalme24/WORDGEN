@@ -192,7 +192,6 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
         jCheckW93 = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setAlwaysOnTop(true);
         setPreferredSize(new java.awt.Dimension(1270, 728));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));

@@ -1139,8 +1139,11 @@ public class MainMenuWord extends javax.swing.JFrame {
 
     private void personmenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_personmenuMouseClicked
         // TODO add your handling code here:
-        
-         PersonOverView ps = new PersonOverView();
+        JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame po = (JFrame)(dialog.getParent());
+        po.removeAll();
+         PersonOverView ps = new PersonOverView(po);
           ps.pack();
             ps.setLocationRelativeTo(null);
         ps.setVisible(true);
@@ -1166,7 +1169,11 @@ public class MainMenuWord extends javax.swing.JFrame {
 
     private void SueMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SueMenuMouseClicked
         // TODO add your handling code here:
-        SueCrimesOverview sf=new SueCrimesOverview();
+        JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame in = (JFrame)(dialog.getParent());
+        in.removeAll();
+        SueCrimesOverview sf=new SueCrimesOverview(in);
          sf.pack();
             sf.setLocationRelativeTo(null);
         sf.setVisible(true);
@@ -1192,7 +1199,11 @@ public class MainMenuWord extends javax.swing.JFrame {
 
     private void BailMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BailMenuMouseClicked
         // TODO add your handling code here:
-        BailCrimesForm bcf=new BailCrimesForm();
+          JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame in = (JFrame)(dialog.getParent());
+        in.removeAll();
+        BailCrimesForm bcf=new BailCrimesForm(in);
          bcf.pack();
             bcf.setLocationRelativeTo(null);
         bcf.setVisible(true);
@@ -1228,7 +1239,11 @@ public class MainMenuWord extends javax.swing.JFrame {
 
     private void jPanelSueMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelSueMenuMouseClicked
         // TODO add your handling code here:
-           SueCrimesOverview sf=new SueCrimesOverview();
+        JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame in = (JFrame)(dialog.getParent());
+        in.removeAll();
+           SueCrimesOverview sf=new SueCrimesOverview(in);
          sf.pack();
             sf.setLocationRelativeTo(null);
         sf.setVisible(true);
@@ -1237,7 +1252,11 @@ public class MainMenuWord extends javax.swing.JFrame {
 
     private void jPanelBailMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelBailMenuMouseClicked
         // TODO add your handling code here:
-         BailCrimesForm bcf=new BailCrimesForm();
+          JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame in = (JFrame)(dialog.getParent());
+        in.removeAll();
+         BailCrimesForm bcf=new BailCrimesForm(in);
          bcf.pack();
             bcf.setLocationRelativeTo(null);
         bcf.setVisible(true);
