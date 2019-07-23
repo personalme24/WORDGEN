@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.HashMap;
 import java.util.Vector;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
@@ -62,6 +63,7 @@ public class ChargeOverView extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -77,20 +79,23 @@ public class ChargeOverView extends javax.swing.JDialog {
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        jLabel9.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel9.setText("รหัสข้อหา");
 
         ChargeCode.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
 
-        jLabel10.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel10.setText("ข้อหา");
 
         ChargeName.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
 
-        jButton3.setBackground(java.awt.SystemColor.windowText);
         jButton3.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("ค้นหา");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setBackground(java.awt.SystemColor.windowText);
         jButton4.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
@@ -147,6 +152,14 @@ public class ChargeOverView extends javax.swing.JDialog {
             }
         });
 
+        jButton5.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jButton5.setText("ล้างข้อมูล");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -159,20 +172,23 @@ public class ChargeOverView extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 554, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ChargeCode, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(ChargeName)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton3)))))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton1)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(ChargeCode, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel10)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(ChargeName, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButton3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButton5)))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -184,7 +200,8 @@ public class ChargeOverView extends javax.swing.JDialog {
                     .addComponent(jLabel9)
                     .addComponent(jLabel10)
                     .addComponent(ChargeName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
+                    .addComponent(jButton3)
+                    .addComponent(jButton5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(9, 9, 9)
@@ -203,7 +220,7 @@ public class ChargeOverView extends javax.swing.JDialog {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,7 +235,9 @@ public class ChargeOverView extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,6 +276,18 @@ public class ChargeOverView extends javax.swing.JDialog {
         ri.setVisible(true);
         RefreshData();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        RefreshData();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        ChargeCode.setText("");
+        ChargeName.setText("");
+        RefreshData();
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -297,7 +328,7 @@ public class ChargeOverView extends javax.swing.JDialog {
         try{
         Connection con = ConnectDatabase.connect();
         Statement stmt = con.createStatement();
-        String sql = "select * from Charge";
+        String sql = "select * from Charge"+getFilterCondition();
         ResultSet rs = stmt.executeQuery(sql);
         Vector<Vector> tabledata = new Vector<Vector>();
         while(rs.next()){
@@ -334,13 +365,37 @@ public class ChargeOverView extends javax.swing.JDialog {
             ex.printStackTrace();
         }
     }
-
+private String getFilterCondition(){
+        HashMap<String,String> filter = new HashMap<String,String>();
+        if(ChargeCode.getText().trim().length()>0){
+            filter.put("ChargeCode", ChargeCode.getText().trim());
+        }
+         if(ChargeName.getText().trim().length()>0){
+            filter.put("ChargeName", ChargeName.getText().trim());
+        }
+        String[] key = filter.keySet().toArray(new String[0]);
+        String result="";
+        for(int i=0;i<key.length;i++){
+            if(i==0){
+                result=" where ";
+            }
+            if(i==key.length-1){
+                result+= " "+key[i]+" LIKE '%"+filter.get(key[i])+"%'";
+            }else{
+                result+= " "+key[i]+" LIKE "+filter.get(key[i])+" and ";
+            }
+            System.out.println(result);
+        }
+        
+        return result;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ChargeCode;
     private javax.swing.JTextField ChargeName;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;

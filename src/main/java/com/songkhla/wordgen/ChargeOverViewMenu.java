@@ -13,6 +13,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.HashMap;
 import java.util.Vector;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
@@ -59,10 +60,14 @@ public class ChargeOverViewMenu extends javax.swing.JDialog {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableAction = new javax.swing.JTable();
+        jTableCharge = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        ChargeCode = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jButton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -80,9 +85,7 @@ public class ChargeOverViewMenu extends javax.swing.JDialog {
 
         ChargeName.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
 
-        jButton3.setBackground(java.awt.SystemColor.windowText);
         jButton3.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("ค้นหา");
 
         jButton4.setBackground(java.awt.SystemColor.windowText);
@@ -95,9 +98,9 @@ public class ChargeOverViewMenu extends javax.swing.JDialog {
             }
         });
 
-        jTableAction.setFont(new java.awt.Font("TH SarabunPSK", 1, 18)); // NOI18N
-        jTableAction.setForeground(new java.awt.Color(51, 51, 51));
-        jTableAction.setModel(new javax.swing.table.DefaultTableModel(
+        jTableCharge.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jTableCharge.setForeground(new java.awt.Color(51, 51, 51));
+        jTableCharge.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -119,18 +122,18 @@ public class ChargeOverViewMenu extends javax.swing.JDialog {
                 return types [columnIndex];
             }
         });
-        jTableAction.setFocusable(false);
-        jTableAction.setGridColor(new java.awt.Color(255, 255, 255));
-        jTableAction.setIntercellSpacing(new java.awt.Dimension(0, 0));
-        jTableAction.setRowHeight(25);
-        jTableAction.setSelectionBackground(new java.awt.Color(77, 0, 0));
-        jTableAction.getTableHeader().setReorderingAllowed(false);
-        jTableAction.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTableCharge.setFocusable(false);
+        jTableCharge.setGridColor(new java.awt.Color(255, 255, 255));
+        jTableCharge.setIntercellSpacing(new java.awt.Dimension(0, 0));
+        jTableCharge.setRowHeight(25);
+        jTableCharge.setSelectionBackground(new java.awt.Color(77, 0, 0));
+        jTableCharge.getTableHeader().setReorderingAllowed(false);
+        jTableCharge.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTableActionMouseClicked(evt);
+                jTableChargeMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTableAction);
+        jScrollPane1.setViewportView(jTableCharge);
 
         jButton1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jButton1.setText("เพิ่ม");
@@ -156,6 +159,20 @@ public class ChargeOverViewMenu extends javax.swing.JDialog {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel1.setText("รหัสข้อหา");
+
+        jLabel2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel2.setText("ีข้อหา");
+
+        jButton6.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jButton6.setText("ล้างข้อมูล");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -166,40 +183,52 @@ public class ChargeOverViewMenu extends javax.swing.JDialog {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton4))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGap(54, 54, 54)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton1)
+                                .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton2)
+                                .addComponent(ChargeCode, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(420, 420, 420)
-                                .addComponent(ChargeName, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton3))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 882, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ChargeName, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton6))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jButton1)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jButton2)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 882, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 30, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(24, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(ChargeCode, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ChargeName, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton3)
+                        .addComponent(jButton6))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(7, 7, 7))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ChargeName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 415, Short.MAX_VALUE)
+                        .addGap(1, 1, 1)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton4)
                 .addContainerGap())
@@ -219,7 +248,7 @@ public class ChargeOverViewMenu extends javax.swing.JDialog {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
+                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(23, 23, 23))
@@ -241,10 +270,10 @@ public class ChargeOverViewMenu extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTableActionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableActionMouseClicked
+    private void jTableChargeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableChargeMouseClicked
         // TODO add your handling code here:
        
-    }//GEN-LAST:event_jTableActionMouseClicked
+    }//GEN-LAST:event_jTableChargeMouseClicked
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
@@ -272,10 +301,10 @@ public class ChargeOverViewMenu extends javax.swing.JDialog {
              JDialog dialog = new JDialog(frame);//frame is owner
              JFrame f = (JFrame)(dialog.getParent());               
              f.removeAll();
-        if(jTableAction.getSelectedRow()>=0){
+        if(jTableCharge.getSelectedRow()>=0){
            
             try{
-                String ChargeCode = jTableAction.getModel().getValueAt(jTableAction.getSelectedRow(), 0)+"";            
+                String ChargeCode = jTableCharge.getModel().getValueAt(jTableCharge.getSelectedRow(), 0)+"";            
                 String sql = "select * from Charge where ChargeCode='"+ChargeCode+"'";
                    
                 Connection con = ConnectDatabase.connect();
@@ -313,10 +342,10 @@ public class ChargeOverViewMenu extends javax.swing.JDialog {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        if(jTableAction.getSelectedRow()>=0){
+        if(jTableCharge.getSelectedRow()>=0){
             try{
-                String ActionCode= jTableAction.getModel().getValueAt(jTableAction.getSelectedRow(), 0)+"";
-                String sql = "Delete from ActionsCase WHERE ActionCode='"+ActionCode+"'";
+                String ChargeCode= jTableCharge.getModel().getValueAt(jTableCharge.getSelectedRow(), 0)+"";
+                String sql = "Delete from Charge WHERE ChargeCode='"+ChargeCode+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 stmt.executeUpdate(sql);
@@ -329,6 +358,13 @@ public class ChargeOverViewMenu extends javax.swing.JDialog {
             }
         }
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+         ChargeCode.setText("");
+        ChargeName.setText("");
+        RefreshData();
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -371,7 +407,7 @@ public class ChargeOverViewMenu extends javax.swing.JDialog {
         try{
         Connection con = ConnectDatabase.connect();
         Statement stmt = con.createStatement();
-        String sql = "select * from Charge";
+        String sql = "select * from Charge"+getFilterCondition();
         ResultSet rs = stmt.executeQuery(sql);
         Vector<Vector> tabledata = new Vector<Vector>();
         while(rs.next()){
@@ -391,7 +427,7 @@ public class ChargeOverViewMenu extends javax.swing.JDialog {
         ColumnName.add("กฏหมาย");
         ColumnName.add("อัตราโทษ");
         ColumnName.add("หมายเหตุ");
-        jTableAction.setModel(new javax.swing.table.DefaultTableModel(
+        jTableCharge.setModel(new javax.swing.table.DefaultTableModel(
             tabledata,
             ColumnName
         ) {
@@ -408,18 +444,45 @@ public class ChargeOverViewMenu extends javax.swing.JDialog {
             ex.printStackTrace();
         }
     }
-
+private String getFilterCondition(){
+        HashMap<String,String> filter = new HashMap<String,String>();
+        if(ChargeCode.getText().trim().length()>0){
+            filter.put("ChargeCode", ChargeCode.getText().trim());
+        }
+         if(ChargeName.getText().trim().length()>0){
+            filter.put("ChargeName", ChargeName.getText().trim());
+        }
+        String[] key = filter.keySet().toArray(new String[0]);
+        String result="";
+        for(int i=0;i<key.length;i++){
+            if(i==0){
+                result=" where ";
+            }
+            if(i==key.length-1){
+                result+= " "+key[i]+" LIKE '%"+filter.get(key[i])+"%'";
+            }else{
+                result+= " "+key[i]+" LIKE "+filter.get(key[i])+" and ";
+            }
+            System.out.println(result);
+        }
+        
+        return result;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField ChargeCode;
     private javax.swing.JTextField ChargeName;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    public static javax.swing.JTable jTableAction;
+    public static javax.swing.JTable jTableCharge;
     // End of variables declaration//GEN-END:variables
 }
