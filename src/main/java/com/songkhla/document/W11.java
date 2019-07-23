@@ -14,14 +14,18 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
@@ -148,8 +152,8 @@ public class W11 {
                          
                     bookmarkvalue.put("B2",(s.getString("ChargeName")));
                      //ทรัพย์
-                 
-                    ++OrderAsset ;
+                 /*
+                    
                    
                     VarAS3=VarAS3+"\n\r"+(OrderAsset);
                     bookmarkvalue.put("AS3",Checknull(VarAS3));
@@ -177,7 +181,8 @@ public class W11 {
                     bookmarkvalue.put("AS331",Checknull(Integer.toString(OrderAsset)));
                     bookmarkvalue.put("AS661",Checknull(Integer.toString(SumValue)));
                     bookmarkvalue.put("AS1",Checknull(s.getString("EvidenceRecordNumber")));
-                    /*
+                    */
+                   ++OrderAsset ;
                    
                     if (s.getString("Value") != null)
                     {
@@ -190,7 +195,7 @@ public class W11 {
                     
 
 			JSONArray tablecolumn = new JSONArray();
-			
+			System.out.println(">>>>"+OrderAsset);
 			tablecolumn.add("AS3");
                         tablecolumn.add("AS4");
 			tablecolumn.add("AS5");
@@ -203,12 +208,12 @@ public class W11 {
 			
 			JSONObject row1 = new JSONObject();
 			
-			row1.put("AS3",Checknull(s.getString("OrderAsset")));
+			row1.put("AS3",Checknull(Integer.toString(OrderAsset)));
                         row1.put("AS4",Checknull(s.getString("Name")));
                         row1.put("AS5",Checknull(s.getString("Amount")));
                         row1.put("AS6",Checknull(s.getString("Value")));
                         row1.put("AS8",Checknull(s.getString("OccupantName")));
-                        row1.put("AS9",Checknull(s.getString("DateSequester")));
+                        row1.put("AS9",Checknull(ToDate(s.getString("DateSequester"))));
                         row1.put("AS10",Checknull(s.getString("Remark")));
                         
 			JSONArray.add(row1);
@@ -224,14 +229,14 @@ public class W11 {
 		bookmarkvalue.put("TABLES", TABLES);
 		System.out.println(bookmarkvalue.toJSONString());
 
-		*/
+		
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
 					.load(new java.io.File("D:/TEMPLATE/w11.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
-			//processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+cs+"-"+ccYear+"/บัญชีทรัพย์ของกลางคดีอาญา"+cs+"-"+ccYear+".doc"));
+			processTABLE(bookmarkvalue,wordMLPackage);
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/บัญชีทรัพย์ของกลางคดีอาญา"+cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -402,6 +407,19 @@ public static void nw11() {
 		}
 	}
         
+   private static String ToDate(String strDate){
+               String ResultDate="";
+         try {
+    	       SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", new Locale("th", "TH"));  
+               SimpleDateFormat dateto  = new SimpleDateFormat("dd MMMM yyyy", new Locale("th", "TH"));  
+               Date date=null;
+               date = df.parse(strDate);               
+               ResultDate=dateto.format(date.getTime());
+         } catch (ParseException ex) {
+             Logger.getLogger(W28.class.getName()).log(Level.SEVERE, null, ex);
+         }
+               return ResultDate;
+    }
   public static String Checknull(String input){
 					if(input==null||input==""||input=="null") { return ""; }
 					return getThaiNumber(input);
