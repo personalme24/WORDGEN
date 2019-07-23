@@ -218,7 +218,7 @@ public static void w65(String cc) {
 					.load(new java.io.File("D:/TEMPLATE/w65.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+cs+"-"+ccYear+"/คำร้องขอควบคุมผู้ต้องหาเพื่อตรวจพิสูจน์การเสพ"+s.getString("FullNamePerson")+""+cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/คำร้องขอควบคุมผู้ต้องหาเพื่อตรวจพิสูจน์การเสพ"+s.getString("FullNamePerson")+""+cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
