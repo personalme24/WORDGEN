@@ -104,9 +104,7 @@ public class AssetOverView extends javax.swing.JDialog {
         jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel1.setText("สมุดยึดทรัพย์ของกลางลำดับที่");
 
-        jButton1.setBackground(java.awt.SystemColor.windowText);
         jButton1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("เพิ่ม");
         jButton1.setBorderPainted(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -115,9 +113,7 @@ public class AssetOverView extends javax.swing.JDialog {
             }
         });
 
-        jButton2.setBackground(java.awt.SystemColor.windowText);
         jButton2.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("ลบ");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,9 +121,7 @@ public class AssetOverView extends javax.swing.JDialog {
             }
         });
 
-        jButton3.setBackground(java.awt.SystemColor.windowText);
         jButton3.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("แก้ไข");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

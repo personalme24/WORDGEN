@@ -497,8 +497,8 @@ public class CreateTable {
 	        try {   
                     connect=ConnectDatabase.connect();
                     s=connect.createStatement();
-                    String insertTambon = "Insert into Tambon (NAME,AMPHURID,PROVINCEID,TAMBONID,ZIPCODE,LOC_CODE,DOPA_CODE) values ('บ่อกวางทอง','07','203','03','20270','03','20100300' ),('ธาตุทอง','07','203','04','20270','04','20100400') ;" ;
-//                                                "Insert into Tambon (NAME,AMPHURID,PROVINCEID,TAMBONID,ZIPCODE,LOC_CODE,DOPA_CODE) values ('บ่อทอง','07','203','01','20270','01','20100100' );\n" +
+                    String insertTambon = "Insert into Tambon (NAME,AMPHURID,PROVINCEID,TAMBONID,ZIPCODE,LOC_CODE,DOPA_CODE) values ('บ่อกวางทอง','07','203','03','20270','03','20100300' );" +
+                                                "Insert into Tambon (NAME,AMPHURID,PROVINCEID,TAMBONID,ZIPCODE,LOC_CODE,DOPA_CODE) values ('บ่อทอง','07','203','01','20270','01','20100100' );" ;
 //                                                "Insert into Tambon (NAME,AMPHURID,PROVINCEID,TAMBONID,ZIPCODE,LOC_CODE,DOPA_CODE) values ('วัดสุวรรณ','07','203','02','20270','02','20100200' );\n" +
 //                                                "Insert into Tambon (NAME,AMPHURID,PROVINCEID,TAMBONID,ZIPCODE,LOC_CODE,DOPA_CODE) values ('บ่อกวางทอง','07','203','03','20270','03','20100300' );\n" +
 //                                                "Insert into Tambon (NAME,AMPHURID,PROVINCEID,TAMBONID,ZIPCODE,LOC_CODE,DOPA_CODE) values ('ธาตุทอง','07','203','04','20270','04','20100400' );";
@@ -522,7 +522,7 @@ System.out.println("SQLINSERT : "+insertTambon);
 	     */
 	    public static void main(String[] args) {
 	        createNewTable();
-//                InsertBaseData();
+                InsertBaseData();
 	    }
     
 }
