@@ -32,7 +32,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jScrollPane1" alignment="0" pref="720" max="32767" attributes="0"/>
+          <Component id="jScrollPane1" alignment="0" pref="726" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -77,33 +77,41 @@
                           </Group>
                           <Component id="jCheckW93" alignment="0" min="-2" pref="94" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="jCheckW37" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jCheckW36" alignment="0" pref="350" max="32767" attributes="0"/>
-                          <Component id="jCheckW35" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jCheckW34" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jCheckW33" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jCheckW32" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jCheckW31" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jCheckW30" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jCheckW29" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jCheckW27" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jCheckW26" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jCheckW25" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jCheckW24" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jCheckW23" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jCheckW22" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jCheckW21" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jCheckW20" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jCheckW28" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="jCheckW38" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="crimecaseno" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="button1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                      <EmptySpace pref="24" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="103" alignment="1" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="jCheckW37" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jCheckW36" alignment="0" pref="350" max="32767" attributes="0"/>
+                              <Component id="jCheckW35" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jCheckW34" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jCheckW33" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jCheckW32" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jCheckW31" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jCheckW30" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jCheckW29" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jCheckW27" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jCheckW26" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jCheckW25" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jCheckW24" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jCheckW23" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jCheckW22" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jCheckW21" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jCheckW20" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jCheckW28" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="crimecaseno" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="jCheckW38" max="32767" attributes="0"/>
+                                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -361,17 +369,13 @@
                                       <Component id="jCheckBox78" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="93" max="32767" attributes="0"/>
+                              <EmptySpace pref="105" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="9" pref="9" max="-2" attributes="0"/>
-                                      <Component id="crimecaseno" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="7" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="button1" alignment="1" min="-2" pref="32" max="-2" attributes="0"/>
+                              <EmptySpace pref="623" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="crimecaseno" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                           </Group>
@@ -384,7 +388,7 @@
             <Container class="javax.swing.JPanel" name="jPanel3">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ca" green="9c" red="2e" type="rgb"/>
+                  <Color blue="b3" green="5d" red="4" type="rgb"/>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
@@ -430,17 +434,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel2"/>
               </Properties>
-            </Component>
-            <Component class="java.awt.Button" name="button1">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="TH SarabunPSK" size="18" style="1"/>
-                </Property>
-                <Property name="label" type="java.lang.String" value="&#xe2a;&#xe23;&#xe49;&#xe32;&#xe07;&#xe40;&#xe2d;&#xe01;&#xe2a;&#xe32;&#xe23;"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button1ActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JCheckBox" name="jCheckBox40">
               <Properties>
@@ -1323,6 +1316,17 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW93ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton1">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="TH SarabunPSK" size="22" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="&#xe2a;&#xe23;&#xe49;&#xe32;&#xe07;&#xe40;&#xe2d;&#xe01;&#xe2a;&#xe32;&#xe23;"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
