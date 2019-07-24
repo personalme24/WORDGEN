@@ -195,7 +195,7 @@ public class BailCrimesForm extends javax.swing.JDialog {
 
         ChargeName.setEditable(false);
         ChargeName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        ChargeName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        ChargeName.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         ChargeName.setBorder(null);
 
         jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
@@ -206,7 +206,7 @@ public class BailCrimesForm extends javax.swing.JDialog {
 
         PlaceArrest.setEditable(false);
         PlaceArrest.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        PlaceArrest.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        PlaceArrest.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         PlaceArrest.setBorder(null);
 
         jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
@@ -214,7 +214,7 @@ public class BailCrimesForm extends javax.swing.JDialog {
 
         ArrestDate.setEditable(false);
         ArrestDate.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        ArrestDate.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        ArrestDate.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         ArrestDate.setBorder(null);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -237,14 +237,14 @@ public class BailCrimesForm extends javax.swing.JDialog {
                         .addComponent(SuspectFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ChargeName)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ArrestDate))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ChargeName)))
+                        .addComponent(ArrestDate, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
