@@ -192,7 +192,7 @@ public class SueCrimesOverview extends javax.swing.JDialog {
         jTableSue.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTableSue);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 1158, 269));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 1158, 269));
 
         jButtonAddSue.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jButtonAddSue.setText("เปิด");
@@ -215,10 +215,10 @@ public class SueCrimesOverview extends javax.swing.JDialog {
         );
         jPanelDateStartLayout.setVerticalGroup(
             jPanelDateStartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
+            .addGap(0, 40, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanelDateStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, 210, 30));
+        jPanel1.add(jPanelDateStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, 210, 40));
 
         javax.swing.GroupLayout jPanelDateEndLayout = new javax.swing.GroupLayout(jPanelDateEnd);
         jPanelDateEnd.setLayout(jPanelDateEndLayout);
@@ -228,17 +228,17 @@ public class SueCrimesOverview extends javax.swing.JDialog {
         );
         jPanelDateEndLayout.setVerticalGroup(
             jPanelDateEndLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
+            .addGap(0, 40, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanelDateEnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 70, 210, 30));
+        jPanel1.add(jPanelDateEnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 70, 210, 40));
 
         jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel3.setText("วันที่ครบกำหนด");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, -1, -1));
 
         jButtonDate.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jButtonDate.setText("เลือก");
+        jButtonDate.setText("ค้นหา");
         jButtonDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDateActionPerformed(evt);

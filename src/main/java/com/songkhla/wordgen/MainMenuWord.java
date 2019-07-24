@@ -49,7 +49,7 @@ public class MainMenuWord extends javax.swing.JFrame {
 //        checkdata();
         ImageIcon img = new ImageIcon("D://Master//WD.png");
         setIconImage(img.getImage());
-        setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
+        setTitle("ระบบสำนวนอิเล็กทรอนิกส์ (CRIMES)");
        
 //        CalculateDate();
         data();

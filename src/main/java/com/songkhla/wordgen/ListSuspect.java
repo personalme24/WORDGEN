@@ -99,8 +99,8 @@ String typeC;
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(256, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(76, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(4, 93, 179));
@@ -224,7 +224,8 @@ String typeC;
                 String PeopleRegistrationID = jTableSuspect.getModel().getValueAt(jTableSuspect.getSelectedRow(), 0)+"";            
                 String sql = "select NoPerson,Identification,CurrentAddress,Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,Weight,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                        "PhonePerson,StatusSuspect,Province,Race,Religion,Tambon,TypePerson,ZipCode,caseIdPerson,ArrestDateTime,PlaceArrest from person where PeopleRegistrationID='"+PeopleRegistrationID+ "' and caseIdPerson='"+crimecaseno+"' and TypePerson='ผู้ต้องหา'";
+                        "PhonePerson,StatusSuspect,BailDate,StatusBail,RatePrison,CourtSuspect,ArrestDateTimeEnd,Province,Race,Religion,Tambon,TypePerson,"
+                        + "ZipCode,caseIdPerson,ArrestDateTime,PlaceArrest from person where PeopleRegistrationID='"+PeopleRegistrationID+ "' and caseIdPerson='"+crimecaseno+"' and TypePerson='ผู้ต้องหา'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);
@@ -261,6 +262,12 @@ String typeC;
                     data.put("Tambon", rs.getString("Tambon"));
                     data.put("CurrentAddress", rs.getString("CurrentAddress"));
                     data.put("ArrestDateTime", rs.getString("ArrestDateTime"));
+                    data.put("ArrestDateTimeEnd", rs.getString("ArrestDateTimeEnd"));
+                    data.put("StatusBail", rs.getString("StatusBail"));
+                    data.put("RatePrison", rs.getString("RatePrison"));
+                    data.put("CourtSuspect", rs.getString("CourtSuspect"));
+                     data.put("BailDate", rs.getString("BailDate"));
+                   
                     data.put("PlaceArrest", rs.getString("PlaceArrest"));
                     data.put("caseIdPerson", rs.getString("caseIdPerson"));
                     
@@ -296,7 +303,6 @@ String typeC;
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 stmt.executeUpdate(sql);
-               
                 System.out.println("SQL : "+sql);
                 stmt.close();
                 RefreshData();
@@ -351,7 +357,7 @@ String typeC;
         String a=txtCaseNO.getText();
         String sql = "select Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                      "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                     "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,caseIdPerson from person where TypePerson='ผู้ต้องหา' and caseIdPerson="+a+getFilterCondition();
+                     "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,caseIdPerson from person where TypePerson='ผู้ต้องหา' and caseIdPerson='"+a+"'"+getFilterCondition();
       
         ResultSet rs = stmt.executeQuery(sql);
           System.out.println("SQL : "+sql);
@@ -472,6 +478,11 @@ String typeC;
         } 
     
     }
+    public static String Checknull(String input){
+                    if(input==null||input==""||input=="null") { return ""; }
+                    return input;
+		}  
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAddAccused;

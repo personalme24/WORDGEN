@@ -233,7 +233,7 @@ String noPerson;
                     JSONObject data = new JSONObject();
                       data.put("NoPerson", rs.getString("NoPerson"));
                     data.put("PeopleRegistrationID", rs.getString("PeopleRegistrationID"));
-                    data.put("crimecaseno", rs.getString("caseIdPerson"));
+                    data.put("caseIdPerson", rs.getString("caseIdPerson"));
                     data.put("Age", rs.getString("Age"));
                     data.put("Amphur", rs.getString("Amphur"));
                     data.put("BirthDay", rs.getString("BirthDay"));
@@ -345,7 +345,7 @@ String noPerson;
         String a=txtCaseNO.getText();
         String sql = "select Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                      "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                     "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,caseIdPerson from person where TypePerson='พยานและบุคคลอื่นๆ' and caseIdPerson="+a+getFilterCondition();
+                     "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,caseIdPerson from person where TypePerson='พยานและบุคคลอื่นๆ' and caseIdPerson='"+a+"'"+getFilterCondition();
       
         ResultSet rs = stmt.executeQuery(sql);
           System.out.println("SQL : "+sql);

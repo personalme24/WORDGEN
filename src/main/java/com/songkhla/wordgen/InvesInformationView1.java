@@ -257,14 +257,14 @@ public class InvesInformationView1 extends javax.swing.JDialog{
         Connection con = ConnectDatabase.connect();
         Statement stmt = con.createStatement();
        
-        String sql = "select InvestId,InvestCardID,InvestName,InvestPosition,InvestBirthDay,InvestAge,InvestTel from InvestInformation" ;
+        String sql = "select InvestId,InvestCardID,InvestRank,InvestName,InvestPosition,InvestBirthDay,InvestAge,InvestTel from InvestInformation" ;
         ResultSet rs = stmt.executeQuery(sql);
           System.out.println("SQL : "+sql);
         Vector<Vector> tabledata = new Vector<Vector>();
         while(rs.next()){
             Vector<String> row = new Vector<String>();
             row.add(rs.getString("InvestId"));
-            row.add(rs.getString("InvestName"));
+            row.add(rs.getString("InvestRank")+" "+rs.getString("InvestName"));
             row.add(rs.getString("InvestPosition"));
             row.add(rs.getString("InvestBirthDay"));
             row.add(rs.getString("InvestAge"));
