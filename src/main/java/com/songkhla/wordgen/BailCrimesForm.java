@@ -571,7 +571,7 @@ public class BailCrimesForm extends javax.swing.JDialog {
         Statement stmt = con.createStatement();
 //        String a=txtCaseNO.getText();
         String sql;
-                sql= "select StatusBail,CaseId,crimecasenoyear,SueFirstDate,Investigator_Result,TypePerson,BailDate,PeopleRegistrationID,FullNamePerson,StatusSuspect,CaseIdPerson,CaseAcceptDate \n" +
+                sql= "select StatusBail,CaseId,ArrestDateTimeEnd,crimecasenoyear,SueFirstDate,Investigator_Result,TypePerson,BailDate,PeopleRegistrationID,FullNamePerson,StatusSuspect,CaseIdPerson,CaseAcceptDate \n" +
                      "from Person\n" +
                      "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId "
                    + "where TypePerson='ผู้ต้องหา' and StatusBail='ประกัน' or StatusSuspect='"+jComboStatus.getSelectedItem()+"'";
@@ -589,7 +589,7 @@ public class BailCrimesForm extends javax.swing.JDialog {
             row.add(rs.getString("crimecasenoyear"));
             row.add(rs.getString("FullNamePerson"));
             row.add(rs.getString("CaseAcceptDate"));
-            
+            row.add(rs.getString("ArrestDateTimeEnd"));
             String DateCal=null;
             if(jComboStatus.getSelectedItem().equals("ประกัน")&& rs.getString("BailDate") !=null){
             row.add(rs.getString("BailDate"));          
@@ -652,6 +652,7 @@ public class BailCrimesForm extends javax.swing.JDialog {
          ColumnName.add("ผู้ต้องหา");
          //ColumnName.add("ศาล");
          ColumnName.add("วันรับคำร้องทุกข์");
+          ColumnName.add("วันสิ้นสุดควบคุมตัว");
          if(StatusSus.equals("ประกัน")){
            ColumnName.add("วันประกัน");
          }
@@ -683,7 +684,8 @@ public class BailCrimesForm extends javax.swing.JDialog {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class,
                 java.lang.String.class, java.lang.String.class, java.lang.String.class,
                 java.lang.String.class, java.lang.String.class, java.lang.String.class,
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class,
+                java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {

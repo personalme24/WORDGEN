@@ -1511,7 +1511,7 @@ public class SuspectForm extends javax.swing.JDialog {
                 pst.setString(28,crimecaseno.getText());
                 pst.setString(29,CourtSuspect.getSelectedItem().toString());
                 pst.setString(30,ArrestDateTime.getJFormattedTextField().getText()+" "+arrestTime);
-                pst.setString(31,BailDate.getJFormattedTextField().getText()+" "+arrestTime);
+                pst.setString(31,BailDate.getJFormattedTextField().getText());
                    if(CourtSuspect.getSelectedItem().toString().equals("ศาลอาญา") && jCheckBail.isSelected()){
                  pst.setString(32,"");
                 }

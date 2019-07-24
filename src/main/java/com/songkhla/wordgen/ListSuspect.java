@@ -297,9 +297,9 @@ String typeC;
               if(jTableSuspect.getSelectedRow()>=0){
             String aa=txtCaseNO.getText();      
             try{
-                String crimecaseno = jTableSuspect.getModel().getValueAt(jTableSuspect.getSelectedRow(), 0)+"";
-                String PeopleRegistrationID = jTableSuspect.getModel().getValueAt(jTableSuspect.getSelectedRow(), 2)+"";
-                String sql = "Delete from person WHERE PeopleRegistrationID='"+PeopleRegistrationID+ "' and  caseIdPerson='"+aa+"'";
+//                String crimecaseno = jTableSuspect.getModel().getValueAt(jTableSuspect.getSelectedRow(), 0)+"";
+                String PeopleRegistrationID = jTableSuspect.getModel().getValueAt(jTableSuspect.getSelectedRow(), 0)+"";
+                String sql = "Delete from person WHERE PeopleRegistrationID='"+PeopleRegistrationID+ "' and  caseIdPerson='"+aa+"' and TypePerson='ผู้ต้องหา'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 stmt.executeUpdate(sql);
