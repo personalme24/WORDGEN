@@ -107,6 +107,8 @@ public class WitnessForm extends javax.swing.JDialog {
             Race.setText(datain.get("Race")+"");
             Religion.setText(datain.get("Religion")+"");
             Tambon.setText(datain.get("Tambon")+"");
+            PhonePerson.setText(datain.get("PhonePerson")+"");   
+            Gender.setSelectedItem(datain.get("Gender"));
      
 
 //                    data.put("Gender", rs.getString("Gender"));

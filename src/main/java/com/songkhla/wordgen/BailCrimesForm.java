@@ -634,14 +634,13 @@ public class BailCrimesForm extends javax.swing.JDialog {
             cal7.setTime(date); 
            cal7.add(Calendar.YEAR,1);
             String Date12=sdf.format(cal7.getTime());
-
-            row.add(Date1);
-            row.add(Date2);
-            row.add(Date3);
-            row.add(Date4);
-             row.add(Date5);
-            row.add(Date6);
-            row.add(Date12);
+//            row.add(Date1);
+//            row.add(Date2);
+//            row.add(Date3);
+//            row.add(Date4);
+//             row.add(Date5);
+//            row.add(Date6);
+//            row.add(Date12);
       
             tabledata.add(row);
         }
@@ -662,6 +661,7 @@ public class BailCrimesForm extends javax.swing.JDialog {
          else{
            ColumnName.add("วันส่งตัว");
          }
+          ColumnName.add("ครบ 1 เดือน");
          ColumnName.add("ครบ 1 เดือน");
          ColumnName.add("ครบ 2 เดือน");
          ColumnName.add("ครบ 3 เดือน");
