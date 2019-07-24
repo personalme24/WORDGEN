@@ -197,10 +197,10 @@ public class W42 {
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("D:/TEMPLATE/w42.docx"));
+					.load(new java.io.File("./TEMPLATE/w42.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/แบบคำขอรับชดใช้ค่าใช้จ่ายเบื้อต้นอันเกิดจากการขนส่ง"+cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/แบบคำขอรับชดใช้ค่าใช้จ่ายเบื้อต้นอันเกิดจากการขนส่ง" +cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -252,10 +252,10 @@ public static void nw42() {
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("D:/TEMPLATE/w42.docx"));
+					.load(new java.io.File("./TEMPLATE/w42.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/แบบคำขอรับชดใช้ค่าใช้จ่ายเบื้อต้นอันเกิดจากการขนส่ง.doc"));
+			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/แบบคำขอรับชดใช้ค่าใช้จ่ายเบื้อต้นอันเกิดจากการขนส่ง.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

@@ -200,10 +200,10 @@ public class W50 {
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("D:/TEMPLATE/w50.docx"));
+					.load(new java.io.File("./TEMPLATE/w50.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/หนังสือขอส่งรายละเอียดเกี่ยวกับคนต่างด้าวถูกกักขขังฯ "+s.getString("FullNamePerson")+""+cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/หนังสือขอส่งรายละเอียดเกี่ยวกับคนต่างด้าวถูกกักขขังฯ "+s.getString("FullNamePerson")+"" +cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -266,10 +266,10 @@ public static void nw50() {
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("D:/TEMPLATE/w50.docx"));
+					.load(new java.io.File("./TEMPLATE/w50.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์//หนังสือขอส่งรายละเอียดเกี่ยวกับคนต่างด้าวถูกกักขขังฯ.doc"));
+			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์//หนังสือขอส่งรายละเอียดเกี่ยวกับคนต่างด้าวถูกกักขขังฯ.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

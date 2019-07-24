@@ -210,10 +210,10 @@ public static void w68(String cc,String sueTime) {
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("D:/TEMPLATE/w68.docx"));
+					.load(new java.io.File("./TEMPLATE/w68.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/คำร้องขอ"+StatusSue+"ครั้งที่ "+cs+"-"+ccYear+""+s.getString("SueSecond")+".doc"));
+			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/คำร้องขอ"+StatusSue+"ครั้งที่ " +cs+"-"+ccYear+""+s.getString("SueSecond")+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -277,10 +277,10 @@ public static void nw68() {
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("D:/TEMPLATE/w68.docx"));
+					.load(new java.io.File("./TEMPLATE/w68.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/คำร้องขอผัดฟ้องหรือผัดฟ้องและฝากขังครั้งที่...doc"));
+			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/คำร้องขอผัดฟ้องหรือผัดฟ้องและฝากขังครั้งที่...doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
