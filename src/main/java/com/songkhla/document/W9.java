@@ -158,8 +158,11 @@ public static void w9(String cc) {
                     bookmarkvalue.put("PS33", Checknull(s.getString("TambonBirthday")));
                     bookmarkvalue.put("PS34", Checknull(s.getString("AmphurBirthday")));
                     bookmarkvalue.put("PS35", Checknull(s.getString("ProvinceBirthday")));
-                     
-
+                    
+                    
+                    bookmarkvalue.put("PS001", Checknull(s.getString("CrimeLocation"))+" ต."+Checknull(s.getString("CrimeLocationDistrict"))+" อ."+Checknull(s.getString("CrimeLocationAmphur"))+" จ."+Checknull(s.getString("CrimeLocationProvince")));
+                    bookmarkvalue.put("PS002", Checknull(ToDate(s.getString("OccuredDate")))+" เวลา "+Checknull(s.getString("OccuredTime"))+" น.");
+                  
                       bookmarkvalue.put("B2", Checknull(s.getString("ChargeName")));
                       
                        bookmarkvalue.put("P02", Checknull(RankPolice));
@@ -216,10 +219,10 @@ public static void w9(String cc) {
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("D:/TEMPLATE/w9.docx"));
+					.load(new java.io.File("./TEMPLATE/w9.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/บันทึกคำให้การผู้ต้องหา "+s.getString("FullNamePerson")+""+cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/บันทึกคำให้การผู้ต้องหา "+s.getString("FullNamePerson")+"" +cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -275,6 +278,8 @@ public static void nw9( ) {
                     bookmarkvalue.put("PS33","");
                     bookmarkvalue.put("PS34","");
                     bookmarkvalue.put("PS35","");
+                    bookmarkvalue.put("PS001","");
+                    bookmarkvalue.put("PS002","");
                      
 
                       bookmarkvalue.put("B2","");
@@ -289,10 +294,10 @@ public static void nw9( ) {
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("D:/TEMPLATE/w9.docx"));
+					.load(new java.io.File("./TEMPLATE/w9.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/บันทึกคำให้การผู้ต้องหา.doc"));
+			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/บันทึกคำให้การผู้ต้องหา.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

@@ -78,7 +78,7 @@ public class W16 {
             String VarRE2 ="";
             String VarRE3 ="";
             String VarRE4 ="";
-           
+           JSONArray JSONArray = new JSONArray();
             
             
             
@@ -89,7 +89,7 @@ public class W16 {
                  JSONObject bookmarkvalue = new JSONObject();
 //                 bookmarkvalue.put("C1","Date");
 //                 bookmarkvalue.put("S27","-");
-
+/*
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3",Checknull(ccYear));
                 bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
@@ -102,59 +102,44 @@ public class W16 {
                     bookmarkvalue.put("RE3", Checknull(VarRE3));
                     VarRE4=VarRE4+"\n\r"+s.getString("DetailRecord");
                     bookmarkvalue.put("RE4", Checknull(VarRE4));
-                   
+                   */
                     
                    
-                    
-                    
-                 
-//		bookmarkvalue.put("P7", s.getString("AccureandOther"));
-//                bookmarkvalue.put("P13", s.getString("AccureandOther"));
-//		bookmarkvalue.put("test01", "พ.ต.อ.");
-//		bookmarkvalue.put("test02", "พนักงานสอบสวน");
-//		bookmarkvalue.put("test03", "สน.ดอนเมือง");
-//                bookmarkvalue.put("test04", "สน.ดอนเมือง5");
-		
-    
+     
 			JSONArray tablecolumn = new JSONArray();
-			tablecolumn.add("C2");
-			tablecolumn.add("C3");
-//			tablecolumn.add("SUSPECT");
-//			tablecolumn.add("VICTIM");
-//			tablecolumn.add("REMARK");
-			JSONArray table1 = new JSONArray();
-			JSONObject row1 = new JSONObject();
-			row1.put("C2",cs);
-			row1.put("C3", ccYear);
-//			row1.put("SUSPECT", "period1");
-//			row1.put("VICTIM", "period1");
-//			row1.put("REMARK", "period1");
-			table1.add(row1);
 			
-//			JSONObject repl2 = new JSONObject();
-//			repl2.put("CRIMESNO", "function1");
-//			repl2.put("DESCRIPTION", "desc1");
-//			repl2.put("SUSPECT", "period1");
-//			repl2.put("VICTIM", "period1");
-//			repl2.put("REMARK", "period1");
-//			table1.add(repl2);
+			tablecolumn.add("RE2");
+                        tablecolumn.add("RE3");
+			tablecolumn.add("RE4");
+                        
+
+			JSONObject row1 = new JSONObject();
+			
+			
+			row1.put("RE2",Checknull(s.getString(ToDate("DateRecord"))));
+                        row1.put("RE3",Checknull(s.getString("NameInguiry")));
+                        row1.put("RE4",Checknull(s.getString("DetailRecord")));
+
+			JSONArray.add(row1);
+                        
+
 		JSONObject tableobj = new JSONObject();
 		tableobj.put("COLUMNS", tablecolumn);
-		tableobj.put("TABLEDATA", table1);
+		tableobj.put("TABLEDATA", JSONArray);
 			
 		JSONArray TABLES = new JSONArray();
 		TABLES.add(tableobj);
+
 		bookmarkvalue.put("TABLES", TABLES);
 		System.out.println(bookmarkvalue.toJSONString());
-		
 		
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("D:/TEMPLATE/w16.docx"));
+					.load(new java.io.File("./TEMPLATE/w16.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/บันทึกพนักงานสอบสวน"+cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/บันทึกพนักงานสอบสวน" +cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -189,10 +174,10 @@ public class W16 {
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("D:/TEMPLATE/w16.docx"));
+					.load(new java.io.File("./TEMPLATE/w16.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์//บันทึกพนักงานสอบสวน.doc"));
+			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์//บันทึกพนักงานสอบสวน.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -312,7 +297,7 @@ public class W16 {
                date = df.parse(strDate);               
                ResultDate=dateto.format(date.getTime());
          } catch (ParseException ex) {
-             Logger.getLogger(W71.class.getName()).log(Level.SEVERE, null, ex);
+             Logger.getLogger(W16.class.getName()).log(Level.SEVERE, null, ex);
          }
                return ResultDate;
 }

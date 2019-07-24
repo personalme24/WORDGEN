@@ -14,14 +14,18 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
@@ -95,7 +99,7 @@ public class W12 {
             String VarAS10 ="";
             int OrderAsset=0;
             int SumValue=0;
-            
+             JSONArray JSONArray = new JSONArray();
             
             
             
@@ -106,7 +110,7 @@ public class W12 {
                 String Date="";
                 String Month="";
                 String Year="";
-                
+               
                 
                 SimpleDateFormat sdfstart ;
                 Calendar  calstart = Calendar.getInstance();
@@ -139,7 +143,7 @@ public class W12 {
                      //ทรัพย์
                     
                     
-                   
+                   /*
                     
                     ++OrderAsset ;
                     VarAS3=VarAS3+"\n\r"+(OrderAsset);
@@ -169,10 +173,22 @@ public class W12 {
                     bookmarkvalue.put("AS661",Checknull(Integer.toString(SumValue)));
                     bookmarkvalue.put("AS1",Checknull(s.getString("EvidenceRecordNumber")));
                     
-                    /*
+                   */
+
+			++OrderAsset ;
+                   
+                    if (s.getString("Value") != null)
+                    {
+                    SumValue = SumValue+s.getInt("Value");
+                    } 
+                    bookmarkvalue.put("AS331",Checknull(Integer.toString(OrderAsset)));
+                    bookmarkvalue.put("AS661",Checknull(Integer.toString(SumValue)));
+                    bookmarkvalue.put("AS1",Checknull(s.getString("EvidenceRecordNumber")));
+                    
+                    
 
 			JSONArray tablecolumn = new JSONArray();
-			tablecolumn.add("AS1");
+			System.out.println(">>>>"+OrderAsset);
 			tablecolumn.add("AS3");
                         tablecolumn.add("AS4");
 			tablecolumn.add("AS5");
@@ -182,43 +198,38 @@ public class W12 {
 			tablecolumn.add("AS10");
                        
 
-			JSONArray table1 = new JSONArray();
 			JSONObject row1 = new JSONObject();
-			row1.put("AS1",Checknull(VarAS1));
-			row1.put("AS3",Checknull(VarAS3));
-                        row1.put("AS4",Checknull(VarAS4));
-                        row1.put("AS5",Checknull(VarAS5));
-                        row1.put("AS6",Checknull(VarAS6));
-                        row1.put("AS8", Checknull(VarAS8));
-                        row1.put("AS9", Checknull(VarAS9));
-                        row1.put("AS10",Checknull(VarAS10));
-                        
-			table1.add(row1);
 			
-//			JSONObject repl2 = new JSONObject();
-//			repl2.put("CRIMESNO", "function1");
-//			repl2.put("DESCRIPTION", "desc1");
-//			repl2.put("SUSPECT", "period1");
-//			repl2.put("VICTIM", "period1");
-//			repl2.put("REMARK", "period1");
-//			table1.add(repl2);
+			
+			row1.put("AS3",Checknull(Integer.toString(OrderAsset)));
+                        row1.put("AS4",Checknull(s.getString("Name")));
+                        row1.put("AS5",Checknull(s.getString("Amount")));
+                        row1.put("AS6",Checknull(s.getString("Value")));
+                        row1.put("AS8",Checknull(s.getString("OccupantName")));
+                        row1.put("AS9",Checknull(ToDate(s.getString("DateSequester"))));
+                        row1.put("AS10",Checknull(s.getString("Remark")));
+                        
+				JSONArray.add(row1);
+                        
+
 		JSONObject tableobj = new JSONObject();
 		tableobj.put("COLUMNS", tablecolumn);
-		tableobj.put("TABLEDATA", table1);
+		tableobj.put("TABLEDATA", JSONArray);
 			
 		JSONArray TABLES = new JSONArray();
 		TABLES.add(tableobj);
+
 		bookmarkvalue.put("TABLES", TABLES);
 		System.out.println(bookmarkvalue.toJSONString());
-		*/
+		
 		
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("D:/TEMPLATE/w12.docx"));
+					.load(new java.io.File("./TEMPLATE/w12.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
-			//processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+cs+"-"+ccYear+"/บัญชีทรพย์ถูกประทุษร้าย"+cs+"-"+ccYear+".doc"));
+			processTABLE(bookmarkvalue,wordMLPackage);
+			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/บัญชีทรพย์ถูกประทุษร้าย" +cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -269,10 +280,10 @@ public class W12 {
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("D:/TEMPLATE/w12.docx"));
+					.load(new java.io.File("./TEMPLATE/w12.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			
-			wordMLPackage.save(new java.io.File("D:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/บัญชีทรพย์ถูกประทุษร้าย.doc"));
+			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/บัญชีทรพย์ถูกประทุษร้าย.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -383,6 +394,19 @@ public class W12 {
 			tempTable.getContent().remove(templateRow);
 		}
 	}
+        private static String ToDate(String strDate){
+               String ResultDate="";
+         try {
+    	       SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", new Locale("th", "TH"));  
+               SimpleDateFormat dateto  = new SimpleDateFormat("dd MMMM yyyy", new Locale("th", "TH"));  
+               Date date=null;
+               date = df.parse(strDate);               
+               ResultDate=dateto.format(date.getTime());
+         } catch (ParseException ex) {
+             Logger.getLogger(W12.class.getName()).log(Level.SEVERE, null, ex);
+         }
+               return ResultDate;
+    }
     public static String Checknull(String input){
 					if(input==null||input==""||input=="null") { return ""; }
 					return getThaiNumber(input);
