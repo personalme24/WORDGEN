@@ -100,7 +100,6 @@ public class BailCrimesForm extends javax.swing.JDialog {
         jLabel8 = new javax.swing.JLabel();
         ArrestDate = new javax.swing.JTextField();
         jCheckOnly = new javax.swing.JCheckBox();
-        jComboStatus = new javax.swing.JComboBox<>();
         AddEditBail = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -198,7 +197,7 @@ public class BailCrimesForm extends javax.swing.JDialog {
 
         ChargeName.setEditable(false);
         ChargeName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        ChargeName.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        ChargeName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         ChargeName.setBorder(null);
 
         jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
@@ -217,7 +216,7 @@ public class BailCrimesForm extends javax.swing.JDialog {
 
         ArrestDate.setEditable(false);
         ArrestDate.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        ArrestDate.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        ArrestDate.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         ArrestDate.setBorder(null);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -278,14 +277,6 @@ public class BailCrimesForm extends javax.swing.JDialog {
             }
         });
 
-        jComboStatus.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jComboStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ประกัน", "แจ้งข้อหาปล่อยตัว", "แจ้งข้อหาฝากขัง", "ไม่ได้ตัว", "ไม่รู้ตัว", "ฟ้องวาจา", "ส่งฟื้นฟู", "อื่นๆ" }));
-        jComboStatus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboStatusActionPerformed(evt);
-            }
-        });
-
         AddEditBail.setIcon(new javax.swing.ImageIcon("D:\\Master\\edit (1).png")); // NOI18N
         AddEditBail.setText("แก้ไข");
         AddEditBail.setPreferredSize(new java.awt.Dimension(79, 30));
@@ -309,9 +300,7 @@ public class BailCrimesForm extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(AddEditBail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jCheckOnly)
-                        .addGap(18, 18, 18)
-                        .addComponent(jComboStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jCheckOnly))
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(104, 104, 104))
         );
@@ -321,15 +310,10 @@ public class BailCrimesForm extends javax.swing.JDialog {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jCheckOnly)
-                            .addComponent(jComboStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 7, Short.MAX_VALUE)
-                        .addComponent(AddEditBail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 4, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AddEditBail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckOnly))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(232, 232, 232))
@@ -449,11 +433,6 @@ public class BailCrimesForm extends javax.swing.JDialog {
         
     }//GEN-LAST:event_jTableBailMouseClicked
 
-    private void jComboStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboStatusActionPerformed
-        // TODO add your handling code here:
-        RefreshData();
-    }//GEN-LAST:event_jComboStatusActionPerformed
-
     private void crimecasenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crimecasenoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_crimecasenoActionPerformed
@@ -462,11 +441,7 @@ public class BailCrimesForm extends javax.swing.JDialog {
 //     if(a.equals("ประกัน"))
 //     {AddEditBail.setVisible(true);}
 //     else{AddEditBail.setVisible(false);}
-        jComboStatus.addActionListener (new ActionListener () {
-                public void actionPerformed(ActionEvent e) {
-
-                }
-            });
+  
   }
     /**
      * @param args the command line arguments
@@ -545,28 +520,30 @@ public class BailCrimesForm extends javax.swing.JDialog {
 //        String a=txtCaseNO.getText();
         String sql;
          sql="select CrimeCase.crimecasenoyear crimecasenoyear,CrimeCase.caseacceptdate CaseAcceptDate,Person.arrestdatetimeend ArrestDateTimeEnd,\n" +
-                "Person.Fullnameperson FullNamePerson,Person.BailDate BailDate,deli1.deliorder order1,deli1.delidate date1,\n" +
-                "deli2.deliorder order2,deli2.delidate date2,\n" +
-                "deli3.deliorder order3,deli3.delidate date3,\n" +
-                "deli4.deliorder order4,deli4.delidate date4,\n" +
-                "deli5.deliorder order5,deli5.delidate date5,\n" +
-                "deli6.deliorder order6,deli6.delidate date6\n" +
-                "from \n" +
-                "(select * from DeliverySuspect where deliorder=1) as deli1 \n" +
-                "left outer join\n" +
-                "(select * from DeliverySuspect where deliorder=2) as deli2 on deli1.delipersonid=deli2.delipersonid\n" +
-                "left outer join\n" +
-                "(select * from DeliverySuspect where deliorder=3) as deli3 on deli1.delipersonid=deli3.delipersonid\n" +
-                "left outer join\n" +
-                "(select * from DeliverySuspect where deliorder=4) as deli4 on deli1.delipersonid=deli4.delipersonid\n" +
-                "left outer join\n" +
-                "(select * from DeliverySuspect where deliorder=5) as deli5 on deli1.delipersonid=deli5.delipersonid\n" +
-                "left outer join\n" +
-                "(select * from DeliverySuspect where deliorder=6) as deli6 on deli1.delipersonid=deli6.delipersonid\n" +
-                "left join \n" +
-                "(select Person.* from Person) as person on deli1.delipersonid=person.noperson\n" +
-                "left join \n" +
-                "(select CrimeCase.* from CrimeCase) as CrimeCase on Person.caseidperson=CrimeCase.caseid";
+"                Person.Fullnameperson FullNamePerson, Person.noperson noperson,Person.BailDate BailDate,Person.StatusBail StatusBail,\n" +
+" deli1.deliorder order1,deli1.delidate date1,\n" +
+" deli2.deliorder order2,deli2.delidate date2,\n" +
+"deli3.deliorder order3,deli3.delidate date3,\n" +
+"deli4.deliorder order4,deli4.delidate date4,\n" +
+"deli5.deliorder order5,deli5.delidate date5,\n" +
+" deli6.deliorder order6,deli6.delidate date6\n" +
+"from Person\n" +
+"left join DeliverySuspect on Person.NoPerson=deli1.DeliPersonId\n" +
+"  left join CrimeCase on Person.caseidperson=CrimeCase.caseid\n" +
+"left outer join\n" +
+"(select * from DeliverySuspect where deliorder=1) as deli1\n" +
+" left outer join\n" +
+"(select * from DeliverySuspect where deliorder=2) as deli2 on deli1.delipersonid=deli2.delipersonid\n" +
+"  left outer join\n" +
+"                (select * from DeliverySuspect where deliorder=3) as deli3 on deli1.delipersonid=deli3.delipersonid\n" +
+"                left outer join\n" +
+"                (select * from DeliverySuspect where deliorder=4) as deli4 on deli1.delipersonid=deli4.delipersonid\n" +
+"                left outer join\n" +
+"                (select * from DeliverySuspect where deliorder=5) as deli5 on deli1.delipersonid=deli5.delipersonid\n" +
+"                left outer join\n" +
+"                (select * from DeliverySuspect where deliorder=6) as deli6 on deli1.delipersonid=deli6.delipersonid\n" +
+"where 	Person.StatusBail='ประกัน'			\n" +
+"group by Person.NoPerson";
 //                sql= "select StatusBail,CaseId,ArrestDateTimeEnd,crimecasenoyear,SueFirstDate,Investigator_Result,TypePerson,BailDate,PeopleRegistrationID,FullNamePerson,StatusSuspect,CaseIdPerson,CaseAcceptDate \n" +
 //                     "from Person\n" +
 //                     "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId "
@@ -578,7 +555,7 @@ public class BailCrimesForm extends javax.swing.JDialog {
       }
       
         ResultSet rs = stmt.executeQuery(sql);
-          System.out.println("SQL : "+sql);
+//          System.out.println("SQL : "+sql);
         Vector<Vector> tabledata = new Vector<Vector>();
         while(rs.next()){
             Vector<String> row = new Vector<String>();          
@@ -586,50 +563,12 @@ public class BailCrimesForm extends javax.swing.JDialog {
             row.add(rs.getString("FullNamePerson"));
             row.add(rs.getString("CaseAcceptDate"));
             row.add(rs.getString("ArrestDateTimeEnd"));
-            String DateCal=null;
-            if(jComboStatus.getSelectedItem().equals("ประกัน")&& rs.getString("BailDate") !=null){
-            row.add(rs.getString("BailDate"));          
-             DateCal=rs.getString("BailDate")+"";
-            }
-            else if(jComboStatus.getSelectedItem().equals("ผัดฟ้องฝากขัง")){
-            row.add(rs.getString("SueFirstDate"));          
-//             DateCal=rs.getString("BailDate")+"";
-            }
+             row.add(rs.getString("BailDate"));  
 //            else if(jComboStatus.getSelectedItem().equals("ส่งฟื้นฟู")){
 //             row.add(rs.getString("RestoreDate"));          
 //             DateCal=rs.getString("RestoreDate")+"";
 //            }
-//            Calendar cal,cal2,cal3,cal4,cal5,cal6,cal7;
-//            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-//            Date date = sdf.parse(DateCal);
-//            cal = Calendar.getInstance();
-//            cal.setTime(date);                      
-//            cal.add(Calendar.MONTH,1);
-//            String Date1=sdf.format(cal.getTime());
-//             cal2 = Calendar.getInstance();
-//            cal2.setTime(date);  
-//            cal2.add(Calendar.MONTH,2);
-//            String Date2=sdf.format(cal2.getTime());
-//             cal3 = Calendar.getInstance();
-//            cal3.setTime(date);  
-//            cal3.add(Calendar.MONTH,3);
-//            String Date3=sdf.format(cal3.getTime());
-//            cal4 = Calendar.getInstance();
-//            cal4.setTime(date); 
-//            cal4.add(Calendar.MONTH,4);
-//            String Date4=sdf.format(cal4.getTime());
-//            cal5 = Calendar.getInstance();
-//            cal5.setTime(date); 
-//            cal5.add(Calendar.MONTH,5);
-//            String Date5=sdf.format(cal5.getTime());
-//            cal6 = Calendar.getInstance();
-//            cal6.setTime(date); 
-//            cal6.add(Calendar.MONTH,6);
-//            String Date6=sdf.format(cal6.getTime());
-//            cal7 = Calendar.getInstance();
-//            cal7.setTime(date); 
-//           cal7.add(Calendar.YEAR,1);
-//            String Date12=sdf.format(cal7.getTime());
+
             row.add(rs.getString("date1"));
             row.add(rs.getString("date2"));
             row.add(rs.getString("date3"));
@@ -643,21 +582,13 @@ public class BailCrimesForm extends javax.swing.JDialog {
         rs.close();
         stmt.close();
         Vector ColumnName = new Vector(); 
-        String StatusSus=jComboStatus.getSelectedItem()+"";        
+         
          ColumnName.add("เลขคดี/ปี");    
          ColumnName.add("ผู้ต้องหา");
          //ColumnName.add("ศาล");
          ColumnName.add("วันรับคำร้องทุกข์");
           ColumnName.add("วันสิ้นสุดควบคุมตัว");
-         if(StatusSus.equals("ประกัน")){
-           ColumnName.add("วันประกัน");
-         }
-        else if(StatusSus.equals("ส่งฟื้นฟู")){
-           ColumnName.add("วันส่งฟื้นฟู");
-         }
-         else{
-           ColumnName.add("วันส่งตัว");
-         }
+           ColumnName.add("วันประกัน");   
           ColumnName.add("ครบส่งตัวครั้งที่ 1");
          ColumnName.add("ครบส่งตัวครั้งที่ 2");
          ColumnName.add("ครบส่งตัวครั้งที่ 3");
@@ -749,30 +680,31 @@ public class BailCrimesForm extends javax.swing.JDialog {
 
     public int CalculateDateBail(String DateCheck){
        int diffDays =0;   
-       try{
-     
-               Locale lc = new Locale("th","TH");
-           SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy",lc);
-                        SimpleDateFormat  format = new SimpleDateFormat("dd/MM/yyyy",lc);  
-                        String d2Day=dateFormat.format(new Date());
-                        Date dateTo =null;
-                        Date datebail=null;
-                        if(DateCheck==null){
-                            diffDays=diffDays;
-                        }
-                        else{
-                           dateTo=format.parse(d2Day);
-                          datebail=format.parse(DateCheck);
-                         System.out.println("DateNew : "+datebail);
-                        System.out.println("DateToday : "+dateTo);
-                            long diff = datebail.getTime() - dateTo.getTime();
-                             diffDays = (int)(diff / (24 * 60 * 60 * 1000));                          
-                             System.out.println("Time in Day: " + diffDays + " Days."); 
-                        }
-       }catch(Exception e){
-           e.printStackTrace();
-       
-       }
+//       try{
+//     
+//               Locale lc = new Locale("th","TH");
+//           SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy",lc);
+//                        SimpleDateFormat  format = new SimpleDateFormat("dd/MM/yyyy",lc);  
+//                        String d2Day=dateFormat.format(new Date());
+//                        Date dateTo =null;
+//                        Date datebail=null;
+//                        if(DateCheck == null ||DateCheck.equals("")||DateCheck.equals(null)||DateCheck.equals(" ")){
+//                           diffDays=0;
+//                        }
+//                        else{
+//                             dateTo=format.parse(d2Day);
+//                          datebail=format.parse(DateCheck);
+//                               System.out.println("DateNew : "+datebail);
+//                        System.out.println("DateToday : "+dateTo);
+//                            long diff = datebail.getTime() - dateTo.getTime();
+//                             diffDays = (int)(diff / (24 * 60 * 60 * 1000));                          
+//                             System.out.println("Time in Day: " + diffDays + " Days."); 
+//                        }
+//                
+//       }catch(Exception e){
+//           e.printStackTrace();
+//       
+//       }
           return diffDays;               
     
     }
@@ -785,7 +717,6 @@ public class BailCrimesForm extends javax.swing.JDialog {
     private javax.swing.JTextField SuspectFullName;
     private javax.swing.JTextField crimecaseno;
     private javax.swing.JCheckBox jCheckOnly;
-    private javax.swing.JComboBox<String> jComboStatus;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel5;

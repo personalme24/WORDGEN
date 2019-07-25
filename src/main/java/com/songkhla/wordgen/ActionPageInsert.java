@@ -203,9 +203,9 @@ public class ActionPageInsert extends javax.swing.JDialog {
                     .addComponent(jLabel5)
                     .addComponent(ActionCode))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addComponent(ActionCrimes))
+                    .addComponent(ActionCrimes, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addGap(1, 1, 1)
@@ -398,7 +398,7 @@ public class ActionPageInsert extends javax.swing.JDialog {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ActionCode;
-    public static javax.swing.JTextField ActionCrimes;
+    private javax.swing.JTextField ActionCrimes;
     public static javax.swing.JTextArea ActionDetail;
     public static javax.swing.JTextArea ActionNote;
     private javax.swing.JTextArea AnswerAccuser;

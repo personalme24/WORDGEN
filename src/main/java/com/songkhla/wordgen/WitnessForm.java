@@ -397,7 +397,7 @@ public class WitnessForm extends javax.swing.JDialog {
         Province.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
 
         Related.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        Related.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ผู้จับกุมผู้ต้องหา", "ผู้พบการกระทำผิด", "ผู้ตรวจยึดของกลาง", "บิดาผู้ต้องหา", "มารดาผู้ต้องหา", "ผู้ปกครองหรือผู้ดูแลผู้ต้องหา", "เจ้าหน้าที่สืบสวน", "ผู้เสียหาย", "ผู้ตาย", "บิดาผู้ตาย", "มารดาผู้ตาย", "ญาติผู้ตาย", "พยาน", "นายประกัน", "ไม่ระบุ" }));
+        Related.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ผู้จับกุมผู้ต้องหา", "ผู้พบการกระทำผิด", "ผู้ตรวจยึดของกลาง", "บิดาผู้ต้องหา", "มารดาผู้ต้องหา", "ผู้ปกครองหรือผู้ดูแลผู้ต้องหา", "เจ้าหน้าที่สืบสวน", "ผู้เสียหาย", "ผู้ตาย", "บิดาผู้ตาย", "มารดาผู้ตาย", "ญาติผู้ตาย", "พยาน", "นายประกัน", "ผู้แจ้ง", "ล่าม", "ไม่ระบุ" }));
 
         jLabel19.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel19.setText("เกี่ยวข้องเป็น");

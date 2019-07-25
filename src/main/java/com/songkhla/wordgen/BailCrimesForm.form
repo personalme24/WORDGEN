@@ -62,8 +62,6 @@
                           <Component id="AddEditBail" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="jCheckOnly" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jComboStatus" min="-2" pref="182" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
                   </Group>
@@ -77,18 +75,10 @@
                   <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jCheckOnly" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jComboStatus" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="0" pref="7" max="32767" attributes="0"/>
-                          <Component id="AddEditBail" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                  <EmptySpace min="0" pref="4" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="AddEditBail" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckOnly" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="269" max="-2" attributes="0"/>
@@ -306,7 +296,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="TH SarabunPSK" size="20" style="0"/>
                 </Property>
-                <Property name="horizontalAlignment" type="int" value="2"/>
+                <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
@@ -354,7 +344,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="TH SarabunPSK" size="20" style="0"/>
                 </Property>
-                <Property name="horizontalAlignment" type="int" value="2"/>
+                <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
@@ -375,31 +365,6 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckOnlyActionPerformed"/>
           </Events>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="jComboStatus">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="TH SarabunPSK" size="20" style="1"/>
-            </Property>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="8">
-                <StringItem index="0" value="&#xe1b;&#xe23;&#xe30;&#xe01;&#xe31;&#xe19;"/>
-                <StringItem index="1" value="&#xe41;&#xe08;&#xe49;&#xe07;&#xe02;&#xe49;&#xe2d;&#xe2b;&#xe32;&#xe1b;&#xe25;&#xe48;&#xe2d;&#xe22;&#xe15;&#xe31;&#xe27;"/>
-                <StringItem index="2" value="&#xe41;&#xe08;&#xe49;&#xe07;&#xe02;&#xe49;&#xe2d;&#xe2b;&#xe32;&#xe1d;&#xe32;&#xe01;&#xe02;&#xe31;&#xe07;"/>
-                <StringItem index="3" value="&#xe44;&#xe21;&#xe48;&#xe44;&#xe14;&#xe49;&#xe15;&#xe31;&#xe27;"/>
-                <StringItem index="4" value="&#xe44;&#xe21;&#xe48;&#xe23;&#xe39;&#xe49;&#xe15;&#xe31;&#xe27;"/>
-                <StringItem index="5" value="&#xe1f;&#xe49;&#xe2d;&#xe07;&#xe27;&#xe32;&#xe08;&#xe32;"/>
-                <StringItem index="6" value="&#xe2a;&#xe48;&#xe07;&#xe1f;&#xe37;&#xe49;&#xe19;&#xe1f;&#xe39;"/>
-                <StringItem index="7" value="&#xe2d;&#xe37;&#xe48;&#xe19;&#xe46;"/>
-              </StringArray>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboStatusActionPerformed"/>
-          </Events>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="AddEditBail">
           <Properties>

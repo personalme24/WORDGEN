@@ -385,7 +385,11 @@ public class CreateTable {
                                 "	DeliDate	VARCHAR(100)	,	\n"+
                                 "	DeliTimes	VARCHAR(100)	,	\n"+
                                 "	DeliPlace	VARCHAR(100)	,	\n"+
-                                "	DeliPersonId	INTEGER		\n"+         
+                                "	DeliPersonId	INTEGER,	\n"+
+                                " CONSTRAINT fk_Person            \n"+
+                                "FOREIGN KEY (DeliPersonId)            \n"+
+                                "REFERENCES Person(NoPerson)  \n"+
+                                "ON DELETE SET NULL                     \n"+
                                 "	);"; 
                 
         String sqlSueCrimeCase ="CREATE TABLE IF NOT EXISTS SueCrimeCase (\n"+                
