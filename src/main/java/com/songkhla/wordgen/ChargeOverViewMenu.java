@@ -69,7 +69,7 @@ public class ChargeOverViewMenu extends javax.swing.JDialog {
         jButton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setAlwaysOnTop(true);
+        setResizable(false);
 
         jPanel4.setBackground(new java.awt.Color(4, 93, 179));
 

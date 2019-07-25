@@ -99,7 +99,7 @@ String typeC;
         jTableAccure.setGridColor(new java.awt.Color(255, 255, 255));
         jTableAccure.setRowHeight(25);
         jTableAccure.setRowMargin(2);
-        jTableAccure.setSelectionBackground(new java.awt.Color(77, 0, 0));
+        jTableAccure.setSelectionBackground(new java.awt.Color(0, 153, 255));
         jScrollPane1.setViewportView(jTableAccure);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

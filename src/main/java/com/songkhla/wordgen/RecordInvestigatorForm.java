@@ -159,6 +159,7 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
         );
 
         DetailRecord.setColumns(20);
+        DetailRecord.setLineWrap(true);
         DetailRecord.setRows(5);
         jScrollPane1.setViewportView(DetailRecord);
 

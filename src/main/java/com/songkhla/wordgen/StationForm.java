@@ -721,10 +721,17 @@ public class StationForm extends javax.swing.JDialog {
             pst.setString(30,StationTambon.getText());
             pst.setString(31,StationMoo.getText());
             pst.setString(32,Postcode.getText());
-            pst.executeUpdate();
-            pst.close();
-            JOptionPane.showMessageDialog(null, "Data Saved successfully");
-             setVisible(false);
+           
+            
+             
+              int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
+        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (response == JOptionPane.YES_OPTION) {
+               pst.executeUpdate(); 
+               pst.close();
+//               System.out.println("SQLUP :"+sql);
+                setVisible(false);
+          } 
               } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
             System.out.println("SQL : "+pst);
@@ -804,15 +811,19 @@ public class StationForm extends javax.swing.JDialog {
             pst.setString(31,StationMoo.getText());
             pst.setString(32,Postcode.getText());
              pst.setString(33,PoliceStationCode.getText());
-             System.out.println("SQL : "+sqlUpdate);
-            pst.executeUpdate();
-            pst.close();
-             setVisible(false);
-              
+//             System.out.println("SQL : "+sqlUpdate);
+              int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
+        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (response == JOptionPane.YES_OPTION) {
+               pst.executeUpdate(); 
+               pst.close();
+//               System.out.println("SQLUP :"+sql);
+                setVisible(false);
+          } 
                     }
             
              catch (Exception e) {
-           JOptionPane.showMessageDialog(null, "บันทึกข้อมูลเรียบร้อยแล้ว");
+           JOptionPane.showMessageDialog(null, "ไม่สามารถแก้ไขข้อมูลได้");
             System.out.println("SQL : "+pst);
             
         }

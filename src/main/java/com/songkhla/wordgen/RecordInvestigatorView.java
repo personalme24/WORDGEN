@@ -32,6 +32,7 @@ public class RecordInvestigatorView extends javax.swing.JDialog {
         initComponents();
         caseIdRec=datain.get("CaseIdRec")+"";
         caseId.setText(caseIdRec);
+        caseId.setVisible(false);
         RefreshData();
     }
 
@@ -178,11 +179,11 @@ public class RecordInvestigatorView extends javax.swing.JDialog {
            
             try{
                 String NameInguiry = jTableRecord.getModel().getValueAt(jTableRecord.getSelectedRow(), 2)+"";            
-                String sql = "select IdRecord,DateRecord,NameInguiry,DetailRecord,CaseIdRecord where '"+NameInguiry+"' and CaseIdRecord="+crimecaseno;
+                String sql = "select IdRecord,DateRecord,NameInguiry,DetailRecord,CaseIdRecord where NameInguiry='"+NameInguiry+"' and CaseIdRecord="+crimecaseno;
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);
-//                System.out.println("dddddddddddddd:"+sql);
+                System.out.println("dddddddddddddd:"+sql);
                 if(rs.next()){
                     JSONObject data = new JSONObject();
                       data.put("IdRecord", rs.getString("IdRecord"));

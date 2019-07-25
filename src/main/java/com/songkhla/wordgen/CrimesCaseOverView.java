@@ -29,6 +29,7 @@ import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
 import org.json.simple.JSONObject;
 import java.util.Properties;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Petpilin
@@ -119,7 +120,7 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
         jPanelRequestDateSearch = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1270, 720));
+        setPreferredSize(new java.awt.Dimension(1280, 720));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(4, 93, 179));
@@ -175,14 +176,14 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonDelete)
                     .addComponent(jButtonEdit)
                     .addComponent(jButtonAdd))
-                .addGap(22, 22, 22))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTable1.setFont(new java.awt.Font("TH SarabunPSK", 1, 18)); // NOI18N
@@ -218,7 +219,7 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
         jTable1.setGridColor(new java.awt.Color(255, 255, 255));
         jTable1.setIntercellSpacing(new java.awt.Dimension(0, 0));
         jTable1.setRowHeight(25);
-        jTable1.setSelectionBackground(new java.awt.Color(77, 0, 0));
+        jTable1.setSelectionBackground(new java.awt.Color(0, 153, 255));
         jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable1);
 
@@ -439,10 +440,10 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
 
         pack();
@@ -456,8 +457,13 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
                 String sql = "Delete from CrimeCase WHERE CaseId='"+crimecaseId+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
-                stmt.executeUpdate(sql);
+            
+ int response = JOptionPane.showConfirmDialog(jPanel4, "ต้องการบันทึกข้อมูล", "ยืนยัน",
+        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+  if (response == JOptionPane.YES_OPTION) {
+    stmt.executeUpdate(sql);
 
+    } 
                 //            rs.close();
                 stmt.close();
                 RefreshData();

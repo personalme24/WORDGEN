@@ -135,11 +135,13 @@ public class ChargePageInsert extends javax.swing.JDialog {
 
         Note.setColumns(20);
         Note.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Note.setLineWrap(true);
         Note.setRows(5);
         jScrollPane1.setViewportView(Note);
 
         RateOfPenalty.setColumns(20);
         RateOfPenalty.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        RateOfPenalty.setLineWrap(true);
         RateOfPenalty.setRows(5);
         jScrollPane5.setViewportView(RateOfPenalty);
 
@@ -151,6 +153,7 @@ public class ChargePageInsert extends javax.swing.JDialog {
 
         Law.setColumns(20);
         Law.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        Law.setLineWrap(true);
         Law.setRows(5);
         jScrollPane4.setViewportView(Law);
 

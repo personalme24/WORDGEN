@@ -139,7 +139,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         g.add(jCheckNotSue);
         g.add(jCheckNoInvest);
         g.add(jCheckOtherInvest);
-
+       jLabel32.setVisible(false);
 //====================================== Police==========================================
         try{
             
@@ -1160,6 +1160,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jScrollPane1.setOpaque(false);
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel8.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
 
         jCheckW93.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW93.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N

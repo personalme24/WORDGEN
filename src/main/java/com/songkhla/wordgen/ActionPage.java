@@ -153,6 +153,7 @@ public class ActionPage extends javax.swing.JDialog {
 
         ActionCode.setEditable(false);
         ActionCode.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        ActionCode.setEnabled(false);
 
         AnswerAccuser.setColumns(20);
         AnswerAccuser.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N

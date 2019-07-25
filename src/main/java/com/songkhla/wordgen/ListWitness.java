@@ -83,7 +83,7 @@ String noPerson;
         jTableWitness.setGridColor(new java.awt.Color(255, 255, 255));
         jTableWitness.setRowHeight(25);
         jTableWitness.setRowMargin(2);
-        jTableWitness.setSelectionBackground(new java.awt.Color(77, 0, 0));
+        jTableWitness.setSelectionBackground(new java.awt.Color(0, 153, 255));
         jScrollPane1.setViewportView(jTableWitness);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

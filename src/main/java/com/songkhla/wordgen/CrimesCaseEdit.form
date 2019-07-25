@@ -1619,6 +1619,7 @@
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
+                        <Property name="debugGraphicsOptions" type="int" value="-1"/>
                       </Properties>
 
                       <Layout>
