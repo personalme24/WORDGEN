@@ -178,6 +178,11 @@ public class BailCrimesForm extends javax.swing.JDialog {
         crimecaseno.setBorder(null);
         crimecaseno.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         crimecaseno.setEnabled(false);
+        crimecaseno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crimecasenoActionPerformed(evt);
+            }
+        });
 
         jLabel30.setBackground(java.awt.SystemColor.activeCaptionBorder);
         jLabel30.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
@@ -448,6 +453,10 @@ public class BailCrimesForm extends javax.swing.JDialog {
         // TODO add your handling code here:
         RefreshData();
     }//GEN-LAST:event_jComboStatusActionPerformed
+
+    private void crimecasenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crimecasenoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_crimecasenoActionPerformed
  public void eventJStatusManage(){
 //     String a= jComboStatus.getSelectedItem()+"";
 //     if(a.equals("ประกัน"))
@@ -535,10 +544,33 @@ public class BailCrimesForm extends javax.swing.JDialog {
         Statement stmt = con.createStatement();
 //        String a=txtCaseNO.getText();
         String sql;
-                sql= "select StatusBail,CaseId,ArrestDateTimeEnd,crimecasenoyear,SueFirstDate,Investigator_Result,TypePerson,BailDate,PeopleRegistrationID,FullNamePerson,StatusSuspect,CaseIdPerson,CaseAcceptDate \n" +
-                     "from Person\n" +
-                     "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId "
-                   + "where TypePerson='ผู้ต้องหา' and StatusBail='ประกัน' or StatusSuspect='"+jComboStatus.getSelectedItem()+"'";
+         sql="select CrimeCase.crimecasenoyear crimecasenoyear,CrimeCase.caseacceptdate CaseAcceptDate,Person.arrestdatetimeend ArrestDateTimeEnd,\n" +
+                "Person.Fullnameperson FullNamePerson,Person.BailDate BailDate,deli1.deliorder order1,deli1.delidate date1,\n" +
+                "deli2.deliorder order2,deli2.delidate date2,\n" +
+                "deli3.deliorder order3,deli3.delidate date3,\n" +
+                "deli4.deliorder order4,deli4.delidate date4,\n" +
+                "deli5.deliorder order5,deli5.delidate date5,\n" +
+                "deli6.deliorder order6,deli6.delidate date6\n" +
+                "from \n" +
+                "(select * from DeliverySuspect where deliorder=1) as deli1 \n" +
+                "left outer join\n" +
+                "(select * from DeliverySuspect where deliorder=2) as deli2 on deli1.delipersonid=deli2.delipersonid\n" +
+                "left outer join\n" +
+                "(select * from DeliverySuspect where deliorder=3) as deli3 on deli1.delipersonid=deli3.delipersonid\n" +
+                "left outer join\n" +
+                "(select * from DeliverySuspect where deliorder=4) as deli4 on deli1.delipersonid=deli4.delipersonid\n" +
+                "left outer join\n" +
+                "(select * from DeliverySuspect where deliorder=5) as deli5 on deli1.delipersonid=deli5.delipersonid\n" +
+                "left outer join\n" +
+                "(select * from DeliverySuspect where deliorder=6) as deli6 on deli1.delipersonid=deli6.delipersonid\n" +
+                "left join \n" +
+                "(select Person.* from Person) as person on deli1.delipersonid=person.noperson\n" +
+                "left join \n" +
+                "(select CrimeCase.* from CrimeCase) as CrimeCase on Person.caseidperson=CrimeCase.caseid";
+//                sql= "select StatusBail,CaseId,ArrestDateTimeEnd,crimecasenoyear,SueFirstDate,Investigator_Result,TypePerson,BailDate,PeopleRegistrationID,FullNamePerson,StatusSuspect,CaseIdPerson,CaseAcceptDate \n" +
+//                     "from Person\n" +
+//                     "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId "
+//                   + "where TypePerson='ผู้ต้องหา' and StatusBail='ประกัน' or StatusSuspect='"+jComboStatus.getSelectedItem()+"'";
       if(jCheckOnly.isSelected())
       {
       sql=sql+" and Investigator_Result='อยู่ระหว่างสอบสวน'";
@@ -567,44 +599,44 @@ public class BailCrimesForm extends javax.swing.JDialog {
 //             row.add(rs.getString("RestoreDate"));          
 //             DateCal=rs.getString("RestoreDate")+"";
 //            }
-            Calendar cal,cal2,cal3,cal4,cal5,cal6,cal7;
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-            Date date = sdf.parse(DateCal);
-            cal = Calendar.getInstance();
-            cal.setTime(date);                      
-            cal.add(Calendar.MONTH,1);
-            String Date1=sdf.format(cal.getTime());
-             cal2 = Calendar.getInstance();
-            cal2.setTime(date);  
-            cal2.add(Calendar.MONTH,2);
-            String Date2=sdf.format(cal2.getTime());
-             cal3 = Calendar.getInstance();
-            cal3.setTime(date);  
-            cal3.add(Calendar.MONTH,3);
-            String Date3=sdf.format(cal3.getTime());
-            cal4 = Calendar.getInstance();
-            cal4.setTime(date); 
-            cal4.add(Calendar.MONTH,4);
-            String Date4=sdf.format(cal4.getTime());
-            cal5 = Calendar.getInstance();
-            cal5.setTime(date); 
-            cal5.add(Calendar.MONTH,5);
-            String Date5=sdf.format(cal5.getTime());
-            cal6 = Calendar.getInstance();
-            cal6.setTime(date); 
-            cal6.add(Calendar.MONTH,6);
-            String Date6=sdf.format(cal6.getTime());
-            cal7 = Calendar.getInstance();
-            cal7.setTime(date); 
-           cal7.add(Calendar.YEAR,1);
-            String Date12=sdf.format(cal7.getTime());
-            row.add(Date1);
-            row.add(Date2);
-            row.add(Date3);
-            row.add(Date4);
-             row.add(Date5);
-            row.add(Date6);
-            row.add(Date12);
+//            Calendar cal,cal2,cal3,cal4,cal5,cal6,cal7;
+//            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+//            Date date = sdf.parse(DateCal);
+//            cal = Calendar.getInstance();
+//            cal.setTime(date);                      
+//            cal.add(Calendar.MONTH,1);
+//            String Date1=sdf.format(cal.getTime());
+//             cal2 = Calendar.getInstance();
+//            cal2.setTime(date);  
+//            cal2.add(Calendar.MONTH,2);
+//            String Date2=sdf.format(cal2.getTime());
+//             cal3 = Calendar.getInstance();
+//            cal3.setTime(date);  
+//            cal3.add(Calendar.MONTH,3);
+//            String Date3=sdf.format(cal3.getTime());
+//            cal4 = Calendar.getInstance();
+//            cal4.setTime(date); 
+//            cal4.add(Calendar.MONTH,4);
+//            String Date4=sdf.format(cal4.getTime());
+//            cal5 = Calendar.getInstance();
+//            cal5.setTime(date); 
+//            cal5.add(Calendar.MONTH,5);
+//            String Date5=sdf.format(cal5.getTime());
+//            cal6 = Calendar.getInstance();
+//            cal6.setTime(date); 
+//            cal6.add(Calendar.MONTH,6);
+//            String Date6=sdf.format(cal6.getTime());
+//            cal7 = Calendar.getInstance();
+//            cal7.setTime(date); 
+//           cal7.add(Calendar.YEAR,1);
+//            String Date12=sdf.format(cal7.getTime());
+            row.add(rs.getString("date1"));
+            row.add(rs.getString("date2"));
+            row.add(rs.getString("date3"));
+            row.add(rs.getString("date4"));
+             row.add(rs.getString("date5"));
+            row.add(rs.getString("date6"));
+    
       
             tabledata.add(row);
         }
@@ -626,14 +658,13 @@ public class BailCrimesForm extends javax.swing.JDialog {
          else{
            ColumnName.add("วันส่งตัว");
          }
-          ColumnName.add("ครบ 1 เดือน");
-         ColumnName.add("ครบ 1 เดือน");
-         ColumnName.add("ครบ 2 เดือน");
-         ColumnName.add("ครบ 3 เดือน");
-         ColumnName.add("ครบ 4 เดือน");
-         ColumnName.add("ครบ 5 เดือน");
-         ColumnName.add("ครบ 6 เดือน");
-         ColumnName.add("ครบ 1 ปี");
+          ColumnName.add("ครบส่งตัวครั้งที่ 1");
+         ColumnName.add("ครบส่งตัวครั้งที่ 2");
+         ColumnName.add("ครบส่งตัวครั้งที่ 3");
+         ColumnName.add("ครบส่งตัวครั้งที่ 4");
+         ColumnName.add("ครบส่งตัวครั้งที่ 5");
+         ColumnName.add("ครบส่งตัวครั้งที่ 6");
+//         ColumnName.add("ครบส่งตัวครั้งที่ 1");
 //         ColumnName.add("ครบ 2 เดือน");
          
 
@@ -665,13 +696,13 @@ public class BailCrimesForm extends javax.swing.JDialog {
             //        String status = (String)table.getModel().getValueAt(row, 4);
                        String s2=String.valueOf(value);  
                      int a=  CalculateDateBail(s2);
-                    if(col==4 && a<=0||col==5 && a<=0||col==6 && a<=0||col==7 && a<=0||col==8 && a<=0||col==9 && a<=0||col==10 && a<=0){
+                    if(col==5 && a<=0||col==6 && a<=0||col==7 && a<=0||col==8 && a<=0||col==9 && a<=0||col==10 && a<=0){
                    
-                        setBackground(Color.BLACK);
+                        setBackground(Color.WHITE);
                         setForeground(Color.RED);
 //                        setFont("TH sarabunPSK",th);
                     }
-                    else if(col==4 && a>0||col==5 && a>0||col==6 && a>0||col==7 && a>0||col==8 && a>0||col==9 && a>0||col==10 && a>0){
+                    else if(col==5 && a>0||col==6 && a>0||col==7 && a>0||col==8 && a>0||col==9 && a>0||col==10 && a>0){
                     setBackground(Color.WHITE);
                     setForeground(Color.BLUE);
                     
@@ -726,14 +757,18 @@ public class BailCrimesForm extends javax.swing.JDialog {
                         String d2Day=dateFormat.format(new Date());
                         Date dateTo =null;
                         Date datebail=null;
-                         dateTo=format.parse(d2Day);
+                        if(DateCheck==null){
+                            diffDays=diffDays;
+                        }
+                        else{
+                           dateTo=format.parse(d2Day);
                           datebail=format.parse(DateCheck);
                          System.out.println("DateNew : "+datebail);
                         System.out.println("DateToday : "+dateTo);
                             long diff = datebail.getTime() - dateTo.getTime();
                              diffDays = (int)(diff / (24 * 60 * 60 * 1000));                          
                              System.out.println("Time in Day: " + diffDays + " Days."); 
-                    
+                        }
        }catch(Exception e){
            e.printStackTrace();
        

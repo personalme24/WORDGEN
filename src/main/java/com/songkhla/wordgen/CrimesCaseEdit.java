@@ -2435,7 +2435,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
     private void jCheckW80ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW80ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckW80ActionPerformed
-     private void closeAllDialogs()
+     public static void closeAllDialogs()
 {
     Window[] windows = getWindows();
 

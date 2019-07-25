@@ -106,6 +106,7 @@ public class ActionListMenu extends javax.swing.JDialog {
                 "รหัสพฤติการณ์คดี", "พฤติการณ์คดี"
             }
         ));
+        jTableAction.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
         jTableAction.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableActionMouseClicked(evt);

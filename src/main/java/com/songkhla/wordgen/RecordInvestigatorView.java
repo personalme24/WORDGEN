@@ -70,7 +70,9 @@ public class RecordInvestigatorView extends javax.swing.JDialog {
                 "วันเดือนปี", "งานที่ปฏิบัติ", "พนักงานสอบสวนที่รับผิดชอบ"
             }
         ));
+        jTableRecord.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
         jTableRecord.setSelectionBackground(new java.awt.Color(51, 153, 255));
+        jTableRecord.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(jTableRecord);
 
         jPanel3.setBackground(new java.awt.Color(4, 93, 179));
@@ -96,7 +98,7 @@ public class RecordInvestigatorView extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButtonSave.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jButtonSave.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jButtonSave.setText("เพิ่ม");
         jButtonSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,6 +106,7 @@ public class RecordInvestigatorView extends javax.swing.JDialog {
             }
         });
 
+        jButton1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jButton1.setText("แก้ไข");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,7 +114,13 @@ public class RecordInvestigatorView extends javax.swing.JDialog {
             }
         });
 
+        jButton2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jButton2.setText("ลบ");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         caseId.setText("jLabel2");
 
@@ -170,20 +179,19 @@ public class RecordInvestigatorView extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-         JFrame frame = new JFrame();
-             JDialog dialog = new JDialog(frame);//frame is owner
-             JFrame f = (JFrame)(dialog.getParent());               
-             f.removeAll();
+       
           String crimecaseno = caseId.getText();
         if(jTableRecord.getSelectedRow()>=0){
            
             try{
                 String NameInguiry = jTableRecord.getModel().getValueAt(jTableRecord.getSelectedRow(), 2)+"";            
-                String sql = "select IdRecord,DateRecord,NameInguiry,DetailRecord,CaseIdRecord where NameInguiry='"+NameInguiry+"' and CaseIdRecord="+crimecaseno;
-                Connection con = ConnectDatabase.connect();
+                String sql = "select IdRecord,DateRecord,NameInguiry,DetailRecord,CaseIdRecord from RecordInquiry"
+                        + " where NameInguiry='"+NameInguiry+"' and CaseIdRecord="+crimecaseno;
+//                 System.out.println("dddddddddddddd:"+sql);
+                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);
-                System.out.println("dddddddddddddd:"+sql);
+               
                 if(rs.next()){
                     JSONObject data = new JSONObject();
                       data.put("IdRecord", rs.getString("IdRecord"));
@@ -191,8 +199,13 @@ public class RecordInvestigatorView extends javax.swing.JDialog {
                     data.put("NameInguiry", rs.getString("NameInguiry"));
                     data.put("DetailRecord", rs.getString("DetailRecord"));
                     data.put("CaseIdRecord", rs.getString("CaseIdRecord"));
-            
+                            JFrame frame = new JFrame();
+                           JDialog dialog = new JDialog(frame);//frame is owner
+                           JFrame f = (JFrame)(dialog.getParent());               
+                           f.removeAll();
                             RecordInvestigatorForm rt=new RecordInvestigatorForm(f,data);
+                            rt.pack();
+                            rt.setLocationRelativeTo(null);
                             rt.setVisible(true);    		
                 }
                 
@@ -207,6 +220,11 @@ public class RecordInvestigatorView extends javax.swing.JDialog {
        
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -64,6 +64,7 @@ public class BailCrimesAdd extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jLabel30 = new javax.swing.JLabel();
         crimecaseno = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -110,6 +111,15 @@ public class BailCrimesAdd extends javax.swing.JDialog {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("เพิ่ม/แก้ไข การประกันตัวผู้ต้องหา");
 
+        jButton2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon("D:\\Master\\home.png")); // NOI18N
+        jButton2.setText("เมนูหลัก");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -117,11 +127,15 @@ public class BailCrimesAdd extends javax.swing.JDialog {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                .addComponent(jButton2))
         );
 
         jLabel30.setBackground(java.awt.SystemColor.activeCaptionBorder);
@@ -537,7 +551,46 @@ public class BailCrimesAdd extends javax.swing.JDialog {
 
     private void jButtonEditSue1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditSue1ActionPerformed
         // TODO add your handling code here:
-        
+         if(jTableBailSend.getSelectedRow()>=0){
+            try{
+                String DeliOrder= jTableBailSend.getModel().getValueAt(jTableBailSend.getSelectedRow(), 0)+"";
+
+                String sql="select DeliOrder,DeliDate,DeliTimes,DeliPlace,DeliPersonId from DeliverySuspect where DeliOrder='"+DeliOrder+"' and DeliPersonId='"+personId+"'";
+                System.out.println("Editbutton :"+sql);
+                Connection con = ConnectDatabase.connect();
+                Statement stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery(sql);
+
+                if(rs.next()){
+                    JSONObject data = new JSONObject();
+                    data.put("DeliOrder", rs.getString("DeliOrder"));
+                    data.put("DeliDate", rs.getString("DeliDate"));
+                    data.put("DeliTimes", rs.getString("DeliTimes"));
+                    data.put("DeliPlace", rs.getString("DeliPlace"));
+                    data.put("DeliPersonId", rs.getString("DeliPersonId"));
+ 
+                    JSONObject data2 = new JSONObject();
+                    data2.put("BailPersonId",personId);
+                      JFrame frame = new JFrame();
+                    JDialog dialog = new JDialog(frame);//frame is owner
+                    JFrame de = (JFrame)(dialog.getParent());
+                    de.removeAll();
+                    DeliverySuspect ba =new DeliverySuspect(de,data,data2);
+                    ba.pack();
+                    ba.setLocationRelativeTo(null);
+                    ba.setVisible(true);
+                }
+
+                rs.close();
+                stmt.close();
+                refreshAssetData();
+            }catch(Exception ex){
+                ex.printStackTrace();
+
+            }
+        }else{
+
+        }
         
         refreshBailSendData();
     }//GEN-LAST:event_jButtonEditSue1ActionPerformed
@@ -630,6 +683,11 @@ public class BailCrimesAdd extends javax.swing.JDialog {
         refreshAssetData();
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        MainMenuWord.closeAllDialogs();
+    }//GEN-LAST:event_jButton2ActionPerformed
     public void refreshAssetData(){
             try{
               
@@ -794,6 +852,7 @@ public class BailCrimesAdd extends javax.swing.JDialog {
     private javax.swing.JTextField SuspectFullName;
     private javax.swing.JTextField crimecaseno;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonAddSue;
     private javax.swing.JButton jButtonAddSue1;
     private javax.swing.JButton jButtonDelete;

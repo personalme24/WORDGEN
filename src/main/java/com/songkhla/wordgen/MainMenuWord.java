@@ -21,6 +21,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.Window;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.PreparedStatement;
@@ -1404,7 +1405,18 @@ public class MainMenuWord extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         }
-   
+       public static void closeAllDialogs()
+{
+    Window[] windows = getWindows();
+
+    for (Window window : windows)
+    {
+        if (window instanceof JDialog)
+        {
+            window.dispose();
+        }
+    }
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BailMenu;

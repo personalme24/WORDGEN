@@ -215,6 +215,8 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
                 return types [columnIndex];
             }
         });
+        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jTable1.setFillsViewportHeight(true);
         jTable1.setFocusable(false);
         jTable1.setGridColor(new java.awt.Color(255, 255, 255));
         jTable1.setIntercellSpacing(new java.awt.Dimension(0, 0));
@@ -449,117 +451,9 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
-        // TODO add your handling code here:
-        if(jTable1.getSelectedRow()>=0){
-            try{
-                String crimecaseId = jTable1.getModel().getValueAt(jTable1.getSelectedRow(), 0)+"";
-                String sql = "Delete from CrimeCase WHERE CaseId='"+crimecaseId+"'";
-                Connection con = ConnectDatabase.connect();
-                Statement stmt = con.createStatement();
-            
- int response = JOptionPane.showConfirmDialog(jPanel4, "ต้องการบันทึกข้อมูล", "ยืนยัน",
-        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-  if (response == JOptionPane.YES_OPTION) {
-    stmt.executeUpdate(sql);
-
-    } 
-                //            rs.close();
-                stmt.close();
-                RefreshData();
-            }catch(Exception ex){
-                ex.printStackTrace();
-            }
-        }
-    }//GEN-LAST:event_jButtonDeleteActionPerformed
-
     private void txtSearchCaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchCaseActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSearchCaseActionPerformed
-
-    private void jButtonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditActionPerformed
-        // TODO add your handling code here:
-        if(jTable1.getSelectedRow()>=0){
-            try{
-                String crimecaseid = jTable1.getModel().getValueAt(jTable1.getSelectedRow(), 0)+"";
-
-                String sql="select crimecase.*,charge.*,ActionsCase.* from crimecase "
-                        + "left join charge on crimecase.ChargeCodeCase=charge.ChargeCode "
-                        + "left join ActionsCase on crimecase.ActionCodeCase=ActionsCase.ActionCode "
-                        + "where CaseId='"+crimecaseid+"'";
-                Connection con = ConnectDatabase.connect();
-                Statement stmt = con.createStatement();
-                ResultSet rs = stmt.executeQuery(sql);
-                System.out.println("ExSql : "+sql);
-                if(rs.next()){
-                    JSONObject data = new JSONObject();
-                    data.put("CaseId", rs.getString("CaseId"));
-                    data.put("CaseType", rs.getString("CaseType"));                          
-                    data.put("crimecaseno", rs.getString("crimecaseno"));
-                    data.put("crimecaseyears", rs.getString("crimecaseyears"));
-                    data.put("ChargeCode", rs.getString("ChargeCode"));
-                    data.put("ChargeName", rs.getString("ChargeName"));
-                    data.put("CaseRequestDate", rs.getString("CaseRequestDate"));
-                    data.put("CaseRequestTime", rs.getString("CaseRequestTime"));
-                    data.put("CaseAcceptDate", rs.getString("CaseAcceptDate"));
-                    data.put("CaseAcceptTime", rs.getString("CaseAccepTime"));
-                    data.put("DailyNumber", rs.getString("DailyNumber"));
-                    data.put("CrimeLocation", rs.getString("CrimeLocation"));
-                    data.put("CrimeLocationDistrict", rs.getString("CrimeLocationDistrict"));
-                    data.put("CrimeLocationAmphur", rs.getString("CrimeLocationAmphur"));
-                    data.put("CrimeLocationMoo", rs.getString("CrimeLocationMoo"));
-                    data.put("CrimeLocationRoad", rs.getString("CrimeLocationRoad"));
-                    data.put("CrimeLocationSoi", rs.getString("CrimeLocationSoi"));
-                    data.put("CrimeLocationProvince", rs.getString("CrimeLocationProvince"));
-                    data.put("AccureandOther", rs.getString("AccureandOther"));
-                    data.put("SuspectandOther", rs.getString("SuspectandOther")); 
-                    data.put("WitnessandOther", rs.getString("WitnessandOther"));
-                     data.put("Investigator_Result", rs.getString("Investigator_Result"));
-                     data.put("TypeCourt", rs.getString("TypeCourt"));
-                    data.put("PoliceNameCase", rs.getString("PoliceNameCase"));
-                     data.put("AssetList", rs.getString("AssetList"));
-                      data.put("AssetCode", rs.getString("AssetCode"));
-                       data.put("RecordInvestCase", rs.getString("RecordInvestCase"));
-                     data.put("ActionCrimes", rs.getString("ActionCrimes"));
-                     data.put("ActionCode", rs.getString("ActionCode"));
-                      data.put("OccuredDate", rs.getString("OccuredDate"));
-                     data.put("OccuredTime", rs.getString("OccuredTime"));
-                     data.put("StatusKnowSuspect", rs.getString("StatusKnowSuspect"));  
-                        data.put("Invest_SendtoDepartment", rs.getString("Invest_SendtoDepartment"));     
-                      data.put("TotalAcc", rs.getString("TotalAcc"));
-                     data.put("TotalSus", rs.getString("TotalSus"));  
-                        data.put("TotalWitness", rs.getString("TotalWitness"));        
-                      data.put("Investigator_Number", rs.getString("Investigator_Number"));
-                     data.put("Invest_SendCaseDate", rs.getString("Invest_SendCaseDate"));
-                     data.put("Prosecutor_Result", rs.getString("Prosecutor_Result"));  
-                      data.put("CapitalCrimeCaseNumber", rs.getString("CapitalCrimeCaseNumber"));      
-                        facc.removeAll();
-                    CrimesCaseEdit cce =new CrimesCaseEdit(facc,data);
-                    cce.pack();
-                     cce.setLocationRelativeTo(null);                   
-                    cce.setVisible(true);
-                }
-
-                rs.close();
-                stmt.close();
-                RefreshData();
-            }catch(Exception ex){
-                ex.printStackTrace();
-
-            }
-        }else{
-
-        }
-    }//GEN-LAST:event_jButtonEditActionPerformed
-
-    private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
-        // TODO add your handling code here:
-        CrimesCaseEdit cce =new CrimesCaseEdit(facc,null);
-        cce.pack();
-        cce.setLocationRelativeTo(null);
-        cce.setVisible(true);
-        RefreshData();
-    }//GEN-LAST:event_jButtonAddActionPerformed
  
     private void jButtonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchActionPerformed
         // TODO add your handling code here:
@@ -587,6 +481,114 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
     private void txtSearchChargeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchChargeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSearchChargeActionPerformed
+
+    private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
+        // TODO add your handling code here:
+        CrimesCaseEdit cce =new CrimesCaseEdit(facc,null);
+        cce.pack();
+        cce.setLocationRelativeTo(null);
+        cce.setVisible(true);
+        RefreshData();
+    }//GEN-LAST:event_jButtonAddActionPerformed
+
+    private void jButtonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditActionPerformed
+        // TODO add your handling code here:
+        if(jTable1.getSelectedRow()>=0){
+            try{
+                String crimecaseid = jTable1.getModel().getValueAt(jTable1.getSelectedRow(), 0)+"";
+
+                String sql="select crimecase.*,charge.*,ActionsCase.* from crimecase "
+                + "left join charge on crimecase.ChargeCodeCase=charge.ChargeCode "
+                + "left join ActionsCase on crimecase.ActionCodeCase=ActionsCase.ActionCode "
+                + "where CaseId='"+crimecaseid+"'";
+                Connection con = ConnectDatabase.connect();
+                Statement stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery(sql);
+                System.out.println("ExSql : "+sql);
+                if(rs.next()){
+                    JSONObject data = new JSONObject();
+                    data.put("CaseId", rs.getString("CaseId"));
+                    data.put("CaseType", rs.getString("CaseType"));
+                    data.put("crimecaseno", rs.getString("crimecaseno"));
+                    data.put("crimecaseyears", rs.getString("crimecaseyears"));
+                    data.put("ChargeCode", rs.getString("ChargeCode"));
+                    data.put("ChargeName", rs.getString("ChargeName"));
+                    data.put("CaseRequestDate", rs.getString("CaseRequestDate"));
+                    data.put("CaseRequestTime", rs.getString("CaseRequestTime"));
+                    data.put("CaseAcceptDate", rs.getString("CaseAcceptDate"));
+                    data.put("CaseAcceptTime", rs.getString("CaseAccepTime"));
+                    data.put("DailyNumber", rs.getString("DailyNumber"));
+                    data.put("CrimeLocation", rs.getString("CrimeLocation"));
+                    data.put("CrimeLocationDistrict", rs.getString("CrimeLocationDistrict"));
+                    data.put("CrimeLocationAmphur", rs.getString("CrimeLocationAmphur"));
+                    data.put("CrimeLocationMoo", rs.getString("CrimeLocationMoo"));
+                    data.put("CrimeLocationRoad", rs.getString("CrimeLocationRoad"));
+                    data.put("CrimeLocationSoi", rs.getString("CrimeLocationSoi"));
+                    data.put("CrimeLocationProvince", rs.getString("CrimeLocationProvince"));
+                    data.put("AccureandOther", rs.getString("AccureandOther"));
+                    data.put("SuspectandOther", rs.getString("SuspectandOther"));
+                    data.put("WitnessandOther", rs.getString("WitnessandOther"));
+                    data.put("Investigator_Result", rs.getString("Investigator_Result"));
+                    data.put("TypeCourt", rs.getString("TypeCourt"));
+                    data.put("PoliceNameCase", rs.getString("PoliceNameCase"));
+                    data.put("AssetList", rs.getString("AssetList"));
+                    data.put("AssetCode", rs.getString("AssetCode"));
+                    data.put("RecordInvestCase", rs.getString("RecordInvestCase"));
+                    data.put("ActionCrimes", rs.getString("ActionCrimes"));
+                    data.put("ActionCode", rs.getString("ActionCode"));
+                    data.put("OccuredDate", rs.getString("OccuredDate"));
+                    data.put("OccuredTime", rs.getString("OccuredTime"));
+                    data.put("StatusKnowSuspect", rs.getString("StatusKnowSuspect"));
+                    data.put("Invest_SendtoDepartment", rs.getString("Invest_SendtoDepartment"));
+                    data.put("TotalAcc", rs.getString("TotalAcc"));
+                    data.put("TotalSus", rs.getString("TotalSus"));
+                    data.put("TotalWitness", rs.getString("TotalWitness"));
+                    data.put("Investigator_Number", rs.getString("Investigator_Number"));
+                    data.put("Invest_SendCaseDate", rs.getString("Invest_SendCaseDate"));
+                    data.put("Prosecutor_Result", rs.getString("Prosecutor_Result"));
+                    data.put("CapitalCrimeCaseNumber", rs.getString("CapitalCrimeCaseNumber"));
+                    facc.removeAll();
+                    CrimesCaseEdit cce =new CrimesCaseEdit(facc,data);
+                    cce.pack();
+                    cce.setLocationRelativeTo(null);
+                    cce.setVisible(true);
+                }
+
+                rs.close();
+                stmt.close();
+                RefreshData();
+            }catch(Exception ex){
+                ex.printStackTrace();
+
+            }
+        }else{
+
+        }
+    }//GEN-LAST:event_jButtonEditActionPerformed
+
+    private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
+        // TODO add your handling code here:
+        if(jTable1.getSelectedRow()>=0){
+            try{
+                String crimecaseId = jTable1.getModel().getValueAt(jTable1.getSelectedRow(), 0)+"";
+                String sql = "Delete from CrimeCase WHERE CaseId='"+crimecaseId+"'";
+                Connection con = ConnectDatabase.connect();
+                Statement stmt = con.createStatement();
+
+                int response = JOptionPane.showConfirmDialog(jPanel4, "ต้องการบันทึกข้อมูล", "ยืนยัน",
+                    JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                if (response == JOptionPane.YES_OPTION) {
+                    stmt.executeUpdate(sql);
+
+                }
+                //            rs.close();
+                stmt.close();
+                RefreshData();
+            }catch(Exception ex){
+                ex.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_jButtonDeleteActionPerformed
 
     /**
      * @param args the command line arguments

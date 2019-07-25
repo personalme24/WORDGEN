@@ -60,6 +60,22 @@ public class DeliverySuspect extends javax.swing.JDialog {
         jPanelDeliDate.add(DeliDate);    
         
         if(datain != null){
+            try{
+             SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm");
+            String dt=datain.get("DeliTimes")+"";
+            Date timeDeli = timeFormat.parse(dt);
+
+            DeliDate.getJFormattedTextField().setText(datain.get("DeliDate")+"");
+            DeliOrder.setText(datain.get("DeliOrder")+"");
+            DeliPlace.setText(datain.get("DeliPlace")+"");
+            personid=datain.get("DeliPersonId")+"";
+             DeliTimes.setValue(timeDeli);
+            }
+            catch(Exception ex){
+                System.out.println(ex);
+            }
+            
+
         }
         else{
         isInsert=true;
