@@ -50,6 +50,7 @@ public class W15 {
             PreparedStatement pst=null;
             String ccYear;
             String casetype;
+            String caseno;
             String PoliceStationName="";
             
              String RankPolice ="";
@@ -88,15 +89,7 @@ public class W15 {
                 Statement st = conn.createStatement();
             ResultSet s=st.executeQuery(sql); 
                 System.out.println(sql);
-           String VarAS1 ="";
-            String VarAS3 ="";
-            String VarAS4 ="";
-            String VarAS5 ="";
-            String VarAS6 ="";
-            String VarAS7 ="";
-            String VarAS8 ="";
-            String VarAS9 ="";
-            String VarAS10 ="";
+           
             int OrderAsset=0;
             int SumValue=0;
             JSONArray JSONArray = new JSONArray();
@@ -107,6 +100,7 @@ public class W15 {
             {  String  cs =s.getString("crimecaseno");
                     ccYear=s.getString("crimecaseyears");
                     casetype =s.getString("casetype");
+                caseno  =s.getString("crimecasenoyear");
                 String Date="";
                 String Month="";
                 String Year="";
@@ -123,13 +117,13 @@ public class W15 {
                sdfstart = new SimpleDateFormat("yyyy", new Locale("th", "TH"));  
                Year=sdfstart.format(calstart.getTime());
                  
-//                System.out.print("ข้อหา :: "+s.getString("ChargeCode"));
-//                System.out.print(" - ");
+
                  JSONObject bookmarkvalue = new JSONObject();
-//              
+              
                 bookmarkvalue.put("C1",Checknull(Date));
                 bookmarkvalue.put("C01",Checknull(Month));
                 bookmarkvalue.put("C001",Checknull(Year));
+                bookmarkvalue.put("CC2",Checknull(caseno));
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3",Checknull(ccYear));
                 bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
@@ -231,7 +225,7 @@ public class W15 {
 					.load(new java.io.File("./TEMPLATE/w15.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/บัญชีทรัพย์ถูกเพลิงไหม้" +cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/บัญชีทรัพย์ถูกเพลิงไหม้" +cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -251,6 +245,7 @@ public static void nw15() {
                 bookmarkvalue.put("C01","");
                 bookmarkvalue.put("C001","");
 		bookmarkvalue.put("C2","");
+                bookmarkvalue.put("CC2","");
                 bookmarkvalue.put("C3","");
                 
                 bookmarkvalue.put("S2","");
@@ -285,7 +280,7 @@ public static void nw15() {
 					.load(new java.io.File("./TEMPLATE/w15.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			
-			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/บัญชีทรัพย์ถูกเพลิงไหม้.doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/บัญชีทรัพย์ถูกเพลิงไหม้.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

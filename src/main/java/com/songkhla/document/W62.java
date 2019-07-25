@@ -49,7 +49,7 @@ public class W62 {
              String ccYear;
              String casetype;
              String PoliceStationName="";
-            
+             String caseno;
              String RankPolice ="";
              String FirstName ="";
              String LastName ="";
@@ -92,8 +92,8 @@ public class W62 {
             {  String  
                     cs =s.getString("crimecaseno");
                     ccYear=s.getString("crimecaseyears");
-                   casetype =s.getString("casetype");
-   
+                    casetype =s.getString("casetype");
+                    caseno  =s.getString("crimecasenoyear");
 
                     
                  JSONObject bookmarkvalue = new JSONObject();
@@ -103,7 +103,7 @@ public class W62 {
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3",Checknull(ccYear));
                  bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
-                 
+                  bookmarkvalue.put("CC2",Checknull(caseno));
                  
                  bookmarkvalue.put("P54",Checknull(ToDate(s.getString("ArrestDateTime"))));
                 
@@ -165,7 +165,7 @@ public class W62 {
 					.load(new java.io.File("./TEMPLATE/w62.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/บันทึกการควบคุมผู้ต้องหา"+s.getString("FullNamePerson")+"" +cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/บันทึกการควบคุมผู้ต้องหา"+s.getString("FullNamePerson")+"" +cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -185,7 +185,7 @@ public class W62 {
                  JSONObject bookmarkvalue = new JSONObject();
              
                 
-                
+                bookmarkvalue.put("CC2","");
 		bookmarkvalue.put("C2","");
                 bookmarkvalue.put("C3","");
                  bookmarkvalue.put("S2","");
@@ -220,7 +220,7 @@ public class W62 {
 					.load(new java.io.File("./TEMPLATE/w62.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			
-			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/บันทึกการควบคุมผู้ต้องหา.doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/บันทึกการควบคุมผู้ต้องหา.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

@@ -51,6 +51,7 @@ public class W7 {
             PreparedStatement pst=null;
              String ccYear;
              String casetype;
+             String caseno;
              String CrimeLocationDistrict;
              String PoliceStationName="";
              String StationAmphur="";
@@ -101,6 +102,7 @@ public class W7 {
                     cs =s.getString("crimecaseno");
                     ccYear=s.getString("crimecaseyears");
                     casetype= s.getString("casetype");
+                    caseno  =s.getString("crimecasenoyear");
                 String Date="";
                 String Month="";
                 String Year="";
@@ -126,7 +128,7 @@ public class W7 {
                 bookmarkvalue.put("C001",Checknull(Year));
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3",Checknull(ccYear));
-                
+                 bookmarkvalue.put("CC2",Checknull(caseno));
                 
                  bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
                  bookmarkvalue.put("S02",Checknull(PoliceStationName));
@@ -195,7 +197,7 @@ public class W7 {
 					.load(new java.io.File("./TEMPLATE/w7.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/รายงานการชันสูตรพลิกศพ"+ cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/รายงานการชันสูตรพลิกศพ"+ cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -218,7 +220,7 @@ public class W7 {
 		bookmarkvalue.put("C2","");
                 bookmarkvalue.put("C3","");
                 
-                
+                bookmarkvalue.put("CC2","");
                  bookmarkvalue.put("S2","");
                  bookmarkvalue.put("S02","");
                  bookmarkvalue.put("S5","");
@@ -261,7 +263,7 @@ public class W7 {
 					.load(new java.io.File("./TEMPLATE/w7.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			
-			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/รายงานการชันสูตรพลิกศพ.doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/รายงานการชันสูตรพลิกศพ.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

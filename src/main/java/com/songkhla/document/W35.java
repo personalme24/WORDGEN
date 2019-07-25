@@ -48,6 +48,7 @@ public class W35 {
             PreparedStatement pst=null;
              String ccYear;
              String casetype;
+             String caseno;
              String PoliceStationName="";
              String StationAmphur="";
              String StationProvince="";
@@ -97,6 +98,7 @@ public class W35 {
                     cs =s.getString("crimecaseno");
                     ccYear=s.getString("crimecaseyears");
                     casetype =s.getString("casetype");
+                    caseno  =s.getString("crimecasenoyear");
                 String Date="";
                 
                 
@@ -114,6 +116,7 @@ public class W35 {
                 bookmarkvalue.put("C1",Checknull(Date));
                 
 		bookmarkvalue.put("C2",Checknull(cs));
+                 bookmarkvalue.put("CC2",Checknull(caseno));
                 bookmarkvalue.put("C3",Checknull(ccYear));
                  bookmarkvalue.put("S2",Checknull(PoliceStationName));
                  bookmarkvalue.put("S5", Checknull(StationAmphur));
@@ -181,7 +184,7 @@ public class W35 {
 					.load(new java.io.File("./TEMPLATE/w35.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/บันทึกการตรวจค้นโดยไม่มีหมายค้น" +cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/บันทึกการตรวจค้นโดยไม่มีหมายค้น" +cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -198,7 +201,7 @@ public class W35 {
                  JSONObject bookmarkvalue = new JSONObject();
              
                 bookmarkvalue.put("C1","");
-                
+                bookmarkvalue.put("CC2","");
 		bookmarkvalue.put("C2","");
                 bookmarkvalue.put("C3","");
                  bookmarkvalue.put("S2","");
@@ -230,7 +233,7 @@ public class W35 {
 					.load(new java.io.File("./TEMPLATE/w35.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			
-			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/บันทึกการตรวจค้นโดยไม่มีหมายค้น.doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/บันทึกการตรวจค้นโดยไม่มีหมายค้น.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

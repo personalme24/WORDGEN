@@ -51,6 +51,7 @@ public class W3 {
             PreparedStatement pst=null;
              String ccYear;
              String casetype;
+             String caseno;
              String SendIDocDate;
              String DocOrder;
              String DocSlash;
@@ -113,6 +114,7 @@ public class W3 {
                     casetype =s.getString("casetype");
                     DocOrder=s.getString("DocOrder");
                     DocSlash=s.getString("DocSlash");
+                    caseno  =s.getString("crimecasenoyear");
                     String Date="";
                 String Month="";
                 String Year="";
@@ -137,6 +139,7 @@ public class W3 {
                 bookmarkvalue.put("C01",Checknull(Month));
                 bookmarkvalue.put("C001",Checknull(Year));
 		bookmarkvalue.put("C2",Checknull(cs));
+                 bookmarkvalue.put("CC2",Checknull(caseno));
                 bookmarkvalue.put("C3",Checknull(ccYear));
                 bookmarkvalue.put("C16",Checknull(DocOrder));
                 bookmarkvalue.put("C17", Checknull(DocSlash));
@@ -203,7 +206,7 @@ public class W3 {
 					.load(new java.io.File("./TEMPLATE/w3.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/หนังสือส่งสำนวนคดีสั่งฟ้อง(ผู้ต้องหาหลบหนี)" +cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/หนังสือส่งสำนวนคดีสั่งฟ้อง(ผู้ต้องหาหลบหนี)" +cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -223,6 +226,7 @@ public class W3 {
                 bookmarkvalue.put("C1","");
                 bookmarkvalue.put("C01","");
                 bookmarkvalue.put("C001","");
+                bookmarkvalue.put("CC2","");
 		bookmarkvalue.put("C2","");
                 bookmarkvalue.put("C3","");
                 bookmarkvalue.put("C16","");
@@ -258,7 +262,7 @@ public class W3 {
 					.load(new java.io.File("./TEMPLATE/w3.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			
-			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน//หนังสือส่งสำนวนคดีสั่งฟ้อง(ผู้ต้องหาหลบหนี).doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน//หนังสือส่งสำนวนคดีสั่งฟ้อง(ผู้ต้องหาหลบหนี).doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

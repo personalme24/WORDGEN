@@ -51,6 +51,7 @@ public static void w70(String cc) {
             
             String ccYear;
             String casetype;
+            String caseno;
              String PoliceStationName="";
              String HeadName="";
              String HeadPosition="";
@@ -98,7 +99,7 @@ public static void w70(String cc) {
             {  String  cs =s.getString("crimecaseno");
                  ccYear=s.getString("crimecaseyears");
                  casetype =s.getString("casetype");
-                 
+                 caseno  =s.getString("crimecasenoyear");
                 String Date="";
                 String Month="";
                 String Year="";
@@ -122,7 +123,7 @@ public static void w70(String cc) {
                 bookmarkvalue.put("C001",Checknull(Year));
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3",Checknull(ccYear));
-                
+                 bookmarkvalue.put("CC2",Checknull(caseno));
                 bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
                 bookmarkvalue.put("S27",Checknull(ProvincProsecutor));
                 bookmarkvalue.put("S13",Checknull(HeadName));
@@ -173,19 +174,7 @@ public static void w70(String cc) {
                             bookmarkvalue.put("C13", Checknull(s.getString("CrimeLocationAmphur")));
                             bookmarkvalue.put("C14", Checknull(s.getString("CrimeLocationProvince")));
                             bookmarkvalue.put("C15", Checknull(s.getString("DailyNumber")));
-                    
-                    
-                    
-                    
-                 
-//		bookmarkvalue.put("P7", s.getString("AccureandOther"));
-//                bookmarkvalue.put("P13", s.getString("AccureandOther"));
-//		bookmarkvalue.put("test01", "พ.ต.อ.");
-//		bookmarkvalue.put("test02", "พนักงานสอบสวน");
-//		bookmarkvalue.put("test03", "สน.ดอนเมือง");
-//                bookmarkvalue.put("test04", "สน.ดอนเมือง5");
-		
-    
+  
 			JSONArray tablecolumn = new JSONArray();
 //			tablecolumn.add("P03");
 //			tablecolumn.add("P02");
@@ -224,7 +213,7 @@ public static void w70(String cc) {
 					.load(new java.io.File("./TEMPLATE/w70.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/บันทึกการเสนอสัญญาประกัน "+s.getString("FullNamePerson")+"" +cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/บันทึกการเสนอสัญญาประกัน "+s.getString("FullNamePerson")+"" +cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -244,7 +233,7 @@ public static void nw70() {
                 bookmarkvalue.put("C001","");
 		bookmarkvalue.put("C2","");
                 bookmarkvalue.put("C3","");
-                
+                bookmarkvalue.put("CC2","");
                 bookmarkvalue.put("S2","");
                 bookmarkvalue.put("S27","");
                 bookmarkvalue.put("S13","");
@@ -304,7 +293,7 @@ public static void nw70() {
 					.load(new java.io.File("./TEMPLATE/w70.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			
-			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/บันทึกการเสนอสัญญาประกัน.doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/บันทึกการเสนอสัญญาประกัน.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

@@ -53,6 +53,7 @@ public class W48 {
             PreparedStatement pst=null;
              String ccYear;
              String casetype;
+             String caseno;
              String PoliceStationName="";
              String StationAmphur="";
              String StationProvince="";
@@ -105,6 +106,7 @@ public class W48 {
                     cs =s.getString("crimecaseno");
                     ccYear=s.getString("crimecaseyears");
                  casetype =s.getString("casetype");
+                 caseno  =s.getString("crimecasenoyear");
                 String Date="";
                 String Month="";
                 String Year="";
@@ -125,6 +127,7 @@ public class W48 {
                 bookmarkvalue.put("C1",Checknull(Date));
                 bookmarkvalue.put("C01",Checknull(Month));
                 bookmarkvalue.put("C001",Checknull(Year));
+                 bookmarkvalue.put("CC2",Checknull(caseno));
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3", Checknull(ccYear));
                 bookmarkvalue.put("C4", Checknull(ToDate(s.getString("OccuredDate"))));
@@ -205,7 +208,7 @@ public class W48 {
 					.load(new java.io.File("./TEMPLATE/w48.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/รายงานคนต่างด้าวกระทำความผิดและถูกจับกุมดำเนินคดี "+s.getString("FullNamePerson")+"" +cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/รายงานคนต่างด้าวกระทำความผิดและถูกจับกุมดำเนินคดี "+s.getString("FullNamePerson")+"" +cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -226,6 +229,7 @@ public static void nw48() {
                 bookmarkvalue.put("C1","");
                 bookmarkvalue.put("C01","");
                 bookmarkvalue.put("C001","");
+                bookmarkvalue.put("CC2","");
 		bookmarkvalue.put("C2","");
                 bookmarkvalue.put("C3", "");
                 bookmarkvalue.put("C4", "");
@@ -275,7 +279,7 @@ public static void nw48() {
 					.load(new java.io.File("./TEMPLATE/w48.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			
-			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/รายงานคนต่างด้าวกระทำความผิดและถูกจับกุมดำเนินคดี.doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/รายงานคนต่างด้าวกระทำความผิดและถูกจับกุมดำเนินคดี.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

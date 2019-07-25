@@ -51,6 +51,7 @@ public class W18 {
             conn=ConnectDatabase.connect();
             PreparedStatement pst=null;
              String ccYear;
+             String caseno;
              String casetype;
              String PoliceStationName="";
              String StationAmphur="";
@@ -108,7 +109,7 @@ public class W18 {
                     cs =s.getString("crimecaseno");
                     ccYear=s.getString("crimecaseyears");
                     casetype=s.getString("casetype");
-//              
+                    caseno  =s.getString("crimecasenoyear");
                  String Date="";
                 String Month="";
                 String Year="";
@@ -133,6 +134,7 @@ public class W18 {
                  bookmarkvalue.put("C01",Checknull(Month));
                 bookmarkvalue.put("C001",Checknull(Year));
 		bookmarkvalue.put("C2",Checknull(cs));
+                 bookmarkvalue.put("CC2",Checknull(caseno));
                 bookmarkvalue.put("C3", Checknull(ccYear));
                  bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
                  bookmarkvalue.put("S5", Checknull(StationAmphur));
@@ -208,7 +210,7 @@ public class W18 {
 					.load(new java.io.File("./TEMPLATE/w18.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+cs+"-"+ccYear+"/บันทึกการตรวจสถานที่เกิดเหตุคดีจราจรทางบก"  +cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+cs+"-"+ccYear+"/บันทึกการตรวจสถานที่เกิดเหตุคดีจราจรทางบก"  +cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -229,6 +231,7 @@ public class W18 {
                  bookmarkvalue.put("C01","");
                 bookmarkvalue.put("C001","");
 		bookmarkvalue.put("C2","");
+                bookmarkvalue.put("CC2","");
                 bookmarkvalue.put("C3", "");
                  bookmarkvalue.put("S2","");
                  bookmarkvalue.put("S5", "");
@@ -270,7 +273,7 @@ public class W18 {
 					.load(new java.io.File("./TEMPLATE/w18.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			
-			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์//บันทึกการตรวจสถานที่เกิดเหตุคดีจราจรทางบก.doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์//บันทึกการตรวจสถานที่เกิดเหตุคดีจราจรทางบก.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

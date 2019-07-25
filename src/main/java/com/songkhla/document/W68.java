@@ -51,6 +51,7 @@ public static void w68(String cc,String sueTime) {
             
             String ccYear;
             String casetype;
+            String caseno;
              String PoliceStationName="";
              String StationAmphur="";
              String StationProvince="";
@@ -101,6 +102,7 @@ public static void w68(String cc,String sueTime) {
                  ccYear=s.getString("crimecaseyears");
                  casetype=s.getString("casetype");
                  StatusSue=Checknull(s.getString("StatusSuspect"));
+                 caseno  =s.getString("crimecasenoyear");
                 String Date="";
                 String Month="";
                 String Year="";
@@ -132,7 +134,7 @@ public static void w68(String cc,String sueTime) {
                 bookmarkvalue.put("C001",Checknull(Year));
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3",Checknull(ccYear));
-                
+                 bookmarkvalue.put("CC2",Checknull(caseno));
                 bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
                 bookmarkvalue.put("S5", Checknull(StationAmphur));
                 bookmarkvalue.put("S6", Checknull(StationProvince));
@@ -213,7 +215,7 @@ public static void w68(String cc,String sueTime) {
 					.load(new java.io.File("./TEMPLATE/w68.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/คำร้องขอ"+StatusSue+"ครั้งที่ " +cs+"-"+ccYear+""+s.getString("SueSecond")+".doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/คำร้องขอ"+StatusSue+"ครั้งที่ " +cs+"-"+ccYear+""+s.getString("SueSecond")+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -235,7 +237,7 @@ public static void nw68() {
                 bookmarkvalue.put("PS109", "");
                 bookmarkvalue.put("PS110", "");                
                 bookmarkvalue.put("PS111", "");   
-                
+                bookmarkvalue.put("CC2","");
                 bookmarkvalue.put("C1","");
                 bookmarkvalue.put("C01","");
                 bookmarkvalue.put("C001","");
@@ -280,7 +282,7 @@ public static void nw68() {
 					.load(new java.io.File("./TEMPLATE/w68.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			
-			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/คำร้องขอผัดฟ้องหรือผัดฟ้องและฝากขังครั้งที่...doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/คำร้องขอผัดฟ้องหรือผัดฟ้องและฝากขังครั้งที่...doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

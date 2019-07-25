@@ -49,6 +49,7 @@ public class W28 {
             PreparedStatement pst=null;
              String ccYear;
              String casetype;
+             String caseno;
              String PoliceStationName="";
              String StationAmphur="";
              String StationProvince="";
@@ -109,6 +110,7 @@ public class W28 {
                     cs =s.getString("crimecaseno");
                     ccYear=s.getString("crimecaseyears");
                     casetype =s.getString("casetype");
+                    caseno  =s.getString("crimecasenoyear");
                 String Date="";
                 String Month="";
                 String Year="";
@@ -133,6 +135,7 @@ public class W28 {
                 bookmarkvalue.put("C01",Checknull(Month));
                 bookmarkvalue.put("C001",Checknull(Year));
 		bookmarkvalue.put("C2",Checknull(cs));
+                 bookmarkvalue.put("CC2",Checknull(caseno));
                 bookmarkvalue.put("C3", Checknull(ccYear));
                 bookmarkvalue.put("S2",Checknull(PoliceStationName));
                  bookmarkvalue.put("S5", Checknull(StationAmphur));
@@ -220,7 +223,7 @@ public class W28 {
 					.load(new java.io.File("./TEMPLATE/w28.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/บันทึกการตรวจสภาพรถ" +cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/บันทึกการตรวจสภาพรถ" +cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -240,6 +243,7 @@ public static void nw28() {
                 bookmarkvalue.put("C01","");
                 bookmarkvalue.put("C001","");
 		bookmarkvalue.put("C2","");
+                bookmarkvalue.put("CC2","");
                 bookmarkvalue.put("C3", "");
                 bookmarkvalue.put("S2","");
                  bookmarkvalue.put("S5", "");
@@ -294,7 +298,7 @@ public static void nw28() {
 					.load(new java.io.File("./TEMPLATE/w28.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			
-			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/บันทึกการตรวจสภาพรถ.doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/บันทึกการตรวจสภาพรถ.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

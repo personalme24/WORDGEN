@@ -50,6 +50,7 @@ public class W1 {
             conn=ConnectDatabase.connect();
             PreparedStatement pst=null;
              String ccYear;
+             String cs;
              String casetype;
              String PoliceStationName="";
              String StationAmphur="";
@@ -106,13 +107,15 @@ public class W1 {
                 System.out.println(sql);
             while((s!=null) && (s.next()))
             {  String  
-                    cs =s.getString("crimecaseno");
+                    caseno =s.getString("crimecasenoyear");
                     ccYear=s.getString("crimecaseyears");
                     casetype = s.getString("casetype");
+                    cs =s.getString("crimecaseno");
 //              
                  JSONObject bookmarkvalue = new JSONObject();
 //                 bookmarkvalue.put("C1","Date");
 //                 bookmarkvalue.put("S27","-");
+                bookmarkvalue.put("CC2",Checknull(caseno));
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3",Checknull(ccYear));
                 bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
@@ -205,6 +208,7 @@ public class W1 {
 //                 bookmarkvalue.put("C1","Date");
 //                 bookmarkvalue.put("S27","-");
 		bookmarkvalue.put("C2","");
+                bookmarkvalue.put("CC2","");
                 bookmarkvalue.put("C3","");
                  bookmarkvalue.put("S2","");
                  bookmarkvalue.put("S5", "");

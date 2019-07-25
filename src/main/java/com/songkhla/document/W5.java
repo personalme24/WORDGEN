@@ -52,6 +52,7 @@ public class W5 {
             String cs;
             String casetype;
              String STATUS;
+             String caseno;
              String PoliceStationName="";
              String StationAmphur="";
              String StationProvince="";
@@ -109,7 +110,7 @@ public class W5 {
                ccYear=s.getString("crimecaseyears");
                STATUS=s.getString("Investigator_Result");
                casetype =s.getString("casetype");
-
+               caseno  =s.getString("crimecasenoyear");
               String Date="";
                 String Month="";
                 String Year="";
@@ -133,6 +134,7 @@ public class W5 {
                 bookmarkvalue.put("C1",Checknull(Date));
                 bookmarkvalue.put("C01",Checknull(Month));
                 bookmarkvalue.put("C001",Checknull(Year));
+                 bookmarkvalue.put("CC2",Checknull(caseno));
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3",Checknull(ccYear));
                 bookmarkvalue.put("STATUS",Checknull(STATUS));
@@ -230,6 +232,7 @@ public static void nw5() {
                 bookmarkvalue.put("C1","");
                 bookmarkvalue.put("C01","");
                 bookmarkvalue.put("C001","");
+                bookmarkvalue.put("CC2","");
 		bookmarkvalue.put("C2","");
                 bookmarkvalue.put("C3","");
                 bookmarkvalue.put("STATUS","");
