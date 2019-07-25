@@ -48,6 +48,7 @@ public class W33 {
             PreparedStatement pst=null;
              String ccYear;
              String casetype;
+             String caseno;
              String PoliceStationName="";
              String StationAmphur="";
              String StationProvince="";
@@ -97,6 +98,7 @@ public class W33 {
                     cs =s.getString("crimecaseno");
                     ccYear=s.getString("crimecaseyears");
                     casetype =s.getString("casetype");
+                    caseno  =s.getString("crimecasenoyear");
 //              
                   String Date="";
                   String Time="";
@@ -121,6 +123,7 @@ public class W33 {
                 bookmarkvalue.put("C01",Checknull(Time));
                 
 		bookmarkvalue.put("C2",Checknull(cs));
+                bookmarkvalue.put("CC2",Checknull(caseno));
                 bookmarkvalue.put("C3",Checknull(ccYear));
                  bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
                 
@@ -172,7 +175,7 @@ public class W33 {
 					.load(new java.io.File("./TEMPLATE/w33.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/บันทึกการตรวจค้น" +cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/บันทึกการตรวจค้น" +cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -195,7 +198,7 @@ public class W33 {
              
                 bookmarkvalue.put("C1","");
                 bookmarkvalue.put("C01","");
-                
+                bookmarkvalue.put("CC2","");
 		bookmarkvalue.put("C2","");
                 bookmarkvalue.put("C3","");
                  bookmarkvalue.put("S2","");
@@ -212,7 +215,7 @@ public class W33 {
 					.load(new java.io.File("./TEMPLATE/w33.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			
-			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/บันทึกการตรวจค้น.doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/บันทึกการตรวจค้น.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

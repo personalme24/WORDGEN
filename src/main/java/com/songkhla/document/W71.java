@@ -57,7 +57,7 @@ public class W71 {
              String FirstName ="";
              String LastName ="";
              String Position ="";
-             
+             String caseno;
        
             String Date="";
             String Month="";
@@ -163,6 +163,7 @@ public class W71 {
                     cs =s.getString("crimecaseno");
                     ccYear=s.getString("crimecaseyears");
                     casetype =s.getString("casetype");
+                    caseno  =s.getString("crimecasenoyear");
             
                 SimpleDateFormat sdfstart ;
                 Calendar  calstart = Calendar.getInstance();
@@ -184,7 +185,7 @@ public class W71 {
                 bookmarkvalue.put("C01",Checknull(Month));
                 bookmarkvalue.put("C001",Checknull(Year));
                 bookmarkvalue.put("C0011",Checknull(Time));
-                
+                 bookmarkvalue.put("CC2",Checknull(caseno));
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3",Checknull(ccYear));
                 
@@ -263,7 +264,7 @@ public class W71 {
                         processTABLE(bookmarkvalue,wordMLPackage);
                         processTABLE1(bookmarkvalue1,wordMLPackage);
                        
-			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/คำร้องและสัญญาประกัน "+cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/คำร้องและสัญญาประกัน "+cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -282,7 +283,7 @@ public class W71 {
                 bookmarkvalue.put("C01","");
                 bookmarkvalue.put("C001","");
                 bookmarkvalue.put("C0011","");
-                
+                bookmarkvalue.put("CC2","");
 		bookmarkvalue.put("C2","");
                 bookmarkvalue.put("C3","");
                 
@@ -348,7 +349,7 @@ public class W71 {
 					.load(new java.io.File("./TEMPLATE/w71.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			
-			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/คำร้องและสัญญาประกัน.doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/คำร้องและสัญญาประกัน.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

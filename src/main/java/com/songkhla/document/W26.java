@@ -47,6 +47,7 @@ public class W26 {
             PreparedStatement pst=null;
              String ccYear;
              String casetype;
+             String caseno;
              String PoliceStationName="";
              String StationAmphur="";
              String StationProvince="";
@@ -107,6 +108,7 @@ public class W26 {
                     cs =s.getString("crimecaseno");
                     ccYear=s.getString("crimecaseyears");
                     casetype =s.getString("casetype");
+                    caseno  =s.getString("crimecasenoyear");
                 String Date="";
                 String Month="";
                 String Year="";
@@ -130,6 +132,7 @@ public class W26 {
                 bookmarkvalue.put("C1",Checknull(Date));
                 bookmarkvalue.put("C01",Checknull(Month));
                 bookmarkvalue.put("C001",Checknull(Year));
+                 bookmarkvalue.put("CC2",Checknull(caseno));
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3", Checknull(ccYear));
                  bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(4));
@@ -215,7 +218,7 @@ public class W26 {
 					.load(new java.io.File("./TEMPLATE/w26.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/หนังสือนำส่งของกลางยาเสพติดตรวจพิสูจน์" +cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/หนังสือนำส่งของกลางยาเสพติดตรวจพิสูจน์" +cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -235,6 +238,7 @@ public static void nw26() {
                  bookmarkvalue.put("C01","");
                 bookmarkvalue.put("C001","");
 		bookmarkvalue.put("C2","");
+                bookmarkvalue.put("CC2","");
                 bookmarkvalue.put("C3", "");
                  bookmarkvalue.put("S2","");
                  bookmarkvalue.put("S5", "");

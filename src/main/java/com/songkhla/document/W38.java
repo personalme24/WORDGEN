@@ -51,6 +51,7 @@ public static void w38(String cc) {
             
             String ccYear;
             String casetype;
+            String caseno;
              String PoliceStationName="";
              String StationAmphur="";
              String StationProvince="";
@@ -99,7 +100,7 @@ public static void w38(String cc) {
             {  String  cs =s.getString("crimecaseno");
                  ccYear=s.getString("crimecaseyears");
                  casetype =s.getString("casetype");
-                 
+                 caseno  =s.getString("crimecasenoyear");
                 String Date="";
                 String Month="";
                 String Year="";
@@ -121,6 +122,7 @@ public static void w38(String cc) {
                 bookmarkvalue.put("C1",Checknull(Date));
                 bookmarkvalue.put("C01",Checknull(Month));
                 bookmarkvalue.put("C001",Checknull(Year));
+                bookmarkvalue.put("CC2",Checknull(caseno));
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3", Checknull(ccYear));
                 bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
@@ -167,41 +169,15 @@ public static void w38(String cc) {
                          bookmarkvalue.put("P05", Checknull(Position));
                     
                                
-                    
-                    
-                    
-                    
-                 
-//		bookmarkvalue.put("P7", s.getString("AccureandOther"));
-//                bookmarkvalue.put("P13", s.getString("AccureandOther"));
-//		bookmarkvalue.put("test01", "พ.ต.อ.");
-//		bookmarkvalue.put("test02", "พนักงานสอบสวน");
-//		bookmarkvalue.put("test03", "สน.ดอนเมือง");
-//                bookmarkvalue.put("test04", "สน.ดอนเมือง5");
-		
+
     
 			JSONArray tablecolumn = new JSONArray();
-//			tablecolumn.add("P03");
-//			tablecolumn.add("P02");
-//			tablecolumn.add("SUSPECT");
-//			tablecolumn.add("VICTIM");
-//			tablecolumn.add("REMARK");
+
 			JSONArray table1 = new JSONArray();
 			JSONObject row1 = new JSONObject();
-//			row1.put("P03","-");
-//			row1.put("P02", ccYear);
-//			row1.put("SUSPECT", "period1");
-//			row1.put("VICTIM", "period1");
-//			row1.put("REMARK", "period1");
+
 			table1.add(row1);
-			
-//			JSONObject repl2 = new JSONObject();
-//			repl2.put("CRIMESNO", "function1");
-//			repl2.put("DESCRIPTION", "desc1");
-//			repl2.put("SUSPECT", "period1");
-//			repl2.put("VICTIM", "period1");
-//			repl2.put("REMARK", "period1");
-//			table1.add(repl2);
+
 		JSONObject tableobj = new JSONObject();
 //		tableobj.put("COLUMNS", tablecolumn);
 //		tableobj.put("TABLEDATA", table1);
@@ -218,7 +194,7 @@ public static void w38(String cc) {
 					.load(new java.io.File("./TEMPLATE/w38.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/หมายเรียกผู้ต้องหา"+s.getString("FullNamePerson")+"" +cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/หมายเรียกผู้ต้องหา"+s.getString("FullNamePerson")+"" +cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -236,6 +212,7 @@ public static void nw38() {
                bookmarkvalue.put("C1","");
                 bookmarkvalue.put("C01","");
                 bookmarkvalue.put("C001","");
+                bookmarkvalue.put("CC2","");
 		bookmarkvalue.put("C2","");
                 bookmarkvalue.put("C3","");
                 
@@ -285,7 +262,7 @@ public static void nw38() {
 					.load(new java.io.File("./TEMPLATE/w38.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			
-			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/หมายเรียกผู้ต้องหา.doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/หมายเรียกผู้ต้องหา.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
