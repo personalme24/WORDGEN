@@ -103,7 +103,7 @@ public class W45 {
                 System.out.println(sql);
             while((s!=null) && (s.next()))
             {  String  
-                    cs =s.getString("crimecaseno");
+                    cs =s.getString("crimecasenoyear");
                     ccYear=s.getString("crimecaseyears");
                  casetype =s.getString("casetype");
                 String Date="";

@@ -910,7 +910,7 @@ public class ReportAllForm extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-            File f3=new File("C:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน");
+            File f3=new File("./สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน");
         
         f3.mkdirs();
         System.out.print(f3);
@@ -1215,7 +1215,7 @@ public class ReportAllForm extends javax.swing.JDialog {
         Desktop desktop = Desktop.getDesktop();
         File dirToOpen = null;
         try {    
-            dirToOpen = new File("C:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน");
+            dirToOpen = new File("./สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน");
             desktop.open(dirToOpen);
         } catch (Exception iae) {
             System.out.println("File Not Found");
