@@ -384,7 +384,18 @@ String noPerson;
             }
         });
                          
-   
+           if(jTableWitness.getRowCount()<=0){
+//             int rows = jTableAccure.getRowCount();
+            if(typeC.equals("อาญา")){
+            CrimesCaseEdit.jTextWitness.setText(""); 
+            }
+            if(typeC.equals("จราจร")){
+            TrafficEdit.jTextWitness.setText(""); 
+            }
+              if(typeC.equals("ชันสูตร")){
+            IdentityFrom.jTextWitness.setText(""); 
+            }
+            }
     
         if(jTableWitness.getRowCount()==1){
 //             int rows = jTableAccure.getRowCount();

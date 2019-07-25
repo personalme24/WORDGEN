@@ -12,6 +12,7 @@ import java.awt.Font;
 import java.awt.Rectangle;
 import java.io.File;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -52,7 +53,7 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
         ImageIcon img = new ImageIcon("D://Master//WD.png");
         setIconImage(img.getImage());
         setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
-        
+    
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         
         jTable1.setOpaque(false);
@@ -570,12 +571,18 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
         // TODO add your handling code here:
         if(jTable1.getSelectedRow()>=0){
             try{
+                
                 String crimecaseId = jTable1.getModel().getValueAt(jTable1.getSelectedRow(), 0)+"";
-                String sql = "Delete from CrimeCase WHERE CaseId='"+crimecaseId+"'";
-                Connection con = ConnectDatabase.connect();
-                Statement stmt = con.createStatement();
+                String crimecaseno = jTable1.getModel().getValueAt(jTable1.getSelectedRow(),1)+"";
 
-                int response = JOptionPane.showConfirmDialog(jPanel4, "ต้องการบันทึกข้อมูล", "ยืนยัน",
+                String sql = "DELETE FROM CrimeCase WHERE CrimeCase.CaseId='"+crimecaseId+"';\n"+
+                             "DELETE FROM RecordInquiry WHERE caseidrecord='"+crimecaseId+"';\n"+
+                             "DELETE FROM Person WHERE caseidperson='"+crimecaseId+"';";
+                Connection con = ConnectDatabase.connect();
+                System.out.println("Delete:"+sql);
+                Statement  stmt = con.createStatement();
+                
+                int response = JOptionPane.showConfirmDialog(jPanel4, "ต้องการลบข้อมูลทั้งหมดของคดีที่ "+crimecaseno, null,
                     JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                 if (response == JOptionPane.YES_OPTION) {
                     stmt.executeUpdate(sql);
@@ -635,6 +642,7 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
     
     public void RefreshData(){
         try{
+         
         Connection con = ConnectDatabase.connect();
         Statement stmt = con.createStatement();
         String sql = "select crimecase.*,Charge.* from crimecase"
@@ -689,6 +697,9 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
         }catch(Exception ex){
             ex.printStackTrace();
         }
+        jTable1.getColumnModel().getColumn(0).setWidth(0);
+jTable1.getColumnModel().getColumn(0).setMinWidth(0);
+jTable1.getColumnModel().getColumn(0).setMaxWidth(0); 
     }
     
     private String getFilterCondition(){

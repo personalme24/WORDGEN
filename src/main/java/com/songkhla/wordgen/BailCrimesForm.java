@@ -184,10 +184,10 @@ public class BailCrimesForm extends javax.swing.JDialog {
         });
 
         jLabel30.setBackground(java.awt.SystemColor.activeCaptionBorder);
-        jLabel30.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel30.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel30.setText("เลขคดีที่ ");
 
-        jLabel5.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel5.setText("ชื่อผู้ต้องหา");
 
         SuspectFullName.setEditable(false);
@@ -200,10 +200,10 @@ public class BailCrimesForm extends javax.swing.JDialog {
         ChargeName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         ChargeName.setBorder(null);
 
-        jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel6.setText("ข้อหา");
 
-        jLabel7.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel7.setText("สถานที่จับกุม");
 
         PlaceArrest.setEditable(false);
@@ -211,7 +211,7 @@ public class BailCrimesForm extends javax.swing.JDialog {
         PlaceArrest.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         PlaceArrest.setBorder(null);
 
-        jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel8.setText("วันที่จับกุม");
 
         ArrestDate.setEditable(false);
@@ -277,6 +277,7 @@ public class BailCrimesForm extends javax.swing.JDialog {
             }
         });
 
+        AddEditBail.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         AddEditBail.setIcon(new javax.swing.ImageIcon("D:\\Master\\edit (1).png")); // NOI18N
         AddEditBail.setText("แก้ไข");
         AddEditBail.setPreferredSize(new java.awt.Dimension(79, 30));
@@ -298,7 +299,7 @@ public class BailCrimesForm extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(AddEditBail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(AddEditBail, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jCheckOnly))
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))

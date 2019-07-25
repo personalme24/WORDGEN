@@ -182,12 +182,17 @@ public class CreateTable {
                 "	SueSevenTotal	INTEGER	,	\n"+
                 "	SueSevenRequest	VARCHAR(100)	,	\n"+
                 "	SueSevenCause	VARCHAR(100)	,	\n"+                        
-                "	caseIdPerson	INTEGER	not null	\n"+
+                "	caseIdPerson	INTEGER	not null,	\n"+
+                    " CONSTRAINT fk_CrimeCase            \n"+
+                                "FOREIGN KEY (caseIdPerson)            \n"+
+                                "REFERENCES CrimeCase(CaseId)  \n"+
+                                "ON DELETE SET NULL                     \n"+
+                                  
                 "	);	";	
 
                        
                   String sqlCrimeCase ="CREATE TABLE IF NOT EXISTS CrimeCase (\n"+
-                       "	CaseId	INTEGER	Primary Key AUTOINCREMENT,	\n"+
+                       "	CaseId	INTEGER	Primary Key,	\n"+
                         "	CaseType	VARCHAR(100)	,	\n"+
                         "	SendIDocDate	DATE	,	\n"+
                         "	crimecaseno	VARCHAR(100)	not null,	\n"+
@@ -368,17 +373,7 @@ public class CreateTable {
                             "	BailCaseId	INTEGER	,	\n"+
                             "	BailPersonId	INTEGER		\n"+
                     "	);";
-//             String sqlDayOff ="CREATE TABLE IF NOT EXISTS Bail (\n"+
-//                              "	BailAssetId	INTEGER	Primary Key AUTOINCREMENT,	\n"+
-//                                "	BailAssetOrder	INTEGER	,	\n"+
-//                                "	BailAssetDetail	VARCHAR(100)	,	\n"+
-//                                "	BailAssetBath	VARCHAR(100)	,	\n"+
-//                                "	BailAmount	VARCHAR(100)	,	\n"+
-//                                "	BailAssetTotal	VARCHAR(100)	,	\n"+
-//                                "	BailAssetRemark	VARCHAR(100)	,	\n"+
-//                                "	BailCaseId	INTEGER	,	\n"+
-//                                "	BailPersonId	INTEGER		\n"+
-//                    "	);";            
+       
                 String sqlDeliverySuspect ="CREATE TABLE IF NOT EXISTS DeliverySuspect (\n"+
                                 "	DeliId	INTEGER	Primary Key AUTOINCREMENT,	\n"+
                                 "	DeliOrder	INTEGER	,	\n"+

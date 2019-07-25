@@ -87,6 +87,7 @@ public class WitnessForm extends javax.swing.JDialog {
             crimecaseno.setText(datain.get("caseIdPerson")+"");
             PeopleRegistrationID.setText(datain.get("PeopleRegistrationID")+"");
             FullNamePerson.setText(datain.get("FullNamePerson")+"");
+            Related.setSelectedItem(datain.get("Related")+"");
             Age.setText(datain.get("Age")+"");
             Amphur.setText(datain.get("Amphur")+"");
             BirthDay.getJFormattedTextField().setText(datain.get("BirthDay")+"");

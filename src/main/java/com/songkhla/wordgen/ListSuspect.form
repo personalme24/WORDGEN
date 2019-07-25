@@ -185,7 +185,7 @@
         <Component class="javax.swing.JButton" name="jButtonDeleteAccured">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="TH SarabunPSK" size="20" style="0"/>
+              <Font name="TH SarabunPSK" size="22" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&#xe25;&#xe1a;"/>
           </Properties>
@@ -196,7 +196,7 @@
         <Component class="javax.swing.JButton" name="jButtonEditAccured">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="TH SarabunPSK" size="20" style="0"/>
+              <Font name="TH SarabunPSK" size="22" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&#xe41;&#xe01;&#xe49;&#xe44;&#xe02;"/>
           </Properties>
@@ -217,7 +217,7 @@
         <Component class="javax.swing.JButton" name="jButtonAddAccused">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="TH SarabunPSK" size="20" style="0"/>
+              <Font name="TH SarabunPSK" size="22" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&#xe40;&#xe1e;&#xe34;&#xe48;&#xe21;"/>
           </Properties>

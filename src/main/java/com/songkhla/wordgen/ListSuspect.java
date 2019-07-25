@@ -40,7 +40,7 @@ String typeC;
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
             
             
-                txtCaseNO.setVisible(false);
+                txtCaseNO.setVisible(true);
 
        txtCaseNO.setText(datain.get("CaseIdSus")+"");
         typeC=datain.get("TypeCaseS")+"";
@@ -109,7 +109,7 @@ String typeC;
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("ข้อมูลผู้ต้องหา");
 
-        jButtonDeleteAccured.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        jButtonDeleteAccured.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jButtonDeleteAccured.setText("ลบ");
         jButtonDeleteAccured.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,7 +117,7 @@ String typeC;
             }
         });
 
-        jButtonEditAccured.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        jButtonEditAccured.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jButtonEditAccured.setText("แก้ไข");
         jButtonEditAccured.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,7 +127,7 @@ String typeC;
 
         txtCaseNO.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        jButtonAddAccused.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        jButtonAddAccused.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jButtonAddAccused.setText("เพิ่ม");
         jButtonAddAccused.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -221,11 +221,11 @@ String typeC;
         if(jTableSuspect.getSelectedRow()>=0){
            
             try{
-                String PeopleRegistrationID = jTableSuspect.getModel().getValueAt(jTableSuspect.getSelectedRow(), 0)+"";            
+                String Noperson = jTableSuspect.getModel().getValueAt(jTableSuspect.getSelectedRow(), 6)+"";            
                 String sql = "select NoPerson,Identification,CurrentAddress,Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,Weight,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
                         "PhonePerson,StatusSuspect,BailDate,StatusBail,RatePrison,CourtSuspect,ArrestDateTimeEnd,Province,Race,Religion,Tambon,TypePerson,"
-                        + "ZipCode,caseIdPerson,ArrestDateTime,PlaceArrest from person where PeopleRegistrationID='"+PeopleRegistrationID+ "' and caseIdPerson='"+crimecaseno+"' and TypePerson='ผู้ต้องหา'";
+                        + "ZipCode,caseIdPerson,ArrestDateTime,PlaceArrest from person where noperson='"+Noperson+ "' and caseIdPerson='"+crimecaseno+"' and TypePerson='ผู้ต้องหา'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);
@@ -298,8 +298,9 @@ String typeC;
             String aa=txtCaseNO.getText();      
             try{
 //                String crimecaseno = jTableSuspect.getModel().getValueAt(jTableSuspect.getSelectedRow(), 0)+"";
-                String PeopleRegistrationID = jTableSuspect.getModel().getValueAt(jTableSuspect.getSelectedRow(), 0)+"";
-                String sql = "Delete from person WHERE PeopleRegistrationID='"+PeopleRegistrationID+ "' and  caseIdPerson='"+aa+"' and TypePerson='ผู้ต้องหา'";
+                String Noperson = jTableSuspect.getModel().getValueAt(jTableSuspect.getSelectedRow(), 6)+"";
+                String sql = "Delete from person WHERE Noperson='"+Noperson+ "' and  caseIdPerson='"+aa+"' and TypePerson='ผู้ต้องหา';\n"+
+                             "Delete from Deliverysuspect WHERE delipersonid='"+Noperson+"';\n";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 stmt.executeUpdate(sql);
@@ -355,7 +356,7 @@ String typeC;
         Connection con = ConnectDatabase.connect();
         Statement stmt = con.createStatement();
         String a=txtCaseNO.getText();
-        String sql = "select Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
+        String sql = "select NoPerson,Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                      "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
                      "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,caseIdPerson from person where TypePerson='ผู้ต้องหา' and caseIdPerson='"+a+"'"+getFilterCondition();
       
@@ -370,6 +371,8 @@ String typeC;
             row.add(rs.getString("Race"));
             row.add(rs.getString("Nationality"));
             row.add(rs.getString("Religion"));
+            row.add(rs.getString("NoPerson"));
+
             tabledata.add(row);
         }
         rs.close();
@@ -381,6 +384,7 @@ String typeC;
         ColumnName.add("เชื้อชาติ");
         ColumnName.add("สัญชาติ");
         ColumnName.add("ศาสนา");
+        ColumnName.add("เลขคน");
          System.out.println("SQL : "+sql);
      
         jTableSuspect.setModel(new javax.swing.table.DefaultTableModel(
@@ -395,6 +399,9 @@ String typeC;
                 return types [columnIndex];
             }
         });
+         jTableSuspect.getColumnModel().getColumn(6).setWidth(0);
+jTableSuspect.getColumnModel().getColumn(6).setMinWidth(0);
+jTableSuspect.getColumnModel().getColumn(6).setMaxWidth(0); 
                              System.out.println("SQL : "+sql);
         
    
@@ -410,6 +417,18 @@ String typeC;
             IdentityFrom.jTextSuspect.setText(jTableSuspect.getValueAt(0, 1).toString()); 
             }
             }
+      if(jTableSuspect.getRowCount()<=0){
+//             int rows = jTableAccure.getRowCount();
+            if(typeC.equals("อาญา")){
+            CrimesCaseEdit.jTextSuspect.setText(""); 
+            }
+            if(typeC.equals("จราจร")){
+            TrafficEdit.jTextSuspect.setText(""); 
+            }
+              if(typeC.equals("ชันสูตร")){
+            IdentityFrom.jTextSuspect.setText(""); 
+            }
+            }
             if(jTableSuspect.getRowCount()>1){
             
             if(typeC.equals("อาญา")){
@@ -422,7 +441,7 @@ String typeC;
             IdentityFrom.jTextSuspect.setText(jTableSuspect.getValueAt(0, 1).toString()+"และพวก"); 
             }
             }
-        
+    
          int rows = jTableSuspect.getRowCount();
                        CrimesCaseEdit.jLabelNumberSus.setText(rows+"");
         }catch(Exception ex){
@@ -476,6 +495,7 @@ String typeC;
             return null;
 //            System.out.println(e);
         } 
+        
     
     }
     public static String Checknull(String input){

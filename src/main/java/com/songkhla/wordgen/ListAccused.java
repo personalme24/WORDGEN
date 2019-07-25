@@ -10,6 +10,7 @@ import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseid;
 import static com.songkhla.wordgen.CrimesCaseEdit.jLabelNumberAcc;
 import static com.songkhla.wordgen.CrimesCaseEdit.jTextAccused;
 import static com.songkhla.wordgen.ListAccused.jTableAccure;
+import static com.songkhla.wordgen.ListSuspect.jTableSuspect;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -400,6 +401,18 @@ String typeC;
                 return types [columnIndex];
             }
         });
+         if(jTableAccure.getRowCount()<=0){
+//             int rows = jTableAccure.getRowCount();
+            if(typeC.equals("อาญา")){
+            CrimesCaseEdit.jTextAccused.setText(""); 
+            }
+            if(typeC.equals("จราจร")){
+            TrafficEdit.jTextAccused.setText(""); 
+            }
+              if(typeC.equals("ชันสูตร")){
+            IdentityFrom.jTextAccused.setText(""); 
+            }
+            }
          if(jTableAccure.getRowCount()==1){
 //             int rows = jTableAccure.getRowCount();
             if(typeC.equals("อาญา")){
