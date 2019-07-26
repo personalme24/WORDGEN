@@ -29,6 +29,7 @@ public class ActionListMenu extends javax.swing.JDialog {
                        super(parrent,true);
 
         initComponents();
+        jScrollPane3.getVerticalScrollBar().setUI(new CustomScrollBarUI());
          ImageIcon img = new ImageIcon("D://Master//WD.png");
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
@@ -107,6 +108,9 @@ public class ActionListMenu extends javax.swing.JDialog {
             }
         ));
         jTableAction.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        jTableAction.setRowHeight(25);
+        jTableAction.setRowMargin(2);
+        jTableAction.setRowSelectionAllowed(false);
         jTableAction.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableActionMouseClicked(evt);
@@ -365,6 +369,11 @@ public class ActionListMenu extends javax.swing.JDialog {
         }catch(Exception ex){
             ex.printStackTrace();
         }
+//         jTableAction.getColumnModel().getColumn(0).setWidth(40);
+//jTableAction.getColumnModel().getColumn(0).setMinWidth(40);
+jTableAction.getColumnModel().getColumn(0).setMaxWidth(40); 
+//jTableAction.getColumnModel().getColumn(2).setMaxWidth(200); 
+
     }
  private String getFilterCondition(){
         HashMap<String,String> filter = new HashMap<String,String>();
