@@ -707,7 +707,7 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
         // TODO add your handling code here:
         
         String no=crimecaseno.getText();
-        File f3=new File("C:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
+        File f3=new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
         
         f3.mkdirs();
         System.out.print(f3);
@@ -868,7 +868,7 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
         Desktop desktop = Desktop.getDesktop();
         File dirToOpen = null;
         try {    
-            dirToOpen = new File("C:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
+            dirToOpen = new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
             desktop.open(dirToOpen);
         } catch (Exception iae) {
             System.out.println("File Not Found");
@@ -934,7 +934,7 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
      Desktop desktop = Desktop.getDesktop();
         File dirToOpen = null;
         try {    
-            dirToOpen = new File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/คดีอาญา"+caseno+"-"+caseyear+"/"+FileName);
+            dirToOpen = new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/คดีอาญา"+caseno+"-"+caseyear+"/"+FileName);
             desktop.open(dirToOpen);
         } catch (Exception iae) {
             System.out.println("File Not Found");
