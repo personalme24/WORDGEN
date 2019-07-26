@@ -49,6 +49,7 @@ public class W2 {
              String ccYear;
              String caseno;
              String casetype;
+             String STATUS;
              String PoliceStationName="";
              String ProvincProsecutor="";
              String THNumBook ="";
@@ -81,7 +82,7 @@ public class W2 {
                          Position=rs1.getString("Position");
                       }
                   
-                   String sql="select crimecase.CaseId,crimecase.crimecaseno,crimecase.crimecaseyears,crimecase.casetype,"
+                   String sql="select crimecase.CaseId,crimecase.crimecaseno,crimecase.crimecasenoyear,crimecase.crimecaseyears,crimecase.casetype,"
                             + "crimecase.AccureandOther,crimecase.SuspectandOther,crimecase.WitnessandOther,Charge.*,P1.*,P2.*\n" +
                                 "from crimecase inner join(\n" +
                               "SELECT  min(Person.NoPerson),Person.FullNamePerson AccuredName,Person.Age AgeAccured,Person.Race AccuredRace,Person.Nationality AccuredNati "
@@ -107,6 +108,7 @@ public class W2 {
                     ccYear=s.getString("crimecaseyears");
                     casetype =s.getString("casetype");
                     caseno  =s.getString("crimecasenoyear");
+                    STATUS=s.getString("Investigator_Result");
                 String Date="";
                 String Month="";
                 String Year="";
@@ -138,6 +140,7 @@ public class W2 {
                  bookmarkvalue.put("S27",Checknull(ProvincProsecutor));
                  bookmarkvalue.put("S29",Checknull(THNumBook));
                  bookmarkvalue.put("S10",Checknull(TelStation));
+                 bookmarkvalue.put("STATUS",Checknull(STATUS));
                    
                    
                   bookmarkvalue.put("PA7",Checknull(s.getString("AccureandOther")));
