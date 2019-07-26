@@ -267,6 +267,7 @@ String typeC;
                     data.put("RatePrison", rs.getString("RatePrison"));
                     data.put("CourtSuspect", rs.getString("CourtSuspect"));
                      data.put("BailDate", rs.getString("BailDate"));
+                     data.put("ZipCode", rs.getString("ZipCode"));
                    
                     data.put("PlaceArrest", rs.getString("PlaceArrest"));
                     data.put("caseIdPerson", rs.getString("caseIdPerson"));

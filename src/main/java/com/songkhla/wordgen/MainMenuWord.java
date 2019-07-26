@@ -65,6 +65,7 @@ public class MainMenuWord extends javax.swing.JFrame {
         con=ConnectDatabase.connect();
         CreateTable.createNewTable();      
         CreateTable.InsertBaseData();
+        InsertBaseData.Insert();
 
         
     }

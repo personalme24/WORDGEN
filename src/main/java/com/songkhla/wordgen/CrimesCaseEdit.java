@@ -223,6 +223,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         crimecaseid.setVisible(true);
  
             comboInvest();
+ comboProvince();
  
         if(datain!=null){
             try {
@@ -254,9 +255,9 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             jTextAccused.setText(datain.get("AccureandOther")+"");
             CourtType.setSelectedItem(datain.get("TypeCourt"));
             CrimeLocation.setText(datain.get("CrimeLocation")+"");
-            CrimeLocationDistrict.setText(datain.get("CrimeLocationDistrict")+"");
-            CrimeLocationAmphur.setText(datain.get("CrimeLocationAmphur")+"");
-            CrimeLocationProvince.setText(datain.get("CrimeLocationProvince")+"");
+            CrimeLocationDistrict.setSelectedItem(datain.get("CrimeLocationDistrict")+"");
+            CrimeLocationAmphur.setSelectedItem(datain.get("CrimeLocationAmphur")+"");
+            CrimeLocationProvince.setSelectedItem(datain.get("CrimeLocationProvince")+"");
             CrimeLocationMoo.setText(datain.get("CrimeLocationMoo")+"");
             CrimeLocationRoad.setText(datain.get("CrimeLocationRoad")+"");
             CrimeLocationSoi.setText(datain.get("CrimeLocationSoi")+"");            
@@ -334,6 +335,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
            isInsert=true;
           
         }
+        
     
             
     }
@@ -402,13 +404,9 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jButtonAddAsset = new javax.swing.JButton();
         jLabel28 = new javax.swing.JLabel();
         EvidenceRecordCase = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        CrimeLocationAmphur = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
-        CrimeLocationProvince = new javax.swing.JTextField();
-        CrimeLocationDistrict = new javax.swing.JTextField();
         jLabel45 = new javax.swing.JLabel();
         jButtonAddInvest = new javax.swing.JButton();
         jLabel46 = new javax.swing.JLabel();
@@ -423,6 +421,9 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jPanel2 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
+        CrimeLocationProvince = new javax.swing.JComboBox<>();
+        CrimeLocationAmphur = new javax.swing.JComboBox<>();
+        CrimeLocationDistrict = new javax.swing.JComboBox<>();
         jPanel5 = new javax.swing.JPanel();
         jTextAccused = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
@@ -732,35 +733,17 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         EvidenceRecordCase.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         jPanel1.add(EvidenceRecordCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 240, 82, -1));
 
-        jButton1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButton1.setText("ต/อ/จ");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 180, 70, -1));
-
         jLabel16.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel16.setText("ตำบล");
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 140, -1, 30));
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 190, -1, 30));
 
         jLabel17.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel17.setText("อำเภอ");
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 140, -1, 30));
-
-        CrimeLocationAmphur.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
-        jPanel1.add(CrimeLocationAmphur, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 140, 200, -1));
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 150, 40, 30));
 
         jLabel18.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel18.setText("จังหวัด");
-        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 180, -1, 30));
-
-        CrimeLocationProvince.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
-        jPanel1.add(CrimeLocationProvince, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 180, 363, -1));
-
-        CrimeLocationDistrict.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
-        jPanel1.add(CrimeLocationDistrict, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 140, 194, -1));
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 150, -1, 30));
 
         jLabel45.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel45.setText("พนักงานสอบสวน");
@@ -793,7 +776,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 100, -1, -1));
 
         CrimeLocationRoad.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
-        jPanel1.add(CrimeLocationRoad, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 100, 130, 31));
+        jPanel1.add(CrimeLocationRoad, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 100, 130, 30));
 
         jLabel23.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel23.setText("หมู่ที่");
@@ -858,6 +841,20 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         );
 
         jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 220, -1));
+
+        CrimeLocationProvince.setEditable(true);
+        CrimeLocationProvince.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        CrimeLocationProvince.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        jPanel1.add(CrimeLocationProvince, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 150, 190, 30));
+
+        CrimeLocationAmphur.setEditable(true);
+        CrimeLocationAmphur.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        jPanel1.add(CrimeLocationAmphur, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 150, 190, 30));
+
+        CrimeLocationDistrict.setEditable(true);
+        CrimeLocationDistrict.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        CrimeLocationDistrict.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        jPanel1.add(CrimeLocationDistrict, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 190, 190, 30));
 
         jTabbedPane2.addTab("ข้อมูลคดี", jPanel1);
 
@@ -1798,9 +1795,9 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                 pst.setString(14,CrimeLocationMoo.getText());
                 pst.setString(15,CrimeLocationSoi.getText());
                 pst.setString(16,CrimeLocationRoad.getText());
-                pst.setString(17,CrimeLocationDistrict.getText());
-                pst.setString(18,CrimeLocationAmphur.getText());
-                pst.setString(19,CrimeLocationProvince.getText());
+                pst.setString(17,CrimeLocationDistrict.getSelectedItem().toString());
+                pst.setString(18,CrimeLocationAmphur.getSelectedItem().toString());
+                pst.setString(19,CrimeLocationProvince.getSelectedItem().toString());
                 
                 pst.setString(20,CourtType.getSelectedItem().toString());
                 pst.setString(21,jTextAccused.getText());
@@ -1927,9 +1924,9 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                 pst.setString(10,OccuredDate.getJFormattedTextField().getText());
                 pst.setString(11,orcuredTime);
                 pst.setString(12,CrimeLocation.getText());
-                pst.setString(13,CrimeLocationDistrict.getText());
-                pst.setString(14,CrimeLocationAmphur.getText());
-                pst.setString(15,CrimeLocationProvince.getText());
+                pst.setString(13,CrimeLocationDistrict.getSelectedItem().toString());
+                pst.setString(14,CrimeLocationAmphur.getSelectedItem().toString());
+                pst.setString(15,CrimeLocationProvince.getSelectedItem().toString());
                 pst.setString(16,jTextAccused.getText());
                 pst.setString(17,jTextSuspect.getText());
                 pst.setString(18,jTextWitness.getText());
@@ -2031,6 +2028,8 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                     data.put("ActionCode", rs.getString("ActionCode"));
                     data.put("ActionCrimes", rs.getString("ActionCrimes"));
                     data.put("ActionDetail", rs.getString("ActionDetail"));
+                    data.put("AnswerAccuser", rs.getString("AnswerAccuser"));
+                    data.put("AnswerSuspect", rs.getString("AnswerSuspect"));
                     data.put("ActionNote", rs.getString("ActionNote"));
 
                     ActionPage d = new ActionPage(fr,data);
@@ -2191,10 +2190,6 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         lw.setLocationRelativeTo(null);
         lw.setVisible(true);
     }//GEN-LAST:event_jButtonWitnessActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButtonAddInvestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddInvestActionPerformed
         String ci=crimecaseid.getText();
@@ -2548,6 +2543,29 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 catch (Exception d) {  //System.out.println(d);  
 }
     }
+      public void comboProvince(){
+    
+     try {
+
+         Connection con2 = ConnectDatabase.connect();
+	Statement st = con2.createStatement();
+        	String c = "Select nameprovince from province";
+        	ResultSet res = st.executeQuery(c);
+	//Vector<Object> v=new Vector<Object>();
+	
+	while(res.next())
+	{
+	CrimeLocationProvince.addItem(res.getString("nameprovince"));
+
+	
+	}
+        
+//        else{jComboPoliceName.addItem("");}
+	
+}
+catch (Exception d) {  //System.out.println(d);  
+}
+    }
     public static JComponent makeExamplePane() {
      JPanel text = new JPanel();
     JScrollPane scroll = new JScrollPane(text);
@@ -2703,10 +2721,10 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JTextArea CourtResult;
     private javax.swing.JComboBox<String> CourtType;
     private javax.swing.JTextField CrimeLocation;
-    private javax.swing.JTextField CrimeLocationAmphur;
-    private javax.swing.JTextField CrimeLocationDistrict;
+    private javax.swing.JComboBox<String> CrimeLocationAmphur;
+    private javax.swing.JComboBox<String> CrimeLocationDistrict;
     private javax.swing.JTextField CrimeLocationMoo;
-    private javax.swing.JTextField CrimeLocationProvince;
+    private javax.swing.JComboBox<String> CrimeLocationProvince;
     private javax.swing.JTextField CrimeLocationRoad;
     private javax.swing.JTextField CrimeLocationSoi;
     private javax.swing.JTextField DailyNumber;
@@ -2719,7 +2737,6 @@ catch (Exception d) {  //System.out.println(d);
     public static javax.swing.JLabel crimecaseid;
     public static javax.swing.JTextField crimecaseno;
     private javax.swing.JTextField crimecaseyear;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonAccured;
     private javax.swing.JButton jButtonAction;

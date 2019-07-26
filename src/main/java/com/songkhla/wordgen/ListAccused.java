@@ -276,6 +276,7 @@ String typeC;
                     data.put("Race", rs.getString("Race"));
                     data.put("Religion", rs.getString("Religion"));
                     data.put("Tambon", rs.getString("Tambon"));
+                     data.put("ZipCode", rs.getString("ZipCode"));
                             AccusedForm accusedF=new AccusedForm(f,data);
                              accusedF.pack();
                              accusedF.setLocationRelativeTo(null);

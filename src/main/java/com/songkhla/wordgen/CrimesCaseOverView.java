@@ -505,7 +505,7 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);
-                System.out.println("ExSql : "+sql);
+//                System.out.println("ExSql : "+sql);
                 if(rs.next()){
                     JSONObject data = new JSONObject();
                     data.put("CaseId", rs.getString("CaseId"));
@@ -579,7 +579,7 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
                              "DELETE FROM RecordInquiry WHERE caseidrecord='"+crimecaseId+"';\n"+
                              "DELETE FROM Person WHERE caseidperson='"+crimecaseId+"';";
                 Connection con = ConnectDatabase.connect();
-                System.out.println("Delete:"+sql);
+//                System.out.println("Delete:"+sql);
                 Statement  stmt = con.createStatement();
                 
                 int response = JOptionPane.showConfirmDialog(jPanel4, "ต้องการลบข้อมูลทั้งหมดของคดีที่ "+crimecaseno, null,
@@ -652,7 +652,7 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
 //                + "left join Person on Person.caseIdPerson = CrimeCase.CaseId "+getFilterCondition();
 
         ResultSet rs = stmt.executeQuery(sql);
-            System.out.println("Sqll : "+sql);
+//            System.out.println("Sqll : "+sql);
         Vector<Vector> tabledata = new Vector<Vector>();
         while(rs.next()){
             Vector<String> row = new Vector<String>();

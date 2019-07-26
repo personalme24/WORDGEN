@@ -105,6 +105,7 @@ public class WitnessForm extends javax.swing.JDialog {
             Occupation.setText(datain.get("Occupation")+"");
             PassportNumber.setText(datain.get("PassportNumber")+"");
             Province.setText(datain.get("Province")+"");
+             ZipCode.setText(datain.get("ZipCode")+"");
             Race.setText(datain.get("Race")+"");
             Religion.setText(datain.get("Religion")+"");
             Tambon.setText(datain.get("Tambon")+"");

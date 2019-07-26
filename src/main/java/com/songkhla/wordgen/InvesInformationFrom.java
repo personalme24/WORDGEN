@@ -62,9 +62,10 @@ public class InvesInformationFrom extends javax.swing.JDialog {
            InvestRank.setText(datain.get("InvestRank")+"");
            InvestName.setText(datain.get("InvestName")+"");
            InvestPosition.setText(datain.get("InvestPosition")+"");
-           InvestBirthDay.getJFormattedTextField().setText(datain.get("InvestBirthDay")+"");
-           InvestAge.setText(datain.get("InvestAge")+"");
-           InvestTel.setText(datain.get("InvestTel")+"");
+          
+           InvestBirthDay.getJFormattedTextField().setText(Checknull(datain.get("InvestBirthDay")+""));
+           InvestAge.setText(Checknull(datain.get("InvestAge")+""));
+           InvestTel.setText(Checknull(datain.get("InvestTel")+""));
 
            
                                  
@@ -464,7 +465,10 @@ public class InvesInformationFrom extends javax.swing.JDialog {
             }
         });
     }
-       
+       public static String Checknull(String input){
+					if(input==null||input==""||input=="null") { return ""; }
+					return input;
+					}
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

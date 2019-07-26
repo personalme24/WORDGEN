@@ -521,7 +521,7 @@ public class BailCrimesForm extends javax.swing.JDialog {
 //        String a=txtCaseNO.getText();
         String sql;
          sql="select CrimeCase.crimecasenoyear crimecasenoyear,CrimeCase.caseacceptdate CaseAcceptDate,Person.arrestdatetimeend ArrestDateTimeEnd,\n" +
-"                Person.Fullnameperson FullNamePerson, Person.noperson noperson,Person.BailDate BailDate,Person.StatusBail StatusBail,\n" +
+"                Person.Fullnameperson FullNamePerson,Person.Co FullNamePerson, Person.noperson noperson,Person.BailDate BailDate,Person.StatusBail StatusBail,\n" +
 " deli1.deliorder order1,deli1.delidate date1,\n" +
 " deli2.deliorder order2,deli2.delidate date2,\n" +
 "deli3.deliorder order3,deli3.delidate date3,\n" +
@@ -562,6 +562,7 @@ public class BailCrimesForm extends javax.swing.JDialog {
             Vector<String> row = new Vector<String>();          
             row.add(rs.getString("crimecasenoyear"));
             row.add(rs.getString("FullNamePerson"));
+             row.add(rs.getString("CourtSuspect"));
             row.add(rs.getString("CaseAcceptDate"));
             row.add(rs.getString("ArrestDateTimeEnd"));
              row.add(rs.getString("BailDate"));  
@@ -586,7 +587,7 @@ public class BailCrimesForm extends javax.swing.JDialog {
          
          ColumnName.add("เลขคดี/ปี");    
          ColumnName.add("ผู้ต้องหา");
-         //ColumnName.add("ศาล");
+         ColumnName.add("ศาล");
          ColumnName.add("วันรับคำร้องทุกข์");
           ColumnName.add("วันสิ้นสุดควบคุมตัว");
            ColumnName.add("วันประกัน");   

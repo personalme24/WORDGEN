@@ -257,6 +257,7 @@ String noPerson;
                     data.put("Race", rs.getString("Race"));
                     data.put("Religion", rs.getString("Religion"));
                     data.put("Tambon", rs.getString("Tambon"));
+                    data.put("ZipCode", rs.getString("ZipCode"));
                             WitnessForm wF=new WitnessForm(f,data);
                             wF.pack();
                             wF.setLocationRelativeTo(null);                            

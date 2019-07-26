@@ -200,6 +200,7 @@ public class SuspectForm extends javax.swing.JDialog {
             PassportNumber.setText(datain.get("PassportNumber")+"");
             PhonePerson.setText(datain.get("PhonePerson")+"");
             Province.setText(datain.get("Province")+"");
+             ZipCode.setText(datain.get("ZipCode")+"");           
             Race.setText(datain.get("Race")+"");
             Religion.setText(datain.get("Religion")+"");
             Tambon.setText(datain.get("Tambon")+"");
@@ -1770,6 +1771,12 @@ public class SuspectForm extends javax.swing.JDialog {
     public void itemStateChanged(ItemEvent event) {
         int state = event.getStateChange();
         if (state == ItemEvent.SELECTED) {
+                 PlaceArrest.setVisible(true);
+             jLabelArrestPlace.setVisible(true);
+            jPanelDateArrest.setVisible(true);
+            jLabelArrestDate.setVisible(true);
+            jLabelArrTime.setVisible(true);
+            jSpinnerArrTime.setVisible(true);
          jLabelFreezeOrg.setVisible(true);
          Attach.setVisible(true);
          jLabelFreezeDate.setVisible(true);
@@ -1777,6 +1784,12 @@ public class SuspectForm extends javax.swing.JDialog {
             // do something when the button is selected
  
         } else if (state == ItemEvent.DESELECTED) {
+                 PlaceArrest.setVisible(false);
+             jLabelArrestPlace.setVisible(false);
+            jPanelDateArrest.setVisible(false);
+            jLabelArrestDate.setVisible(false);
+            jLabelArrTime.setVisible(false);
+            jSpinnerArrTime.setVisible(false);
              jLabelFreezeOrg.setVisible(false);
            Attach.setVisible(false);
             jLabelFreezeDate.setVisible(false);
@@ -1833,6 +1846,34 @@ public class SuspectForm extends javax.swing.JDialog {
         } else if (state == ItemEvent.DESELECTED) {
                  jLabelRestoreDate.setVisible(false);
                   jPanelRestoreDate.setVisible(false);
+            // do something else when the button is deselected
+ 
+        }
+    }
+});
+        
+                 jRadioResultImprison.addItemListener(new ItemListener() {
+    @Override
+    public void itemStateChanged(ItemEvent event) {
+        int state = event.getStateChange();
+      if (state == ItemEvent.SELECTED) {
+              PlaceArrest.setVisible(true);
+             jLabelArrestPlace.setVisible(true);
+            jPanelDateArrest.setVisible(true);
+            jLabelArrestDate.setVisible(true);
+            jLabelArrTime.setVisible(true);
+            jSpinnerArrTime.setVisible(true);
+
+            // do something when the button is selected
+ 
+        } else if (state == ItemEvent.DESELECTED) {
+                PlaceArrest.setVisible(false);
+                  jLabelArrestPlace.setVisible(false);
+            jPanelDateArrest.setVisible(false);
+            jLabelArrestDate.setVisible(false);
+            jLabelArrTime.setVisible(false);
+            jSpinnerArrTime.setVisible(false);
+
             // do something else when the button is deselected
  
         }
