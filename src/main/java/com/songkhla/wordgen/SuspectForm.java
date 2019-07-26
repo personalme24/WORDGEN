@@ -262,6 +262,7 @@ public class SuspectForm extends javax.swing.JDialog {
              jRadioUnknowSuspect.setSelected(true);
             isInsert=true;
             jLabel36.setText(ListSuspect.txtCaseNO.getText());
+            jLabel36.setVisible(false);
     
         }
 
@@ -387,7 +388,6 @@ public class SuspectForm extends javax.swing.JDialog {
         jPanelAttachlDate = new javax.swing.JPanel();
         Attach = new javax.swing.JTextField();
         jLabelFreezeDate = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
         jLabelFreezeOrg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -1099,8 +1099,6 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabelFreezeDate.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabelFreezeDate.setText("วันที่อายัดตัว");
 
-        jLabel35.setText("jLabel35");
-
         jLabelFreezeOrg.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabelFreezeOrg.setText("หน่วยงานที่อายัดตัว");
 
@@ -1146,10 +1144,7 @@ public class SuspectForm extends javax.swing.JDialog {
                                 .addComponent(jRadioUnknowSuspect)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jRadioKnowSuspect))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(CourtSuspect, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26)
-                                .addComponent(jLabel35))))
+                            .addComponent(CourtSuspect, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabelArrestDate, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(20, 20, 20)
@@ -1197,8 +1192,7 @@ public class SuspectForm extends javax.swing.JDialog {
                 .addGap(13, 13, 13)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CourtSuspect, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel35))
+                    .addComponent(jLabel13))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
@@ -2157,7 +2151,6 @@ public class SuspectForm extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel4;

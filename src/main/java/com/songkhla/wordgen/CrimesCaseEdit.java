@@ -327,7 +327,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 //	System.out.println(dateFormat.format(date));
             caseidLast=IdCase();
            crimecaseid.setText(IdCase());
-         
+         crimecaseid.setVisible(false);
            
 //           CaseAcceptDate.setDate(date);
 //           CaseRequestDateTime.setDate(date);
@@ -922,6 +922,8 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 
         jLabel44.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel44.setText("เลขที่ส่ง");
+
+        jPanelInvestSend.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanelInvestSendLayout = new javax.swing.GroupLayout(jPanelInvestSend);
         jPanelInvestSend.setLayout(jPanelInvestSendLayout);

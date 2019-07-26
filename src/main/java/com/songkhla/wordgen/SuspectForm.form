@@ -1162,11 +1162,7 @@
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="jRadioKnowSuspect" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" attributes="0">
-                                          <Component id="CourtSuspect" min="-2" pref="151" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                          <Component id="jLabel35" min="-2" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="CourtSuspect" min="-2" pref="151" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -1230,7 +1226,6 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="CourtSuspect" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                               <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel35" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -1689,11 +1684,6 @@
                       <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="&#xe27;&#xe31;&#xe19;&#xe17;&#xe35;&#xe48;&#xe2d;&#xe32;&#xe22;&#xe31;&#xe14;&#xe15;&#xe31;&#xe27;"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel35">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="jLabel35"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabelFreezeOrg">

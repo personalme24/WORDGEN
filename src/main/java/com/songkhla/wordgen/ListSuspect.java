@@ -40,7 +40,7 @@ String typeC;
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
             
             
-                txtCaseNO.setVisible(true);
+                txtCaseNO.setVisible(false);
 
        txtCaseNO.setText(datain.get("CaseIdSus")+"");
         typeC=datain.get("TypeCaseS")+"";
