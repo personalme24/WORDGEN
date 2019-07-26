@@ -255,7 +255,7 @@ public class W73 {
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("./TEMPLATE/w71.docx"));
+					.load(new java.io.File("./TEMPLATE/w73.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			
 			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/บันทึกการรับรองการเป็นโสด.doc"));

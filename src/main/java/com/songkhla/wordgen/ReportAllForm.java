@@ -66,6 +66,8 @@ import com.songkhla.document.W7;
 import com.songkhla.document.W70;
 import com.songkhla.document.W71;
 import com.songkhla.document.W72;
+import com.songkhla.document.W73;
+import com.songkhla.document.W74;
 import com.songkhla.document.W8;
 import com.songkhla.document.W9;
 import java.awt.Desktop;
@@ -1205,7 +1207,11 @@ public class ReportAllForm extends javax.swing.JDialog {
            
         }
          if(jCheckW73.isSelected()){
-            // W73 .nw73();
+             W73 .nw73();
+           
+        }
+         if(jCheckW74.isSelected()){
+             W74 .nw74();
            
         }
          

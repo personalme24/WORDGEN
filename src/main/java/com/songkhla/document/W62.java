@@ -105,23 +105,17 @@ public class W62 {
                  bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
                   bookmarkvalue.put("CC2",Checknull(caseno));
                  
-                 bookmarkvalue.put("P54",Checknull(ToDate(s.getString("ArrestDateTime"))));
-                
-                 
-                 bookmarkvalue.put("P88",Checknull(ToTime(s.getString("ArrestDateTime"))));
-                   
-                  
-                   
-                        
-                      bookmarkvalue.put("B2", Checknull(s.getString("ChargeName")));
+                 bookmarkvalue.put("P54",ToDate(Checknull(s.getString("ArrestDateTime"))));
+                 bookmarkvalue.put("P88",ToTime(Checknull(s.getString("ArrestDateTime"))));
+                 bookmarkvalue.put("B2", Checknull(s.getString("ChargeName")));
                       
                       bookmarkvalue.put("PA7",Checknull(s.getString("AccureandOther")));
                       bookmarkvalue.put("PS7",  Checknull(s.getString("FullNamePerson"))); 
                      
                       
-                        bookmarkvalue.put("P02", Checknull(RankPolice));
+                       bookmarkvalue.put("P02", Checknull(RankPolice));
                        bookmarkvalue.put("P03", Checknull(FirstName));
-                        bookmarkvalue.put("P04", Checknull(LastName));
+                       bookmarkvalue.put("P04", Checknull(LastName));
                          bookmarkvalue.put("P05", Checknull(Position));
                          
                          
@@ -130,25 +124,14 @@ public class W62 {
 			JSONArray tablecolumn = new JSONArray();
 			tablecolumn.add("C2");
 			tablecolumn.add("C3");
-//			tablecolumn.add("SUSPECT");
-//			tablecolumn.add("VICTIM");
-//			tablecolumn.add("REMARK");
+
 			JSONArray table1 = new JSONArray();
 			JSONObject row1 = new JSONObject();
 			row1.put("C2",cs);
 			row1.put("C3", ccYear);
-//			row1.put("SUSPECT", "period1");
-//			row1.put("VICTIM", "period1");
-//			row1.put("REMARK", "period1");
+
 			table1.add(row1);
-			
-//			JSONObject repl2 = new JSONObject();
-//			repl2.put("CRIMESNO", "function1");
-//			repl2.put("DESCRIPTION", "desc1");
-//			repl2.put("SUSPECT", "period1");
-//			repl2.put("VICTIM", "period1");
-//			repl2.put("REMARK", "period1");
-//			table1.add(repl2);
+
 		JSONObject tableobj = new JSONObject();
 		tableobj.put("COLUMNS", tablecolumn);
 		tableobj.put("TABLEDATA", table1);
