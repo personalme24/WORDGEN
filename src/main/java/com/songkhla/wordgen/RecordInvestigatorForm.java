@@ -130,22 +130,24 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
         );
 
-        jLabel9.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel9.setText("วันที่ปฏิบัติ");
 
-        jLabel10.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel10.setText("งานที่ปฏิบัติ");
 
-        jLabel11.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel11.setText("พนักงานสอบสวนที่รับผิดชอบ");
 
-        jButtonSave.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jButtonSave.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jButtonSave.setText("บันทึก");
         jButtonSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSaveActionPerformed(evt);
             }
         });
+
+        jPanelDateRecord.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
         javax.swing.GroupLayout jPanelDateRecordLayout = new javax.swing.GroupLayout(jPanelDateRecord);
         jPanelDateRecord.setLayout(jPanelDateRecordLayout);
@@ -159,10 +161,12 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
         );
 
         DetailRecord.setColumns(20);
+        DetailRecord.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         DetailRecord.setLineWrap(true);
         DetailRecord.setRows(5);
         jScrollPane1.setViewportView(DetailRecord);
 
+        NameInguiry.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         NameInguiry.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -182,7 +186,7 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
                                 .addComponent(jButtonSave)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel10)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(2, 2, 2)

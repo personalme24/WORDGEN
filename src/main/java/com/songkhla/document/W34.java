@@ -14,14 +14,18 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
@@ -97,7 +101,7 @@ public class W34 {
             
             int OrderAsset=0;
             int SumValue=0;
-            
+             JSONArray JSONArray = new JSONArray();
             
        
             while((s!=null) && (s.next()))
@@ -134,13 +138,13 @@ public class W34 {
                 bookmarkvalue.put("C3",Checknull(ccYear));
                 bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
                  
-                
+                /*
                      //ทรัพย์
                     VarAS1=VarAS1+"\n\r"+s.getString("EvidenceRecordNumber");
                     bookmarkvalue.put("AS1",Checknull(VarAS1));
                    
                     
-                    ++OrderAsset ;
+                   
                     VarAS3=VarAS3+"\n\r"+(OrderAsset);
                     bookmarkvalue.put("AS3",Checknull(VarAS3));
                     
@@ -153,52 +157,51 @@ public class W34 {
                     
                     VarAS6=VarAS6+"\n\r"+s.getString("Value");
                     bookmarkvalue.put("AS6",Checknull(VarAS6));
+
+                    VarAS10=VarAS10+"\n\r"+s.getString("Remark");
+                    bookmarkvalue.put("AS10",Checknull(VarAS10));
+*/  
+                
+                    ++OrderAsset ;
                     if (s.getString("Value") != null)
                     {
                     SumValue = SumValue+s.getInt("Value");
                     } 
-                    
-                    VarAS10=VarAS10+"\n\r"+s.getString("Remark");
-                    bookmarkvalue.put("AS10",Checknull(VarAS10));
-                    
-                    VarAS241=VarAS241+"\n\r"+s.getString("DefectMark");
-                    bookmarkvalue.put("AS241", Checknull(VarAS241));
-                    VarAS242=VarAS242+"\n\r"+s.getString("PointFoundCheck");
-                    bookmarkvalue.put("AS242",Checknull(VarAS242));
-                    
-                 
-    
-			JSONArray tablecolumn = new JSONArray();
-			tablecolumn.add("C2");
-			tablecolumn.add("C3");
-//			tablecolumn.add("SUSPECT");
-//			tablecolumn.add("VICTIM");
-//			tablecolumn.add("REMARK");
-			JSONArray table1 = new JSONArray();
-			JSONObject row1 = new JSONObject();
-			row1.put("C2",cs);
-			row1.put("C3", ccYear);
-//			row1.put("SUSPECT", "period1");
-//			row1.put("VICTIM", "period1");
-//			row1.put("REMARK", "period1");
-			table1.add(row1);
+          
+                    JSONArray tablecolumn = new JSONArray();
+			System.out.println(">>>>"+OrderAsset);
+			tablecolumn.add("AS3");
+                        tablecolumn.add("AS4");
+			tablecolumn.add("AS5");
+                        tablecolumn.add("AS6");
+			tablecolumn.add("AS10");
+                        tablecolumn.add("AS241");
+			tablecolumn.add("AS242");
+                       
+
 			
-//			JSONObject repl2 = new JSONObject();
-//			repl2.put("CRIMESNO", "function1");
-//			repl2.put("DESCRIPTION", "desc1");
-//			repl2.put("SUSPECT", "period1");
-//			repl2.put("VICTIM", "period1");
-//			repl2.put("REMARK", "period1");
-//			table1.add(repl2);
+			JSONObject row1 = new JSONObject();
+			
+			row1.put("AS3",Checknull(Integer.toString(OrderAsset)));
+                        row1.put("AS4",Checknull(s.getString("Name")));
+                        row1.put("AS5",Checknull(s.getString("Amount")));
+                        row1.put("AS6",Checknull(s.getString("Value")));
+                        row1.put("AS10",Checknull(s.getString("Remark")));
+                        row1.put("AS241",Checknull(s.getString("DefectMark")));
+                        row1.put("AS242",Checknull(s.getString("PointFoundCheck")));
+			JSONArray.add(row1);
+                        
+
 		JSONObject tableobj = new JSONObject();
 		tableobj.put("COLUMNS", tablecolumn);
-		tableobj.put("TABLEDATA", table1);
+		tableobj.put("TABLEDATA", JSONArray);
 			
 		JSONArray TABLES = new JSONArray();
 		TABLES.add(tableobj);
+
 		bookmarkvalue.put("TABLES", TABLES);
 		System.out.println(bookmarkvalue.toJSONString());
-		
+
 		
 		try {
                   
@@ -365,6 +368,19 @@ public static void nw34() {
 			tempTable.getContent().remove(templateRow);
 		}
 	}
+         private static String ToDate(String strDate){
+               String ResultDate="";
+         try {
+    	       SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", new Locale("th", "TH"));  
+               SimpleDateFormat dateto  = new SimpleDateFormat("dd MMMM yyyy", new Locale("th", "TH"));  
+               Date date=null;
+               date = df.parse(strDate);               
+               ResultDate=dateto.format(date.getTime());
+         } catch (ParseException ex) {
+             Logger.getLogger(W34.class.getName()).log(Level.SEVERE, null, ex);
+         }
+               return ResultDate;
+    }
         
   public static String Checknull(String input){
 					if(input==null||input==""||input=="null") { return ""; }
