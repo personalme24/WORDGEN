@@ -1077,7 +1077,7 @@ public class IdentityFrom extends javax.swing.JDialog {
         JDialog dialog = new JDialog(frame);//frame is owner
         JFrame fa = (JFrame)(dialog.getParent());
         fa.removeAll();
-        ActionPage ap =new ActionPage(fa,null);
+        ActionPage ap =new ActionPage(fa,null,null);
         ap.pack();
         ap.setLocationRelativeTo(null);
         ap.setVisible(true);
@@ -1090,7 +1090,7 @@ public class IdentityFrom extends javax.swing.JDialog {
         JDialog dialog = new JDialog(frame);//frame is owner
         JFrame fr = (JFrame)(dialog.getParent());
         fr.removeAll();
-        ChargePage cp=new ChargePage(fr,null);
+        ChargePage cp=new ChargePage(fr,null,null);
          cp.pack();
         cp.setLocationRelativeTo(null);
         cp.setVisible(true);

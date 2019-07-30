@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
  */
 public class DateLabelFormatter  extends JFormattedTextField.AbstractFormatter {
 
-	    private String datePattern = "d/MM/yyyy";
+	    private String datePattern = "d/M/yyyy";
 	    private SimpleDateFormat dateFormatter = new SimpleDateFormat(datePattern, new Locale("th", "TH"));
 
 	    @Override

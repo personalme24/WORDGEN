@@ -1084,7 +1084,7 @@ public class TrafficEdit extends javax.swing.JDialog {
     
              f.removeAll();
             if(ChargeNameCase.getText().length()==0 || ChargeNameCase.getText()==null|| ChargeNameCase.getText().isEmpty()){
-                 ChargePage d = new ChargePage(f,null);
+                 ChargePage d = new ChargePage(f,null,null);
                  d.setModal(true);
                  d.setVisible(true);
             }
@@ -1107,7 +1107,7 @@ public class TrafficEdit extends javax.swing.JDialog {
                     data.put("RateOfPenalty", rs.getString("RateOfPenalty"));
                     data.put("Note", rs.getString("Note"));
                     
-                   ChargePage d = new ChargePage(f,data);
+                   ChargePage d = new ChargePage(f,data,null);
                     d.setVisible(true);
 
                 }
@@ -1135,7 +1135,7 @@ public class TrafficEdit extends javax.swing.JDialog {
         fr.removeAll();
           
             if(ActionCrimes.getText().length()==0 || ActionCrimes.getText()==null|| ActionCrimes.getText().isEmpty()){
-                 ActionPage d = new ActionPage(fr,null);
+                 ActionPage d = new ActionPage(fr,null,null);
                  d.setModal(true);
                  d.setVisible(true);
             }
@@ -1157,7 +1157,7 @@ public class TrafficEdit extends javax.swing.JDialog {
                     data.put("ActionDetail", rs.getString("ActionDetail"));
                     data.put("ActionNote", rs.getString("ActionNote"));
   
-                   ActionPage d = new ActionPage(fr,data);
+                   ActionPage d = new ActionPage(fr,data,null);
                     d.setVisible(true);
 
                 }

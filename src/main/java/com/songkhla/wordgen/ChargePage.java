@@ -9,6 +9,8 @@ import static com.songkhla.wordgen.ActionPage.ActionCode;
 import static com.songkhla.wordgen.ActionPage.ActionCrimes;
 import static com.songkhla.wordgen.ActionPage.ActionDetail;
 import static com.songkhla.wordgen.ActionPage.ActionNote;
+import static com.songkhla.wordgen.ActionPage.AnswerAccuser;
+import static com.songkhla.wordgen.ActionPage.AnswerSuspect;
 import static com.songkhla.wordgen.CrimesCaseEdit.ChargeNameCase;
 import static com.songkhla.wordgen.CrimesCaseEdit.jLabelChargeCode;
 import java.awt.Dimension;
@@ -31,13 +33,13 @@ public class ChargePage extends javax.swing.JDialog {
  
     Connection con=null;
     PreparedStatement pst=null;
-//    boolean isInsert;
-    
+    boolean isInsert;
+    String caseidch;
     /**
      * Creates new form ChangPage
      */
     String chargeNo; 
-    public ChargePage(JFrame parrent,JSONObject datain) {
+    public ChargePage(JFrame parrent,JSONObject datain,JSONObject dataid) {
         super(parrent,true);
         initComponents();
          ImageIcon img = new ImageIcon("D://Master//WD.png");
@@ -48,20 +50,21 @@ public class ChargePage extends javax.swing.JDialog {
             if(datain!=null){
                 
 //            caseid= "" + datain.get("CaseId"); 
+            caseidch= datain.get("ChargeCaseId")+"";
             chargeNo=datain.get("ChargeCode")+"";
-            ChargeCode.setText(datain.get("ChargeCode")+"");
-            ChargeName.setText(datain.get("ChargeName")+"");
-             Law.setText(datain.get("Law")+"");
-              RateOfPenalty.setText(datain.get("RateOfPenalty")+"");
-             Note.setText(datain.get("Note")+"");
-                 
-           
+            ChargeCode.setText(datain.get("ChargeCodeCase")+"");
+            ChargeName.setText(datain.get("ChargeNameCase")+"");
+             Law.setText(datain.get("LawCase")+"");
+              RateOfPenalty.setText(datain.get("RateOfPenaltyCase")+"");
+             Note.setText(datain.get("NoteCase")+"");
+
            
         }
    
-//            else{
-//            isInsert=true;
-//        }
+            else{
+                caseidch=dataid.get("caseid")+"";
+            isInsert=true;
+        }
      
     }
 
@@ -276,23 +279,60 @@ public class ChargePage extends javax.swing.JDialog {
         // TODO add your handling code here:
    
          con=ConnectDatabase.connect();
+         if(isInsert){
+            String sql="INSERT INTO ChargeCase (ChargeCodeCase,ChargeNameCase,LawCase,RateOfPenaltyCase,NoteCase,ChargeCaseId)"+
+            "VALUES (?,?,?,?,?,?)";
+            System.out.println(sql);
+            try {
+
+                pst=con.prepareStatement(sql);
+
+                pst.setString(1,ChargeCode.getText());
+                pst.setString(2,ChargeName.getText());
+               pst.setString(3,Law.getText());
+            pst.setString(4,RateOfPenalty.getText());
+             pst.setString(5,Note.getText());
+                pst.setString(6,caseidch);
+    
+                              
+//       JOptionPane.showMessageDialog(jPanel1,null, "Data Save", JOptionPane.INFORMATION_MESSAGE);
+
+                
+      int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
+        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+  if (response == JOptionPane.YES_OPTION) {
+//             con=ConnectDatabase.connect();
+         pst.executeUpdate(); 
+         pst.close();
+         System.out.println("SQL : "+sql);
+
+
+    } 
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+                System.out.println("SQL : "+pst);
+            }
+         }
+         else{
          try {
   
-                 String sql="UPDATE Charge SET "
-                + "ChargeName=?,"
-                + "Law=?,"
-                + "RateOfPenalty=?,"
-                + "Note=?"
-                 + "Where ChargeCode=?";
-            pst=con.prepareStatement(sql);       
-            pst.setString(1,ChargeName.getText());
-            pst.setString(2,Law.getText());
-            pst.setString(3,RateOfPenalty.getText());
-             pst.setString(4,Note.getText());
-             pst.setString(5,ChargeCode.getText());
-          JSONObject data = new JSONObject();
-          data.put("ChargeName", ChargeName.getText());
-          data.put("ChargeCode", ChargeCode.getText());
+                 String sql="UPDATE ChargeCase SET "
+                + "ChargeCodeCase=?,"
+                + "ChargeNameCase=?,"
+                + "LawCase=?,"
+                + "RateOfPenaltyCase=?,"
+                + "NoteCase=?"                        
+                 + " Where ChargeCaseId=?";
+            pst=con.prepareStatement(sql);    
+            pst.setString(1,ChargeCode.getText());            
+            pst.setString(2,ChargeName.getText());
+            pst.setString(3,Law.getText());
+            pst.setString(4,RateOfPenalty.getText());
+             pst.setString(5,Note.getText());
+             pst.setString(6,caseidch);
+//          JSONObject data = new JSONObject();
+//          data.put("ChargeName", ChargeName.getText());
+//          data.put("ChargeCode", ChargeCode.getText());
           
   
          int response = JOptionPane.showConfirmDialog(jPanel2, "ต้องการบันทึกข้อมูล", "ยืนยัน",
@@ -307,7 +347,7 @@ public class ChargePage extends javax.swing.JDialog {
              System.out.println("SQL : "+pst);
         }    
          
-
+         }
            CrimesCaseEdit.ChargeNameCase.setText(ChargeName.getText());
            CrimesCaseEdit.jLabelChargeCode.setText(ChargeCode.getText());
            setVisible(false);

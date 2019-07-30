@@ -217,7 +217,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
       
        
 //        jTextPoliceName.setText(Data.getPolicName());
-        jLabelActionCode.setVisible(false);
+        jLabelActionCode.setVisible(true);
         jLabelChargeCode.setVisible(false);
         crimecaseid.setVisible(false);
  
@@ -601,7 +601,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 
         jLabel10.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel10.setText("ปจว.ข้อ");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, -1, 30));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, 30));
 
         jLabel4.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel4.setText("/");
@@ -610,7 +610,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         JSpinner.DateEditor timeEditor3 = new JSpinner.DateEditor(OccuredDateTime, "HH:mm");
         OccuredDateTime.setEditor(timeEditor3);
         //jSpinner1.setValue(new Date());
-        jPanel1.add(OccuredDateTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 300, 100, 30));
+        jPanel1.add(OccuredDateTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 200, 100, 30));
 
         jLabel15.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel15.setText("สถานที่เกิดเหตุ");
@@ -618,7 +618,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 
         jLabel14.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel14.setText("เวลาที่เกิดเหตุ");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, -1, 30));
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, -1, 30));
 
         ChargeNameCase.setEditable(false);
         ChargeNameCase.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
@@ -626,13 +626,13 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 
         jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel8.setText("วันที่รับแจ้ง");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, 30));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, 30));
 
         JSpinner.DateEditor te = new JSpinner.DateEditor(CaseAcceptTimee, "HH:mm");
         CaseAcceptTimee.setEditor(te);
         //jSpinner1.setValue(new Date());
         CaseAcceptTimee.setPreferredSize(new java.awt.Dimension(29, 25));
-        jPanel1.add(CaseAcceptTimee, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, 100, 32));
+        jPanel1.add(CaseAcceptTimee, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 280, 100, 32));
 
         CrimeLocation.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         jPanel1.add(CrimeLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 60, 440, -1));
@@ -643,23 +643,23 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 
         jLabel12.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel12.setText("เวลารับคำร้องทุกข์");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, -1, 30));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, -1, 30));
 
         jLabel13.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel13.setText("วันที่เกิดเหตุ");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, 30));
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, 30));
 
         ActionCrimes.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         jPanel1.add(ActionCrimes, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 330, -1));
 
         jLabel9.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel9.setText("เวลารับแจ้ง");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, -1, 30));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, -1, 30));
 
         JSpinner.DateEditor timeEditor = new JSpinner.DateEditor(CaseRequestTimee, "HH:mm");
         CaseRequestTimee.setEditor(timeEditor);
         //jSpinner1.setValue(new Date());
-        jPanel1.add(CaseRequestTimee, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 200, 100, 30));
+        jPanel1.add(CaseRequestTimee, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 240, 100, 30));
 
         jLabel7.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel7.setText("พฤติการณ์คดี");
@@ -667,10 +667,10 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 
         jLabel11.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel11.setText("วันที่รับคำร้องทุกข์");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, 30));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, 30));
 
         DailyNumber.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
-        jPanel1.add(DailyNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 110, -1));
+        jPanel1.add(DailyNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 110, -1));
 
         jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel3.setText("อำนาจศาล");
@@ -809,7 +809,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             .addGap(0, 32, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, 220, -1));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 220, -1));
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -824,7 +824,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             .addGap(0, 32, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 220, -1));
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 220, -1));
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -839,7 +839,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             .addGap(0, 32, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 220, -1));
+        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 220, -1));
 
         CrimeLocationProvince.setEditable(true);
         CrimeLocationProvince.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
@@ -1722,13 +1722,10 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelChargeCode)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jButtonSaveCase, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jButtonSaveCase, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1152, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(151, 151, 151))
         );
         jPanel4Layout.setVerticalGroup(
@@ -2017,7 +2014,9 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         fr.removeAll();
 
         if(ActionCrimes.getText().length()==0 || ActionCrimes.getText()==null|| ActionCrimes.getText().isEmpty()){
-            ActionPage d = new ActionPage(fr,null);
+            JSONObject data = new JSONObject();
+             data.put("caseid", crimecaseid.getText());
+            ActionPage d = new ActionPage(fr,null,data);
             d.pack();
             d.setLocationRelativeTo(null);
             d.setVisible(true);
@@ -2027,22 +2026,24 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             try{
                 //                String crimecaseno = jTable1.getModel().getValueAt(jTable1.getSelectedRow(), 0)+"";
                 String actionCode=jLabelActionCode.getText();
-                String sql="select * From ActionsCase where ActionsCase.ActionCode ='"+actionCode+"'";
-                //                System.out.println("ExSql : "+sql);
+                String sql="select * From ActionsCaseData where ActionsCaseData.ActionCodeCase='"+actionCode+"' and ActionCaseId="+crimecaseid.getText();
+                                System.out.println("ExSql : "+sql);
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);
 
                 if(rs.next()){
                     JSONObject data = new JSONObject();
-                    data.put("ActionCode", rs.getString("ActionCode"));
-                    data.put("ActionCrimes", rs.getString("ActionCrimes"));
-                    data.put("ActionDetail", rs.getString("ActionDetail"));
-                    data.put("AnswerAccuser", rs.getString("AnswerAccuser"));
-                    data.put("AnswerSuspect", rs.getString("AnswerSuspect"));
-                    data.put("ActionNote", rs.getString("ActionNote"));
+                    data.put("ActionCodeCase", rs.getString("ActionCodeCase"));
+                    data.put("ActionCrimesCase", rs.getString("ActionCrimesCase"));
+                    data.put("ActionDetailCase", rs.getString("ActionDetailCase"));
+                    data.put("AnswerSuspectCase", rs.getString("AnswerSuspectCase"));
+                    data.put("AnswerAccuserCase", rs.getString("AnswerAccuserCase"));
+                    data.put("ActionNoteCase", rs.getString("ActionNoteCase"));
+                    data.put("ActionCaseId", rs.getString("ActionCaseId"));
+                    
 
-                    ActionPage d = new ActionPage(fr,data);
+                    ActionPage d = new ActionPage(fr,data,null);
                     d.pack();
                     d.setLocationRelativeTo(null);
                     d.setVisible(true);
@@ -2067,7 +2068,9 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         JFrame f = (JFrame)(dialog.getParent());
         f.removeAll();
         if(ChargeNameCase.getText().length()==0 || ChargeNameCase.getText()==null|| ChargeNameCase.getText().isEmpty()){
-            ChargePage d = new ChargePage(f,null);
+            JSONObject data = new JSONObject();
+            data.put("caseid",crimecaseid.getText());
+            ChargePage d = new ChargePage(f,null,data);
             d.pack();
             d.setLocationRelativeTo(null);
             d.setVisible(true);
@@ -2077,7 +2080,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             try{
                 //                String crimecaseno = jTable1.getModel().getValueAt(jTable1.getSelectedRow(), 0)+"";
                 String chargeCode=jLabelChargeCode.getText();
-                String sql="select * From Charge where Charge.ChargeCode ='"+chargeCode+"'";
+                String sql="select * From ChargeCase where ChargeCase.ChargeCodeCase ='"+chargeCode+"' and ChargeCaseId="+crimecaseid.getText();
                 System.out.println("ExSql : "+sql);
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
@@ -2085,13 +2088,15 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 
                 if(rs.next()){
                     JSONObject data = new JSONObject();
-                    data.put("ChargeCode", rs.getString("ChargeCode"));
-                    data.put("ChargeName", rs.getString("ChargeName"));
-                    data.put("Law", rs.getString("Law"));
-                    data.put("RateOfPenalty", rs.getString("RateOfPenalty"));
-                    data.put("Note", rs.getString("Note"));
+                    data.put("ChargeCodeCase", rs.getString("ChargeCodeCase"));
+                    data.put("ChargeNameCase", rs.getString("ChargeNameCase"));
+                    data.put("LawCase", rs.getString("LawCase"));
+                    data.put("RateOfPenaltyCase", rs.getString("RateOfPenaltyCase"));
+                    data.put("NoteCase", rs.getString("NoteCase"));
+                    data.put("ChargeCaseId", rs.getString("ChargeCaseId"));
+                    
 
-                    ChargePage d = new ChargePage(f,data);
+                    ChargePage d = new ChargePage(f,data,null);
                     d.pack();
                     d.setLocationRelativeTo(null);
                     d.setVisible(true);

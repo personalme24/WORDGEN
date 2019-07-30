@@ -189,7 +189,71 @@ public class CreateTable {
                                 "ON DELETE SET NULL                     \n"+
                                   
                 "	);	";	
-
+      String sqlPersonData = "CREATE TABLE IF NOT EXISTS PersonData (\n"+
+                "	NoPerson	INTEGER	Primary Key AUTOINCREMENT,	\n"+        	      
+                "	PeopleRegistrationID	VARCHAR(13)	Primary Key,	\n"+
+                "	IssueDate	DATE	,	\n"+
+                "	ExpiredDate	DATE	,	\n"+
+                "	IssuedBy	VARCHAR(100)	,	\n"+
+                "	PassportNumber	VARCHAR(100)	,	\n"+
+                "	FullNamePerson	VARCHAR(100)	,	\n"+
+                "	FullNamePersonEn	VARCHAR(100)	,	\n"+
+                "	OtherName	VARCHAR(100)	,	\n"+
+                "	OtherSurname	VARCHAR(100)	,	\n"+
+                "	BirthDay	DATE	,	\n"+
+                "	Gender	VARCHAR(100)	,	\n"+
+                "	Age	VARCHAR(100)	,	\n"+
+                "	Race	VARCHAR(100)	,	\n"+
+                "	Nationality	VARCHAR(100)	,	\n"+
+                "	Religion	VARCHAR(100)	,	\n"+
+                "	Occupation	VARCHAR(100)	,	\n"+
+                "	Height	VARCHAR(100)	,	\n"+
+                "	Weight	VARCHAR(100)	,	\n"+
+                "	BloodGroup	VARCHAR(100)	,	\n"+
+                "	HouseNumber	VARCHAR(100)	,	\n"+
+                "	Moo	VARCHAR(100)	,	\n"+
+                "	Tambon	VARCHAR(100)	,	\n"+
+                "	Amphur	VARCHAR(100)	,	\n"+
+                "	Province	VARCHAR(100)	,	\n"+
+                "	ZipCode	VARCHAR(100)	,	\n"+
+                "	PhonePerson	VARCHAR(100)	,	\n"+
+                "	HeadmanName	VARCHAR(100)	,	\n"+
+                "	SubHeadmanName	VARCHAR(100)	,	\n"+
+                "	FatherFullName	VARCHAR(100)	,	\n"+
+                "	MotherFullName	VARCHAR(100)	,	\n"+
+                "	TambonBirthday	VARCHAR(100)	,	\n"+
+                "	AmphurBirthday	VARCHAR(100)	,	\n"+
+                "	ProvinceBirthday	VARCHAR(100)	,	\n"+
+                "	PlaceBorn	VARCHAR(100)	,	\n"+               
+                "	Country         VARCHAR(100)	,	\n"+          
+                "	FatherAge	VARCHAR(100)	,	\n"+
+                "	FatherCareer	VARCHAR(100)	,	\n"+
+                "	FatherIdCard	VARCHAR(100)	,	\n"+
+                "	FatherAddress	VARCHAR(100)	,	\n"+
+                "	FatherPhone	VARCHAR(100)	,	\n"+
+                "	MotherAge	VARCHAR(100)	,	\n"+
+                "	MotherCareer	VARCHAR(100)	,	\n"+
+                "	MotherIdCard	VARCHAR(100)	,	\n"+
+                "	MotherAddress	VARCHAR(100)	,	\n"+
+                "	MotherPhone	VARCHAR(100)	,	\n"+
+                "	ParentName	VARCHAR(100)	,	\n"+                        
+                "	ParentAge	VARCHAR(100)	,	\n"+
+                "	ParentCareer	VARCHAR(100)	,	\n"+
+                "	ParentIdCard	VARCHAR(100)	,	\n"+
+                "	ParentAddress	VARCHAR(100)	,	\n"+
+                "	ParentPhone	VARCHAR(100)	,	\n"+
+                "	Office	VARCHAR(100)	,	\n"+
+                "	SpouseFullName	VARCHAR(100)	,	\n"+
+                "	Education	VARCHAR(100)	,	\n"+
+                "	FriendAddress	VARCHAR(100)	,	\n"+
+                "	FavouritePlace	VARCHAR(100)	,	\n"+
+                "	Identification	VARCHAR(100)	,	\n"+
+                "	InterrogateDate	VARCHAR(100)	,	\n"+
+                "	CurrentAddress	VARCHAR(100)	,	\n"+
+                "	RestoreDate	VARCHAR(100)	,	\n"+ 
+                "	Road     	VARCHAR(100)	,	\n"+
+                "	Soi     	VARCHAR(100)		\n"+                       
+                "	);	";	
                        
                   String sqlCrimeCase ="CREATE TABLE IF NOT EXISTS CrimeCase (\n"+
                        "	CaseId	INTEGER	Primary Key,	\n"+
@@ -315,13 +379,23 @@ public class CreateTable {
                         "	THNumBook	VARCHAR(100)	,	\n"+
                         "	ProtectChild	VARCHAR(100)		\n"+
                          "	);";       
+           String sqlChargeCase ="CREATE TABLE IF NOT EXISTS ChargeCase (\n"+
+	            "	ChargeCodeid	INTEGER	Primary Key AUTOINCREMENT,	\n"+
+                    "	ChargeCodeCase	INTEGER	,	\n"+
+                    "	ChargeNameCase	VARCHAR(100)	,	\n"+
+                    "	LawCase	VARCHAR(100)	,	\n"+
+                    "	RateOfPenaltyCase	VARCHAR(100)	,	\n"+
+                    "	NoteCase	VARCHAR(100)	,	\n"+
+                   "	ChargeCaseId	INTEGER 	\n"+
+                         "	);";      
            String sqlCharge ="CREATE TABLE IF NOT EXISTS Charge (\n"+
+                   "	ChargeCode	INTEGER	Primary Key,	\n"+
 	            "	ChargeCode	INTEGER	Primary Key,	\n"+
                     "	ChargeName	VARCHAR(100)	,	\n"+
                     "	Law	VARCHAR(100)	,	\n"+
                     "	RateOfPenalty	VARCHAR(100)	,	\n"+
                     "	Note	VARCHAR(100)		\n"+
-                         "	);";      
+                         "	);";    
            
             String sqlAction ="CREATE TABLE IF NOT EXISTS ActionsCase (\n"+
                     "	ActionCode	INTEGER	Primary Key,	\n"+
@@ -331,6 +405,17 @@ public class CreateTable {
                         "	AnswerAccuser   	VARCHAR(100)	,	\n"+                    
                     "	ActionNote	VARCHAR(100) 		\n"+
                     "	);";    
+                String sqlActionCase ="CREATE TABLE IF NOT EXISTS ActionsCaseData (\n"+
+                    "	ActionCodeCaseId	INTEGER	Primary Key AUTOINCREMENT,	\n"+                        
+                    "	ActionCodeCase	INTEGER	 ,	\n"+
+                    "	ActionCrimesCase	VARCHAR(100)	,	\n"+
+                    "	ActionDetailCase	VARCHAR(100)	,	\n"+
+                    "	AnswerSuspectCase	VARCHAR(100)	,	\n"+
+                     "	AnswerAccuserCase   	VARCHAR(100)	,	\n"+                    
+                    "	ActionNoteCase	VARCHAR(100) ,		\n"+
+                      "	ActionCaseId	INTEGER 	\n"+                        
+                    "	);";    
+                
             String sqlRecord ="CREATE TABLE IF NOT EXISTS RecordInquiry (\n"+
                     "	IdRecord	INTEGER	Primary Key AUTOINCREMENT,	\n"+
                     "	DateRecord	VARCHAR(100)	,	\n"+
@@ -349,18 +434,7 @@ public class CreateTable {
                     "	InvestTel	VARCHAR(100)		\n"+
                     "	);";
              
-               String sqlSue ="CREATE TABLE IF NOT EXISTS Sue (\n"+
-	       "	SueId	INTEGER	Primary Key AUTOINCREMENT,	\n"+
-                "	SueTimes	INTEGER	,	\n"+
-                "	SueDate	VARCHAR(100)	,	\n"+
-                "	SueStart	VARCHAR(100)	,	\n"+
-                "	SueEnd	VARCHAR(100)	,	\n"+
-                "	SueTotal	INTEGER	,	\n"+
-                "	SueCause	VARCHAR(100)	,	\n"+
-                "	SueRequest	VARCHAR(100)	,	\n"+
-                "	SuePersonId	INTEGER	not null, \n"+	
-                "	SueCaseId	INTEGER	not null		\n"+
-                    "	);";
+         
                
             String sqlBailAsset ="CREATE TABLE IF NOT EXISTS BailAsset (\n"+
                             "	BailAssetId	INTEGER	Primary Key AUTOINCREMENT,	\n"+
@@ -387,60 +461,7 @@ public class CreateTable {
                                 "ON DELETE SET NULL                     \n"+
                                 "	);"; 
                 
-        String sqlSueCrimeCase ="CREATE TABLE IF NOT EXISTS SueCrimeCase (\n"+                
-                "	SueId	INTEGER	Primary Key AUTOINCREMENT,	\n"+
-                "	SueFirst	INTEGER	,	\n"+
-                "	SueFirstDate	DateTime	,	\n"+
-                "	SueFirstStart	DateTime	,	\n"+
-                "	SueFirstEnd	DateTime	,	\n"+
-                "	SueFirstTotal	INTEGER	,	\n"+
-                "	SueFirstRequest	VARCHAR(100)	,	\n"+
-                "	SueFirstCause	VARCHAR(100)	,	\n"+
-                "	SueSecond	INTEGER	,	\n"+
-                "	SueSecDate	DateTime	,	\n"+
-                "	SueSecStart	DateTime	,	\n"+
-                "	SueSecEnd	DateTime	,	\n"+
-                "	SueSecTotal	INTEGER	,	\n"+
-                "	SueSecRequest	VARCHAR(100)	,	\n"+
-                "	SueSecCause	VARCHAR(100)	,	\n"+
-                "	SueThird	INTEGER	,	\n"+
-                "	SueThirdDate	DateTime	,	\n"+
-                "	SueThirdStart	DateTime	,	\n"+
-                "	SueThirdEnd	DateTime	,	\n"+
-                "	SueThirdTotal	INTEGER	,	\n"+
-                "	SueThirdRequest	VARCHAR(100)	,	\n"+
-                "	SueThirdCause	VARCHAR(100)	,	\n"+
-                "	SueFourth	INTEGER	,	\n"+
-                "	SueFourthDate	DateTime	,	\n"+
-                "	SueFourthStart	DateTime	,	\n"+
-                "	SueFourthEnd	DateTime	,	\n"+
-                "	SueFourthtotal	INTEGER	,	\n"+
-                "	SueFourthRequest	VARCHAR(100)	,	\n"+
-                "	SueFourthCause	VARCHAR(100)	,	\n"+
-                "	SueFifth	INTEGER	,	\n"+
-                "	SueFifthDate	DateTime	,	\n"+
-                "	SueFifthStart	DateTime	,	\n"+
-                "	SueFifthEnd	DateTime	,	\n"+
-                "	SueFifthTotal	INTEGER	,	\n"+
-                "	SueFifthRequest	VARCHAR(100)	,	\n"+
-                "	SueFifthCause	VARCHAR(100)	,	\n"+
-                "	SueSixth	INTEGER	,	\n"+
-                "	SueSixthDate	DateTime	,	\n"+
-                "	SueSixthStart	DateTime	,	\n"+
-                "	SueSixthEnd	DateTime	,	\n"+
-                "	SueSixthTotal	INTEGER	,	\n"+
-                "	SueSixthRequest	VARCHAR(100)	,	\n"+
-                "	SueSixthCause	VARCHAR(100)	,	\n"+
-                "	SueSeven	INTEGER	,	\n"+
-                "	SueSevenDate	DateTime	,	\n"+
-                "	SueSevenStart	DateTime	,	\n"+
-                "	SueSevenEnd	DateTime	,	\n"+
-                "	SueSevenTotal	INTEGER	,	\n"+
-                "	SueSevenRequest	VARCHAR(100)	,	\n"+
-                "	SueSevenCause	VARCHAR(100)	,	\n"+
-                "	SueCaseId	INTEGER	 not null,	\n"+
-                "	SueSuspectId	INTEGER	not null	\n"+
-                                "	);"; 
+      
          String sqlProvince ="CREATE TABLE IF NOT EXISTS Province (\n"+               
                 "	NAMEPROVINCE	VARCHAR(100),	\n"+
                 "	PROVINCEID	VARCHAR(100)	Primary Key,	\n"+
@@ -480,13 +501,15 @@ public class CreateTable {
                       stmt.execute(sqlAction); 
                       stmt.execute(sqlRecord); 
                       stmt.execute(sqlInvest);
-                      stmt.execute(sqlSue);
                        stmt.execute(sqlBailAsset);
                       stmt.execute(sqlDeliverySuspect);
-                      stmt.execute(sqlSueCrimeCase);
+                       stmt.execute(sqlChargeCase);
+        
                        stmt.execute(sqlProvince);
                        stmt.execute(sqlAmphur);
-                       stmt.execute(sqlTambon);             
+                       stmt.execute(sqlTambon);  
+                       stmt.execute(sqlPersonData);  
+                       stmt.execute(sqlActionCase);  
                        stmt.close();
                     System.out.println("Create Table Complete");
 	        } catch (SQLException e) {

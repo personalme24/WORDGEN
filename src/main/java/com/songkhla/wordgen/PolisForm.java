@@ -49,18 +49,20 @@ public class PolisForm extends javax.swing.JDialog {
               
         if(datain!=null){
             try {
+                IdCardPolice.setEnabled(false);
              IdCardPolice.setText(datain.get("IdCardPolice")+"");
              RankPolice.setText(datain.get("RankPolice")+"");
              FirstName.setText(datain.get("FirstName")+"");
              LastName.setText(datain.get("LastName")+"");
              Position.setText(datain.get("Position")+"");
-                      
+              jButtonSave.setEnabled(false);         
             } catch (Exception ex) {
                 System.out.println(ex);
             }
 
         }
         else{
+              jButtonEdit.setEnabled(false);
             isInsert=true;
         }
         
@@ -88,7 +90,8 @@ public class PolisForm extends javax.swing.JDialog {
         LastName = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         Position = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jButtonSave = new javax.swing.JButton();
+        jButtonEdit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("ข้อมูลผู้ใช้");
@@ -147,11 +150,19 @@ public class PolisForm extends javax.swing.JDialog {
 
         Position.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        jButton1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButton1.setText("บันทึก");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSave.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jButtonSave.setText("บันทึก");
+        jButtonSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonSaveActionPerformed(evt);
+            }
+        });
+
+        jButtonEdit.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jButtonEdit.setText("แก้ไข");
+        jButtonEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEditActionPerformed(evt);
             }
         });
 
@@ -161,34 +172,35 @@ public class PolisForm extends javax.swing.JDialog {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(41, 41, 41)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Position, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Position, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(LastName, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(FirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(IdCardPolice)
-                                        .addComponent(RankPolice, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(IdCardPolice)
+                            .addComponent(RankPolice, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(291, 291, 291)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButtonEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(LastName, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(FirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap(83, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -216,7 +228,9 @@ public class PolisForm extends javax.swing.JDialog {
                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Position, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonSave)
+                    .addComponent(jButtonEdit))
                 .addGap(0, 77, Short.MAX_VALUE))
         );
 
@@ -236,7 +250,7 @@ public class PolisForm extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
         con=ConnectDatabase.connect();
       // 
         //
@@ -267,9 +281,10 @@ public class PolisForm extends javax.swing.JDialog {
                         pst.setString(5,Position.getText());
                         pst.executeUpdate();
                         pst.close();
-                        setVisible(false);
+//                        setVisible(false);
                         
-                         
+                         jButtonEdit.setEnabled(true);
+                         jButtonSave.setEnabled(false);
                       }
                 catch (Exception e) {
                            JOptionPane.showMessageDialog(null, e);
@@ -280,8 +295,7 @@ public class PolisForm extends javax.swing.JDialog {
         }
          else{
           //int dialogResult = JOptionPane.showConfirmDialog (null, "ทำการแก้ไขข้อมูล?");
-            int dialogResult = JOptionPane.showConfirmDialog (null, "ทำการแก้ไขข้อมูล?", "ยืนยันการแก้ไขข้อมูล",JOptionPane.YES_NO_OPTION);
-          if(dialogResult == JOptionPane.YES_OPTION){
+         
            try{
         String sqlUpdate= "UPDATE Police Set\n "
         + "IdCardPolice=?,"
@@ -300,8 +314,9 @@ public class PolisForm extends javax.swing.JDialog {
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null, "แก้ไขข้อมูลสำเร็จแล้ว");
             System.out.println("SQL : "+sqlUpdate);
-            setVisible(false);
-                
+//            setVisible(false);
+//                jButtonEdit.setEnabled(true);
+//                jButtonSave.setEnabled(false);
         }
          
          catch (Exception e) {
@@ -309,12 +324,12 @@ public class PolisForm extends javax.swing.JDialog {
             System.out.println("SQL : "+pst);
            
         }
-          }
+          
            }
         
                                                     
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonSaveActionPerformed
 
     private void IdCardPoliceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_IdCardPoliceKeyTyped
          char vChar = evt.getKeyChar();
@@ -326,6 +341,12 @@ public class PolisForm extends javax.swing.JDialog {
            evt.consume();
  }        // TODO add your handling code here:
     }//GEN-LAST:event_IdCardPoliceKeyTyped
+
+    private void jButtonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditActionPerformed
+        // TODO add your handling code here:
+        IdCardPolice.setEnabled(true);
+        jButtonSave.setEnabled(true);
+    }//GEN-LAST:event_jButtonEditActionPerformed
 private void data() 
 {       String a;
             String sql= "select * from Police";
@@ -394,7 +415,8 @@ private void data()
     private javax.swing.JTextField LastName;
     private javax.swing.JTextField Position;
     private javax.swing.JTextField RankPolice;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonEdit;
+    private javax.swing.JButton jButtonSave;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

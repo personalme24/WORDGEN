@@ -469,6 +469,7 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
 
     private void txtSearchCaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchCaseActionPerformed
         // TODO add your handling code here:
+
     }//GEN-LAST:event_txtSearchCaseActionPerformed
  
     private void jButtonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchActionPerformed
