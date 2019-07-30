@@ -27,7 +27,7 @@ public class DateLabelFormatter  extends JFormattedTextField.AbstractFormatter {
 	    	try {
 		    	String[] text_split = text.split("/");
 		    	int year = Integer.parseInt(text_split[2]);
-		    	year-=543;
+//		    	year-=543;
 //                        TimeZone timeZone = TimeZone.getTimeZone("UTC");
 		    	             Calendar cal = Calendar.getInstance();
 		    	cal.setTime((java.util.Date)dateFormatter.parseObject(text_split[0]+"/"+text_split[1]+"/"+year));
