@@ -191,7 +191,7 @@ public class CreateTable {
                 "	);	";	
       String sqlPersonData = "CREATE TABLE IF NOT EXISTS PersonData (\n"+
                 "	NoPerson	INTEGER	Primary Key AUTOINCREMENT,	\n"+        	      
-                "	PeopleRegistrationID	VARCHAR(13)	Primary Key,	\n"+
+                "	PeopleRegistrationID	VARCHAR(13)	,	\n"+
                 "	IssueDate	DATE	,	\n"+
                 "	ExpiredDate	DATE	,	\n"+
                 "	IssuedBy	VARCHAR(100)	,	\n"+
@@ -390,7 +390,7 @@ public class CreateTable {
                          "	);";      
            String sqlCharge ="CREATE TABLE IF NOT EXISTS Charge (\n"+
                    "	ChargeCode	INTEGER	Primary Key,	\n"+
-	            "	ChargeCode	INTEGER	Primary Key,	\n"+
+	           
                     "	ChargeName	VARCHAR(100)	,	\n"+
                     "	Law	VARCHAR(100)	,	\n"+
                     "	RateOfPenalty	VARCHAR(100)	,	\n"+
@@ -504,12 +504,11 @@ public class CreateTable {
                        stmt.execute(sqlBailAsset);
                       stmt.execute(sqlDeliverySuspect);
                        stmt.execute(sqlChargeCase);
-        
                        stmt.execute(sqlProvince);
                        stmt.execute(sqlAmphur);
                        stmt.execute(sqlTambon);  
                        stmt.execute(sqlPersonData);  
-                       stmt.execute(sqlActionCase);  
+                       stmt.execute(sqlActionCase);   
                        stmt.close();
                     System.out.println("Create Table Complete");
 	        } catch (SQLException e) {
