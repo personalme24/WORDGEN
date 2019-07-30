@@ -137,6 +137,7 @@ public class W5 {
                  bookmarkvalue.put("CC2",Checknull(caseno));
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3",Checknull(ccYear));
+                bookmarkvalue.put("C37",Checknull(s.getString("Invest_SendtoDepartment")));
                 bookmarkvalue.put("STATUS",Checknull(STATUS));
                 
                 
@@ -235,6 +236,7 @@ public static void nw5() {
                 bookmarkvalue.put("CC2","");
 		bookmarkvalue.put("C2","");
                 bookmarkvalue.put("C3","");
+                bookmarkvalue.put("C37","");
                 bookmarkvalue.put("STATUS","");
                 
                 
