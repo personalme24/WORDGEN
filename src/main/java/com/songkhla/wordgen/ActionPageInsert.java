@@ -149,6 +149,7 @@ public class ActionPageInsert extends javax.swing.JDialog {
         AnswerAccuser.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         AnswerAccuser.setLineWrap(true);
         AnswerAccuser.setRows(5);
+        AnswerAccuser.setAutoscrolls(false);
         jScrollPane5.setViewportView(AnswerAccuser);
 
         jLabel21.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -398,7 +399,7 @@ public class ActionPageInsert extends javax.swing.JDialog {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ActionCode;
-    private javax.swing.JTextField ActionCrimes;
+    public static javax.swing.JTextField ActionCrimes;
     public static javax.swing.JTextArea ActionDetail;
     public static javax.swing.JTextArea ActionNote;
     private javax.swing.JTextArea AnswerAccuser;

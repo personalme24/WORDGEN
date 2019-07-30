@@ -222,6 +222,11 @@ public class ChargeOverViewMenu extends javax.swing.JDialog {
         jButton7.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jButton7.setIcon(new javax.swing.ImageIcon("D:\\Master\\home.png")); // NOI18N
         jButton7.setText("เมนูหลัก");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -353,6 +358,11 @@ public class ChargeOverViewMenu extends javax.swing.JDialog {
         ChargeName.setText("");
         RefreshData();
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        MainMenuWord.closeAllDialogs();
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments

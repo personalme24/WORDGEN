@@ -217,6 +217,11 @@ public class ActionListMenu extends javax.swing.JDialog {
         jButton6.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jButton6.setIcon(new javax.swing.ImageIcon("D:\\Master\\home.png")); // NOI18N
         jButton6.setText("เมนูหลัก");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -353,6 +358,11 @@ public class ActionListMenu extends javax.swing.JDialog {
         // TODO add your handling code here:
         RefreshData();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        MainMenuWord.closeAllDialogs();
+    }//GEN-LAST:event_jButton6ActionPerformed
  public void RefreshData(){
         try{
         Connection con = ConnectDatabase.connect();

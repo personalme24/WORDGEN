@@ -2552,9 +2552,9 @@ CrimeLocationAmphur.removeAllItems();
             if(id==0){
                 id=1;
             }
-//            else{
-//                id=id+1;
-//            }
+            else{
+                id=id+1;
+            }
              return String.valueOf(id);
         
         } catch (Exception e) {

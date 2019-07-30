@@ -16,6 +16,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import org.json.simple.JSONObject;
+import java.awt.Font;
 
 /**
  *
@@ -61,7 +62,7 @@ public class InvesInformationView1 extends javax.swing.JDialog{
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
-        jPanel3.setBackground(new java.awt.Color(46, 156, 202));
+        jPanel3.setBackground(new java.awt.Color(4, 93, 179));
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
 
@@ -103,6 +104,8 @@ public class InvesInformationView1 extends javax.swing.JDialog{
                 return types [columnIndex];
             }
         });
+        jTableInvest.getTableHeader().setFont(new Font("TH SarabunPSK", Font.BOLD, 20));
+        jTableInvest.getTableHeader().setOpaque(false);
         jScrollPane1.setViewportView(jTableInvest);
 
         jButtonAdd.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N

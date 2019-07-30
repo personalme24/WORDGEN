@@ -229,7 +229,7 @@ jTableBail.setPreferredScrollableViewportSize(Toolkit.getDefaultToolkit().getScr
 
         PlaceArrest.setEditable(false);
         PlaceArrest.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
-        PlaceArrest.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        PlaceArrest.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         PlaceArrest.setBorder(null);
 
         jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -678,6 +678,7 @@ jTableBail.setPreferredScrollableViewportSize(Toolkit.getDefaultToolkit().getScr
            
                 }   
             });
+jTableBail.getColumnModel().getColumn(1).setMinWidth(135);                
 jTableBail.getColumnModel().getColumn(3).setMinWidth(125);
 jTableBail.getColumnModel().getColumn(4).setMinWidth(125);
 jTableBail.getColumnModel().getColumn(5).setMinWidth(125);
