@@ -128,6 +128,7 @@ public class W6 {
                 bookmarkvalue.put("C001",Checknull(Year));
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3",Checknull(ccYear));
+                bookmarkvalue.put("C37",Checknull(s.getString("Invest_SendtoDepartment")));
                 bookmarkvalue.put("STATUS",Checknull(STATUS));
                  bookmarkvalue.put("CC2",Checknull(caseno));
                 
@@ -222,6 +223,7 @@ public class W6 {
                 bookmarkvalue.put("C001","");
 		bookmarkvalue.put("C2","");
                 bookmarkvalue.put("C3","");
+                bookmarkvalue.put("C37","");
                 bookmarkvalue.put("CC2","");
                 
                  bookmarkvalue.put("S2","");
