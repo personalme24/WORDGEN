@@ -20,7 +20,7 @@ import javax.swing.JFrame;
 import org.json.simple.JSONObject;
 import static com.songkhla.wordgen.ListSuspect.jTableSuspect;
 import javax.swing.ImageIcon;
-
+import java.awt.Font;
 /**
  *
  * @author Computer
@@ -67,6 +67,7 @@ String typeC;
         jButtonEditAccured = new javax.swing.JButton();
         txtCaseNO = new javax.swing.JLabel();
         jButtonAddAccused = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -81,6 +82,8 @@ String typeC;
             }
         ));
         jTableSuspect.setGridColor(new java.awt.Color(255, 255, 255));
+        jTableSuspect.getTableHeader().setFont(new Font("TH SarabunPSK", Font.BOLD, 20));
+        jTableSuspect.getTableHeader().setOpaque(false);
         jTableSuspect.setRowHeight(25);
         jTableSuspect.setRowMargin(2);
         jTableSuspect.setSelectionBackground(new java.awt.Color(0, 153, 255));
@@ -135,6 +138,15 @@ String typeC;
             }
         });
 
+        jButton2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon("D:\\Master\\home.png")); // NOI18N
+        jButton2.setText("เมนูหลัก");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -142,7 +154,9 @@ String typeC;
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jButtonAddAccused, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -150,8 +164,10 @@ String typeC;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonDeleteAccured, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(txtCaseNO)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(txtCaseNO)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2)
+                        .addGap(35, 35, 35))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,7 +179,8 @@ String typeC;
                     .addComponent(jButtonAddAccused)
                     .addComponent(jButtonEditAccured)
                     .addComponent(jButtonDeleteAccured)
-                    .addComponent(txtCaseNO))
+                    .addComponent(txtCaseNO)
+                    .addComponent(jButton2))
                 .addContainerGap())
         );
 
@@ -313,6 +330,11 @@ String typeC;
             }
         }        // TODO add your handling code here:
     }//GEN-LAST:event_jButtonDeleteAccuredActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        MainMenuWord.closeAllDialogs();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -506,6 +528,8 @@ jTableSuspect.getColumnModel().getColumn(6).setMaxWidth(0);
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButtonAddAccused;
     private javax.swing.JButton jButtonDeleteAccured;
     private javax.swing.JButton jButtonEditAccured;

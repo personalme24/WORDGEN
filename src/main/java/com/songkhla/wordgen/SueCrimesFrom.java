@@ -10,6 +10,7 @@ import com.songkhla.document.W68;
 
 import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseno;
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
@@ -67,6 +68,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
     String person;
     String caseid;
     String dateF,dateTot,Court,StatusBail,RatePrison;
+         String caseyear,casetype,caseno,PoliceStaionName;
 //    JDatePickerImpl SueSecDate,SueThirdDate,SueFourthDate,SueFifthDate,SueSixthDate,SueSevDate;
     /**
      * Creates new form SueCrimesFrom
@@ -80,11 +82,30 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
        
 //        jLabel2.setVisible(false);
-
+    
           person=datain.get("NoPerson")+"";
             caseid=datain.get("caseIdPerson")+"";   
             dateF=datain.get("SueFirstDate")+"";
          comboInvest();
+           try{
+          con=ConnectDatabase.connect();
+      
+        String sqlDataPoliceStation="SELECT * FROM PoliceStation";
+        Statement stmt1 = con.createStatement();
+                ResultSet rs1 = stmt1.executeQuery(sqlDataPoliceStation); 
+                
+        if(rs1.next()){
+         
+             PoliceStaionName=rs1.getString("PoliceStaionName");
+
+                    }
+
+        }
+        catch(Exception e){
+        e.printStackTrace();
+        
+        }
+          
 //        String a=txtCaseNO.getText();
       try{   
           Connection con = ConnectDatabase.connect();
@@ -116,6 +137,9 @@ public class SueCrimesFrom extends javax.swing.JDialog {
              StatusBail=datain.get("StatusBail")+"";
              RatePrison=datain.get("RatePrison")+"";
              Block();
+                  caseyear=datain.get("crimecaseyears")+"";
+                caseno=datain.get("crimecaseno")+"";
+                casetype=datain.get("CaseType")+"";
             crimecaseno.setText(datain.get("crimecasenoyear")+"");
             PeopleRegistrationID.setText(datain.get("PeopleRegistrationID")+"");
             AccureandOther.setText(datain.get("AccureandOther")+"");
@@ -203,6 +227,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
@@ -301,13 +326,22 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(1270, 720));
 
-        jPanel3.setBackground(new java.awt.Color(46, 156, 202));
+        jPanel3.setBackground(new java.awt.Color(4, 93, 179));
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 28)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("ผัดฟ้องฝากขัง");
+
+        jButton4.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon("D:\\Master\\home.png")); // NOI18N
+        jButton4.setText("เมนูหลัก");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -316,11 +350,15 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton4)
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                .addComponent(jButton4))
         );
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
@@ -1052,9 +1090,8 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1289, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1294,7 +1331,14 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         }
         else{
         W67.w67(caseid);
-        JOptionPane.showMessageDialog(jPanel1,"พิมพ์เอกสารเรียบร้อย", "แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);}
+         Desktop desktop = Desktop.getDesktop();
+        File dirToOpen = null;
+        try {
+            dirToOpen = new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
+            desktop.open(dirToOpen);
+        } catch (Exception iae) {
+            System.out.println("File Not Found :"+iae);
+        }}
         
     }//GEN-LAST:event_Print1ActionPerformed
 
@@ -1305,7 +1349,14 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         }
         else{
          W68.w68(caseid,SueThird.getText());
-          JOptionPane.showMessageDialog(jPanel1,"พิมพ์เอกสารเรียบร้อย", "แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);
+           Desktop desktop = Desktop.getDesktop();
+        File dirToOpen = null;
+        try {
+            dirToOpen = new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
+            desktop.open(dirToOpen);
+        } catch (Exception iae) {
+            System.out.println("File Not Found :"+iae);
+        }
         }
     }//GEN-LAST:event_Print3ActionPerformed
 
@@ -1316,7 +1367,14 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         }
           else{
            W68.w68(caseid,SueSecond.getText());
-            JOptionPane.showMessageDialog(jPanel1,"พิมพ์เอกสารเรียบร้อย", "แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);}
+            Desktop desktop = Desktop.getDesktop();
+        File dirToOpen = null;
+        try {
+            dirToOpen = new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
+            desktop.open(dirToOpen);
+        } catch (Exception iae) {
+            System.out.println("File Not Found :"+iae);
+        }}
           
     }//GEN-LAST:event_Print2ActionPerformed
 
@@ -1349,6 +1407,11 @@ public class SueCrimesFrom extends javax.swing.JDialog {
        }
         
     }//GEN-LAST:event_SueFirstTotalKeyTyped
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        MainMenuWord.closeAllDialogs();
+    }//GEN-LAST:event_jButton4ActionPerformed
     public void DateTotal(){
      SueFirstTotal.getDocument().addDocumentListener(new DocumentListener() {
                            public void changedUpdate(DocumentEvent e) {
@@ -1936,6 +1999,8 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JTextField ThirdDate;
     private javax.swing.JTextField TotalDate;
     private javax.swing.JTextField crimecaseno;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButtonSave;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

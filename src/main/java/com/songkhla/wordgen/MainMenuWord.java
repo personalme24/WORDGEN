@@ -66,7 +66,7 @@ public class MainMenuWord extends javax.swing.JFrame {
         CreateTable.createNewTable();      
         CreateTable.InsertBaseData();
         InsertBaseData.Insert();
-
+//        InsertBaseData.insertTambon();
         
     }
 

@@ -5,6 +5,7 @@
  */
 package com.songkhla.wordgen;
 
+import static com.songkhla.wordgen.ChargeOverViewMenu.jTableCharge;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -13,7 +14,7 @@ import java.util.Vector;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
-
+import java.awt.Font;
 /**
  *
  * @author Matazz
@@ -30,6 +31,7 @@ public class ActionList extends javax.swing.JDialog {
          ImageIcon img = new ImageIcon("D://Master//WD.png");
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
+           
         RefreshData();
        
     }
@@ -106,6 +108,8 @@ public class ActionList extends javax.swing.JDialog {
                 jTableActionMouseClicked(evt);
             }
         });
+        jTableAction.getTableHeader().setFont(new Font("TH SarabunPSK", Font.BOLD, 20));
+        jTableAction.getTableHeader().setOpaque(false);
         jScrollPane3.setViewportView(jTableAction);
 
         jButton4.setBackground(java.awt.SystemColor.windowText);

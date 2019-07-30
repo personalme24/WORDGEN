@@ -121,7 +121,8 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
     Connection con=null;
     PreparedStatement pst=null;;
     boolean isInsert;
-    String caseid,caseidLast;
+       String Province_name;
+    String caseid,caseidLast,province;
      String caseyear,casetype,caseno,PoliceStaionName;
 JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDate;
     /**
@@ -158,11 +159,8 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                 
         if(rs1.next()){
          
-//             caseyear=rs.getString("crimecaseyears");
-//             caseno=rs.getString("crimecaseno");
-//             casetype=rs.getString("CaseType");
              PoliceStaionName=rs1.getString("PoliceStaionName");
-//             casetype=rs.getString("CaseType");
+
                     }
 
         }
@@ -170,7 +168,8 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         e.printStackTrace();
         
         }
-       
+          
+             
 //  ---------------------------------------------Date Filed----------------------------------------------
            UtilDateModel model = new UtilDateModel();
             model.setValue(Calendar.getInstance().getTime());
@@ -220,7 +219,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 //        jTextPoliceName.setText(Data.getPolicName());
         jLabelActionCode.setVisible(false);
         jLabelChargeCode.setVisible(false);
-        crimecaseid.setVisible(true);
+        crimecaseid.setVisible(false);
  
             comboInvest();
  comboProvince();
@@ -327,7 +326,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 //	System.out.println(dateFormat.format(date));
             caseidLast=IdCase();
            crimecaseid.setText(IdCase());
-         crimecaseid.setVisible(false);
+        
            
 //           CaseAcceptDate.setDate(date);
 //           CaseRequestDateTime.setDate(date);
@@ -845,9 +844,15 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         CrimeLocationProvince.setEditable(true);
         CrimeLocationProvince.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         CrimeLocationProvince.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        CrimeLocationProvince.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                CrimeLocationProvinceItemStateChanged(evt);
+            }
+        });
         jPanel1.add(CrimeLocationProvince, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 150, 190, 30));
 
         CrimeLocationAmphur.setEditable(true);
+        CrimeLocationAmphur.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         CrimeLocationAmphur.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
         jPanel1.add(CrimeLocationAmphur, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 150, 190, 30));
 
@@ -1680,9 +1685,9 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel32)
-                .addGap(18, 18, 18)
+                .addGap(71, 71, 71)
                 .addComponent(jButtonPrintDoc)
-                .addGap(31, 31, 31))
+                .addGap(73, 73, 73))
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1204, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -1741,11 +1746,14 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 1214, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33))
+            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1974,16 +1982,16 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
          pst.executeUpdate(); 
          pst.close();
          System.out.println("SQL : "+sqlUpdate);
-           JFrame frame = new JFrame();
-        JDialog dialog = new JDialog(frame);//frame is owner
-        JFrame fr = (JFrame)(dialog.getParent());
-        fr.removeAll();
-        JSONObject data=new JSONObject();
-         data.put("caseid", caseid);
-        ReportforCrimesCase n=new ReportforCrimesCase(fr,data);
-        n.pack();
-        n.setLocationRelativeTo(null);
-        n.setVisible(true);
+//           JFrame frame = new JFrame();
+//        JDialog dialog = new JDialog(frame);//frame is owner
+//        JFrame fr = (JFrame)(dialog.getParent());
+//        fr.removeAll();
+//        JSONObject data=new JSONObject();
+//         data.put("caseid", caseid);
+//        ReportforCrimesCase n=new ReportforCrimesCase(fr,data);
+//        n.pack();
+//        n.setLocationRelativeTo(null);
+//        n.setVisible(true);
 
     } 
             } catch (Exception e) {
@@ -2482,6 +2490,38 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
     private void jCheckW93ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW93ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckW93ActionPerformed
+
+    private void CrimeLocationProvinceItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CrimeLocationProvinceItemStateChanged
+        // TODO add your handling code here:
+        String provinceid="";
+        Connection con2 = ConnectDatabase.connect();
+        try {
+            Statement st2 = con2.createStatement();
+            String a="select Province.DOPA_CODE DOPA_CODE,Province.PROVINCEID PROVINCEID from Province\n"+
+            "where Province.NAMEPROVINCE='"+CrimeLocationProvince.getSelectedItem()+"'";
+                    	ResultSet res2 = st2.executeQuery(a);
+System.out.println("provinceid: "+CrimeLocationProvince.getSelectedItem());
+        if(res2.next()){
+        provinceid=res2.getString("PROVINCEID");
+        }
+	Statement st = con2.createStatement();
+        	String c = "select Amphur.NameAmphur NameAmphur\n" +
+                            "from Amphur\n" +
+                            "where Amphur.DOPA_CODE like '"+provinceid+"%';";
+        	ResultSet res = st.executeQuery(c);
+	//Vector<Object> v=new Vector<Object>();
+//	           System.out.println("provinceid: "+provinceid);
+CrimeLocationAmphur.removeAllItems();
+	while(res.next())
+	{
+	CrimeLocationAmphur.addItem(res.getString("NameAmphur"));
+
+	
+	}
+        }
+        catch (Exception d) {  //System.out.println(d);  
+}
+    }//GEN-LAST:event_CrimeLocationProvinceItemStateChanged
      public static void closeAllDialogs()
 {
     Window[] windows = getWindows();
@@ -2551,13 +2591,16 @@ catch (Exception d) {  //System.out.println(d);
 
          Connection con2 = ConnectDatabase.connect();
 	Statement st = con2.createStatement();
-        	String c = "Select nameprovince from province";
+        	String c = "Select nameprovince,PROVINCEID from province";
         	ResultSet res = st.executeQuery(c);
 	//Vector<Object> v=new Vector<Object>();
 	
 	while(res.next())
 	{
+             int Province_id = Integer.parseInt(res.getString("PROVINCEID"));
+              Province_name = res.getString("nameprovince"); 
 	CrimeLocationProvince.addItem(res.getString("nameprovince"));
+        
 
 	
 	}

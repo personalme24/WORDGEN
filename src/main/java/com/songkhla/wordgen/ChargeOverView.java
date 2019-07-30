@@ -17,6 +17,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import org.json.simple.JSONObject;
+import java.awt.Font;
 
 /**
  *
@@ -141,6 +142,8 @@ public class ChargeOverView extends javax.swing.JDialog {
                 jTable1MouseClicked(evt);
             }
         });
+        jTable1.getTableHeader().setFont(new Font("TH SarabunPSK", Font.BOLD, 20));
+        jTable1.getTableHeader().setOpaque(false);
         jScrollPane1.setViewportView(jTable1);
 
         jButton1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N

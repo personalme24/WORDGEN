@@ -34,6 +34,9 @@ import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
 import org.json.simple.JSONObject;
 import org.xlsx4j.sml.Col;
+import java.awt.Font;
+import java.awt.Toolkit;
+import javax.swing.JScrollPane;
 
 /**
  *
@@ -58,6 +61,8 @@ public class BailCrimesForm extends javax.swing.JDialog {
         eventJStatusManage();
         RefreshData();
 //        ShowData();
+jTableBail.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+jTableBail.setPreferredScrollableViewportSize(Toolkit.getDefaultToolkit().getScreenSize());
         UtilDateModel model = new UtilDateModel();
             model.setValue(Calendar.getInstance().getTime());
             Properties p = new Properties();
@@ -86,6 +91,7 @@ public class BailCrimesForm extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableBail = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
@@ -116,6 +122,15 @@ public class BailCrimesForm extends javax.swing.JDialog {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("ผู้ต้องหาประกันตัว");
 
+        jButton3.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon("D:\\Master\\home.png")); // NOI18N
+        jButton3.setText("เมนูหลัก");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -123,11 +138,15 @@ public class BailCrimesForm extends javax.swing.JDialog {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(1173, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 961, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addGap(103, 103, 103))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                .addComponent(jButton3))
         );
 
         jTableBail.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -168,6 +187,8 @@ public class BailCrimesForm extends javax.swing.JDialog {
                 jTableBailMouseClicked(evt);
             }
         });
+        jTableBail.getTableHeader().setFont(new Font("TH SarabunPSK", Font.BOLD, 20));
+        jTableBail.getTableHeader().setOpaque(false);
         jScrollPane1.setViewportView(jTableBail);
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
@@ -316,15 +337,15 @@ public class BailCrimesForm extends javax.swing.JDialog {
                     .addComponent(AddEditBail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCheckOnly))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(232, 232, 232))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 1264, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1237, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -437,6 +458,11 @@ public class BailCrimesForm extends javax.swing.JDialog {
     private void crimecasenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crimecasenoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_crimecasenoActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        MainMenuWord.closeAllDialogs();
+    }//GEN-LAST:event_jButton3ActionPerformed
  public void eventJStatusManage(){
 //     String a= jComboStatus.getSelectedItem()+"";
 //     if(a.equals("ประกัน"))
@@ -521,7 +547,7 @@ public class BailCrimesForm extends javax.swing.JDialog {
 //        String a=txtCaseNO.getText();
         String sql;
          sql="select CrimeCase.crimecasenoyear crimecasenoyear,CrimeCase.caseacceptdate CaseAcceptDate,Person.arrestdatetimeend ArrestDateTimeEnd,\n" +
-"                Person.Fullnameperson FullNamePerson,Person.Co FullNamePerson, Person.noperson noperson,Person.BailDate BailDate,Person.StatusBail StatusBail,\n" +
+"                Person.Fullnameperson FullNamePerson,Person.CourtSuspect CourtSuspect, Person.noperson noperson,Person.BailDate BailDate,Person.StatusBail StatusBail,\n" +
 " deli1.deliorder order1,deli1.delidate date1,\n" +
 " deli2.deliorder order2,deli2.delidate date2,\n" +
 "deli3.deliorder order3,deli3.delidate date3,\n" +
@@ -652,6 +678,17 @@ public class BailCrimesForm extends javax.swing.JDialog {
            
                 }   
             });
+jTableBail.getColumnModel().getColumn(3).setMinWidth(125);
+jTableBail.getColumnModel().getColumn(4).setMinWidth(125);
+jTableBail.getColumnModel().getColumn(5).setMinWidth(125);
+
+jTableBail.getColumnModel().getColumn(6).setMinWidth(130);
+jTableBail.getColumnModel().getColumn(7).setMinWidth(130);
+jTableBail.getColumnModel().getColumn(8).setMinWidth(130);
+jTableBail.getColumnModel().getColumn(9).setMinWidth(130);
+jTableBail.getColumnModel().getColumn(10).setMinWidth(130);
+jTableBail.getColumnModel().getColumn(11).setMinWidth(130);
+
 
         }catch(Exception ex){
             ex.printStackTrace();
@@ -718,6 +755,7 @@ public class BailCrimesForm extends javax.swing.JDialog {
     private javax.swing.JTextField PlaceArrest;
     private javax.swing.JTextField SuspectFullName;
     private javax.swing.JTextField crimecaseno;
+    private javax.swing.JButton jButton3;
     private javax.swing.JCheckBox jCheckOnly;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel30;
