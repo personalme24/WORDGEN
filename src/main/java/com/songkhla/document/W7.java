@@ -76,7 +76,7 @@ public class W7 {
             
                   
                    
-                   String sql="select crimecase.CaseId,crimecase.crimecaseno,crimecase.crimecaseyears,crimecase.SendIDocDate,crimecase.OccuredDate,crimecase.OccuredTime,"
+                   String sql="select crimecase.CaseId,crimecase.crimecaseno,crimecase.crimecasenoyear,crimecase.crimecaseyears,crimecase.SendIDocDate,crimecase.OccuredDate,crimecase.OccuredTime,"
                            + "crimecase.CaseAcceptDate,crimecase.CaseAccepTime,crimecase.CrimeLocationDistrict,crimecase.AccureandOther,crimecase.SuspectandOther,crimecase.WitnessandOther,"
                             + "Charge.*,P1.*,P2.*\n" +
                                 "from crimecase inner join(\n" +
