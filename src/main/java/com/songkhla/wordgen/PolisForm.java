@@ -49,7 +49,7 @@ public class PolisForm extends javax.swing.JDialog {
               
         if(datain!=null){
             try {
-                IdCardPolice.setEnabled(false);
+            
              IdCardPolice.setText(datain.get("IdCardPolice")+"");
              RankPolice.setText(datain.get("RankPolice")+"");
              FirstName.setText(datain.get("FirstName")+"");
@@ -120,7 +120,7 @@ public class PolisForm extends javax.swing.JDialog {
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
         );
 
-        jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel8.setText("เลขประจำตัวประชาชน");
 
         IdCardPolice.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
@@ -130,22 +130,22 @@ public class PolisForm extends javax.swing.JDialog {
             }
         });
 
-        jLabel9.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel9.setText("ยศ");
 
         RankPolice.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        jLabel10.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel10.setText("ชื่อ");
 
         FirstName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        jLabel11.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel11.setText("นามสกุล");
 
         LastName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        jLabel12.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel12.setText("ตำแหน่ง");
 
         Position.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
@@ -244,7 +244,7 @@ public class PolisForm extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 2, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -252,12 +252,26 @@ public class PolisForm extends javax.swing.JDialog {
 
     private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
         con=ConnectDatabase.connect();
-      // 
-        //
+        try{
+         Statement st = con.createStatement();
+        String sqlCheck="Select IdCardPolice from Police where IdCardPolice='"+IdCardPolice.getText()+"'";
+        System.out.println("Check : "+sqlCheck);
+         ResultSet rc = st.executeQuery(sqlCheck);
+        if(rc.next()){
+        
+        isInsert=false;
+        }
+        else{
+         isInsert=true;
+        }
+        }
+        catch(Exception ex){
+        ex.printStackTrace();
+        }
         // Saving code here
         if(isInsert){
-            int dialogResult = JOptionPane.showConfirmDialog (null, "ทำการบันทึกข้อมูล?", "ยืนยันการบันทึกข้อมูล",JOptionPane.YES_NO_OPTION);
-          if(dialogResult == JOptionPane.YES_OPTION){
+            
+         
                 try {  
                         Statement stmt = con.createStatement();
                         String sql="INSERT INTO Police (IdCardPolice,RankPolice,FirstName,LastName,Position) VALUES (?,?,?,?,?)";
@@ -279,19 +293,28 @@ public class PolisForm extends javax.swing.JDialog {
                         pst.setString(3,RankPolice.getText());
                         pst.setString(4,FirstName.getText()+" "+LastName.getText());
                         pst.setString(5,Position.getText());
-                        pst.executeUpdate();
-                        pst.close();
+                      
 //                        setVisible(false);
+ int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
+        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+  if (response == JOptionPane.YES_OPTION) {
+//             con=ConnectDatabase.connect();
+         pst.executeUpdate();
+         pst.close();
+         closeEdit();
+          jButtonEdit.setEnabled(true);
+           jButtonSave.setEnabled(false);
+
+
+    } 
                         
-                         jButtonEdit.setEnabled(true);
-                         jButtonSave.setEnabled(false);
                       }
                 catch (Exception e) {
                            JOptionPane.showMessageDialog(null, e);
                            System.out.println("SQL : "+pst);
                        }
                              
-         }
+         
         }
          else{
           //int dialogResult = JOptionPane.showConfirmDialog (null, "ทำการแก้ไขข้อมูล?");
@@ -311,12 +334,20 @@ public class PolisForm extends javax.swing.JDialog {
             pst.setString(4,LastName.getText());
             pst.setString(5,Position.getText());
             pst.setString(6,IdCardPolice.getText());
-            pst.executeUpdate();
-            JOptionPane.showMessageDialog(null, "แก้ไขข้อมูลสำเร็จแล้ว");
+     
             System.out.println("SQL : "+sqlUpdate);
-//            setVisible(false);
-//                jButtonEdit.setEnabled(true);
-//                jButtonSave.setEnabled(false);
+ int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการแก้ไขข้อมูล", "ยืนยัน",
+        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+  if (response == JOptionPane.YES_OPTION) {
+//             con=ConnectDatabase.connect();
+         pst.executeUpdate();
+         pst.close();
+         closeEdit();
+          jButtonEdit.setEnabled(true);
+           jButtonSave.setEnabled(false);
+
+
+    } 
         }
          
          catch (Exception e) {
@@ -344,10 +375,29 @@ public class PolisForm extends javax.swing.JDialog {
 
     private void jButtonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditActionPerformed
         // TODO add your handling code here:
-        IdCardPolice.setEnabled(true);
+        openEdit();
         jButtonSave.setEnabled(true);
     }//GEN-LAST:event_jButtonEditActionPerformed
-private void data() 
+private void closeEdit(){
+        IdCardPolice.setEnabled(false);
+        jButtonSave.setEnabled(false);  
+        RankPolice.setEnabled(false);   
+        FirstName.setEnabled(false);
+        LastName.setEnabled(false);
+        Position.setEnabled(false);
+
+}
+private void openEdit(){
+        IdCardPolice.setEnabled(true);
+        jButtonSave.setEnabled(true); 
+        RankPolice.setEnabled(true);       
+
+        FirstName.setEnabled(true);
+        LastName.setEnabled(true);
+        Position.setEnabled(true);
+
+}
+    private void data() 
 {       String a;
             String sql= "select * from Police";
             Connection con = ConnectDatabase.connect();

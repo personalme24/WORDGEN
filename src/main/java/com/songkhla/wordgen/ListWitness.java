@@ -8,6 +8,7 @@ package com.songkhla.wordgen;
 import com.songkhla.wordgen.*;
 import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseid;
 import static com.songkhla.wordgen.CrimesCaseEdit.jTextAccused;
+import static com.songkhla.wordgen.ListAccused.jTableAccure;
 import static com.songkhla.wordgen.ListAccused.txtCaseNO;
 import static com.songkhla.wordgen.ListSuspect.jTableSuspect;
 import java.sql.Connection;
@@ -154,9 +155,7 @@ String noPerson;
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel1)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jButtonAddAccused, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -164,24 +163,28 @@ String noPerson;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonDeleteAccured, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(txtCaseNO)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3)
-                        .addGap(35, 35, 35))))
+                        .addComponent(txtCaseNO)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addGap(36, 36, 36))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(28, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonAddAccused)
-                    .addComponent(jButtonEditAccured)
-                    .addComponent(jButtonDeleteAccured)
-                    .addComponent(txtCaseNO)
-                    .addComponent(jButton3))
-                .addContainerGap())
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonAddAccused)
+                            .addComponent(jButtonEditAccured)
+                            .addComponent(jButtonDeleteAccured)
+                            .addComponent(txtCaseNO))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButton3)
+                        .addGap(36, 36, 36))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -238,10 +241,10 @@ String noPerson;
         if(jTableWitness.getSelectedRow()>=0){
            
             try{
-                String PeopleRegistrationID = jTableWitness.getModel().getValueAt(jTableWitness.getSelectedRow(), 0)+"";            
+                String NoPerson = jTableWitness.getModel().getValueAt(jTableWitness.getSelectedRow(), 7)+"";            
                 String sql = "select NoPerson,Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,Weight,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                        "PhonePerson,Province,Race,Religion,Tambon,TypePerson,ZipCode,caseIdPerson from person where TypePerson='พยานและบุคคลอื่นๆ' and PeopleRegistrationID='"+PeopleRegistrationID+ "' and caseIdPerson='"+crimecaseno+"'";
+                        "PhonePerson,Province,Race,OrderPerson,Religion,Tambon,TypePerson,ZipCode,caseIdPerson from person where TypePerson='พยานและบุคคลอื่นๆ' and NoPerson='"+NoPerson+ "' and caseIdPerson='"+crimecaseno+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);
@@ -275,6 +278,8 @@ String noPerson;
                     data.put("Religion", rs.getString("Religion"));
                     data.put("Tambon", rs.getString("Tambon"));
                     data.put("ZipCode", rs.getString("ZipCode"));
+                     data.put("OrderPerson", rs.getString("OrderPerson"));
+                   
                             WitnessForm wF=new WitnessForm(f,data);
                             wF.pack();
                             wF.setLocationRelativeTo(null);                            
@@ -300,10 +305,10 @@ String noPerson;
     private void jButtonDeleteAccuredActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteAccuredActionPerformed
               if(jTableWitness.getSelectedRow()>=0){
                   
-            try{
-                String crimecaseno = jTableWitness.getModel().getValueAt(jTableWitness.getSelectedRow(), 0)+"";
-                String PeopleRegistrationID = jTableWitness.getModel().getValueAt(jTableWitness.getSelectedRow(), 2)+"";
-                String sql = "Delete from person WHERE PeopleRegistrationID='"+PeopleRegistrationID+ "' and  caseIdPerson='"+crimecaseno+"'";
+            try{ 
+                String crimecaseno = txtCaseNO.getText();
+                String Noperson = jTableWitness.getModel().getValueAt(jTableWitness.getSelectedRow(), 7)+"";
+                String sql = "Delete from person WHERE Noperson='"+Noperson+ "' and  caseIdPerson='"+crimecaseno+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 stmt.executeUpdate(sql);
@@ -368,30 +373,35 @@ String noPerson;
         String a=txtCaseNO.getText();
         String sql = "select Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                      "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                     "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,caseIdPerson from person where TypePerson='พยานและบุคคลอื่นๆ' and caseIdPerson='"+a+"'"+getFilterCondition();
+                     "PhonePerson,Province,NoPerson,Race,Religion,Tambon,TypePerson,OrderPerson,Weight,ZipCode,caseIdPerson from person where TypePerson='พยานและบุคคลอื่นๆ' "
+                + "and caseIdPerson='"+a+"'"+getFilterCondition()+"order by OrderPerson ASC";
       
         ResultSet rs = stmt.executeQuery(sql);
           System.out.println("SQL : "+sql);
         Vector<Vector> tabledata = new Vector<Vector>();
         while(rs.next()){
             Vector<String> row = new Vector<String>();
+             row.add(rs.getString("OrderPerson"));
             row.add(rs.getString("PeopleRegistrationID"));
             row.add(rs.getString("FullNamePerson"));
             row.add(rs.getString("Age"));
             row.add(rs.getString("Race"));
             row.add(rs.getString("Nationality"));
             row.add(rs.getString("Religion"));
+            row.add(rs.getString("NoPerson"));
             tabledata.add(row);
         }
         rs.close();
         stmt.close();
         Vector ColumnName = new Vector();
+         ColumnName.add("ลำดับพยาน");
          ColumnName.add("เลขบัตรประชาชน");
         ColumnName.add("ชื่อ-นามสุกล");
         ColumnName.add("อายุ");
         ColumnName.add("เชื้อชาติ");
         ColumnName.add("สัญชาติ");
         ColumnName.add("ศาสนา");
+        ColumnName.add("เลขคน");        
          System.out.println("SQL : "+sql);
      
         jTableWitness.setModel(new javax.swing.table.DefaultTableModel(
@@ -399,14 +409,18 @@ String noPerson;
             ColumnName
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, 
+                java.lang.String.class, java.lang.String.class, java.lang.String.class,
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-                         
+                                  jTableWitness.getColumnModel().getColumn(7).setWidth(0);
+jTableWitness.getColumnModel().getColumn(7).setMinWidth(0);
+jTableWitness.getColumnModel().getColumn(7).setMaxWidth(0); 
            if(jTableWitness.getRowCount()<=0){
 //             int rows = jTableAccure.getRowCount();
             if(typeC.equals("อาญา")){
@@ -423,25 +437,25 @@ String noPerson;
         if(jTableWitness.getRowCount()==1){
 //             int rows = jTableAccure.getRowCount();
             if(typeC.equals("อาญา")){
-            CrimesCaseEdit.jTextWitness.setText(jTableWitness.getValueAt(0, 1).toString()); 
+            CrimesCaseEdit.jTextWitness.setText(jTableWitness.getValueAt(0, 2).toString()); 
             }
             if(typeC.equals("จราจร")){
-            TrafficEdit.jTextWitness.setText(jTableWitness.getValueAt(0, 1).toString()); 
+            TrafficEdit.jTextWitness.setText(jTableWitness.getValueAt(0, 2).toString()); 
             }
               if(typeC.equals("ชันสูตร")){
-            IdentityFrom.jTextWitness.setText(jTableWitness.getValueAt(0, 1).toString()); 
+            IdentityFrom.jTextWitness.setText(jTableWitness.getValueAt(0, 2).toString()); 
             }
             }
         if(jTableWitness.getRowCount()>1){
             
             if(typeC.equals("อาญา")){
-            CrimesCaseEdit.jTextWitness.setText(jTableWitness.getValueAt(0, 1).toString()+"และพวก"); 
+            CrimesCaseEdit.jTextWitness.setText(jTableWitness.getValueAt(0, 2).toString()+"และพวก"); 
             }
             if(typeC.equals("จราจร")){
-            TrafficEdit.jTextWitness.setText(jTableWitness.getValueAt(0, 1).toString()+"และพวก"); 
+            TrafficEdit.jTextWitness.setText(jTableWitness.getValueAt(0, 2).toString()+"และพวก"); 
             }
               if(typeC.equals("ชันสูตร")){
-            IdentityFrom.jTextWitness.setText(jTableWitness.getValueAt(0, 1).toString()+"และพวก"); 
+            IdentityFrom.jTextWitness.setText(jTableWitness.getValueAt(0, 2).toString()+"และพวก"); 
             }
             }
         
@@ -502,7 +516,6 @@ String noPerson;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButtonAddAccused;
     private javax.swing.JButton jButtonDeleteAccured;

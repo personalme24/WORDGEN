@@ -124,6 +124,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
        String Province_name;
     String caseid,caseidLast,province;
      String caseyear,casetype,caseno,PoliceStaionName;
+     ButtonGroup g;
 JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDate;
     /**
      * Creates new form CrimesCaseEdit
@@ -137,7 +138,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             setTitle("ระบบสำนวนอิเล็กทรอนิกส์ (CRIMES)");
 //            jScrollPane1.getVerticalScrollBar().setUI(new CustomScrollBarUI());
 //            jScrollPane1.getHorizontalScrollBar().setUI(new CustomScrollBarUI());
-        ButtonGroup g=new ButtonGroup();
+         g=new ButtonGroup();
         g.add(jCheckDuringInvest);
         g.add(jCheckSue);
         g.add(jCheckNotSue);
@@ -226,6 +227,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
  
         if(datain!=null){
             try {
+                CloseTextBox();
                 String knowSus=datain.get("StatusKnowSuspect")+"";
                 String rt=datain.get("CaseRequestTime")+"";
                 String at=datain.get("CaseAcceptTime")+"";
@@ -315,7 +317,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
          
         }
         else{
-//            jButtonEditCase.setEnabled(false);
+            jButtonEditCase.setEnabled(false);
               jTabbedPane2.setEnabledAt(jTabbedPane2.getTabCount()-1, false);
 //            Date date2=new Date();
 //            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
@@ -522,6 +524,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jLabel32 = new javax.swing.JLabel();
         jLabelChargeCode = new javax.swing.JLabel();
         jButtonSaveCase = new javax.swing.JButton();
+        jButtonEditCase = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1214, 720));
@@ -650,6 +653,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, 30));
 
         ActionCrimes.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        ActionCrimes.setEnabled(false);
         jPanel1.add(ActionCrimes, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 330, -1));
 
         jLabel9.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -1720,6 +1724,16 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             }
         });
 
+        jButtonEditCase.setBackground(new java.awt.Color(0, 51, 102));
+        jButtonEditCase.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jButtonEditCase.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonEditCase.setText("แก้ไข");
+        jButtonEditCase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEditCaseActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -1729,7 +1743,10 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                 .addComponent(jLabelChargeCode)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonSaveCase, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jButtonSaveCase, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonEditCase, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1152, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(151, 151, 151))
         );
@@ -1740,7 +1757,9 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                     .addComponent(jLabelChargeCode, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonSaveCase)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonSaveCase)
+                    .addComponent(jButtonEditCase))
                 .addContainerGap(41, Short.MAX_VALUE))
         );
 
@@ -1749,11 +1768,10 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 1214, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33))
             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -1773,6 +1791,22 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         // TODO add your handling code here:
 
         con=ConnectDatabase.connect();
+         try{
+         Statement st = con.createStatement();
+        String sqlCheck="Select CaseId from CrimeCase where CaseId='"+crimecaseid.getText()+"'";
+        System.out.println("Check : "+sqlCheck);
+         ResultSet rc = st.executeQuery(sqlCheck);
+        if(rc.next()){
+        
+        isInsert=false;
+        }
+        else{
+         isInsert=true;
+        }
+        }
+        catch(Exception ex){
+        ex.printStackTrace();
+        }
         SimpleDateFormat format = new SimpleDateFormat("HH:mm");
         String requestTime = format.format(CaseRequestTimee.getValue());
         String acceptTime = format.format(CaseAcceptTimee.getValue());
@@ -1861,9 +1895,9 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
          pst.executeUpdate(); 
          pst.close();
          System.out.println("SQL : "+sql);
-//         jButtonSaveCase.setEnabled(false);
-//         jButtonEditCase.setEnabled(true);
-//         closeTextBox();
+         jButtonSaveCase.setEnabled(false);
+         jButtonEditCase.setEnabled(true);
+         CloseTextBox();
 //         JSONObject data=new JSONObject();
 //         data.put("caseid", caseidLast);
 //           JFrame frame = new JFrame();
@@ -1976,13 +2010,16 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                 pst.setString(35,jLabelNumberAcc.getText());
                 pst.setString(36,jLabelNumberSus.getText());
                 pst.setString(37,jLabelNumberWitness.getText());                
-                pst.setString(38,caseid);
+                pst.setString(38,crimecaseid.getText());
                 
                int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการแก้ไขข้อมูล", "ยืนยัน",
         JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
   if (response == JOptionPane.YES_OPTION) {
          pst.executeUpdate(); 
          pst.close();
+         jButtonSaveCase.setEnabled(false);
+         jButtonEditCase.setEnabled(true);
+         CloseTextBox();
          System.out.println("SQL : "+sqlUpdate);
 //           JFrame frame = new JFrame();
 //        JDialog dialog = new JDialog(frame);//frame is owner
@@ -2536,6 +2573,12 @@ CrimeLocationAmphur.removeAllItems();
     private void CrimeLocationProvinceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrimeLocationProvinceActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CrimeLocationProvinceActionPerformed
+
+    private void jButtonEditCaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditCaseActionPerformed
+        // TODO add your handling code here:
+        jButtonSaveCase.setEnabled(true);
+        openTextBox();
+    }//GEN-LAST:event_jButtonEditCaseActionPerformed
      public static void closeAllDialogs()
 {
     Window[] windows = getWindows();
@@ -2599,6 +2642,7 @@ CrimeLocationAmphur.removeAllItems();
 catch (Exception d) {  //System.out.println(d);  
 }
     }
+    
       public void comboProvince(){
     
      try {
@@ -2679,94 +2723,89 @@ catch (Exception d) {  //System.out.println(d);
             }
         });
     }
-    public void closeTextBox(){
+    
+    public void openTextBox(){
 //    RestoreDate.setVisible(false);  
   
-   crimecaseno.setEnabled(false);
-       crimecaseyear.setEnabled(false);
-       jButtonAction.setEnabled(false);
-       jButtonCharge.setEnabled(false);
-//       Age.setEnabled(true);
-//       Nationality.setEnabled(true);
-//       Race.setEnabled(true);
-//       Religion.setEnabled(true);
-//       Height.setEnabled(true);
-//       Weight.setEnabled(true);
-//       BloodGroup.setEnabled(true);
-//       FatherFullName.setEnabled(true);
-//       MotherFullName.setEnabled(true);
-//       PhonePerson.setEnabled(true);
-//       Occupation.setEnabled(true);
-//       HouseNumber.setEnabled(true);
-//       Gender.setEnabled(true);
-//       Moo.setEnabled(true);
-//       Tambon.setEnabled(true);
-//       Amphur.setEnabled(true);
-//       Province.setEnabled(true);
-//       ZipCode1.setEnabled(true);
-//       Gender1.setEnabled(true);
-//       Identification.setEnabled(true);
-//      ExpiredDate.getComponent(1).setEnabled(true);
-//      ExpiredDate.getJFormattedTextField().setEnabled(true);
-//      IssueDate.getComponent(1).setEnabled(true);
-//       IssueDate.getJFormattedTextField().setEnabled(true);
-//     BirthDay.getComponent(1).setEnabled(true);
-//       BirthDay.getJFormattedTextField().setEnabled(true);
-//             jRadioSue.setEnabled(true);
-//        jRadioResultImprison.setEnabled(true);
-//        jRadioResultRelease.setEnabled(true);
-//        jRadioCantCatch.setEnabled(true);
-//        jRadioVerbal.setEnabled(true);
-//        jRadioRestore.setEnabled(true);
-//        jRadioFreeze.setEnabled(true);
-//        jRadioWithdrawComplaint.setEnabled(true);
-//        jRadioOther.setEnabled(true);
-//        jCheckBail.setEnabled(true);
-
-    }
-   public void openTextBox(){
-//    RestoreDate.setVisible(false);  
-  
-   crimecaseno.setEnabled(true);
+  crimecaseno.setEnabled(true);
        crimecaseyear.setEnabled(true);
        jButtonAction.setEnabled(true);
        jButtonCharge.setEnabled(true);
-//       Age.setEnabled(true);
-//       Nationality.setEnabled(true);
-//       Race.setEnabled(true);
-//       Religion.setEnabled(true);
-//       Height.setEnabled(true);
-//       Weight.setEnabled(true);
-//       BloodGroup.setEnabled(true);
-//       FatherFullName.setEnabled(true);
-//       MotherFullName.setEnabled(true);
-//       PhonePerson.setEnabled(true);
-//       Occupation.setEnabled(true);
-//       HouseNumber.setEnabled(true);
-//       Gender.setEnabled(true);
-//       Moo.setEnabled(true);
-//       Tambon.setEnabled(true);
-//       Amphur.setEnabled(true);
-//       Province.setEnabled(true);
-//       ZipCode1.setEnabled(true);
-//       Gender1.setEnabled(true);
-//       Identification.setEnabled(true);
-//      ExpiredDate.getComponent(1).setEnabled(true);
-//      ExpiredDate.getJFormattedTextField().setEnabled(true);
-//      IssueDate.getComponent(1).setEnabled(true);
-//       IssueDate.getJFormattedTextField().setEnabled(true);
-//     BirthDay.getComponent(1).setEnabled(true);
-//       BirthDay.getJFormattedTextField().setEnabled(true);
-//             jRadioSue.setEnabled(true);
-//        jRadioResultImprison.setEnabled(true);
-//        jRadioResultRelease.setEnabled(true);
-//        jRadioCantCatch.setEnabled(true);
-//        jRadioVerbal.setEnabled(true);
-//        jRadioRestore.setEnabled(true);
-//        jRadioFreeze.setEnabled(true);
-//        jRadioWithdrawComplaint.setEnabled(true);
-//        jRadioOther.setEnabled(true);
-//        jCheckBail.setEnabled(true);
+//       ActionCrimes.setEnabled(false);
+//       ChargeNameCase.setEnabled(false);
+       OccuredDateTime.setEnabled(true);
+       CaseRequestTimee.setEnabled(true);
+       CaseAcceptTimee.setEnabled(true);
+       CaseAcceptTimee.setEnabled(true);
+            CaseAcceptDate.getComponent(1).setEnabled(true);
+       CaseAcceptDate.getJFormattedTextField().setEnabled(true);
+            CaseRequestDateTime.getComponent(1).setEnabled(true);
+       CaseRequestDateTime.getJFormattedTextField().setEnabled(true);     
+       OccuredDate.getComponent(1).setEnabled(true);
+       OccuredDate.getJFormattedTextField().setEnabled(true);
+        DailyNumber.setEnabled(true);
+       CrimeLocation.setEnabled(true);
+       CrimeLocationMoo.setEnabled(true);
+       CrimeLocationSoi.setEnabled(true);
+       CrimeLocationRoad.setEnabled(true);
+       CrimeLocationProvince.setEnabled(true);
+       CrimeLocationAmphur.setEnabled(true);
+       CrimeLocationDistrict.setEnabled(true);
+       jComboPoliceName.setEnabled(true);
+       jButtonAccured.setEnabled(true);
+         jButtonSuspect.setEnabled(true);
+       jButtonWitness.setEnabled(true);
+       jTextInvestSendtoDepartment.setEnabled(true);
+       Investigator_Number.setEnabled(true);
+        Invest_SendCaseDate.getComponent(1).setEnabled(true);
+       Invest_SendCaseDate.getJFormattedTextField().setEnabled(true);
+       CapitalCrimeCaseNumber.setEnabled(true);
+         Prosecutor_Result.setEnabled(true);
+       CourtResult.setEnabled(true);
+
+    }
+   public void CloseTextBox(){
+//    RestoreDate.setVisible(false);  
+  
+        crimecaseno.setEnabled(false);
+       crimecaseyear.setEnabled(false);
+       jButtonAction.setEnabled(false);
+       jButtonCharge.setEnabled(false);
+//       ActionCrimes.setEnabled(false);
+//       ChargeNameCase.setEnabled(false);
+       OccuredDateTime.setEnabled(false);
+       CaseRequestTimee.setEnabled(false);
+       CaseAcceptTimee.setEnabled(false);
+       CaseAcceptTimee.setEnabled(false);
+            CaseAcceptDate.getComponent(1).setEnabled(false);
+       CaseAcceptDate.getJFormattedTextField().setEnabled(false);
+            CaseRequestDateTime.getComponent(1).setEnabled(false);
+       CaseRequestDateTime.getJFormattedTextField().setEnabled(false);     
+       OccuredDate.getComponent(1).setEnabled(false);
+       OccuredDate.getJFormattedTextField().setEnabled(false);
+        DailyNumber.setEnabled(false);
+       CrimeLocation.setEnabled(false);
+       CrimeLocationMoo.setEnabled(false);
+       CrimeLocationSoi.setEnabled(false);
+       CrimeLocationRoad.setEnabled(false);
+       CrimeLocationProvince.setEnabled(false);
+       CrimeLocationAmphur.setEnabled(false);
+       CrimeLocationDistrict.setEnabled(false);
+       jComboPoliceName.setEnabled(false);
+       jButtonAccured.setEnabled(false);
+         jButtonSuspect.setEnabled(false);
+       jButtonWitness.setEnabled(false);
+       jTextInvestSendtoDepartment.setEnabled(false);
+       Investigator_Number.setEnabled(false);
+        Invest_SendCaseDate.getComponent(1).setEnabled(false);
+       Invest_SendCaseDate.getJFormattedTextField().setEnabled(false);
+       CapitalCrimeCaseNumber.setEnabled(false);
+         Prosecutor_Result.setEnabled(false);
+       CourtResult.setEnabled(false);
+//              g.setEnabled(false);
+
+      
+
 
     }
     
@@ -2802,6 +2841,7 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JButton jButtonAddAsset;
     private javax.swing.JButton jButtonAddInvest;
     private javax.swing.JButton jButtonCharge;
+    private javax.swing.JButton jButtonEditCase;
     private javax.swing.JButton jButtonPrintDoc;
     private javax.swing.JButton jButtonSaveCase;
     private javax.swing.JButton jButtonSuspect;

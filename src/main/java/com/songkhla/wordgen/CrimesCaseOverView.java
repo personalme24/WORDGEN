@@ -612,8 +612,8 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
                 String sql = "DELETE FROM CrimeCase WHERE CrimeCase.CaseId='"+crimecaseId+"';\n"+
                              "DELETE FROM RecordInquiry WHERE caseidrecord='"+crimecaseId+"';\n"+
                              "DELETE FROM Person WHERE caseidperson='"+crimecaseId+"';\n"+
-                              "DELETE FROM ChargeCase WHERE ChargeCaseId='"+crimecaseId+"';\n"+
-                              "DELETE FROM ActionsCaseData WHERE ActionCaseId='"+crimecaseId+"';";
+                             "DELETE FROM ChargeCase WHERE ChargeCaseId='"+crimecaseId+"';\n"+
+                             "DELETE FROM ActionsCaseData WHERE ActionCaseId='"+crimecaseId+"';";
                 Connection con = ConnectDatabase.connect();
 //                System.out.println("Delete:"+sql);
                 Statement  stmt = con.createStatement();
@@ -622,10 +622,8 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
                     JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                 if (response == JOptionPane.YES_OPTION) {
                     stmt.executeUpdate(sql);
-
+                    stmt.close();
                 }
-                //            rs.close();
-                stmt.close();
                 RefreshData();
             }catch(Exception ex){
                 ex.printStackTrace();
