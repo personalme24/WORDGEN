@@ -87,9 +87,9 @@ public static void w68(String cc,String sueTime) {
                       }
 //                
 
-                   String sql="select crimecase.*,Person.*,Charge.*\n" +
+                   String sql="select crimecase.*,Person.*,ChargeCase.*\n" +
                               "from crimecase \n" +
-                              "left join Charge on crimecase.ChargeCodeCase=Charge.ChargeCode\n" +
+                              "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                               "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
                               "where crimecase.CaseId='"+cc+"'and Person.TypePerson='ผู้ต้องหา'\n" +
                               "group by crimecase.CaseId,Person.NoPerson";
@@ -149,7 +149,7 @@ public static void w68(String cc,String sueTime) {
                   
                      
 
-                      bookmarkvalue.put("B2", Checknull(s.getString("ChargeName")));
+                      bookmarkvalue.put("B2", Checknull(s.getString("ChargeNameCase")));
                       
                        bookmarkvalue.put("P02", Checknull(RankPolice));
                        bookmarkvalue.put("P03", Checknull(FirstName));
@@ -164,17 +164,7 @@ public static void w68(String cc,String sueTime) {
                             bookmarkvalue.put("C30", Checknull(s.getString("BlackCaseNo")));
                             bookmarkvalue.put("C31", Checknull(s.getString("BlackCaseYear")));
                                
-                    
-                    
-                    
-                    
-                 
-//		bookmarkvalue.put("P7", s.getString("AccureandOther"));
-//                bookmarkvalue.put("P13", s.getString("AccureandOther"));
-//		bookmarkvalue.put("test01", "พ.ต.อ.");
-//		bookmarkvalue.put("test02", "พนักงานสอบสวน");
-//		bookmarkvalue.put("test03", "สน.ดอนเมือง");
-//                bookmarkvalue.put("test04", "สน.ดอนเมือง5");
+
 		
     
 			JSONArray tablecolumn = new JSONArray();

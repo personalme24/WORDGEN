@@ -88,9 +88,9 @@ public class W64 {
                          Position=rs1.getString("Position");
                       }
                   
-                   String sql="select crimecase.*,Person.*,Charge.*\n" +
+                   String sql="select crimecase.*,Person.*,ChargeCase.*\n" +
                               "from crimecase \n" +
-                              "left join Charge on crimecase.ChargeCodeCase=Charge.ChargeCode\n" +
+                              "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                               "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
                               "where crimecase.CaseId='"+cc+"'\n" +
                               "group by crimecase.CaseId,Person.NoPerson";
@@ -153,7 +153,7 @@ public class W64 {
                 
                 bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
                 bookmarkvalue.put("PS7", Checknull(s.getString("FullNamePerson"))); 
-                bookmarkvalue.put("B2", Checknull(s.getString("ChargeName")));
+                bookmarkvalue.put("B2", Checknull(s.getString("ChargeNameCase")));
                 
                
                 

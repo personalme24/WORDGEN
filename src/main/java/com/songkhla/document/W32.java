@@ -81,9 +81,9 @@ public class W32 {
                          Position=rs1.getString("Position");
                       }
                   
-                   String sql="select crimecase.*,Charge.*,Person.ArrestDate,Person.PlaceArrest,Person.ArrestDateTime \n" +
+                   String sql="select crimecase.*,ChargeCase.*,Person.ArrestDate,Person.PlaceArrest,Person.ArrestDateTime \n" +
                                "from crimecase \n" +
-                               "left join Charge on crimecase.ChargeCodeCase=Charge.ChargeCode\n" +
+                               "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                                 "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
                                 "where crimecase.CaseId='"+cc+"'\n"+
                                 "group by crimecase.CaseId";
@@ -131,7 +131,7 @@ public class W32 {
                    
                   
                     
-                       bookmarkvalue.put("B2", Checknull(s.getString("ChargeName")));
+                       bookmarkvalue.put("B2", Checknull(s.getString("ChargeNameCase")));
                       bookmarkvalue.put("AS1", Checknull(s.getString("NoAsset")));
                      
                       

@@ -84,9 +84,9 @@ public static void w69(String cc) {
                       }
 //                
 
-                   String sql="select crimecase.*,Person.*,Charge.*\n" +
+                   String sql="select crimecase.*,Person.*,ChargeCase.*\n" +
                               "from crimecase \n" +
-                              "left join Charge on crimecase.ChargeCodeCase=Charge.ChargeCode\n" +
+                              "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                               "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
                               "where crimecase.CaseId='"+cc+"'and Person.TypePerson='ผู้ต้องหา'\n" +
                               "group by crimecase.CaseId,Person.NoPerson";
@@ -138,7 +138,7 @@ public static void w69(String cc) {
                   
                      
 
-                      bookmarkvalue.put("B2", Checknull(s.getString("ChargeName")));
+                      bookmarkvalue.put("B2", Checknull(s.getString("ChargeNameCase")));
                       
                        bookmarkvalue.put("P02", Checknull(RankPolice));
                        bookmarkvalue.put("P03", Checknull(FirstName));
@@ -157,27 +157,12 @@ public static void w69(String cc) {
                                
 
 			JSONArray tablecolumn = new JSONArray();
-//			tablecolumn.add("P03");
-//			tablecolumn.add("P02");
-//			tablecolumn.add("SUSPECT");
-//			tablecolumn.add("VICTIM");
-//			tablecolumn.add("REMARK");
+
 			JSONArray table1 = new JSONArray();
 			JSONObject row1 = new JSONObject();
-//			row1.put("P03","-");
-//			row1.put("P02", ccYear);
-//			row1.put("SUSPECT", "period1");
-//			row1.put("VICTIM", "period1");
-//			row1.put("REMARK", "period1");
+
 			table1.add(row1);
-			
-//			JSONObject repl2 = new JSONObject();
-//			repl2.put("CRIMESNO", "function1");
-//			repl2.put("DESCRIPTION", "desc1");
-//			repl2.put("SUSPECT", "period1");
-//			repl2.put("VICTIM", "period1");
-//			repl2.put("REMARK", "period1");
-//			table1.add(repl2);
+
 		JSONObject tableobj = new JSONObject();
 //		tableobj.put("COLUMNS", tablecolumn);
 //		tableobj.put("TABLEDATA", table1);

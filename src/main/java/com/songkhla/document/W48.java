@@ -88,11 +88,11 @@ public class W48 {
                          Position=rs1.getString("Position");
                       }
                   
-                   String sql="select crimecase.*,Person.*,ActionsCase.*,Charge.*\n" +
+                   String sql="select crimecase.*,Person.*,ActionsCaseData.*,ChargeCase.*\n" +
                               "from crimecase \n" +
-                              "left join Charge on crimecase.ChargeCodeCase=Charge.ChargeCode\n" +
-                              "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
-                              "left join ActionsCase on crimecase.ActionCodeCase = ActionsCase.ActionCode\n"+
+                              "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
+                                "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
+                                "left join ActionsCaseData on crimecase.ActionCodeCase = ActionsCaseData.ActionCodeCase\n"+
                               "where crimecase.CaseId='"+cc+"'and Person.TypePerson='ผู้ต้องหา'\n" +
                               "group by crimecase.CaseId,Person.NoPerson";
                    
@@ -159,7 +159,7 @@ public class W48 {
                 bookmarkvalue.put("PS54",Checknull(ToDate(s.getString("ArrestDateTime"))));
                 bookmarkvalue.put("PS55",Checknull(s.getString("PlaceArrest")));
                
-                bookmarkvalue.put("A2", Checknull(s.getString("ActionCrimes")));
+                bookmarkvalue.put("A2", Checknull(s.getString("ActionCrimesCase")));
                 
                 
                       
