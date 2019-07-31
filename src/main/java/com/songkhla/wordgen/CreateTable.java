@@ -181,7 +181,8 @@ public class CreateTable {
                 "	SueSevenEnd	DateTime	,	\n"+
                 "	SueSevenTotal	INTEGER	,	\n"+
                 "	SueSevenRequest	VARCHAR(100)	,	\n"+
-                "	SueSevenCause	VARCHAR(100)	,	\n"+                        
+                "	SueSevenCause	VARCHAR(100)	,	\n"+  
+                "	OrderPerson	INTEGER	,	\n"+                        
                 "	caseIdPerson	INTEGER	not null,	\n"+
                     " CONSTRAINT fk_CrimeCase            \n"+
                                 "FOREIGN KEY (caseIdPerson)            \n"+

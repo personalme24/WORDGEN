@@ -251,17 +251,17 @@ public class ChargeOverView extends javax.swing.JDialog {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
-         int number=jTable1.getSelectedRow();
+       
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+     int number=jTable1.getSelectedRow();
         ChargePage.ChargeCode.setText(jTable1.getValueAt(number, 0).toString());
         ChargePage.ChargeName.setText(jTable1.getValueAt(number, 1).toString());
         ChargePage.Law.setText(jTable1.getValueAt(number, 2).toString());
         ChargePage.RateOfPenalty.setText(jTable1.getValueAt(number, 3).toString());
          ChargePage.Note.setText(jTable1.getValueAt(number, 4).toString());
-    }//GEN-LAST:event_jTable1MouseClicked
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-
         setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
 

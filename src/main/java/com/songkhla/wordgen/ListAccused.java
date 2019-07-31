@@ -173,37 +173,34 @@ String typeC;
                 .addGap(37, 37, 37)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jButtonAddAccused, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonEditAccured, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonDeleteAccured, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(txtCaseNO)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3)
-                        .addGap(37, 37, 37))))
+                        .addComponent(txtCaseNO))
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addGap(22, 22, 22))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(28, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButtonAddAccused)
-                            .addComponent(jButtonEditAccured)
-                            .addComponent(jButtonDeleteAccured)
-                            .addComponent(txtCaseNO))
-                        .addGap(20, 20, 20))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton3)
-                        .addContainerGap())))
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonAddAccused)
+                    .addComponent(jButtonEditAccured)
+                    .addComponent(jButtonDeleteAccured)
+                    .addComponent(txtCaseNO))
+                .addGap(20, 20, 20))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addComponent(jButton3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -261,10 +258,10 @@ String typeC;
         if(jTableAccure.getSelectedRow()>=0){
            
             try{
-                String PeopleRegistrationID = jTableAccure.getModel().getValueAt(jTableAccure.getSelectedRow(), 0)+"";            
+                String Noperson = jTableAccure.getModel().getValueAt(jTableAccure.getSelectedRow(), 7)+"";            
                 String sql = "select NoPerson,Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,Weight,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                        "PhonePerson,Province,Race,Religion,Tambon,TypePerson,ZipCode,caseIdPerson from person where PeopleRegistrationID='"+PeopleRegistrationID+ "' and caseIdPerson='"+crimecaseno+"' and TypePerson='ผู้กล่าวหา'";
+                        "PhonePerson,Province,Race,OrderPerson,Religion,Tambon,TypePerson,ZipCode,caseIdPerson from person where Noperson='"+Noperson+ "' and caseIdPerson='"+crimecaseno+"' and TypePerson='ผู้กล่าวหา'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);
@@ -298,6 +295,7 @@ String typeC;
                     data.put("Religion", rs.getString("Religion"));
                     data.put("Tambon", rs.getString("Tambon"));
                      data.put("ZipCode", rs.getString("ZipCode"));
+                     data.put("OrderPerson", rs.getString("OrderPerson"));         
                             AccusedForm accusedF=new AccusedForm(f,data);
                              accusedF.pack();
                              accusedF.setLocationRelativeTo(null);
@@ -324,9 +322,9 @@ String typeC;
               if(jTableAccure.getSelectedRow()>=0){
                   
             try{
-                String crimecaseno = jTableAccure.getModel().getValueAt(jTableAccure.getSelectedRow(), 0)+"";
+                String Noperson = jTableAccure.getModel().getValueAt(jTableAccure.getSelectedRow(), 7)+"";
                 String PeopleRegistrationID = jTableAccure.getModel().getValueAt(jTableAccure.getSelectedRow(), 2)+"";
-                String sql = "Delete from person WHERE PeopleRegistrationID='"+PeopleRegistrationID+ "' and  caseIdPerson='"+crimecaseno+"'";
+                String sql = "Delete from person WHERE Noperson='"+Noperson+ "' and  caseIdPerson='"+txtCaseNO.getText()+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 stmt.executeUpdate(sql);
@@ -390,30 +388,35 @@ String typeC;
         String a=txtCaseNO.getText();
         String sql = "select Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                      "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                     "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,caseIdPerson from person where TypePerson='ผู้กล่าวหา' and caseIdPerson='"+a+"'"+getFilterCondition();
+                     "PhonePerson,NoPerson,Province,Race,Religion,OrderPerson,Tambon,TypePerson,Weight,ZipCode,caseIdPerson from person where TypePerson='ผู้กล่าวหา' and"
+                + " caseIdPerson='"+a+"'"+getFilterCondition()+" order by OrderPerson ASC";
       
         ResultSet rs = stmt.executeQuery(sql);
           System.out.println("SQL : "+sql);
         Vector<Vector> tabledata = new Vector<Vector>();
         while(rs.next()){
             Vector<String> row = new Vector<String>();
+            row.add(rs.getString("OrderPerson"));
             row.add(rs.getString("PeopleRegistrationID"));
             row.add(rs.getString("FullNamePerson"));
             row.add(rs.getString("Age"));
             row.add(rs.getString("Race"));
             row.add(rs.getString("Nationality"));
             row.add(rs.getString("Religion"));
+            row.add(rs.getString("NoPerson"));
             tabledata.add(row);
         }
         rs.close();
         stmt.close();
         Vector ColumnName = new Vector();
+         ColumnName.add("ลำดับผู้กล่าวหา");
          ColumnName.add("เลขบัตรประชาชน");
         ColumnName.add("ชื่อ-นามสุกล");
         ColumnName.add("อายุ");
         ColumnName.add("เชื้อชาติ");
         ColumnName.add("สัญชาติ");
         ColumnName.add("ศาสนา");
+        ColumnName.add("เลขคน");
          System.out.println("SQL : "+sql);
      
         jTableAccure.setModel(new javax.swing.table.DefaultTableModel(
@@ -421,13 +424,16 @@ String typeC;
             ColumnName
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
+         jTableAccure.getColumnModel().getColumn(7).setWidth(0);
+jTableAccure.getColumnModel().getColumn(7).setMinWidth(0);
+jTableAccure.getColumnModel().getColumn(7).setMaxWidth(0); 
          if(jTableAccure.getRowCount()<=0){
 //             int rows = jTableAccure.getRowCount();
             if(typeC.equals("อาญา")){
@@ -443,25 +449,25 @@ String typeC;
          if(jTableAccure.getRowCount()==1){
 //             int rows = jTableAccure.getRowCount();
             if(typeC.equals("อาญา")){
-            CrimesCaseEdit.jTextAccused.setText(jTableAccure.getValueAt(0, 1).toString()); 
+            CrimesCaseEdit.jTextAccused.setText(jTableAccure.getValueAt(0, 2).toString()); 
             }
             if(typeC.equals("จราจร")){
-            TrafficEdit.jTextAccused.setText(jTableAccure.getValueAt(0, 1).toString()); 
+            TrafficEdit.jTextAccused.setText(jTableAccure.getValueAt(0, 2).toString()); 
             }
               if(typeC.equals("ชันสูตร")){
-            IdentityFrom.jTextAccused.setText(jTableAccure.getValueAt(0, 1).toString()); 
+            IdentityFrom.jTextAccused.setText(jTableAccure.getValueAt(0, 2).toString()); 
             }
             }
             if(jTableAccure.getRowCount()>1){
             
             if(typeC.equals("อาญา")){
-            CrimesCaseEdit.jTextAccused.setText(jTableAccure.getValueAt(0, 1).toString()+"และคนอื่นๆ"); 
+            CrimesCaseEdit.jTextAccused.setText(jTableAccure.getValueAt(0, 2).toString()+"และคนอื่นๆ"); 
             }
             if(typeC.equals("จราจร")){
-            TrafficEdit.jTextAccused.setText(jTableAccure.getValueAt(0, 1).toString()+"และคนอื่นๆ"); 
+            TrafficEdit.jTextAccused.setText(jTableAccure.getValueAt(0, 2).toString()+"และคนอื่นๆ"); 
             }
               if(typeC.equals("ชันสูตร")){
-            IdentityFrom.jTextAccused.setText(jTableAccure.getValueAt(0, 1).toString()+"และคนอื่นๆ"); 
+            IdentityFrom.jTextAccused.setText(jTableAccure.getValueAt(0, 2).toString()+"และคนอื่นๆ"); 
             }
             }
                int rows = jTableAccure.getRowCount();
@@ -469,6 +475,7 @@ String typeC;
         }catch(Exception ex){
             ex.printStackTrace();
         }
+        
     }
       private String getFilterCondition(){
         HashMap<String,String> filter = new HashMap<String,String>();
@@ -495,7 +502,6 @@ String typeC;
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButtonAddAccused;
     private javax.swing.JButton jButtonDeleteAccured;

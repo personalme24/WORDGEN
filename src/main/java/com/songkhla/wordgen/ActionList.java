@@ -254,18 +254,19 @@ public class ActionList extends javax.swing.JDialog {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        setVisible(false);
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jTableActionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableActionMouseClicked
-        // TODO add your handling code here:
-        int number=jTableAction.getSelectedRow();
+                int number=jTableAction.getSelectedRow();
         ActionPage.ActionCode.setText(jTableAction.getValueAt(number, 0).toString());
         ActionPage.ActionCrimes.setText(jTableAction.getValueAt(number, 1).toString());
         ActionPage.ActionDetail.setText(jTableAction.getValueAt(number, 2).toString());
         ActionPage.AnswerAccuser.setText(jTableAction.getValueAt(number, 3).toString());
         ActionPage.AnswerSuspect.setText(jTableAction.getValueAt(number, 4).toString());
         ActionPage.ActionNote.setText(jTableAction.getValueAt(number, 5).toString());
+        setVisible(false);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jTableActionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableActionMouseClicked
+        // TODO add your handling code here:
+
     }//GEN-LAST:event_jTableActionMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
