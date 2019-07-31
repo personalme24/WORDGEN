@@ -849,6 +849,11 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                 CrimeLocationProvinceItemStateChanged(evt);
             }
         });
+        CrimeLocationProvince.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CrimeLocationProvinceActionPerformed(evt);
+            }
+        });
         jPanel1.add(CrimeLocationProvince, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 150, 190, 30));
 
         CrimeLocationAmphur.setEditable(true);
@@ -2527,6 +2532,10 @@ CrimeLocationAmphur.removeAllItems();
         catch (Exception d) {  //System.out.println(d);  
 }
     }//GEN-LAST:event_CrimeLocationProvinceItemStateChanged
+
+    private void CrimeLocationProvinceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrimeLocationProvinceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CrimeLocationProvinceActionPerformed
      public static void closeAllDialogs()
 {
     Window[] windows = getWindows();
