@@ -87,9 +87,9 @@ public static void w24(String cc) {
                       }
 //                
 
-                   String sql="select crimecase.*,Person.*,Charge.*\n" +
+                   String sql="select crimecase.*,Person.*,ChargeCase.*\n" +
                               "from crimecase \n" +
-                              "left join Charge on crimecase.ChargeCodeCase=Charge.ChargeCode\n" +
+                              "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                               "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
                               "where crimecase.CaseId='"+cc+"'and Person.TypePerson='ผู้ตาย'\n" +
                               "group by crimecase.CaseId,Person.NoPerson";

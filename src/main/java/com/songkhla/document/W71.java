@@ -142,10 +142,10 @@ public class W71 {
 
           ////////////////////////////////ข้อมูลการประกันและทรัพย์สิน/////////////////////////////////////         
                   
-                   String sql="select crimecase.*,Person.*,Charge.*,BailAsset.*\n" +
+                   String sql="select crimecase.*,Person.*,ChargeCase.*,BailAsset.*\n" +
                               "from crimecase \n" +
                               "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
-                              "left join Charge on crimecase.ChargeCodeCase=Charge.ChargeCode\n" +
+                              "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                               "left join BailAsset on Person.caseIdPerson = BailAsset.BailCaseId\n" +
                               "where crimecase.CaseId='"+cc+"' and Person.Related='นายประกัน'\n" +
                               "group by crimecase.CaseId,Person.NoPerson,BailAsset.BailAssetId";
@@ -212,7 +212,7 @@ public class W71 {
                 bookmarkvalue.put("PB25", Checknull(s.getString("Amphur"))); 
                 bookmarkvalue.put("PB26", Checknull(s.getString("Province"))); 
                 
-                bookmarkvalue.put("B2", Checknull(s.getString("ChargeName")));
+                bookmarkvalue.put("B2", Checknull(s.getString("ChargeNameCase")));
                       
                        bookmarkvalue.put("P02", Checknull(RankPolice));
                        bookmarkvalue.put("P03", Checknull(FirstName));

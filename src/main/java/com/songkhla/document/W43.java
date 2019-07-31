@@ -88,12 +88,12 @@ public class W43 {
                          Position=rs1.getString("Position");
                       }
                   
-                   String sql="select crimecase.*,Person.*,ActionsCase.*,Asset.*,Charge.*\n" +
+                   String sql="select crimecase.*,Person.*,ActionsCaseData.*,Asset.*,ChargeCase.*\n" +
                               "from crimecase \n" +
-                              "left join Charge on crimecase.ChargeCodeCase=Charge.ChargeCode\n" +
+                              "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                               "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
                               "left join Asset  on crimecase.CaseId=Asset.caseIdAsset\n" +
-                              "left join ActionsCase on crimecase.ActionCodeCase = ActionsCase.ActionCode\n"+
+                              "left join ActionsCaseData on crimecase.ActionCodeCase = ActionsCaseData.ActionCodeCase\n"+
                               "where crimecase.CaseId='"+cc+"'and Person.Related='นายประกัน'\n" +
                               "group by crimecase.CaseId,Person.NoPerson";
                    
@@ -147,7 +147,7 @@ public class W43 {
                 bookmarkvalue.put("C4",Checknull(ToDate(s.getString("OccuredDate"))));
                 bookmarkvalue.put("C441", Checknull(s.getString("OccuredTime")));
                 
-                bookmarkvalue.put("A2", Checknull(s.getString("ActionCrimes")));
+                bookmarkvalue.put("A2", Checknull(s.getString("ActionCrimesCase")));
                 bookmarkvalue.put("AS1", Checknull(s.getString("EvidenceRecordNumber")));
                 
                 
@@ -166,7 +166,7 @@ public class W43 {
                 bookmarkvalue.put("PB25", Checknull(s.getString("Amphur"))); 
                 bookmarkvalue.put("PB26", Checknull(s.getString("Province"))); 
                       
-                bookmarkvalue.put("B2", Checknull(s.getString("ChargeName")));
+                bookmarkvalue.put("B2", Checknull(s.getString("ChargeNameCase")));
                 
                        bookmarkvalue.put("P02", Checknull(RankPolice));
                        bookmarkvalue.put("P03", Checknull(FirstName));

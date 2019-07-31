@@ -85,9 +85,9 @@ public static void w39(String cc) {
                       }
 //                
 
-                   String sql="select crimecase.*,Person.*,Charge.*\n" +
+                   String sql="select crimecase.*,Person.*,Charge.Case*\n" +
                               "from crimecase \n" +
-                              "left join Charge on crimecase.ChargeCodeCase=Charge.ChargeCode\n" +
+                              "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                               "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
                               "where crimecase.CaseId='"+cc+"'and Person.Related='พยาน'\n" +
                               "group by crimecase.CaseId,Person.NoPerson";
@@ -164,7 +164,7 @@ public static void w39(String cc) {
                     bookmarkvalue.put("PW35", Checknull(s.getString("ProvinceBirthday")));
                      
 
-                       bookmarkvalue.put("B2", Checknull(s.getString("ChargeName")));
+                       bookmarkvalue.put("B2", Checknull(s.getString("ChargeNameCase")));
                       
                      bookmarkvalue.put("P02", Checknull(RankPolice));
                        bookmarkvalue.put("P03", Checknull(FirstName));

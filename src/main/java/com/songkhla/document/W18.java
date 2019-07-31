@@ -85,7 +85,7 @@ public class W18 {
                          Position=rs1.getString("Position");
                       }
                   
-                   String sql="select crimecase.*,Charge.*,P1.*,P2.*\n" +
+                   String sql="select crimecase.*,ChargeCase.*,P1.*,P2.*\n" +
                                "from crimecase inner join(\n" +
                               "SELECT  min(Person.NoPerson),Person.FullNamePerson AccuredName,Person.Age AgeAccured,Person.Race AccuredRace,Person.Nationality AccuredNati "
                            + "  FROM Person where Person.TypePerson='ผู้กล่าวหา'\n" +
@@ -94,7 +94,7 @@ public class W18 {
                                 "SELECT min(Person.NoPerson),Person.FullNamePerson suspectName,Person.Age suspectAge,Person.Amphur suspectAmp,Person.Race suspectRace,\n"+
                                 "Person.Nationality suspectNati FROM Person where Person.TypePerson='ผู้ต้องหา'\n" +
                                 ")P2\n" +
-                                "left join Charge on crimecase.ChargeCodeCase=Charge.ChargeCode\n" +
+                                "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                                 "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
                                 "where crimecase.CaseId='"+cc+"'\n"+
                                 "group by crimecase.CaseId";
@@ -146,7 +146,7 @@ public class W18 {
                   bookmarkvalue.put("PS7",Checknull(s.getString("SuspectandOther"))); 
                    
                          
-                      bookmarkvalue.put("B2", Checknull(s.getString("ChargeName")));
+                      bookmarkvalue.put("B2", Checknull(s.getString("ChargeNameCase")));
                       
                         bookmarkvalue.put("P02", Checknull(RankPolice));
                         bookmarkvalue.put("P03", Checknull(FirstName));

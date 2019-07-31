@@ -82,7 +82,7 @@ public class W31 {
                          Position=rs1.getString("Position");
                       }
                   
-                   String sql="select crimecase.*,Charge.*,ActionsCase.*,Asset.*,Person.ArrestDate,Person.PlaceArrest,Person.ArrestDateTime,P1.*,P2.*\n" +
+                   String sql="select crimecase.*,ChargeCase.*,ActionsCaseData.*,Asset.*,Person.ArrestDate,Person.PlaceArrest,Person.ArrestDateTime,P1.*,P2.*\n" +
                                "from crimecase inner join(\n" +
                               "SELECT  min(Person.NoPerson),Person.FullNamePerson AccuredName,Person.Age AgeAccured,Person.Race AccuredRace,Person.Nationality AccuredNati "
                            + "  FROM Person where Person.TypePerson='ผู้กล่าวหา'\n" +
@@ -91,9 +91,9 @@ public class W31 {
                                 "SELECT min(Person.NoPerson),Person.FullNamePerson suspectName,Person.Age suspectAge,Person.Amphur suspectAmp,Person.Race suspectRace,\n"+
                                 "Person.Nationality suspectNati FROM Person where Person.TypePerson='ผู้ต้องหา'\n" +
                                 ")P2\n" +
-                                "left join Charge on crimecase.ChargeCodeCase=Charge.ChargeCode\n" +
+                                "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                                 "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
-                                "left join ActionsCase on crimecase.ActionCodeCase = ActionsCase.ActionCode\n"+
+                                "left join ActionsCaseData on crimecase.ActionCodeCase = ActionsCaseData.ActionCodeCase\n"+
                                 "left join Asset  on crimecase.CaseId=Asset.caseIdAsset\n" +
                                 "where crimecase.CaseId='"+cc+"'\n"+
                                 "group by crimecase.CaseId";
@@ -145,8 +145,8 @@ public class W31 {
                   bookmarkvalue.put("PS13",  Checknull(s.getString("suspectAge")));
                   bookmarkvalue.put("PS15",  Checknull(s.getString("suspectNati")));
                    
-                      bookmarkvalue.put("A2", Checknull(s.getString("ActionCrimes")));  
-                      bookmarkvalue.put("B2", Checknull(s.getString("ChargeName")));
+                      bookmarkvalue.put("A2", Checknull(s.getString("ActionCrimesCase")));  
+                      bookmarkvalue.put("B2", Checknull(s.getString("ChargeNameCase")));
                       bookmarkvalue.put("AS1", Checknull(s.getString("NoAsset")));
                       bookmarkvalue.put("AS64", Checknull(s.getString("PlaceFoundExhibit")));
                       bookmarkvalue.put("AS242", Checknull(s.getString("PointFoundCheck")));

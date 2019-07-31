@@ -70,7 +70,7 @@ public class W34 {
             
 //                String ch;
 //                   String sql="SELECT * from CrimeCase Where crimecaseno = '"+cc+"'";
-                   String sql="select crimecase.*,Charge.*,Asset.*,P1.*,P2.*\n" +
+                   String sql="select crimecase.*,ChargeCase.*,Asset.*,P1.*,P2.*\n" +
                                 "from crimecase inner join(\n" +
                                 "SELECT  min(Person.NoPerson),Person.FullNamePerson AccuredName,Person.Age AgeAccured,Person.Race AccuredRace,Person.Nationality AccuredNati "
                             +   "FROM Person where Person.TypePerson='ผู้กล่าวหา'\n" +
@@ -79,7 +79,7 @@ public class W34 {
                                 "SELECT min(Person.NoPerson),Person.FullNamePerson suspectName,Person.Age suspectAge,Person.Amphur suspectAmp,Person.Race suspectRace\n"+
                                 "FROM Person where Person.TypePerson='ผู้ต้องหา'\n" +
                                 ")P2\n" +
-                                "left join Charge on crimecase.ChargeCodeCase=Charge.ChargeCode\n" +
+                                "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                                 "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
                                 "left join Asset  on crimecase.CaseId=Asset.caseIdAsset\n" +
                                 "where crimecase.CaseId='"+cc+"' and Asset.StatusAsset='ของกลาง'\n" +

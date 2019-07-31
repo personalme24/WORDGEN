@@ -76,9 +76,9 @@ public class W62 {
                          Position=rs1.getString("Position");
                       }
                   
-                   String sql="select crimecase.*,Charge.*,Person.* \n" +
+                   String sql="select crimecase.*,ChargeCase.*,Person.* \n" +
                                "from crimecase \n" +
-                               "left join Charge on crimecase.ChargeCodeCase=Charge.ChargeCode\n" +
+                               "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                                 "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
                                 "where crimecase.CaseId='"+cc+"'\n"+
                                 "group by crimecase.CaseId";
@@ -107,7 +107,7 @@ public class W62 {
                  
                  bookmarkvalue.put("P54",ToDate(Checknull(s.getString("ArrestDateTime"))));
                  bookmarkvalue.put("P88",ToTime(Checknull(s.getString("ArrestDateTime"))));
-                 bookmarkvalue.put("B2", Checknull(s.getString("ChargeName")));
+                 bookmarkvalue.put("B2", Checknull(s.getString("ChargeNameCase")));
                       
                       bookmarkvalue.put("PA7",Checknull(s.getString("AccureandOther")));
                       bookmarkvalue.put("PS7",  Checknull(s.getString("FullNamePerson"))); 
