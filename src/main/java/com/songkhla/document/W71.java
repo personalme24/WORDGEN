@@ -64,7 +64,7 @@ public class W71 {
             String Year="";
             String Time="";
          
-            
+            int SumValue=0;
             int BailAssetId=0;
             int DeliOrderID=0;
             JSONObject bookmarkvalue = new JSONObject();
@@ -142,8 +142,10 @@ public class W71 {
 
           ////////////////////////////////ข้อมูลการประกันและทรัพย์สิน/////////////////////////////////////         
                   
-                   String sql="select crimecase.*,Person.*,ChargeCase.*,BailAsset.*\n" +
+                   String sql="select crimecase.*,Person.*,P2.*,ChargeCase.*,BailAsset.*\n" +
                               "from crimecase \n" +
+                              "inner join( \n" +
+                              "SELECT min(Person.NoPerson),Person.FullNamePerson suspectName FROM Person where Person.TypePerson='ผู้ต้องหา')P2 \n" +
                               "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
                               "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                               "left join BailAsset on Person.caseIdPerson = BailAsset.BailCaseId\n" +
@@ -194,7 +196,7 @@ public class W71 {
                 
                 bookmarkvalue.put("PA7",Checknull(s.getString("AccureandOther")));
                   
-                bookmarkvalue.put("PS7",  Checknull(s.getString("SuspectandOther"))); 
+                bookmarkvalue.put("PS7",  Checknull(s.getString("suspectName"))); 
                
                 
                     bookmarkvalue.put("C12", Checknull(s.getString("CrimeLocationDistrict")));
@@ -219,8 +221,14 @@ public class W71 {
                        bookmarkvalue.put("P04", Checknull(LastName));
                        bookmarkvalue.put("P05", Checknull(Position));
                        
-             
-                   
+                String   BailAssetTotal = s.getString("BailAssetTotal").replace (",", "");
+                       
+                 if ((BailAssetTotal) != null)
+                    {
+                    
+                    SumValue = SumValue+Integer.parseInt(BailAssetTotal);
+                    } 
+                   bookmarkvalue.put("BA661",Checknull(Integer.toString(SumValue)));
                      ++BailAssetId ;
                       System.out.println(">>>>>"+BailAssetId);
 			JSONArray tablecolumn = new JSONArray();
@@ -264,7 +272,7 @@ public class W71 {
                         processTABLE(bookmarkvalue,wordMLPackage);
                         processTABLE1(bookmarkvalue1,wordMLPackage);
                        
-			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/คำร้องและสัญญาประกัน "+cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/คำร้องและสัญญาประกัน "+s.getString("suspectName")+""+ cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -310,6 +318,7 @@ public class W71 {
                 bookmarkvalue.put("PB25", ""); 
                 bookmarkvalue.put("PB26", ""); 
                 
+                
                 bookmarkvalue.put("B2", "");
                       
                        bookmarkvalue.put("P02", "");
@@ -326,7 +335,8 @@ public class W71 {
                     bookmarkvalue.put("BA5","");
                    
                     bookmarkvalue.put("BA6", "");
-                   
+                    bookmarkvalue.put("BA661", "");
+                    bookmarkvalue.put("BA6611", "");
                     bookmarkvalue.put("BA7","");
                   
                         
@@ -493,7 +503,7 @@ public class W71 {
          }
                return ResultDate;
 }
-        public static String Checknull(String input){
+      public static String Checknull(String input){
 					if(input==null||input==""||input=="null") { return ""; }
 					return getThaiNumber(input);
 					}
@@ -512,5 +522,19 @@ public class W71 {
         }
         return sb.toString();  
     }  
-        
+         private static String ThaiBaht(String Number){
+            
+       for ( int i = 0; i < Number.length(); i++)
+              {
+                Number = Number.replace (",", ""); //ไม่ต้องการเครื่องหมายคอมมาร์
+                Number = Number.replace (" ", ""); //ไม่ต้องการช่องว่าง
+                Number = Number.replace ("บาท", ""); //ไม่ต้องการตัวหนังสือ บาท
+               String [] TxtNumArr = {"ศูนย์", "หนึ่ง", "สอง", "สาม", "สี่", "ห้า", "หก", "เจ็ด", "แปด", "เก้า", "สิบ"};
+               String [] TxtDigitArr = {"", "สิบ", "ร้อย", "พัน", "หมื่น", "แสน", "ล้าน"};
+               String BahtText = "";
+              }
+       
+        return null;
+
+         }
 }

@@ -170,10 +170,11 @@ public class W15 {
                     
               
 			++OrderAsset ;
+                    String   Value = s.getString("Value").replace (",", "");
                    
-                    if (s.getString("Value") != null)
-                    {
-                    SumValue = SumValue+s.getInt("Value");
+                    if ((Value) != null){
+                    
+                    SumValue = SumValue+Integer.parseInt(Value);
                     } 
                     bookmarkvalue.put("AS331",Checknull(Integer.toString(OrderAsset)));
                     bookmarkvalue.put("AS661",Checknull(Integer.toString(SumValue)));
