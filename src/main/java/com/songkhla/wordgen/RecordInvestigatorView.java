@@ -61,13 +61,19 @@ public class RecordInvestigatorView extends javax.swing.JDialog {
         jTableRecord.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jTableRecord.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "วันเดือนปี", "งานที่ปฏิบัติ", "พนักงานสอบสวนที่รับผิดชอบ"
+                "วันเดือนปี", "เวลา", "ปจว.ข้อ", "งานที่ปฏิบัติ", "พนักงานสอบสวนที่รับผิดชอบ"
             }
         ));
         jTableRecord.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
