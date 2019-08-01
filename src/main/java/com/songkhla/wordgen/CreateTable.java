@@ -342,7 +342,8 @@ public class CreateTable {
           
           
           String sqlPolice ="CREATE TABLE IF NOT EXISTS Police (\n"+
-	                "	IdCardPolice	VARCHAR(13)	Primary Key,	\n"+
+                        "	IdPolice	INTEGER	 Primary Key,	\n"+
+	                "	IdCardPolice	VARCHAR(13)	,	\n"+
                         "	RankPolice	VARCHAR(100)	,	\n"+
                         "	FirstName	VARCHAR(100)	,	\n"+
                         "	LastName	VARCHAR(100)	,	\n"+

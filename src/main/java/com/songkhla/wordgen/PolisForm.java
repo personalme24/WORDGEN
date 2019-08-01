@@ -50,6 +50,8 @@ public class PolisForm extends javax.swing.JDialog {
         if(datain!=null){
             try {
             closeEdit();
+                         idpolice.setText(datain.get("IdPolice")+"");
+
              IdCardPolice.setText(datain.get("IdCardPolice")+"");
              RankPolice.setText(datain.get("RankPolice")+"");
              FirstName.setText(datain.get("FirstName")+"");
@@ -62,6 +64,7 @@ public class PolisForm extends javax.swing.JDialog {
 
         }
         else{
+            idpolice.setText(IdPolice());
               jButtonEdit.setEnabled(false);
             isInsert=true;
         }
@@ -80,6 +83,7 @@ public class PolisForm extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        idpolice = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         IdCardPolice = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -106,6 +110,8 @@ public class PolisForm extends javax.swing.JDialog {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("ข้อมูลผู้ใช้");
 
+        idpolice.setText("jLabel2");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -113,11 +119,15 @@ public class PolisForm extends javax.swing.JDialog {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(idpolice)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                .addComponent(idpolice))
         );
 
         jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -254,7 +264,7 @@ public class PolisForm extends javax.swing.JDialog {
         con=ConnectDatabase.connect();
         try{
          Statement st = con.createStatement();
-        String sqlCheck="Select IdCardPolice from Police where IdCardPolice='"+IdCardPolice.getText()+"'";
+        String sqlCheck="Select IdPolice from Police where IdPolice='"+idpolice.getText()+"'";
         System.out.println("Check : "+sqlCheck);
          ResultSet rc = st.executeQuery(sqlCheck);
         if(rc.next()){
@@ -424,6 +434,34 @@ private void openEdit(){
     }
 
 }
+     public static String IdPolice(){
+         Connection con=null;
+         
+         con=ConnectDatabase.connect();
+            String sqlId="Select max(IdPolice) IdPolice from Police";
+        int id=0;
+        try {
+            Statement s=con.createStatement();
+            ResultSet rs=s.executeQuery(sqlId);
+            
+            if (rs.next()) {
+                id=rs.getInt("IdPolice"); 
+            }
+            
+            if(id==0){
+                id=1;
+            }
+            else{
+                id=id+1;
+            }
+             return String.valueOf(id);
+        
+        } catch (Exception e) {
+            return null;
+//            System.out.println(e);
+        } 
+    
+    }
     /**
      * @param args the command line arguments
      */
@@ -465,6 +503,7 @@ private void openEdit(){
     private javax.swing.JTextField LastName;
     private javax.swing.JTextField Position;
     private javax.swing.JTextField RankPolice;
+    private javax.swing.JLabel idpolice;
     private javax.swing.JButton jButtonEdit;
     private javax.swing.JButton jButtonSave;
     private javax.swing.JLabel jLabel1;

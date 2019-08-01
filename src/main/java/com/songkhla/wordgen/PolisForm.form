@@ -153,13 +153,18 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="idpolice" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel1" alignment="0" pref="43" max="32767" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                      <Component id="jLabel1" alignment="3" pref="43" max="32767" attributes="0"/>
+                      <Component id="idpolice" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -173,6 +178,11 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#xe02;&#xe49;&#xe2d;&#xe21;&#xe39;&#xe25;&#xe1c;&#xe39;&#xe49;&#xe43;&#xe0a;&#xe49;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="idpolice">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jLabel2"/>
               </Properties>
             </Component>
           </SubComponents>

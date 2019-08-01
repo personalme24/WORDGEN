@@ -1018,6 +1018,7 @@ public class MainMenuWord extends javax.swing.JFrame {
                 System.out.println("ExSql : "+sql);
                 if(rs.next()){
                     JSONObject data = new JSONObject();
+                    data.put("IdPolice", rs.getString("IdPolice"));
                     data.put("IdCardPolice", rs.getString("IdCardPolice"));
                     data.put("RankPolice", rs.getString("RankPolice"));
                     data.put("FirstName", rs.getString("FirstName"));
