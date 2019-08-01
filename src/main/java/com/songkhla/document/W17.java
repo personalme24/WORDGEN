@@ -402,11 +402,14 @@ public class W17 {
         private static String ToDate(String strDate){
                String ResultDate="";
          try {
+    	       if (strDate==null||strDate==""||strDate=="null"){ return ""; 
+             }else{
     	       SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", new Locale("th", "TH"));  
                SimpleDateFormat dateto  = new SimpleDateFormat("dd MMMM yyyy", new Locale("th", "TH"));  
                Date date=null;
+               
                date = df.parse(strDate);               
-               ResultDate=dateto.format(date.getTime());
+               ResultDate=dateto.format(date.getTime());}
          } catch (ParseException ex) {
              Logger.getLogger(W17.class.getName()).log(Level.SEVERE, null, ex);
          }

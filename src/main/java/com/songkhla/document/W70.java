@@ -151,10 +151,13 @@ public static void w70(String cc) {
                     bookmarkvalue.put("PS25", Checknull(s.getString("Amphur")));
                     bookmarkvalue.put("PS26", Checknull(s.getString("Province")));
                     bookmarkvalue.put("PS105", Checknull(s.getString("Soi")));
+                    //bookmarkvalue.put("PS108", Checknull(s.getString("SusConfress")));
                     
                      
 
                       bookmarkvalue.put("B2", Checknull(s.getString("ChargeNameCase")));
+                      bookmarkvalue.put("B3", Checknull(s.getString("LawCase")));
+                      bookmarkvalue.put("B4", Checknull(s.getString("RateOfPenaltyCase")));
                       
                        bookmarkvalue.put("P02", Checknull(RankPolice));
                        bookmarkvalue.put("P03", Checknull(FirstName));
@@ -261,10 +264,13 @@ public static void nw70() {
                     bookmarkvalue.put("PS25", "");
                     bookmarkvalue.put("PS26", "");
                     bookmarkvalue.put("PS105","");
+                    bookmarkvalue.put("PS108","");
                     
                      
 
                       bookmarkvalue.put("B2", "");
+                      bookmarkvalue.put("B3", "");
+                      bookmarkvalue.put("B4", "");
                       
                        bookmarkvalue.put("P02", "");
                         bookmarkvalue.put("P03", "");
@@ -407,11 +413,14 @@ public static void nw70() {
         private static String ToDate(String strDate){
                String ResultDate="";
          try {
+    	      if (strDate==null||strDate==""||strDate=="null"){ return ""; 
+             }else{
     	       SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", new Locale("th", "TH"));  
                SimpleDateFormat dateto  = new SimpleDateFormat("dd MMMM yyyy", new Locale("th", "TH"));  
                Date date=null;
+               
                date = df.parse(strDate);               
-               ResultDate=dateto.format(date.getTime());
+               ResultDate=dateto.format(date.getTime());}
          } catch (ParseException ex) {
              Logger.getLogger(W70.class.getName()).log(Level.SEVERE, null, ex);
          }
