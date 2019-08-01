@@ -70,7 +70,7 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
            DateRecord.getJFormattedTextField().setText(datain.get("DateRecord")+"");
            NameInguiry.setSelectedItem(datain.get("NameInguiry")+"");
            DetailRecord.setText(datain.get("DetailRecord")+"");
-           DailyNumber.setText(datain.get("DailyNumber")+"");
+//           DailyNumber.setText(datain.get("DailyNumber")+"");
               
            }
        
