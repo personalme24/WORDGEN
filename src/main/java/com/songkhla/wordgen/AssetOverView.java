@@ -143,7 +143,6 @@ public class AssetOverView extends javax.swing.JDialog {
         jTableAsset.setGridColor(new java.awt.Color(255, 255, 255));
         jTableAsset.setRowHeight(25);
         jTableAsset.setRowMargin(2);
-        jTableAsset.setSelectionBackground(new java.awt.Color(77, 0, 0));
         jScrollPane2.setViewportView(jTableAsset);
         jTableAsset.getAccessibleContext().setAccessibleDescription("");
 

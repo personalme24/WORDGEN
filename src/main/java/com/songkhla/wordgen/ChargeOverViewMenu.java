@@ -119,7 +119,6 @@ public class ChargeOverViewMenu extends javax.swing.JDialog {
         jTableCharge.setGridColor(new java.awt.Color(255, 255, 255));
         jTableCharge.setIntercellSpacing(new java.awt.Dimension(0, 0));
         jTableCharge.setRowHeight(25);
-        jTableCharge.setSelectionBackground(new java.awt.Color(77, 0, 0));
         jTableCharge.getTableHeader().setReorderingAllowed(false);
         jTableCharge.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

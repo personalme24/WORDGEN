@@ -71,6 +71,8 @@ import java.awt.Rectangle;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -108,6 +110,8 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
@@ -136,7 +140,8 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             ImageIcon img = new ImageIcon("D://Master//WD.png");
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็กทรอนิกส์ (CRIMES)");
-//            jScrollPane1.getVerticalScrollBar().setUI(new CustomScrollBarUI());
+//            JScrollBar hbar=new JScrollBar(JScrollBar.HORIZONTAL, 30, 20, 0, 500);
+//            jScrollPane1.getVerticalScrollBar().setUI(new MyScrollBarUI());
 //            jScrollPane1.getHorizontalScrollBar().setUI(new CustomScrollBarUI());
          g=new ButtonGroup();
         g.add(jCheckDuringInvest);
@@ -218,7 +223,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
       
        
 //        jTextPoliceName.setText(Data.getPolicName());
-        jLabelActionCode.setVisible(true);
+        jLabelActionCode.setVisible(false);
         jLabelChargeCode.setVisible(false);
         crimecaseid.setVisible(false);
  
@@ -228,6 +233,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         if(datain!=null){
             try {
                 CloseTextBox();
+                jButtonSaveCase.setEnabled(false);
                 String knowSus=datain.get("StatusKnowSuspect")+"";
                 String rt=datain.get("CaseRequestTime")+"";
                 String at=datain.get("CaseAcceptTime")+"";
@@ -336,8 +342,33 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
            isInsert=true;
           
         }
-        
-    
+        String da=CaseAcceptDate.getJFormattedTextField().getText();
+        String od=OccuredDate.getJFormattedTextField().getText();
+
+//         System.out.println("dd ;"+CalculateDateArrest(od, da)+"");
+
+//   OccuredDate.getJFormattedTextField().getDocument().addDocumentListener(new DocumentListener() {
+//  public void changedUpdate(DocumentEvent e) {
+////     if(CalculateDateArrest(OccuredDate.getJFormattedTextField().getText(), CaseAcceptDate.getJFormattedTextField().getText())<0){
+////        JOptionPane.showConfirmDialog(jPanel1, "วันที่เกิดเหตุ", "ยืนยัน",
+////        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+////         System.out.println("dd ;"+CalculateDateArrest(OccuredDate.getJFormattedTextField().getText(), CaseAcceptDate.getJFormattedTextField().getText())+"");
+////    }
+//  }
+//  public void removeUpdate(DocumentEvent e) {
+//  
+//  }
+//  public void insertUpdate(DocumentEvent e) {
+////        JOptionPane.showMessageDialog(null, "Date Format Error!! using dd/MM/yyyy");
+//      if(CalculateDateArrest(OccuredDate.getJFormattedTextField().getText(), CaseAcceptDate.getJFormattedTextField().getText())<0){
+//    JOptionPane.showConfirmDialog(jPanel1, "วันที่เกิดเหตุ", "ยืนยัน",
+//        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+//     System.out.println("dd ;"+CalculateDateArrest(OccuredDate.getJFormattedTextField().getText(), CaseAcceptDate.getJFormattedTextField().getText())+"");
+//    }
+//  }
+//  
+//            
+//   });
             
     }
 //   private class CloseListener implements ActionListener{
@@ -653,7 +684,6 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, 30));
 
         ActionCrimes.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
-        ActionCrimes.setEnabled(false);
         jPanel1.add(ActionCrimes, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 330, -1));
 
         jLabel9.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -714,7 +744,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         });
         jPanel1.add(ListAsset, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 240, 190, -1));
 
-        jLabel29.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel29.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel29.setText("เลขบัญชีของกลาง");
         jPanel1.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 240, -1, 30));
 
@@ -728,7 +758,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         });
         jPanel1.add(jButtonAddAsset, new org.netbeans.lib.awtextra.AbsoluteConstraints(1093, 240, 40, 30));
 
-        jLabel28.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel28.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel28.setText("รายการทรัพย์");
         jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 240, 85, 30));
 
@@ -744,11 +774,11 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jLabel17.setText("อำเภอ");
         jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 150, 40, 30));
 
-        jLabel18.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel18.setText("จังหวัด");
         jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 150, -1, 30));
 
-        jLabel45.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel45.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel45.setText("พนักงานสอบสวน");
         jPanel1.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 280, -1, 30));
 
@@ -762,7 +792,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         });
         jPanel1.add(jButtonAddInvest, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 320, 40, 30));
 
-        jLabel46.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel46.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel46.setText("บันทึกพนักงานสอบสวน");
         jPanel1.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 320, 139, -1));
 
@@ -1694,7 +1724,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel32)
-                .addGap(71, 71, 71)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonPrintDoc)
                 .addGap(73, 73, 73))
             .addGroup(jPanel10Layout.createSequentialGroup()
@@ -1756,11 +1786,11 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelChargeCode, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonSaveCase)
                     .addComponent(jButtonEditCase))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -2731,8 +2761,8 @@ catch (Exception d) {  //System.out.println(d);
        crimecaseyear.setEnabled(true);
        jButtonAction.setEnabled(true);
        jButtonCharge.setEnabled(true);
-//       ActionCrimes.setEnabled(false);
-//       ChargeNameCase.setEnabled(false);
+       ActionCrimes.setEnabled(true);
+       ChargeNameCase.setEnabled(true);
        OccuredDateTime.setEnabled(true);
        CaseRequestTimee.setEnabled(true);
        CaseAcceptTimee.setEnabled(true);
@@ -2762,7 +2792,15 @@ catch (Exception d) {  //System.out.println(d);
        CapitalCrimeCaseNumber.setEnabled(true);
          Prosecutor_Result.setEnabled(true);
        CourtResult.setEnabled(true);
-
+  EvidenceRecordCase.setEnabled(true);
+         ListAsset.setEnabled(true);
+       jButtonAddAsset.setEnabled(true);
+       RecordInvestCase.setEnabled(true);
+       jButtonAddInvest.setEnabled(true);
+        jTextAccused.setEnabled(true);
+       jTextSuspect.setEnabled(true);
+       jTextWitness.setEnabled(true);
+       CourtType.setEnabled(true);
     }
    public void CloseTextBox(){
 //    RestoreDate.setVisible(false);  
@@ -2771,8 +2809,8 @@ catch (Exception d) {  //System.out.println(d);
        crimecaseyear.setEnabled(false);
        jButtonAction.setEnabled(false);
        jButtonCharge.setEnabled(false);
-//       ActionCrimes.setEnabled(false);
-//       ChargeNameCase.setEnabled(false);
+       ActionCrimes.setEnabled(false);
+       ChargeNameCase.setEnabled(false);
        OccuredDateTime.setEnabled(false);
        CaseRequestTimee.setEnabled(false);
        CaseAcceptTimee.setEnabled(false);
@@ -2802,11 +2840,49 @@ catch (Exception d) {  //System.out.println(d);
        CapitalCrimeCaseNumber.setEnabled(false);
          Prosecutor_Result.setEnabled(false);
        CourtResult.setEnabled(false);
+         CourtType.setEnabled(false);
+       EvidenceRecordCase.setEnabled(false);
+         ListAsset.setEnabled(false);
+       jButtonAddAsset.setEnabled(false);
+       RecordInvestCase.setEnabled(false);
+       jButtonAddInvest.setEnabled(false);
+        jTextAccused.setEnabled(false);
+       jTextSuspect.setEnabled(false);
+       jTextWitness.setEnabled(false);
+
 //              g.setEnabled(false);
 
       
 
 
+    }
+    public int CalculateDateArrest(String DateOne,String DateTwo){
+       int diffDays =0;   
+       try{
+     
+               Locale lc = new Locale("th","TH");
+           SimpleDateFormat dateFormat = new SimpleDateFormat("d/MM/yyyy",lc);
+                        SimpleDateFormat  format = new SimpleDateFormat("d/MM/yyyy",lc);  
+                        
+                        Date dateone =null;
+                        Date datetwo=null;
+                        
+                             dateone=format.parse(DateOne);
+                          datetwo=format.parse(DateTwo);
+                               System.out.println("dateone : "+dateone);
+                        System.out.println("datetwo : "+datetwo);
+                            long diff = datetwo.getTime() - dateone.getTime();
+                             diffDays = (int)(diff / (24 * 60 * 60 * 1000));                          
+                             System.out.println("Time in Day: " + diffDays + " Days."); 
+                        
+                
+       }catch(Exception e){
+        
+           e.printStackTrace();
+       
+       }
+          return diffDays;               
+    
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

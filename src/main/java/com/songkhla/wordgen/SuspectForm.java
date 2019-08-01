@@ -276,6 +276,7 @@ public class SuspectForm extends javax.swing.JDialog {
             jLabel36.setVisible(false);
     
         }
+          
  CourtSuspect.addItemListener(new ItemListener() {
      
         public void itemStateChanged(ItemEvent arg0) {
@@ -463,17 +464,15 @@ public class SuspectForm extends javax.swing.JDialog {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addComponent(jLabel4)
-                .addGap(0, 0, 0)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel36)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel36)
-                .addContainerGap(18, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                .addComponent(jLabel36))
         );
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
@@ -611,6 +610,7 @@ public class SuspectForm extends javax.swing.JDialog {
 
         PhonePerson.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
 
+        jPanelIssueDate.setBackground(new java.awt.Color(255, 255, 255));
         jPanelIssueDate.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
 
         javax.swing.GroupLayout jPanelIssueDateLayout = new javax.swing.GroupLayout(jPanelIssueDate);
@@ -624,6 +624,7 @@ public class SuspectForm extends javax.swing.JDialog {
             .addGap(0, 32, Short.MAX_VALUE)
         );
 
+        jPanelExpiredDate.setBackground(new java.awt.Color(255, 255, 255));
         jPanelExpiredDate.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
 
         javax.swing.GroupLayout jPanelExpiredDateLayout = new javax.swing.GroupLayout(jPanelExpiredDate);
@@ -637,6 +638,7 @@ public class SuspectForm extends javax.swing.JDialog {
             .addGap(0, 32, Short.MAX_VALUE)
         );
 
+        jPanelBirthDay.setBackground(new java.awt.Color(255, 255, 255));
         jPanelBirthDay.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
 
         javax.swing.GroupLayout jPanelBirthDayLayout = new javax.swing.GroupLayout(jPanelBirthDay);
@@ -998,7 +1000,7 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabelRestoreDate.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabelRestoreDate.setText("วันที่ส่งฟื้นฟู");
 
-        jPanelDateArrest.setBackground(new java.awt.Color(204, 204, 204));
+        jPanelDateArrest.setBackground(new java.awt.Color(255, 255, 255));
         jPanelDateArrest.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
 
         javax.swing.GroupLayout jPanelDateArrestLayout = new javax.swing.GroupLayout(jPanelDateArrest);
@@ -1020,7 +1022,7 @@ public class SuspectForm extends javax.swing.JDialog {
         jSpinnerArrTime.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         jSpinnerArrTime.setPreferredSize(new java.awt.Dimension(29, 25));
 
-        jPanelRestoreDate.setBackground(new java.awt.Color(102, 102, 0));
+        jPanelRestoreDate.setBackground(new java.awt.Color(255, 255, 255));
         jPanelRestoreDate.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
 
         javax.swing.GroupLayout jPanelRestoreDateLayout = new javax.swing.GroupLayout(jPanelRestoreDate);
@@ -1034,7 +1036,7 @@ public class SuspectForm extends javax.swing.JDialog {
             .addGap(0, 32, Short.MAX_VALUE)
         );
 
-        jPanelBailDate.setBackground(new java.awt.Color(204, 255, 51));
+        jPanelBailDate.setBackground(new java.awt.Color(255, 255, 255));
         jPanelBailDate.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
 
         javax.swing.GroupLayout jPanelBailDateLayout = new javax.swing.GroupLayout(jPanelBailDate);
@@ -1055,7 +1057,7 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabelArrestEnd.setText("วัน-เวลาที่สิ้นสุดการควบคุมตัว");
 
         ArrestDateTimeEnd.setEditable(false);
-        ArrestDateTimeEnd.setBackground(new java.awt.Color(102, 102, 255));
+        ArrestDateTimeEnd.setBackground(new java.awt.Color(255, 255, 255));
         ArrestDateTimeEnd.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         ArrestDateTimeEnd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1115,7 +1117,7 @@ public class SuspectForm extends javax.swing.JDialog {
             }
         });
 
-        jPanelAttachlDate.setBackground(new java.awt.Color(255, 51, 0));
+        jPanelAttachlDate.setBackground(new java.awt.Color(255, 255, 255));
         jPanelAttachlDate.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
 
         javax.swing.GroupLayout jPanelAttachlDateLayout = new javax.swing.GroupLayout(jPanelAttachlDate);

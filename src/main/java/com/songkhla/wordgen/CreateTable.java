@@ -130,7 +130,10 @@ public class CreateTable {
                 "	BailDate	VARCHAR(100)	,	\n"+
                 "	RestoreDate	VARCHAR(100)	,	\n"+ 
                 "	Road     	VARCHAR(100)	,	\n"+
-                "	Soi     	VARCHAR(100)	,	\n"+  
+                "	Soi     	VARCHAR(100)	,	\n"+
+                "	StatusFreeze	VARCHAR(100)	,	\n"+ 
+                "	FreezeOrganize     	VARCHAR(100)	,	\n"+
+                "	FreezeDate     	VARCHAR(100)	,	\n"+                          
                 "	SueLastEndDate	VARCHAR(100)	,	\n"+  
                 "	CourtSuspect	VARCHAR(100)	,	\n"+
                 "	SueFirst	VARCHAR(100)	,	\n"+

@@ -15,6 +15,7 @@ import java.util.Vector;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import org.json.simple.JSONObject;
+import java.awt.Font;
 
 /**
  *
@@ -77,9 +78,10 @@ public class RecordInvestigatorView extends javax.swing.JDialog {
             }
         ));
         jTableRecord.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
-        jTableRecord.setSelectionBackground(new java.awt.Color(51, 153, 255));
         jTableRecord.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jTableRecord.getTableHeader().setReorderingAllowed(false);
+        jTableRecord.getTableHeader().setFont(new Font("TH SarabunPSK", Font.BOLD, 20));
+        jTableRecord.getTableHeader().setOpaque(false);
         jScrollPane1.setViewportView(jTableRecord);
 
         jPanel3.setBackground(new java.awt.Color(4, 93, 179));
@@ -267,16 +269,16 @@ public class RecordInvestigatorView extends javax.swing.JDialog {
             ColumnName
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-     
+            if(jTableRecord.getModel().getRowCount()>0){
             CrimesCaseEdit.RecordInvestCase.setText(jTableRecord.getValueAt(jTableRecord.getModel().getRowCount()-1, 0).toString()+","+jTableRecord.getValueAt(jTableRecord.getModel().getRowCount()-1, 1).toString()); 
-            
+            }
         }catch(Exception ex){
             ex.printStackTrace();
         }

@@ -49,7 +49,7 @@ public class PolisForm extends javax.swing.JDialog {
               
         if(datain!=null){
             try {
-            
+            closeEdit();
              IdCardPolice.setText(datain.get("IdCardPolice")+"");
              RankPolice.setText(datain.get("RankPolice")+"");
              FirstName.setText(datain.get("FirstName")+"");
