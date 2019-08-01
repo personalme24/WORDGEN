@@ -58,6 +58,8 @@ public class W71 {
              String LastName ="";
              String Position ="";
              String caseno;
+             String suspectName ="";
+
        
             String Date="";
             String Month="";
@@ -95,11 +97,10 @@ public class W71 {
                     
             ////////////////////////////ตารางการนัดส่งตัว//////////////////////////////        
                   String sqlDataDeliverySuspect ="select DeliverySuspect.*\n" +
-                              "from crimecase \n" +
-                              "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
-                              "left join DeliverySuspect on Person.caseIdPerson = DeliverySuspect.DeliId\n" +
-                              "where crimecase.CaseId='"+cc+"' and Person.Related='นายประกัน'\n" +
-                              "group by crimecase.CaseId,Person.NoPerson,DeliverySuspect.DeliId";
+                                            "FROM DeliverySuspect\n" +
+                                            "left join Person on  DeliverySuspect.DeliPersonId = Person.NoPerson \n" +
+                                            "left join CrimeCase on Person.caseIdPerson =crimecase.CaseId \n" +
+                                            "where crimecase.CaseId='"+cc+"' ";
                   
                   Statement sp2 = conn.createStatement();
                   ResultSet rs2=sp2.executeQuery(sqlDataDeliverySuspect); 
@@ -166,6 +167,7 @@ public class W71 {
                     ccYear=s.getString("crimecaseyears");
                     casetype =s.getString("casetype");
                     caseno  =s.getString("crimecasenoyear");
+                    suspectName= s.getString("suspectName");
             
                 SimpleDateFormat sdfstart ;
                 Calendar  calstart = Calendar.getInstance();
@@ -196,7 +198,7 @@ public class W71 {
                 
                 bookmarkvalue.put("PA7",Checknull(s.getString("AccureandOther")));
                   
-                bookmarkvalue.put("PS7",  Checknull(s.getString("suspectName"))); 
+                bookmarkvalue.put("PS7", Checknull(suspectName )); 
                
                 
                     bookmarkvalue.put("C12", Checknull(s.getString("CrimeLocationDistrict")));
@@ -234,7 +236,7 @@ public class W71 {
 			JSONArray tablecolumn = new JSONArray();
 			tablecolumn.add("BA2");
 			tablecolumn.add("BA3");
-                        tablecolumn.add("BA4");
+                        tablecolumn.add("BA9");
 			tablecolumn.add("BA5");
                         tablecolumn.add("BA6");
 			tablecolumn.add("BA7");
@@ -244,8 +246,8 @@ public class W71 {
                         
 			row1.put("BA2",Checknull(Integer.toString(BailAssetId)));
 			row1.put("BA3",Checknull(s.getString("BailAssetDetail")));
-                        row1.put("BA4",Checknull(s.getString("BailAssetBath")));
-			row1.put("BA5",Checknull(s.getString("BailAmount")));
+                        row1.put("BA9",Checknull(s.getString("BailAssetBath")));
+                        row1.put("BA5",Checknull(s.getString("BailAmount")));
                         row1.put("BA6",Checknull(s.getString("BailAssetTotal")));
 			row1.put("BA7",Checknull(s.getString("BailAssetRemark")));
 
@@ -272,7 +274,7 @@ public class W71 {
                         processTABLE(bookmarkvalue,wordMLPackage);
                         processTABLE1(bookmarkvalue1,wordMLPackage);
                        
-			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/คำร้องและสัญญาประกัน "+s.getString("suspectName")+""+ cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/คำร้องและสัญญาประกัน "+suspectName+""+ cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -493,11 +495,14 @@ public class W71 {
         private static String ToDate(String strDate){
                String ResultDate="";
          try {
+    	      if (strDate==null||strDate==""||strDate=="null"){ return ""; 
+             }else{
     	       SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", new Locale("th", "TH"));  
                SimpleDateFormat dateto  = new SimpleDateFormat("dd MMMM yyyy", new Locale("th", "TH"));  
                Date date=null;
+               
                date = df.parse(strDate);               
-               ResultDate=dateto.format(date.getTime());
+               ResultDate=dateto.format(date.getTime());}
          } catch (ParseException ex) {
              Logger.getLogger(W71.class.getName()).log(Level.SEVERE, null, ex);
          }
