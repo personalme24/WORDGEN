@@ -76,7 +76,7 @@ public class W7 {
             
                   
                    
-                   String sql="select crimecase.*,ChargeCase.*,P1.*,P2.*\n" +
+                   String sql="select crimecase.*,ChargeCase.*,P1.*,P2.*,Person.*\n" +
                                 "from crimecase inner join(\n" +
                               "SELECT  min(Person.NoPerson),Person.FullNamePerson AccuredName,Person.Age AgeAccured,Person.Race AccuredRace,Person.Nationality AccuredNati "
                             + "  FROM Person where Person.TypePerson='ผู้กล่าวหา'\n" +
@@ -87,7 +87,7 @@ public class W7 {
                                 ")P2\n" +
                                 "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                                 "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
-                                "where crimecase.CaseId='"+cc+"'\n"+
+                                "where crimecase.CaseId='"+cc+"' and Person.TypePerson='ผู้ตาย'\n"+
                                 "group by crimecase.CaseId";
                    
 //                   pst=conn.prepareStatement(sql);
@@ -146,6 +146,8 @@ public class W7 {
                      bookmarkvalue.put("PA14", Checknull(s.getString("suspectRace")));
                          bookmarkvalue.put("PA15",Checknull(s.getString("suspectNati")));
                          
+                         bookmarkvalue.put("PD7",Checknull(s.getString("FullNamePerson")));
+                         
                       bookmarkvalue.put("B2", Checknull(s.getString("ChargeNameCase")));
                       bookmarkvalue.put("B3", Checknull(s.getString("LawCase")));
                       
@@ -196,7 +198,7 @@ public class W7 {
 					.load(new java.io.File("./TEMPLATE/w7.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/รายงานการชันสูตรพลิกศพ"+ cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/รายงานการชันสูตรพลิกศพ "+s.getString("FullNamePerson")+""+ cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -237,7 +239,7 @@ public class W7 {
                     bookmarkvalue.put("PA13","");
                      bookmarkvalue.put("PA14","");
                          bookmarkvalue.put("PA15","");
-                         
+                         bookmarkvalue.put("PD7","");
                      
                        bookmarkvalue.put("B3","");
                       
