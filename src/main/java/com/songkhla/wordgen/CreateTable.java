@@ -422,9 +422,11 @@ public class CreateTable {
                 
             String sqlRecord ="CREATE TABLE IF NOT EXISTS RecordInquiry (\n"+
                     "	IdRecord	INTEGER	Primary Key AUTOINCREMENT,	\n"+
-                    "	DateRecord	VARCHAR(100)	,	\n"+
+                    "	DateRecord	VARCHAR(100)	,	\n"+ 
+                    "	TimeRecord	VARCHAR(100)	,	\n"+
                     "	NameInguiry	VARCHAR(100)	,	\n"+
                     "	DetailRecord	VARCHAR(100)	,	\n"+
+                    "	DailyNoRecord	VARCHAR(100)	,	\n"+
                     "	CaseIdRecord	INTEGER	not null	\n"+    
                     "	);";   
              String sqlInvest ="CREATE TABLE IF NOT EXISTS InvestInformation (\n"+
