@@ -205,7 +205,7 @@ public class W19 {
 //                 bookmarkvalue.put("C1","Date");
 //                 bookmarkvalue.put("S27","-");
 		bookmarkvalue.put("C2","");
-                bookmarkvalue.put("C2","");
+                bookmarkvalue.put("CC2","");
                 bookmarkvalue.put("C3","");
                  bookmarkvalue.put("S2","");
                  bookmarkvalue.put("S5","");
@@ -364,7 +364,7 @@ public class W19 {
     	       if (strDate==null||strDate==""||strDate=="null"){ return ""; 
              }else{
     	       SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", new Locale("th", "TH"));  
-               SimpleDateFormat dateto  = new SimpleDateFormat("dd MMMM yyyy", new Locale("th", "TH"));  
+               SimpleDateFormat dateto  = new SimpleDateFormat("d MMMM yyyy", new Locale("th", "TH"));  
                Date date=null;
                
                date = df.parse(strDate);               

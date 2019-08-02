@@ -300,7 +300,7 @@ public class W80 {
                String ResultDate="";
          try {
     	       SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", new Locale("th", "TH"));  
-               SimpleDateFormat dateto  = new SimpleDateFormat("dd MMMM yyyy", new Locale("th", "TH"));  
+               SimpleDateFormat dateto  = new SimpleDateFormat("d MMMM yyyy", new Locale("th", "TH"));  
                Date date=null;
                date = df.parse(strDate);               
                ResultDate=dateto.format(date.getTime());

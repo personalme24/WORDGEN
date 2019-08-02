@@ -106,7 +106,7 @@ public static void w38(String cc) {
                 String Year="";
                 SimpleDateFormat sdfstart ;
                 Calendar  calstart = Calendar.getInstance();
-                sdfstart = new SimpleDateFormat("dd", new Locale("th", "TH"));  
+                sdfstart = new SimpleDateFormat("d", new Locale("th", "TH"));  
                Date =sdfstart.format(calstart.getTime());
               
                sdfstart = new SimpleDateFormat("MMMM", new Locale("th", "TH"));  
@@ -126,6 +126,7 @@ public static void w38(String cc) {
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3", Checknull(ccYear));
                 bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
+                bookmarkvalue.put("S02",Checknull(PoliceStationName));
                  bookmarkvalue.put("S5", Checknull(StationAmphur));
                  bookmarkvalue.put("S6", Checknull(StationProvince));
                  bookmarkvalue.put("S10",Checknull(TelStation));
@@ -217,6 +218,7 @@ public static void nw38() {
                 bookmarkvalue.put("C3","");
                 
                 bookmarkvalue.put("S2","");
+                bookmarkvalue.put("S02","");
                 bookmarkvalue.put("S5","");
                 bookmarkvalue.put("S6","");
                 bookmarkvalue.put("S27","");
@@ -378,7 +380,7 @@ public static void nw38() {
                String ResultDate="";
          try {
     	       SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", new Locale("th", "TH"));  
-               SimpleDateFormat dateto  = new SimpleDateFormat("dd MMMM yyyy", new Locale("th", "TH"));  
+               SimpleDateFormat dateto  = new SimpleDateFormat("d MMMM yyyy", new Locale("th", "TH"));  
                Date date=null;
                date = df.parse(strDate);               
                ResultDate=dateto.format(date.getTime());

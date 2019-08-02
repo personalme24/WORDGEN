@@ -106,7 +106,7 @@ public static void w9(String cc) {
                 String Year="";
                 SimpleDateFormat sdfstart ;
                 Calendar  calstart = Calendar.getInstance();
-                sdfstart = new SimpleDateFormat("dd", new Locale("th", "TH"));  
+                sdfstart = new SimpleDateFormat("d", new Locale("th", "TH"));  
                Date =sdfstart.format(calstart.getTime());
               
                sdfstart = new SimpleDateFormat("MMMM", new Locale("th", "TH"));  
@@ -414,7 +414,7 @@ public static void nw9( ) {
                String ResultDate="";
          try {
     	       SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", new Locale("th", "TH"));  
-               SimpleDateFormat dateto  = new SimpleDateFormat("dd MMMM yyyy", new Locale("th", "TH"));  
+               SimpleDateFormat dateto  = new SimpleDateFormat("d MMMM yyyy", new Locale("th", "TH"));  
                Date date=null;
                date = df.parse(strDate);               
                ResultDate=dateto.format(date.getTime());
