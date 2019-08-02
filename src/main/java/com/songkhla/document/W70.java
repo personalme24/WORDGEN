@@ -123,7 +123,7 @@ public static void w70(String cc) {
                 bookmarkvalue.put("C001",Checknull(Year));
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3",Checknull(ccYear));
-                 bookmarkvalue.put("CC2",Checknull(caseno));
+                bookmarkvalue.put("CC2",Checknull(caseno));
                 bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
                 bookmarkvalue.put("S27",Checknull(ProvincProsecutor));
                 bookmarkvalue.put("S13",Checknull(HeadName));
@@ -151,7 +151,7 @@ public static void w70(String cc) {
                     bookmarkvalue.put("PS25", Checknull(s.getString("Amphur")));
                     bookmarkvalue.put("PS26", Checknull(s.getString("Province")));
                     bookmarkvalue.put("PS105", Checknull(s.getString("Soi")));
-                    //bookmarkvalue.put("PS108", Checknull(s.getString("SusConfress")));
+                    bookmarkvalue.put("PS108", Checknull(s.getString("SusConfress")));
                     
                      
 
@@ -413,9 +413,8 @@ public static void nw70() {
         private static String ToDate(String strDate){
                String ResultDate="";
          try {
-    	      if (strDate==null||strDate==""||strDate=="null"){ return ""; 
-             }else{
-    	       SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", new Locale("th", "TH"));  
+    	       if(strDate.equals(null)||strDate.equals("")||strDate.equals("null")) { return ""; }else{
+    	       SimpleDateFormat df = new SimpleDateFormat("d/MM/yyyy", new Locale("th", "TH"));  
                SimpleDateFormat dateto  = new SimpleDateFormat("d MMMM yyyy", new Locale("th", "TH"));  
                Date date=null;
                

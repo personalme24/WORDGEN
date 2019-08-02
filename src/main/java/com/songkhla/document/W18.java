@@ -387,9 +387,8 @@ public class W18 {
     private static String ToDate(String strDate){
                String ResultDate="";
          try {
-    	      if (strDate==null||strDate==""||strDate=="null"){ return ""; 
-             }else{
-    	       SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", new Locale("th", "TH"));  
+    	       if(strDate.equals(null)||strDate.equals("")||strDate.equals("null")) { return ""; }else{
+    	       SimpleDateFormat df = new SimpleDateFormat("d/MM/yyyy", new Locale("th", "TH"));  
                SimpleDateFormat dateto  = new SimpleDateFormat("d MMMM yyyy", new Locale("th", "TH"));  
                Date date=null;
                

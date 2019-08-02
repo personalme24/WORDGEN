@@ -52,10 +52,14 @@ public static void w67(String cc) {
             String ccYear;
             String casetype;
             String caseno;
+            String CourtSuspect;
              String PoliceStationName="";
              String StationAmphur="";
              String StationProvince="";
              String CriminalCourt="";
+             String DistrictCourt="";
+             String JuvenileCourt="";
+             String MilitaryCourt="";
              String TelStation="";
              String RankPolice ="";
              String FirstName ="";
@@ -72,6 +76,9 @@ public static void w67(String cc) {
                          StationAmphur=rs.getString("StationAmphur");
                          StationProvince=rs.getString("StationProvince");
                          CriminalCourt=rs.getString("CriminalCourt");
+                         DistrictCourt =rs.getString("DistrictCourt");
+                         JuvenileCourt =rs.getString("JuvenileCourt");
+                         MilitaryCourt=rs.getString("MilitaryCourt");
                          TelStation=rs.getString("TelStation");
                       }
             
@@ -102,6 +109,7 @@ public static void w67(String cc) {
                  casetype =s.getString("casetype");
                  caseno  =s.getString("crimecasenoyear");
                  StatusSue=Checknull(s.getString("StatusSuspect"));
+                 CourtSuspect= Checknull(s.getString("CourtSuspect"));
                 String Date="";
                 String Month="";
                 String Year="";
@@ -130,11 +138,25 @@ public static void w67(String cc) {
                 bookmarkvalue.put("S5", Checknull(StationAmphur));
                 bookmarkvalue.put("S6", Checknull(StationProvince));
                 bookmarkvalue.put("S10",Checknull(TelStation));
-                bookmarkvalue.put("S17",Checknull(CriminalCourt));
+                 System.out.print(CourtSuspect);
+                if ((CourtSuspect).equals("ศาลแขวง") ){
+                    bookmarkvalue.put("S17",Checknull(DistrictCourt));
+                }
+                if ((CourtSuspect).equals("ศาลอาญา/ศาลจังหวัด")){
+                    bookmarkvalue.put("S17",Checknull(CriminalCourt));
+                }
+                if ((CourtSuspect).equals("ศาลเด็กและเยาวชน")){
+                    bookmarkvalue.put("S17",Checknull(JuvenileCourt));
+                }
+                if ((CourtSuspect).equals("ศาลทหาร")){
+                    bookmarkvalue.put("S17",Checknull(MilitaryCourt));
+                }
+                
                    
                 
                 //----------------------------ผู้ต้องหา--------------------
                     bookmarkvalue.put("PS2", Checknull(s.getString("PeopleRegistrationID"))); 
+                  
                     bookmarkvalue.put("PS3",Checknull(ToDate(s.getString("IssueDate")))); 
                     bookmarkvalue.put("PS5",Checknull(s.getString("IssuedBy"))); 
                     bookmarkvalue.put("PS7", Checknull(s.getString("FullNamePerson"))); 
@@ -379,11 +401,13 @@ public static void nw67() {
         private static String ToDate(String strDate){
                String ResultDate="";
          try {
-    	       SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", new Locale("th", "TH"));  
+              if(strDate.equals(null)||strDate.equals("")||strDate.equals("null")) { return ""; }else{
+    	       SimpleDateFormat df = new SimpleDateFormat("d/MM/yyyy", new Locale("th", "TH"));  
                SimpleDateFormat dateto  = new SimpleDateFormat("d MMMM yyyy", new Locale("th", "TH"));  
                Date date=null;
+               
                date = df.parse(strDate);               
-               ResultDate=dateto.format(date.getTime());
+               ResultDate=dateto.format(date.getTime());}
          } catch (ParseException ex) {
              Logger.getLogger(W67.class.getName()).log(Level.SEVERE, null, ex);
          }
