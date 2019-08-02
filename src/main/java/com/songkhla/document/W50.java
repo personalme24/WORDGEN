@@ -271,7 +271,7 @@ public static void nw50() {
 					.load(new java.io.File("./TEMPLATE/w50.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			
-			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์//หนังสือขอส่งรายละเอียดเกี่ยวกับคนต่างด้าวถูกกักขขังฯ.doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/หนังสือขอส่งรายละเอียดเกี่ยวกับคนต่างด้าวถูกกักขขังฯ.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -384,11 +384,13 @@ public static void nw50() {
         private static String ToDate(String strDate){
                String ResultDate="";
          try {
-    	       SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", new Locale("th", "TH"));  
+    	        if(strDate.equals(null)||strDate.equals("")||strDate.equals("null")) { return ""; }else{
+    	       SimpleDateFormat df = new SimpleDateFormat("d/MM/yyyy", new Locale("th", "TH"));  
                SimpleDateFormat dateto  = new SimpleDateFormat("d MMMM yyyy", new Locale("th", "TH"));  
                Date date=null;
+               
                date = df.parse(strDate);               
-               ResultDate=dateto.format(date.getTime());
+               ResultDate=dateto.format(date.getTime());}
          } catch (ParseException ex) {
              Logger.getLogger(W50.class.getName()).log(Level.SEVERE, null, ex);
          }
