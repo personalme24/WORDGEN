@@ -104,7 +104,7 @@ public class W35 {
                 
                 SimpleDateFormat sdfstart ;
                 Calendar  calstart = Calendar.getInstance();
-                sdfstart = new SimpleDateFormat("dd MMMM yyyy", new Locale("th", "TH"));  
+                sdfstart = new SimpleDateFormat("d MMMM yyyy", new Locale("th", "TH"));  
                Date =sdfstart.format(calstart.getTime());
               
                
@@ -131,7 +131,7 @@ public class W35 {
                   
                    
                         
-                      bookmarkvalue.put("B2", Checknull(s.getString("ChargeName")));
+                      bookmarkvalue.put("B2", Checknull(s.getString("ChargeNameCase")));
                       
                      
                       
@@ -348,7 +348,7 @@ public class W35 {
                String ResultDate="";
          try {
     	       SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", new Locale("th", "TH"));  
-               SimpleDateFormat dateto  = new SimpleDateFormat("dd MMMM yyyy", new Locale("th", "TH"));  
+               SimpleDateFormat dateto  = new SimpleDateFormat("d MMMM yyyy", new Locale("th", "TH"));  
                Date date=null;
                date = df.parse(strDate);               
                ResultDate=dateto.format(date.getTime());

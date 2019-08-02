@@ -117,7 +117,7 @@ public class W21 {
                 
                 SimpleDateFormat sdfstart ;
                 Calendar  calstart = Calendar.getInstance();
-                sdfstart = new SimpleDateFormat("dd", new Locale("th", "TH"));  
+                sdfstart = new SimpleDateFormat("d", new Locale("th", "TH"));  
                Date =sdfstart.format(calstart.getTime());
               
                sdfstart = new SimpleDateFormat("MMMM", new Locale("th", "TH"));  
