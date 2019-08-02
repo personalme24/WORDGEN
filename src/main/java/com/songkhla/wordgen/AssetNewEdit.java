@@ -29,7 +29,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
     Connection con=null;
      PreparedStatement pst=null;
        boolean isInsert;
-        String caseid,cc;
+        String caseid,cc,noasset;
    JDatePickerImpl DateSequester;
     /**
      * Creates new form AssetNewEdit
@@ -76,7 +76,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
         jPanelDateAsset.setLayout(new FlowLayout());
         jPanelDateAsset.add(DateSequester);    
         if(datain!=null){
- 
+            noasset=datain.get("NoAsset")+"";
             crimecaseno.setText(datain.get("crimecaseno")+"");
             OrderAsset.setText(datain.get("EvidenceRecordNumber")+"");
             Name.setText(datain.get("Name")+"");
@@ -85,11 +85,14 @@ public class AssetNewEdit extends javax.swing.JDialog {
             DateSequester.getJFormattedTextField().setText(datain.get("DateSequester")+"");
             DefectMark.setText(datain.get("DefectMark")+"");
             Value.setText(datain.get("Value")+"");
-PlaceFoundExhibit.setText(datain.get("PlaceFoundExhibit")+"");
-PointFoundCheck.setText(datain.get("PointFoundCheck")+"");
+            PlaceFoundExhibit.setText(datain.get("PlaceFoundExhibit")+"");
+            PointFoundCheck.setText(datain.get("PointFoundCheck")+"");
+             StatusAsset.setSelectedItem(datain.get("StatusAsset"));
+
             isInsert=false;
            
         }else{
+            noasset=NoAsset();
             OrderAsset.setText(OrderAsset());
             isInsert=true;
         }
@@ -387,8 +390,8 @@ PointFoundCheck.setText(datain.get("PointFoundCheck")+"");
              con=ConnectDatabase.connect();
         if (isInsert) {
               String sql="INSERT INTO Asset (EvidenceRecordNumber,Amount,DateSequester,DefectMark,PlaceFoundExhibit,"
-                      + "Name,Remark,OccupantName,OrderAsset,PointFoundCheck,Value,caseIdAsset,StatusAsset) "           
-                      + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                      + "Name,Remark,OccupantName,OrderAsset,PointFoundCheck,Value,caseIdAsset,StatusAsset,NoAsset) "           
+                      + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
               
                try {
             pst=con.prepareStatement(sql);
@@ -405,6 +408,8 @@ PointFoundCheck.setText(datain.get("PointFoundCheck")+"");
                               pst.setString(11,Value.getText());
                               pst.setString(12,crimecaseno.getText());
                               pst.setString(13,StatusAsset.getSelectedItem().toString());
+                              pst.setString(14,noasset);
+                              
                              
                               
                               
@@ -423,7 +428,7 @@ PointFoundCheck.setText(datain.get("PointFoundCheck")+"");
         else{
         String sqlUpdate="Update Asset set EvidenceRecordNumber=?,Amount=?,DateSequester=?,\n" +
                                     "DefectMark=?,PlaceFoundExhibit=?,Name=?,Remark=?,OccupantName=?,\n" +
-                                    "OrderAsset=?,PointFoundCheck=?,Value=?,caseIdAsset=? where caseIdAsset=? and EvidenceRecordNumber=? and name=?  ";
+                                    "OrderAsset=?,PointFoundCheck=?,Value=?,caseIdAsset=?,StatusAsset=? where NoAsset=?";
                  try {
             pst=con.prepareStatement(sqlUpdate);
                               pst.setString(1,OrderAsset.getText());
@@ -438,7 +443,9 @@ PointFoundCheck.setText(datain.get("PointFoundCheck")+"");
                               pst.setString(10,PointFoundCheck.getText());
                               pst.setString(11,Value.getText());
                               pst.setString(12,crimecaseno.getText());
-//                                pst.setString(13,StatusAsset.getSelectedItem().toString());
+                              pst.setString(13,StatusAsset.getSelectedItem().toString());
+                              pst.setString(14,noasset);
+
                               pst.executeUpdate();
 
                              JOptionPane.showMessageDialog(null, "Data Saved successfully");
@@ -467,6 +474,34 @@ public  String OrderAsset(){
             
             if (rs.next()) {
                 id=rs.getInt("OrderAsset"); 
+            }
+            
+            if(id==0){
+                id=1;
+            }
+            else{
+                id=id+1;
+            }
+             return String.valueOf(id);
+        
+        } catch (Exception e) {
+            return null;
+//            System.out.println(e);
+        } 
+    
+    }
+public  String NoAsset(){
+         Connection con=null;
+         String a=crimecaseno.getText();
+         con=ConnectDatabase.connect();
+            String sqlId="Select max(NoAsset) NoAsset from Asset";
+        int id=0;
+        try {
+            Statement s=con.createStatement();
+            ResultSet rs=s.executeQuery(sqlId);
+            
+            if (rs.next()) {
+                id=rs.getInt("NoAsset"); 
             }
             
             if(id==0){

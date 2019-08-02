@@ -647,6 +647,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jCheckW134 = new javax.swing.JCheckBox();
         jCheckW135 = new javax.swing.JCheckBox();
         jCheckW136 = new javax.swing.JCheckBox();
+        jCheckW156 = new javax.swing.JCheckBox();
         jPanel17 = new javax.swing.JPanel();
         jCheckW144 = new javax.swing.JCheckBox();
         jCheckW145 = new javax.swing.JCheckBox();
@@ -1378,7 +1379,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jCheckW11.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW11.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW11.setText("บัญชีของกลางคดีอาญา");
-        jPanel8.add(jCheckW11, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 304, 405, -1));
+        jPanel8.add(jCheckW11, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 304, 320, -1));
 
         jCheckW12.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW12.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -1904,10 +1905,12 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 
         jPanel14.setBackground(new java.awt.Color(255, 255, 255));
         jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "เอกสารเกี่ยวกับคดี", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("TH SarabunPSK", 1, 24))); // NOI18N
+        jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jCheckW86.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW86.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW86.setText("บันทึกการตรวจสำนวนการสอบสวน");
+        jPanel14.add(jCheckW86, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 32, 384, -1));
 
         jCheckW87.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW87.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -1917,10 +1920,12 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                 jCheckW87ActionPerformed(evt);
             }
         });
+        jPanel14.add(jCheckW87, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 62, 384, -1));
 
         jCheckW88.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW88.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW88.setText("หนังสือส่งสำนวนคดีที่เห็นควรสั่งฟ้อง แต่ยังไม่ได้ตัวผู้ต้องหา");
+        jPanel14.add(jCheckW88, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 95, 384, -1));
 
         jCheckW89.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW89.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -1930,10 +1935,12 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                 jCheckW89ActionPerformed(evt);
             }
         });
+        jPanel14.add(jCheckW89, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 128, 384, -1));
 
         jCheckW90.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW90.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW90.setText("รายงานการสอบสวน");
+        jPanel14.add(jCheckW90, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 194, 384, -1));
 
         jCheckW91.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW91.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -1944,18 +1951,22 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                 jCheckW91ActionPerformed(evt);
             }
         });
+        jPanel14.add(jCheckW91, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 161, -1, -1));
 
         jCheckW92.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW92.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW92.setText("รายงานการสอบสวนสำนวนชันสูตรพลิกศพ");
+        jPanel14.add(jCheckW92, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 293, 384, -1));
 
         jCheckW94.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW94.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW94.setText("บันทึกคำให้การผู้กล่าวหา หรือพยาน");
+        jPanel14.add(jCheckW94, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 227, 384, -1));
 
         jCheckW95.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW95.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW95.setText("บันทึกคำให้การผู้ต้องหา");
+        jPanel14.add(jCheckW95, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 260, 384, -1));
 
         jCheckW40.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW40.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -1965,6 +1976,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                 jCheckW40ActionPerformed(evt);
             }
         });
+        jPanel14.add(jCheckW40, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 98, 321, -1));
 
         jCheckW100.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW100.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -1974,14 +1986,17 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                 jCheckW100ActionPerformed(evt);
             }
         });
+        jPanel14.add(jCheckW100, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 65, 314, -1));
 
         jCheckW27.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW27.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW27.setText("บันทึกพนักงานสอบสวน");
+        jPanel14.add(jCheckW27, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 326, 384, -1));
 
         jCheckW101.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW101.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW101.setText("หมายจับ");
+        jPanel14.add(jCheckW101, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 32, 314, -1));
 
         jCheckW102.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW102.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -1991,10 +2006,12 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                 jCheckW102ActionPerformed(evt);
             }
         });
+        jPanel14.add(jCheckW102, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 131, 321, -1));
 
         jCheckW103.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW103.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW103.setText("หมายเรียกผู้ต้องหา");
+        jPanel14.add(jCheckW103, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 164, 314, -1));
 
         jCheckW104.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW104.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -2004,18 +2021,22 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                 jCheckW104ActionPerformed(evt);
             }
         });
+        jPanel14.add(jCheckW104, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 199, 314, -1));
 
         jCheckW107.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW107.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW107.setText("บันทึกการจับกุม");
+        jPanel14.add(jCheckW107, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 298, 314, -1));
 
         jCheckW105.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW105.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW105.setText("บันทึกการชี้ตัวผู้ต้องหา");
+        jPanel14.add(jCheckW105, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 232, 314, -1));
 
         jCheckW106.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW106.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW106.setText("บันทึกการชี้รูปผู้ต้องหา");
+        jPanel14.add(jCheckW106, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 265, 314, -1));
 
         jCheckW119.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW119.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -2025,14 +2046,17 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                 jCheckW119ActionPerformed(evt);
             }
         });
+        jPanel14.add(jCheckW119, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 331, 314, -1));
 
         jCheckW125.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW125.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW125.setText("บันทึกการควบคุมผู้ต้องหา");
+        jPanel14.add(jCheckW125, new org.netbeans.lib.awtextra.AbsoluteConstraints(718, 32, 330, -1));
 
         jCheckW129.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW129.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW129.setText("คำร้องขอสืบพยานไว้ก่อน");
+        jPanel14.add(jCheckW129, new org.netbeans.lib.awtextra.AbsoluteConstraints(718, 98, 330, -1));
 
         jCheckW128.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW128.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -2042,189 +2066,57 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                 jCheckW128ActionPerformed(evt);
             }
         });
+        jPanel14.add(jCheckW128, new org.netbeans.lib.awtextra.AbsoluteConstraints(718, 65, 330, -1));
 
         jCheckW130.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW130.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW130.setText("บันทึกการพบและปรึกษาทนาย");
+        jPanel14.add(jCheckW130, new org.netbeans.lib.awtextra.AbsoluteConstraints(718, 131, 330, -1));
 
         jCheckW26.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW26.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW26.setText("บันทึกการนำชี้ที่เกิดเหตุประกอบคำรับสารภาพ");
+        jPanel14.add(jCheckW26, new org.netbeans.lib.awtextra.AbsoluteConstraints(718, 166, 330, -1));
 
         jCheckW137.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW137.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW137.setText("แผนที่สังเขปแสดงสถานที่เกิดเหตุ");
+        jPanel14.add(jCheckW137, new org.netbeans.lib.awtextra.AbsoluteConstraints(718, 265, 330, -1));
 
         jCheckW138.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW138.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW138.setText("บันทึกการตรวจสอบสถานที่เกิดเหตุคดีจราจรทางบก");
+        jPanel14.add(jCheckW138, new org.netbeans.lib.awtextra.AbsoluteConstraints(718, 232, 330, -1));
 
         jCheckW139.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW139.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW139.setText("บันทึกการตรวจสอบสถานที่เกิดเหตุคดีอาญา");
+        jPanel14.add(jCheckW139, new org.netbeans.lib.awtextra.AbsoluteConstraints(718, 199, 330, -1));
 
         jCheckW140.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW140.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW140.setText("ตำหนิรูปพรรณผู้กระทำความผิด");
+        jPanel14.add(jCheckW140, new org.netbeans.lib.awtextra.AbsoluteConstraints(718, 298, 330, -1));
 
         jCheckW141.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW141.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW141.setText("คำร้องขอตรวจสอบการจับ");
+        jPanel14.add(jCheckW141, new org.netbeans.lib.awtextra.AbsoluteConstraints(718, 331, 330, -1));
 
         jCheckW142.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW142.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW142.setText("บันทึกการตรวจค้น");
+        jPanel14.add(jCheckW142, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 359, 391, -1));
 
         jCheckW143.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW143.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW143.setText("แผนประทุษกรรม");
+        jPanel14.add(jCheckW143, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 364, 321, -1));
 
         jCheckW155.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW155.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW155.setText("บันทึกการตรวจสภาพสภาพรถยนต์");
-
-        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
-        jPanel14.setLayout(jPanel14Layout);
-        jPanel14Layout.setHorizontalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jCheckW92, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jCheckW95, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jCheckW94, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jCheckW90, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jCheckW86, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jCheckW87, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jCheckW88, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jCheckW89, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jCheckW91, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jCheckW27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jCheckW142, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel14Layout.createSequentialGroup()
-                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jCheckW106, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jCheckW104, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jCheckW107, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jCheckW105, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
-                            .addComponent(jCheckW119, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jCheckW103, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
-                            .addComponent(jCheckW101, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jCheckW100, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, 0))
-                    .addComponent(jCheckW40, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jCheckW102, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jCheckW143, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel14Layout.createSequentialGroup()
-                        .addComponent(jCheckW155, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0))
-                    .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel14Layout.createSequentialGroup()
-                            .addComponent(jCheckW141, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGap(0, 0, 0))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
-                            .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jCheckW125, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel14Layout.createSequentialGroup()
-                                    .addGap(0, 0, 0)
-                                    .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jCheckW129, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jCheckW130, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jCheckW128, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                            .addGap(0, 0, 0))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
-                            .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jCheckW137, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jCheckW138, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jCheckW139, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jCheckW26, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGap(0, 0, 0))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
-                            .addComponent(jCheckW140, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGap(0, 0, 0)))))
-        );
-        jPanel14Layout.setVerticalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel14Layout.createSequentialGroup()
-                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel14Layout.createSequentialGroup()
-                                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jCheckW86)
-                                    .addComponent(jCheckW101)
-                                    .addComponent(jCheckW125))
-                                .addGap(0, 0, 0)
-                                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel14Layout.createSequentialGroup()
-                                        .addComponent(jCheckW100)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(jCheckW40)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(jCheckW102)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jCheckW103)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
-                                        .addComponent(jCheckW128)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jCheckW129)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(jCheckW130)
-                                        .addGap(35, 35, 35)))
-                                .addComponent(jCheckW104)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jCheckW105)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jCheckW106))
-                            .addGroup(jPanel14Layout.createSequentialGroup()
-                                .addComponent(jCheckW26)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jCheckW139)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jCheckW138)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jCheckW137)))
-                        .addGap(0, 0, 0)
-                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jCheckW107)
-                            .addComponent(jCheckW140))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jCheckW119)
-                            .addComponent(jCheckW141))
-                        .addGap(0, 0, 0)
-                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jCheckW143)
-                            .addComponent(jCheckW155)))
-                    .addGroup(jPanel14Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jCheckW87)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckW88)
-                        .addGap(0, 0, 0)
-                        .addComponent(jCheckW89)
-                        .addGap(0, 0, 0)
-                        .addComponent(jCheckW91, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckW90)
-                        .addGap(0, 0, 0)
-                        .addComponent(jCheckW94)
-                        .addGap(0, 0, 0)
-                        .addComponent(jCheckW95)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckW92)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckW27)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckW142)))
-                .addGap(0, 0, 0))
-        );
+        jPanel14.add(jCheckW155, new org.netbeans.lib.awtextra.AbsoluteConstraints(718, 364, 259, -1));
 
         jPanel16.setBackground(new java.awt.Color(255, 255, 255));
         jPanel16.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "เอกสารทรัพย์ ประกัน", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("TH SarabunPSK", 1, 24))); // NOI18N
@@ -2349,25 +2241,32 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             }
         });
 
+        jCheckW156.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckW156.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jCheckW156.setText("บัญชีของกลางคดีอาญา");
+
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
         jPanel16Layout.setHorizontalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel16Layout.createSequentialGroup()
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jCheckW112, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jCheckW113, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jCheckW17, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jCheckW25, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jCheckW114, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jCheckW115, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel16Layout.createSequentialGroup()
-                            .addGap(0, 0, 0)
-                            .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jCheckW112, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jCheckW113, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jCheckW17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jCheckW25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jCheckW28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jCheckW132, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
                                 .addComponent(jCheckW131, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jCheckW132, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))))
+                    .addComponent(jCheckW156, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel16Layout.createSequentialGroup()
                         .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2384,12 +2283,14 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                                 .addComponent(jCheckW126, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jCheckW127, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jCheckW123, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jCheckW124, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                .addComponent(jCheckW111, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)))
+                                .addComponent(jCheckW124, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                                .addComponent(jCheckW111, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                         .addGap(0, 0, 0)
                         .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckW28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jCheckW134, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(jCheckW134, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCheckW115, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCheckW114, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2405,11 +2306,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                             .addComponent(jCheckW113))
                         .addGap(0, 0, 0)
                         .addComponent(jCheckW25)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckW114)
-                        .addGap(0, 0, 0)
-                        .addComponent(jCheckW115)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(66, 66, 66)
                         .addComponent(jCheckW132))
                     .addGroup(jPanel16Layout.createSequentialGroup()
                         .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -2424,13 +2321,21 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                             .addComponent(jCheckW110)
                             .addComponent(jCheckW134))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jCheckW111)
-                            .addComponent(jCheckW28))
+                        .addComponent(jCheckW111)
                         .addGap(0, 0, 0)
-                        .addComponent(jCheckW124)
-                        .addGap(0, 0, 0)
-                        .addComponent(jCheckW123)
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel16Layout.createSequentialGroup()
+                                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jCheckW124)
+                                    .addComponent(jCheckW156))
+                                .addGap(0, 0, 0)
+                                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jCheckW123)
+                                    .addComponent(jCheckW28)))
+                            .addGroup(jPanel16Layout.createSequentialGroup()
+                                .addComponent(jCheckW114)
+                                .addGap(0, 0, 0)
+                                .addComponent(jCheckW115)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jCheckW127)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2515,12 +2420,9 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jCheckW150, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addGap(0, 0, 0)
-                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckW147, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckW149, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckW148, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jCheckW147, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckW149, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckW148, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, 0))
         );
         jPanel17Layout.setVerticalGroup(
@@ -2538,10 +2440,8 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                 .addGap(0, 0, 0)
                 .addComponent(jCheckW153)
                 .addGap(0, 0, 0)
-                .addComponent(jCheckW152)
-                .addGap(0, 0, 0))
+                .addComponent(jCheckW152))
             .addGroup(jPanel17Layout.createSequentialGroup()
-                .addGap(0, 0, 0)
                 .addComponent(jCheckW147)
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel17Layout.createSequentialGroup()
@@ -2549,8 +2449,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                         .addComponent(jCheckW149))
                     .addComponent(jCheckW148))
                 .addGap(0, 0, 0)
-                .addComponent(jCheckW150)
-                .addGap(0, 0, 0))
+                .addComponent(jCheckW150))
         );
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
@@ -2577,7 +2476,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                 .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         jScrollPane5.setViewportView(jPanel12);
@@ -3905,6 +3804,7 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JCheckBox jCheckW153;
     private javax.swing.JCheckBox jCheckW154;
     private javax.swing.JCheckBox jCheckW155;
+    private javax.swing.JCheckBox jCheckW156;
     private javax.swing.JCheckBox jCheckW16;
     private javax.swing.JCheckBox jCheckW17;
     private javax.swing.JCheckBox jCheckW18;

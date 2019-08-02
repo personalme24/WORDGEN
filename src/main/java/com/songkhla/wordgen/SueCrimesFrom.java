@@ -209,7 +209,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         } 
      
        DateTotal();
-       RefreshData(); 
+//       RefreshData(); 
 
    
     }
@@ -349,7 +349,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1045, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton4)
                 .addContainerGap())
         );
@@ -1112,12 +1112,14 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 1268, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(11, Short.MAX_VALUE))))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(832, 832, 832)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1128,7 +1130,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonSave, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -1138,13 +1140,13 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1289, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(0, 0, 0)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 708, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1791,67 +1793,7 @@ catch (Exception d) {  //System.out.println(d);
         });
     }
       
-   public void RefreshData(){
-      try{
-              
-        Connection con = ConnectDatabase.connect();
-        Statement stmt = con.createStatement();
-//        String a=txtCaseNO.getText();
-        String sql;
-                sql= "select SueTimes,SueDate,SueStart,SueEnd,SueTotal,\n"+ 
-                    "SueCause,SueRequest from Sue Where SuePersonId='"+person+"' and SueCaseId='"+caseid+"'";
-            ResultSet rs = stmt.executeQuery(sql);
-          System.out.println("SQL : "+sql);
-        Vector<Vector> tabledata = new Vector<Vector>();
-        while(rs.next()){
-            Vector<String> row = new Vector<String>();
-            row.add(rs.getString("SueTimes"));
-            row.add(rs.getString("SueDate"));
-            row.add(rs.getString("SueStart"));
-            row.add(rs.getString("SueEnd"));
-            row.add(rs.getString("SueTotal"));
-            row.add(rs.getString("SueCause"));
-            row.add(rs.getString("SueRequest"));
- 
-//            row.add(rs.getString("Age"));
-//            row.add(rs.getString("Race"));
-//            row.add(rs.getString("Nationality"));
-//            row.add(rs.getString("Religion"));
-            tabledata.add(row);
-        }
-        rs.close();
-        stmt.close();
-        Vector ColumnName = new Vector(); 
-    
-         ColumnName.add("ครั้งที่");    
-         ColumnName.add("วันฝาก");
-         ColumnName.add("นับแต่");   
-         ColumnName.add("ถึงวันที่");
-         ColumnName.add("รวมวัน");
-         ColumnName.add("ผู้ร้อง");
-         ColumnName.add("เหตุผัดฟ้องฝากขัง");
-//         ColumnName.add("ครบ 2 เดือน");
-         
 
-         System.out.println("SQL : "+sql);
-     
-//        jTableSue.setModel(new javax.swing.table.DefaultTableModel(
-//            tabledata,
-//            ColumnName
-//        ) {
-//            Class[] types = new Class [] {
-//                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-//            };
-//
-//            public Class getColumnClass(int columnIndex) {
-//                return types [columnIndex];
-//            }
-//        });
-//     
-        }catch(Exception ex){
-            ex.printStackTrace();
-        }
-    }
     public String CalculateDateEnd(String DateStart,String DateTotal) {
 
     String DateEnd="";

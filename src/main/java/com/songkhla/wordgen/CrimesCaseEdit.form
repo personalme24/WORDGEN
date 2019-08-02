@@ -1827,7 +1827,7 @@
                           </Properties>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                              <AbsoluteConstraints x="6" y="304" width="405" height="-1"/>
+                              <AbsoluteConstraints x="6" y="304" width="320" height="-1"/>
                             </Constraint>
                           </Constraints>
                         </Component>
@@ -3003,7 +3003,7 @@
                                   <Component id="jPanel17" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                                   <Component id="jPanel13" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="70" max="32767" attributes="0"/>
+                                  <EmptySpace pref="77" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -3293,181 +3293,8 @@
                             </Property>
                           </Properties>
 
-                          <Layout>
-                            <DimensionLayout dim="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="jCheckW92" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jCheckW95" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jCheckW94" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jCheckW90" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jCheckW86" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jCheckW87" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jCheckW88" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jCheckW89" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jCheckW91" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jCheckW27" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Component id="jCheckW142" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="jCheckW106" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jCheckW104" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jCheckW107" alignment="0" max="32767" attributes="0"/>
-                                                  </Group>
-                                                  <Component id="jCheckW105" alignment="0" pref="314" max="32767" attributes="0"/>
-                                                  <Component id="jCheckW119" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="jCheckW103" alignment="0" pref="314" max="32767" attributes="0"/>
-                                                  <Component id="jCheckW101" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="jCheckW100" alignment="0" max="32767" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="jCheckW40" max="32767" attributes="0"/>
-                                          <Component id="jCheckW102" max="32767" attributes="0"/>
-                                          <Component id="jCheckW143" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Component id="jCheckW155" min="-2" pref="259" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <Component id="jCheckW141" max="32767" attributes="0"/>
-                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jCheckW125" alignment="0" max="32767" attributes="0"/>
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Component id="jCheckW129" alignment="0" max="32767" attributes="0"/>
-                                                              <Component id="jCheckW130" alignment="0" max="32767" attributes="0"/>
-                                                              <Component id="jCheckW128" alignment="0" max="32767" attributes="0"/>
-                                                          </Group>
-                                                      </Group>
-                                                  </Group>
-                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jCheckW137" alignment="1" max="32767" attributes="0"/>
-                                                      <Component id="jCheckW138" alignment="1" max="32767" attributes="0"/>
-                                                      <Component id="jCheckW139" alignment="1" max="32767" attributes="0"/>
-                                                      <Component id="jCheckW26" alignment="1" max="32767" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="jCheckW140" max="32767" attributes="0"/>
-                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                            </DimensionLayout>
-                            <DimensionLayout dim="1">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Group type="102" attributes="0">
-                                                      <Group type="103" groupAlignment="3" attributes="0">
-                                                          <Component id="jCheckW86" alignment="3" max="-2" attributes="0"/>
-                                                          <Component id="jCheckW101" alignment="3" max="-2" attributes="0"/>
-                                                          <Component id="jCheckW125" alignment="3" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Group type="102" attributes="0">
-                                                              <Component id="jCheckW100" max="-2" attributes="0"/>
-                                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                              <Component id="jCheckW40" max="-2" attributes="0"/>
-                                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                              <Component id="jCheckW102" max="-2" attributes="0"/>
-                                                              <EmptySpace max="-2" attributes="0"/>
-                                                              <Component id="jCheckW103" max="-2" attributes="0"/>
-                                                              <EmptySpace max="-2" attributes="0"/>
-                                                          </Group>
-                                                          <Group type="102" alignment="1" attributes="0">
-                                                              <Component id="jCheckW128" max="-2" attributes="0"/>
-                                                              <EmptySpace max="-2" attributes="0"/>
-                                                              <Component id="jCheckW129" max="-2" attributes="0"/>
-                                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                              <Component id="jCheckW130" max="-2" attributes="0"/>
-                                                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                                          </Group>
-                                                      </Group>
-                                                      <Component id="jCheckW104" max="-2" attributes="0"/>
-                                                      <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="jCheckW105" max="-2" attributes="0"/>
-                                                      <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="jCheckW106" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" attributes="0">
-                                                      <Component id="jCheckW26" max="-2" attributes="0"/>
-                                                      <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="jCheckW139" max="-2" attributes="0"/>
-                                                      <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="jCheckW138" max="-2" attributes="0"/>
-                                                      <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="jCheckW137" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="jCheckW107" alignment="3" max="-2" attributes="0"/>
-                                                  <Component id="jCheckW140" alignment="3" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="jCheckW119" alignment="3" max="-2" attributes="0"/>
-                                                  <Component id="jCheckW141" alignment="3" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="jCheckW143" alignment="3" max="-2" attributes="0"/>
-                                                  <Component id="jCheckW155" alignment="3" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                              <Component id="jCheckW87" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jCheckW88" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              <Component id="jCheckW89" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              <Component id="jCheckW91" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jCheckW90" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              <Component id="jCheckW94" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              <Component id="jCheckW95" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jCheckW92" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jCheckW27" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jCheckW142" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                            </DimensionLayout>
+                          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+                            <Property name="useNullLayout" type="boolean" value="false"/>
                           </Layout>
                           <SubComponents>
                             <Component class="javax.swing.JCheckBox" name="jCheckW86">
@@ -3480,6 +3307,11 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe33;&#xe19;&#xe27;&#xe19;&#xe01;&#xe32;&#xe23;&#xe2a;&#xe2d;&#xe1a;&#xe2a;&#xe27;&#xe19;"/>
                               </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                                  <AbsoluteConstraints x="6" y="32" width="384" height="-1"/>
+                                </Constraint>
+                              </Constraints>
                             </Component>
                             <Component class="javax.swing.JCheckBox" name="jCheckW87">
                               <Properties>
@@ -3494,6 +3326,11 @@
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW87ActionPerformed"/>
                               </Events>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                                  <AbsoluteConstraints x="6" y="62" width="384" height="-1"/>
+                                </Constraint>
+                              </Constraints>
                             </Component>
                             <Component class="javax.swing.JCheckBox" name="jCheckW88">
                               <Properties>
@@ -3505,6 +3342,11 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="&#xe2b;&#xe19;&#xe31;&#xe07;&#xe2a;&#xe37;&#xe2d;&#xe2a;&#xe48;&#xe07;&#xe2a;&#xe33;&#xe19;&#xe27;&#xe19;&#xe04;&#xe14;&#xe35;&#xe17;&#xe35;&#xe48;&#xe40;&#xe2b;&#xe47;&#xe19;&#xe04;&#xe27;&#xe23;&#xe2a;&#xe31;&#xe48;&#xe07;&#xe1f;&#xe49;&#xe2d;&#xe07; &#xe41;&#xe15;&#xe48;&#xe22;&#xe31;&#xe07;&#xe44;&#xe21;&#xe48;&#xe44;&#xe14;&#xe49;&#xe15;&#xe31;&#xe27;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
                               </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                                  <AbsoluteConstraints x="6" y="95" width="384" height="-1"/>
+                                </Constraint>
+                              </Constraints>
                             </Component>
                             <Component class="javax.swing.JCheckBox" name="jCheckW89">
                               <Properties>
@@ -3519,6 +3361,11 @@
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW89ActionPerformed"/>
                               </Events>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                                  <AbsoluteConstraints x="6" y="128" width="384" height="-1"/>
+                                </Constraint>
+                              </Constraints>
                             </Component>
                             <Component class="javax.swing.JCheckBox" name="jCheckW90">
                               <Properties>
@@ -3530,6 +3377,11 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="&#xe23;&#xe32;&#xe22;&#xe07;&#xe32;&#xe19;&#xe01;&#xe32;&#xe23;&#xe2a;&#xe2d;&#xe1a;&#xe2a;&#xe27;&#xe19;"/>
                               </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                                  <AbsoluteConstraints x="6" y="194" width="384" height="-1"/>
+                                </Constraint>
+                              </Constraints>
                             </Component>
                             <Component class="javax.swing.JCheckBox" name="jCheckW91">
                               <Properties>
@@ -3547,6 +3399,11 @@
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW91ActionPerformed"/>
                               </Events>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                                  <AbsoluteConstraints x="6" y="161" width="-1" height="-1"/>
+                                </Constraint>
+                              </Constraints>
                             </Component>
                             <Component class="javax.swing.JCheckBox" name="jCheckW92">
                               <Properties>
@@ -3558,6 +3415,11 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="&#xe23;&#xe32;&#xe22;&#xe07;&#xe32;&#xe19;&#xe01;&#xe32;&#xe23;&#xe2a;&#xe2d;&#xe1a;&#xe2a;&#xe27;&#xe19;&#xe2a;&#xe33;&#xe19;&#xe27;&#xe19;&#xe0a;&#xe31;&#xe19;&#xe2a;&#xe39;&#xe15;&#xe23;&#xe1e;&#xe25;&#xe34;&#xe01;&#xe28;&#xe1e;"/>
                               </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                                  <AbsoluteConstraints x="6" y="293" width="384" height="-1"/>
+                                </Constraint>
+                              </Constraints>
                             </Component>
                             <Component class="javax.swing.JCheckBox" name="jCheckW94">
                               <Properties>
@@ -3569,6 +3431,11 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe04;&#xe33;&#xe43;&#xe2b;&#xe49;&#xe01;&#xe32;&#xe23;&#xe1c;&#xe39;&#xe49;&#xe01;&#xe25;&#xe48;&#xe32;&#xe27;&#xe2b;&#xe32; &#xe2b;&#xe23;&#xe37;&#xe2d;&#xe1e;&#xe22;&#xe32;&#xe19;"/>
                               </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                                  <AbsoluteConstraints x="6" y="227" width="384" height="-1"/>
+                                </Constraint>
+                              </Constraints>
                             </Component>
                             <Component class="javax.swing.JCheckBox" name="jCheckW95">
                               <Properties>
@@ -3580,6 +3447,11 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe04;&#xe33;&#xe43;&#xe2b;&#xe49;&#xe01;&#xe32;&#xe23;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
                               </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                                  <AbsoluteConstraints x="6" y="260" width="384" height="-1"/>
+                                </Constraint>
+                              </Constraints>
                             </Component>
                             <Component class="javax.swing.JCheckBox" name="jCheckW40">
                               <Properties>
@@ -3594,6 +3466,11 @@
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW40ActionPerformed"/>
                               </Events>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                                  <AbsoluteConstraints x="397" y="98" width="321" height="-1"/>
+                                </Constraint>
+                              </Constraints>
                             </Component>
                             <Component class="javax.swing.JCheckBox" name="jCheckW100">
                               <Properties>
@@ -3608,6 +3485,11 @@
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW100ActionPerformed"/>
                               </Events>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                                  <AbsoluteConstraints x="397" y="65" width="314" height="-1"/>
+                                </Constraint>
+                              </Constraints>
                             </Component>
                             <Component class="javax.swing.JCheckBox" name="jCheckW27">
                               <Properties>
@@ -3619,6 +3501,11 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe1e;&#xe19;&#xe31;&#xe01;&#xe07;&#xe32;&#xe19;&#xe2a;&#xe2d;&#xe1a;&#xe2a;&#xe27;&#xe19;"/>
                               </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                                  <AbsoluteConstraints x="6" y="326" width="384" height="-1"/>
+                                </Constraint>
+                              </Constraints>
                             </Component>
                             <Component class="javax.swing.JCheckBox" name="jCheckW101">
                               <Properties>
@@ -3630,6 +3517,11 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="&#xe2b;&#xe21;&#xe32;&#xe22;&#xe08;&#xe31;&#xe1a;"/>
                               </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                                  <AbsoluteConstraints x="397" y="32" width="314" height="-1"/>
+                                </Constraint>
+                              </Constraints>
                             </Component>
                             <Component class="javax.swing.JCheckBox" name="jCheckW102">
                               <Properties>
@@ -3644,6 +3536,11 @@
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW102ActionPerformed"/>
                               </Events>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                                  <AbsoluteConstraints x="397" y="131" width="321" height="-1"/>
+                                </Constraint>
+                              </Constraints>
                             </Component>
                             <Component class="javax.swing.JCheckBox" name="jCheckW103">
                               <Properties>
@@ -3655,6 +3552,11 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="&#xe2b;&#xe21;&#xe32;&#xe22;&#xe40;&#xe23;&#xe35;&#xe22;&#xe01;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
                               </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                                  <AbsoluteConstraints x="397" y="164" width="314" height="-1"/>
+                                </Constraint>
+                              </Constraints>
                             </Component>
                             <Component class="javax.swing.JCheckBox" name="jCheckW104">
                               <Properties>
@@ -3669,6 +3571,11 @@
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW104ActionPerformed"/>
                               </Events>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                                  <AbsoluteConstraints x="397" y="199" width="314" height="-1"/>
+                                </Constraint>
+                              </Constraints>
                             </Component>
                             <Component class="javax.swing.JCheckBox" name="jCheckW107">
                               <Properties>
@@ -3680,6 +3587,11 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe01;&#xe32;&#xe23;&#xe08;&#xe31;&#xe1a;&#xe01;&#xe38;&#xe21;"/>
                               </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                                  <AbsoluteConstraints x="397" y="298" width="314" height="-1"/>
+                                </Constraint>
+                              </Constraints>
                             </Component>
                             <Component class="javax.swing.JCheckBox" name="jCheckW105">
                               <Properties>
@@ -3691,6 +3603,11 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe01;&#xe32;&#xe23;&#xe0a;&#xe35;&#xe49;&#xe15;&#xe31;&#xe27;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
                               </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                                  <AbsoluteConstraints x="397" y="232" width="314" height="-1"/>
+                                </Constraint>
+                              </Constraints>
                             </Component>
                             <Component class="javax.swing.JCheckBox" name="jCheckW106">
                               <Properties>
@@ -3702,6 +3619,11 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe01;&#xe32;&#xe23;&#xe0a;&#xe35;&#xe49;&#xe23;&#xe39;&#xe1b;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
                               </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                                  <AbsoluteConstraints x="397" y="265" width="314" height="-1"/>
+                                </Constraint>
+                              </Constraints>
                             </Component>
                             <Component class="javax.swing.JCheckBox" name="jCheckW119">
                               <Properties>
@@ -3716,6 +3638,11 @@
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW119ActionPerformed"/>
                               </Events>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                                  <AbsoluteConstraints x="397" y="331" width="314" height="-1"/>
+                                </Constraint>
+                              </Constraints>
                             </Component>
                             <Component class="javax.swing.JCheckBox" name="jCheckW125">
                               <Properties>
@@ -3727,6 +3654,11 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe01;&#xe32;&#xe23;&#xe04;&#xe27;&#xe1a;&#xe04;&#xe38;&#xe21;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
                               </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                                  <AbsoluteConstraints x="718" y="32" width="330" height="-1"/>
+                                </Constraint>
+                              </Constraints>
                             </Component>
                             <Component class="javax.swing.JCheckBox" name="jCheckW129">
                               <Properties>
@@ -3738,6 +3670,11 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="&#xe04;&#xe33;&#xe23;&#xe49;&#xe2d;&#xe07;&#xe02;&#xe2d;&#xe2a;&#xe37;&#xe1a;&#xe1e;&#xe22;&#xe32;&#xe19;&#xe44;&#xe27;&#xe49;&#xe01;&#xe48;&#xe2d;&#xe19;"/>
                               </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                                  <AbsoluteConstraints x="718" y="98" width="330" height="-1"/>
+                                </Constraint>
+                              </Constraints>
                             </Component>
                             <Component class="javax.swing.JCheckBox" name="jCheckW128">
                               <Properties>
@@ -3752,6 +3689,11 @@
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW128ActionPerformed"/>
                               </Events>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                                  <AbsoluteConstraints x="718" y="65" width="330" height="-1"/>
+                                </Constraint>
+                              </Constraints>
                             </Component>
                             <Component class="javax.swing.JCheckBox" name="jCheckW130">
                               <Properties>
@@ -3763,6 +3705,11 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe01;&#xe32;&#xe23;&#xe1e;&#xe1a;&#xe41;&#xe25;&#xe30;&#xe1b;&#xe23;&#xe36;&#xe01;&#xe29;&#xe32;&#xe17;&#xe19;&#xe32;&#xe22;"/>
                               </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                                  <AbsoluteConstraints x="718" y="131" width="330" height="-1"/>
+                                </Constraint>
+                              </Constraints>
                             </Component>
                             <Component class="javax.swing.JCheckBox" name="jCheckW26">
                               <Properties>
@@ -3774,6 +3721,11 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe01;&#xe32;&#xe23;&#xe19;&#xe33;&#xe0a;&#xe35;&#xe49;&#xe17;&#xe35;&#xe48;&#xe40;&#xe01;&#xe34;&#xe14;&#xe40;&#xe2b;&#xe15;&#xe38;&#xe1b;&#xe23;&#xe30;&#xe01;&#xe2d;&#xe1a;&#xe04;&#xe33;&#xe23;&#xe31;&#xe1a;&#xe2a;&#xe32;&#xe23;&#xe20;&#xe32;&#xe1e;"/>
                               </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                                  <AbsoluteConstraints x="718" y="166" width="330" height="-1"/>
+                                </Constraint>
+                              </Constraints>
                             </Component>
                             <Component class="javax.swing.JCheckBox" name="jCheckW137">
                               <Properties>
@@ -3785,6 +3737,11 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="&#xe41;&#xe1c;&#xe19;&#xe17;&#xe35;&#xe48;&#xe2a;&#xe31;&#xe07;&#xe40;&#xe02;&#xe1b;&#xe41;&#xe2a;&#xe14;&#xe07;&#xe2a;&#xe16;&#xe32;&#xe19;&#xe17;&#xe35;&#xe48;&#xe40;&#xe01;&#xe34;&#xe14;&#xe40;&#xe2b;&#xe15;&#xe38;"/>
                               </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                                  <AbsoluteConstraints x="718" y="265" width="330" height="-1"/>
+                                </Constraint>
+                              </Constraints>
                             </Component>
                             <Component class="javax.swing.JCheckBox" name="jCheckW138">
                               <Properties>
@@ -3796,6 +3753,11 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe2a;&#xe16;&#xe32;&#xe19;&#xe17;&#xe35;&#xe48;&#xe40;&#xe01;&#xe34;&#xe14;&#xe40;&#xe2b;&#xe15;&#xe38;&#xe04;&#xe14;&#xe35;&#xe08;&#xe23;&#xe32;&#xe08;&#xe23;&#xe17;&#xe32;&#xe07;&#xe1a;&#xe01;"/>
                               </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                                  <AbsoluteConstraints x="718" y="232" width="330" height="-1"/>
+                                </Constraint>
+                              </Constraints>
                             </Component>
                             <Component class="javax.swing.JCheckBox" name="jCheckW139">
                               <Properties>
@@ -3807,6 +3769,11 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe2a;&#xe16;&#xe32;&#xe19;&#xe17;&#xe35;&#xe48;&#xe40;&#xe01;&#xe34;&#xe14;&#xe40;&#xe2b;&#xe15;&#xe38;&#xe04;&#xe14;&#xe35;&#xe2d;&#xe32;&#xe0d;&#xe32;"/>
                               </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                                  <AbsoluteConstraints x="718" y="199" width="330" height="-1"/>
+                                </Constraint>
+                              </Constraints>
                             </Component>
                             <Component class="javax.swing.JCheckBox" name="jCheckW140">
                               <Properties>
@@ -3818,6 +3785,11 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="&#xe15;&#xe33;&#xe2b;&#xe19;&#xe34;&#xe23;&#xe39;&#xe1b;&#xe1e;&#xe23;&#xe23;&#xe13;&#xe1c;&#xe39;&#xe49;&#xe01;&#xe23;&#xe30;&#xe17;&#xe33;&#xe04;&#xe27;&#xe32;&#xe21;&#xe1c;&#xe34;&#xe14;"/>
                               </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                                  <AbsoluteConstraints x="718" y="298" width="330" height="-1"/>
+                                </Constraint>
+                              </Constraints>
                             </Component>
                             <Component class="javax.swing.JCheckBox" name="jCheckW141">
                               <Properties>
@@ -3829,6 +3801,11 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="&#xe04;&#xe33;&#xe23;&#xe49;&#xe2d;&#xe07;&#xe02;&#xe2d;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe01;&#xe32;&#xe23;&#xe08;&#xe31;&#xe1a;"/>
                               </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                                  <AbsoluteConstraints x="718" y="331" width="330" height="-1"/>
+                                </Constraint>
+                              </Constraints>
                             </Component>
                             <Component class="javax.swing.JCheckBox" name="jCheckW142">
                               <Properties>
@@ -3840,6 +3817,11 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe04;&#xe49;&#xe19;"/>
                               </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                                  <AbsoluteConstraints x="6" y="359" width="391" height="-1"/>
+                                </Constraint>
+                              </Constraints>
                             </Component>
                             <Component class="javax.swing.JCheckBox" name="jCheckW143">
                               <Properties>
@@ -3851,6 +3833,11 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="&#xe41;&#xe1c;&#xe19;&#xe1b;&#xe23;&#xe30;&#xe17;&#xe38;&#xe29;&#xe01;&#xe23;&#xe23;&#xe21;"/>
                               </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                                  <AbsoluteConstraints x="397" y="364" width="321" height="-1"/>
+                                </Constraint>
+                              </Constraints>
                             </Component>
                             <Component class="javax.swing.JCheckBox" name="jCheckW155">
                               <Properties>
@@ -3862,6 +3849,11 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe20;&#xe32;&#xe1e;&#xe2a;&#xe20;&#xe32;&#xe1e;&#xe23;&#xe16;&#xe22;&#xe19;&#xe15;&#xe4c;"/>
                               </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                                  <AbsoluteConstraints x="718" y="364" width="259" height="-1"/>
+                                </Constraint>
+                              </Constraints>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -3884,23 +3876,27 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="jCheckW112" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jCheckW113" alignment="0" pref="350" max="32767" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                  <Component id="jCheckW112" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="jCheckW113" alignment="0" pref="350" max="32767" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           </Group>
-                                          <Group type="103" alignment="1" groupAlignment="1" attributes="0">
-                                              <Component id="jCheckW17" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jCheckW25" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jCheckW114" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jCheckW115" alignment="0" max="32767" attributes="0"/>
-                                              <Group type="102" attributes="0">
-                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="jCheckW17" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jCheckW25" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jCheckW28" max="32767" attributes="0"/>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jCheckW132" alignment="1" min="-2" pref="350" max="-2" attributes="0"/>
+                                                  <Group type="102" alignment="1" attributes="0">
                                                       <Component id="jCheckW131" min="-2" pref="350" max="-2" attributes="0"/>
-                                                      <Component id="jCheckW132" alignment="1" min="-2" pref="350" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
+                                          <Component id="jCheckW156" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
@@ -3927,11 +3923,13 @@
                                               </Group>
                                               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jCheckW28" max="32767" attributes="0"/>
                                                   <Component id="jCheckW134" min="-2" pref="336" max="-2" attributes="0"/>
+                                                  <Component id="jCheckW115" alignment="0" min="-2" pref="289" max="-2" attributes="0"/>
+                                                  <Component id="jCheckW114" alignment="0" min="-2" pref="289" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -3951,11 +3949,7 @@
                                               </Group>
                                               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                               <Component id="jCheckW25" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jCheckW114" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              <Component id="jCheckW115" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                                               <Component id="jCheckW132" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" attributes="0">
@@ -3974,14 +3968,26 @@
                                                   <Component id="jCheckW134" alignment="3" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="jCheckW111" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jCheckW28" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jCheckW111" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" attributes="0">
+                                                      <Group type="103" groupAlignment="3" attributes="0">
+                                                          <Component id="jCheckW124" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="jCheckW156" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="3" attributes="0">
+                                                          <Component id="jCheckW123" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="jCheckW28" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="jCheckW114" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="jCheckW115" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
                                               </Group>
-                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              <Component id="jCheckW124" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              <Component id="jCheckW123" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="jCheckW127" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
@@ -4241,6 +4247,17 @@
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW136ActionPerformed"/>
                               </Events>
                             </Component>
+                            <Component class="javax.swing.JCheckBox" name="jCheckW156">
+                              <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                </Property>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="TH SarabunPSK" size="22" style="1"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe0d;&#xe0a;&#xe35;&#xe02;&#xe2d;&#xe07;&#xe01;&#xe25;&#xe32;&#xe07;&#xe04;&#xe14;&#xe35;&#xe2d;&#xe32;&#xe0d;&#xe32;"/>
+                              </Properties>
+                            </Component>
                           </SubComponents>
                         </Container>
                         <Container class="javax.swing.JPanel" name="jPanel17">
@@ -4277,14 +4294,9 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jCheckW150" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jCheckW147" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
-                                                  <Component id="jCheckW149" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
-                                                  <Component id="jCheckW148" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
+                                          <Component id="jCheckW147" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
+                                          <Component id="jCheckW149" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
+                                          <Component id="jCheckW148" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                   </Group>
@@ -4306,10 +4318,8 @@
                                       <Component id="jCheckW153" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                       <Component id="jCheckW152" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                       <Component id="jCheckW147" min="-2" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
@@ -4320,7 +4330,6 @@
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                       <Component id="jCheckW150" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>

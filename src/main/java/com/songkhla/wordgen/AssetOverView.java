@@ -260,7 +260,8 @@ public class AssetOverView extends javax.swing.JDialog {
 //                    System.out.println("Delete : "+sql);
                 if(rs.next()){
                     JSONObject data = new JSONObject(); 
-                            
+                     data.put("NoAsset", rs.getString("NoAsset"));
+                    data.put("StatusAsset", rs.getString("StatusAsset"));
                     data.put("EvidenceRecordNumber", rs.getString("EvidenceRecordNumber"));
                     data.put("crimecaseno", rs.getString("caseIdAsset"));
                     data.put("Name", rs.getString("Name"));

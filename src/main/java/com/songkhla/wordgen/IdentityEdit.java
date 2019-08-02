@@ -2305,7 +2305,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         // TODO add your handling code here:
         String idSus=crimecaseid.getText();
         String caseNumber=crimecaseno.getText()+crimecaseyear.getText();
-        String typeS="ชันสูตร";
+        String typeS="Dead";
         JSONObject s = new JSONObject();
         s.put("CaseIdSus",idSus );
         s.put("TypeCaseS",typeS );

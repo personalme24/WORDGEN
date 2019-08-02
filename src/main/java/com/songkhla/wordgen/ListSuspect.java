@@ -40,12 +40,12 @@ String typeC;
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
             
             
-                txtCaseNO.setVisible(false);
+                txtCaseNO.setVisible(true);
 
        txtCaseNO.setText(datain.get("CaseIdSus")+"");
         typeC=datain.get("TypeCaseS")+"";
          RefreshData();
-      
+        System.out.println("sfsd : "+typeC);
        
     }
 
@@ -214,7 +214,7 @@ String typeC;
              JDialog dialog = new JDialog(frame);//frame is owner
              JFrame s = (JFrame)(dialog.getParent());               
              s.removeAll();
-         if(typeC.equals("ชันสูตร")){        
+         if(typeC.equals("Dead")){        
        Identity_DeadForm idd=new Identity_DeadForm(s,null);
         idd.pack();
       idd.setLocationRelativeTo(null);       
@@ -385,7 +385,7 @@ String typeC;
         String a=txtCaseNO.getText();
         String sql = "select NoPerson,Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                      "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                     "PhonePerson,OrderPerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,caseIdPerson from person where TypePerson='ผู้ต้องหา'"
+                     "PhonePerson,OrderPerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,caseIdPerson from person where TypePerson='ผู้ตาย'"
                 + " and caseIdPerson='"+a+"'"+getFilterCondition()+"order by OrderPerson ASC";
       
         ResultSet rs = stmt.executeQuery(sql);
@@ -445,7 +445,7 @@ jTableSuspect.getColumnModel().getColumn(7).setMaxWidth(0);
             if(typeC.equals("จราจร")){
             TrafficEdit.jTextSuspect.setText(jTableSuspect.getValueAt(0, 2).toString()); 
             }
-              if(typeC.equals("ชันสูตร")){
+              if(typeC.equals("Dead")){
             IdentityEdit.jTextSuspect.setText(jTableSuspect.getValueAt(0, 2).toString()); 
             }
             }
@@ -457,25 +457,29 @@ jTableSuspect.getColumnModel().getColumn(7).setMaxWidth(0);
             if(typeC.equals("จราจร")){
             TrafficEdit.jTextSuspect.setText(""); 
             }
-              if(typeC.equals("ชันสูตร")){
+              if(typeC.equals("Dead")){
             IdentityEdit.jTextSuspect.setText(""); 
             }
             }
             if(jTableSuspect.getRowCount()>1){
             
             if(typeC.equals("อาญา")){
+             int rows = jTableSuspect.getRowCount();
+             CrimesCaseEdit.jLabelNumberSus.setText(rows+"");
             CrimesCaseEdit.jTextSuspect.setText(jTableSuspect.getValueAt(0, 2).toString()+"และพวก"); 
             }
             if(typeC.equals("จราจร")){
+                int rows = jTableSuspect.getRowCount();
+             TrafficEdit.jLabelNumberSus.setText(rows+"");
             TrafficEdit.jTextSuspect.setText(jTableSuspect.getValueAt(0, 2).toString()+"และพวก"); 
             }
-              if(typeC.equals("ชันสูตร")){
+              if(typeC.equals("Dead")){
+                     int rows = jTableSuspect.getRowCount();
+             IdentityEdit.jLabelNumberSus.setText(rows+"");
             IdentityEdit.jTextSuspect.setText(jTableSuspect.getValueAt(0, 2).toString()+"และพวก"); 
             }
             }
     
-         int rows = jTableSuspect.getRowCount();
-                       CrimesCaseEdit.jLabelNumberSus.setText(rows+"");
         }catch(Exception ex){
             ex.printStackTrace();
         }

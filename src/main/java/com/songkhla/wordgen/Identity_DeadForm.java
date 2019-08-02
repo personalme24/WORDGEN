@@ -5,68 +5,187 @@
  */
 package com.songkhla.wordgen;
 
+import static com.songkhla.wordgen.CrimesCaseEdit.ChargeNameCase;
+import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseid;
+import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseno;
+import static com.songkhla.wordgen.CrimesCaseEdit.jLabelChargeCode;
+import static com.songkhla.wordgen.CrimesCaseEdit.jTextAccused;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.ItemSelectable;
+import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Properties;
+import javafx.animation.Animation;
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
-import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
+import javax.swing.JOptionPane;
+import javax.swing.SpinnerDateModel;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import org.jdatepicker.impl.JDatePanelImpl;
+import org.jdatepicker.impl.JDatePickerImpl;
+import org.jdatepicker.impl.UtilDateModel;
 import org.json.simple.JSONObject;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerDateModel;
+import java.util.Date;
+import java.util.Locale;
+import javax.swing.JComboBox;
+import javax.swing.JRadioButton;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+
 /**
  *
- * @author Petpilin
+ * @author Computer
  */
 public class Identity_DeadForm extends javax.swing.JDialog {
- Connection con=null;
-    PreparedStatement pst=null;;
-    boolean isInsert;
-    String caseid;
-      String noPerson;
+    Connection con=null;
+    Connection con2=null;
+     PreparedStatement pst=null;
+     boolean isInsert;
+     String noPerson,caseid;
+     JDatePickerImpl IssueDate,ExpiredDate,BirthDay,DeadDate,FoundBodyDate;
+      JDatePanelImpl datePanel3;
     /**
-     * Creates new form Identity_DeadForm
+     * Creates new form AccusedForm
      */
     public Identity_DeadForm(JFrame parrent,JSONObject datain) {
-       super(parrent,true);
-       initComponents();
-             ImageIcon img = new ImageIcon("D://Master//WD.png");
+        super(parrent,true);     
+        initComponents();  
+            ImageIcon img = new ImageIcon("D://Master//WD.png");
             setIconImage(img.getImage());
-            setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
-            
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-       if(datain != null){
-        isInsert=false;
-             noPerson=datain.get("NoPerson")+"";
-            crimecaseno.setText(datain.get("crimecaseno")+"");
+            setTitle("ระบบสำนวนอิเล็กทรอนิกส์ (CRIMES)");
+           
+//  ---------------------------------------------Date Filed----------------------------------------------
+     UtilDateModel model = new UtilDateModel();
+//            model.setValue(Calendar.getInstance().getTime()); 
+            Properties p = new Properties();
+            p.put("text.today", "Today");
+            p.put("text.month", "Month");
+            p.put("text.year", "Year");
+        JDatePanelImpl datePanel = new JDatePanelImpl(model, p);
+         DeadDate = new JDatePickerImpl(datePanel,new DateLabelFormatter());
+        DeadDate.setTextEditable(true);
+        DeadDate.setBackground(Color.WHITE);
+       jPanelDeadDate.setLayout(new FlowLayout());
+        jPanelDeadDate.add(DeadDate); 
+
+        UtilDateModel model2 = new UtilDateModel();
+//            model2.setValue(Calendar.getInstance().getTime());
+          JDatePanelImpl datePanel2 = new JDatePanelImpl(model2, p);
+         IssueDate = new JDatePickerImpl(datePanel2,new DateLabelFormatter());
+        IssueDate.setTextEditable(true);
+        IssueDate.setBackground(Color.WHITE);
+        jPanelIssueDate.setLayout(new FlowLayout());
+        jPanelIssueDate.add(IssueDate); 
+        
+        UtilDateModel model3 = new UtilDateModel();
+//            model3.setValue(Calendar.getInstance().getTime());
+         datePanel3 = new JDatePanelImpl(model3, p);
+         ExpiredDate = new JDatePickerImpl(datePanel3,new DateLabelFormatter());
+        ExpiredDate.setTextEditable(true);
+        ExpiredDate.setBackground(Color.WHITE);
+        jPanelExpiredDate.setLayout(new FlowLayout());
+        jPanelExpiredDate.add(ExpiredDate);
+//       
+            UtilDateModel model4 = new UtilDateModel();
+//            model4.setValue(Calendar.getInstance().getTime());
+        JDatePanelImpl datePanel4 = new JDatePanelImpl(model4, p);
+         BirthDay = new JDatePickerImpl(datePanel4,new DateLabelFormatter());
+        BirthDay.setTextEditable(true);
+        BirthDay.setBackground(Color.WHITE);
+        jPanelBirthDay.setLayout(new FlowLayout());
+        jPanelBirthDay.add(BirthDay);
+        
+                    UtilDateModel model5 = new UtilDateModel();
+//            model4.setValue(Calendar.getInstance().getTime());
+        JDatePanelImpl datePanel5 = new JDatePanelImpl(model5, p);
+         FoundBodyDate = new JDatePickerImpl(datePanel4,new DateLabelFormatter());
+        FoundBodyDate.setTextEditable(true);
+        FoundBodyDate.setBackground(Color.WHITE);
+        jPanelFoundBody.setLayout(new FlowLayout());
+        jPanelFoundBody.add(FoundBodyDate);
+//        
+
+ //  ---------------------------------------------Date Filed----------------------------------------------
+        
+
+          if(datain!=null){
+        
+            isInsert=false;
+            String statusSus,statusBail;
+            statusSus=datain.get("StatusSuspect")+"";
+             statusBail=datain.get("StatusBail")+"";
+//            CourtSuspect.setSelectedItem(datain.get("CourtSuspect"));
+            Gender.setSelectedItem(datain.get("Gender"));               
+                 
+            caseid=datain.get("caseIdPerson")+"";
+            noPerson=datain.get("NoPerson")+"";
+            crimecaseno.setText(datain.get("caseIdPerson")+"");
             PeopleRegistrationID.setText(datain.get("PeopleRegistrationID")+"");
-            CurrentAddress.setText(datain.get("CurrentAddress")+"");
+            String known=datain.get("FullNamePerson")+"";
+
             FullNamePerson.setText(datain.get("FullNamePerson")+"");
+            OrderPerson.setText(datain.get("OrderPerson")+"");
             Age.setText(datain.get("Age")+"");
             Amphur.setText(datain.get("Amphur")+"");
-            BirthDay.setText(datain.get("BirthDay")+"");
-            BloodGroup.setText(datain.get("BloodGroup")+"");     
+            BirthDay.getJFormattedTextField().setText(datain.get("BirthDay")+"");
+            BloodGroup.setText(datain.get("BloodGroup")+"");
+            ExpiredDate.getJFormattedTextField().setText(datain.get("ExpiredDate")+"");
+            jTextField1.setText(datain.get("FatherFullName")+"");
+            FullNamePersonEn.setText(datain.get("FullNamePersonEn")+"");
             Height.setText(datain.get("Height")+"");
             Weight.setText(datain.get("Weight")+"");
-            Gender.setSelectedItem(datain.get("Gender"));
             HouseNumber.setText(datain.get("HouseNumber")+"");
-            PhonePerson.setText(datain.get("PhonePerson")+"");
-            Identification.setText(datain.get("Identification")+"");
+            IssueDate.getJFormattedTextField().setText(datain.get("IssueDate")+"");
             Moo.setText(datain.get("Moo")+"");
             MotherFullName.setText(datain.get("MotherFullName")+"");
-            FatherFullName.setText(datain.get("FatherFullName")+"");
             Nationality.setText(datain.get("Nationality")+"");
-            Race.setText(datain.get("Race")+"");
-            Religion.setText(datain.get("Religion")+"");
             Occupation.setText(datain.get("Occupation")+"");
             PassportNumber.setText(datain.get("PassportNumber")+"");
+            PhonePerson.setText(datain.get("PhonePerson")+"");
             Province.setText(datain.get("Province")+"");
+             ZipCode.setText(datain.get("ZipCode")+"");           
+            Race.setText(datain.get("Race")+"");
+            Religion.setText(datain.get("Religion")+"");
             Tambon.setText(datain.get("Tambon")+"");
-     
-        }
-        else{
-         crimecaseno.setText(ListSuspect.txtCaseNO.getText());
-         isInsert=true;
-        }
+            Religion.setText(datain.get("Religion")+"");
+      
+            SimpleDateFormat format=new SimpleDateFormat("d/MM/yyyy");
+            String DateArr=(datain.get("ArrestDateTime")+"");
+          
 
+
+        }else{
+           
+           crimecaseno.setText(ListSuspect.txtCaseNO.getText());
+    
+            isInsert=true;
+            jLabel36.setText(ListSuspect.txtCaseNO.getText());
+            jLabel36.setVisible(false);
+    
+        }
+          
+    }
+    
+
+    Identity_DeadForm(ListAccused aThis, boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -80,424 +199,618 @@ public class Identity_DeadForm extends javax.swing.JDialog {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         PeopleRegistrationID = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         FullNamePerson = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        OtherName = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        FullNamePersonEn = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        PassportNumber = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        BirthDay = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         Age = new javax.swing.JTextField();
-        jLabel20 = new javax.swing.JLabel();
-        BloodGroup = new javax.swing.JTextField();
-        jLabel18 = new javax.swing.JLabel();
-        Religion = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         Nationality = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
         Race = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        Religion = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         Height = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         Weight = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        BloodGroup = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
         Gender = new javax.swing.JComboBox<>();
-        jLabel34 = new javax.swing.JLabel();
-        Occupation = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
+        Occupation = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
-        FatherFullName = new javax.swing.JTextField();
         jLabel29 = new javax.swing.JLabel();
         MotherFullName = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
         PhonePerson = new javax.swing.JTextField();
-        jLabel24 = new javax.swing.JLabel();
+        jPanelIssueDate = new javax.swing.JPanel();
+        jPanelExpiredDate = new javax.swing.JPanel();
+        jPanelBirthDay = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        Moo = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
         ZipCode = new javax.swing.JTextField();
-        Province = new javax.swing.JTextField();
-        Amphur = new javax.swing.JTextField();
-        CurrentAddress = new javax.swing.JTextField();
-        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        HouseNumber = new javax.swing.JTextField();
         Tambon = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        Moo = new javax.swing.JTextField();
-        HouseNumber = new javax.swing.JTextField();
-        jLabel32 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         Identification = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        PassportNumber = new javax.swing.JTextField();
-        crimecaseno = new javax.swing.JLabel();
-        BtSaveDead = new javax.swing.JButton();
+        jLabel23 = new javax.swing.JLabel();
+        Province = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        OrderPerson = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        Amphur = new javax.swing.JTextField();
+        jLabel33 = new javax.swing.JLabel();
+        jPanelFoundBody = new javax.swing.JPanel();
+        jLabel37 = new javax.swing.JLabel();
+        jSpinner1 = new javax.swing.JSpinner();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel38 = new javax.swing.JLabel();
+        jPanelDeadDate = new javax.swing.JPanel();
+        BtSaveAccused = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setAlwaysOnTop(true);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setFont(new java.awt.Font("TH SarabunPSK", 0, 11)); // NOI18N
+        jPanel1.setPreferredSize(new java.awt.Dimension(1180, 700));
 
-        jPanel3.setBackground(new java.awt.Color(0, 153, 255));
+        jPanel3.setBackground(new java.awt.Color(4, 93, 179));
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 28)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("รายละเอียดผู้ตาย");
+        jLabel4.setFont(new java.awt.Font("TH SarabunPSK", 1, 28)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("ข้อมูลผู้ตาย");
+
+        jLabel36.setText("jLabel36");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(1119, Short.MAX_VALUE))
+                .addGap(48, 48, 48)
+                .addComponent(jLabel4)
+                .addGap(31, 31, 31)
+                .addComponent(jLabel36)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(0, 10, Short.MAX_VALUE)
-                .addComponent(jLabel1))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                .addComponent(jLabel36))
         );
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel2.setText("เลขบัตรประชาชน");
 
-        PeopleRegistrationID.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        PeopleRegistrationID.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        PeopleRegistrationID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                PeopleRegistrationIDKeyTyped(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel5.setText("ชื่อ-สกุล");
 
-        FullNamePerson.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        FullNamePerson.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
 
-        jLabel10.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel10.setText("วันเกิด");
+        jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel1.setText("วันที่ออกบัตร");
 
-        BirthDay.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel6.setText("วันที่บัตรหมดอายุ");
 
-        jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel8.setText("อายุ");
+        OtherName.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        OtherName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OtherNameActionPerformed(evt);
+            }
+        });
 
-        Age.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel11.setText("ชื่อภาษาอังกฤษ");
 
-        jLabel20.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel20.setText("หมู่โลหิต");
-
-        BloodGroup.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-
-        jLabel18.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel18.setText("ศาสนา");
-
-        Religion.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-
-        jLabel12.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel12.setText("สัญชาติ");
-
-        Nationality.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-
-        jLabel13.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel13.setText("เชื้อชาติ");
-
-        Race.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-
-        jLabel16.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel16.setText("สูง");
-
-        Height.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-
-        jLabel17.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel17.setText("น้ำหนัก");
-
-        Weight.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-
-        Gender.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        Gender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "หญิง", "ชาย", "ไม่ระบุ" }));
-
-        jLabel34.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel34.setText("เพศ");
-
-        Occupation.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-
-        jLabel14.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel14.setText("อาชีพ");
-
-        jLabel26.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel26.setText("ชื่อบิดา");
-
-        FatherFullName.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-
-        jLabel29.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel29.setText("ชื่อมารดา");
-
-        MotherFullName.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-
-        jLabel25.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel25.setText("หมายเลขโทรศัพท์");
-
-        PhonePerson.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-
-        jLabel24.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel24.setText("รหัสไปรษณีย์");
-
-        ZipCode.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-
-        Province.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-
-        Amphur.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-
-        CurrentAddress.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-
-        jLabel23.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel23.setText("เขต/อำเภอ");
-
-        Tambon.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-
-        jLabel22.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel22.setText("แขวง/ตำบล");
-
-        jLabel30.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel30.setText("หมู่ที่");
-
-        Moo.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-
-        HouseNumber.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-
-        jLabel32.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel32.setText("อยู่บ้านเลขที่");
-
-        jLabel33.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel33.setText("ที่อยู่ปัจจุบัน");
-
-        jLabel27.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel27.setText("จังหวัด");
-
-        jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel3.setText("ตำหนิรูปพรรณ");
-
-        Identification.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        FullNamePersonEn.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
 
         jLabel9.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel9.setText("เลขหนังสือเดินทาง");
 
-        PassportNumber.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        PassportNumber.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel14)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Occupation, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel18)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                                    .addComponent(Religion, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel26)
-                                        .addComponent(jLabel32)
-                                        .addComponent(jLabel27))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(FatherFullName)
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                            .addComponent(HouseNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jLabel30)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(Moo, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE))
-                                        .addComponent(Province))))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jLabel10)
-                                        .addGap(66, 66, 66))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(BirthDay, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(PeopleRegistrationID, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jLabel22)
-                                                        .addComponent(jLabel24))
-                                                    .addGap(36, 36, 36)
-                                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(ZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(Tambon)))
-                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jLabel25)
-                                                        .addComponent(jLabel29))
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(Nationality, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                            .addComponent(PhonePerson, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
-                                                            .addComponent(MotherFullName)))))
-                                            .addComponent(jLabel12))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel23)
-                                            .addComponent(jLabel13)
-                                            .addComponent(jLabel16))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(Amphur, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 33, Short.MAX_VALUE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jLabel8)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(Age, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel20)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(BloodGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(332, 332, 332))))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(PassportNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(FullNamePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(Height, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
-                                            .addComponent(Race, javax.swing.GroupLayout.Alignment.LEADING))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addComponent(jLabel17)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(Weight, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addComponent(jLabel34)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(Gender, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel33)
-                        .addGap(33, 33, 33)
-                        .addComponent(CurrentAddress))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(Identification, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel2)
-                                .addComponent(PeopleRegistrationID, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel9)
-                                .addComponent(PassportNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel5))
-                            .addComponent(FullNamePerson, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(Height, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel17)
-                                .addComponent(Weight, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel10)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel16)
-                                .addComponent(BloodGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel20)
-                                .addComponent(Age, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel8)
-                        .addComponent(BirthDay, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel18)
-                            .addComponent(Religion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel12)
-                            .addComponent(Nationality, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel13)
-                            .addComponent(Race, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel14)
-                            .addComponent(Occupation, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel25)
-                            .addComponent(PhonePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel26)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(FatherFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel29)
-                                .addComponent(MotherFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel34)
-                        .addComponent(Gender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel32)
-                        .addComponent(HouseNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel30)
-                        .addComponent(Moo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel22)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(Tambon, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel23)
-                        .addComponent(Amphur, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel27)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(Province, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel24)
-                        .addComponent(ZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel33)
-                    .addComponent(CurrentAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(Identification, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(54, Short.MAX_VALUE))
-        );
+        jLabel10.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel10.setText("วันเกิด");
 
-        crimecaseno.setText("เลขคดี");
+        jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel8.setText("อายุ");
 
-        BtSaveDead.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        BtSaveDead.setText("บันทึก");
-        BtSaveDead.addActionListener(new java.awt.event.ActionListener() {
+        Age.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        Age.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtSaveDeadActionPerformed(evt);
+                AgeActionPerformed(evt);
+            }
+        });
+        Age.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                AgeKeyTyped(evt);
+            }
+        });
+
+        jLabel12.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel12.setText("สัญชาติ");
+
+        Nationality.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+
+        Race.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+
+        jLabel18.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel18.setText("ศาสนา");
+
+        Religion.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+
+        jLabel16.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel16.setText("สูง");
+
+        Height.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+
+        jLabel17.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel17.setText("น้ำหนัก");
+
+        Weight.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+
+        jLabel20.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel20.setText("หมู่โลหิต");
+
+        BloodGroup.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+
+        jLabel15.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel15.setText("เพศ");
+
+        Gender.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        Gender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ชาย", "หญิง", "ไม่ระบุ" }));
+
+        jLabel14.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel14.setText("อาชีพ");
+
+        Occupation.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+
+        jLabel26.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel26.setText("ชื่อบิดา");
+
+        jLabel29.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel29.setText("ชื่อมารดา");
+
+        MotherFullName.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+
+        jLabel25.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel25.setText("หมายเลขโทรศัพท์");
+
+        PhonePerson.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+
+        jPanelIssueDate.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelIssueDate.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+
+        javax.swing.GroupLayout jPanelIssueDateLayout = new javax.swing.GroupLayout(jPanelIssueDate);
+        jPanelIssueDate.setLayout(jPanelIssueDateLayout);
+        jPanelIssueDateLayout.setHorizontalGroup(
+            jPanelIssueDateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 230, Short.MAX_VALUE)
+        );
+        jPanelIssueDateLayout.setVerticalGroup(
+            jPanelIssueDateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 32, Short.MAX_VALUE)
+        );
+
+        jPanelExpiredDate.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelExpiredDate.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+
+        javax.swing.GroupLayout jPanelExpiredDateLayout = new javax.swing.GroupLayout(jPanelExpiredDate);
+        jPanelExpiredDate.setLayout(jPanelExpiredDateLayout);
+        jPanelExpiredDateLayout.setHorizontalGroup(
+            jPanelExpiredDateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanelExpiredDateLayout.setVerticalGroup(
+            jPanelExpiredDateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 32, Short.MAX_VALUE)
+        );
+
+        jPanelBirthDay.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelBirthDay.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+
+        javax.swing.GroupLayout jPanelBirthDayLayout = new javax.swing.GroupLayout(jPanelBirthDay);
+        jPanelBirthDay.setLayout(jPanelBirthDayLayout);
+        jPanelBirthDayLayout.setHorizontalGroup(
+            jPanelBirthDayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanelBirthDayLayout.setVerticalGroup(
+            jPanelBirthDayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 32, Short.MAX_VALUE)
+        );
+
+        jLabel19.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel19.setText("เชื้อชาติ");
+
+        Moo.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+
+        jLabel21.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel21.setText("บ้านเลขที่");
+
+        jLabel34.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel34.setText("ตำหนิรูปพรรณ");
+
+        jLabel32.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel32.setText("วันที่พบศพ");
+
+        ZipCode.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        ZipCode.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ZipCodeKeyTyped(evt);
+            }
+        });
+
+        jLabel24.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel24.setText("รหัสไปรษณีย์");
+
+        HouseNumber.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+
+        Tambon.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+
+        jLabel22.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel22.setText("แขวง/ตำบล");
+
+        Identification.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+
+        jLabel23.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel23.setText("เขต/อำเภอ");
+
+        Province.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+
+        jLabel27.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel27.setText("จังหวัด");
+
+        jLabel30.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel30.setText("หมู่ที่");
+
+        jLabel35.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel35.setText("ผู้ต้องหาคนที่");
+
+        OrderPerson.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+
+        jLabel7.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel7.setText("ชื่อสกุลอื่น");
+
+        Amphur.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        Amphur.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AmphurActionPerformed(evt);
+            }
+        });
+
+        jLabel33.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel33.setText("สถานที่ตาย");
+
+        javax.swing.GroupLayout jPanelFoundBodyLayout = new javax.swing.GroupLayout(jPanelFoundBody);
+        jPanelFoundBody.setLayout(jPanelFoundBodyLayout);
+        jPanelFoundBodyLayout.setHorizontalGroup(
+            jPanelFoundBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanelFoundBodyLayout.setVerticalGroup(
+            jPanelFoundBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 34, Short.MAX_VALUE)
+        );
+
+        jLabel37.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel37.setText("วันที่พบศพ");
+
+        jLabel38.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel38.setText("วันที่ตาย");
+
+        javax.swing.GroupLayout jPanelDeadDateLayout = new javax.swing.GroupLayout(jPanelDeadDate);
+        jPanelDeadDate.setLayout(jPanelDeadDateLayout);
+        jPanelDeadDateLayout.setHorizontalGroup(
+            jPanelDeadDateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 204, Short.MAX_VALUE)
+        );
+        jPanelDeadDateLayout.setVerticalGroup(
+            jPanelDeadDateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 34, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(PassportNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
+                            .addComponent(jPanelExpiredDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(OtherName, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanelBirthDay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE))
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(FullNamePersonEn, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Age, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(9, 9, 9)
+                        .addComponent(OrderPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jLabel2)
+                        .addGap(16, 16, 16)
+                        .addComponent(PeopleRegistrationID, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(9, 9, 9)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(9, 9, 9)
+                        .addComponent(FullNamePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jPanelIssueDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(9, 9, 9)
+                        .addComponent(Nationality, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(9, 9, 9)
+                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Race, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(87, 87, 87)
+                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(Religion, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Height, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)
+                        .addComponent(jLabel17)
+                        .addGap(8, 8, 8)
+                        .addComponent(Weight, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8)
+                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BloodGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)
+                        .addComponent(jLabel15)
+                        .addGap(7, 7, 7)
+                        .addComponent(Gender, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25)
+                        .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                .addGap(49, 49, 49)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
+                                    .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jPanelFoundBody, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Amphur, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
+                                    .addComponent(HouseNumber, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel24)
+                                    .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addComponent(Moo, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel22)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(Tambon, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel27))
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(ZipCode)
+                                            .addComponent(jSpinner1, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jPanelDeadDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(Province, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel4Layout.createSequentialGroup()
+                                    .addComponent(MotherFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(9, 9, 9)
+                                    .addComponent(jLabel25)
+                                    .addGap(5, 5, 5)
+                                    .addComponent(PhonePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(19, 19, 19)
+                                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(10, 10, 10)
+                                    .addComponent(Occupation, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Identification, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 101, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(OrderPerson)
+                    .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(9, 9, 9)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PeopleRegistrationID, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(FullNamePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanelIssueDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(8, 8, 8)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jPanelExpiredDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(7, 7, 7))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(OtherName, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(FullNamePersonEn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(PassportNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jPanelBirthDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(39, 39, 39)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(Age, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(8, 8, 8)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Nationality, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Race, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Religion, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(8, 8, 8)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Height, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Weight, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BloodGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Gender, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(7, 7, 7)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(MotherFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PhonePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Occupation, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(HouseNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Moo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Tambon, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Province, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Amphur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jPanelFoundBody, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jPanelDeadDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                    .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Identification, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(61, Short.MAX_VALUE))
+        );
+
+        PhonePerson.getAccessibleContext().setAccessibleName("");
+
+        BtSaveAccused.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        BtSaveAccused.setText("บันทึก");
+        BtSaveAccused.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtSaveAccusedActionPerformed(evt);
             }
         });
 
@@ -505,32 +818,23 @@ public class Identity_DeadForm extends javax.swing.JDialog {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
+                .addGap(45, 45, 45)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(crimecaseno)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BtSaveDead, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(332, 332, 332))))
+                    .addComponent(BtSaveAccused, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(crimecaseno)
-                    .addComponent(BtSaveDead, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(45, 45, 45)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(BtSaveAccused)
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -538,119 +842,172 @@ public class Identity_DeadForm extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 968, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1230, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 718, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BtSaveDeadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSaveDeadActionPerformed
+    private void BtSaveAccusedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSaveAccusedActionPerformed
         // TODO add your handling code here:
         con=ConnectDatabase.connect();
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+  
+    
         if(isInsert){
-            String sql="INSERT INTO Person (PeopleRegistrationID,FullNamePerson,PassportNumber,BirthDay,Age,BloodGroup,\n" +
-            "Height,Weight,Gender,Race,Religion,Nationality,Occupation,PhonePerson,MotherFullName,FatherFullName,HouseNumber,Moo,\n" +
-            "Tambon,Amphur,Province,PhonePerson,ZipCode,CurrentAddress,Identification,TypePerson,caseIdPerson)\n"
-            + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-
+            String sql="INSERT INTO Person (Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
+            "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
+            "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,StatusSuspect,"
+            + "caseIdPerson,ArrestDateTime,PlaceArrest,CourtSuspect,BailDate,ArrestDateTimeEnd,StatusBail,RatePrison,Identification,OrderPerson,SusConfress)\n"
+            + " VALUES (?,?,? ,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            //           String sqlSueFirst="insert into sue (SueTimes,SueDate,)";
             System.out.println("SQL : "+sql);
             try {
                 pst=con.prepareStatement(sql);
-                pst.setString(1,PeopleRegistrationID.getText());
-                pst.setString(2,FullNamePerson.getText());
-                pst.setString(3,PassportNumber.getText());
-                pst.setString(4,BirthDay.getText());
-               
-                pst.setString(5,Age.getText());
-                pst.setString(6,BloodGroup.getText());
-               
-                pst.setString(7,Height.getText());
-                pst.setString(8,Weight.getText());
+                pst.setString(1,Age.getText());
+                pst.setString(2,Amphur.getText());
+                pst.setString(3,BirthDay.getJFormattedTextField().getText());
+                pst.setString(4,BloodGroup.getText());
+                pst.setString(5,ExpiredDate.getJFormattedTextField().getText());
+                pst.setString(6,jTextField1.getText());
+              
+                pst.setString(8,FullNamePersonEn.getText());
                 pst.setString(9,Gender.getSelectedItem().toString());
-               
-                pst.setString(10,Race.getText());
-                pst.setString(11,Religion.getText());
-                pst.setString(12,Nationality.getText());
-                pst.setString(13,Occupation.getText());
-               
-                pst.setString(14,PhonePerson.getText());
-                pst.setString(15,MotherFullName.getText());
-                pst.setString(16,FatherFullName.getText());
-                pst.setString(17,HouseNumber.getText());
-                pst.setString(18,Moo.getText());
-                pst.setString(19,Tambon.getText());
-                pst.setString(20,Amphur.getText());
-               // pst.setString(25,TypePerson.getText());
+                pst.setString(10,Height.getText());
+                pst.setString(11,HouseNumber.getText());
+                pst.setString(12,IssueDate.getJFormattedTextField().getText());
+                pst.setString(13,Moo.getText());
+                pst.setString(14,MotherFullName.getText());
+                pst.setString(15,Nationality.getText());
+                pst.setString(16,Occupation.getText());
+                pst.setString(17,OtherName.getText());
+                pst.setString(18,PassportNumber.getText());
+                pst.setString(19,PeopleRegistrationID.getText());
+                pst.setString(20,PhonePerson.getText());
                 pst.setString(21,Province.getText());
-                pst.setString(22,PhonePerson.getText());
-                pst.setString(23,ZipCode.getText());
-                pst.setString(24,CurrentAddress.getText());
-                pst.setString(25,Identification.getText());
-                 pst.setString(26,"ผู้ต้องหา");
-                 pst.setString(27,crimecaseno.getText());
-               // pst.setString(28,crimecaseno.getText());
-                JOptionPane.showConfirmDialog(null,"Data,Saved successfully");
-                pst.executeUpdate();
-                pst.close();
-                System.out.println("SQL : "+sql);
+                pst.setString(22,Race.getText());
+                pst.setString(23,Religion.getText());
+                pst.setString(24,Tambon.getText());
+                pst.setString(25,"ผู้ต้องหา");
+                pst.setString(26,Weight.getText());
+                pst.setString(27,ZipCode.getText());
+
+             
+                pst.setString(29,crimecaseno.getText());
+                //                pst.setString(30,BailDate.getText());
+
+           
+                pst.setString(37,Identification.getText());
+                pst.setString(38,OrderPerson.getText());
+
+
+                int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
+                    JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                if (response == JOptionPane.YES_OPTION) {
+                    pst.executeUpdate();
+                    pst.close();
+                    System.out.println("SQL : "+sql);
+                    setVisible(false);
+                }
+
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
+                JOptionPane.showMessageDialog(jPanel1, "Cannaot Save" ,null, JOptionPane.INFORMATION_MESSAGE);
+
                 System.out.println("SQL : "+pst);
             }
         }
         else{
-            String sqlUpdate="Update Person set PeopleRegistrationID=?,FullNamePerson=?,PassportNumber=?,\n" +
-            "BirthDay=?,Age=?,BloodGroup=?,Height=?,\n" +
-            "Weight=?,Gender=?,Race=?,Religion=?,Nationality=?,Occupation=?,PhonePerson=?,\n" +
-            "MotherFullName=?,FatherFullName=?,HouseNumber=?,Moo=?,Tambon=?,Amphur=?,Province=?,\n" +
-            "PhonePerson=?,ZipCode=?,CurrentAddress=?,Identification=? where NoPerson=? and caseIdPerson=?   ";
+            String sqlUpdate="Update Person set "
+            + "Age=?,"
+            + "Amphur=?,"
+            + "BirthDay=?,\n"
+            + "BloodGroup=?,"
+            + "ExpiredDate=?,"
+            + "FatherFullName=?,"
+            + "FullNamePerson=?,"
+            + "FullNamePersonEn=?,\n"
+            +  "Gender=?,"
+            + "Height=?,"
+            + "HouseNumber=?,"
+            + "IssueDate=?,"
+            + "Moo=?,"
+            + "MotherFullName=?,"
+            + "Nationality=?,"
+            + "Occupation=?,\n"
+            + "OtherName=?,"
+            + "PassportNumber=?,"
+            + "PeopleRegistrationID=?,"
+            + "PhonePerson=?,"
+            + "Province=?,"
+            + "Race=?,"
+            + "Religion=?,\n"
+            + "Tambon=?,"
+            + "TypePerson=?,"
+            + "Weight=?,"
+            + "ZipCode=? ,"
+            + "caseIdPerson=?,"
+            + "CourtSuspect=?,"
+            + "ArrestDateTime=?,"
+            + "BailDate=?,"
+            + "ArrestDateTimeEnd=?,"
+            + "StatusSuspect=?,"
+            + "StatusBail=?,"
+            + "RatePrison=?,"
+            + "SusConfress=?,"                     
+            + "OrderPerson=? where NoPerson=? and TypePerson=?   ";
 
             try {
                 pst=con.prepareStatement(sqlUpdate);
-                 pst.setString(1,PeopleRegistrationID.getText());
-                pst.setString(2,FullNamePerson.getText());
-                pst.setString(3,PassportNumber.getText());
-                pst.setString(4,BirthDay.getText());
-               
-                pst.setString(5,Age.getText());
-                pst.setString(6,BloodGroup.getText());
-               
-                pst.setString(7,Height.getText());
-                pst.setString(8,Weight.getText());
+                pst.setString(1,Age.getText());
+                pst.setString(2,Amphur.getText());
+                pst.setString(3,BirthDay.getJFormattedTextField().getText());
+                pst.setString(4,BloodGroup.getText());
+                pst.setString(5,ExpiredDate.getJFormattedTextField().getText());
+                pst.setString(6,jTextField1.getText());
+                pst.setString(7,FullNamePerson.getText());
+                pst.setString(8,FullNamePersonEn.getText());
                 pst.setString(9,Gender.getSelectedItem().toString());
-               
-                pst.setString(10,Race.getText());
-                pst.setString(11,Religion.getText());
-                pst.setString(12,Nationality.getText());
-                pst.setString(13,Occupation.getText());
-               
-                pst.setString(14,PhonePerson.getText());
-                pst.setString(15,MotherFullName.getText());
-                pst.setString(16,FatherFullName.getText());
-                pst.setString(17,HouseNumber.getText());
-                pst.setString(18,Moo.getText());
-                pst.setString(19,Tambon.getText());
-                pst.setString(20,Amphur.getText());
-               // pst.setString(25,TypePerson.getText());
+                pst.setString(10,Height.getText());
+                pst.setString(11,HouseNumber.getText());
+                pst.setString(12,IssueDate.getJFormattedTextField().getText());
+                pst.setString(13,Moo.getText());
+                pst.setString(14,MotherFullName.getText());
+                pst.setString(15,Nationality.getText());
+                pst.setString(16,Occupation.getText());
+                pst.setString(17,OtherName.getText());
+                pst.setString(18,PassportNumber.getText());
+                pst.setString(19,PeopleRegistrationID.getText());
+                pst.setString(20,PhonePerson.getText());
                 pst.setString(21,Province.getText());
-                pst.setString(22,PhonePerson.getText());
-                pst.setString(23,ZipCode.getText());
-                pst.setString(24,CurrentAddress.getText());
-                pst.setString(25,Identification.getText());
-                 pst.setString(26,noPerson);
-                 pst.setString(27,caseid);
+                pst.setString(22,Race.getText());
+                pst.setString(23,Religion.getText());
+                pst.setString(24,Tambon.getText());
+                pst.setString(25,"ผู้ต้องหา");
+                pst.setString(26,Weight.getText());
+                pst.setString(27,ZipCode.getText());
+                pst.setString(28,crimecaseno.getText());
+                pst.setString(37,OrderPerson.getText());
+                pst.setString(38,noPerson);
 
-                pst.executeUpdate();
+                pst.setString(39,"ผู้ต้องหา");
 
-                //                             JOptionPane.showMessageDialog(null, "Data Saved successfully");
-                pst.close();
-                 JOptionPane.showConfirmDialog(null,"Data,Saved successfully");
-                System.out.println("SQL : "+sqlUpdate);
+                int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
+                    JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                if (response == JOptionPane.YES_OPTION) {
+                    pst.executeUpdate();
+                    pst.close();
+                    System.out.println("SQL : "+sqlUpdate);
+                    setVisible(false);
+                }
+
+                //                System.out.println("SQL : "+sqlUpdate);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e);
                 System.out.println("SQL : "+pst);
@@ -658,15 +1015,53 @@ public class Identity_DeadForm extends javax.swing.JDialog {
 
         }
 
-//        JFrame frame = new JFrame("JOptionPane showMessageDialog example");
+    }//GEN-LAST:event_BtSaveAccusedActionPerformed
 
-        // show a joptionpane dialog using showMessageDialog
-//        JOptionPane.showMessageDialog(frame,
-//            "Your RSS feed has been published",
-//            "RSS Feed Published",
-//            JOptionPane.INFORMATION_MESSAGE);
-        setVisible(false);
-    }//GEN-LAST:event_BtSaveDeadActionPerformed
+    private void ZipCodeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ZipCodeKeyTyped
+        char vChar = evt.getKeyChar();
+        if(!(Character.isDigit(vChar) || (vChar==KeyEvent.VK_BACK_SPACE)||(vChar==KeyEvent.VK_DELETE)))
+        {
+            evt.consume();
+        }
+        if(ZipCode.getText().length()>=13) {
+            evt.consume();
+        }  // TODO add your handling code here:
+    }//GEN-LAST:event_ZipCodeKeyTyped
+
+    private void AgeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AgeKeyTyped
+        char vChar = evt.getKeyChar();
+        if(!(Character.isDigit(vChar) || (vChar==KeyEvent.VK_BACK_SPACE)||(vChar==KeyEvent.VK_DELETE)))
+        {
+            evt.consume();
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_AgeKeyTyped
+
+    private void AgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AgeActionPerformed
+
+    private void OtherNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OtherNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_OtherNameActionPerformed
+
+    private void PeopleRegistrationIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PeopleRegistrationIDKeyTyped
+        char vChar = evt.getKeyChar();
+        if(!(Character.isDigit(vChar) || (vChar==KeyEvent.VK_BACK_SPACE)||(vChar==KeyEvent.VK_DELETE)))
+        {
+            evt.consume();
+        }
+        if(PeopleRegistrationID.getText().length()>=13) {
+            evt.consume();
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_PeopleRegistrationIDKeyTyped
+
+    private void AmphurActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AmphurActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AmphurActionPerformed
+
+   
+ 
+ 
 
     /**
      * @param args the command line arguments
@@ -694,24 +1089,151 @@ public class Identity_DeadForm extends javax.swing.JDialog {
             java.util.logging.Logger.getLogger(Identity_DeadForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
+//        DataCase dcc=new DataCase();
+//        labelCaseNo.setText("dfv");
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-            
+//             AccusedForm aa=  new AccusedForm();
+//                    aa.setVisible(true);
+//                    aa.setSize ( 1024, 728 );
+//                    aa.setMinimumSize ( new Dimension ( 1024, 728 ) );
+//                    aa.setMaximizedBounds ( new Rectangle ( 1024, 728 ) );
+      Identity_DeadForm aa=  new Identity_DeadForm(null,null);
+     
             }
         });
     }
+  public static String IdCase(){
+         Connection c=null;
+         c=ConnectDatabase.connect();
+            String sqlId="Select max(CaseId) caseid from CrimeCase";
+        int id=0;
+        try {
+            Statement s=c.createStatement();
+            ResultSet rs=s.executeQuery(sqlId);
+            
+            if (rs.next()) {
+                id=rs.getInt("caseid"); 
+            }
+            
+            if(id==0){
+                id=1;
+            }
+            else{
+                id=id+1;
+            }
+             return String.valueOf(id);
+        
+        } catch (Exception e) {
+            return null;
+//            System.out.println(e);
+        } 
+    
+    }
+   public static String IdPerson(){
+         Connection cc=null;
+         cc=ConnectDatabase.connect();
+            String sqlperson="Select max(NoPerson) noperson from Person";
+        int id=0;
+        try {
+            Statement s=cc.createStatement();
+            ResultSet rs=s.executeQuery(sqlperson);
+            
+            if (rs.next()) {
+                id=rs.getInt("noperson"); 
+            }
+            
+            if(id==0){
+                id=1;
+            }
+            else{
+                id=id+1;
+            }
+             return String.valueOf(id);
+        
+        } catch (Exception e) {
+            return null;
+//            System.out.println(e);
+        } 
+    
+    }
+   public String CalculateDateTime48(String DateArrest){
+      String ArrestEnd="";   
+      Calendar cal;
+       try{
+     
+               Locale lc = new Locale("th","TH");
+                        SimpleDateFormat  format = new SimpleDateFormat("d/MM/yyyy HH:mm",lc);  
+                        Date dateArrest=null;
+                       if(DateArrest.equals(" ")){
+                       
+                       ArrestEnd=ArrestEnd;
+                       }
+                       else{
+                          dateArrest=format.parse(DateArrest);
+                        cal = Calendar.getInstance();
+                        cal.setTime(dateArrest);                      
+                        cal.add(Calendar.HOUR, +48);
+                         ArrestEnd= format.format(cal.getTime());
+                        System.out.println("Date48Hr : "+ArrestEnd);}
+                            
+                    
+       }catch(Exception e){
+           e.printStackTrace();
+       
+       }
+          return Checknull(ArrestEnd);               
+    
+    }
+     public String CalculateDateTime24(String DateArrest){
+      String ArrestEnd="";   
+      Calendar cal;
+       try{
+     
+               Locale lc = new Locale("th","TH");
+                        SimpleDateFormat  format = new SimpleDateFormat("d/MM/yyyy HH:mm",lc);  
+                        Date dateArrest=null;
+                       if(DateArrest.equals(" ")){
+                       
+                       ArrestEnd=ArrestEnd;
+                       }
+                       else{
+                          dateArrest=format.parse(DateArrest);
+                        cal = Calendar.getInstance();
+                        cal.setTime(dateArrest);                      
+                        cal.add(Calendar.HOUR, +24);
+                         ArrestEnd= format.format(cal.getTime());
+                        System.out.println("Date24Hr : "+ArrestEnd);}
+                            
+                    
+       }catch(Exception e){
+           e.printStackTrace();
+       
+       }
+          return Checknull(ArrestEnd);               
+    
+    }
+    public static String Checknull(String input){
+					if(input==null||input==""||input=="null") { return ""; }
+					return input;
+        }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Age;
     private javax.swing.JTextField Amphur;
-    private javax.swing.JTextField BirthDay;
     private javax.swing.JTextField BloodGroup;
-    private javax.swing.JButton BtSaveDead;
-    private javax.swing.JTextField CurrentAddress;
-    private javax.swing.JTextField FatherFullName;
+    private javax.swing.JButton BtSaveAccused;
     private javax.swing.JTextField FullNamePerson;
+    private javax.swing.JTextField FullNamePersonEn;
     private javax.swing.JComboBox<String> Gender;
     private javax.swing.JTextField Height;
     private javax.swing.JTextField HouseNumber;
@@ -720,6 +1242,8 @@ public class Identity_DeadForm extends javax.swing.JDialog {
     private javax.swing.JTextField MotherFullName;
     private javax.swing.JTextField Nationality;
     private javax.swing.JTextField Occupation;
+    private javax.swing.JTextField OrderPerson;
+    private javax.swing.JTextField OtherName;
     private javax.swing.JTextField PassportNumber;
     private javax.swing.JTextField PeopleRegistrationID;
     private javax.swing.JTextField PhonePerson;
@@ -729,17 +1253,19 @@ public class Identity_DeadForm extends javax.swing.JDialog {
     private javax.swing.JTextField Tambon;
     private javax.swing.JTextField Weight;
     private javax.swing.JTextField ZipCode;
-    private javax.swing.JLabel crimecaseno;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
@@ -747,16 +1273,30 @@ public class Identity_DeadForm extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanelBirthDay;
+    private javax.swing.JPanel jPanelDeadDate;
+    private javax.swing.JPanel jPanelExpiredDate;
+    private javax.swing.JPanel jPanelFoundBody;
+    private javax.swing.JPanel jPanelIssueDate;
+    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }

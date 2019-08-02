@@ -88,7 +88,7 @@ public class WitnessForm extends javax.swing.JDialog {
             crimecaseno.setText(datain.get("caseIdPerson")+"");
             PeopleRegistrationID.setText(datain.get("PeopleRegistrationID")+"");
             FullNamePerson.setText(datain.get("FullNamePerson")+"");
-            Related.setSelectedItem(datain.get("Related")+"");
+            Related.setSelectedItem(datain.get("Related"));
             Age.setText(datain.get("Age")+"");
             Amphur.setText(datain.get("Amphur")+"");
             BirthDay.getJFormattedTextField().setText(datain.get("BirthDay")+"");
@@ -778,7 +778,7 @@ public class WitnessForm extends javax.swing.JDialog {
                                     "BloodGroup=?,ExpiredDate=?,FatherFullName=?,FullNamePerson=?,FullNamePersonEn=?,\n" +
                                     "Gender=?,Height=?,HouseNumber=?,IssueDate=?,Moo=?,MotherFullName=?,Nationality=?,Occupation=?,\n" +
                                     "OtherName=?,PassportNumber=?,PeopleRegistrationID=?,PhonePerson=?,Province=?,Race=?,Religion=?,\n" +
-                                    "Tambon=?,TypePerson=?,Weight=?,ZipCode=? ,caseIdPerson=?,OrderPerson=? where NoPerson=? and TypePerson=?   ";
+                                    "Tambon=?,TypePerson=?,Weight=?,ZipCode=? ,caseIdPerson=?,OrderPerson=?,Related=? where NoPerson=? and TypePerson=?   ";
        
          try {
             pst=con.prepareStatement(sqlUpdate);
@@ -811,8 +811,9 @@ public class WitnessForm extends javax.swing.JDialog {
                               pst.setString(27,ZipCode.getText());
                               pst.setString(28,crimecaseno.getText());
                               pst.setString(29,OrderPerson.getText());
-                              pst.setString(30,noPerson);
-                              pst.setString(31,"พยานและบุคคลอื่นๆ");
+                              pst.setString(30,Related.getSelectedItem().toString());
+                              pst.setString(31,noPerson);
+                              pst.setString(32,"พยานและบุคคลอื่นๆ");
                            int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
             JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                             if (response == JOptionPane.YES_OPTION) {
