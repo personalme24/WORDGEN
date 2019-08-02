@@ -42,7 +42,7 @@ public class ActionPage extends javax.swing.JDialog {
     Connection con=null;
     PreparedStatement pst=null;
         boolean isInsert;
-   String caseidac;
+   String caseidac,typecase;
     
     /**
      * Creates new form ChangPage
@@ -55,6 +55,7 @@ public class ActionPage extends javax.swing.JDialog {
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
         con=ConnectDatabase.connect();
+        typecase=caseid.get("typecase")+"";
         if(datain!=null){
             caseidac=datain.get("ActionCaseId")+"";
 //            caseid= "" + datain.get("CaseId"); 
@@ -103,6 +104,7 @@ public class ActionPage extends javax.swing.JDialog {
         jLabel20 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
         AnswerSuspect = new javax.swing.JTextArea();
+        ButtonAddAction1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("ข้อมูลข้อหา");
@@ -190,6 +192,16 @@ public class ActionPage extends javax.swing.JDialog {
         AnswerSuspect.setRows(5);
         jScrollPane6.setViewportView(AnswerSuspect);
 
+        ButtonAddAction1.setBackground(java.awt.SystemColor.windowText);
+        ButtonAddAction1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        ButtonAddAction1.setForeground(new java.awt.Color(255, 255, 255));
+        ButtonAddAction1.setText("เพิ่ม");
+        ButtonAddAction1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonAddAction1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -208,7 +220,10 @@ public class ActionPage extends javax.swing.JDialog {
                         .addComponent(jLabel20)
                         .addComponent(jLabel3)
                         .addComponent(jLabel21)
-                        .addComponent(ButtonAddAction)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(ButtonAddAction)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(ButtonAddAction1))
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                             .addComponent(jLabel2)
@@ -250,7 +265,9 @@ public class ActionPage extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ButtonAddAction)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ButtonAddAction)
+                    .addComponent(ButtonAddAction1))
                 .addGap(77, 77, 77))
         );
 
@@ -361,9 +378,15 @@ public class ActionPage extends javax.swing.JDialog {
             
         }
      }
-     
-        CrimesCaseEdit.ActionCrimes.setText(ActionCrimes.getText());
-        CrimesCaseEdit.jLabelActionCode.setText(ActionCode.getText());
+     if(typecase.equals("อาญา")){
+             CrimesCaseEdit.ActionCrimes.setText(ActionCrimes.getText());
+        CrimesCaseEdit.jLabelActionCode.setText(ActionCode.getText());    
+     }
+     else if(typecase.equals("จราจร")){
+         TrafficEdit.ActionCrimes.setText(ActionCrimes.getText());
+        TrafficEdit.jLabelActionCode.setText(ActionCode.getText());
+     }
+       
         setVisible(false);
     }//GEN-LAST:event_ButtonAddActionActionPerformed
 
@@ -377,6 +400,10 @@ public class ActionPage extends javax.swing.JDialog {
                      d.setLocationRelativeTo(null);                   
                     d.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void ButtonAddAction1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAddAction1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonAddAction1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -423,6 +450,7 @@ public class ActionPage extends javax.swing.JDialog {
     public static javax.swing.JTextArea AnswerAccuser;
     public static javax.swing.JTextArea AnswerSuspect;
     private javax.swing.JButton ButtonAddAction;
+    private javax.swing.JButton ButtonAddAction1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;

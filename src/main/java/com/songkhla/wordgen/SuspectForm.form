@@ -306,7 +306,7 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="Gender1" max="-2" attributes="0"/>
+                                  <Component id="SusConfress" max="-2" attributes="0"/>
                                   <Component id="ZipCode" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -453,7 +453,7 @@
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="jLabel32" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                               <Component id="ZipCode1" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                              <Component id="Gender1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="SusConfress" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jLabel33" min="-2" pref="32" max="-2" attributes="0"/>
                       </Group>
@@ -999,7 +999,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtSaveAccusedActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JComboBox" name="Gender1">
+            <Component class="javax.swing.JComboBox" name="SusConfress">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="TH SarabunPSK" size="22" style="1"/>
@@ -1013,7 +1013,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Gender1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SusConfressActionPerformed"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>

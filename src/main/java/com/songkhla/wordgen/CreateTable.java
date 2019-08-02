@@ -131,6 +131,7 @@ public class CreateTable {
                 "	RestoreDate	VARCHAR(100)	,	\n"+ 
                 "	Road     	VARCHAR(100)	,	\n"+
                 "	Soi     	VARCHAR(100)	,	\n"+
+                "	SusConfress     VARCHAR(100)	,	\n"+                        
                 "	StatusFreeze	VARCHAR(100)	,	\n"+ 
                 "	FreezeOrganize     	VARCHAR(100)	,	\n"+
                 "	FreezeDate     	VARCHAR(100)	,	\n"+                          

@@ -244,7 +244,7 @@ String typeC;
                 String sql = "select NoPerson,Identification,CurrentAddress,Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,Weight,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
                         "PhonePerson,OrderPerson,StatusSuspect,BailDate,StatusBail,RatePrison,CourtSuspect,ArrestDateTimeEnd,Province,Race,Religion,Tambon,TypePerson,"
-                        + "ZipCode,caseIdPerson,ArrestDateTime,PlaceArrest from person where noperson='"+Noperson+ "' and caseIdPerson='"+crimecaseno+"' and TypePerson='ผู้ต้องหา'";
+                        + "ZipCode,caseIdPerson,ArrestDateTime,PlaceArrest,SusConfress from person where noperson='"+Noperson+ "' and caseIdPerson='"+crimecaseno+"' and TypePerson='ผู้ต้องหา'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);
@@ -288,7 +288,7 @@ String typeC;
                     data.put("CourtSuspect", rs.getString("CourtSuspect"));
                      data.put("BailDate", rs.getString("BailDate"));
                      data.put("ZipCode", rs.getString("ZipCode"));
-                   
+                     data.put("SusConfress", rs.getString("SusConfress"));
                     data.put("PlaceArrest", rs.getString("PlaceArrest"));
                     data.put("caseIdPerson", rs.getString("caseIdPerson"));
                     
@@ -446,7 +446,7 @@ jTableSuspect.getColumnModel().getColumn(7).setMaxWidth(0);
             TrafficEdit.jTextSuspect.setText(jTableSuspect.getValueAt(0, 2).toString()); 
             }
               if(typeC.equals("ชันสูตร")){
-            IdentityFrom.jTextSuspect.setText(jTableSuspect.getValueAt(0, 2).toString()); 
+            IdentityEdit.jTextSuspect.setText(jTableSuspect.getValueAt(0, 2).toString()); 
             }
             }
       if(jTableSuspect.getRowCount()<=0){
@@ -458,7 +458,7 @@ jTableSuspect.getColumnModel().getColumn(7).setMaxWidth(0);
             TrafficEdit.jTextSuspect.setText(""); 
             }
               if(typeC.equals("ชันสูตร")){
-            IdentityFrom.jTextSuspect.setText(""); 
+            IdentityEdit.jTextSuspect.setText(""); 
             }
             }
             if(jTableSuspect.getRowCount()>1){
@@ -470,7 +470,7 @@ jTableSuspect.getColumnModel().getColumn(7).setMaxWidth(0);
             TrafficEdit.jTextSuspect.setText(jTableSuspect.getValueAt(0, 2).toString()+"และพวก"); 
             }
               if(typeC.equals("ชันสูตร")){
-            IdentityFrom.jTextSuspect.setText(jTableSuspect.getValueAt(0, 2).toString()+"และพวก"); 
+            IdentityEdit.jTextSuspect.setText(jTableSuspect.getValueAt(0, 2).toString()+"และพวก"); 
             }
             }
     

@@ -443,7 +443,7 @@ jTableAccure.getColumnModel().getColumn(7).setMaxWidth(0);
             TrafficEdit.jTextAccused.setText(""); 
             }
               if(typeC.equals("ชันสูตร")){
-            IdentityFrom.jTextAccused.setText(""); 
+            IdentityEdit.jTextAccused.setText(""); 
             }
             }
          if(jTableAccure.getRowCount()==1){
@@ -455,7 +455,7 @@ jTableAccure.getColumnModel().getColumn(7).setMaxWidth(0);
             TrafficEdit.jTextAccused.setText(jTableAccure.getValueAt(0, 2).toString()); 
             }
               if(typeC.equals("ชันสูตร")){
-            IdentityFrom.jTextAccused.setText(jTableAccure.getValueAt(0, 2).toString()); 
+            IdentityEdit.jTextAccused.setText(jTableAccure.getValueAt(0, 2).toString()); 
             }
             }
             if(jTableAccure.getRowCount()>1){
@@ -467,7 +467,7 @@ jTableAccure.getColumnModel().getColumn(7).setMaxWidth(0);
             TrafficEdit.jTextAccused.setText(jTableAccure.getValueAt(0, 2).toString()+"และคนอื่นๆ"); 
             }
               if(typeC.equals("ชันสูตร")){
-            IdentityFrom.jTextAccused.setText(jTableAccure.getValueAt(0, 2).toString()+"และคนอื่นๆ"); 
+            IdentityEdit.jTextAccused.setText(jTableAccure.getValueAt(0, 2).toString()+"และคนอื่นๆ"); 
             }
             }
                int rows = jTableAccure.getRowCount();

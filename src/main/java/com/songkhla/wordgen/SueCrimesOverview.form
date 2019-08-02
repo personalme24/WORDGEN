@@ -354,10 +354,12 @@
               <Font name="TH SarabunPSK" size="22" style="1"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
-                <StringItem index="0" value="&#xe1c;&#xe31;&#xe14;&#xe1f;&#xe49;&#xe2d;&#xe07;"/>
-                <StringItem index="1" value="&#xe1d;&#xe32;&#xe01;&#xe02;&#xe31;&#xe07;"/>
-                <StringItem index="2" value="&#xe1c;&#xe31;&#xe14;&#xe1f;&#xe49;&#xe2d;&#xe07;&#xe1d;&#xe32;&#xe01;&#xe02;&#xe31;&#xe07;"/>
+              <StringArray count="5">
+                <StringItem index="0" value="&#xe17;&#xe31;&#xe49;&#xe07;&#xe2b;&#xe21;&#xe14;"/>
+                <StringItem index="1" value="&#xe1c;&#xe31;&#xe14;&#xe1f;&#xe49;&#xe2d;&#xe07;&#xe1d;&#xe32;&#xe01;&#xe02;&#xe31;&#xe07;"/>
+                <StringItem index="2" value="&#xe1c;&#xe31;&#xe14;&#xe1f;&#xe49;&#xe2d;&#xe07;"/>
+                <StringItem index="3" value="&#xe1d;&#xe32;&#xe01;&#xe02;&#xe31;&#xe07;"/>
+                <StringItem index="4" value=" "/>
               </StringArray>
             </Property>
           </Properties>

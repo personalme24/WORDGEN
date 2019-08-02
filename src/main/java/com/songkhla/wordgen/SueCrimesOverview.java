@@ -274,7 +274,7 @@ public class SueCrimesOverview extends javax.swing.JDialog {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, -1, 30));
 
         jComboBox1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ผัดฟ้อง", "ฝากขัง", "ผัดฟ้องฝากขัง" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ทั้งหมด", "ผัดฟ้องฝากขัง", "ผัดฟ้อง", "ฝากขัง", " " }));
         jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 150, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -476,7 +476,23 @@ public class SueCrimesOverview extends javax.swing.JDialog {
                         + "SueThirdDate,SueFourthDate,SueFifthDate,SueSixthDate,SueSevenDate,"
                         + "FullNamePerson,SueFirstEnd,SueSecEnd,SueThirdEnd,SueFourthEnd,SueFifthEnd,SueSixthEnd,SueSevenEnd\n"
                         + "from Person\n"+
-                        "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId where StatusSuspect IN('ผัดฟ้องฝากขัง','ผัดฟ้อง','ฝากขัง')";
+                        "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId ";
+if(jComboBox1.getSelectedItem().equals("ทั้งหมด")){
+
+sql=sql+" where StatusSuspect IN('ผัดฟ้องฝากขัง','ผัดฟ้อง','ฝากขัง')";
+}
+else if(jComboBox1.getSelectedItem().equals("ผัดฟ้องฝากขัง")){
+
+sql=sql+" where StatusSuspect='ผัดฟ้องฝากขัง'";
+}
+else if(jComboBox1.getSelectedItem().equals("ผัดฟ้อง")){
+
+sql=sql+" where StatusSuspect='ผัดฟ้อง'";
+}
+else if(jComboBox1.getSelectedItem().equals("ฝากขัง")){
+
+sql=sql+" where StatusSuspect='ฝากขัง'";
+}
 //                if(jButtonDate.getModel().isPressed()){
 //        sql=sql+" and\n" +
 //        "SueFirstEnd  between '"+ChangFormatDate(DateFilterStart.getJFormattedTextField().getText())+"' and '"+ChangFormatDate(DateFilterEnd.getJFormattedTextField().getText())+"' or\n" +
@@ -495,6 +511,9 @@ public class SueCrimesOverview extends javax.swing.JDialog {
         "SueSevenEnd    between '"+ChangFormatDate(DateFilterStart.getJFormattedTextField().getText())+"' and '"+ChangFormatDate(DateFilterEnd.getJFormattedTextField().getText())+"' " ;
         }
 //  
+
+
+
 
         ResultSet rs = stmt.executeQuery(sql);
           System.out.println("SQL : "+sql);

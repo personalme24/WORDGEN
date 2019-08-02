@@ -17,6 +17,7 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import org.json.simple.JSONObject;
 import java.awt.Font;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -131,6 +132,11 @@ public class InvesInformationView1 extends javax.swing.JDialog{
 
         jButtonDelete.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButtonDelete.setText("ลบ");
+        jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteActionPerformed(evt);
+            }
+        });
 
         txtCaseNO.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
@@ -254,6 +260,32 @@ public class InvesInformationView1 extends javax.swing.JDialog{
 
         }       
     }//GEN-LAST:event_jButtonEditActionPerformed
+
+    private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
+        // TODO add your handling code here:
+        if(jTableInvest.getSelectedRow()>=0){
+            try{
+                
+                String InvestId = jTableInvest.getModel().getValueAt(jTableInvest.getSelectedRow(), 0)+"";
+
+                String sql = "DELETE FROM InvestInformation WHERE InvestId='"+InvestId+"';";
+                Connection con = ConnectDatabase.connect();
+//                System.out.println("Delete:"+sql);
+                Statement  stmt = con.createStatement();
+                
+                int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการลบข้อมูลพนักงานสอบสวน", null,
+                    JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                if (response == JOptionPane.YES_OPTION) {
+                    stmt.executeUpdate(sql);
+                    stmt.close();
+                }
+                RefreshData();
+            }catch(Exception ex){
+                ex.printStackTrace();
+            }
+        }
+        
+    }//GEN-LAST:event_jButtonDeleteActionPerformed
   public void RefreshData(){
      try{
               

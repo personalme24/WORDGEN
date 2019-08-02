@@ -430,7 +430,7 @@ jTableWitness.getColumnModel().getColumn(7).setMaxWidth(0);
             TrafficEdit.jTextWitness.setText(""); 
             }
               if(typeC.equals("ชันสูตร")){
-            IdentityFrom.jTextWitness.setText(""); 
+            IdentityEdit.jTextWitness.setText(""); 
             }
             }
     
@@ -443,7 +443,7 @@ jTableWitness.getColumnModel().getColumn(7).setMaxWidth(0);
             TrafficEdit.jTextWitness.setText(jTableWitness.getValueAt(0, 2).toString()); 
             }
               if(typeC.equals("ชันสูตร")){
-            IdentityFrom.jTextWitness.setText(jTableWitness.getValueAt(0, 2).toString()); 
+            IdentityEdit.jTextWitness.setText(jTableWitness.getValueAt(0, 2).toString()); 
             }
             }
         if(jTableWitness.getRowCount()>1){
@@ -455,7 +455,7 @@ jTableWitness.getColumnModel().getColumn(7).setMaxWidth(0);
             TrafficEdit.jTextWitness.setText(jTableWitness.getValueAt(0, 2).toString()+"และพวก"); 
             }
               if(typeC.equals("ชันสูตร")){
-            IdentityFrom.jTextWitness.setText(jTableWitness.getValueAt(0, 2).toString()+"และพวก"); 
+            IdentityEdit.jTextWitness.setText(jTableWitness.getValueAt(0, 2).toString()+"และพวก"); 
             }
             }
         

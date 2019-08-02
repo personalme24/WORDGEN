@@ -400,6 +400,9 @@
                       </Table>
                     </Property>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jTableBailAsset.getTableHeader().setFont(new Font(&quot;TH SarabunPSK&quot;, Font.BOLD, 20));&#xa;            jTableBailAsset.getTableHeader().setOpaque(false);"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -557,6 +560,9 @@
                       </Table>
                     </Property>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jTableBailSend.getTableHeader().setFont(new Font(&quot;TH SarabunPSK&quot;, Font.BOLD, 20));&#xa;            jTableBailSend.getTableHeader().setOpaque(false);"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>

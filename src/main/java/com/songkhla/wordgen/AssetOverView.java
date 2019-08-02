@@ -28,22 +28,25 @@ import org.json.simple.JSONObject;
  */
 public class AssetOverView extends javax.swing.JDialog {
 
-
+    String TypeCase,CaseId;
     /** Creates new form Asset */
-    public AssetOverView(JFrame parrent) {
+    public AssetOverView(JFrame parrent,JSONObject datain) {
         super(parrent,true);
         initComponents();
         ImageIcon img = new ImageIcon("D://Master//WD.png");
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
         EvidenceRecordNumber.setVisible(false);
-        txtCaseno.setVisible(false);
+        CaseId=datain.get("CaseId")+"";
+        TypeCase=datain.get("TypeCase")+"";
+
+        txtCaseno.setVisible(true);
         JTable rowTable = new RowNumberTable(jTableAsset);
         jScrollPane2.setRowHeaderView(rowTable);
         jScrollPane2.setCorner(JScrollPane.UPPER_LEFT_CORNER,
          rowTable.getTableHeader());
-        txtCaseno.setText(CrimesCaseEdit.crimecaseid.getText());
-    
+        
+        txtCaseno.setText(CaseId);
         RefreshData();     
 //        JScrollPane scrollPane = new JScrollPane(jTableAsset);
 
@@ -79,7 +82,7 @@ public class AssetOverView extends javax.swing.JDialog {
         jLabel6.setBackground(new java.awt.Color(0, 0, 0));
         jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 36)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("รายการทรัพย์(อาญา)");
+        jLabel6.setText("รายการทรัพย์");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -87,7 +90,7 @@ public class AssetOverView extends javax.swing.JDialog {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel6)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -400,6 +403,7 @@ public class AssetOverView extends javax.swing.JDialog {
 //                            af.pack();
 //                             af.setLocationRelativeTo(null);
 //                            af.setVisible(true);    		
+            
             CrimesCaseEdit.ListAsset.setText(ArrayData);
       
     }

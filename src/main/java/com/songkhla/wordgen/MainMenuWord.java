@@ -916,7 +916,7 @@ public class MainMenuWord extends javax.swing.JFrame {
     }
     private void jPanel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel10MouseClicked
         // TODO add your handling code here:
-         IdentityView idt = new IdentityView();
+         IdentityView idt = new IdentityView(this);
          idt.pack();
          idt.setLocationRelativeTo(null);
         idt.setVisible(true);
@@ -924,7 +924,7 @@ public class MainMenuWord extends javax.swing.JFrame {
 
     private void jPanel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel11MouseClicked
                 // TODO add your handling code here:
-        TrafficOverView trv =new TrafficOverView();
+        TrafficOverView trv =new TrafficOverView(this);
         trv.pack();
         trv.setLocationRelativeTo(null);
         trv.setVisible(true);

@@ -2084,11 +2084,13 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         JDialog dialog = new JDialog(frame);//frame is owner
         JFrame fr = (JFrame)(dialog.getParent());
         fr.removeAll();
+ JSONObject data2 = new JSONObject();
+             data2.put("caseid", crimecaseid.getText());     
+             data2.put("typecase", "อาญา");
 
         if(ActionCrimes.getText().length()==0 || ActionCrimes.getText()==null|| ActionCrimes.getText().isEmpty()){
-            JSONObject data = new JSONObject();
-             data.put("caseid", crimecaseid.getText());
-            ActionPage d = new ActionPage(fr,null,data);
+           
+            ActionPage d = new ActionPage(fr,null,data2);
             d.pack();
             d.setLocationRelativeTo(null);
             d.setVisible(true);
@@ -2115,7 +2117,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                     data.put("ActionCaseId", rs.getString("ActionCaseId"));
                     
 
-                    ActionPage d = new ActionPage(fr,data,null);
+                    ActionPage d = new ActionPage(fr,data,data2);
                     d.pack();
                     d.setLocationRelativeTo(null);
                     d.setVisible(true);
@@ -2215,11 +2217,16 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 
     private void jButtonAddAssetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddAssetActionPerformed
         // TODO add your handling code here:
+         String aa=crimecaseid.getText();
+        String type="อาญา";
+        JSONObject data = new JSONObject();
+        data.put("CaseId",aa );
+        data.put("TypeCase",type );
         JFrame frame = new JFrame();
         JDialog dialog = new JDialog(frame);//frame is owner
         JFrame asv = (JFrame)(dialog.getParent());
         asv.removeAll();
-        AssetOverView as =new AssetOverView(asv);
+        AssetOverView as =new AssetOverView(asv,data);
         as.pack();
         as.setLocationRelativeTo(null);
         as.setVisible(true);
@@ -2280,9 +2287,9 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 
     private void jButtonAddInvestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddInvestActionPerformed
         String ci=crimecaseid.getText();
-
         JSONObject data = new JSONObject();
         data.put("CaseIdRec",ci );
+         data.put("TypeCase","จราจร" );        
         JFrame frame = new JFrame();
         JDialog dialog = new JDialog(frame);//frame is owner
         JFrame a = (JFrame)(dialog.getParent());

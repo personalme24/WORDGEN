@@ -206,6 +206,7 @@ public class SuspectForm extends javax.swing.JDialog {
             Religion.setText(datain.get("Religion")+"");
             Tambon.setText(datain.get("Tambon")+"");
             Religion.setText(datain.get("Religion")+"");
+            SusConfress.setSelectedItem(datain.get("SusConfress"));
             SimpleDateFormat format=new SimpleDateFormat("d/MM/yyyy");
             String DateArr=(datain.get("ArrestDateTime")+"");
              ArrestDateTime.getJFormattedTextField().setText(datain.get("ArrestDateTime")+"");            
@@ -392,7 +393,7 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabel23 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         BtSaveAccused = new javax.swing.JButton();
-        Gender1 = new javax.swing.JComboBox<>();
+        SusConfress = new javax.swing.JComboBox<>();
         Province = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
@@ -703,11 +704,11 @@ public class SuspectForm extends javax.swing.JDialog {
             }
         });
 
-        Gender1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        Gender1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "รับสารภาพ", "ปฏิเสธ", "ภาคเสธ" }));
-        Gender1.addActionListener(new java.awt.event.ActionListener() {
+        SusConfress.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        SusConfress.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "รับสารภาพ", "ปฏิเสธ", "ภาคเสธ" }));
+        SusConfress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Gender1ActionPerformed(evt);
+                SusConfressActionPerformed(evt);
             }
         });
 
@@ -856,7 +857,7 @@ public class SuspectForm extends javax.swing.JDialog {
                                         .addComponent(jLabel33)))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Gender1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(SusConfress, 0, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ZipCode)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -970,7 +971,7 @@ public class SuspectForm extends javax.swing.JDialog {
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(ZipCode1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Gender1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(SusConfress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1436,8 +1437,8 @@ public class SuspectForm extends javax.swing.JDialog {
             String sql="INSERT INTO Person (Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
             "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
             "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,StatusSuspect,"
-            + "caseIdPerson,ArrestDateTime,PlaceArrest,CourtSuspect,BailDate,ArrestDateTimeEnd,StatusBail,RatePrison,Identification,OrderPerson)\n"
-            + " VALUES (?,?,? ,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            + "caseIdPerson,ArrestDateTime,PlaceArrest,CourtSuspect,BailDate,ArrestDateTimeEnd,StatusBail,RatePrison,Identification,OrderPerson,SusConfress)\n"
+            + " VALUES (?,?,? ,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             //           String sqlSueFirst="insert into sue (SueTimes,SueDate,)";
             System.out.println("SQL : "+sql);
             try {
@@ -1530,6 +1531,8 @@ public class SuspectForm extends javax.swing.JDialog {
                 pst.setString(36,RatePrison.getSelectedItem().toString());
                 pst.setString(37,Identification.getText());
                 pst.setString(38,OrderPerson.getText());
+                pst.setString(39,SusConfress.getSelectedItem().toString());
+
                 int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
                     JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                 if (response == JOptionPane.YES_OPTION) {
@@ -1581,7 +1584,8 @@ public class SuspectForm extends javax.swing.JDialog {
             + "ArrestDateTimeEnd=?,"
             + "StatusSuspect=?,"
             + "StatusBail=?,"
-            + "RatePrison=?,"                   
+            + "RatePrison=?,"
+            + "SusConfress=?,"                     
             + "OrderPerson=? where NoPerson=? and TypePerson=?   ";
 
             try {
@@ -1663,10 +1667,11 @@ public class SuspectForm extends javax.swing.JDialog {
                 else{pst.setString(34,"");}
 
                 pst.setString(35,RatePrison.getSelectedItem().toString());
-                pst.setString(36,OrderPerson.getText());
-                pst.setString(37,noPerson);
+                pst.setString(36,SusConfress.getSelectedItem().toString());
+                pst.setString(37,OrderPerson.getText());
+                pst.setString(38,noPerson);
 
-                pst.setString(38,"ผู้ต้องหา");
+                pst.setString(39,"ผู้ต้องหา");
 
                 int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
                     JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
@@ -1851,9 +1856,9 @@ public class SuspectForm extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jRadioStatus2ItemStateChanged
 
-    private void Gender1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Gender1ActionPerformed
+    private void SusConfressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SusConfressActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Gender1ActionPerformed
+    }//GEN-LAST:event_SusConfressActionPerformed
 
     public void eventJButtonManage(){
  
@@ -1885,7 +1890,7 @@ public class SuspectForm extends javax.swing.JDialog {
        Amphur.setEnabled(false);
        Province.setEnabled(false);
        ZipCode1.setEnabled(false);
-       Gender1.setEnabled(false);
+       SusConfress.setEnabled(false);
        Identification.setEnabled(false);
        ExpiredDate.getComponent(1).setEnabled(false);
       ExpiredDate.getJFormattedTextField().setEnabled(false);
@@ -1933,7 +1938,7 @@ public class SuspectForm extends javax.swing.JDialog {
        Amphur.setEnabled(true);
        Province.setEnabled(true);
        ZipCode1.setEnabled(true);
-       Gender1.setEnabled(true);
+       SusConfress.setEnabled(true);
        Identification.setEnabled(true);
       ExpiredDate.getComponent(1).setEnabled(true);
       ExpiredDate.getJFormattedTextField().setEnabled(true);
@@ -2270,7 +2275,6 @@ public class SuspectForm extends javax.swing.JDialog {
     private javax.swing.JTextField FullNamePerson;
     private javax.swing.JTextField FullNamePersonEn;
     private javax.swing.JComboBox<String> Gender;
-    private javax.swing.JComboBox<String> Gender1;
     private javax.swing.JTextField Height;
     private javax.swing.JTextField HouseNumber;
     private javax.swing.JTextField Identification;
@@ -2288,6 +2292,7 @@ public class SuspectForm extends javax.swing.JDialog {
     private javax.swing.JTextField Race;
     private javax.swing.JComboBox<String> RatePrison;
     private javax.swing.JTextField Religion;
+    private javax.swing.JComboBox<String> SusConfress;
     private javax.swing.JTextField Tambon;
     private javax.swing.JTextField Weight;
     private javax.swing.JTextField ZipCode;

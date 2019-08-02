@@ -14,6 +14,7 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.json.simple.JSONObject;
+import java.awt.Font;
 
 /**
  *
@@ -216,6 +217,8 @@ public class BailCrimesAdd extends javax.swing.JDialog {
                 return types [columnIndex];
             }
         });
+        jTableBailAsset.getTableHeader().setFont(new Font("TH SarabunPSK", Font.BOLD, 20));
+        jTableBailAsset.getTableHeader().setOpaque(false);
         jScrollPane1.setViewportView(jTableBailAsset);
 
         jLabel34.setBackground(java.awt.SystemColor.activeCaptionBorder);
@@ -335,6 +338,8 @@ public class BailCrimesAdd extends javax.swing.JDialog {
                 return types [columnIndex];
             }
         });
+        jTableBailSend.getTableHeader().setFont(new Font("TH SarabunPSK", Font.BOLD, 20));
+        jTableBailSend.getTableHeader().setOpaque(false);
         jScrollPane2.setViewportView(jTableBailSend);
 
         jButtonAddSue1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
@@ -706,8 +711,8 @@ public class BailCrimesAdd extends javax.swing.JDialog {
             Vector<String> row = new Vector<String>();
             row.add(rs.getString("BailAssetOrder"));
             row.add(rs.getString("BailAssetDetail"));
-            row.add(rs.getString("BailAssetBath"));
             row.add(rs.getString("BailAmount"));
+            row.add(rs.getString("BailAssetBath"));      
             row.add(rs.getString("BailAssetTotal"));
             row.add(rs.getString("BailAssetRemark"));
 //            row.add(rs.getString("Age"));

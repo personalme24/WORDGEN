@@ -52,7 +52,7 @@ public class AccusedForm extends javax.swing.JDialog {
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
      crimecaseno.setVisible(false);
      UtilDateModel model2 = new UtilDateModel();
-            model2.setValue(Calendar.getInstance().getTime());
+//            model2.setValue(Calendar.getInstance().getTime());
             Properties p = new Properties();
             p.put("text.today", "Today");
             p.put("text.month", "Month");
@@ -65,7 +65,7 @@ public class AccusedForm extends javax.swing.JDialog {
         jPanelIssueDate.add(IssueDate); 
         
         UtilDateModel model3 = new UtilDateModel();
-            model3.setValue(Calendar.getInstance().getTime());
+//            model3.setValue(Calendar.getInstance().getTime());
         JDatePanelImpl datePanel3 = new JDatePanelImpl(model3, p);
          ExpiredDate = new JDatePickerImpl(datePanel3,new DateLabelFormatter());
         ExpiredDate.setTextEditable(true);
@@ -74,7 +74,7 @@ public class AccusedForm extends javax.swing.JDialog {
         jPanelExpiredDate.add(ExpiredDate);
 //       
             UtilDateModel model4 = new UtilDateModel();
-            model4.setValue(Calendar.getInstance().getTime());
+//            model4.setValue(Calendar.getInstance().getTime());
         JDatePanelImpl datePanel4 = new JDatePanelImpl(model4, p);
          BirthDay = new JDatePickerImpl(datePanel4,new DateLabelFormatter());
         BirthDay.setTextEditable(true);
@@ -402,6 +402,7 @@ public class AccusedForm extends javax.swing.JDialog {
 
         Province.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
 
+        jPanelBirthDay.setBackground(new java.awt.Color(255, 255, 255));
         jPanelBirthDay.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
 
         javax.swing.GroupLayout jPanelBirthDayLayout = new javax.swing.GroupLayout(jPanelBirthDay);
@@ -415,6 +416,7 @@ public class AccusedForm extends javax.swing.JDialog {
             .addGap(0, 32, Short.MAX_VALUE)
         );
 
+        jPanelIssueDate.setBackground(new java.awt.Color(255, 255, 255));
         jPanelIssueDate.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
 
         javax.swing.GroupLayout jPanelIssueDateLayout = new javax.swing.GroupLayout(jPanelIssueDate);
@@ -428,6 +430,7 @@ public class AccusedForm extends javax.swing.JDialog {
             .addGap(0, 32, Short.MAX_VALUE)
         );
 
+        jPanelExpiredDate.setBackground(new java.awt.Color(255, 255, 255));
         jPanelExpiredDate.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
 
         javax.swing.GroupLayout jPanelExpiredDateLayout = new javax.swing.GroupLayout(jPanelExpiredDate);
@@ -608,13 +611,13 @@ public class AccusedForm extends javax.swing.JDialog {
                                 .addComponent(FullNamePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jPanelBirthDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(Race, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel16)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGap(3, 3, 3)
-                                        .addComponent(jLabel13)))
+                                        .addComponent(jLabel13))
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(Race, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel16)))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(Occupation, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)

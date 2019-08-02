@@ -23,7 +23,7 @@ import java.awt.Font;
  */
 public class RecordInvestigatorView extends javax.swing.JDialog {
     Connection con=null;
-    String caseIdRec;
+    String caseIdRec,TypeCase;
     
     /**
      * Creates new form RecordInvestigatorView
@@ -32,6 +32,8 @@ public class RecordInvestigatorView extends javax.swing.JDialog {
         super(parrent,true);
         initComponents();
         caseIdRec=datain.get("CaseIdRec")+"";
+        TypeCase=datain.get("TypeCase")+"";
+
         caseId.setText(caseIdRec);
         caseId.setVisible(false);
         RefreshData();
@@ -277,7 +279,15 @@ public class RecordInvestigatorView extends javax.swing.JDialog {
             }
         });
             if(jTableRecord.getModel().getRowCount()>0){
+            if(TypeCase.equals("อาญา")){
             CrimesCaseEdit.RecordInvestCase.setText(jTableRecord.getValueAt(jTableRecord.getModel().getRowCount()-1, 0).toString()+","+jTableRecord.getValueAt(jTableRecord.getModel().getRowCount()-1, 1).toString()); 
+                    }
+            if(TypeCase.equals("จราจร")){
+            TrafficEdit.RecordInvestCase.setText(jTableRecord.getValueAt(jTableRecord.getModel().getRowCount()-1, 0).toString()+","+jTableRecord.getValueAt(jTableRecord.getModel().getRowCount()-1, 1).toString()); 
+                    }
+             if(TypeCase.equals("ชันสูตร")){
+            IdentityEdit.RecordInvestCase.setText(jTableRecord.getValueAt(jTableRecord.getModel().getRowCount()-1, 0).toString()+","+jTableRecord.getValueAt(jTableRecord.getModel().getRowCount()-1, 1).toString()); 
+                    }
             }
         }catch(Exception ex){
             ex.printStackTrace();
