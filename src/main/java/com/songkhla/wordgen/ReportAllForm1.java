@@ -86,7 +86,7 @@ import org.json.simple.JSONObject;
  *
  * @author Petpilin
  */
-public class ReportAllForm extends javax.swing.JDialog {
+public class ReportAllForm1 extends javax.swing.JDialog {
 
     /**
      * Creates new form ReportAllForm
@@ -94,7 +94,7 @@ public class ReportAllForm extends javax.swing.JDialog {
     String caseid,caseyear,casetype,caseno,PoliceStaionName;
     Connection con=null;
     PreparedStatement pst=null;;
-    public ReportAllForm(JFrame parrent,JSONObject datain) {
+    public ReportAllForm1(JFrame parrent,JSONObject datain) {
         super(parrent,true);
 
         initComponents();
@@ -138,7 +138,7 @@ public class ReportAllForm extends javax.swing.JDialog {
         
     }
 
-    ReportAllForm() {
+    ReportAllForm1() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     /**
@@ -238,7 +238,6 @@ public class ReportAllForm extends javax.swing.JDialog {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1300, 767));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -1262,14 +1261,15 @@ public class ReportAllForm extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ReportAllForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReportAllForm1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ReportAllForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReportAllForm1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ReportAllForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReportAllForm1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ReportAllForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReportAllForm1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

@@ -84,7 +84,9 @@ public class AssetNewEdit extends javax.swing.JDialog {
             Amount.setText(datain.get("Amount")+"");
             DateSequester.getJFormattedTextField().setText(datain.get("DateSequester")+"");
             DefectMark.setText(datain.get("DefectMark")+"");
-           
+            Value.setText(datain.get("Value")+"");
+PlaceFoundExhibit.setText(datain.get("PlaceFoundExhibit")+"");
+PointFoundCheck.setText(datain.get("PointFoundCheck")+"");
             isInsert=false;
            
         }else{

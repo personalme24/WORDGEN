@@ -229,8 +229,8 @@ public class AssetOverView extends javax.swing.JDialog {
             try{
                 String crimecaseno = txtCaseno.getText();
 //                String EvidenceRecordNumber = jTableAsset.getModel().getValueAt(jTableAsset.getSelectedRow(), 1)+"";
-                String nameAsset = jTableAsset.getModel().getValueAt(jTableAsset.getSelectedRow(), 1)+"";
-                String sql = "Delete from Asset WHERE Name='"+nameAsset+"' and caseIdAsset='"+crimecaseno+"'";
+                String AssetId = jTableAsset.getModel().getValueAt(jTableAsset.getSelectedRow(), 4)+"";
+                String sql = "Delete from Asset WHERE Name='"+AssetId+"' and caseIdAsset='"+crimecaseno+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 stmt.executeUpdate(sql);
@@ -251,13 +251,13 @@ public class AssetOverView extends javax.swing.JDialog {
             try{
                 String crimecaseno = txtCaseno.getText();
 //                String EvidenceRecordNumber = jTableAsset.getModel().getValueAt(jTableAsset.getSelectedRow(), 1)+"";
-                String nameAsset = jTableAsset.getModel().getValueAt(jTableAsset.getSelectedRow(), 1)+"";
-                String sql = "select * from Asset where Name='"+nameAsset+"' and caseIdAsset='"+crimecaseno+"'";
+                String AssetId = jTableAsset.getModel().getValueAt(jTableAsset.getSelectedRow(), 4)+"";
+                String sql = "select * from Asset where Name='"+AssetId+"' and caseIdAsset='"+crimecaseno+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                ResultSet rs = stmt.executeQuery(sql);
                        //  Convert CrimcaseEdit to JFrame   
-                    System.out.println("Delete : "+sql);
+//                    System.out.println("Delete : "+sql);
                 if(rs.next()){
                     JSONObject data = new JSONObject(); 
                             
@@ -268,6 +268,10 @@ public class AssetOverView extends javax.swing.JDialog {
                     data.put("Amount", rs.getString("Amount"));
                     data.put("DateSequester", rs.getString("DateSequester"));
                     data.put("DefectMark", rs.getString("DefectMark"));
+                    data.put("Value", rs.getString("Value"));
+                       data.put("PlaceFoundExhibit", rs.getString("PlaceFoundExhibit"));
+                    data.put("PointFoundCheck", rs.getString("PointFoundCheck"));
+                
                       
 
                              //  Convert CrimcaseEdit to JFrame   
@@ -338,7 +342,7 @@ public class AssetOverView extends javax.swing.JDialog {
         Statement stmt = con.createStatement();
         
         String crimecaseno = txtCaseno.getText();
-        String sql = "select EvidenceRecordNumber,Amount,DateSequester,DefectMark,"
+        String sql = "select NoAsset,EvidenceRecordNumber,Amount,DateSequester,DefectMark,"
                      + "PlaceFoundExhibit,Name,Remark,OccupantName,OrderAsset,PointFoundCheck,"
                      + "Value,StatusAsset from Asset where caseIdAsset='"+crimecaseno+"' and "+getFilterCondition();
             System.out.println(sql);
@@ -350,6 +354,7 @@ public class AssetOverView extends javax.swing.JDialog {
             row.add(rs.getString("Name"));
             row.add(rs.getString("Amount"));
             row.add(rs.getString("Value"));
+            row.add(rs.getString("NoAsset"));
             tabledata.add(row);
         }
         rs.close();
@@ -359,6 +364,8 @@ public class AssetOverView extends javax.swing.JDialog {
         ColumnName.add("ชื่อของกลาง");
         ColumnName.add("จำนวน");
         ColumnName.add("ราคา");
+        ColumnName.add("NoAsset");
+  
      
     
         jTableAsset.setModel(new javax.swing.table.DefaultTableModel(
@@ -373,10 +380,14 @@ public class AssetOverView extends javax.swing.JDialog {
                 return types [columnIndex];
             }
         });
+        
                 
         }catch(Exception ex){
             ex.printStackTrace();
         }
+        jTableAsset.getColumnModel().getColumn(4).setWidth(0);
+        jTableAsset.getColumnModel().getColumn(4).setMinWidth(0);
+        jTableAsset.getColumnModel().getColumn(4).setMaxWidth(0); 
         String ArrayData="";
 //        ArrayList listData = new ArrayList();
             int rowcount = jTableAsset.getModel().getRowCount();
@@ -403,8 +414,15 @@ public class AssetOverView extends javax.swing.JDialog {
 //                            af.pack();
 //                             af.setLocationRelativeTo(null);
 //                            af.setVisible(true);    		
-            
+            if(TypeCase.equals("อาญา")){
             CrimesCaseEdit.ListAsset.setText(ArrayData);
+            }
+           else if(TypeCase.equals("จราจร")){
+            TrafficEdit.ListAsset.setText(ArrayData);
+            }
+           else if(TypeCase.equals("ชันสูตร")){
+            IdentityEdit.ListAsset.setText(ArrayData);
+            }
       
     }
      
