@@ -103,14 +103,14 @@ public class ReportAllForm extends javax.swing.JDialog {
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
          //jCheckW5.setSelected(true);
          //jCheckW6.setSelected(true);
-        crimecaseno.setVisible(true);
+        crimecaseno .setVisible(true);
+        
        
         if(datain != null){
         caseid=datain.get("caseid")+"";
                 crimecaseno.setText(caseid);
 
         con=ConnectDatabase.connect();
-
         try{
         String sql="Select crimecasenoyear,crimecaseno,crimecaseyears,CaseType from CrimeCase where CaseId='"+caseid+"'";
          Statement stmt = con.createStatement();
@@ -154,7 +154,6 @@ public class ReportAllForm extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        crimecaseno = new javax.swing.JLabel();
         jCheckW40 = new javax.swing.JCheckBox();
         jCheckW41 = new javax.swing.JCheckBox();
         jCheckW42 = new javax.swing.JCheckBox();
@@ -235,6 +234,7 @@ public class ReportAllForm extends javax.swing.JDialog {
         jCheckW79 = new javax.swing.JCheckBox();
         jCheckW80 = new javax.swing.JCheckBox();
         jCheckW93 = new javax.swing.JCheckBox();
+        crimecaseno = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -264,8 +264,6 @@ public class ReportAllForm extends javax.swing.JDialog {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
         );
-
-        crimecaseno.setText("jLabel2");
 
         jCheckW40.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW40.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -298,6 +296,11 @@ public class ReportAllForm extends javax.swing.JDialog {
         jCheckW49.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW49.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW49.setText("หนังสือขอส่งตัวคนต่างด้าว");
+        jCheckW49.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckW49ActionPerformed(evt);
+            }
+        });
 
         jCheckW50.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW50.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -597,6 +600,8 @@ public class ReportAllForm extends javax.swing.JDialog {
             }
         });
 
+        crimecaseno.setText("jLabel2");
+
         jButton1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jButton1.setText("สร้างเอกสาร");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -655,13 +660,8 @@ public class ReportAllForm extends javax.swing.JDialog {
                         .addComponent(jCheckW20, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jCheckW28, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(crimecaseno)
-                                .addGap(34, 34, 34))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jCheckW38, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(40, 40, 40)))
+                        .addComponent(jCheckW38, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(40, 40, 40)
                         .addComponent(jButton1)
                         .addGap(64, 64, 64)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -716,6 +716,11 @@ public class ReportAllForm extends javax.swing.JDialog {
                     .addComponent(jCheckW76, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCheckW77, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(1197, 1197, 1197)
+                    .addComponent(crimecaseno)
+                    .addContainerGap(1197, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -831,7 +836,9 @@ public class ReportAllForm extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jCheckW67)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jCheckW68)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jCheckW68)
+                                    .addComponent(jCheckW49))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jCheckW69)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -872,9 +879,7 @@ public class ReportAllForm extends javax.swing.JDialog {
                                 .addComponent(jCheckW47)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jCheckW48)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jCheckW49)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(33, 33, 33)
                                 .addComponent(jCheckW50)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jCheckW51)
@@ -893,10 +898,13 @@ public class ReportAllForm extends javax.swing.JDialog {
                         .addContainerGap(105, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 623, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(crimecaseno)
-                            .addComponent(jButton1))
+                        .addComponent(jButton1)
                         .addGap(78, 78, 78))))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(383, 383, 383)
+                    .addComponent(crimecaseno)
+                    .addContainerGap(383, Short.MAX_VALUE)))
         );
 
         jScrollPane1.setViewportView(jPanel1);
@@ -1244,6 +1252,10 @@ public class ReportAllForm extends javax.swing.JDialog {
     private void jCheckW39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW39ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckW39ActionPerformed
+
+    private void jCheckW49ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW49ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckW49ActionPerformed
 
     /**
      * @param args the command line arguments
