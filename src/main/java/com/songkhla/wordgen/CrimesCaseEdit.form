@@ -1652,7 +1652,7 @@
                         <Property name="useNullLayout" type="boolean" value="false"/>
                       </Layout>
                       <SubComponents>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW62">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW80">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1660,11 +1660,11 @@
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="TH SarabunPSK" size="22" style="1"/>
                             </Property>
-                            <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe01;&#xe32;&#xe23;&#xe04;&#xe27;&#xe1a;&#xe04;&#xe38;&#xe21;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                            <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe0d;&#xe0a;&#xe35;&#xe2a;&#xe33;&#xe19;&#xe27;&#xe19;&#xe01;&#xe32;&#xe23;&#xe2a;&#xe2d;&#xe1a;&#xe2a;&#xe27;&#xe19;"/>
                           </Properties>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                              <AbsoluteConstraints x="2020" y="370" width="570" height="-1"/>
+                              <AbsoluteConstraints x="2020" y="390" width="570" height="-1"/>
                             </Constraint>
                           </Constraints>
                         </Component>
@@ -1678,6 +1678,9 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe33;&#xe19;&#xe27;&#xe19;&#xe01;&#xe32;&#xe23;&#xe2a;&#xe2d;&#xe1a;&#xe2a;&#xe27;&#xe19;"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW1ActionPerformed"/>
+                          </Events>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                               <AbsoluteConstraints x="6" y="7" width="405" height="-1"/>
@@ -1911,7 +1914,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW18">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW17">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1927,7 +1930,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW19">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW18">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1935,7 +1938,7 @@
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="TH SarabunPSK" size="22" style="1"/>
                             </Property>
-                            <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe2a;&#xe16;&#xe32;&#xe19;&#xe17;&#xe35;&#xe48;&#xe40;&#xe01;&#xe34;&#xe14;&#xe40;&#xe2b;&#xe15;&#xe38;&#xe04;&#xe14;&#xe35;&#xe08;&#xe23;&#xe32;&#xe08;&#xe23;&#xe17;&#xe32;&#xe07;&#xe1a;&#xe01;"/>
+                            <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe2a;&#xe16;&#xe32;&#xe19;&#xe17;&#xe35;&#xe48;&#xe40;&#xe01;&#xe34;&#xe14;&#xe40;&#xe2b;&#xe15;&#xe38;&#xe04;&#xe14;&#xe35;&#xe08;&#xe23;&#xe32;&#xe08;&#xe23;"/>
                           </Properties>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1943,7 +1946,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW24">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW19">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2042,7 +2045,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW29">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW24">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2058,7 +2061,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW30">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW25">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2074,7 +2077,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW31">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW26">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2090,7 +2093,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW32">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW27">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2106,7 +2109,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW35">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW28">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2122,7 +2125,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW36">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW29">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2138,7 +2141,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW39">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW30">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2154,7 +2157,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW41">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW31">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2170,7 +2173,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW42">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW32">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2212,13 +2215,16 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe0d;&#xe0a;&#xe35;&#xe17;&#xe23;&#xe31;&#xe1e;&#xe22;&#xe4c;&#xe1b;&#xe23;&#xe30;&#xe01;&#xe2d;&#xe1a;&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe04;&#xe49;&#xe19;"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW34ActionPerformed"/>
+                          </Events>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                               <AbsoluteConstraints x="761" y="205" width="350" height="-1"/>
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW43">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW35">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2234,7 +2240,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW44">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW36">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2282,7 +2288,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW45">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW39">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2293,7 +2299,7 @@
                             <Property name="text" type="java.lang.String" value="&#xe2b;&#xe21;&#xe32;&#xe22;&#xe40;&#xe23;&#xe35;&#xe22;&#xe01;&#xe1e;&#xe22;&#xe32;&#xe19;"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW45ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW39ActionPerformed"/>
                           </Events>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2317,7 +2323,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW54">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW5445">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2333,7 +2339,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW55">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW44">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2349,7 +2355,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW56">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW43">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2365,7 +2371,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW57">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW42">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2381,7 +2387,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW58">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW41">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2413,7 +2419,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW61">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW54">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2429,7 +2435,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW63">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW56">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2445,7 +2451,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW64">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW55">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2461,7 +2467,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW65">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW57">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2477,7 +2483,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW66">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW58">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2488,7 +2494,7 @@
                             <Property name="text" type="java.lang.String" value="&#xe15;&#xe33;&#xe2b;&#xe19;&#xe34;&#xe23;&#xe39;&#xe1b;&#xe1e;&#xe23;&#xe23;&#xe13;&#xe17;&#xe23;&#xe31;&#xe1e;&#xe22;&#xe4c;&#xe2b;&#xe32;&#xe22;&#xe44;&#xe14;&#xe49;&#xe04;&#xe37;&#xe19;"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW66ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW58ActionPerformed"/>
                           </Events>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2512,7 +2518,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW72">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW60">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2528,7 +2534,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW73">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW61">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2544,7 +2550,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW74">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW7462">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2560,7 +2566,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW75">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW63">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2576,7 +2582,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW76">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW64">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2592,7 +2598,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW77">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW65">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2608,7 +2614,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW78">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW66">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2707,7 +2713,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW79">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW72">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2723,7 +2729,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW81">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW73">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2739,7 +2745,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW82">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW75">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2755,7 +2761,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW83">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW76">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2771,7 +2777,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW84">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW77">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2863,7 +2869,7 @@
                           </Properties>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                              <AbsoluteConstraints x="2016" y="297" width="565" height="-1"/>
+                              <AbsoluteConstraints x="2016" y="297" width="570" height="-1"/>
                             </Constraint>
                           </Constraints>
                         </Component>
@@ -2883,7 +2889,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckW80">
+                        <Component class="javax.swing.JCheckBox" name="jCheckW40">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2896,6 +2902,22 @@
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                               <AbsoluteConstraints x="1111" y="7" width="-1" height="-1"/>
+                            </Constraint>
+                          </Constraints>
+                        </Component>
+                        <Component class="javax.swing.JCheckBox" name="jCheckW62">
+                          <Properties>
+                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                            </Property>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="TH SarabunPSK" size="22" style="1"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe01;&#xe32;&#xe23;&#xe04;&#xe27;&#xe1a;&#xe04;&#xe38;&#xe21;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                          </Properties>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                              <AbsoluteConstraints x="2020" y="360" width="570" height="-1"/>
                             </Constraint>
                           </Constraints>
                         </Component>
@@ -2937,7 +2959,7 @@
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="jLabel33" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jButtonPrintDoc1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonPrintDoc2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -2950,13 +2972,13 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane5" min="-2" pref="455" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                          <Component id="jScrollPane5" min="-2" pref="435" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jButtonPrintDoc1" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel33" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButtonPrintDoc2" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="130" max="32767" attributes="0"/>
+                          <EmptySpace pref="15" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2980,15 +3002,19 @@
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jPanel13" max="32767" attributes="0"/>
-                                      <Component id="jPanel14" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jPanel16" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jPanel17" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="jPanel14" alignment="0" min="-2" pref="1091" max="-2" attributes="0"/>
+                                      <Component id="jPanel16" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="jPanel13" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jPanel17" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2996,14 +3022,14 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jPanel14" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                                  <Component id="jPanel14" min="-2" pref="403" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jPanel16" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jPanel17" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jPanel13" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="77" max="32767" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -3028,27 +3054,26 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jCheckW116" min="-2" pref="368" max="-2" attributes="0"/>
-                                          <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jCheckW60" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jCheckW85" alignment="0" min="-2" pref="465" max="-2" attributes="0"/>
-                                                  <Component id="jCheckW96" alignment="0" min="-2" pref="465" max="-2" attributes="0"/>
-                                                  <Component id="jCheckW97" alignment="0" min="-2" pref="465" max="-2" attributes="0"/>
-                                                  <Component id="jCheckW98" alignment="0" min="-2" pref="565" max="-2" attributes="0"/>
-                                                  <Component id="jCheckW99" alignment="0" min="-2" pref="565" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jCheckW133" min="-2" pref="350" max="-2" attributes="0"/>
-                                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                                      <Component id="jCheckW117" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jCheckW122" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jCheckW121" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jCheckW120" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jCheckW118" alignment="0" min="-2" pref="368" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
+                                          <Component id="jCheckW249" alignment="0" min="-2" pref="465" max="-2" attributes="0"/>
+                                          <Component id="jCheckW250" alignment="0" min="-2" pref="465" max="-2" attributes="0"/>
+                                          <Component id="jCheckW252" alignment="0" min="-2" pref="565" max="-2" attributes="0"/>
+                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="jCheckW247" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jCheckW248" alignment="0" pref="469" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Component id="jCheckW251" alignment="0" min="-2" pref="573" max="-2" attributes="0"/>
+                                          <Component id="jCheckW254" alignment="0" min="-2" pref="368" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jCheckW278" max="32767" attributes="0"/>
+                                          <Component id="jCheckW232" min="-2" pref="350" max="-2" attributes="0"/>
+                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="jCheckW255" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jCheckW277" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jCheckW276" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jCheckW275" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jCheckW256" alignment="0" min="-2" pref="368" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
@@ -3061,41 +3086,44 @@
                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <Component id="jCheckW60" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jCheckW247" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              <Component id="jCheckW85" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jCheckW248" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              <Component id="jCheckW96" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jCheckW249" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              <Component id="jCheckW97" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jCheckW250" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              <Component id="jCheckW98" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jCheckW251" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              <Component id="jCheckW99" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jCheckW252" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" attributes="0">
-                                              <Component id="jCheckW117" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jCheckW255" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              <Component id="jCheckW118" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jCheckW256" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              <Component id="jCheckW120" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jCheckW275" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              <Component id="jCheckW121" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jCheckW276" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              <Component id="jCheckW122" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jCheckW277" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jCheckW133" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jCheckW232" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jCheckW116" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jCheckW254" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckW278" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
                           </Layout>
                           <SubComponents>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW60">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW247">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3109,7 +3137,7 @@
                                 </Property>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW85">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW248">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3123,7 +3151,7 @@
                                 </Property>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW96">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW249">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3137,7 +3165,7 @@
                                 </Property>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW97">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW250">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3151,7 +3179,7 @@
                                 </Property>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW98">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW251">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3165,7 +3193,7 @@
                                 </Property>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW99">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW252">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3179,7 +3207,7 @@
                                 </Property>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW116">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW254">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3193,7 +3221,7 @@
                                 </Property>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW117">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW255">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3207,7 +3235,7 @@
                                 </Property>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW118">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW256">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3221,7 +3249,7 @@
                                 </Property>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW120">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW275">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3235,7 +3263,7 @@
                                 </Property>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW121">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW276">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3249,7 +3277,7 @@
                                 </Property>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW122">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW277">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3263,7 +3291,7 @@
                                 </Property>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW133">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW232">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3272,6 +3300,20 @@
                                   <Font name="TH SarabunPSK" size="22" style="1"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe01;&#xe32;&#xe23;&#xe08;&#xe31;&#xe1a;&#xe01;&#xe38;&#xe21;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;&#xe17;&#xe35;&#xe48;&#xe40;&#xe1b;&#xe47;&#xe19;&#xe40;&#xe14;&#xe47;&#xe01;&#xe2b;&#xe23;&#xe37;&#xe2d;&#xe40;&#xe22;&#xe32;&#xe27;&#xe0a;&#xe19;"/>
+                                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                  <Dimension value="[384, 33]"/>
+                                </Property>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="jCheckW278">
+                              <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                </Property>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="TH SarabunPSK" size="22" style="1"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="&#xe2b;&#xe19;&#xe31;&#xe07;&#xe2a;&#xe37;&#xe2d;&#xe41;&#xe08;&#xe49;&#xe07;&#xe01;&#xe32;&#xe23;&#xe08;&#xe31;&#xe1a;&#xe01;&#xe38;&#xe21;&#xe40;&#xe14;&#xe47;&#xe01;&#xe2b;&#xe23;&#xe37;&#xe2d;&#xe40;&#xe22;&#xe32;&#xe27;&#xe0a;&#xe19;&#xe44;&#xe1b;&#xe22;&#xe31;&#xe07;&#xe1c;&#xe39;&#xe49;&#xe1b;&#xe01;&#xe04;&#xe23;&#xe2d;&#xe07;"/>
                                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                                   <Dimension value="[384, 33]"/>
                                 </Property>
@@ -3297,7 +3339,7 @@
                             <Property name="useNullLayout" type="boolean" value="false"/>
                           </Layout>
                           <SubComponents>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW86">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW201">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3313,7 +3355,7 @@
                                 </Constraint>
                               </Constraints>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW87">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW202">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3324,7 +3366,7 @@
                                 <Property name="text" type="java.lang.String" value="&#xe2b;&#xe19;&#xe31;&#xe07;&#xe2a;&#xe37;&#xe2d;&#xe2a;&#xe48;&#xe07;&#xe2a;&#xe33;&#xe19;&#xe27;&#xe19;&#xe04;&#xe14;&#xe35;&#xe17;&#xe35;&#xe48;&#xe40;&#xe2b;&#xe47;&#xe19;&#xe04;&#xe27;&#xe23;&#xe07;&#xe14;&#xe2b;&#xe23;&#xe37;&#xe2d;&#xe43;&#xe2b;&#xe49;&#xe07;&#xe14;&#xe01;&#xe32;&#xe23;&#xe2a;&#xe2d;&#xe1a;&#xe2a;&#xe27;&#xe19;"/>
                               </Properties>
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW87ActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW202ActionPerformed"/>
                               </Events>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -3332,7 +3374,7 @@
                                 </Constraint>
                               </Constraints>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW88">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW203">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3348,7 +3390,7 @@
                                 </Constraint>
                               </Constraints>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW89">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW204">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3359,7 +3401,7 @@
                                 <Property name="text" type="java.lang.String" value="&#xe2b;&#xe19;&#xe31;&#xe07;&#xe2a;&#xe37;&#xe2d;&#xe2a;&#xe48;&#xe07;&#xe2a;&#xe33;&#xe19;&#xe27;&#xe19;&#xe04;&#xe14;&#xe35;&#xe17;&#xe35;&#xe48;&#xe40;&#xe2b;&#xe47;&#xe19;&#xe04;&#xe27;&#xe23;&#xe2a;&#xe31;&#xe48;&#xe07;&#xe1f;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe23;&#xe37;&#xe2d;&#xe44;&#xe21;&#xe48;&#xe2a;&#xe31;&#xe48;&#xe07;&#xe1f;&#xe49;&#xe2d;&#xe07;"/>
                               </Properties>
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW89ActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW204ActionPerformed"/>
                               </Events>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -3367,7 +3409,7 @@
                                 </Constraint>
                               </Constraints>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW90">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW205">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3383,7 +3425,7 @@
                                 </Constraint>
                               </Constraints>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW91">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW206">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3397,7 +3439,7 @@
                                 </Property>
                               </Properties>
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW91ActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW206ActionPerformed"/>
                               </Events>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -3405,7 +3447,7 @@
                                 </Constraint>
                               </Constraints>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW92">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW207">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3421,7 +3463,7 @@
                                 </Constraint>
                               </Constraints>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW94">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW208">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3437,7 +3479,7 @@
                                 </Constraint>
                               </Constraints>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW95">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW209">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3453,7 +3495,7 @@
                                 </Constraint>
                               </Constraints>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW40">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW226">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3464,15 +3506,15 @@
                                 <Property name="text" type="java.lang.String" value="&#xe2b;&#xe19;&#xe31;&#xe07;&#xe2a;&#xe37;&#xe2d;&#xe2a;&#xe48;&#xe07;&#xe22;&#xe32;&#xe40;&#xe2a;&#xe1e;&#xe15;&#xe34;&#xe14;&#xe02;&#xe2d;&#xe07;&#xe01;&#xe25;&#xe32;&#xe07;&#xe44;&#xe1b;&#xe15;&#xe23;&#xe27;&#xe08;&#xe1e;&#xe34;&#xe2a;&#xe39;&#xe08;&#xe19;&#xe4c;"/>
                               </Properties>
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW40ActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW226ActionPerformed"/>
                               </Events>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                                  <AbsoluteConstraints x="397" y="98" width="321" height="-1"/>
+                                  <AbsoluteConstraints x="400" y="100" width="321" height="-1"/>
                                 </Constraint>
                               </Constraints>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW100">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW225">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3483,15 +3525,15 @@
                                 <Property name="text" type="java.lang.String" value="&#xe2b;&#xe19;&#xe31;&#xe07;&#xe2a;&#xe37;&#xe2d;&#xe2a;&#xe48;&#xe07;&#xe02;&#xe2d;&#xe07;&#xe01;&#xe25;&#xe32;&#xe07;&#xe44;&#xe1b;&#xe15;&#xe23;&#xe27;&#xe08;&#xe1e;&#xe34;&#xe2a;&#xe39;&#xe08;&#xe19;&#xe4c;"/>
                               </Properties>
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW100ActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW225ActionPerformed"/>
                               </Events>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                                  <AbsoluteConstraints x="397" y="65" width="314" height="-1"/>
+                                  <AbsoluteConstraints x="400" y="70" width="314" height="-1"/>
                                 </Constraint>
                               </Constraints>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW27">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW216">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3507,7 +3549,7 @@
                                 </Constraint>
                               </Constraints>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW101">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW293">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3519,11 +3561,11 @@
                               </Properties>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                                  <AbsoluteConstraints x="397" y="32" width="314" height="-1"/>
+                                  <AbsoluteConstraints x="400" y="40" width="314" height="-1"/>
                                 </Constraint>
                               </Constraints>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW102">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW227">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3534,15 +3576,15 @@
                                 <Property name="text" type="java.lang.String" value="&#xe09;&#xe25;&#xe32;&#xe01;&#xe1b;&#xe34;&#xe14;&#xe20;&#xe32;&#xe0a;&#xe19;&#xe30;&#xe1a;&#xe23;&#xe23;&#xe08;&#xe38;&#xe22;&#xe32;&#xe40;&#xe2a;&#xe1e;&#xe15;&#xe34;&#xe14;"/>
                               </Properties>
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW102ActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW227ActionPerformed"/>
                               </Events>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                                  <AbsoluteConstraints x="397" y="131" width="321" height="-1"/>
+                                  <AbsoluteConstraints x="400" y="130" width="321" height="-1"/>
                                 </Constraint>
                               </Constraints>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW103">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW238">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3554,11 +3596,11 @@
                               </Properties>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                                  <AbsoluteConstraints x="397" y="164" width="314" height="-1"/>
+                                  <AbsoluteConstraints x="400" y="160" width="314" height="-1"/>
                                 </Constraint>
                               </Constraints>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW104">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW239">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3569,15 +3611,15 @@
                                 <Property name="text" type="java.lang.String" value="&#xe2b;&#xe21;&#xe32;&#xe22;&#xe40;&#xe23;&#xe35;&#xe22;&#xe01;&#xe1e;&#xe22;&#xe32;&#xe19;"/>
                               </Properties>
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW104ActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW239ActionPerformed"/>
                               </Events>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                                  <AbsoluteConstraints x="397" y="199" width="314" height="-1"/>
+                                  <AbsoluteConstraints x="400" y="190" width="314" height="-1"/>
                                 </Constraint>
                               </Constraints>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW107">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW231">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3589,11 +3631,11 @@
                               </Properties>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                                  <AbsoluteConstraints x="397" y="298" width="314" height="-1"/>
+                                  <AbsoluteConstraints x="400" y="280" width="314" height="-1"/>
                                 </Constraint>
                               </Constraints>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW105">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW229">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3605,11 +3647,11 @@
                               </Properties>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                                  <AbsoluteConstraints x="397" y="232" width="314" height="-1"/>
+                                  <AbsoluteConstraints x="400" y="220" width="314" height="-1"/>
                                 </Constraint>
                               </Constraints>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW106">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW230">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3621,11 +3663,11 @@
                               </Properties>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                                  <AbsoluteConstraints x="397" y="265" width="314" height="-1"/>
+                                  <AbsoluteConstraints x="400" y="250" width="314" height="-1"/>
                                 </Constraint>
                               </Constraints>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW119">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW280">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3633,18 +3675,18 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="TH SarabunPSK" size="22" style="1"/>
                                 </Property>
-                                <Property name="text" type="java.lang.String" value="&#xe2b;&#xe19;&#xe31;&#xe07;&#xe2a;&#xe37;&#xe2d;&#xe41;&#xe08;&#xe49;&#xe07;&#xe04;&#xe27;&#xe32;&#xe21;&#xe04;&#xe37;&#xe1a;&#xe2b;&#xe19;&#xe49;&#xe32;&#xe01;&#xe32;&#xe23;&#xe2a;&#xe2d;&#xe1a;&#xe2a;&#xe27;&#xe19;"/>
+                                <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe0d;&#xe0a;&#xe35;&#xe2a;&#xe33;&#xe19;&#xe27;&#xe19;&#xe01;&#xe32;&#xe23;&#xe2a;&#xe2d;&#xe1a;&#xe2a;&#xe27;&#xe19;"/>
                               </Properties>
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW119ActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW280ActionPerformed"/>
                               </Events>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                                  <AbsoluteConstraints x="397" y="331" width="314" height="-1"/>
+                                  <AbsoluteConstraints x="400" y="340" width="314" height="-1"/>
                                 </Constraint>
                               </Constraints>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW125">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW262">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3654,13 +3696,16 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe01;&#xe32;&#xe23;&#xe04;&#xe27;&#xe1a;&#xe04;&#xe38;&#xe21;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW262ActionPerformed"/>
+                              </Events>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                                  <AbsoluteConstraints x="718" y="32" width="330" height="-1"/>
+                                  <AbsoluteConstraints x="720" y="40" width="330" height="-1"/>
                                 </Constraint>
                               </Constraints>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW129">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW263">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3672,30 +3717,11 @@
                               </Properties>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                                  <AbsoluteConstraints x="718" y="98" width="330" height="-1"/>
+                                  <AbsoluteConstraints x="720" y="70" width="330" height="-1"/>
                                 </Constraint>
                               </Constraints>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW128">
-                              <Properties>
-                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                                </Property>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="TH SarabunPSK" size="22" style="1"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe01;&#xe32;&#xe23;&#xe04;&#xe27;&#xe1a;&#xe04;&#xe38;&#xe21;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW128ActionPerformed"/>
-                              </Events>
-                              <Constraints>
-                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                                  <AbsoluteConstraints x="718" y="65" width="330" height="-1"/>
-                                </Constraint>
-                              </Constraints>
-                            </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW130">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW264">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3707,11 +3733,11 @@
                               </Properties>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                                  <AbsoluteConstraints x="718" y="131" width="330" height="-1"/>
+                                  <AbsoluteConstraints x="720" y="100" width="330" height="-1"/>
                                 </Constraint>
                               </Constraints>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW26">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW220">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3723,11 +3749,11 @@
                               </Properties>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                                  <AbsoluteConstraints x="718" y="166" width="330" height="-1"/>
+                                  <AbsoluteConstraints x="720" y="130" width="330" height="-1"/>
                                 </Constraint>
                               </Constraints>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW137">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW219">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3739,11 +3765,11 @@
                               </Properties>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                                  <AbsoluteConstraints x="718" y="265" width="330" height="-1"/>
+                                  <AbsoluteConstraints x="720" y="220" width="330" height="-1"/>
                                 </Constraint>
                               </Constraints>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW138">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW218">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3755,11 +3781,11 @@
                               </Properties>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                                  <AbsoluteConstraints x="718" y="232" width="330" height="-1"/>
+                                  <AbsoluteConstraints x="720" y="190" width="330" height="-1"/>
                                 </Constraint>
                               </Constraints>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW139">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW217">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3771,11 +3797,11 @@
                               </Properties>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                                  <AbsoluteConstraints x="718" y="199" width="330" height="-1"/>
+                                  <AbsoluteConstraints x="720" y="160" width="330" height="-1"/>
                                 </Constraint>
                               </Constraints>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW140">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW237">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3787,11 +3813,11 @@
                               </Properties>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                                  <AbsoluteConstraints x="718" y="298" width="330" height="-1"/>
+                                  <AbsoluteConstraints x="720" y="250" width="330" height="-1"/>
                                 </Constraint>
                               </Constraints>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW141">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW266">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3803,11 +3829,11 @@
                               </Properties>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                                  <AbsoluteConstraints x="718" y="331" width="330" height="-1"/>
+                                  <AbsoluteConstraints x="720" y="280" width="330" height="-1"/>
                                 </Constraint>
                               </Constraints>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW142">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW233">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3823,7 +3849,7 @@
                                 </Constraint>
                               </Constraints>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW143">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW261">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3835,11 +3861,11 @@
                               </Properties>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                                  <AbsoluteConstraints x="397" y="364" width="321" height="-1"/>
+                                  <AbsoluteConstraints x="720" y="340" width="321" height="-1"/>
                                 </Constraint>
                               </Constraints>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW155">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW228">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3851,159 +3877,11 @@
                               </Properties>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                                  <AbsoluteConstraints x="718" y="364" width="259" height="-1"/>
+                                  <AbsoluteConstraints x="720" y="310" width="259" height="-1"/>
                                 </Constraint>
                               </Constraints>
                             </Component>
-                          </SubComponents>
-                        </Container>
-                        <Container class="javax.swing.JPanel" name="jPanel16">
-                          <Properties>
-                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                            </Property>
-                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                                <TitledBorder justification="1" position="1" title="&#xe40;&#xe2d;&#xe01;&#xe2a;&#xe32;&#xe23;&#xe17;&#xe23;&#xe31;&#xe1e;&#xe22;&#xe4c; &#xe1b;&#xe23;&#xe30;&#xe01;&#xe31;&#xe19;">
-                                  <Font PropertyName="font" name="TH SarabunPSK" size="24" style="1"/>
-                                </TitledBorder>
-                              </Border>
-                            </Property>
-                          </Properties>
-
-                          <Layout>
-                            <DimensionLayout dim="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                                  <Component id="jCheckW112" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="jCheckW113" alignment="0" pref="350" max="32767" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Component id="jCheckW17" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jCheckW25" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jCheckW28" max="32767" attributes="0"/>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jCheckW132" alignment="1" min="-2" pref="350" max="-2" attributes="0"/>
-                                                  <Group type="102" alignment="1" attributes="0">
-                                                      <Component id="jCheckW131" min="-2" pref="350" max="-2" attributes="0"/>
-                                                      <EmptySpace max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                          </Group>
-                                          <Component id="jCheckW156" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jCheckW108" alignment="0" min="-2" pref="358" max="-2" attributes="0"/>
-                                                  <Component id="jCheckW109" alignment="0" min="-2" pref="358" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jCheckW135" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jCheckW136" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jCheckW110" alignment="0" min="-2" pref="356" max="-2" attributes="0"/>
-                                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                                      <Component id="jCheckW126" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jCheckW127" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jCheckW123" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jCheckW124" alignment="0" pref="0" max="32767" attributes="0"/>
-                                                      <Component id="jCheckW111" alignment="0" pref="0" max="32767" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jCheckW134" min="-2" pref="336" max="-2" attributes="0"/>
-                                                  <Component id="jCheckW115" alignment="0" min="-2" pref="289" max="-2" attributes="0"/>
-                                                  <Component id="jCheckW114" alignment="0" min="-2" pref="289" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                            </DimensionLayout>
-                            <DimensionLayout dim="1">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Component id="jCheckW112" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                                                      <Component id="jCheckW17" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Component id="jCheckW113" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              <Component id="jCheckW25" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
-                                              <Component id="jCheckW132" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="jCheckW108" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jCheckW135" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="jCheckW109" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                                                  <Component id="jCheckW136" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="jCheckW110" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jCheckW134" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jCheckW111" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" attributes="0">
-                                                      <Group type="103" groupAlignment="3" attributes="0">
-                                                          <Component id="jCheckW124" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="jCheckW156" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                      <Group type="103" groupAlignment="3" attributes="0">
-                                                          <Component id="jCheckW123" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="jCheckW28" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                  </Group>
-                                                  <Group type="102" attributes="0">
-                                                      <Component id="jCheckW114" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                      <Component id="jCheckW115" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jCheckW127" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="jCheckW126" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jCheckW131" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                            </DimensionLayout>
-                          </Layout>
-                          <SubComponents>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW111">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW253">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -4011,252 +3889,16 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="TH SarabunPSK" size="22" style="1"/>
                                 </Property>
-                                <Property name="text" type="java.lang.String" value="&#xe2b;&#xe19;&#xe31;&#xe07;&#xe2a;&#xe37;&#xe2d;&#xe41;&#xe08;&#xe49;&#xe07;&#xe01;&#xe32;&#xe23;&#xe02;&#xe2d;&#xe1b;&#xe23;&#xe30;&#xe01;&#xe31;&#xe19;&#xe2a;&#xe34;&#xe48;&#xe07;&#xe02;&#xe2d;&#xe07;&#xe44;&#xe1b;&#xe14;&#xe39;&#xe41;&#xe25;&#xe23;&#xe31;&#xe01;&#xe29;&#xe32;&#xe2b;&#xe23;&#xe37;&#xe2d;&#xe43;&#xe0a;&#xe49;&#xe1b;&#xe23;&#xe30;&#xe42;&#xe22;&#xe0a;&#xe19;&#xe4c;"/>
+                                <Property name="text" type="java.lang.String" value="&#xe2b;&#xe19;&#xe31;&#xe07;&#xe2a;&#xe37;&#xe2d;&#xe41;&#xe08;&#xe49;&#xe07;&#xe04;&#xe27;&#xe32;&#xe21;&#xe04;&#xe37;&#xe1a;&#xe2b;&#xe19;&#xe49;&#xe32;&#xe01;&#xe32;&#xe23;&#xe2a;&#xe2d;&#xe1a;&#xe2a;&#xe27;&#xe19;"/>
                               </Properties>
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW111ActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW253ActionPerformed"/>
                               </Events>
-                            </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW110">
-                              <Properties>
-                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                                </Property>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="TH SarabunPSK" size="22" style="1"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="&#xe2a;&#xe31;&#xe0d;&#xe0d;&#xe32;&#xe1b;&#xe23;&#xe30;&#xe01;&#xe31;&#xe19;&#xe41;&#xe25;&#xe30;&#xe23;&#xe31;&#xe1a;&#xe21;&#xe2d;&#xe1a;&#xe2a;&#xe34;&#xe48;&#xe07;&#xe02;&#xe2d;&#xe07;"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW109">
-                              <Properties>
-                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                                </Property>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="TH SarabunPSK" size="22" style="1"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="&#xe04;&#xe33;&#xe23;&#xe49;&#xe2d;&#xe07;&#xe02;&#xe2d;&#xe04;&#xe37;&#xe19;&#xe2a;&#xe34;&#xe48;&#xe07;&#xe02;&#xe2d;&#xe07;"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW108">
-                              <Properties>
-                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                                </Property>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="TH SarabunPSK" size="22" style="1"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe40;&#xe2a;&#xe19;&#xe2d;&#xe2a;&#xe31;&#xe0d;&#xe0d;&#xe32;&#xe1b;&#xe23;&#xe30;&#xe01;&#xe31;&#xe19;&#xe2a;&#xe34;&#xe48;&#xe07;&#xe02;&#xe2d;&#xe07;"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW17">
-                              <Properties>
-                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                                </Property>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="TH SarabunPSK" size="22" style="1"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe0d;&#xe0a;&#xe35;&#xe17;&#xe23;&#xe31;&#xe1e;&#xe22;&#xe4c;&#xe17;&#xe35;&#xe48;&#xe16;&#xe39;&#xe01;&#xe40;&#xe1e;&#xe25;&#xe34;&#xe07;&#xe44;&#xe2b;&#xe21;&#xe49;"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW17ActionPerformed"/>
-                              </Events>
-                            </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW28">
-                              <Properties>
-                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                                </Property>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="TH SarabunPSK" size="22" style="1"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe0d;&#xe0a;&#xe35;&#xe17;&#xe23;&#xe31;&#xe1e;&#xe22;&#xe4c;&#xe16;&#xe39;&#xe01;&#xe1b;&#xe23;&#xe30;&#xe17;&#xe38;&#xe29;&#xe23;&#xe49;&#xe32;&#xe22;&#xe44;&#xe14;&#xe49;&#xe04;&#xe37;&#xe19;"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW25">
-                              <Properties>
-                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                                </Property>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="TH SarabunPSK" size="22" style="1"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe0d;&#xe0a;&#xe35;&#xe17;&#xe23;&#xe31;&#xe1e;&#xe22;&#xe4c;&#xe16;&#xe39;&#xe01;&#xe1b;&#xe23;&#xe30;&#xe17;&#xe38;&#xe29;&#xe23;&#xe49;&#xe32;&#xe22;&#xe44;&#xe21;&#xe48;&#xe44;&#xe14;&#xe49;&#xe04;&#xe37;&#xe19;"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW25ActionPerformed"/>
-                              </Events>
-                            </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW112">
-                              <Properties>
-                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                                </Property>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="TH SarabunPSK" size="22" style="1"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe0d;&#xe0a;&#xe35;&#xe17;&#xe23;&#xe31;&#xe1e;&#xe22;&#xe4c;&#xe16;&#xe39;&#xe01;&#xe1b;&#xe23;&#xe30;&#xe17;&#xe38;&#xe29;&#xe23;&#xe49;&#xe32;&#xe22;"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW113">
-                              <Properties>
-                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                                </Property>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="TH SarabunPSK" size="22" style="1"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe0d;&#xe0a;&#xe35;&#xe17;&#xe23;&#xe31;&#xe1e;&#xe22;&#xe4c;&#xe1b;&#xe23;&#xe30;&#xe01;&#xe2d;&#xe1a;&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe04;&#xe49;&#xe19;"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW113ActionPerformed"/>
-                              </Events>
-                            </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW114">
-                              <Properties>
-                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                                </Property>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="TH SarabunPSK" size="22" style="1"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="&#xe15;&#xe33;&#xe2b;&#xe19;&#xe34;&#xe23;&#xe39;&#xe1b;&#xe1e;&#xe23;&#xe23;&#xe13;&#xe17;&#xe23;&#xe31;&#xe1e;&#xe22;&#xe4c;&#xe2b;&#xe32;&#xe22;"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW115">
-                              <Properties>
-                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                                </Property>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="TH SarabunPSK" size="22" style="1"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="&#xe15;&#xe33;&#xe2b;&#xe19;&#xe34;&#xe23;&#xe39;&#xe1b;&#xe1e;&#xe23;&#xe23;&#xe13;&#xe17;&#xe23;&#xe31;&#xe1e;&#xe22;&#xe4c;&#xe2b;&#xe32;&#xe22;&#xe44;&#xe14;&#xe49;&#xe04;&#xe37;&#xe19;"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW115ActionPerformed"/>
-                              </Events>
-                            </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW123">
-                              <Properties>
-                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                                </Property>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="TH SarabunPSK" size="22" style="1"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe23;&#xe31;&#xe1a;&#xe23;&#xe2d;&#xe07;&#xe01;&#xe32;&#xe23;&#xe1b;&#xe47;&#xe19;&#xe42;&#xe2a;&#xe14;"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW124">
-                              <Properties>
-                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                                </Property>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="TH SarabunPSK" size="22" style="1"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="&#xe04;&#xe33;&#xe22;&#xe34;&#xe19;&#xe22;&#xe2d;&#xe21;&#xe01;&#xe23;&#xe13;&#xe35;&#xe1c;&#xe39;&#xe49;&#xe43;&#xe2b;&#xe49;&#xe2a;&#xe31;&#xe0d;&#xe0d;&#xe32;&#xe04;&#xe49;&#xe33;&#xe1b;&#xe23;&#xe30;&#xe01;&#xe31;&#xe19;&#xe21;&#xe35;&#xe04;&#xe39;&#xe48;&#xe2a;&#xe21;&#xe23;&#xe2a;"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW127">
-                              <Properties>
-                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                                </Property>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="TH SarabunPSK" size="22" style="1"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe40;&#xe2a;&#xe19;&#xe2d;&#xe2a;&#xe31;&#xe0d;&#xe0d;&#xe32;&#xe1b;&#xe23;&#xe30;&#xe01;&#xe31;&#xe19;"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW126">
-                              <Properties>
-                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                                </Property>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="TH SarabunPSK" size="22" style="1"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="&#xe04;&#xe33;&#xe23;&#xe49;&#xe2d;&#xe07;&#xe41;&#xe25;&#xe30;&#xe2a;&#xe31;&#xe0d;&#xe0d;&#xe32;&#xe1b;&#xe23;&#xe30;&#xe01;&#xe31;&#xe19;"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW126ActionPerformed"/>
-                              </Events>
-                            </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW131">
-                              <Properties>
-                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                                </Property>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="TH SarabunPSK" size="22" style="1"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe0d;&#xe0a;&#xe35;&#xe17;&#xe23;&#xe31;&#xe1e;&#xe22;&#xe4c;&#xe1b;&#xe23;&#xe30;&#xe01;&#xe2d;&#xe1a;&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe04;&#xe49;&#xe19;&#xe42;&#xe14;&#xe22;&#xe44;&#xe21;&#xe48;&#xe21;&#xe35;&#xe2b;&#xe21;&#xe32;&#xe22;&#xe04;&#xe49;&#xe19;"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW132">
-                              <Properties>
-                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                                </Property>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="TH SarabunPSK" size="22" style="1"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe0d;&#xe0a;&#xe35;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe04;&#xe49;&#xe19;&#xe42;&#xe14;&#xe22;&#xe44;&#xe21;&#xe48;&#xe21;&#xe35;&#xe2b;&#xe21;&#xe32;&#xe22;&#xe04;&#xe49;&#xe19;"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW134">
-                              <Properties>
-                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                                </Property>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="TH SarabunPSK" size="22" style="1"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="&#xe41;&#xe1a;&#xe1a;&#xe23;&#xe39;&#xe1b;&#xe1e;&#xe23;&#xe23;&#xe13;&#xe23;&#xe16;&#xe22;&#xe19;&#xe15;&#xe4c;&#xe2b;&#xe23;&#xe37;&#xe2d;&#xe23;&#xe16;&#xe08;&#xe31;&#xe01;&#xe23;&#xe22;&#xe19;&#xe15;&#xe4c;&#xe17;&#xe35;&#xe48;&#xe16;&#xe39;&#xe01;&#xe42;&#xe08;&#xe23;&#xe01;&#xe23;&#xe23;&#xe21;"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW134ActionPerformed"/>
-                              </Events>
-                            </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW135">
-                              <Properties>
-                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                                </Property>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="TH SarabunPSK" size="22" style="1"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="&#xe41;&#xe1a;&#xe1a;&#xe23;&#xe32;&#xe22;&#xe01;&#xe32;&#xe23;&#xe23;&#xe16;&#xe22;&#xe19;&#xe15;&#xe4c;&#xe2b;&#xe23;&#xe37;&#xe2d;&#xe23;&#xe16;&#xe08;&#xe31;&#xe01;&#xe23;&#xe22;&#xe32;&#xe19;&#xe22;&#xe19;&#xe15;&#xe4c;&#xe17;&#xe35;&#xe48;&#xe44;&#xe14;&#xe49;&#xe04;&#xe37;&#xe19;"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW136">
-                              <Properties>
-                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                                </Property>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="TH SarabunPSK" size="22" style="1"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="&#xe41;&#xe1a;&#xe1a;&#xe23;&#xe39;&#xe1b;&#xe1e;&#xe23;&#xe23;&#xe13;&#xe23;&#xe16;&#xe22;&#xe19;&#xe15;&#xe4c;&#xe2b;&#xe23;&#xe37;&#xe2d;&#xe23;&#xe16;&#xe08;&#xe31;&#xe01;&#xe23;&#xe22;&#xe19;&#xe15;&#xe4c;&#xe17;&#xe35;&#xe48;&#xe16;&#xe39;&#xe01;&#xe42;&#xe08;&#xe23;&#xe01;&#xe23;&#xe23;&#xe21;"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW136ActionPerformed"/>
-                              </Events>
-                            </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW156">
-                              <Properties>
-                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                                </Property>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="TH SarabunPSK" size="22" style="1"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe0d;&#xe0a;&#xe35;&#xe02;&#xe2d;&#xe07;&#xe01;&#xe25;&#xe32;&#xe07;&#xe04;&#xe14;&#xe35;&#xe2d;&#xe32;&#xe0d;&#xe32;"/>
-                              </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                                  <AbsoluteConstraints x="400" y="310" width="314" height="-1"/>
+                                </Constraint>
+                              </Constraints>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -4279,24 +3921,20 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jCheckW144" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jCheckW145" alignment="0" min="-2" pref="445" max="-2" attributes="0"/>
-                                          <Component id="jCheckW146" alignment="0" min="-2" pref="445" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="1" attributes="0">
-                                              <Component id="jCheckW151" alignment="1" min="-2" pref="460" max="-2" attributes="0"/>
-                                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                                  <Component id="jCheckW153" alignment="0" min="-2" pref="460" max="-2" attributes="0"/>
-                                                  <Component id="jCheckW152" alignment="0" min="-2" pref="460" max="-2" attributes="0"/>
-                                                  <Component id="jCheckW154" alignment="0" min="-2" pref="460" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
+                                          <Component id="jCheckW240" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckW241" alignment="0" min="-2" pref="445" max="-2" attributes="0"/>
+                                          <Component id="jCheckW242" alignment="0" min="-2" pref="445" max="-2" attributes="0"/>
+                                          <Component id="jCheckW268" alignment="0" min="-2" pref="460" max="-2" attributes="0"/>
+                                          <Component id="jCheckW269" alignment="0" min="-2" pref="460" max="-2" attributes="0"/>
+                                          <Component id="jCheckW267" alignment="0" min="-2" pref="460" max="-2" attributes="0"/>
+                                          <Component id="jCheckW265" min="-2" pref="475" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jCheckW150" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
-                                          <Component id="jCheckW147" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
-                                          <Component id="jCheckW149" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
-                                          <Component id="jCheckW148" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
+                                          <Component id="jCheckW224" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
+                                          <Component id="jCheckW221" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
+                                          <Component id="jCheckW223" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
+                                          <Component id="jCheckW222" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                   </Group>
@@ -4305,37 +3943,37 @@
                             <DimensionLayout dim="1">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="jCheckW144" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jCheckW240" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                      <Component id="jCheckW145" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jCheckW241" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                      <Component id="jCheckW146" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jCheckW242" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jCheckW151" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jCheckW265" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                      <Component id="jCheckW154" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jCheckW267" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                      <Component id="jCheckW153" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jCheckW268" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                      <Component id="jCheckW152" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jCheckW269" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jCheckW147" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jCheckW221" min="-2" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace min="33" pref="33" max="-2" attributes="0"/>
-                                              <Component id="jCheckW149" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jCheckW223" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="jCheckW148" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckW222" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                      <Component id="jCheckW150" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jCheckW224" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
                           </Layout>
                           <SubComponents>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW144">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW240">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -4346,7 +3984,7 @@
                                 <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe01;&#xe32;&#xe23;&#xe41;&#xe08;&#xe49;&#xe07;&#xe2a;&#xe34;&#xe17;&#xe18;&#xe34;&#xe15;&#xe32;&#xe21; &#xe1e;.&#xe23;.&#xe1a;. &#xe04;&#xe48;&#xe32;&#xe15;&#xe2d;&#xe1a;&#xe41;&#xe17;&#xe19;&#xe1c;&#xe39;&#xe49;&#xe40;&#xe2a;&#xe35;&#xe22;&#xe2b;&#xe32;&#xe22; &#xe41;&#xe25;&#xe30;&#xe04;&#xe48;&#xe32;&#xe17;&#xe14;&#xe41;&#xe17;&#xe19; &#xa;"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW145">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW241">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -4357,7 +3995,7 @@
                                 <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe01;&#xe32;&#xe23;&#xe15;&#xe01;&#xe25;&#xe07;&#xe04;&#xe48;&#xe32;&#xe40;&#xe2a;&#xe35;&#xe22;&#xe2b;&#xe32;&#xe22;"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW146">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW242">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -4368,7 +4006,7 @@
                                 <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe04;&#xe33;&#xe02;&#xe2d;&#xe23;&#xe31;&#xe1a;&#xe0a;&#xe14;&#xe43;&#xe0a;&#xe49;&#xe04;&#xe48;&#xe32;&#xe43;&#xe0a;&#xe49;&#xe08;&#xe48;&#xe32;&#xe22;&#xe40;&#xe1a;&#xe37;&#xe49;&#xe2d;&#xe07;&#xe15;&#xe49;&#xe19;&#xe2d;&#xe31;&#xe19;&#xe40;&#xe01;&#xe34;&#xe14;&#xe08;&#xe32;&#xe01;&#xe01;&#xe32;&#xe23;&#xe02;&#xe19;&#xe2a;&#xe48;&#xe07;"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW147">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW221">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -4379,7 +4017,7 @@
                                 <Property name="text" type="java.lang.String" value="&#xe43;&#xe1a;&#xe19;&#xe33;&#xe2a;&#xe48;&#xe07;&#xe1c;&#xe39;&#xe49;&#xe1a;&#xe32;&#xe14;&#xe40;&#xe08;&#xe47;&#xe1a;&#xe2b;&#xe23;&#xe37;&#xe2d;&#xe28;&#xe1e;"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW148">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW222">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -4390,7 +4028,7 @@
                                 <Property name="text" type="java.lang.String" value="&#xe2b;&#xe19;&#xe31;&#xe07;&#xe2a;&#xe37;&#xe2d;&#xe2a;&#xe48;&#xe07;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;&#xe1b;&#xe48;&#xe27;&#xe22;&#xe17;&#xe32;&#xe07;&#xe08;&#xe34;&#xe15;&#xe15;&#xe23;&#xe27;&#xe08;&#xe27;&#xe34;&#xe19;&#xe34;&#xe08;&#xe09;&#xe31;&#xe22;"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW149">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW223">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -4401,7 +4039,7 @@
                                 <Property name="text" type="java.lang.String" value="&#xe23;&#xe32;&#xe22;&#xe07;&#xe32;&#xe19;&#xe0a;&#xe31;&#xe19;&#xe2a;&#xe39;&#xe15;&#xe23;&#xe1e;&#xe25;&#xe34;&#xe01;&#xe28;&#xe1e;"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW150">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW224">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -4412,10 +4050,10 @@
                                 <Property name="text" type="java.lang.String" value="&#xe41;&#xe1a;&#xe1a;&#xe23;&#xe32;&#xe22;&#xe07;&#xe32;&#xe19;&#xe1e;&#xe1a;&#xe28;&#xe1e;&#xe44;&#xe21;&#xe48;&#xe17;&#xe23;&#xe32;&#xe1a;&#xe0a;&#xe37;&#xe48;&#xe2d;"/>
                               </Properties>
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW150ActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW224ActionPerformed"/>
                               </Events>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW151">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW265">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -4426,7 +4064,7 @@
                                 <Property name="text" type="java.lang.String" value="&#xe04;&#xe33;&#xe23;&#xe49;&#xe2d;&#xe07;&#xe02;&#xe2d;&#xe2a;&#xe48;&#xe07;&#xe15;&#xe31;&#xe27;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;&#xe44;&#xe1b;&#xe04;&#xe27;&#xe1a;&#xe04;&#xe38;&#xe21;&#xe15;&#xe31;&#xe27;&#xe40;&#xe1e;&#xe37;&#xe48;&#xe2d;&#xe1e;&#xe34;&#xe2a;&#xe39;&#xe08;&#xe19;&#xe4c;&#xe01;&#xe32;&#xe23;&#xe40;&#xe2a;&#xe1e;&#xe2b;&#xe23;&#xe37;&#xe2d;&#xe01;&#xe32;&#xe23;&#xe15;&#xe34;&#xe14;&#xe22;&#xe32;&#xe40;&#xe2a;&#xe1e;&#xe15;&#xe34;&#xe14;"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW152">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW269">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -4437,10 +4075,10 @@
                                 <Property name="text" type="java.lang.String" value="&#xe04;&#xe33;&#xe23;&#xe49;&#xe2d;&#xe07;&#xe02;&#xe2d;&#xe1d;&#xe32;&#xe01;&#xe02;&#xe31;&#xe07;"/>
                               </Properties>
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW152ActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW269ActionPerformed"/>
                               </Events>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW153">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW268">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -4451,7 +4089,7 @@
                                 <Property name="text" type="java.lang.String" value="&#xe04;&#xe33;&#xe23;&#xe49;&#xe2d;&#xe07;&#xe02;&#xe2d;&#xe1c;&#xe31;&#xe14;&#xe1f;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe23;&#xe37;&#xe2d;&#xe1c;&#xe31;&#xe14;&#xe1f;&#xe49;&#xe2d;&#xe07;&#xe41;&#xe25;&#xe30;&#xe1d;&#xe32;&#xe01;&#xe02;&#xe31;&#xe07;&#xe04;&#xe23;&#xe31;&#xe49;&#xe07;&#xe17;&#xe35;&#xe48;...."/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW154">
+                            <Component class="javax.swing.JCheckBox" name="jCheckW267">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -4464,11 +4102,404 @@
                             </Component>
                           </SubComponents>
                         </Container>
+                        <Container class="javax.swing.JPanel" name="jPanel16">
+                          <Properties>
+                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                            </Property>
+                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                                <TitledBorder justification="1" position="1" title="&#xe40;&#xe2d;&#xe01;&#xe2a;&#xe32;&#xe23;&#xe17;&#xe23;&#xe31;&#xe1e;&#xe22;&#xe4c; &#xe1b;&#xe23;&#xe30;&#xe01;&#xe31;&#xe19;">
+                                  <Font PropertyName="font" name="TH SarabunPSK" size="24" style="1"/>
+                                </TitledBorder>
+                              </Border>
+                            </Property>
+                          </Properties>
+
+                          <Layout>
+                            <DimensionLayout dim="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="jCheckW212" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jCheckW234" alignment="0" pref="350" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                                              <Component id="jCheckW235" alignment="1" min="-2" pref="350" max="-2" attributes="0"/>
+                                              <Component id="jCheckW236" alignment="1" min="-2" pref="350" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jCheckW215" max="32767" attributes="0"/>
+                                          <Component id="jCheckW214" pref="364" max="32767" attributes="0"/>
+                                          <Component id="jCheckW213" max="32767" attributes="0"/>
+                                          <Component id="jCheckW211" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jCheckW244" alignment="0" min="-2" pref="358" max="-2" attributes="0"/>
+                                          <Component id="jCheckW245" alignment="0" min="-2" pref="356" max="-2" attributes="0"/>
+                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="jCheckW271" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jCheckW270" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jCheckW273" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jCheckW246" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckW243" alignment="0" min="-2" pref="358" max="-2" attributes="0"/>
+                                          <Component id="jCheckW272" alignment="0" min="-2" pref="295" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace pref="14" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jCheckW260" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckW259" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckW258" alignment="0" min="-2" pref="289" max="-2" attributes="0"/>
+                                          <Component id="jCheckW257" alignment="0" min="-2" pref="289" max="-2" attributes="0"/>
+                                          <Component id="jCheckW274" min="-2" pref="289" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                            </DimensionLayout>
+                            <DimensionLayout dim="1">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="jCheckW260" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
+                                                      <Component id="jCheckW211" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="jCheckW259" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                              <Component id="jCheckW213" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jCheckW212" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                                                      <Component id="jCheckW215" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Component id="jCheckW234" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                              <Component id="jCheckW214" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jCheckW235" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="33" pref="33" max="-2" attributes="0"/>
+                                              <Component id="jCheckW236" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="jCheckW257" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                              <Component id="jCheckW258" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="jCheckW243" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jCheckW244" min="-2" pref="33" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                              <Component id="jCheckW245" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jCheckW246" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jCheckW272" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckW274" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                      <Component id="jCheckW273" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jCheckW270" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jCheckW271" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                            </DimensionLayout>
+                          </Layout>
+                          <SubComponents>
+                            <Component class="javax.swing.JCheckBox" name="jCheckW246">
+                              <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                </Property>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="TH SarabunPSK" size="22" style="1"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="&#xe2b;&#xe19;&#xe31;&#xe07;&#xe2a;&#xe37;&#xe2d;&#xe41;&#xe08;&#xe49;&#xe07;&#xe01;&#xe32;&#xe23;&#xe02;&#xe2d;&#xe1b;&#xe23;&#xe30;&#xe01;&#xe31;&#xe19;&#xe2a;&#xe34;&#xe48;&#xe07;&#xe02;&#xe2d;&#xe07;&#xe44;&#xe1b;&#xe14;&#xe39;&#xe41;&#xe25;&#xe23;&#xe31;&#xe01;&#xe29;&#xe32;&#xe2b;&#xe23;&#xe37;&#xe2d;&#xe43;&#xe0a;&#xe49;&#xe1b;&#xe23;&#xe30;&#xe42;&#xe22;&#xe0a;&#xe19;&#xe4c;"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW246ActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="jCheckW245">
+                              <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                </Property>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="TH SarabunPSK" size="22" style="1"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="&#xe2a;&#xe31;&#xe0d;&#xe0d;&#xe32;&#xe1b;&#xe23;&#xe30;&#xe01;&#xe31;&#xe19;&#xe41;&#xe25;&#xe30;&#xe23;&#xe31;&#xe1a;&#xe21;&#xe2d;&#xe1a;&#xe2a;&#xe34;&#xe48;&#xe07;&#xe02;&#xe2d;&#xe07;"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="jCheckW244">
+                              <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                </Property>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="TH SarabunPSK" size="22" style="1"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="&#xe04;&#xe33;&#xe23;&#xe49;&#xe2d;&#xe07;&#xe02;&#xe2d;&#xe04;&#xe37;&#xe19;&#xe2a;&#xe34;&#xe48;&#xe07;&#xe02;&#xe2d;&#xe07;"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="jCheckW243">
+                              <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                </Property>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="TH SarabunPSK" size="22" style="1"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe40;&#xe2a;&#xe19;&#xe2d;&#xe2a;&#xe31;&#xe0d;&#xe0d;&#xe32;&#xe1b;&#xe23;&#xe30;&#xe01;&#xe31;&#xe19;&#xe2a;&#xe34;&#xe48;&#xe07;&#xe02;&#xe2d;&#xe07;"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="jCheckW215">
+                              <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                </Property>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="TH SarabunPSK" size="22" style="1"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe0d;&#xe0a;&#xe35;&#xe17;&#xe23;&#xe31;&#xe1e;&#xe22;&#xe4c;&#xe17;&#xe35;&#xe48;&#xe16;&#xe39;&#xe01;&#xe40;&#xe1e;&#xe25;&#xe34;&#xe07;&#xe44;&#xe2b;&#xe21;&#xe49;"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW215ActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="jCheckW213">
+                              <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                </Property>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="TH SarabunPSK" size="22" style="1"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe0d;&#xe0a;&#xe35;&#xe17;&#xe23;&#xe31;&#xe1e;&#xe22;&#xe4c;&#xe16;&#xe39;&#xe01;&#xe1b;&#xe23;&#xe30;&#xe17;&#xe38;&#xe29;&#xe23;&#xe49;&#xe32;&#xe22;&#xe44;&#xe14;&#xe49;&#xe04;&#xe37;&#xe19;"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="jCheckW214">
+                              <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                </Property>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="TH SarabunPSK" size="22" style="1"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe0d;&#xe0a;&#xe35;&#xe17;&#xe23;&#xe31;&#xe1e;&#xe22;&#xe4c;&#xe16;&#xe39;&#xe01;&#xe1b;&#xe23;&#xe30;&#xe17;&#xe38;&#xe29;&#xe23;&#xe49;&#xe32;&#xe22;&#xe44;&#xe21;&#xe48;&#xe44;&#xe14;&#xe49;&#xe04;&#xe37;&#xe19;"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW214ActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="jCheckW212">
+                              <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                </Property>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="TH SarabunPSK" size="22" style="1"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe0d;&#xe0a;&#xe35;&#xe17;&#xe23;&#xe31;&#xe1e;&#xe22;&#xe4c;&#xe16;&#xe39;&#xe01;&#xe1b;&#xe23;&#xe30;&#xe17;&#xe38;&#xe29;&#xe23;&#xe49;&#xe32;&#xe22;"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="jCheckW234">
+                              <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                </Property>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="TH SarabunPSK" size="22" style="1"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe0d;&#xe0a;&#xe35;&#xe17;&#xe23;&#xe31;&#xe1e;&#xe22;&#xe4c;&#xe1b;&#xe23;&#xe30;&#xe01;&#xe2d;&#xe1a;&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe04;&#xe49;&#xe19;"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW234ActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="jCheckW257">
+                              <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                </Property>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="TH SarabunPSK" size="22" style="1"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="&#xe15;&#xe33;&#xe2b;&#xe19;&#xe34;&#xe23;&#xe39;&#xe1b;&#xe1e;&#xe23;&#xe23;&#xe13;&#xe17;&#xe23;&#xe31;&#xe1e;&#xe22;&#xe4c;&#xe2b;&#xe32;&#xe22;"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="jCheckW258">
+                              <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                </Property>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="TH SarabunPSK" size="22" style="1"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="&#xe15;&#xe33;&#xe2b;&#xe19;&#xe34;&#xe23;&#xe39;&#xe1b;&#xe1e;&#xe23;&#xe23;&#xe13;&#xe17;&#xe23;&#xe31;&#xe1e;&#xe22;&#xe4c;&#xe2b;&#xe32;&#xe22;&#xe44;&#xe14;&#xe49;&#xe04;&#xe37;&#xe19;"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW258ActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="jCheckW273">
+                              <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                </Property>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="TH SarabunPSK" size="22" style="1"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe23;&#xe31;&#xe1a;&#xe23;&#xe2d;&#xe07;&#xe01;&#xe32;&#xe23;&#xe1b;&#xe47;&#xe19;&#xe42;&#xe2a;&#xe14;"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="jCheckW272">
+                              <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                </Property>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="TH SarabunPSK" size="22" style="1"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="&#xe04;&#xe33;&#xe22;&#xe34;&#xe19;&#xe22;&#xe2d;&#xe21;&#xe01;&#xe23;&#xe13;&#xe35;&#xe1c;&#xe39;&#xe49;&#xe43;&#xe2b;&#xe49;&#xe2a;&#xe31;&#xe0d;&#xe0d;&#xe32;&#xe04;&#xe49;&#xe33;&#xe1b;&#xe23;&#xe30;&#xe01;&#xe31;&#xe19;&#xe21;&#xe35;&#xe04;&#xe39;&#xe48;&#xe2a;&#xe21;&#xe23;&#xe2a;"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="jCheckW270">
+                              <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                </Property>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="TH SarabunPSK" size="22" style="1"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe40;&#xe2a;&#xe19;&#xe2d;&#xe2a;&#xe31;&#xe0d;&#xe0d;&#xe32;&#xe1b;&#xe23;&#xe30;&#xe01;&#xe31;&#xe19;"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="jCheckW271">
+                              <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                </Property>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="TH SarabunPSK" size="22" style="1"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="&#xe04;&#xe33;&#xe23;&#xe49;&#xe2d;&#xe07;&#xe41;&#xe25;&#xe30;&#xe2a;&#xe31;&#xe0d;&#xe0d;&#xe32;&#xe1b;&#xe23;&#xe30;&#xe01;&#xe31;&#xe19;"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW271ActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="jCheckW236">
+                              <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                </Property>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="TH SarabunPSK" size="22" style="1"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe0d;&#xe0a;&#xe35;&#xe17;&#xe23;&#xe31;&#xe1e;&#xe22;&#xe4c;&#xe1b;&#xe23;&#xe30;&#xe01;&#xe2d;&#xe1a;&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe04;&#xe49;&#xe19;&#xe42;&#xe14;&#xe22;&#xe44;&#xe21;&#xe48;&#xe21;&#xe35;&#xe2b;&#xe21;&#xe32;&#xe22;&#xe04;&#xe49;&#xe19;"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="jCheckW235">
+                              <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                </Property>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="TH SarabunPSK" size="22" style="1"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe0d;&#xe0a;&#xe35;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe04;&#xe49;&#xe19;&#xe42;&#xe14;&#xe22;&#xe44;&#xe21;&#xe48;&#xe21;&#xe35;&#xe2b;&#xe21;&#xe32;&#xe22;&#xe04;&#xe49;&#xe19;"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="jCheckW260">
+                              <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                </Property>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="TH SarabunPSK" size="22" style="1"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="&#xe41;&#xe1a;&#xe1a;&#xe23;&#xe32;&#xe22;&#xe01;&#xe32;&#xe23;&#xe23;&#xe16;&#xe22;&#xe19;&#xe15;&#xe4c;&#xe2b;&#xe23;&#xe37;&#xe2d;&#xe23;&#xe16;&#xe08;&#xe31;&#xe01;&#xe23;&#xe22;&#xe32;&#xe19;&#xe22;&#xe19;&#xe15;&#xe4c;&#xe17;&#xe35;&#xe48;&#xe44;&#xe14;&#xe49;&#xe04;&#xe37;&#xe19;"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="jCheckW259">
+                              <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                </Property>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="TH SarabunPSK" size="22" style="1"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="&#xe41;&#xe1a;&#xe1a;&#xe23;&#xe39;&#xe1b;&#xe1e;&#xe23;&#xe23;&#xe13;&#xe23;&#xe16;&#xe22;&#xe19;&#xe15;&#xe4c;&#xe2b;&#xe23;&#xe37;&#xe2d;&#xe23;&#xe16;&#xe08;&#xe31;&#xe01;&#xe23;&#xe22;&#xe19;&#xe15;&#xe4c;&#xe17;&#xe35;&#xe48;&#xe16;&#xe39;&#xe01;&#xe42;&#xe08;&#xe23;&#xe01;&#xe23;&#xe23;&#xe21;"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW259ActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="jCheckW211">
+                              <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                </Property>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="TH SarabunPSK" size="22" style="1"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe0d;&#xe0a;&#xe35;&#xe02;&#xe2d;&#xe07;&#xe01;&#xe25;&#xe32;&#xe07;&#xe04;&#xe14;&#xe35;&#xe2d;&#xe32;&#xe0d;&#xe32;"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="jCheckW274">
+                              <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                </Property>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="TH SarabunPSK" size="22" style="1"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="&#xe2b;&#xe19;&#xe31;&#xe07;&#xe2a;&#xe37;&#xe2d;&#xe41;&#xe08;&#xe49;&#xe07;&#xe2d;&#xe32;&#xe22;&#xe31;&#xe14;&#xe15;&#xe31;&#xe4b;&#xe27;&#xe2f;"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW274ActionPerformed"/>
+                              </Events>
+                            </Component>
+                          </SubComponents>
+                        </Container>
                       </SubComponents>
                     </Container>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JButton" name="jButtonPrintDoc1">
+                <Component class="javax.swing.JLabel" name="jLabel33">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="caseid"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="jButtonPrintDoc2">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="TH SarabunPSK" size="22" style="1"/>
@@ -4476,13 +4507,8 @@
                     <Property name="text" type="java.lang.String" value="&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe40;&#xe2d;&#xe01;&#xe2a;&#xe32;&#xe23;"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonPrintDoc1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonPrintDoc2ActionPerformed"/>
                   </Events>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel33">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="caseid"/>
-                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
