@@ -187,13 +187,7 @@ public class W18 {
 //			row1.put("REMARK", "period1");
 			table1.add(row1);
 			
-//			JSONObject repl2 = new JSONObject();
-//			repl2.put("CRIMESNO", "function1");
-//			repl2.put("DESCRIPTION", "desc1");
-//			repl2.put("SUSPECT", "period1");
-//			repl2.put("VICTIM", "period1");
-//			repl2.put("REMARK", "period1");
-//			table1.add(repl2);
+
 		JSONObject tableobj = new JSONObject();
 		tableobj.put("COLUMNS", tablecolumn);
 		tableobj.put("TABLEDATA", table1);
@@ -273,7 +267,7 @@ public class W18 {
 					.load(new java.io.File("./TEMPLATE/w18.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			
-			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์//บันทึกการตรวจสถานที่เกิดเหตุคดีจราจร.doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/บันทึกการตรวจสถานที่เกิดเหตุคดีจราจร.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

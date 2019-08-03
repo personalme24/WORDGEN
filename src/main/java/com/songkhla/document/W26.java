@@ -292,7 +292,7 @@ public static void nw26() {
 					.load(new java.io.File("./TEMPLATE/w26.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			
-			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/หนังสือนำส่งของกลางยาเสพติดตรวจพิสูจน์.doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/หนังสือนำส่งของกลางยาเสพติดตรวจพิสูจน์.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

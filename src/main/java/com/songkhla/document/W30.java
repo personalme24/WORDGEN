@@ -53,6 +53,7 @@ public class W30 {
              String ccYear;
              String casetype;
              String caseno;
+             String suspectName;
              String PoliceStationName="";
              String StationAmphur="";
              String StationProvince="";
@@ -110,7 +111,7 @@ public class W30 {
                     ccYear=s.getString("crimecaseyears");
                      casetype =s.getString("casetype");
                      caseno  =s.getString("crimecasenoyear");
-                     
+                     suspectName =s.getString("suspectName");
                  String Date="";
                 String Month="";
                 String Year="";
@@ -197,7 +198,7 @@ public class W30 {
 					.load(new java.io.File("./TEMPLATE/w30.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/บันทึกการชี้รูปผู้ต้องหา "+s.getString("FullNamePerson")+"" + cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/บันทึกการชี้รูปผู้ต้องหา "+suspectName+""+ cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

@@ -280,7 +280,7 @@ public static void nw93() {
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("/TEMPLATE/w93.docx"));
+					.load(new java.io.File("./TEMPLATE/w93.docx"));
                         
 			processVariable(bookmarkvalue,wordMLPackage);
 			
