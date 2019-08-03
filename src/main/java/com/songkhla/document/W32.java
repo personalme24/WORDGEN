@@ -236,7 +236,7 @@ public class W32 {
 					.load(new java.io.File("./TEMPLATE/w32.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			
-			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/บันทึกการจับกุมผู้ต้องหาที่เป็นเด็กหรือเยาวชน.doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/บันทึกการจับกุมผู้ต้องหาที่เป็นเด็กหรือเยาวชน.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

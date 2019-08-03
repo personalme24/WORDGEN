@@ -252,7 +252,7 @@ public class W4 {
 					.load(new java.io.File("./TEMPLATE/w4.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			
-			wordMLPackage.save(new java.io.File("C:/สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/หนังสือส่งสำนวนคดีสั่งฟ้องหรือสั่งไม่ฟ้อง.doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/หนังสือส่งสำนวนคดีสั่งฟ้องหรือสั่งไม่ฟ้อง.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

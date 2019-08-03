@@ -68,8 +68,12 @@ import com.songkhla.document.W71;
 import com.songkhla.document.W72;
 import com.songkhla.document.W73;
 import com.songkhla.document.W74;
+import com.songkhla.document.W75;
+import com.songkhla.document.W76;
 import com.songkhla.document.W8;
+import com.songkhla.document.W80;
 import com.songkhla.document.W9;
+import com.songkhla.document.W93;
 import java.awt.Desktop;
 import java.io.File;
 import java.sql.Connection;
@@ -545,7 +549,7 @@ public class ReportAllForm extends javax.swing.JDialog {
 
         jCheckW69.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW69.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW69.setText("คำร้องขอฝากครั้ง");
+        jCheckW69.setText("คำร้องขอฝากขัง");
 
         jCheckW70.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW70.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -561,7 +565,7 @@ public class ReportAllForm extends javax.swing.JDialog {
 
         jCheckW73.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW73.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW73.setText("บันทึกรับรองการป็นโสด");
+        jCheckW73.setText("บันทึกรับรองการเป็นโสด");
 
         jCheckW74.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW74.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -834,7 +838,9 @@ public class ReportAllForm extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jCheckW66)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jCheckW67)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jCheckW67)
+                                    .addComponent(jCheckW48))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jCheckW68)
@@ -877,9 +883,7 @@ public class ReportAllForm extends javax.swing.JDialog {
                                 .addComponent(jCheckW46)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jCheckW47)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jCheckW48)
-                                .addGap(33, 33, 33)
+                                .addGap(66, 66, 66)
                                 .addComponent(jCheckW50)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jCheckW51)
@@ -913,9 +917,7 @@ public class ReportAllForm extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1601, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1171,7 +1173,7 @@ public class ReportAllForm extends javax.swing.JDialog {
            
         }
                 if(jCheckW61.isSelected()){
-            //W61 .nw61();
+                 //W61 .nw61();
            
         }
                  if(jCheckW62.isSelected()){
@@ -1225,9 +1227,21 @@ public class ReportAllForm extends javax.swing.JDialog {
         }
          if(jCheckW74.isSelected()){
              W74 .nw74();
+         }
+         if(jCheckW75.isSelected()){
+             W75 .nw75();
+         }
+         if(jCheckW76.isSelected()){
+             W76 .nw76();
+         }
+         if(jCheckW80.isSelected()){
+             W80 .nw80();
+         }
+         
+         if(jCheckW93.isSelected()){
+             W93 .nw93();
            
         }
-         
                   
         
          
