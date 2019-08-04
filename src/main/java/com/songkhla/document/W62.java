@@ -80,7 +80,7 @@ public class W62 {
                                "from crimecase \n" +
                                "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                                 "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
-                                "where crimecase.CaseId='"+cc+"'\n"+
+                                "where crimecase.CaseId='"+cc+"' and Person.TypePerson='ผู้ต้องหา'\n"+
                                 "group by crimecase.CaseId";
                    
 //                   pst=conn.prepareStatement(sql);
@@ -105,8 +105,8 @@ public class W62 {
                  bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
                   bookmarkvalue.put("CC2",Checknull(caseno));
                  
-                 bookmarkvalue.put("P54",ToDate(Checknull(s.getString("ArrestDateTime"))));
-                 bookmarkvalue.put("P88",ToTime(Checknull(s.getString("ArrestDateTime"))));
+                 bookmarkvalue.put("P54",Checknull(ToDate(s.getString("ArrestDateTime"))));
+                 bookmarkvalue.put("P88",Checknull(ToTime(s.getString("ArrestDateTime"))));
                  bookmarkvalue.put("B2", Checknull(s.getString("ChargeNameCase")));
                       
                       bookmarkvalue.put("PA7",Checknull(s.getString("AccureandOther")));
@@ -331,11 +331,12 @@ public class W62 {
     private static String ToTime(String strTime){
                String ResultTime="";
          try {
+             if(strTime.equals(null)||strTime.equals("")||strTime.equals("null")) { return ""; }else{
     	       SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm", new Locale("th", "TH"));  
                SimpleDateFormat dateto  = new SimpleDateFormat("HH:mm", new Locale("th", "TH"));  
                Date date=null;
                date = df.parse(strTime);               
-               ResultTime=dateto.format(date.getTime());
+               ResultTime=dateto.format(date.getTime());}
          } catch (ParseException ex) {
              Logger.getLogger(W62.class.getName()).log(Level.SEVERE, null, ex);
          }

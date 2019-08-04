@@ -67,8 +67,7 @@ public class W74 {
             String Time="";
          
             
-            int BailAssetId=0;
-            int DeliOrderID=0;
+          
             JSONObject bookmarkvalue = new JSONObject();
             JSONObject bookmarkvalue1 = new JSONObject();
             
@@ -165,24 +164,15 @@ public class W74 {
                        
              
 			JSONArray tablecolumn = new JSONArray();
-			
-			
-			JSONObject row1 = new JSONObject();
-                        
-			
 
-			JSONArray.add(row1);
-                        
+			JSONArray table1 = new JSONArray();
+			JSONObject row1 = new JSONObject();
+
+			table1.add(row1);
 
 		JSONObject tableobj = new JSONObject();
-		tableobj.put("COLUMNS", tablecolumn);
-		tableobj.put("TABLEDATA", JSONArray);
-			
-		JSONArray TABLES = new JSONArray();
-		TABLES.add(tableobj);
 
-		bookmarkvalue.put("TABLES", TABLES);
-		System.out.println(bookmarkvalue.toJSONString());
+		System.out.println(bookmarkvalue.toJSONString());  
 		
 		
             }

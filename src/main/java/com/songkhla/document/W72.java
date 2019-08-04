@@ -44,7 +44,77 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 public class W72 {
+    public static void w72(String cc) {
+        Connection conn=null;
+            conn=ConnectDatabase.connect();
+            PreparedStatement pst=null;
+            String caseno;
+            String ccYear;
+            String casetype;
+             String PoliceStationName="";
+            
+             
+            try {
+                
+                 String sqlDataPoliceStation ="SELECT * FROM PoliceStation";
+                      Statement sp = conn.createStatement();
+                  ResultSet rs=sp.executeQuery(sqlDataPoliceStation); 
+                  while (rs.next()) {                    
+                         PoliceStationName=rs.getString("PoliceStaionName");
+                         
+                      }
 
+                   String sql="select crimecase.*\n" +
+                              "from crimecase \n" +
+                              "where crimecase.CaseId='"+cc+"'\n" +
+                              "group by crimecase.CaseId";
+
+                Statement st = conn.createStatement();
+            ResultSet s=st.executeQuery(sql); 
+                System.out.println(sql);
+            while((s!=null) && (s.next()))
+            {  String  cs =s.getString("crimecaseno");
+                 ccYear=s.getString("crimecaseyears");
+                 casetype =s.getString("casetype");
+                 caseno  =s.getString("crimecasenoyear");
+        
+     
+                 JSONObject bookmarkvalue = new JSONObject();  
+               
+
+                    bookmarkvalue.put("PN7", "");
+                    bookmarkvalue.put("PB7", ""); 
+                  
+                  
+                       JSONArray tablecolumn = new JSONArray();
+
+			JSONArray table1 = new JSONArray();
+			JSONObject row1 = new JSONObject();
+
+			table1.add(row1);
+
+		JSONObject tableobj = new JSONObject();
+
+		System.out.println(bookmarkvalue.toJSONString());  
+		
+		
+		try {
+                  
+			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
+					.load(new java.io.File("./TEMPLATE/w72.docx"));
+			processVariable(bookmarkvalue,wordMLPackage);
+			
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/คำยินยอมกรณีผู้ให้สัญญาค้ำประกันมีคู่สมรส.doc"));
+		}catch( Exception ex) {
+			ex.printStackTrace();
+		}
+            }
+             } catch (Exception e) {
+                e.printStackTrace();
+            }
+        
+              
+	}
 public static void nw72() {
      
                  JSONObject bookmarkvalue = new JSONObject();  

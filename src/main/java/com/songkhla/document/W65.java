@@ -155,7 +155,7 @@ public static void w65(String cc) {
                     bookmarkvalue.put("PS26", Checknull(s.getString("Province")));
                     bookmarkvalue.put("PS54",Checknull(ToDate(s.getString("ArrestDateTime"))));
                     bookmarkvalue.put("PS78", Checknull(s.getString("Education")));
-                    bookmarkvalue.put("PS88",Checknull(s.getString("ArrestDateTime")));
+                    bookmarkvalue.put("PS88",Checknull(ToTime(s.getString("ArrestDateTime"))));
                     bookmarkvalue.put("PS105",Checknull(s.getString("Soi")));
                     
                   
@@ -403,6 +403,19 @@ public static void nw65() {
 			tempTable.getContent().remove(templateRow);
 		}
 	}
+         private static String ToTime(String strTime){
+               String ResultTime="";
+         try {
+    	       SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm", new Locale("th", "TH"));  
+               SimpleDateFormat dateto  = new SimpleDateFormat("HH:mm", new Locale("th", "TH"));  
+               Date date=null;
+               date = df.parse(strTime);               
+               ResultTime=dateto.format(date.getTime());
+         } catch (ParseException ex) {
+             Logger.getLogger(W62.class.getName()).log(Level.SEVERE, null, ex);
+         }
+               return ResultTime;
+    }
         private static String ToDate(String strDate){
                String ResultDate="";
          try {

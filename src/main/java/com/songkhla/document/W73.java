@@ -64,9 +64,7 @@ public class W73 {
             String Year="";
             String Time="";
          
-            
-            int BailAssetId=0;
-            int DeliOrderID=0;
+          
             JSONObject bookmarkvalue = new JSONObject();
             JSONObject bookmarkvalue1 = new JSONObject();
             
@@ -110,7 +108,7 @@ public class W73 {
             ResultSet s=st.executeQuery(sql); 
             System.out.println(sql);
             
-            JSONArray JSONArray = new JSONArray();
+           
             while((s!=null) && (s.next()))
             {    
                     cs =s.getString("crimecaseno");
@@ -169,26 +167,15 @@ public class W73 {
                        
              
 			JSONArray tablecolumn = new JSONArray();
-		
 
-			
+			JSONArray table1 = new JSONArray();
 			JSONObject row1 = new JSONObject();
-                        
-		
 
-			JSONArray.add(row1);
-                        
+			table1.add(row1);
 
 		JSONObject tableobj = new JSONObject();
-		tableobj.put("COLUMNS", tablecolumn);
-		tableobj.put("TABLEDATA", JSONArray);
-			
-		JSONArray TABLES = new JSONArray();
-		TABLES.add(tableobj);
 
-		bookmarkvalue.put("TABLES", TABLES);
-		System.out.println(bookmarkvalue.toJSONString());
-		
+		System.out.println(bookmarkvalue.toJSONString());  
 		
             }
             try {

@@ -192,26 +192,24 @@ public class W76 {
                        bookmarkvalue.put("P04", Checknull(LastName));
                        bookmarkvalue.put("P05", Checknull(Position));
                        
+                            bookmarkvalue.put("C8", Checknull(s.getString("CrimeLocation")));
+                            bookmarkvalue.put("C9", Checknull(s.getString("CrimeLocationMoo")));
+                            bookmarkvalue.put("C10", Checknull(s.getString("CrimeLocationSoi")));
+                            bookmarkvalue.put("C11", Checknull(s.getString("CrimeLocationRoad")));
+                            bookmarkvalue.put("C12", Checknull(s.getString("CrimeLocationDistrict")));
+                            bookmarkvalue.put("C13", Checknull(s.getString("CrimeLocationAmphur")));
+                            bookmarkvalue.put("C14", Checknull(s.getString("CrimeLocationProvince")));
              
 			JSONArray tablecolumn = new JSONArray();
-			
-			
-			JSONObject row1 = new JSONObject();
-                        
-			
 
-			JSONArray.add(row1);
-                        
+			JSONArray table1 = new JSONArray();
+			JSONObject row1 = new JSONObject();
+
+			table1.add(row1);
 
 		JSONObject tableobj = new JSONObject();
-		tableobj.put("COLUMNS", tablecolumn);
-		tableobj.put("TABLEDATA", JSONArray);
-			
-		JSONArray TABLES = new JSONArray();
-		TABLES.add(tableobj);
 
-		bookmarkvalue.put("TABLES", TABLES);
-		System.out.println(bookmarkvalue.toJSONString());
+		System.out.println(bookmarkvalue.toJSONString());  
 		
 		
             }
