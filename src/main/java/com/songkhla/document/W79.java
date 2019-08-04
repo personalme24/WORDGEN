@@ -43,45 +43,37 @@ import org.docx4j.wml.Tr;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-public class W76 {
-     public static void w76(String cc) {
-     
+public class W79 {
+public static void w79(String cc) {
             Connection conn=null;
             conn=ConnectDatabase.connect();
             PreparedStatement pst=null;
-             
+            
+            String ccYear;
+            String casetype;
+            String caseno;
              String PoliceStationName="";
-             String THNumBook="";
+             String StationAmphur="";
+             String StationProvince="";
+             String CriminalCourt="";
              String TelStation="";
-             String ProtectChild="";
              String RankPolice ="";
              String FirstName ="";
              String LastName ="";
              String Position ="";
-             String caseno;
-       
-            String Date="";
-            String Month="";
-            String Year="";
-            String Time="";
-        
-            JSONObject bookmarkvalue = new JSONObject();
-            JSONObject bookmarkvalue1 = new JSONObject();
-            
             try {
-             String ccYear="";
-             String casetype="";
-             String cs="";
-                    String sqlDataPoliceStation="SELECT * FROM PoliceStation";
+                
+                 String sqlDataPoliceStation="SELECT * FROM PoliceStation";
                       Statement sp = conn.createStatement();
                   ResultSet rs=sp.executeQuery(sqlDataPoliceStation); 
                   while (rs.next()) {                    
                          PoliceStationName=rs.getString("PoliceStaionName");
-                         THNumBook=rs.getString("THNumBook");
+                         StationAmphur=rs.getString("StationAmphur");
+                         StationProvince=rs.getString("StationProvince");
+                         CriminalCourt=rs.getString("CriminalCourt");
                          TelStation=rs.getString("TelStation");
-                         ProtectChild=rs.getString("ProtectChild");
                       }
-                    rs.close();
+            
                     String sqlDataPolice="SELECT * FROM Police";
                       Statement sp1 = conn.createStatement();
                   ResultSet rs1=sp1.executeQuery(sqlDataPolice); 
@@ -91,32 +83,27 @@ public class W76 {
                          LastName=rs1.getString("LastName");
                          Position=rs1.getString("Position");
                       }
-                    rs1.close();
-             
-                  
-                   String sql="select crimecase.*,Person.*,ChargeCase.*,ActionsCaseData.*\n" +
+//                
+
+                   String sql="select crimecase.*,Person.*,ChargeCase.*,ActionsCaseData*\n" +
                               "from crimecase \n" +
-                              "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
                               "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
+                              "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
                               "left join ActionsCaseData on crimecase.ActionCodeCase = ActionsCaseData.ActionCodeCase\n"+
-                              "where crimecase.CaseId='"+cc+"' and Person.TypePerson='ผู้ต้องหา'\n" +
-                              "group by crimecase.CaseId,Person.NoPerson,BailAsset.BailAssetId";
-       
-                   
-            
-            
-            Statement st = conn.createStatement();
+                              "where crimecase.CaseId='"+cc+"'and Person.TypePerson='ผู้ต้องหา'\n" +
+                              "group by crimecase.CaseId,Person.NoPerson";
+
+                Statement st = conn.createStatement();
             ResultSet s=st.executeQuery(sql); 
-            System.out.println(sql);
-            
-            JSONArray JSONArray = new JSONArray();
+                System.out.println(sql);
             while((s!=null) && (s.next()))
-            {    
-                    cs =s.getString("crimecaseno");
-                    ccYear=s.getString("crimecaseyears");
-                    casetype =s.getString("casetype");
-                    caseno  =s.getString("crimecasenoyear");
-            
+            {  String  cs =s.getString("crimecaseno");
+                 ccYear=s.getString("crimecaseyears");
+                 casetype =s.getString("casetype");
+                 caseno  =s.getString("crimecasenoyear");
+                String Date="";
+                String Month="";
+                String Year="";
                 SimpleDateFormat sdfstart ;
                 Calendar  calstart = Calendar.getInstance();
                 sdfstart = new SimpleDateFormat("d", new Locale("th", "TH"));  
@@ -127,197 +114,192 @@ public class W76 {
                
                sdfstart = new SimpleDateFormat("yyyy", new Locale("th", "TH"));  
                Year=sdfstart.format(calstart.getTime());
-
-               sdfstart = new SimpleDateFormat("HH:mm", new Locale("th", "TH"));  
-               Time=sdfstart.format(calstart.getTime());
-               
                  
+//                System.out.print("ข้อหา :: "+s.getString("ChargeCode"));
+//                System.out.print(" - ");
+                 JSONObject bookmarkvalue = new JSONObject();
 //              
                 bookmarkvalue.put("C1",Checknull(Date));
                 bookmarkvalue.put("C01",Checknull(Month));
                 bookmarkvalue.put("C001",Checknull(Year));
-                bookmarkvalue.put("C0011",Checknull(Time));
-                bookmarkvalue.put("CC2",Checknull(caseno));
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3",Checknull(ccYear));
-                
-                bookmarkvalue.put("C4",Checknull(ToDate(s.getString("OccuredDate"))));
-                bookmarkvalue.put("C441", Checknull(s.getString("OccuredTime")));
-                bookmarkvalue.put("C6", Checknull(ToDate(s.getString("CaseRequestDate"))));
-                bookmarkvalue.put("C661", Checknull(s.getString("CaseRequestTime")));
-                bookmarkvalue.put("C9", Checknull(s.getString("CrimeLocationMoo")));
-                bookmarkvalue.put("C10", Checknull(s.getString("CrimeLocationSoi")));
-                bookmarkvalue.put("C11", Checknull(s.getString("CrimeLocationRoad")));
-                bookmarkvalue.put("C12", Checknull(s.getString("CrimeLocationDistrict")));
-                bookmarkvalue.put("C13", Checknull(s.getString("CrimeLocationAmphur")));
-                bookmarkvalue.put("C14", Checknull(s.getString("CrimeLocationProvince")));
-                
-                bookmarkvalue.put("A2", Checknull(s.getString("ActionCrimesCase"))); 
-                bookmarkvalue.put("B2", Checknull(s.getString("ChargeNameCase")));
-                
+                 bookmarkvalue.put("CC2",Checknull(caseno));
                 bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
                 bookmarkvalue.put("S02",Checknull(PoliceStationName));
-                bookmarkvalue.put("S29",Checknull(THNumBook));
-                bookmarkvalue.put("S12",Checknull(TelStation));
-                bookmarkvalue.put("S30",Checknull(ProtectChild));
+                bookmarkvalue.put("S5", Checknull(StationAmphur));
+                bookmarkvalue.put("S6", Checknull(StationProvince));
+                bookmarkvalue.put("S10",Checknull(TelStation));
+                bookmarkvalue.put("S17",Checknull(CriminalCourt));
+                   
+//                   ----------------------------ผู้กล่าวหา--------------------
+               
                 
-                   
-                    
-                    bookmarkvalue.put("PY7",  Checknull(s.getString("FullNamePerson")));
-                    bookmarkvalue.put("PY13", Checknull(s.getString("Age")));
-                    bookmarkvalue.put("PY15", Checknull(s.getString("Nationality"))); 
-                    bookmarkvalue.put("PY16", Checknull(s.getString("Religion"))); 
-                    bookmarkvalue.put("PY17", Checknull(s.getString("Occupation")));
-                    bookmarkvalue.put("PY24", Checknull(s.getString("Tambon"))); 
-                    bookmarkvalue.put("PY25", Checknull(s.getString("Amp")));
-                    bookmarkvalue.put("PY26", Checknull(s.getString("Province")));
-                    bookmarkvalue.put("PY31", Checknull(s.getString("Father")));
-                    bookmarkvalue.put("PY32", Checknull(s.getString("Mother")));
-                    bookmarkvalue.put("PY33", Checknull(s.getString("TambonBirthday")));
-                    bookmarkvalue.put("PY34", Checknull(s.getString("AmphurBirthday")));
-                    bookmarkvalue.put("PY35", Checknull(s.getString("ProvinceBirthday")));
-                    bookmarkvalue.put("PY40", Checknull(s.getString("PlaceBorn")));
-                    bookmarkvalue.put("PY60", Checknull(s.getString("FatherCareer")));
-                    bookmarkvalue.put("PY62", Checknull(s.getString("FatherAddress")));
-                    bookmarkvalue.put("PY63", Checknull(s.getString("FatherPhone")));
-                    bookmarkvalue.put("PY65", Checknull(s.getString("MotherCareer")));
-                    bookmarkvalue.put("PY67", Checknull(s.getString("MotherAddress")));
-                    bookmarkvalue.put("PY68", Checknull(s.getString("MotherPhone")));
-                    bookmarkvalue.put("PY69", Checknull(s.getString("")));
-                   
-                    
+                bookmarkvalue.put("A2", Checknull(s.getString("ActionCrimesCase")));
+               
+                
+                
+//                   ----------------------------ผู้ต้องหา--------------------
+                    bookmarkvalue.put("PS2", Checknull(s.getString("PeopleRegistrationID"))); 
+                    bookmarkvalue.put("PS3",Checknull(ToDate(s.getString("IssueDate")))); 
+                    bookmarkvalue.put("PS5",Checknull(s.getString("IssuedBy"))); 
+                    bookmarkvalue.put("PS7", Checknull(s.getString("FullNamePerson"))); 
+                    bookmarkvalue.put("PS8", Checknull(s.getString("FullNamePersonEn"))); 
+                    bookmarkvalue.put("PS11", Checknull(ToDate(s.getString("BirthDay"))));
+                    bookmarkvalue.put("PS12", Checknull(s.getString("Gender")));
+                    bookmarkvalue.put("PS13", Checknull(s.getString("Age")));
+                    bookmarkvalue.put("PS14", Checknull(s.getString("Race")));
+                    bookmarkvalue.put("PS15", Checknull(s.getString("Nationality")));
+                    bookmarkvalue.put("PS16", Checknull(s.getString("Religion")));
+                    bookmarkvalue.put("PS17", Checknull(s.getString("Occupation")));
+                    bookmarkvalue.put("PS18", Checknull(s.getString("Height")));
+                    bookmarkvalue.put("PS19", Checknull(s.getString("Weight")));
+                    bookmarkvalue.put("PS22", Checknull(s.getString("HouseNumber")));
+                    bookmarkvalue.put("PS23", Checknull(s.getString("Moo")));
+                    bookmarkvalue.put("PS24", Checknull(s.getString("Tambon")));
+                    bookmarkvalue.put("PS25", Checknull(s.getString("Amphur")));
+                    bookmarkvalue.put("PS26", Checknull(s.getString("Province")));
+                    bookmarkvalue.put("P31", Checknull(s.getString("Father")));
+                    bookmarkvalue.put("P32", Checknull(s.getString("Mother")));
+                    bookmarkvalue.put("PS54",Checknull(ToDate(s.getString("ArrestDateTime"))));
+                    bookmarkvalue.put("PS76", Checknull(s.getString("Office")));
+                    bookmarkvalue.put("PS88",Checknull(ToTime(s.getString("ArrestDateTime"))));
+                    bookmarkvalue.put("PS105",Checknull(s.getString("Soi")));
+             
+                      bookmarkvalue.put("B2", Checknull(s.getString("ChargeNameCase")));
                       
                        bookmarkvalue.put("P02", Checknull(RankPolice));
                        bookmarkvalue.put("P03", Checknull(FirstName));
                        bookmarkvalue.put("P04", Checknull(LastName));
                        bookmarkvalue.put("P05", Checknull(Position));
                        
-                            bookmarkvalue.put("C8", Checknull(s.getString("CrimeLocation")));
-                            bookmarkvalue.put("C9", Checknull(s.getString("CrimeLocationMoo")));
-                            bookmarkvalue.put("C10", Checknull(s.getString("CrimeLocationSoi")));
-                            bookmarkvalue.put("C11", Checknull(s.getString("CrimeLocationRoad")));
-                            bookmarkvalue.put("C12", Checknull(s.getString("CrimeLocationDistrict")));
-                            bookmarkvalue.put("C13", Checknull(s.getString("CrimeLocationAmphur")));
-                            bookmarkvalue.put("C14", Checknull(s.getString("CrimeLocationProvince")));
-             
+                        bookmarkvalue.put("C4",Checknull(ToDate(s.getString("OccuredDate"))));
+                        bookmarkvalue.put("C441", Checknull(s.getString("OccuredTime")));
+                        bookmarkvalue.put("C29",Checknull(s.getString("TypeCourt")));
+                        bookmarkvalue.put("C30",Checknull(s.getString("BlackCaseNo")));
+                        bookmarkvalue.put("C31",Checknull(s.getString("BlackCaseYear")));
+                        bookmarkvalue.put("C32",Checknull(s.getString("RedCaseNo")));
+                        bookmarkvalue.put("C33",Checknull(s.getString("RedCaseYear")));
+                        bookmarkvalue.put("C36",Checknull(s.getString("Investigator_Result")));
+                        bookmarkvalue.put("C40",Checknull(s.getString("Prosecutor_Result")));
+                    
+ 
+    
 			JSONArray tablecolumn = new JSONArray();
-			
-			
-			JSONObject row1 = new JSONObject();
-                        
-			
 
-			JSONArray.add(row1);
-                        
+			JSONArray table1 = new JSONArray();
+			JSONObject row1 = new JSONObject();
+
+			table1.add(row1);
+			
 
 		JSONObject tableobj = new JSONObject();
-		tableobj.put("COLUMNS", tablecolumn);
-		tableobj.put("TABLEDATA", JSONArray);
-			
-		JSONArray TABLES = new JSONArray();
-		TABLES.add(tableobj);
 
-		bookmarkvalue.put("TABLES", TABLES);
 		System.out.println(bookmarkvalue.toJSONString());
 		
 		
-            }
-            try {
+		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("./TEMPLATE/w76.docx"));
+					.load(new java.io.File("./TEMPLATE/w79.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
-                        processTABLE(bookmarkvalue,wordMLPackage);
-                        
-                       
-			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/หนังสือแจ้งการดำเนินคดีเด็ก ฯ-ว "+s.getString("FullNamePerson")+""+ cs+"-"+ccYear+".doc"));
+			processTABLE(bookmarkvalue,wordMLPackage);
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/หนังสือแจ้งการจับกุมเด็กหรือเยาวชนไปยังผู้ปกครอง"+s.getString("FullNamePerson")+"" +cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
+            }
             } catch (Exception e) {
                 e.printStackTrace();
             }
         
               
 	}
-
-public static void nw76() {
+public static void nw79() {
      
-                 JSONObject bookmarkvalue = new JSONObject();  
-               
-
-                 
+                 JSONObject bookmarkvalue = new JSONObject();
+//              
                 bookmarkvalue.put("C1","");
                 bookmarkvalue.put("C01","");
                 bookmarkvalue.put("C001","");
 		bookmarkvalue.put("C2","");
-                bookmarkvalue.put("CC2","");
                 bookmarkvalue.put("C3", "");
+                bookmarkvalue.put("CC2","");
                 bookmarkvalue.put("S2","");
-                 
-                            bookmarkvalue.put("C4","");
-                            bookmarkvalue.put("C441","");
-                            bookmarkvalue.put("C6", "");
-                            bookmarkvalue.put("C661", "");
-                            bookmarkvalue.put("C9", "");
-                            bookmarkvalue.put("C10", "");
-                            bookmarkvalue.put("C11", "");
-                            bookmarkvalue.put("C12", "");
-                            bookmarkvalue.put("C13", "");
-                            bookmarkvalue.put("C14", "");
-                            bookmarkvalue.put("C16", "");
-                            
-                    bookmarkvalue.put("A2", "");  
-                    bookmarkvalue.put("B2", "");
+                bookmarkvalue.put("S02","");
+                bookmarkvalue.put("S5", "");
+                bookmarkvalue.put("S6", "");
+                bookmarkvalue.put("S10","");
+                bookmarkvalue.put("S17","");
+                   
+//                   ----------------------------ผู้กล่าวหา--------------------
+               
+                
+                bookmarkvalue.put("A2", "");
+               
+                
+                
+//                   ----------------------------ผู้ต้องหา--------------------
+                    bookmarkvalue.put("PS2", ""); 
+                    bookmarkvalue.put("PS3",""); 
+                    bookmarkvalue.put("PS5",""); 
+                    bookmarkvalue.put("PS7", "");
+                    bookmarkvalue.put("PS8", "");
+                    bookmarkvalue.put("PS11", "");
+                    bookmarkvalue.put("PS12", "");
+                    bookmarkvalue.put("PS13", "");
+                    bookmarkvalue.put("PS14", "");
+                    bookmarkvalue.put("PS15", "");
+                    bookmarkvalue.put("PS16", "");
+                    bookmarkvalue.put("PS17", "");
+                    bookmarkvalue.put("PS18", "");
+                    bookmarkvalue.put("PS19", "");
+                    bookmarkvalue.put("PS22", "");
+                    bookmarkvalue.put("PS23", "");
+                    bookmarkvalue.put("PS24", "");
+                    bookmarkvalue.put("PS25", "");
+                    bookmarkvalue.put("PS26", "");
+                    bookmarkvalue.put("PS31", "");
+                    bookmarkvalue.put("PS32", "");
+                    bookmarkvalue.put("PS54","");
+                    bookmarkvalue.put("PS76", "");
+                    bookmarkvalue.put("PS88","");
+                    bookmarkvalue.put("PS105","");
                     
-                    bookmarkvalue.put("PY7", ""); 
-                    bookmarkvalue.put("PY13", ""); 
-                    bookmarkvalue.put("PY15", ""); 
-                    bookmarkvalue.put("PY16", "");
-                    bookmarkvalue.put("PY17", "");
-                    bookmarkvalue.put("PY24", ""); 
-                    bookmarkvalue.put("PY25", ""); 
-                    bookmarkvalue.put("PY26", "");
-                    bookmarkvalue.put("PY31", "");
-                    bookmarkvalue.put("PY32", "");
-                    bookmarkvalue.put("PY33", "");
-                    bookmarkvalue.put("PY34", ""); 
-                    bookmarkvalue.put("PY35", ""); 
-                    bookmarkvalue.put("PY40", ""); 
-                    bookmarkvalue.put("PY60", ""); 
-                    bookmarkvalue.put("PY62", ""); 
-                    bookmarkvalue.put("PY63", ""); 
-                    bookmarkvalue.put("PY65", ""); 
-                    bookmarkvalue.put("PY67", ""); 
-                    bookmarkvalue.put("PY68", ""); 
-                    bookmarkvalue.put("PY69", ""); 
-                    
-                    
-                    bookmarkvalue.put("PY104", ""); 
-                    bookmarkvalue.put("PY105", ""); 
-                    
-                    
+                  
+                     
+
+                      bookmarkvalue.put("B2", "");
+                      
                         bookmarkvalue.put("P02", "");
                         bookmarkvalue.put("P03", "");
                         bookmarkvalue.put("P04", "");
                         bookmarkvalue.put("P05", "");
+                        
+                        bookmarkvalue.put("C4","");
+                        bookmarkvalue.put("C441","");
+                        bookmarkvalue.put("C29","");
+                        bookmarkvalue.put("C30","");
+                        bookmarkvalue.put("C31","");
+                        bookmarkvalue.put("C32","");
+                        bookmarkvalue.put("C33","");
+                        bookmarkvalue.put("C36","");
+                        bookmarkvalue.put("C40","");
                     
-                  
-                  
-                         
-		
-		
+                    
+       
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("./TEMPLATE/w76.docx"));
+					.load(new java.io.File("./TEMPLATE/w79.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			
-			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/หนังสือแจ้งการดำเนินคดีเด็ก ฯ-ว .doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/หนังสือแจ้งการจับกุมเด็กหรือเยาวชนไปยังผู้ปกครอง.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
             }
+            
 	public static void processVariable(JSONObject inputdata,WordprocessingMLPackage wordMLPackage) throws Exception {
 		Object KEYSET[] = inputdata.keySet().toArray();
 		Map<DataFieldName, String> map = new HashMap<DataFieldName, String>();
@@ -423,6 +405,19 @@ public static void nw76() {
 			tempTable.getContent().remove(templateRow);
 		}
 	}
+         private static String ToTime(String strTime){
+               String ResultTime="";
+         try {
+    	       SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm", new Locale("th", "TH"));  
+               SimpleDateFormat dateto  = new SimpleDateFormat("HH:mm", new Locale("th", "TH"));  
+               Date date=null;
+               date = df.parse(strTime);               
+               ResultTime=dateto.format(date.getTime());
+         } catch (ParseException ex) {
+             Logger.getLogger(W62.class.getName()).log(Level.SEVERE, null, ex);
+         }
+               return ResultTime;
+    }
         private static String ToDate(String strDate){
                String ResultDate="";
          try {
@@ -434,7 +429,7 @@ public static void nw76() {
                date = df.parse(strDate);               
                ResultDate=dateto.format(date.getTime());}
          } catch (ParseException ex) {
-             Logger.getLogger(W76.class.getName()).log(Level.SEVERE, null, ex);
+             Logger.getLogger(W79.class.getName()).log(Level.SEVERE, null, ex);
          }
                return ResultDate;
 }
@@ -456,27 +451,6 @@ public static void nw76() {
             }
         }
         return sb.toString();  
-    } 
-     public static String ChangFormat(String DateSue){
-        String newFormatDate=null;
-       try{   Calendar cal;
-       Locale lc = new Locale("th","TH");
-        SimpleDateFormat formatdate =new SimpleDateFormat("yyyy/MM/dd");     
-        if(DateSue != null && !"".equals(DateSue)){
-        Date b=formatdate.parse(DateSue);
-         cal = Calendar.getInstance();
-          cal.setTime(b); 
-          System.out.println("fffffff : "+cal.getTime());
-           SimpleDateFormat dateformat =new SimpleDateFormat("dd/MM/yyyy");   
-         newFormatDate=dateformat.format(cal.getTime()); 
-        
-        }
-         }
-         catch(Exception e){
-         e.printStackTrace();
-         }
-    return newFormatDate;
-    
-    }
+    }  
 }
 

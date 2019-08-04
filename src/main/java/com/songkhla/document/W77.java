@@ -43,8 +43,8 @@ import org.docx4j.wml.Tr;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-public class W76 {
-     public static void w76(String cc) {
+public class W77 {
+     public static void w77(String cc) {
      
             Connection conn=null;
             conn=ConnectDatabase.connect();
@@ -225,12 +225,12 @@ public class W76 {
             try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("./TEMPLATE/w76.docx"));
+					.load(new java.io.File("./TEMPLATE/w77.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
                         processTABLE(bookmarkvalue,wordMLPackage);
                         
                        
-			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/หนังสือแจ้งการดำเนินคดีเด็ก ฯ-ว "+s.getString("FullNamePerson")+""+ cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/หนังสือแจ้งการจับกุมเด็กและเยาวชน"+s.getString("FullNamePerson")+""+ cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -241,7 +241,7 @@ public class W76 {
               
 	}
 
-public static void nw76() {
+public static void nw77() {
      
                  JSONObject bookmarkvalue = new JSONObject();  
                
@@ -310,10 +310,10 @@ public static void nw76() {
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("./TEMPLATE/w76.docx"));
+					.load(new java.io.File("./TEMPLATE/w77.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			
-			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/หนังสือแจ้งการดำเนินคดีเด็ก ฯ-ว .doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/หนังสือแจ้งการจับกุมเด็กและเยาวชน.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -434,7 +434,7 @@ public static void nw76() {
                date = df.parse(strDate);               
                ResultDate=dateto.format(date.getTime());}
          } catch (ParseException ex) {
-             Logger.getLogger(W76.class.getName()).log(Level.SEVERE, null, ex);
+             Logger.getLogger(W77.class.getName()).log(Level.SEVERE, null, ex);
          }
                return ResultDate;
 }

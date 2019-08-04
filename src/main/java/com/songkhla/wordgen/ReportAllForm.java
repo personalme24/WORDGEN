@@ -55,10 +55,12 @@ import com.songkhla.document.W51;
 import com.songkhla.document.W52;
 import com.songkhla.document.W53;
 import com.songkhla.document.W6;
+import com.songkhla.document.W61;
 import com.songkhla.document.W62;
 import com.songkhla.document.W63;
 import com.songkhla.document.W64;
 import com.songkhla.document.W65;
+import com.songkhla.document.W66;
 import com.songkhla.document.W67;
 import com.songkhla.document.W68;
 import com.songkhla.document.W69;
@@ -70,6 +72,8 @@ import com.songkhla.document.W73;
 import com.songkhla.document.W74;
 import com.songkhla.document.W75;
 import com.songkhla.document.W76;
+import com.songkhla.document.W77;
+import com.songkhla.document.W79;
 import com.songkhla.document.W8;
 import com.songkhla.document.W80;
 import com.songkhla.document.W9;
@@ -1173,7 +1177,7 @@ public class ReportAllForm extends javax.swing.JDialog {
            
         }
                 if(jCheckW61.isSelected()){
-                 //W61 .nw61();
+                    W61 .nw61();
            
         }
                  if(jCheckW62.isSelected()){
@@ -1194,7 +1198,7 @@ public class ReportAllForm extends javax.swing.JDialog {
            
         }
          if(jCheckW66.isSelected()){
-             //W66.nw66();
+             W66.nw66();
            
         }
          if(jCheckW67.isSelected()){
@@ -1234,6 +1238,16 @@ public class ReportAllForm extends javax.swing.JDialog {
          if(jCheckW76.isSelected()){
              W76 .nw76();
          }
+         if(jCheckW77.isSelected()){
+             W77 .nw77();
+         }
+         if(jCheckW78.isSelected()){
+            // W78 .nw78();
+         }
+         if(jCheckW79.isSelected()){
+             W79 .nw79();
+         }
+
          if(jCheckW80.isSelected()){
              W80 .nw80();
          }
