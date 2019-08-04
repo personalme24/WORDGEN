@@ -137,7 +137,7 @@ public static void w39(String cc) {
 //                   ----------------------------ผู้กล่าวหา--------------------
                
                 bookmarkvalue.put("PA7",Checknull(s.getString("AccureandOther")));
-                bookmarkvalue.put("PA7",Checknull(s.getString("AccureandOther")));
+                bookmarkvalue.put("PS7",Checknull(s.getString("SuspectandOther")));
                
                 
                 

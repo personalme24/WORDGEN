@@ -159,8 +159,8 @@ public static void w79(String cc) {
                     bookmarkvalue.put("PS24", Checknull(s.getString("Tambon")));
                     bookmarkvalue.put("PS25", Checknull(s.getString("Amphur")));
                     bookmarkvalue.put("PS26", Checknull(s.getString("Province")));
-                    bookmarkvalue.put("P31", Checknull(s.getString("Father")));
-                    bookmarkvalue.put("P32", Checknull(s.getString("Mother")));
+                    bookmarkvalue.put("PS31", Checknull(s.getString("Father")));
+                    bookmarkvalue.put("PS32", Checknull(s.getString("Mother")));
                     bookmarkvalue.put("PS54",Checknull(ToDate(s.getString("ArrestDateTime"))));
                     bookmarkvalue.put("PS76", Checknull(s.getString("Office")));
                     bookmarkvalue.put("PS88",Checknull(ToTime(s.getString("ArrestDateTime"))));

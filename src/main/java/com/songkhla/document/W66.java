@@ -168,12 +168,12 @@ public static void w66(String cc) {
                     bookmarkvalue.put("P65", Checknull(s.getString("MotherCareer")));
                     bookmarkvalue.put("P67", Checknull(s.getString("MotherAddress")));
                     bookmarkvalue.put("P68", Checknull(s.getString("MotherPhone")));
-                    bookmarkvalue.put("PY69", Checknull(s.getString("ParentName")));
-                    bookmarkvalue.put("PY70", Checknull(s.getString("ParentAge")));
-                    bookmarkvalue.put("PY71", Checknull(s.getString("ParentCareer")));
-                    bookmarkvalue.put("PY72", Checknull(s.getString("ParentIdCard")));
-                    bookmarkvalue.put("PY73", Checknull(s.getString("ParentAddress")));
-                    bookmarkvalue.put("PY74", Checknull(s.getString("ParentPhone")));
+                    bookmarkvalue.put("P69", Checknull(s.getString("ParentName")));
+                    bookmarkvalue.put("P70", Checknull(s.getString("ParentAge")));
+                    bookmarkvalue.put("P71", Checknull(s.getString("ParentCareer")));
+                    bookmarkvalue.put("P72", Checknull(s.getString("ParentIdCard")));
+                    bookmarkvalue.put("P73", Checknull(s.getString("ParentAddress")));
+                    bookmarkvalue.put("P74", Checknull(s.getString("ParentPhone")));
                   
                     bookmarkvalue.put("P54",Checknull(ToDate(s.getString("ArrestDateTime"))));
                     bookmarkvalue.put("P78", Checknull(s.getString("Education")));
@@ -294,16 +294,16 @@ public static void nw66() {
                     bookmarkvalue.put("P65", "");
                     bookmarkvalue.put("P67", "");
                     bookmarkvalue.put("P68", "");
-                    bookmarkvalue.put("PY69", "");
-                    bookmarkvalue.put("PY70", "");
-                    bookmarkvalue.put("PY71", "");
-                    bookmarkvalue.put("PY72", "");
-                    bookmarkvalue.put("PY73", "");
-                    bookmarkvalue.put("PY74", "");
-                    bookmarkvalue.put("PS54","");
-                    bookmarkvalue.put("PS78", "");
-                    bookmarkvalue.put("PS88","");
-                    bookmarkvalue.put("PS105","");
+                    bookmarkvalue.put("P69", "");
+                    bookmarkvalue.put("P70", "");
+                    bookmarkvalue.put("P71", "");
+                    bookmarkvalue.put("P72", "");
+                    bookmarkvalue.put("P73", "");
+                    bookmarkvalue.put("P74", "");
+                    bookmarkvalue.put("P54","");
+                    bookmarkvalue.put("P78", "");
+                    bookmarkvalue.put("P88","");
+                    bookmarkvalue.put("P105","");
                     
                   
                      

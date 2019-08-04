@@ -51,6 +51,7 @@ public class W75 {
             PreparedStatement pst=null;
              
              String PoliceStationName="";
+             String suspectName="";
              String THNumBook="";
              String TelStation="";
              String RankPolice ="";
@@ -65,7 +66,7 @@ public class W75 {
             String Time="";
         
             JSONObject bookmarkvalue = new JSONObject();
-            JSONObject bookmarkvalue1 = new JSONObject();
+            
             
             try {
              String ccYear="";
@@ -104,7 +105,7 @@ public class W75 {
                               "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
                               "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                               "where crimecase.CaseId='"+cc+"' and Person.Related='ล่าม'\n" +
-                              "group by crimecase.CaseId,Person.NoPerson,BailAsset.BailAssetId";
+                              "group by crimecase.CaseId,Person.NoPerson";
        
                    
             
@@ -120,7 +121,8 @@ public class W75 {
                     ccYear=s.getString("crimecaseyears");
                     casetype =s.getString("casetype");
                     caseno  =s.getString("crimecasenoyear");
-            
+                    suspectName =s.getString("suspectName");
+                    
                 SimpleDateFormat sdfstart ;
                 Calendar  calstart = Calendar.getInstance();
                 sdfstart = new SimpleDateFormat("d", new Locale("th", "TH"));  
@@ -195,22 +197,23 @@ public class W75 {
                        
              
 			JSONArray tablecolumn = new JSONArray();
-			
-			
-			JSONObject row1 = new JSONObject();
-                        
-			
+			tablecolumn.add("C2");
+			tablecolumn.add("C3");
 
-			JSONArray.add(row1);
-                        
+			JSONArray table1 = new JSONArray();
+			JSONObject row1 = new JSONObject();
+			row1.put("C2",cs);
+			row1.put("C3", ccYear);
+
+			table1.add(row1);
+			
 
 		JSONObject tableobj = new JSONObject();
 		tableobj.put("COLUMNS", tablecolumn);
-		tableobj.put("TABLEDATA", JSONArray);
+		tableobj.put("TABLEDATA", table1);
 			
 		JSONArray TABLES = new JSONArray();
 		TABLES.add(tableobj);
-
 		bookmarkvalue.put("TABLES", TABLES);
 		System.out.println(bookmarkvalue.toJSONString());
 		
@@ -222,9 +225,8 @@ public class W75 {
 					.load(new java.io.File("./TEMPLATE/w75.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
                         processTABLE(bookmarkvalue,wordMLPackage);
-                        
-                       
-			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/บันทึกการสอบถามเบื้องต้น(เด็ก) "+cs+"-"+ccYear+".doc"));
+              
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/บันทึกการสอบถามเบื้องต้น(เด็ก)"+suspectName+""+ cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

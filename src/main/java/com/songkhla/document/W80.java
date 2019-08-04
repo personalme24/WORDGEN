@@ -68,6 +68,8 @@ public class W80 {
                   while (rs.next()) {                    
                          PoliceStationName=rs.getString("PoliceStaionName");
                          ProvincProsecutor=rs.getString("ProvincProsecutor");
+                         StationAmphur =rs.getString("StationAmphur");
+                         StationProvince =rs.getString("StationProvince");
                          TelStation=rs.getString("TelStation");
                       }
             

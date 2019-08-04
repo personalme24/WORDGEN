@@ -137,7 +137,7 @@ public class W63 {
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3",Checknull(ccYear));
                 
-                bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
+                bookmarkvalue.put("S2",Checknull(PoliceStationName));
                 bookmarkvalue.put("S27",Checknull(ProvincProsecutor));
                 
                
