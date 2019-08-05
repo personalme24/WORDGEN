@@ -35,6 +35,8 @@ public class ChargePage extends javax.swing.JDialog {
     PreparedStatement pst=null;
     boolean isInsert;
     String caseidch;
+       String caseidac,typecase;
+
     /**
      * Creates new form ChangPage
      */
@@ -46,7 +48,7 @@ public class ChargePage extends javax.swing.JDialog {
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
         caseno.setVisible(false);
-         
+         typecase=dataid.get("typecase")+"";
             if(datain!=null){
                 
 //            caseid= "" + datain.get("CaseId"); 
@@ -348,8 +350,15 @@ public class ChargePage extends javax.swing.JDialog {
         }    
          
          }
-           CrimesCaseEdit.ChargeNameCase.setText(ChargeName.getText());
+         if(typecase.equals("อาญา")){
+              CrimesCaseEdit.ChargeNameCase.setText(ChargeName.getText());
            CrimesCaseEdit.jLabelChargeCode.setText(ChargeCode.getText());
+     }
+     else if(typecase.equals("จราจร")){
+         TrafficEdit.ChargeNameCase.setText(ChargeName.getText());
+        TrafficEdit.jLabelChargeCode.setText(ChargeCode.getText());
+     }
+          
            setVisible(false);
         
         

@@ -29,6 +29,7 @@ import org.json.simple.JSONObject;
 public class AssetOverView extends javax.swing.JDialog {
 
     String TypeCase,CaseId;
+    ArrayList personname=new ArrayList();
     /** Creates new form Asset */
     public AssetOverView(JFrame parrent,JSONObject datain) {
         super(parrent,true);

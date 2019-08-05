@@ -5,6 +5,9 @@
  */
 package com.songkhla.wordgen;
 
+import static com.songkhla.wordgen.ActionPageInsert.ActionCrimes;
+import static com.songkhla.wordgen.ActionPageInsert.ActionDetail;
+import static com.songkhla.wordgen.ActionPageInsert.ActionNote;
 import static com.songkhla.wordgen.ChargePage.ChargeCode;
 import static com.songkhla.wordgen.ChargePage.ChargeName;
 import static com.songkhla.wordgen.ChargePage.Law;
@@ -195,7 +198,7 @@ public class ActionPage extends javax.swing.JDialog {
         ButtonAddAction1.setBackground(java.awt.SystemColor.windowText);
         ButtonAddAction1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         ButtonAddAction1.setForeground(new java.awt.Color(255, 255, 255));
-        ButtonAddAction1.setText("เพิ่ม");
+        ButtonAddAction1.setText("เพิ่มเป็นข้อมูลพื้นฐาน");
         ButtonAddAction1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButtonAddAction1ActionPerformed(evt);
@@ -403,6 +406,37 @@ public class ActionPage extends javax.swing.JDialog {
 
     private void ButtonAddAction1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAddAction1ActionPerformed
         // TODO add your handling code here:
+           String intAc="INSERT into ActionsCase(ActionCode,ActionCrimes,ActionDetail,ActionNote,AnswerAccuser,AnswerSuspect) values(?,?,?,?,?,?) ";
+//          String intCr="insert into CrimesCase(AnswerSuspect,AnswerAccuse) values(?,?) ";
+       if(isInsert){
+            try {
+           String idAction=ActionPageInsert.IdAction();
+           pst=con.prepareStatement(intAc);
+           pst.setString(1, idAction);
+            pst.setString(2, ActionCrimes.getText());
+           pst.setString(3, ActionDetail.getText());
+           pst.setString(4, ActionNote.getText());  
+           pst.setString(5, AnswerAccuser.getText()); 
+           pst.setString(6, AnswerSuspect.getText());
+         
+      
+          
+            int response = JOptionPane.showConfirmDialog(jPanel2, "ต้องการบันทึกข้อมูลลงข้อมูลพื้นฐาน", "ยืนยัน",
+        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if (response == JOptionPane.YES_OPTION) {
+                     pst.execute();
+                     System.out.println("SQLLLLL : "+intAc);
+                     pst.close();
+              } 
+        } catch (Exception e) {
+          JOptionPane.showMessageDialog(jPanel1,e,null, JOptionPane.INFORMATION_MESSAGE);
+            
+        }
+    }
+   
+   
+        setVisible(false);
+                                           
     }//GEN-LAST:event_ButtonAddAction1ActionPerformed
 
     /**

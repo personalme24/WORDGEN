@@ -77,18 +77,26 @@ import com.songkhla.document.W9;
 import com.songkhla.document.W93;
 import static com.songkhla.wordgen.ListAccused.jTableAccure;
 import static com.songkhla.wordgen.ListAccused.txtCaseNO;
+import com.sun.javafx.applet.Splash;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.Rectangle;
+import java.awt.Toolkit;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -113,16 +121,20 @@ import java.util.logging.Logger;
 import javafx.animation.Animation;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
+import javax.swing.JCheckBox;
 import javax.swing.JComponent;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
 import javax.swing.JTextArea;
 import javax.swing.SpinnerDateModel;
 import javax.swing.SwingUtilities;
+import javax.swing.SwingWorker;
 import javax.swing.UIManager;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -165,7 +177,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         g.add(jCheckNotSue);
         g.add(jCheckNoInvest);
         g.add(jCheckOtherInvest);
-       jLabel32.setVisible(false);
+//       jLabel32.setVisible(false);
 //====================================== Police==========================================
         try{
             
@@ -190,7 +202,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         e.printStackTrace();
         
         }
-          
+
              
 //  ---------------------------------------------Date Filed----------------------------------------------
            UtilDateModel model = new UtilDateModel();
@@ -341,50 +353,21 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         else{
             jButtonEditCase.setEnabled(false);
               jTabbedPane2.setEnabledAt(jTabbedPane2.getTabCount()-1, false);
-//            Date date2=new Date();
-//            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
-//            Date date = dateFormat.parse(date2);
+
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
 	Date date = new Date();
         dateFormat.format(date);
 //	System.out.println(dateFormat.format(date));
             caseidLast=IdCase();
            crimecaseid.setText(IdCase());
-        
-           
-//           CaseAcceptDate.setDate(date);
-//           CaseRequestDateTime.setDate(date);
-//           OccuredDate.setDate(date);
+
            isInsert=true;
           
         }
-        String da=CaseAcceptDate.getJFormattedTextField().getText();
-        String od=OccuredDate.getJFormattedTextField().getText();
 
 //         System.out.println("dd ;"+CalculateDateArrest(od, da)+"");
 
-//   OccuredDate.getJFormattedTextField().getDocument().addDocumentListener(new DocumentListener() {
-//  public void changedUpdate(DocumentEvent e) {
-////     if(CalculateDateArrest(OccuredDate.getJFormattedTextField().getText(), CaseAcceptDate.getJFormattedTextField().getText())<0){
-////        JOptionPane.showConfirmDialog(jPanel1, "วันที่เกิดเหตุ", "ยืนยัน",
-////        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-////         System.out.println("dd ;"+CalculateDateArrest(OccuredDate.getJFormattedTextField().getText(), CaseAcceptDate.getJFormattedTextField().getText())+"");
-////    }
-//  }
-//  public void removeUpdate(DocumentEvent e) {
-//  
-//  }
-//  public void insertUpdate(DocumentEvent e) {
-////        JOptionPane.showMessageDialog(null, "Date Format Error!! using dd/MM/yyyy");
-//      if(CalculateDateArrest(OccuredDate.getJFormattedTextField().getText(), CaseAcceptDate.getJFormattedTextField().getText())<0){
-//    JOptionPane.showConfirmDialog(jPanel1, "วันที่เกิดเหตุ", "ยืนยัน",
-//        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-//     System.out.println("dd ;"+CalculateDateArrest(OccuredDate.getJFormattedTextField().getText(), CaseAcceptDate.getJFormattedTextField().getText())+"");
-//    }
-//  }
-//  
-//            
-//   });
+  
             
     }
 //   private class CloseListener implements ActionListener{
@@ -509,89 +492,6 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         Prosecutor_Result = new javax.swing.JTextArea();
         jLabelNumberSus = new javax.swing.JLabel();
         jLabelNumberWitness = new javax.swing.JLabel();
-        jPanel10 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jPanel8 = new javax.swing.JPanel();
-        jCheckW80 = new javax.swing.JCheckBox();
-        jCheckW1 = new javax.swing.JCheckBox();
-        jCheckW2 = new javax.swing.JCheckBox();
-        jCheckW3 = new javax.swing.JCheckBox();
-        jCheckW4 = new javax.swing.JCheckBox();
-        jCheckW5 = new javax.swing.JCheckBox();
-        jCheckW6 = new javax.swing.JCheckBox();
-        jCheckW7 = new javax.swing.JCheckBox();
-        jCheckW8 = new javax.swing.JCheckBox();
-        jCheckW9 = new javax.swing.JCheckBox();
-        jCheckW11 = new javax.swing.JCheckBox();
-        jCheckW12 = new javax.swing.JCheckBox();
-        jCheckW13 = new javax.swing.JCheckBox();
-        jCheckW14 = new javax.swing.JCheckBox();
-        jCheckW15 = new javax.swing.JCheckBox();
-        jCheckW16 = new javax.swing.JCheckBox();
-        jCheckW17 = new javax.swing.JCheckBox();
-        jCheckW18 = new javax.swing.JCheckBox();
-        jCheckW19 = new javax.swing.JCheckBox();
-        jCheckW93 = new javax.swing.JCheckBox();
-        jCheckW20 = new javax.swing.JCheckBox();
-        jCheckW21 = new javax.swing.JCheckBox();
-        jCheckW22 = new javax.swing.JCheckBox();
-        jCheckW23 = new javax.swing.JCheckBox();
-        jCheckW24 = new javax.swing.JCheckBox();
-        jCheckW25 = new javax.swing.JCheckBox();
-        jCheckW26 = new javax.swing.JCheckBox();
-        jCheckW27 = new javax.swing.JCheckBox();
-        jCheckW28 = new javax.swing.JCheckBox();
-        jCheckW29 = new javax.swing.JCheckBox();
-        jCheckW30 = new javax.swing.JCheckBox();
-        jCheckW31 = new javax.swing.JCheckBox();
-        jCheckW32 = new javax.swing.JCheckBox();
-        jCheckW33 = new javax.swing.JCheckBox();
-        jCheckW34 = new javax.swing.JCheckBox();
-        jCheckW35 = new javax.swing.JCheckBox();
-        jCheckW36 = new javax.swing.JCheckBox();
-        jCheckW37 = new javax.swing.JCheckBox();
-        jCheckW38 = new javax.swing.JCheckBox();
-        jCheckW39 = new javax.swing.JCheckBox();
-        jCheckW46 = new javax.swing.JCheckBox();
-        jCheckW5445 = new javax.swing.JCheckBox();
-        jCheckW44 = new javax.swing.JCheckBox();
-        jCheckW43 = new javax.swing.JCheckBox();
-        jCheckW42 = new javax.swing.JCheckBox();
-        jCheckW41 = new javax.swing.JCheckBox();
-        jCheckW53 = new javax.swing.JCheckBox();
-        jCheckW54 = new javax.swing.JCheckBox();
-        jCheckW56 = new javax.swing.JCheckBox();
-        jCheckW55 = new javax.swing.JCheckBox();
-        jCheckW57 = new javax.swing.JCheckBox();
-        jCheckW58 = new javax.swing.JCheckBox();
-        jCheckW59 = new javax.swing.JCheckBox();
-        jCheckW60 = new javax.swing.JCheckBox();
-        jCheckW61 = new javax.swing.JCheckBox();
-        jCheckW7462 = new javax.swing.JCheckBox();
-        jCheckW63 = new javax.swing.JCheckBox();
-        jCheckW64 = new javax.swing.JCheckBox();
-        jCheckW65 = new javax.swing.JCheckBox();
-        jCheckW66 = new javax.swing.JCheckBox();
-        jCheckW67 = new javax.swing.JCheckBox();
-        jCheckW68 = new javax.swing.JCheckBox();
-        jCheckW69 = new javax.swing.JCheckBox();
-        jCheckW70 = new javax.swing.JCheckBox();
-        jCheckW71 = new javax.swing.JCheckBox();
-        jCheckW72 = new javax.swing.JCheckBox();
-        jCheckW73 = new javax.swing.JCheckBox();
-        jCheckW75 = new javax.swing.JCheckBox();
-        jCheckW76 = new javax.swing.JCheckBox();
-        jCheckW77 = new javax.swing.JCheckBox();
-        jCheckW47 = new javax.swing.JCheckBox();
-        jCheckW48 = new javax.swing.JCheckBox();
-        jCheckW49 = new javax.swing.JCheckBox();
-        jCheckW50 = new javax.swing.JCheckBox();
-        jCheckW51 = new javax.swing.JCheckBox();
-        jCheckW52 = new javax.swing.JCheckBox();
-        jCheckW40 = new javax.swing.JCheckBox();
-        jCheckW62 = new javax.swing.JCheckBox();
-        jButtonPrintDoc = new javax.swing.JButton();
-        jLabel32 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         jPanel12 = new javax.swing.JPanel();
@@ -1332,476 +1232,6 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         );
 
         jTabbedPane2.addTab("ข้อมูลประกอบสำนวนคดี", jPanel5);
-
-        jScrollPane1.setOpaque(false);
-
-        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel8.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
-        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jCheckW80.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW80.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW80.setText("บัญชีสำนวนการสอบสวน");
-        jPanel8.add(jCheckW80, new org.netbeans.lib.awtextra.AbsoluteConstraints(2020, 390, 570, -1));
-
-        jCheckW1.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW1.setText("บันทึกการตรวจสำนวนการสอบสวน");
-        jCheckW1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckW1ActionPerformed(evt);
-            }
-        });
-        jPanel8.add(jCheckW1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 7, 405, -1));
-
-        jCheckW2.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW2.setText("หนังสือส่งสำนวนคดีที่เห็นควรงดหรือให้งดการสอบสวน");
-        jCheckW2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckW2ActionPerformed(evt);
-            }
-        });
-        jPanel8.add(jCheckW2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 40, 405, -1));
-
-        jCheckW3.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW3.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW3.setText("หนังสือส่งสำนวนคดีที่เห็นควรสั่งฟ้อง แต่ยังไม่ได้ตัวผู้ต้องหา");
-        jPanel8.add(jCheckW3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 73, 405, -1));
-
-        jCheckW4.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW4.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW4.setText("หนังสือส่งสำนวนคดีที่เห็นควรสั่งฟ้องหรือไม่สั่งฟ้อง");
-        jPanel8.add(jCheckW4, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 106, 405, -1));
-
-        jCheckW5.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW5.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW5.setText("รายงานการสอบสวน");
-        jPanel8.add(jCheckW5, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 139, 405, -1));
-
-        jCheckW6.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW6.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW6.setText("รายงานการสอบสวนสำนวนคดีไม่ปรากฎว่าผู้ใดเป็นผู้กระทำผิด");
-        jPanel8.add(jCheckW6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 172, 405, -1));
-
-        jCheckW7.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW7.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW7.setText("รายงานการสอบสวนสำนวนชันสูตรพลิกศพ");
-        jPanel8.add(jCheckW7, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 205, 405, -1));
-
-        jCheckW8.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW8.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW8.setText("บันทึกคำให้การผู้กล่าวหา หรือพยาน");
-        jPanel8.add(jCheckW8, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 238, 405, -1));
-
-        jCheckW9.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW9.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW9.setText("บันทึกคำให้การผู้ต้องหา");
-        jPanel8.add(jCheckW9, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 271, 405, -1));
-
-        jCheckW11.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW11.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW11.setText("บัญชีของกลางคดีอาญา");
-        jPanel8.add(jCheckW11, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 304, 320, -1));
-
-        jCheckW12.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW12.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW12.setText("บัญชีทรัพย์ถูกประทุษร้าย");
-        jPanel8.add(jCheckW12, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 340, 405, -1));
-
-        jCheckW13.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW13.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW13.setText("บัญชีทรัพย์ถูกประทุษร้ายได้คืน");
-        jPanel8.add(jCheckW13, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 373, 405, -1));
-
-        jCheckW14.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW14.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW14.setText("บัญชีทรัพย์ถูกประทุษร้ายไม่ได้คืน");
-        jPanel8.add(jCheckW14, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 406, 405, -1));
-
-        jCheckW15.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW15.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW15.setText("บัญชีทรัพย์ที่ถูกเพลิงไหม้");
-        jPanel8.add(jCheckW15, new org.netbeans.lib.awtextra.AbsoluteConstraints(411, 7, 350, -1));
-
-        jCheckW16.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW16.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW16.setText("บันทึกพนักงานสอบสวน");
-        jPanel8.add(jCheckW16, new org.netbeans.lib.awtextra.AbsoluteConstraints(411, 40, 350, -1));
-
-        jCheckW17.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW17.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW17.setText("บันทึกการตรวจสอบสถานที่เกิดเหตุคดีอาญา");
-        jPanel8.add(jCheckW17, new org.netbeans.lib.awtextra.AbsoluteConstraints(411, 73, 350, -1));
-
-        jCheckW18.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW18.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW18.setText("บันทึกการตรวจสอบสถานที่เกิดเหตุคดีจราจร");
-        jPanel8.add(jCheckW18, new org.netbeans.lib.awtextra.AbsoluteConstraints(411, 106, 350, -1));
-
-        jCheckW19.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW19.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW19.setText("แผนที่สังเขปแสดงสถานที่เกิดเหตุ");
-        jPanel8.add(jCheckW19, new org.netbeans.lib.awtextra.AbsoluteConstraints(411, 139, 350, -1));
-
-        jCheckW93.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW93.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW93.setText("หมายจับ");
-        jCheckW93.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckW93ActionPerformed(evt);
-            }
-        });
-        jPanel8.add(jCheckW93, new org.netbeans.lib.awtextra.AbsoluteConstraints(411, 172, 350, -1));
-
-        jCheckW20.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW20.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW20.setText("บันทึกการนำชี้ที่เกิดเหตุประกอบคำรับสารภาพ");
-        jPanel8.add(jCheckW20, new org.netbeans.lib.awtextra.AbsoluteConstraints(411, 205, 350, -1));
-
-        jCheckW21.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW21.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW21.setText("ใบนำส่งผู้บาดเจ็บหรือศพ");
-        jPanel8.add(jCheckW21, new org.netbeans.lib.awtextra.AbsoluteConstraints(411, 238, 350, -1));
-
-        jCheckW22.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW22.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW22.setText("หนังสือส่งผู้ต้องหาป่วยทางจิตตรวจวินิจฉัย");
-        jPanel8.add(jCheckW22, new org.netbeans.lib.awtextra.AbsoluteConstraints(411, 271, 350, -1));
-
-        jCheckW23.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW23.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW23.setText("รายงานชันสูตรพลิกศพ");
-        jPanel8.add(jCheckW23, new org.netbeans.lib.awtextra.AbsoluteConstraints(411, 304, 350, -1));
-
-        jCheckW24.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW24.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW24.setText("แบบรายงานพบศพไม่ทราบชื่อ");
-        jPanel8.add(jCheckW24, new org.netbeans.lib.awtextra.AbsoluteConstraints(411, 337, 350, -1));
-
-        jCheckW25.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW25.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW25.setText("หนังสือส่งของกลางไปตรวจพิสูจน์");
-        jPanel8.add(jCheckW25, new org.netbeans.lib.awtextra.AbsoluteConstraints(411, 370, 350, -1));
-
-        jCheckW26.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW26.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW26.setText("หนังสือส่งยาเสพติดของกลางไปตรวจพิสูจน์");
-        jPanel8.add(jCheckW26, new org.netbeans.lib.awtextra.AbsoluteConstraints(411, 406, 350, -1));
-
-        jCheckW27.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW27.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW27.setText("ฉลากปิดภาชนะบรรจุยาเสพติด");
-        jPanel8.add(jCheckW27, new org.netbeans.lib.awtextra.AbsoluteConstraints(761, 7, 350, -1));
-
-        jCheckW28.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW28.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW28.setText("บันทึกการตรวจสภาพสภาพรถยนต์");
-        jPanel8.add(jCheckW28, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 400, 350, -1));
-
-        jCheckW29.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW29.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW29.setText("บันทึกการชี้ตัวผู้ต้องหา");
-        jPanel8.add(jCheckW29, new org.netbeans.lib.awtextra.AbsoluteConstraints(761, 73, 350, -1));
-
-        jCheckW30.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW30.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW30.setText("บันทึกการชี้รูปผู้ต้องหา");
-        jPanel8.add(jCheckW30, new org.netbeans.lib.awtextra.AbsoluteConstraints(761, 106, 350, -1));
-
-        jCheckW31.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW31.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW31.setText("บันทึกการจับกุม");
-        jPanel8.add(jCheckW31, new org.netbeans.lib.awtextra.AbsoluteConstraints(761, 139, 350, -1));
-
-        jCheckW32.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW32.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW32.setText("บันทึกการจับกุมผู้ต้องหาที่เป็นเด็กหรือเยาวชน");
-        jPanel8.add(jCheckW32, new org.netbeans.lib.awtextra.AbsoluteConstraints(761, 40, 350, -1));
-
-        jCheckW33.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW33.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW33.setText("บันทึกการตรวจค้น");
-        jPanel8.add(jCheckW33, new org.netbeans.lib.awtextra.AbsoluteConstraints(761, 172, 350, -1));
-
-        jCheckW34.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW34.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW34.setText("บัญชีทรัพย์ประกอบบันทึกการตรวจค้น");
-        jCheckW34.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckW34ActionPerformed(evt);
-            }
-        });
-        jPanel8.add(jCheckW34, new org.netbeans.lib.awtextra.AbsoluteConstraints(761, 205, 350, -1));
-
-        jCheckW35.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW35.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW35.setText("บัญชีการตรวจค้นโดยไม่มีหมายค้น");
-        jPanel8.add(jCheckW35, new org.netbeans.lib.awtextra.AbsoluteConstraints(761, 238, 350, -1));
-
-        jCheckW36.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW36.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW36.setText("บัญชีทรัพย์ประกอบบันทึกการตรวจค้นโดยไม่มีหมายค้น");
-        jPanel8.add(jCheckW36, new org.netbeans.lib.awtextra.AbsoluteConstraints(761, 271, 350, -1));
-
-        jCheckW37.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW37.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW37.setText("ตำหนิรูปพรรณผู้กระทำความผิด");
-        jPanel8.add(jCheckW37, new org.netbeans.lib.awtextra.AbsoluteConstraints(761, 304, 350, -1));
-
-        jCheckW38.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW38.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW38.setText("หมายเรียกผู้ต้องหา");
-        jPanel8.add(jCheckW38, new org.netbeans.lib.awtextra.AbsoluteConstraints(761, 337, 350, -1));
-
-        jCheckW39.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW39.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW39.setText("หมายเรียกพยาน");
-        jCheckW39.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckW39ActionPerformed(evt);
-            }
-        });
-        jPanel8.add(jCheckW39, new org.netbeans.lib.awtextra.AbsoluteConstraints(761, 370, 350, -1));
-
-        jCheckW46.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW46.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW46.setText("หนังสือแจ้งการขอประกันสิ่งของไปดูแลรักษาหรือใช้ประโยชน์");
-        jPanel8.add(jCheckW46, new org.netbeans.lib.awtextra.AbsoluteConstraints(1111, 205, 445, -1));
-
-        jCheckW5445.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW5445.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW5445.setText("สัญญาประกันและรับมอบสิ่งของ");
-        jPanel8.add(jCheckW5445, new org.netbeans.lib.awtextra.AbsoluteConstraints(1111, 172, 445, -1));
-
-        jCheckW44.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW44.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW44.setText("คำร้องขอคืนสิ่งของ");
-        jPanel8.add(jCheckW44, new org.netbeans.lib.awtextra.AbsoluteConstraints(1111, 139, 445, -1));
-
-        jCheckW43.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW43.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW43.setText("บันทึกเสนอสัญญาประกันสิ่งของ");
-        jPanel8.add(jCheckW43, new org.netbeans.lib.awtextra.AbsoluteConstraints(1111, 106, 445, -1));
-
-        jCheckW42.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW42.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW42.setText("บันทึกคำขอรับชดใช้ค่าใช้จ่ายเบื้องต้นอันเกิดจากการขนส่ง");
-        jPanel8.add(jCheckW42, new org.netbeans.lib.awtextra.AbsoluteConstraints(1111, 73, 445, -1));
-
-        jCheckW41.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW41.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW41.setText("บันทึกการตกลงค่าเสียหาย");
-        jPanel8.add(jCheckW41, new org.netbeans.lib.awtextra.AbsoluteConstraints(1111, 40, 445, -1));
-
-        jCheckW53.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW53.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW53.setText("หนังสือแจ้งความคืบหน้าการสอบสวน");
-        jPanel8.add(jCheckW53, new org.netbeans.lib.awtextra.AbsoluteConstraints(1111, 238, 445, -1));
-
-        jCheckW54.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW54.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW54.setText("แบบแจ้งรูปพรรณคนหาย");
-        jPanel8.add(jCheckW54, new org.netbeans.lib.awtextra.AbsoluteConstraints(1111, 271, 445, -1));
-
-        jCheckW56.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW56.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW56.setText("แบบแจ้งผลการได้ตัวคนหายคืน");
-        jPanel8.add(jCheckW56, new org.netbeans.lib.awtextra.AbsoluteConstraints(1111, 337, 445, -1));
-
-        jCheckW55.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW55.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW55.setText("แบบการสืบสวนติดตามคนหาย");
-        jPanel8.add(jCheckW55, new org.netbeans.lib.awtextra.AbsoluteConstraints(1111, 304, 445, -1));
-
-        jCheckW57.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW57.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW57.setText("ตำหนิรูปพรรณทรัพย์หาย");
-        jPanel8.add(jCheckW57, new org.netbeans.lib.awtextra.AbsoluteConstraints(1111, 370, 445, -1));
-
-        jCheckW58.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW58.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW58.setText("ตำหนิรูปพรรณทรัพย์หายได้คืน");
-        jCheckW58.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckW58ActionPerformed(evt);
-            }
-        });
-        jPanel8.add(jCheckW58, new org.netbeans.lib.awtextra.AbsoluteConstraints(1111, 403, 445, -1));
-
-        jCheckW59.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW59.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW59.setText("แบบรูปพรรณรถยนต์หรือรถจักรยนต์ที่ถูกโจรกรรม");
-        jPanel8.add(jCheckW59, new org.netbeans.lib.awtextra.AbsoluteConstraints(1556, 7, 460, -1));
-
-        jCheckW60.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW60.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW60.setText("แบบรายการรถยนต์หรือรถจักรยานยนต์ที่ได้คืน");
-        jPanel8.add(jCheckW60, new org.netbeans.lib.awtextra.AbsoluteConstraints(1556, 40, 460, -1));
-
-        jCheckW61.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW61.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW61.setText("แผนประทุษกรรม");
-        jPanel8.add(jCheckW61, new org.netbeans.lib.awtextra.AbsoluteConstraints(1556, 73, 460, -1));
-
-        jCheckW7462.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW7462.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW7462.setText("บันทึกการควบคุมผู้ต้องหา");
-        jPanel8.add(jCheckW7462, new org.netbeans.lib.awtextra.AbsoluteConstraints(1556, 106, 460, -1));
-
-        jCheckW63.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW63.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW63.setText("คำร้องขอสืบพยานไว้ก่อน");
-        jPanel8.add(jCheckW63, new org.netbeans.lib.awtextra.AbsoluteConstraints(1556, 139, 460, -1));
-
-        jCheckW64.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW64.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW64.setText("บันทึกการพบและปรึกษาทนาย");
-        jPanel8.add(jCheckW64, new org.netbeans.lib.awtextra.AbsoluteConstraints(1556, 172, 460, -1));
-
-        jCheckW65.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW65.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW65.setText("คำร้องขอส่งตัวผู้ต้องหาไปควบคุมตัวเพื่อพิสูจน์การเสพหรือการติดยาเสพติด");
-        jPanel8.add(jCheckW65, new org.netbeans.lib.awtextra.AbsoluteConstraints(1556, 205, 460, -1));
-
-        jCheckW66.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW66.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW66.setText("คำร้องขอตรวจสอบการจับ");
-        jPanel8.add(jCheckW66, new org.netbeans.lib.awtextra.AbsoluteConstraints(1556, 370, 460, -1));
-
-        jCheckW67.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW67.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW67.setText("คำร้องขอผัดฟ้องหรือผัดฟ้องและฝากขังครั้งที่ 1");
-        jPanel8.add(jCheckW67, new org.netbeans.lib.awtextra.AbsoluteConstraints(1556, 238, 460, -1));
-
-        jCheckW68.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW68.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW68.setText("คำร้องขอผัดฟ้องหรือผัดฟ้องและฝากขังครั้งที่....");
-        jPanel8.add(jCheckW68, new org.netbeans.lib.awtextra.AbsoluteConstraints(1556, 271, 460, -1));
-
-        jCheckW69.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW69.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW69.setText("คำร้องขอฝากครั้ง");
-        jPanel8.add(jCheckW69, new org.netbeans.lib.awtextra.AbsoluteConstraints(1556, 304, 460, -1));
-
-        jCheckW70.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW70.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW70.setText("บันทึกเสนอสัญญาประกัน");
-        jPanel8.add(jCheckW70, new org.netbeans.lib.awtextra.AbsoluteConstraints(1556, 337, 460, -1));
-
-        jCheckW71.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW71.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW71.setText("คำร้องและสัญญาประกัน");
-        jCheckW71.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckW71ActionPerformed(evt);
-            }
-        });
-        jPanel8.add(jCheckW71, new org.netbeans.lib.awtextra.AbsoluteConstraints(1556, 403, 460, -1));
-
-        jCheckW72.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW72.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW72.setText("คำยินยอมกรณีผู้ให้สัญญาค้ำประกันมีคู่สมรส");
-        jPanel8.add(jCheckW72, new org.netbeans.lib.awtextra.AbsoluteConstraints(2016, 0, 460, -1));
-
-        jCheckW73.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW73.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW73.setText("บันทึกรับรองการป็นโสด");
-        jPanel8.add(jCheckW73, new org.netbeans.lib.awtextra.AbsoluteConstraints(2016, 33, 460, -1));
-
-        jCheckW75.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW75.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW75.setText("บันทึกการสอบถามเบื้องต้น(กรณีเด็กหรือเยาวชน)");
-        jPanel8.add(jCheckW75, new org.netbeans.lib.awtextra.AbsoluteConstraints(2016, 66, 460, -1));
-
-        jCheckW76.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW76.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW76.setText("หนังสือแจ้งการดำเนินคดีเด็กหรือเยาวชนไปยังสถานพินิจ");
-        jPanel8.add(jCheckW76, new org.netbeans.lib.awtextra.AbsoluteConstraints(2016, 99, 465, -1));
-
-        jCheckW77.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW77.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW77.setText("หนังสือแจ้งการจับกุมเด็กหรือเยาวชนไปยังสถานพินิจ");
-        jPanel8.add(jCheckW77, new org.netbeans.lib.awtextra.AbsoluteConstraints(2016, 132, 465, -1));
-
-        jCheckW47.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW47.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW47.setText("หนังสือรายงานคนต่างด้าวเป็นผู้เสียหายในคดีอุกฉกรรจ์หรือตายโดยธรรมชาติ");
-        jPanel8.add(jCheckW47, new org.netbeans.lib.awtextra.AbsoluteConstraints(2016, 165, -1, -1));
-
-        jCheckW48.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW48.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW48.setText("หนังสือรายงานคนต่างด้าวกระทำความผิดและถูกจับกุมตัวดำเนินคดี");
-        jPanel8.add(jCheckW48, new org.netbeans.lib.awtextra.AbsoluteConstraints(2016, 198, 465, -1));
-
-        jCheckW49.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW49.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW49.setText("หนังสือขอส่งตัวคนต่างด้าว");
-        jPanel8.add(jCheckW49, new org.netbeans.lib.awtextra.AbsoluteConstraints(2016, 231, 465, -1));
-
-        jCheckW50.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW50.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW50.setText("หนังสือขอส่งรายละเอียดเกี่ยวกับคนต่างด้าวถูกกักขังหรือกักขังแทนค่าปรับ");
-        jPanel8.add(jCheckW50, new org.netbeans.lib.awtextra.AbsoluteConstraints(2016, 264, 465, -1));
-
-        jCheckW51.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW51.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW51.setText("หนังสือขอส่งตัวคนต่างด้าวหลบหนีเข้าเมืองมาเพื่อดำเนินการผลักดันออกไปนอกราชอาณาจักร");
-        jPanel8.add(jCheckW51, new org.netbeans.lib.awtextra.AbsoluteConstraints(2016, 297, 570, -1));
-
-        jCheckW52.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW52.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW52.setText("หนังสือขอให้ตรวจสอบหนังสือเดินทางหรือเอกสารที่ใช้แทนการเดินทางของบุคคลต่างด้าว");
-        jPanel8.add(jCheckW52, new org.netbeans.lib.awtextra.AbsoluteConstraints(2016, 330, 565, -1));
-
-        jCheckW40.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW40.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW40.setText("บันทึกการแจ้งสิทธิตาม พ.ร.บ. ค่าตอบแทนผู้เสียหาย และค่าทดแทน \n");
-        jPanel8.add(jCheckW40, new org.netbeans.lib.awtextra.AbsoluteConstraints(1111, 7, -1, -1));
-
-        jCheckW62.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW62.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW62.setText("บันทึกการควบคุมผู้ต้องหา");
-        jPanel8.add(jCheckW62, new org.netbeans.lib.awtextra.AbsoluteConstraints(2020, 360, 570, -1));
-
-        jScrollPane1.setViewportView(jPanel8);
-
-        jButtonPrintDoc.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jButtonPrintDoc.setText("พิมพ์เอกสาร");
-        jButtonPrintDoc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonPrintDocActionPerformed(evt);
-            }
-        });
-
-        jLabel32.setText("caseid");
-
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel32)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonPrintDoc)
-                .addGap(73, 73, 73))
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonPrintDoc)
-                    .addComponent(jLabel32))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jTabbedPane2.addTab("รายงาน", jPanel10);
 
         jScrollPane5.setOpaque(false);
 
@@ -2554,7 +1984,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        jTabbedPane2.addTab("tab4", jPanel11);
+        jTabbedPane2.addTab("รายงาน", jPanel11);
 
         jButtonSaveCase.setBackground(new java.awt.Color(0, 51, 102));
         jButtonSaveCase.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -2662,6 +2092,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             "PoliceNameCase,AssetList,AssetCode,crimecasenoyear,RecordInvestCase,Investigator_Number,Invest_SendCaseDate,Prosecutor_Result,"
           + "CapitalCrimeCaseNumber,TotalAcc,TotalSus,TotalWitness)"+
             "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+          
             System.out.println(sql);
             try {
 
@@ -2740,16 +2171,6 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
          jButtonSaveCase.setEnabled(false);
          jButtonEditCase.setEnabled(true);
          CloseTextBox();
-//         JSONObject data=new JSONObject();
-//         data.put("caseid", caseidLast);
-//           JFrame frame = new JFrame();
-//        JDialog dialog = new JDialog(frame);//frame is owner
-//        JFrame fr = (JFrame)(dialog.getParent());
-//        fr.removeAll();
-//        ReportforCrimesCase n=new ReportforCrimesCase(fr,data);
-//        n.pack();
-//        n.setLocationRelativeTo(null);
-//        n.setVisible(true);
 
     } 
             } catch (Exception e) {
@@ -2953,10 +2374,14 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         JDialog dialog = new JDialog(frame);//frame is owner
         JFrame f = (JFrame)(dialog.getParent());
         f.removeAll();
+        JSONObject data2 = new JSONObject();
+             data2.put("caseid", crimecaseid.getText());     
+             data2.put("typecase", "อาญา");
+
         if(ChargeNameCase.getText().length()==0 || ChargeNameCase.getText()==null|| ChargeNameCase.getText().isEmpty()){
             JSONObject data = new JSONObject();
             data.put("caseid",crimecaseid.getText());
-            ChargePage d = new ChargePage(f,null,data);
+            ChargePage d = new ChargePage(f,null,data2);
             d.pack();
             d.setLocationRelativeTo(null);
             d.setVisible(true);
@@ -2982,7 +2407,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                     data.put("ChargeCaseId", rs.getString("ChargeCaseId"));
                     
 
-                    ChargePage d = new ChargePage(f,data,null);
+                    ChargePage d = new ChargePage(f,data,data2);
                     d.pack();
                     d.setLocationRelativeTo(null);
                     d.setVisible(true);
@@ -3069,7 +2494,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         JSONObject s = new JSONObject();
         s.put("CaseIdSus",idSus );
         s.put("TypeCaseS",typeS );
-        s.put("CaseNumber",caseNumber );
+//        s.put("CaseNumber",caseNumber );
         JFrame frame = new JFrame();
         JDialog dialog = new JDialog(frame);//frame is owner
         JFrame facc = (JFrame)(dialog.getParent());
@@ -3118,18 +2543,221 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         // TODO add your handling code here:
     }//GEN-LAST:event_CrimeLocationMooActionPerformed
 
-private void jButtonPrintDoc2ActionPerformed(java.awt.event.ActionEvent evt) {  
-     String no=crimecaseid.getText();
-          caseyear=crimecaseyear.getText();
-           caseno=crimecaseno.getText();
-           casetype=CaseType.getText();
-        File f3=new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
+//private void jButtonPrintDoc2ActionPerformed(java.awt.event.ActionEvent evt) {  
+//    yourAttemptActionPerformed();
+//    
+//}
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        closeAllDialogs();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void CrimeLocationProvinceItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CrimeLocationProvinceItemStateChanged
+        // TODO add your handling code here:
+        String provinceid="";
+        Connection con2 = ConnectDatabase.connect();
+        try {
+            Statement st2 = con2.createStatement();
+            String a="select Province.DOPA_CODE DOPA_CODE,Province.PROVINCEID PROVINCEID from Province\n"+
+            "where Province.NAMEPROVINCE='"+CrimeLocationProvince.getSelectedItem()+"'";
+                    	ResultSet res2 = st2.executeQuery(a);
+System.out.println("provinceid: "+CrimeLocationProvince.getSelectedItem());
+        if(res2.next()){
+        provinceid=res2.getString("PROVINCEID");
+        }
+	Statement st = con2.createStatement();
+        	String c = "select Amphur.NameAmphur NameAmphur\n" +
+                            "from Amphur\n" +
+                            "where Amphur.DOPA_CODE like '"+provinceid+"%';";
+        	ResultSet res = st.executeQuery(c);
+	//Vector<Object> v=new Vector<Object>();
+//	           System.out.println("provinceid: "+provinceid);
+CrimeLocationAmphur.removeAllItems();
+	while(res.next())
+	{
+	CrimeLocationAmphur.addItem(res.getString("NameAmphur"));
+
+	
+	}
+        }
+        catch (Exception d) {  //System.out.println(d);  
+}
+    }//GEN-LAST:event_CrimeLocationProvinceItemStateChanged
+
+    private void CrimeLocationProvinceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrimeLocationProvinceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CrimeLocationProvinceActionPerformed
+
+    private void jButtonEditCaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditCaseActionPerformed
+        // TODO add your handling code here:
+        jButtonSaveCase.setEnabled(true);
+        openTextBox();
+    }//GEN-LAST:event_jButtonEditCaseActionPerformed
+   
+    private void jCheckW202ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW202ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckW202ActionPerformed
+
+    private void jCheckW239ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW239ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckW239ActionPerformed
+
+    private void jCheckW258ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW258ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckW258ActionPerformed
+
+    private void jCheckW271ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW271ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckW271ActionPerformed
+
+    private void jCheckW259ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW259ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckW259ActionPerformed
+
+    private void jCheckW234ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW234ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckW234ActionPerformed
+
+    private void jCheckW214ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW214ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckW214ActionPerformed
+
+    private void jCheckW246ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW246ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckW246ActionPerformed
+
+    private void jCheckW215ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW215ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckW215ActionPerformed
+
+    private void jCheckW224ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW224ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckW224ActionPerformed
+
+    private void jCheckW206ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW206ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckW206ActionPerformed
+
+    private void jCheckW269ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW269ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckW269ActionPerformed
+
+    private void jCheckW204ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW204ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckW204ActionPerformed
+
+    private void jCheckW280ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW280ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckW280ActionPerformed
+
+    private void jCheckW226ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW226ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckW226ActionPerformed
+
+    private void jCheckW227ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW227ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckW227ActionPerformed
+
+    private void jCheckW225ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW225ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckW225ActionPerformed
+
+    private void jCheckW262ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW262ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckW262ActionPerformed
+
+    private void jCheckW274ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW274ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckW274ActionPerformed
+
+    private void jCheckW253ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW253ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckW253ActionPerformed
+
+    private void jButtonPrintDoc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrintDoc2ActionPerformed
+        // TODO add your handling code here:
+            
+        yourAttemptActionPerformed();
+    }//GEN-LAST:event_jButtonPrintDoc2ActionPerformed
+     private void yourAttemptActionPerformed() {
+
+
+       
+    new BackgroundWorker().execute();
+
+
+    }
+       
+    public class BackgroundWorker extends SwingWorker<Void, Void> {
+
+    private static final long SLEEP_TIME =10;
+    private String text;
+        private JProgressBar pb;
+		private JDialog dialog;
+//   public void Task() {
+//       
+//    }
+//       public ProgressWorker(JProgressBar progress) {
+//            this.progress = progress;
+//        
+            public BackgroundWorker() {
+           
+			addPropertyChangeListener(new PropertyChangeListener() {
+				@Override
+				public void propertyChange(PropertyChangeEvent evt) {
+					if ("progress".equalsIgnoreCase(evt.getPropertyName())) {
+						 if (dialog == null) {
+							dialog = new JDialog();
+							dialog.setTitle("Processing");
+							dialog.setLayout(new GridBagLayout());
+							dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+							GridBagConstraints gbc = new GridBagConstraints();
+							gbc.insets = new Insets(2, 2, 2, 2);
+							gbc.weightx = 1;
+							gbc.gridy = 0;
+							dialog.add(new JLabel("Processing..."), gbc);
+							pb = new JProgressBar();
+							pb.setStringPainted(true);
+                                                        pb.setMaximum(100);
+                                                        pb.setMinimum(0);
+                                                        
+							gbc.gridy = 1;
+							dialog.add(pb, gbc);
+							dialog.pack();
+							dialog.setLocationRelativeTo(null);
+							dialog.setModal(true);
+							JDialog.setDefaultLookAndFeelDecorated(true); 
+							dialog.setVisible(true);
+						}
+						pb.setValue(getProgress());
+					}
+				}
+
+			});
+		}
+    @Override
+    public Void doInBackground() {
+            String no=crimecaseid.getText();
+            JCheckBox[] boxes = {jCheckW201,jCheckW202,jCheckW203,jCheckW204,jCheckW205,jCheckW206,jCheckW208,jCheckW209,jCheckW211,jCheckW212,jCheckW213,jCheckW214};
+        try { 
+            for (int i = 0; i < boxes.length; i++) {
+//                x = x - i;
+            setProgress((int)((i*100)/boxes.length)+1);
+//        setProgress(i * (100 / N));
+//				  setProgress(i);
+				Thread.sleep(10);
+//            Thread.sleep(SLEEP_TIME);// imitate a long-running task
+   
+            caseyear=crimecaseyear.getText();
+           caseno=crimecaseno.getText();
+           casetype=CaseType.getText();     
+        File f3=new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
+   
         f3.mkdirs();
         System.out.print(f3);
         System.out.print("folder created");
-        /// สำหรับ tab 4
-           if(jCheckW201.isSelected()){
+          if(jCheckW201.isSelected()){
             W1.w1(no);
         }
 
@@ -3338,216 +2966,23 @@ private void jButtonPrintDoc2ActionPerformed(java.awt.event.ActionEvent evt) {
                if(jCheckW280.isSelected()){
                         W80.w80(no);
                     }
-               if(jCheckW93.isSelected()){
+               if(jCheckW293.isSelected()){
                         W93.w93(no);
                     }
-        Desktop desktop = Desktop.getDesktop();
-        File dirToOpen = null;
-        try {
-            dirToOpen = new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
-            desktop.open(dirToOpen);
-        } catch (Exception iae) {
-            System.out.println("File Not Found :"+iae);
-        }
-    
-}
-    private void jButtonPrintDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrintDocActionPerformed
-        // TODO add your handling code here:
-        String no=crimecaseid.getText();
-          caseyear=crimecaseyear.getText();
-           caseno=crimecaseno.getText();
-           casetype=CaseType.getText();
-        File f3=new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
-
-        f3.mkdirs();
-        System.out.print(f3);
-        System.out.print("folder created");
-        if(jCheckW1.isSelected()){
-            W1.w1(no);
-        }
-
-        if(jCheckW2.isSelected()){
-            W2.w2(no);
-
-        }
-        if(jCheckW3.isSelected()){
-            W3.w3(no);
-        }
-        if(jCheckW4.isSelected()){
-            W4.w4(no);
-        }
-        if(jCheckW5.isSelected()){
-            W5.w5(no);
-        }
-        if(jCheckW6.isSelected()){
-            W6.w6(no);
-        }
-        if(jCheckW7.isSelected()){
-            //W7.w7(no);
-        }
-        
-        if(jCheckW8.isSelected()){
-            W8.w8(no);
-        }
-        if(jCheckW9.isSelected()){
-            W9.w9(no);
-        }
-        if(jCheckW11.isSelected()){
-            W11.w11(no);
-        }
-        if(jCheckW12.isSelected()){
-            W12.w12(no);
-          }
-        if(jCheckW13.isSelected()){
-            W13.w13(no);
             }
-         if(jCheckW14.isSelected()){
-             W14.w14(no);
-             }
-                if(jCheckW15.isSelected()){
-                        W15.w15(no);
-                    }
-               if(jCheckW16.isSelected()){
-                        W16.w16(no);
-                    }
-               if(jCheckW17.isSelected()){
-                        W17.w17(no);
-                    }
-               if(jCheckW18.isSelected()){
-                       W18.w18(no);
-                   }
-               if(jCheckW18.isSelected()){
-                        W19.w19(no);
-                    }
-               if(jCheckW20.isSelected()){
-                        W20.w20(no);
-                    }
-               
-               if(jCheckW21.isSelected()){
-                        W21.w21(no);
-                    }
-               if(jCheckW22.isSelected()){
-                        W22.w22(no);
-                    }
-               if(jCheckW23.isSelected()){
-                        W23.w23(no);
-                    }
-               if(jCheckW24.isSelected()){
-                        W24.w24(no);
-                    }
-               if(jCheckW25.isSelected()){
-                        W25.w25(no);
-                    }
-               if(jCheckW26.isSelected()){
-                        W26.w26(no);
-                    }
-               if(jCheckW27.isSelected()){
-                        W27.w27(no);
-                    }
-               if(jCheckW28.isSelected()){
-                        W28.w28(no);
-                    }
-               if(jCheckW29.isSelected()){
-                        W29.w29(no);
-                    }
-               if(jCheckW30.isSelected()){
-                        W30.w30(no);
-                    }
-               if(jCheckW31.isSelected()){
-                        W31.w31(no);
-                    }
-               if(jCheckW32.isSelected()){
-                        W32.w32(no);
-                    }
+        } catch (InterruptedException e) {
+        }
+//        setProgress(100);
         
-               if(jCheckW33.isSelected()){
-                        W33.w33(no);
-                    }
-               if(jCheckW34.isSelected()){
-                        W34.w34(no);
-                    }
-               if(jCheckW35.isSelected()){
-                        W35.w35(no);
-                    }
-               if(jCheckW36.isSelected()){
-                        W36.w36(no);
-                    }
-               if(jCheckW37.isSelected()){
-                        W37.w37(no);
-                    }
-               if(jCheckW38.isSelected()){
-                        W38.w38(no);
-                    }
-               if(jCheckW39.isSelected()){
-                        W39.w39(no);
-                    }
-               if(jCheckW40.isSelected()){
-                       W40.w40(no);
-                   }
-               if(jCheckW41.isSelected()){
-                        W41.w41(no);
-                    }
-              if(jCheckW43.isSelected()){
-                        W43.w43(no);
-                    }
-               if(jCheckW46.isSelected()){
-                        W46.w46(no);
-                    }
-               if(jCheckW47.isSelected()){
-                        W47.w47(no);
-                    }
-               if(jCheckW48.isSelected()){
-                        W48.w48(no);
-                    }
-               if(jCheckW49.isSelected()){
-                        W49.w49(no);
-                    }
-               if(jCheckW50.isSelected()){
-                        W50.w50(no);
-                    }
-               if(jCheckW51.isSelected()){
-                        W51.w51(no);
-                    }
-               if(jCheckW53.isSelected()){
-                        W53.w53(no);
-                    }
-               if(jCheckW62.isSelected()){
-                        W62.w62(no);
-                    }
-               if(jCheckW67.isSelected()){
-                        W67.w67(no);
-                    }
-        //       if(jCheckW68.isSelected()){
-            //            W68.w68(no);
-            //        }
-               if(jCheckW69.isSelected()){
-                        W69.w69(no);
-                    }
-               if(jCheckW70.isSelected()){
-                        W70.w70(no);
-                    }
-               if(jCheckW71.isSelected()){
-                        W71.w71(no);
-                    }
-              /* if(jCheckW72.isSelected()){
-                        W72.w72(no);
-                    }
-               if(jCheckW73.isSelected()){
-                        W73.w73(no);
-                    }
-               if(jCheckW74.isSelected()){
-                        W74.w74(no);
-                    }
-               */
-               if(jCheckW80.isSelected()){
-                        W80.w80(no);
-                    }
-               if(jCheckW93.isSelected()){
-                        W93.w93(no);
-                    }
-               
-              
-        Desktop desktop = Desktop.getDesktop();
+        return null;
+    }
+
+    @Override
+    public void done() {
+                    if (dialog != null) {
+				dialog.dispose();
+			}
+             Desktop desktop = Desktop.getDesktop();
         File dirToOpen = null;
         try {
             dirToOpen = new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
@@ -3555,168 +2990,10 @@ private void jButtonPrintDoc2ActionPerformed(java.awt.event.ActionEvent evt) {
         } catch (Exception iae) {
             System.out.println("File Not Found :"+iae);
         }
-
-    }//GEN-LAST:event_jButtonPrintDocActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        closeAllDialogs();
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void CrimeLocationProvinceItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CrimeLocationProvinceItemStateChanged
-        // TODO add your handling code here:
-        String provinceid="";
-        Connection con2 = ConnectDatabase.connect();
-        try {
-            Statement st2 = con2.createStatement();
-            String a="select Province.DOPA_CODE DOPA_CODE,Province.PROVINCEID PROVINCEID from Province\n"+
-            "where Province.NAMEPROVINCE='"+CrimeLocationProvince.getSelectedItem()+"'";
-                    	ResultSet res2 = st2.executeQuery(a);
-System.out.println("provinceid: "+CrimeLocationProvince.getSelectedItem());
-        if(res2.next()){
-        provinceid=res2.getString("PROVINCEID");
-        }
-	Statement st = con2.createStatement();
-        	String c = "select Amphur.NameAmphur NameAmphur\n" +
-                            "from Amphur\n" +
-                            "where Amphur.DOPA_CODE like '"+provinceid+"%';";
-        	ResultSet res = st.executeQuery(c);
-	//Vector<Object> v=new Vector<Object>();
-//	           System.out.println("provinceid: "+provinceid);
-CrimeLocationAmphur.removeAllItems();
-	while(res.next())
-	{
-	CrimeLocationAmphur.addItem(res.getString("NameAmphur"));
-
-	
-	}
-        }
-        catch (Exception d) {  //System.out.println(d);  
-}
-    }//GEN-LAST:event_CrimeLocationProvinceItemStateChanged
-
-    private void CrimeLocationProvinceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrimeLocationProvinceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CrimeLocationProvinceActionPerformed
-
-    private void jButtonEditCaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditCaseActionPerformed
-        // TODO add your handling code here:
-        jButtonSaveCase.setEnabled(true);
-        openTextBox();
-    }//GEN-LAST:event_jButtonEditCaseActionPerformed
-
-    private void jCheckW2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW2ActionPerformed
-
-    private void jCheckW93ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW93ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW93ActionPerformed
-
-    private void jCheckW39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW39ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW39ActionPerformed
-
-    private void jCheckW58ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW58ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW58ActionPerformed
-
-    private void jCheckW71ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW71ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW71ActionPerformed
-/**/
-    private void jCheckW202ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW202ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW202ActionPerformed
-
-    private void jCheckW239ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW239ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW239ActionPerformed
-
-    private void jCheckW258ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW258ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW258ActionPerformed
-
-    private void jCheckW271ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW271ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW271ActionPerformed
-
-    private void jCheckW259ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW259ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW259ActionPerformed
-
-    private void jCheckW234ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW234ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW234ActionPerformed
-
-    private void jCheckW214ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW214ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW214ActionPerformed
-
-    private void jCheckW246ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW246ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW246ActionPerformed
-
-    private void jCheckW215ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW215ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW215ActionPerformed
-
-    private void jCheckW224ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW224ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW224ActionPerformed
-
-    private void jCheckW206ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW206ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW206ActionPerformed
-
-    private void jCheckW269ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW269ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW269ActionPerformed
-
-    private void jCheckW204ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW204ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW204ActionPerformed
-
-    private void jCheckW280ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW280ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW280ActionPerformed
-
-    private void jCheckW226ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW226ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW226ActionPerformed
-
-    private void jCheckW227ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW227ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW227ActionPerformed
-
-    private void jCheckW225ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW225ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW225ActionPerformed
-
-    private void jCheckW262ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW262ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW262ActionPerformed
-
-    private void jCheckW274ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW274ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW274ActionPerformed
-
-    private void jCheckW253ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW253ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW253ActionPerformed
-
-    private void jCheckW34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW34ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW34ActionPerformed
-
-    private void jCheckW1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW1ActionPerformed
-/*
-    private void jButtonPrintDoc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrintDoc2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonPrintDoc2ActionPerformed
-    */
+//          System.out.println(text + " is done");
+//        Toolkit.getDefaultToolkit().beep();
+    }
+}/**/
     public static void closeAllDialogs()
 {
     Window[] windows = getWindows();
@@ -3964,8 +3241,10 @@ catch (Exception d) {  //System.out.println(d);
 
 
     }
-    public int CalculateDateArrest(String DateOne,String DateTwo){
-       int diffDays =0;   
+    public void CalculateDateArrest (String DateOne,String DateTwo){
+       int diffDays =0; 
+       boolean a=true;
+       String aa="6";
        try{
      
                Locale lc = new Locale("th","TH");
@@ -3974,25 +3253,28 @@ catch (Exception d) {  //System.out.println(d);
                         
                         Date dateone =null;
                         Date datetwo=null;
-                        
+                                                Date datethree=null;
+
                              dateone=format.parse(DateOne);
                           datetwo=format.parse(DateTwo);
                                System.out.println("dateone : "+dateone);
                         System.out.println("datetwo : "+datetwo);
-                            long diff = datetwo.getTime() - dateone.getTime();
-                             diffDays = (int)(diff / (24 * 60 * 60 * 1000));                          
-                             System.out.println("Time in Day: " + diffDays + " Days."); 
-                        
-                
+                         if(dateone.compareTo(datetwo)<=0){
+                              JOptionPane.showMessageDialog(null, "Date dssss");
+                         
+                         }
+                         
+                         else{  JOptionPane.showMessageDialog(null, "Datfsdsfdfe");}
+                       
+                              
+//                        return aa;        
+              
        }catch(Exception e){
-        
-           e.printStackTrace();
-       
-       }
-          return diffDays;               
-    
+          e.printStackTrace();
+//              JOptionPane.showMessageDialog(null, "Date");
+////                return null;
     }
-    
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JTextField ActionCrimes;
     private javax.swing.JTextArea CapitalCrimeCaseNumber;
@@ -4026,7 +3308,6 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JButton jButtonAddInvest;
     private javax.swing.JButton jButtonCharge;
     private javax.swing.JButton jButtonEditCase;
-    private javax.swing.JButton jButtonPrintDoc;
     private javax.swing.JButton jButtonPrintDoc2;
     private javax.swing.JButton jButtonSaveCase;
     private javax.swing.JButton jButtonSuspect;
@@ -4036,18 +3317,6 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JRadioButton jCheckNotSue;
     private javax.swing.JRadioButton jCheckOtherInvest;
     private javax.swing.JRadioButton jCheckSue;
-    private javax.swing.JCheckBox jCheckW1;
-    private javax.swing.JCheckBox jCheckW11;
-    private javax.swing.JCheckBox jCheckW12;
-    private javax.swing.JCheckBox jCheckW13;
-    private javax.swing.JCheckBox jCheckW14;
-    private javax.swing.JCheckBox jCheckW15;
-    private javax.swing.JCheckBox jCheckW16;
-    private javax.swing.JCheckBox jCheckW17;
-    private javax.swing.JCheckBox jCheckW18;
-    private javax.swing.JCheckBox jCheckW19;
-    private javax.swing.JCheckBox jCheckW2;
-    private javax.swing.JCheckBox jCheckW20;
     private javax.swing.JCheckBox jCheckW201;
     private javax.swing.JCheckBox jCheckW202;
     private javax.swing.JCheckBox jCheckW203;
@@ -4057,7 +3326,6 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JCheckBox jCheckW207;
     private javax.swing.JCheckBox jCheckW208;
     private javax.swing.JCheckBox jCheckW209;
-    private javax.swing.JCheckBox jCheckW21;
     private javax.swing.JCheckBox jCheckW211;
     private javax.swing.JCheckBox jCheckW212;
     private javax.swing.JCheckBox jCheckW213;
@@ -4067,7 +3335,6 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JCheckBox jCheckW217;
     private javax.swing.JCheckBox jCheckW218;
     private javax.swing.JCheckBox jCheckW219;
-    private javax.swing.JCheckBox jCheckW22;
     private javax.swing.JCheckBox jCheckW220;
     private javax.swing.JCheckBox jCheckW221;
     private javax.swing.JCheckBox jCheckW222;
@@ -4078,7 +3345,6 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JCheckBox jCheckW227;
     private javax.swing.JCheckBox jCheckW228;
     private javax.swing.JCheckBox jCheckW229;
-    private javax.swing.JCheckBox jCheckW23;
     private javax.swing.JCheckBox jCheckW230;
     private javax.swing.JCheckBox jCheckW231;
     private javax.swing.JCheckBox jCheckW232;
@@ -4089,7 +3355,6 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JCheckBox jCheckW237;
     private javax.swing.JCheckBox jCheckW238;
     private javax.swing.JCheckBox jCheckW239;
-    private javax.swing.JCheckBox jCheckW24;
     private javax.swing.JCheckBox jCheckW240;
     private javax.swing.JCheckBox jCheckW241;
     private javax.swing.JCheckBox jCheckW242;
@@ -4100,7 +3365,6 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JCheckBox jCheckW247;
     private javax.swing.JCheckBox jCheckW248;
     private javax.swing.JCheckBox jCheckW249;
-    private javax.swing.JCheckBox jCheckW25;
     private javax.swing.JCheckBox jCheckW250;
     private javax.swing.JCheckBox jCheckW251;
     private javax.swing.JCheckBox jCheckW252;
@@ -4111,7 +3375,6 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JCheckBox jCheckW257;
     private javax.swing.JCheckBox jCheckW258;
     private javax.swing.JCheckBox jCheckW259;
-    private javax.swing.JCheckBox jCheckW26;
     private javax.swing.JCheckBox jCheckW260;
     private javax.swing.JCheckBox jCheckW261;
     private javax.swing.JCheckBox jCheckW262;
@@ -4122,7 +3385,6 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JCheckBox jCheckW267;
     private javax.swing.JCheckBox jCheckW268;
     private javax.swing.JCheckBox jCheckW269;
-    private javax.swing.JCheckBox jCheckW27;
     private javax.swing.JCheckBox jCheckW270;
     private javax.swing.JCheckBox jCheckW271;
     private javax.swing.JCheckBox jCheckW272;
@@ -4132,67 +3394,8 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JCheckBox jCheckW276;
     private javax.swing.JCheckBox jCheckW277;
     private javax.swing.JCheckBox jCheckW278;
-    private javax.swing.JCheckBox jCheckW28;
     private javax.swing.JCheckBox jCheckW280;
-    private javax.swing.JCheckBox jCheckW29;
     private javax.swing.JCheckBox jCheckW293;
-    private javax.swing.JCheckBox jCheckW3;
-    private javax.swing.JCheckBox jCheckW30;
-    private javax.swing.JCheckBox jCheckW31;
-    private javax.swing.JCheckBox jCheckW32;
-    private javax.swing.JCheckBox jCheckW33;
-    private javax.swing.JCheckBox jCheckW34;
-    private javax.swing.JCheckBox jCheckW35;
-    private javax.swing.JCheckBox jCheckW36;
-    private javax.swing.JCheckBox jCheckW37;
-    private javax.swing.JCheckBox jCheckW38;
-    private javax.swing.JCheckBox jCheckW39;
-    private javax.swing.JCheckBox jCheckW4;
-    private javax.swing.JCheckBox jCheckW40;
-    private javax.swing.JCheckBox jCheckW41;
-    private javax.swing.JCheckBox jCheckW42;
-    private javax.swing.JCheckBox jCheckW43;
-    private javax.swing.JCheckBox jCheckW44;
-    private javax.swing.JCheckBox jCheckW46;
-    private javax.swing.JCheckBox jCheckW47;
-    private javax.swing.JCheckBox jCheckW48;
-    private javax.swing.JCheckBox jCheckW49;
-    private javax.swing.JCheckBox jCheckW5;
-    private javax.swing.JCheckBox jCheckW50;
-    private javax.swing.JCheckBox jCheckW51;
-    private javax.swing.JCheckBox jCheckW52;
-    private javax.swing.JCheckBox jCheckW53;
-    private javax.swing.JCheckBox jCheckW54;
-    private javax.swing.JCheckBox jCheckW5445;
-    private javax.swing.JCheckBox jCheckW55;
-    private javax.swing.JCheckBox jCheckW56;
-    private javax.swing.JCheckBox jCheckW57;
-    private javax.swing.JCheckBox jCheckW58;
-    private javax.swing.JCheckBox jCheckW59;
-    private javax.swing.JCheckBox jCheckW6;
-    private javax.swing.JCheckBox jCheckW60;
-    private javax.swing.JCheckBox jCheckW61;
-    private javax.swing.JCheckBox jCheckW62;
-    private javax.swing.JCheckBox jCheckW63;
-    private javax.swing.JCheckBox jCheckW64;
-    private javax.swing.JCheckBox jCheckW65;
-    private javax.swing.JCheckBox jCheckW66;
-    private javax.swing.JCheckBox jCheckW67;
-    private javax.swing.JCheckBox jCheckW68;
-    private javax.swing.JCheckBox jCheckW69;
-    private javax.swing.JCheckBox jCheckW7;
-    private javax.swing.JCheckBox jCheckW70;
-    private javax.swing.JCheckBox jCheckW71;
-    private javax.swing.JCheckBox jCheckW72;
-    private javax.swing.JCheckBox jCheckW73;
-    private javax.swing.JCheckBox jCheckW7462;
-    private javax.swing.JCheckBox jCheckW75;
-    private javax.swing.JCheckBox jCheckW76;
-    private javax.swing.JCheckBox jCheckW77;
-    private javax.swing.JCheckBox jCheckW8;
-    private javax.swing.JCheckBox jCheckW80;
-    private javax.swing.JCheckBox jCheckW9;
-    private javax.swing.JCheckBox jCheckW93;
     private javax.swing.JComboBox<String> jComboPoliceName;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -4219,7 +3422,6 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel41;
@@ -4238,7 +3440,6 @@ catch (Exception d) {  //System.out.println(d);
     public static javax.swing.JLabel jLabelNumberSus;
     public static javax.swing.JLabel jLabelNumberWitness;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
@@ -4251,10 +3452,8 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JPanel jPanelInvestSend;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;

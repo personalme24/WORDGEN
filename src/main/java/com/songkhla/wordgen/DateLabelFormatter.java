@@ -33,7 +33,7 @@ public class DateLabelFormatter  extends JFormattedTextField.AbstractFormatter {
 		    	cal.setTime((java.util.Date)dateFormatter.parseObject(text_split[0]+"/"+text_split[1]+"/"+year));
 		        return cal;
 	    	}catch(Exception ex) {
-	    		             JOptionPane.showMessageDialog(null, "Date Format Error!! using dd/MM/yyyy");
+	    	       JOptionPane.showMessageDialog(null, "Date Format Error!! using dd/MM/yyyy");
 	    		return null;
 	    	}
 	    }

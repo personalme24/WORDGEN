@@ -90,9 +90,8 @@ public class PersonOverView extends javax.swing.JDialog {
             }
         });
 
-        jButtonEdit.setBackground(new java.awt.Color(255, 51, 0));
         jButtonEdit.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButtonEdit.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonEdit.setForeground(new java.awt.Color(51, 51, 51));
         jButtonEdit.setText("แก้ไข");
         jButtonEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,9 +105,8 @@ public class PersonOverView extends javax.swing.JDialog {
             }
         });
 
-        jButtonDelete.setBackground(new java.awt.Color(255, 51, 0));
         jButtonDelete.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButtonDelete.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonDelete.setForeground(new java.awt.Color(51, 51, 51));
         jButtonDelete.setText("ลบ");
         jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -238,7 +236,7 @@ public class PersonOverView extends javax.swing.JDialog {
                 String cardId = jTable1.getModel().getValueAt(jTable1.getSelectedRow(), 1)+"";
 
 
-                String sql="select * from Person "
+                String sql="select * from PersonData"
                         + "where NoPerson='"+noPerson+"' and PeopleRegistrationID='"+cardId+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
@@ -333,7 +331,7 @@ public class PersonOverView extends javax.swing.JDialog {
         try{
         Connection con = ConnectDatabase.connect();
         Statement stmt = con.createStatement();
-        String sql = "select * from Person"+getFilterCondition();
+        String sql = "select * from PersonData"+getFilterCondition();
         ResultSet rs = stmt.executeQuery(sql);
         Vector<Vector> tabledata = new Vector<Vector>();
         while(rs.next()){

@@ -46,7 +46,7 @@ public class PolisForm extends javax.swing.JDialog {
     public PolisForm(JFrame parrent,JSONObject datain) {
          super(parrent,true);
         initComponents();
-              
+            idpolice.setVisible(false);
         if(datain!=null){
             try {
             closeEdit();
@@ -400,8 +400,7 @@ private void closeEdit(){
 private void openEdit(){
         IdCardPolice.setEnabled(true);
         jButtonSave.setEnabled(true); 
-        RankPolice.setEnabled(true);       
-
+        RankPolice.setEnabled(true);      
         FirstName.setEnabled(true);
         LastName.setEnabled(true);
         Position.setEnabled(true);

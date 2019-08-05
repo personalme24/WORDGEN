@@ -14,17 +14,23 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Properties;
 import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.event.CaretEvent;
+import javax.swing.event.CaretListener;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
@@ -38,9 +44,13 @@ public class AccusedForm extends javax.swing.JDialog {
     Connection con=null;
     Connection con2=null;
      PreparedStatement pst=null;
-     boolean isInsert;
+     PreparedStatement pst2=null;
+     boolean isInsert,isPerson;
+     
      String noPerson;
      JDatePickerImpl IssueDate,ExpiredDate,BirthDay;
+     ArrayList<String> personname=new ArrayList<String>();
+//     private JComboBox<String> comboBox;
     /**
      * Creates new form AccusedForm
      */
@@ -51,6 +61,8 @@ public class AccusedForm extends javax.swing.JDialog {
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
      crimecaseno.setVisible(false);
+     FullNamePerson.addCaretListener(new TextFieldCaretListener());
+     comboBox.addActionListener(new ComboBoxActionListener());
      UtilDateModel model2 = new UtilDateModel();
 //            model2.setValue(Calendar.getInstance().getTime());
             Properties p = new Properties();
@@ -118,11 +130,27 @@ public class AccusedForm extends javax.swing.JDialog {
 
 
         }else{
+              
            crimecaseno.setText(ListAccused.txtCaseNO.getText());
             isInsert=true;
           
         }
-
+        try {
+              Connection con2 = ConnectDatabase.connect();
+	Statement st = con2.createStatement();
+        	String c = "Select FullNamePerson,PeopleRegistrationID from persondata ";
+        	ResultSet res = st.executeQuery(c);
+	//Vector<Object> v=new Vector<Object>();
+	
+	while(res.next())
+	{
+             String name = res.getString("FullNamePerson");        
+             personname.add(name);
+//                System.out.println("Array : "+personname);  
+        } 
+       res.close();
+        } catch (Exception e) {
+        }
       
     }
 
@@ -201,6 +229,7 @@ public class AccusedForm extends javax.swing.JDialog {
         jLabel19 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         OrderPerson = new javax.swing.JTextField();
+        comboBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -452,6 +481,8 @@ public class AccusedForm extends javax.swing.JDialog {
 
         OrderPerson.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
 
+        comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -497,15 +528,14 @@ public class AccusedForm extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(MotherFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jPanelBirthDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(FullNamePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(jPanelIssueDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addComponent(Race, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(Occupation, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(MotherFullName, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                                            .addComponent(jPanelBirthDay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(FullNamePerson, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                                            .addComponent(jPanelIssueDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(Race, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                                            .addComponent(Occupation, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                                            .addComponent(comboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addGap(21, 21, 21)
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(jLabel25)
@@ -550,7 +580,7 @@ public class AccusedForm extends javax.swing.JDialog {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(ZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addComponent(jLabel2))))
-                .addGap(0, 188, Short.MAX_VALUE))
+                .addGap(0, 14, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(jLabel28)
@@ -609,8 +639,11 @@ public class AccusedForm extends javax.swing.JDialog {
                                 .addComponent(jPanelIssueDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(FullNamePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(1, 1, 1)
+                                .addComponent(comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jPanelBirthDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGap(3, 3, 3)
@@ -669,7 +702,7 @@ public class AccusedForm extends javax.swing.JDialog {
                         .addComponent(jLabel30)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(BtSaveAccused, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         PhonePerson.getAccessibleContext().setAccessibleName("");
@@ -754,7 +787,7 @@ public class AccusedForm extends javax.swing.JDialog {
                         "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
                         "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,caseIdPerson,OrderPerson)\n"
                 + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-
+        String sqlinsert = "INSERT INTO PersonData (FullNamePerson,Race) VALUES (?,?)";
          System.out.println("SQL : "+sql);
       try {
             pst=con.prepareStatement(sql);
@@ -787,6 +820,11 @@ public class AccusedForm extends javax.swing.JDialog {
                               pst.setString(27,ZipCode.getText());
                               pst.setString(28,crimecaseno.getText());
                               pst.setString(29,OrderPerson.getText());
+//                              --------------Insert Person---------------------------------
+                               pst2=con.prepareStatement(sqlinsert);
+                                  pst2.setString(1,FullNamePerson.getText());
+                               pst2.setString(2,Race.getText());
+                               
 //                               JOptionPane.showMessageDialog(jPanel1,"ยืนยัน","บันทึกข้อมูล", JOptionPane.INFORMATION_MESSAGE);
                             
      int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
@@ -794,6 +832,7 @@ public class AccusedForm extends javax.swing.JDialog {
      if (response == JOptionPane.YES_OPTION) {
          pst.executeUpdate(); 
          pst.close();
+      InsertPerson();
          System.out.println("SQL : "+sql);
         setVisible(false); 
 
@@ -862,7 +901,7 @@ public class AccusedForm extends javax.swing.JDialog {
         
         
         }
-        
+          
                             
 
                // TODO add your handling code here:
@@ -909,11 +948,12 @@ public class AccusedForm extends javax.swing.JDialog {
 //                    aa.setSize ( 1024, 728 );
 //                    aa.setMinimumSize ( new Dimension ( 1024, 728 ) );
 //                    aa.setMaximizedBounds ( new Rectangle ( 1024, 728 ) );
-      AccusedForm aa=  new AccusedForm(null,null);
+
                     
             }
         });
     }
+    
   public static String IdCase(){
          Connection c=null;
          c=ConnectDatabase.connect();
@@ -941,6 +981,162 @@ public class AccusedForm extends javax.swing.JDialog {
         } 
     
     }
+  private class TextFieldCaretListener implements  CaretListener{
+   public void caretUpdate(CaretEvent e){
+    
+       try{
+        comboBox.removeAllItems();
+        comboBox.hidePopup();
+        jPanel2.remove(comboBox);
+        
+        if(e.getMark()>0){
+            
+        for(String string:personname){
+           if(string.toLowerCase().startsWith(FullNamePerson.getText().toLowerCase())){
+             jPanel2.add(comboBox);
+             comboBox.addItem(string);
+             comboBox.showPopup();
+               }
+	    }
+         } 
+        Connection c=null;
+         c=ConnectDatabase.connect();
+            String sqlId="Select * from PersonData where FullNamePerson='"+FullNamePerson.getText()+"'";
+
+            Statement s=c.createStatement();
+            ResultSet rs=s.executeQuery(sqlId);
+            
+            if (rs.next()) {
+                PeopleRegistrationID.setText(rs.getString("PeopleRegistrationID")); 
+                Age.setText(rs.getString("Age")); 
+                Amphur.setText(rs.getString("Amphur")); 
+                BloodGroup.setText(rs.getString("BloodGroup")); 
+                BirthDay.getJFormattedTextField().setText(rs.getString("BirthDay")); 
+                FatherFullName.setText(rs.getString("FatherFullName")); 
+                FullNamePersonEn.setText(rs.getString("FullNamePersonEn")); 
+                Height.setText(rs.getString("Height")); 
+                Weight.setText(rs.getString("Weight")); 
+                Race.setText(rs.getString("Race")); 
+                Religion.setText(rs.getString("Religion")); 
+                Nationality.setText(rs.getString("Nationality")); 
+                MotherFullName.setText(rs.getString("MotherFullName")); 
+                Gender.setSelectedItem(rs.getString("Gender"));
+                Occupation.setText(rs.getString("Occupation"));
+                PhonePerson.setText(rs.getString("PhonePerson")); 
+                MotherFullName.setText(rs.getString("MotherFullName")); 
+                PassportNumber.setText(rs.getString("PassportNumber")); 
+
+   
+            }
+        
+        
+  
+       }
+       catch(Exception e1){
+       }
+       if(e.getMark()<2){
+       jPanel2.remove(comboBox);
+       }
+   }
+  }
+
+  private class ComboBoxActionListener implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+        try{
+            FullNamePerson.setText(comboBox.getSelectedItem().toString());
+            comboBox.removeAllItems();
+            comboBox.hidePopup();
+            jPanel2.remove(comboBox);
+             
+        }
+        catch(Exception any){
+        
+        }
+        }
+  
+  }
+  private void Dataperson(){
+  
+  try {
+
+         Connection con2 = ConnectDatabase.connect();
+	Statement st = con2.createStatement();
+        	String c = "Select FullNamePerson from persondata";
+        	ResultSet res = st.executeQuery(c);
+	//Vector<Object> v=new Vector<Object>();
+	
+	while(res.next())
+	{
+             String name = res.getString("FullNamePerson");
+             personname.add(name);
+
+	
+	}
+        res.close();
+  }
+catch (Exception d) {  //System.out.println(d);  
+}
+  }
+  public void InsertPerson(){
+       con=ConnectDatabase.connect();
+      try {
+              Statement st = con.createStatement();
+           String sel="Select FullNamePerson,PeopleRegistrationID from persondata where FullNamePerson='"+FullNamePerson.getText()+"' and PeopleRegistrationID='"+PeopleRegistrationID.getText()+"'";
+           ResultSet rc = st.executeQuery(sel);
+        if(rc.next()){
+        
+        isPerson=false;
+        }
+        else{
+         isPerson=true;
+        }
+        if(isPerson){    
+        String sql2="INSERT INTO PersonData (Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
+                        "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
+                        "PhonePerson,Province,Race,Religion,Tambon,Weight,ZipCode)\n"
+                + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        
+         System.out.println("SQL : "+sql2);
+      try {
+            pst2=con.prepareStatement(sql2);
+                              pst2.setString(1,Age.getText());
+                              pst2.setString(2,Amphur.getText());
+                              pst2.setString(3,BirthDay.getJFormattedTextField().getText());
+                              pst2.setString(4,BloodGroup.getText());
+                              pst2.setString(5,ExpiredDate.getJFormattedTextField().getText());
+                              pst2.setString(6,FatherFullName.getText());
+                              pst2.setString(7,FullNamePerson.getText());
+                              pst2.setString(8,FullNamePersonEn.getText());
+                              pst2.setString(9,Gender.getSelectedItem().toString());
+                              pst2.setString(10,Height.getText());
+                              pst2.setString(11,HouseNumber.getText());
+                              pst2.setString(12,IssueDate.getJFormattedTextField().getText());
+                              pst2.setString(13,Moo.getText());
+                              pst2.setString(14,MotherFullName.getText());
+                              pst2.setString(15,Nationality.getText());
+                              pst2.setString(16,Occupation.getText());
+                              pst2.setString(17,OtherName.getText());
+                              pst2.setString(18,PassportNumber.getText());
+                              pst2.setString(19,PeopleRegistrationID.getText());
+                              pst2.setString(20,PhonePerson.getText());
+                              pst2.setString(21,Province.getText());
+                              pst2.setString(22,Race.getText());
+                              pst2.setString(23,Religion.getText());
+                              pst2.setString(24,Tambon.getText());                         
+                              pst2.setString(25,Weight.getText());
+                              pst2.setString(26,ZipCode.getText());
+                                pst2.executeUpdate(); 
+                                pst2.close();
+        } catch (Exception e) {
+             JOptionPane.showMessageDialog(jPanel1,e,null, JOptionPane.INFORMATION_MESSAGE);
+
+//             System.out.println("SQL : "+pst2);
+        }
+        }
+      } catch (Exception e) {
+      }
+  
+  }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Age;
     private javax.swing.JTextField Amphur;
@@ -967,6 +1163,7 @@ public class AccusedForm extends javax.swing.JDialog {
     private javax.swing.JTextField Tambon;
     private javax.swing.JTextField Weight;
     private javax.swing.JTextField ZipCode;
+    private javax.swing.JComboBox<String> comboBox;
     private javax.swing.JLabel crimecaseno;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

@@ -305,7 +305,7 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
         });
 
         jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel6.setText("ผู้ต้องหา");
+        jLabel6.setText("ผู้ต้องหาคนที่ 1");
 
         txtSearchCase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

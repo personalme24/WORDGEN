@@ -59,6 +59,7 @@ import com.songkhla.document.W8;
 import com.songkhla.document.W80;
 import com.songkhla.document.W9;
 import com.songkhla.document.W93;
+import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseid;
 import static com.songkhla.wordgen.ListAccused.jTableAccure;
 import static com.songkhla.wordgen.ListAccused.txtCaseNO;
 import java.awt.Color;
@@ -2139,10 +2140,12 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         JDialog dialog = new JDialog(frame);//frame is owner
         JFrame f = (JFrame)(dialog.getParent());
         f.removeAll();
+              JSONObject data2 = new JSONObject();
+             data2.put("caseid", crimecaseid.getText());     
+             data2.put("typecase", "จราจร");
         if(ChargeNameCase.getText().length()==0 || ChargeNameCase.getText()==null|| ChargeNameCase.getText().isEmpty()){
-            JSONObject data = new JSONObject();
-            data.put("caseid",crimecaseid.getText());
-            ChargePage d = new ChargePage(f,null,data);
+       
+            ChargePage d = new ChargePage(f,null,data2);
             d.pack();
             d.setLocationRelativeTo(null);
             d.setVisible(true);
@@ -2168,7 +2171,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                     data.put("ChargeCaseId", rs.getString("ChargeCaseId"));
                     
 
-                    ChargePage d = new ChargePage(f,data,null);
+                    ChargePage d = new ChargePage(f,data,data2);
                     d.pack();
                     d.setLocationRelativeTo(null);
                     d.setVisible(true);
