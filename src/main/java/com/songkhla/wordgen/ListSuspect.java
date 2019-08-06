@@ -35,7 +35,7 @@ String typeC,cid;
     public ListSuspect(JFrame parrent,JSONObject datain) {
         super(parrent,true);
         initComponents(); 
-         ImageIcon img = new ImageIcon("D://Master//WD.png");
+         ImageIcon img = new ImageIcon("./Master/WD.png");
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
          
@@ -252,7 +252,8 @@ String typeC,cid;
                 String sql = "select NoPerson,Identification,CurrentAddress,Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,Weight,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
                         "PhonePerson,OrderPerson,StatusSuspect,BailDate,StatusBail,RatePrison,CourtSuspect,ArrestDateTimeEnd,Province,Race,Religion,Tambon,TypePerson,"
-                        + "ZipCode,caseIdPerson,ArrestDateTime,PlaceArrest,SusConfress from person where noperson='"+Noperson+ "' and caseIdPerson='"+crimecaseno+"' and TypePerson='ผู้ต้องหา'";
+                        + "ZipCode,caseIdPerson,ArrestDateTime,PlaceArrest,SusConfress,PlaceOfFoundBody,DeathLocation,BodyFoundDate,BodyFoundTime,DateOfDie,TimeOfDie\n"
+                        + "from person where noperson='"+Noperson+ "' and caseIdPerson='"+crimecaseno+"' and TypePerson='ผู้ต้องหา'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);
@@ -299,7 +300,12 @@ String typeC,cid;
                      data.put("SusConfress", rs.getString("SusConfress"));
                     data.put("PlaceArrest", rs.getString("PlaceArrest"));
                     data.put("caseIdPerson", rs.getString("caseIdPerson"));
-                    
+                    data.put("PlaceOfFoundBody", rs.getString("PlaceOfFoundBody"));
+                   data.put("DeathLocation", rs.getString("DeathLocation"));
+                   data.put("BodyFoundDate", rs.getString("BodyFoundDate"));
+                data.put("BodyFoundTime", rs.getString("BodyFoundTime"));
+                   data.put("DateOfDie", rs.getString("DateOfDie"));
+                   data.put("TimeOfDie", rs.getString("TimeOfDie"));
                             SuspectForm suspectF=new SuspectForm(f,data);
                              suspectF.pack();
                              suspectF.setLocationRelativeTo(null);

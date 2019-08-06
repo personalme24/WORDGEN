@@ -457,9 +457,19 @@ jTableWitness.getColumnModel().getColumn(7).setMaxWidth(0);
             IdentityEdit.jTextWitness.setText(jTableWitness.getValueAt(0, 2).toString()+"และพวก"); 
             }
             }
-        
-          int rows = jTableWitness.getRowCount();
+         if(typeC.equals("อาญา")){
+           int rows = jTableWitness.getRowCount();
                        CrimesCaseEdit.jLabelNumberWitness.setText(rows+"");
+            }
+            if(typeC.equals("จราจร")){
+            int rows = jTableWitness.getRowCount();
+                       TrafficEdit.jLabelNumberWitness.setText(rows+"");
+            }
+              if(typeC.equals("ชันสูตร")){
+            int rows = jTableWitness.getRowCount();
+                       IdentityEdit.jLabelNumberWitness.setText(rows+"");
+            }
+          
         }catch(Exception ex){
             ex.printStackTrace();
         }

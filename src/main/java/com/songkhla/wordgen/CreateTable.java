@@ -109,8 +109,10 @@ public class CreateTable {
                 "	FavouritePlace	VARCHAR(100)	,	\n"+
                 "	Identification	VARCHAR(100)	,	\n"+
                 "	AllVictim	VARCHAR(100)	,	\n"+
+                "	DateOfDie	VARCHAR(100)	,	\n"+                        
                 "	TimeOfDie	VARCHAR(100)	,	\n"+
                 "	BodyFoundTime	VARCHAR(100)	,	\n"+
+                "	BodyFoundDate	VARCHAR(100)	,	\n"+               
                 "	RelatedOfDie	VARCHAR(100)	,	\n"+
                 "	InterrogateDate	VARCHAR(100)	,	\n"+
                 "	CurrentAddress	VARCHAR(100)	,	\n"+
