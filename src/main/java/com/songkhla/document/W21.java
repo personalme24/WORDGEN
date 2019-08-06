@@ -51,6 +51,7 @@ public class W21 {
             conn=ConnectDatabase.connect();
             PreparedStatement pst=null;
              String ccYear;
+             String suspectName="";
              String casetype;
              String caseno;
              String PoliceStationName="";
@@ -92,7 +93,7 @@ public class W21 {
                               ")P1\n" +
                               "inner join(\n" +
                                 "SELECT min(Person.NoPerson),Person.FullNamePerson suspectName,Person.Age suspectAge,Person.Amphur suspectAmp,Person.Race suspectRace,\n"+
-                                "Person.Nationality suspectNati FROM Person where Person.TypePerson='ผู้ต้องหา'\n" +
+                                "Person.Nationality suspectNati FROM Person where Person.TypePerson='ผู้ตาย'\n" +
                                 ")P2\n" +
                                 "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                                 "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
@@ -110,6 +111,7 @@ public class W21 {
                     ccYear=s.getString("crimecaseyears");
                     casetype =s.getString("casetype");
                     caseno  =s.getString("crimecasenoyear");
+                    suspectName =s.getString("suspectName");
                  String Date="";
                 String Month="";
                 String Year="";
@@ -199,7 +201,7 @@ public class W21 {
 					.load(new java.io.File("./TEMPLATE/w21.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/ใบนำส่งผู้บาดเจ็บหรือศพ" +cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/ใบนำส่งผู้บาดเจ็บหรือศพ"+ suspectName +cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
