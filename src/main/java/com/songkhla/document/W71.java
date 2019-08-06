@@ -15,6 +15,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -224,6 +225,7 @@ public class W71 {
                        bookmarkvalue.put("P05", Checknull(Position));
                        
                 String   BailAssetTotal = s.getString("BailAssetTotal").replace (",", "");
+                         BailAssetTotal = s.getString("BailAssetTotal").replace (".", "");
                        
                  if ((BailAssetTotal) != null)
                     {
@@ -231,7 +233,10 @@ public class W71 {
                     SumValue = SumValue+Integer.parseInt(BailAssetTotal);
                     } 
                    bookmarkvalue.put("BA661",Checknull(Integer.toString(SumValue)));
+                   bookmarkvalue.put("BA6611",Checknull(ThaiBaht(Integer.toString(SumValue))));
                      ++BailAssetId ;
+                     
+                     
                       System.out.println(">>>>>"+BailAssetId);
 			JSONArray tablecolumn = new JSONArray();
 			tablecolumn.add("BA2");
@@ -526,19 +531,81 @@ public class W71 {
         }
         return sb.toString();  
     }  
-         private static String ThaiBaht(String Number){
-            
-       for ( int i = 0; i < Number.length(); i++)
-              {
-                Number = Number.replace (",", ""); //ไม่ต้องการเครื่องหมายคอมมาร์
-                Number = Number.replace (" ", ""); //ไม่ต้องการช่องว่าง
-                Number = Number.replace ("บาท", ""); //ไม่ต้องการตัวหนังสือ บาท
-               String [] TxtNumArr = {"ศูนย์", "หนึ่ง", "สอง", "สาม", "สี่", "ห้า", "หก", "เจ็ด", "แปด", "เก้า", "สิบ"};
-               String [] TxtDigitArr = {"", "สิบ", "ร้อย", "พัน", "หมื่น", "แสน", "ล้าน"};
-               String BahtText = "";
-              }
-       
-        return null;
+        
+  public static String ThaiBaht(String txt) {
+  String bahtTxt, n, bahtTH = "";
+  Double amount;
+  try {
+   amount = Double.parseDouble(txt);
+  } catch (Exception ex) {
+   amount = 0.00;
+  }
 
-         }
+  try {
+      DecimalFormat df = new DecimalFormat("####.00");
+   bahtTxt = df.format(amount);
+   String Valnum="";
+   String Valrank="";
+   String[] num = { "ศูนย์", "หนึ่ง", "สอง", "สาม", "สี่", "ห้า",
+     "หก", "เจ็ด", "แปด", "เก้า", "สิบ" };
+   String[] rank = { "", "สิบ", "ร้อย", "พัน", "หมื่น", "แสน", "ล้าน" };
+   String[] temp = bahtTxt.split("[.]");
+   String intVal = temp[0];
+   String decVal = temp[1];
+   if (Double.parseDouble(bahtTxt) == 0)
+    bahtTH = "ศูนย์บาทถ้วน";
+   else {
+    for (int i = 0; i < intVal.length(); i++) {
+     n = intVal.substring(i, i + 1);
+     if (n != "0") {
+      if ((i == (intVal.length() - 1)) && (n == "1"))
+       bahtTH += "เอ็ด";
+      else if ((i == (intVal.length() - 2)) && (n == "2"))
+       bahtTH += "ยี่";
+      else if ((i == (intVal.length() - 2)) && (n == "1"))
+       bahtTH += "";
+      else
+            Valnum=num[Integer.parseInt(n)];
+            if (Valnum!="ศูนย์" && !Valnum.equals("ศูนย์")){
+                  bahtTH += Valnum;
+                  bahtTH += rank[(intVal.length() - i) - 1];
+            }
+     }
+    }
+    bahtTH += "บาท";
+       System.out.println("decVal>>"+decVal);
+    if (decVal == null || decVal == "00"|| decVal.equals("00"))
+     bahtTH += "ถ้วน";
+    else {
+     for (int i = 0; i < decVal.length(); i++) {
+      n = decVal.substring(i, i + 1);
+      if (n != "0") {
+       if ((i == decVal.length() - 1) && (n == "1"))
+        bahtTH += "เอ็ด";
+       else if ((i == (decVal.length() - 2)) && (n == "2"))
+        bahtTH += "ยี่";
+       else if ((i == (decVal.length() - 2)) && (n == "1"))
+        bahtTH += "";
+       else
+            Valnum=num[Integer.parseInt(n)]; 
+            Valrank=rank[(decVal.length() - i) - 1];
+            if(Valnum !="ศูนย์" && !Valnum.equals("ศูนย์")){
+                bahtTH += Valnum;
+                bahtTH += Valrank;
+            } 
+       System.out.println("Stang Valnum>>"+Valnum+" : Valrank>>"+Valrank);
+      }
+     }
+     bahtTH += "สตางค์";
+    }
+   }
+  
+  } catch (Exception exe) {
+
+   System.out.print(exe.getMessage());
+  }
+  return bahtTH;
+
+ }
+         
 }
