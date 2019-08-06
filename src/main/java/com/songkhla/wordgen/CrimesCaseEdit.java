@@ -165,6 +165,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         super(parrent,true);
 
            initComponents(); 
+            UIManager.put("ProgressBar.background", Color.BLUE);
             ImageIcon img = new ImageIcon("./Master/WD.png");
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็กทรอนิกส์ (CRIMES)");
@@ -2709,6 +2710,8 @@ CrimeLocationAmphur.removeAllItems();
 					if ("progress".equalsIgnoreCase(evt.getPropertyName())) {
 						 if (dialog == null) {
 							dialog = new JDialog();
+                                                        ImageIcon img = new ImageIcon("./Master/WD.png");
+                                                           dialog.setIconImage(img.getImage());
 							dialog.setTitle("Processing");
 							dialog.setLayout(new GridBagLayout());
 							dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
@@ -2719,6 +2722,8 @@ CrimeLocationAmphur.removeAllItems();
 							dialog.add(new JLabel("Processing..."), gbc);
 							pb = new JProgressBar();
 							pb.setStringPainted(true);
+//                                                        pb.setForeground(Color.blue);]
+                                               
                                                         pb.setMaximum(100);
                                                         pb.setMinimum(0);
                                                         

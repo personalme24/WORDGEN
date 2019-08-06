@@ -2745,6 +2745,8 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 					if ("progress".equalsIgnoreCase(evt.getPropertyName())) {
 						 if (dialog == null) {
 							dialog = new JDialog();
+                                                        ImageIcon img = new ImageIcon("./Master/WD.png");
+                                                           dialog.setIconImage(img.getImage());
 							dialog.setTitle("Processing");
 							dialog.setLayout(new GridBagLayout());
 							dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);

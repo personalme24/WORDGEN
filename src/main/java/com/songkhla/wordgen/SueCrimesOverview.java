@@ -148,9 +148,9 @@ public class SueCrimesOverview extends javax.swing.JDialog {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 935, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 897, Short.MAX_VALUE)
                 .addComponent(jButton3)
-                .addGap(129, 129, 129))
+                .addGap(167, 167, 167))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,7 +206,7 @@ public class SueCrimesOverview extends javax.swing.JDialog {
         jTableSue.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTableSue);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 1158, 269));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 1120, 269));
 
         jButtonAddSue.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jButtonAddSue.setText("เปิด");
@@ -258,7 +258,7 @@ public class SueCrimesOverview extends javax.swing.JDialog {
                 jButtonDateActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 70, -1, -1));
+        jPanel1.add(jButtonDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 70, -1, -1));
 
         jButtonClearSearch.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jButtonClearSearch.setText("ล้างข้อมูล");
@@ -267,7 +267,7 @@ public class SueCrimesOverview extends javax.swing.JDialog {
                 jButtonClearSearchActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonClearSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 70, 100, -1));
+        jPanel1.add(jButtonClearSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 70, 100, -1));
 
         jLabel5.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel5.setText("สถานะ");
