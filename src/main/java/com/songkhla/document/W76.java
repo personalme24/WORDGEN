@@ -51,6 +51,7 @@ public class W76 {
             PreparedStatement pst=null;
              
              String PoliceStationName="";
+             String suspectName="";
              String THNumBook="";
              String TelStation="";
              String ProtectChild="";
@@ -99,8 +100,8 @@ public class W76 {
                               "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
                               "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                               "left join ActionsCaseData on crimecase.ActionCodeCase = ActionsCaseData.ActionCodeCase\n"+
-                              "where crimecase.CaseId='"+cc+"' and Person.TypePerson='ผู้ต้องหา'\n" +
-                              "group by crimecase.CaseId,Person.NoPerson,BailAsset.BailAssetId";
+                              "where crimecase.CaseId='"+cc+"' and Person.TypePerson='ผู้ต้องหา' and Person.CourtSuspect='ศาลเด็กและเยาวชน'\n" +
+                              "group by crimecase.CaseId,Person.NoPerson";
        
                    
             
@@ -116,6 +117,7 @@ public class W76 {
                     ccYear=s.getString("crimecaseyears");
                     casetype =s.getString("casetype");
                     caseno  =s.getString("crimecasenoyear");
+                    suspectName = s.getString("FullNamePerson");
             
                 SimpleDateFormat sdfstart ;
                 Calendar  calstart = Calendar.getInstance();
@@ -164,15 +166,19 @@ public class W76 {
                    
                     
                     bookmarkvalue.put("PY7",  Checknull(s.getString("FullNamePerson")));
+                    bookmarkvalue.put("PY11", Checknull(ToDate(s.getString("BirthDay"))));
+                    bookmarkvalue.put("PY12", Checknull(s.getString("Gender")));
                     bookmarkvalue.put("PY13", Checknull(s.getString("Age")));
                     bookmarkvalue.put("PY15", Checknull(s.getString("Nationality"))); 
                     bookmarkvalue.put("PY16", Checknull(s.getString("Religion"))); 
                     bookmarkvalue.put("PY17", Checknull(s.getString("Occupation")));
+                    bookmarkvalue.put("PL22", Checknull(s.getString("HouseNumber")));
+                    bookmarkvalue.put("PL23", Checknull(s.getString("Moo")));
                     bookmarkvalue.put("PY24", Checknull(s.getString("Tambon"))); 
-                    bookmarkvalue.put("PY25", Checknull(s.getString("Amp")));
+                    bookmarkvalue.put("PY25", Checknull(s.getString("Amphur")));
                     bookmarkvalue.put("PY26", Checknull(s.getString("Province")));
-                    bookmarkvalue.put("PY31", Checknull(s.getString("Father")));
-                    bookmarkvalue.put("PY32", Checknull(s.getString("Mother")));
+                    bookmarkvalue.put("PY31", Checknull(s.getString("FatherFullName")));
+                    bookmarkvalue.put("PY32", Checknull(s.getString("MotherFullName")));
                     bookmarkvalue.put("PY33", Checknull(s.getString("TambonBirthday")));
                     bookmarkvalue.put("PY34", Checknull(s.getString("AmphurBirthday")));
                     bookmarkvalue.put("PY35", Checknull(s.getString("ProvinceBirthday")));
@@ -183,7 +189,7 @@ public class W76 {
                     bookmarkvalue.put("PY65", Checknull(s.getString("MotherCareer")));
                     bookmarkvalue.put("PY67", Checknull(s.getString("MotherAddress")));
                     bookmarkvalue.put("PY68", Checknull(s.getString("MotherPhone")));
-                    bookmarkvalue.put("PY69", Checknull(s.getString("")));
+                    bookmarkvalue.put("PY69", Checknull(s.getString("ParentName")));
                    
                     
                       
@@ -221,7 +227,7 @@ public class W76 {
                         processTABLE(bookmarkvalue,wordMLPackage);
                         
                        
-			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/หนังสือแจ้งการดำเนินคดีเด็ก ฯ-ว "+s.getString("FullNamePerson")+""+ cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/หนังสือแจ้งการดำเนินคดีเด็ก ฯ-ว "+suspectName+""+ cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

@@ -96,7 +96,7 @@ public class W75 {
                    String sql="select crimecase.*,Person.*,ChargeCase.*,P2.*\n" +
                               "from crimecase \n" +
                               "inner join(\n" +
-                              "SELECT min(Person.NoPerson),Person.FullNamePerson suspectName,Person.Age suspectAge,Person.Tambon suspectTambon,Person.Amphur suspectAmp,Person.Province suspectProvince,"
+                              "SELECT min(Person.NoPerson),Person.FullNamePerson suspectName,Person.Age suspectAge,Person.HouseNumber suspectHouseNumber,Person.Moo suspectMoo,Person.Tambon suspectTambon,Person.Amphur suspectAmp,Person.Province suspectProvince,"
                             + "Person.Race suspectRace,Person.FatherFullName suspectFather,Person.MotherFullName suspectMother,Person.TambonBirthday suspectTambonBirthday,Person.AmphurBirthday suspectAmphurBirthday,"
                            +  "Person.ProvinceBirthday suspectProvinceBirthday,Person.PlaceBorn suspectPlaceBorn,Person.FatherCareer suspectFatherCareer,Person.FatherAddress suspectFatherAddress,"
                            +  "Person.FatherPhone suspectFatherPhone,Person.MotherCareer suspectMotherCareer,Person.MotherAddress suspectMotherAddress,Person.MotherPhone suspectMotherPhone,\n"+
@@ -152,6 +152,8 @@ public class W75 {
                 bookmarkvalue.put("S29",Checknull(THNumBook));
                 bookmarkvalue.put("S12",Checknull(TelStation));
                 
+                bookmarkvalue.put("B2", Checknull(s.getString("ChargeNameCase")));
+                
                     bookmarkvalue.put("PL7", Checknull(s.getString("FullNamePerson")));
                     bookmarkvalue.put("PL22", Checknull(s.getString("HouseNumber")));
                     bookmarkvalue.put("PL23", Checknull(s.getString("Moo")));
@@ -165,6 +167,8 @@ public class W75 {
                     bookmarkvalue.put("PY13", Checknull(s.getString("suspectAge")));
                     bookmarkvalue.put("PY15", Checknull(s.getString("suspectNati"))); 
                     bookmarkvalue.put("PY17", Checknull(s.getString("suspectOcc")));
+                    bookmarkvalue.put("PY22", Checknull(s.getString("suspectHouseNumber")));
+                    bookmarkvalue.put("PY23", Checknull(s.getString("suspectMoo")));
                     bookmarkvalue.put("PY24", Checknull(s.getString("suspectTambon"))); 
                     bookmarkvalue.put("PY25", Checknull(s.getString("suspectAmp")));
                     bookmarkvalue.put("PY26", Checknull(s.getString("suspectProvince")));
@@ -250,6 +254,7 @@ public static void nw75() {
                 bookmarkvalue.put("CC2","");
                 bookmarkvalue.put("C3", "");
                 bookmarkvalue.put("S2","");
+                bookmarkvalue.put("B2","");
                  
                     bookmarkvalue.put("PL7", "");
                     bookmarkvalue.put("PL22", "");
@@ -264,6 +269,7 @@ public static void nw75() {
                     bookmarkvalue.put("PY13", ""); 
                     bookmarkvalue.put("PY15", ""); 
                     bookmarkvalue.put("PY17", "");
+                    bookmarkvalue.put("PY22", "");
                     bookmarkvalue.put("PY24", ""); 
                     bookmarkvalue.put("PY25", ""); 
                     bookmarkvalue.put("PY26", "");
