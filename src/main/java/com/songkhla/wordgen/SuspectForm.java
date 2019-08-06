@@ -77,7 +77,7 @@ public class SuspectForm extends javax.swing.JDialog {
             ImageIcon img = new ImageIcon("D://Master//WD.png");
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็กทรอนิกส์ (CRIMES)");
-           
+     
 //  ---------------------------------------------Date Filed----------------------------------------------
      UtilDateModel model = new UtilDateModel();
 //            model.setValue(Calendar.getInstance().getTime()); 
@@ -300,7 +300,20 @@ public class SuspectForm extends javax.swing.JDialog {
             jLabel36.setVisible(false);
     
         }
-          
+             FullNamePerson.getDocument().addDocumentListener(new DocumentListener() {
+                           public void changedUpdate(DocumentEvent e) {
+                                         SetTextPerson();
+                           }
+                           public void removeUpdate(DocumentEvent e) {                              
+//                                  SueSecDateT.setText(CalculateDateNextTimes(SueFirstEnd.getText()));
+                                                   
+                           }
+                           public void insertUpdate(DocumentEvent e) {
+                                          SetTextPerson();
+
+                           }
+             }
+             );
  CourtSuspect.addItemListener(new ItemListener() {
      
         public void itemStateChanged(ItemEvent arg0) {
@@ -1556,7 +1569,9 @@ public class SuspectForm extends javax.swing.JDialog {
                     pst.setString(34,CalculateDateTime24(arrestDate));
                 }
                 else{
-                    pst.setString(34,arrestDateEnd48);}
+                    pst.setString(34,arrestDateEnd48);
+                
+                }
                 //                pst.setString(34,ArrestDateTimeEnd.getText());
                 if(jCheckBail.isSelected()){
                     pst.setString(35,"ประกัน");}
@@ -1757,7 +1772,20 @@ public class SuspectForm extends javax.swing.JDialog {
                }
 	    }
          }
-         Connection c=null;
+     
+       }
+       catch(Exception e1){
+       }
+       if(e.getMark()<2){
+       jPanel4.remove(jComboBoxListName);
+       
+       }
+      
+   }
+  }
+    private void SetTextPerson(){
+      try{
+        Connection c=null;
          c=ConnectDatabase.connect();
             String sqlId="Select * from PersonData where FullNamePerson='"+FullNamePerson.getText()+"'";
 
@@ -1783,18 +1811,13 @@ public class SuspectForm extends javax.swing.JDialog {
                 PhonePerson.setText(rs.getString("PhonePerson")); 
                 MotherFullName.setText(rs.getString("MotherFullName")); 
                 PassportNumber.setText(rs.getString("PassportNumber")); 
-
-   
+//
+//   
             }
-       }
-       catch(Exception e1){
-       }
-       if(e.getMark()<2){
-       jPanel4.remove(jComboBoxListName);
-       }
-   }
-  }
-
+       }catch(Exception ex){}
+    
+    
+    }
     private void ZipCodeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ZipCodeKeyTyped
         char vChar = evt.getKeyChar();
         if(!(Character.isDigit(vChar) || (vChar==KeyEvent.VK_BACK_SPACE)||(vChar==KeyEvent.VK_DELETE)))

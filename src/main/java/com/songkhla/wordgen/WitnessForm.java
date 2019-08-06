@@ -29,6 +29,8 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.event.CaretEvent;
 import javax.swing.event.CaretListener;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
@@ -148,9 +150,22 @@ public class WitnessForm extends javax.swing.JDialog {
        res.close();
         } catch (Exception e) {
         }
-      
-    }
+          FullNamePerson.getDocument().addDocumentListener(new DocumentListener() {
+                           public void changedUpdate(DocumentEvent e) {
+                                         SetTextPerson();
+                           }
+                           public void removeUpdate(DocumentEvent e) {                              
+//                                  SueSecDateT.setText(CalculateDateNextTimes(SueFirstEnd.getText()));
+                                                   
+                           }
+                           public void insertUpdate(DocumentEvent e) {
+                                          SetTextPerson();
 
+                           }
+             }
+             );
+    }
+            
     WitnessForm(ListAccused aThis, boolean b) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -1120,6 +1135,41 @@ public class WitnessForm extends javax.swing.JDialog {
       }
   
   }
+      private void SetTextPerson(){
+      try{
+        Connection c=null;
+         c=ConnectDatabase.connect();
+            String sqlId="Select * from PersonData where FullNamePerson='"+FullNamePerson.getText()+"'";
+
+            Statement s=c.createStatement();
+            ResultSet rs=s.executeQuery(sqlId);
+            
+            if (rs.next()) {
+                PeopleRegistrationID.setText(rs.getString("PeopleRegistrationID")); 
+                Age.setText(rs.getString("Age")); 
+                Amphur.setText(rs.getString("Amphur")); 
+                BloodGroup.setText(rs.getString("BloodGroup")); 
+                BirthDay.getJFormattedTextField().setText(rs.getString("BirthDay")); 
+                FatherFullName.setText(rs.getString("FatherFullName")); 
+                FullNamePersonEn.setText(rs.getString("FullNamePersonEn")); 
+                Height.setText(rs.getString("Height")); 
+                Weight.setText(rs.getString("Weight")); 
+                Race.setText(rs.getString("Race")); 
+                Religion.setText(rs.getString("Religion")); 
+                Nationality.setText(rs.getString("Nationality")); 
+                MotherFullName.setText(rs.getString("MotherFullName")); 
+                Gender.setSelectedItem(rs.getString("Gender"));
+                Occupation.setText(rs.getString("Occupation"));
+                PhonePerson.setText(rs.getString("PhonePerson")); 
+                MotherFullName.setText(rs.getString("MotherFullName")); 
+                PassportNumber.setText(rs.getString("PassportNumber")); 
+//
+//   
+            }
+       }catch(Exception ex){}
+    
+    
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Age;
     private javax.swing.JTextField Amphur;

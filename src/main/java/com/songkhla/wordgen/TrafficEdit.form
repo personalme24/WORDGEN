@@ -2569,7 +2569,6 @@
                                           <Component id="jCheckW240" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jCheckW241" alignment="0" min="-2" pref="445" max="-2" attributes="0"/>
                                           <Component id="jCheckW242" alignment="0" min="-2" pref="445" max="-2" attributes="0"/>
-                                          <Component id="jCheckW268" alignment="0" min="-2" pref="460" max="-2" attributes="0"/>
                                           <Component id="jCheckW269" alignment="0" min="-2" pref="460" max="-2" attributes="0"/>
                                           <Component id="jCheckW267" alignment="0" min="-2" pref="460" max="-2" attributes="0"/>
                                           <Component id="jCheckW265" alignment="0" min="-2" pref="475" max="-2" attributes="0"/>
@@ -2587,32 +2586,35 @@
                             </DimensionLayout>
                             <DimensionLayout dim="1">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jCheckW240" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                      <Component id="jCheckW241" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                      <Component id="jCheckW242" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jCheckW265" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                      <Component id="jCheckW267" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                      <Component id="jCheckW268" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                      <Component id="jCheckW269" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jCheckW221" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="33" pref="33" max="-2" attributes="0"/>
-                                              <Component id="jCheckW223" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jCheckW240" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                              <Component id="jCheckW241" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                              <Component id="jCheckW242" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jCheckW265" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                              <Component id="jCheckW267" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="jCheckW222" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jCheckW221" min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <EmptySpace min="33" pref="33" max="-2" attributes="0"/>
+                                                      <Component id="jCheckW223" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Component id="jCheckW222" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                              <Component id="jCheckW224" min="-2" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
-                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                      <Component id="jCheckW224" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jCheckW269" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -2722,17 +2724,6 @@
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW269ActionPerformed"/>
                               </Events>
-                            </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckW268">
-                              <Properties>
-                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                                </Property>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="TH SarabunPSK" size="22" style="1"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="&#xe04;&#xe33;&#xe23;&#xe49;&#xe2d;&#xe07;&#xe02;&#xe2d;&#xe1c;&#xe31;&#xe14;&#xe1f;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe23;&#xe37;&#xe2d;&#xe1c;&#xe31;&#xe14;&#xe1f;&#xe49;&#xe2d;&#xe07;&#xe41;&#xe25;&#xe30;&#xe1d;&#xe32;&#xe01;&#xe02;&#xe31;&#xe07;&#xe04;&#xe23;&#xe31;&#xe49;&#xe07;&#xe17;&#xe35;&#xe48;...."/>
-                              </Properties>
                             </Component>
                             <Component class="javax.swing.JCheckBox" name="jCheckW267">
                               <Properties>

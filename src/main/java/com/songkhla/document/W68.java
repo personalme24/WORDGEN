@@ -121,14 +121,78 @@ public static void w68(String cc,String sueTime) {
 //                System.out.print(" - ");
                  JSONObject bookmarkvalue = new JSONObject();  
                System.out.print("SueSecond.."+ s.getString("SueSecond"));
+                if(sueTime.equals("2")){
                  bookmarkvalue.put("PS90", Checknull(s.getString("SueSecond")));
+                 bookmarkvalue.put("PS112", Checknull(s.getString("SueFirst")));
+                 bookmarkvalue.put("PS113", Checknull(ToDate(ChangFormat(s.getString("SueFirstDate")))));  
                   bookmarkvalue.put("PS106", Checknull(s.getString("SueFirstTotal")));
-              
-                 bookmarkvalue.put("PS107", Checknull(ToDate(ChangFormat(s.getString("SueFirstEnd")))));               
+                bookmarkvalue.put("PS107", Checknull(ToDate(ChangFormat(s.getString("SueFirstEnd")))));                
+                    
+                 bookmarkvalue.put("PS114", Checknull(s.getString("SueSecCause")));
                 bookmarkvalue.put("PS109", Checknull(s.getString("SueSecTotal")));
                 bookmarkvalue.put("PS110", Checknull(ToDate(ChangFormat(s.getString("SueSecDate")))));                
                 bookmarkvalue.put("PS111", Checknull(ToDate(ChangFormat(s.getString("SueSecEnd")))));   
-                
+                }
+                   if(sueTime.equals("3")){
+                  bookmarkvalue.put("PS90", Checknull(s.getString("SueThird")));
+                 bookmarkvalue.put("PS112", Checknull(s.getString("SueSecond")));
+                 bookmarkvalue.put("PS113", Checknull(ToDate(ChangFormat(s.getString("SueSecDate")))));  
+                  bookmarkvalue.put("PS106", Checknull(s.getString("SueSecTotal")));
+                bookmarkvalue.put("PS107", Checknull(ToDate(ChangFormat(s.getString("SueSecEnd")))));                
+                    
+                 bookmarkvalue.put("PS114", Checknull(s.getString("SueThirdCause")));
+                bookmarkvalue.put("PS109", Checknull(s.getString("SueThirdTotal")));
+                bookmarkvalue.put("PS110", Checknull(ToDate(ChangFormat(s.getString("SueThirdDate")))));                
+                bookmarkvalue.put("PS111", Checknull(ToDate(ChangFormat(s.getString("SueThirdEnd")))));   
+                }
+                   if(sueTime.equals("4")){
+                  bookmarkvalue.put("PS90", Checknull(s.getString("SueFourth")));
+                 bookmarkvalue.put("PS112", Checknull(s.getString("SueThird")));
+                 bookmarkvalue.put("PS113", Checknull(ToDate(ChangFormat(s.getString("SueThirdDate")))));  
+                  bookmarkvalue.put("PS106", Checknull(s.getString("SueThirdTotal")));
+                bookmarkvalue.put("PS107", Checknull(ToDate(ChangFormat(s.getString("SueThirdEnd")))));                
+                    
+                 bookmarkvalue.put("PS114", Checknull(s.getString("SueFourthCause")));
+                bookmarkvalue.put("PS109", Checknull(s.getString("SueFourthtotal")));
+                bookmarkvalue.put("PS110", Checknull(ToDate(ChangFormat(s.getString("SueFourthDate")))));                
+                bookmarkvalue.put("PS111", Checknull(ToDate(ChangFormat(s.getString("SueFourthEnd")))));   
+                }
+                   if(sueTime.equals("5")){
+                  bookmarkvalue.put("PS90", Checknull(s.getString("SueFifth")));
+                 bookmarkvalue.put("PS112", Checknull(s.getString("SueFourth")));
+                 bookmarkvalue.put("PS113", Checknull(ToDate(ChangFormat(s.getString("SueFourthDate")))));  
+                  bookmarkvalue.put("PS106", Checknull(s.getString("SueFourthtotal")));
+                bookmarkvalue.put("PS107", Checknull(ToDate(ChangFormat(s.getString("SueFourthEnd")))));                
+                    
+                 bookmarkvalue.put("PS114", Checknull(s.getString("SueFifthCause")));
+                bookmarkvalue.put("PS109", Checknull(s.getString("SueFifthTotal")));
+                bookmarkvalue.put("PS110", Checknull(ToDate(ChangFormat(s.getString("SueFifthDate")))));                
+                bookmarkvalue.put("PS111", Checknull(ToDate(ChangFormat(s.getString("SueFifthEnd")))));  
+                }
+                   if(sueTime.equals("6")){
+                  bookmarkvalue.put("PS90", Checknull(s.getString("SueSixth")));
+                 bookmarkvalue.put("PS112", Checknull(s.getString("SueFifth")));
+                 bookmarkvalue.put("PS113", Checknull(ToDate(ChangFormat(s.getString("SueFifthDate")))));  
+                  bookmarkvalue.put("PS106", Checknull(s.getString("SueFifthTotal")));
+                bookmarkvalue.put("PS107", Checknull(ToDate(ChangFormat(s.getString("SueFifthEnd")))));                
+                    
+                 bookmarkvalue.put("PS114", Checknull(s.getString("SueSixthCause")));
+                bookmarkvalue.put("PS109", Checknull(s.getString("SueSixthTotal")));
+                bookmarkvalue.put("PS110", Checknull(ToDate(ChangFormat(s.getString("SueSixthDate")))));                
+                bookmarkvalue.put("PS111", Checknull(ToDate(ChangFormat(s.getString("SueSixthEnd")))));    
+                }
+                   if(sueTime.equals("7")){
+                bookmarkvalue.put("PS90", Checknull(s.getString("SueSeven")));
+                 bookmarkvalue.put("PS112", Checknull(s.getString("SueSixth")));
+                 bookmarkvalue.put("PS113", Checknull(ToDate(ChangFormat(s.getString("SueSixthDate")))));  
+                  bookmarkvalue.put("PS106", Checknull(s.getString("SueSixthTotal")));
+                bookmarkvalue.put("PS107", Checknull(ToDate(ChangFormat(s.getString("SueSixthEnd")))));                
+                    
+                 bookmarkvalue.put("PS114", Checknull(s.getString("SueSevenCause")));
+                bookmarkvalue.put("PS109", Checknull(s.getString("SueSevenTotal")));
+                bookmarkvalue.put("PS110", Checknull(ToDate(ChangFormat(s.getString("SueSevenDate")))));                
+                bookmarkvalue.put("PS111", Checknull(ToDate(ChangFormat(s.getString("SueSevenEnd")))));      
+                }
                 bookmarkvalue.put("C1",Checknull(Date));
                 bookmarkvalue.put("C01",Checknull(Month));
                 bookmarkvalue.put("C001",Checknull(Year));

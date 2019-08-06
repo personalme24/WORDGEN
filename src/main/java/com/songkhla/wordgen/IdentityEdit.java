@@ -174,7 +174,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         g.add(jCheckNotSue);
         g.add(jCheckNoInvest);
         g.add(jCheckOtherInvest);
-       jLabel32.setVisible(false);
+       jLabel35.setVisible(false);
 //====================================== Police==========================================
         try{
             
@@ -528,66 +528,6 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         Prosecutor_Result = new javax.swing.JTextArea();
         jLabelNumberSus = new javax.swing.JLabel();
         jLabelNumberWitness = new javax.swing.JLabel();
-        jPanel10 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jPanel8 = new javax.swing.JPanel();
-        jCheckW93 = new javax.swing.JCheckBox();
-        jCheckW80 = new javax.swing.JCheckBox();
-        jCheckW34 = new javax.swing.JCheckBox();
-        jCheckW38 = new javax.swing.JCheckBox();
-        jCheckW53 = new javax.swing.JCheckBox();
-        jCheckW4 = new javax.swing.JCheckBox();
-        jCheckW6 = new javax.swing.JCheckBox();
-        jCheckW43 = new javax.swing.JCheckBox();
-        jCheckW20 = new javax.swing.JCheckBox();
-        jCheckW5 = new javax.swing.JCheckBox();
-        jCheckW29 = new javax.swing.JCheckBox();
-        jCheckW14 = new javax.swing.JCheckBox();
-        jCheckW1 = new javax.swing.JCheckBox();
-        jCheckW41 = new javax.swing.JCheckBox();
-        jCheckW8 = new javax.swing.JCheckBox();
-        jCheckW71 = new javax.swing.JCheckBox();
-        jCheckW62 = new javax.swing.JCheckBox();
-        jCheckW51 = new javax.swing.JCheckBox();
-        jCheckW50 = new javax.swing.JCheckBox();
-        jCheckW16 = new javax.swing.JCheckBox();
-        jCheckW18 = new javax.swing.JCheckBox();
-        jCheckW11 = new javax.swing.JCheckBox();
-        jCheckW69 = new javax.swing.JCheckBox();
-        jCheckW47 = new javax.swing.JCheckBox();
-        jCheckW9 = new javax.swing.JCheckBox();
-        jCheckW59 = new javax.swing.JCheckBox();
-        jCheckW70 = new javax.swing.JCheckBox();
-        jCheckW3 = new javax.swing.JCheckBox();
-        jCheckW48 = new javax.swing.JCheckBox();
-        jCheckW21 = new javax.swing.JCheckBox();
-        jCheckW15 = new javax.swing.JCheckBox();
-        jCheckW2 = new javax.swing.JCheckBox();
-        jCheckW26 = new javax.swing.JCheckBox();
-        jCheckW40 = new javax.swing.JCheckBox();
-        jCheckW28 = new javax.swing.JCheckBox();
-        jCheckW30 = new javax.swing.JCheckBox();
-        jCheckW67 = new javax.swing.JCheckBox();
-        jCheckW36 = new javax.swing.JCheckBox();
-        jCheckW31 = new javax.swing.JCheckBox();
-        jCheckW46 = new javax.swing.JCheckBox();
-        jCheckW37 = new javax.swing.JCheckBox();
-        jCheckW35 = new javax.swing.JCheckBox();
-        jCheckW39 = new javax.swing.JCheckBox();
-        jCheckW13 = new javax.swing.JCheckBox();
-        jCheckW49 = new javax.swing.JCheckBox();
-        jCheckW25 = new javax.swing.JCheckBox();
-        jCheckW33 = new javax.swing.JCheckBox();
-        jCheckW19 = new javax.swing.JCheckBox();
-        jCheckW68 = new javax.swing.JCheckBox();
-        jCheckW52 = new javax.swing.JCheckBox();
-        jCheckW27 = new javax.swing.JCheckBox();
-        jCheckW12 = new javax.swing.JCheckBox();
-        jCheckW23 = new javax.swing.JCheckBox();
-        jCheckW17 = new javax.swing.JCheckBox();
-        jCheckW22 = new javax.swing.JCheckBox();
-        jButtonPrintDoc = new javax.swing.JButton();
-        jLabel32 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         jPanel12 = new javax.swing.JPanel();
@@ -650,7 +590,6 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jCheckW224 = new javax.swing.JCheckBox();
         jCheckW265 = new javax.swing.JCheckBox();
         jCheckW269 = new javax.swing.JCheckBox();
-        jCheckW268 = new javax.swing.JCheckBox();
         jCheckW267 = new javax.swing.JCheckBox();
         jPanel16 = new javax.swing.JPanel();
         jCheckW246 = new javax.swing.JCheckBox();
@@ -1371,544 +1310,6 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 
         jTabbedPane2.addTab("ข้อมูลประกอบสำนวนคดี", jPanel5);
 
-        jScrollPane1.setOpaque(false);
-
-        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel8.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
-
-        jCheckW93.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW93.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW93.setText("หมายจับ");
-        jCheckW93.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckW93ActionPerformed(evt);
-            }
-        });
-
-        jCheckW80.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW80.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW80.setText("บัญชีสำนวนการสอบสวน");
-        jCheckW80.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckW80ActionPerformed(evt);
-            }
-        });
-
-        jCheckW34.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW34.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW34.setText("บัญชีทรัพย์ประกอบบันทึกการตรวจค้น");
-
-        jCheckW38.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW38.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW38.setText("หมายเรียกผู้ต้องหา");
-
-        jCheckW53.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW53.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW53.setText("หนังสือแจ้งความคืบหน้าคดีอาญา");
-
-        jCheckW4.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW4.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW4.setText("หนังสือส่งสำนวนคดีที่เห็นควรสั่งฟ้องหรือไม่สั่งฟ้อง");
-
-        jCheckW6.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW6.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW6.setText("รายงานการสอบสวนสำนวนคดีไม่ปรากฎว่าผู้ใดเป็นผู้กระทำผิด");
-
-        jCheckW43.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW43.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW43.setText("บันทึกเสนอสัญญาประกันสิ่งของ");
-
-        jCheckW20.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW20.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW20.setText("บันทึกการนำชี้ที่เกิดเหตุประกอบคำรับสารภาพ");
-
-        jCheckW5.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW5.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW5.setText("รายงานการสอบสวน");
-
-        jCheckW29.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW29.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW29.setText("บันทึกการชี้ตัวผู้ต้องหา");
-
-        jCheckW14.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW14.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW14.setText("บัญชีทรัพย์ถูกประทุษร้ายไม่ได้คืน");
-
-        jCheckW1.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW1.setText("บันทึกการตรวจสำนวนการสอบสวน");
-        jCheckW1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jCheckW1MouseClicked(evt);
-            }
-        });
-        jCheckW1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckW1ActionPerformed(evt);
-            }
-        });
-
-        jCheckW41.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW41.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW41.setText("บันทึกการตกลงค่าเสียหาย");
-        jCheckW41.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckW41ActionPerformed(evt);
-            }
-        });
-
-        jCheckW8.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW8.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW8.setText("บันทึกคำให้การผู้กล่าวหา หรือพยาน");
-
-        jCheckW71.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW71.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW71.setText("คำร้องและสัญญาประกัน");
-
-        jCheckW62.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW62.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW62.setText("บันทึกการควบคุมผู้ต้องหา");
-
-        jCheckW51.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW51.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW51.setText("หนังสือขอส่งตัวคนต่างด้าวผลักดันฯ");
-
-        jCheckW50.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW50.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW50.setText("หนังสือขอส่งรายละเอียดเกี่ยวกับคนต่างด้าวถูกกักขังหรือกักขังแทนค่าปรับ");
-
-        jCheckW16.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW16.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW16.setText("บันทึกพนักงานสอบสวน");
-
-        jCheckW18.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW18.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW18.setText("บันทึกการตรวจสอบสถานที่เกิดเหตุคดีจราจร");
-
-        jCheckW11.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW11.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW11.setText("บัญชีของกลางคดีอาญา");
-
-        jCheckW69.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW69.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW69.setText("คำร้องขอฝากขัง");
-        jCheckW69.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckW69ActionPerformed(evt);
-            }
-        });
-
-        jCheckW47.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW47.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW47.setText("หนังสือรายงานคนต่างด้าวเป็นผู้เสียหายในคดีอุกฉกรรจ์หรือตายโดยธรรมชาติ");
-
-        jCheckW9.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW9.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW9.setText("บันทึกคำให้การผู้ต้องหา");
-
-        jCheckW59.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW59.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW59.setText("แบบรูปพรรณรถยนต์หรือรถจักรยานยนต์ที่ถูกโจรกรรม");
-
-        jCheckW70.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW70.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW70.setText("บันทึกเสนอสัญญาประกัน");
-
-        jCheckW3.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW3.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW3.setText("หนังสือส่งสำนวนคดีที่เห็นควรสั่งฟ้อง ยังไม่ได้ตัวผู้ต้องหา");
-
-        jCheckW48.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW48.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW48.setText("หนังสือรายงานคนต่างด้าวกระทำความผิดและถูกจับกุมตัวดำเนินคดี");
-
-        jCheckW21.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW21.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW21.setText("ใบนำส่งผู้บาดเจ็บหรือศพ");
-
-        jCheckW15.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW15.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW15.setText("บัญชีทรัพย์ที่ถูกเพลิงไหม้");
-
-        jCheckW2.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW2.setText("หนังสือส่งสำนวนงดการสอบสวน");
-        jCheckW2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jCheckW2MouseClicked(evt);
-            }
-        });
-
-        jCheckW26.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW26.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW26.setText("หนังสือส่งยาเสพติดของกลางไปตรวจพิสูจน์");
-
-        jCheckW40.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW40.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW40.setText("บันทึกการแจ้งสิทธิ์ตามพระราชบัญญติค่าตอบแทนผู้เสียหาย และค่าทดแทน \n");
-        jCheckW40.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckW40ActionPerformed(evt);
-            }
-        });
-
-        jCheckW28.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW28.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW28.setText("บันทึกการตรวจสภาพสภาพรถยนต์");
-
-        jCheckW30.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW30.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW30.setText("บันทึกการชี้รูปผู้ต้องหา");
-
-        jCheckW67.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW67.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW67.setText("คำร้องขอผัดฟ้องหรือผัดฟ้องและฝากขังครั้งที่ 1");
-
-        jCheckW36.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW36.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW36.setText("บัญชีทรัพย์ประกอบบันทึกการตรวจค้นโดยไม่มีหมายค้น");
-
-        jCheckW31.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW31.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW31.setText("บันทึกการจับกุม");
-
-        jCheckW46.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW46.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW46.setText("หนังสือแจ้งการขอประกันสิ่งของไปดูแลรักษาหรือใช้ประโยชน์");
-
-        jCheckW37.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW37.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW37.setText("ตำหนิรูปพรรณผู้กระทำความผิด");
-        jCheckW37.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckW37ActionPerformed(evt);
-            }
-        });
-
-        jCheckW35.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW35.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW35.setText("บัญชีการตรวจค้นโดยไม่มีหมายค้น");
-
-        jCheckW39.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW39.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW39.setText("หมายเรียกพยาน");
-
-        jCheckW13.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW13.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW13.setText("บัญชีทรัพย์ถูกประทุษร้ายได้คืน");
-
-        jCheckW49.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW49.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW49.setText("หนังสือขอส่งตัวคนต่างด้าว");
-
-        jCheckW25.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW25.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW25.setText("หนังสือส่งของกลางไปตรวจพิสูจน์");
-
-        jCheckW33.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW33.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW33.setText("บันทึกการตรวจค้น");
-
-        jCheckW19.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW19.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW19.setText("แผนที่สังเขปแสดงสถานที่เกิดเหตุ");
-        jCheckW19.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jCheckW19MouseClicked(evt);
-            }
-        });
-        jCheckW19.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckW19ActionPerformed(evt);
-            }
-        });
-
-        jCheckW68.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW68.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW68.setText("คำร้องขอผัดฟ้องหรือผัดฟ้องและฝากขังครั้งที่.....");
-        jCheckW68.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckW68ActionPerformed(evt);
-            }
-        });
-
-        jCheckW52.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW52.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW52.setText("หนังสือขอให้ตรวจสอบหนังสือเดินทางฯ ของบุคคลต่างด้าว");
-
-        jCheckW27.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW27.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW27.setText("ฉลากปิดภาชนะบรรจุยาเสพติด");
-
-        jCheckW12.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW12.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW12.setText("บัญชีทรัพย์ถูกประทุษร้าย");
-
-        jCheckW23.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW23.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW23.setText("รายงานการชันสูตรพลิกศพ");
-
-        jCheckW17.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW17.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW17.setText("บันทึกการตรวจสอบสถานที่เกิดเหตุคดีอาญา");
-
-        jCheckW22.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW22.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW22.setText("หนังสือส่งผู้ต้องหาป่วยทางจิตฯ");
-
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckW6, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckW8, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckW4, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckW39, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jCheckW13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jCheckW12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jCheckW11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jCheckW9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jCheckW16, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jCheckW15, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jCheckW14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jCheckW5, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckW33, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckW26, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckW28, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckW29, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckW30, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckW31, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckW38, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckW35, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckW34, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckW93, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckW25, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckW36, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(jCheckW3, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckW43, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(jCheckW2, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckW27, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckW41, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckW21, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckW18, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckW19, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckW23, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckW53, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckW70, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckW62, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckW71, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckW80, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckW37, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckW20, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckW69, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckW68, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckW67, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckW52)
-                            .addComponent(jCheckW48)
-                            .addComponent(jCheckW50)
-                            .addComponent(jCheckW40)
-                            .addComponent(jCheckW59)
-                            .addComponent(jCheckW46)
-                            .addComponent(jCheckW47)
-                            .addComponent(jCheckW51)
-                            .addComponent(jCheckW49)
-                            .addComponent(jCheckW22)))
-                    .addComponent(jCheckW17, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel8Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jCheckW1, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(1145, Short.MAX_VALUE)))
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jCheckW27)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jCheckW2)
-                            .addComponent(jCheckW41))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jCheckW3)
-                            .addComponent(jCheckW43))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckW25)
-                        .addGap(0, 0, 0)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jCheckW26)
-                            .addComponent(jCheckW5)))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addGap(108, 108, 108)
-                                .addComponent(jCheckW4)
-                                .addGap(33, 33, 33)
-                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel8Layout.createSequentialGroup()
-                                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jCheckW28)
-                                            .addComponent(jCheckW6))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jCheckW29))
-                                    .addGroup(jPanel8Layout.createSequentialGroup()
-                                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                                .addGap(66, 66, 66)
-                                                .addComponent(jCheckW30))
-                                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addGroup(jPanel8Layout.createSequentialGroup()
-                                                    .addGap(33, 33, 33)
-                                                    .addComponent(jCheckW8))
-                                                .addComponent(jCheckW9)))
-                                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jCheckW11)
-                                            .addComponent(jCheckW31))
-                                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jCheckW12)
-                                            .addComponent(jCheckW35))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jCheckW13)
-                                            .addComponent(jCheckW36))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jCheckW14)
-                                            .addComponent(jCheckW34))
-                                        .addGap(0, 0, 0)
-                                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jCheckW15)
-                                            .addComponent(jCheckW38)
-                                            .addComponent(jCheckW17))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jCheckW16)
-                                            .addComponent(jCheckW93)
-                                            .addComponent(jCheckW18)))))
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel8Layout.createSequentialGroup()
-                                        .addComponent(jCheckW71)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(jCheckW80)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jCheckW37)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jCheckW20)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jCheckW69)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jCheckW67)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jCheckW68)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jCheckW70)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jCheckW53)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jCheckW62))
-                                    .addGroup(jPanel8Layout.createSequentialGroup()
-                                        .addComponent(jCheckW50)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(jCheckW48)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jCheckW40)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jCheckW59)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jCheckW46)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jCheckW47)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jCheckW51)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jCheckW52)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jCheckW49)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jCheckW22)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jCheckW21)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jCheckW23)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckW39)
-                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jCheckW33)
-                                .addComponent(jCheckW19)))))
-                .addContainerGap(61, Short.MAX_VALUE))
-            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel8Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jCheckW1)
-                    .addContainerGap(523, Short.MAX_VALUE)))
-        );
-
-        jScrollPane1.setViewportView(jPanel8);
-
-        jButtonPrintDoc.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jButtonPrintDoc.setText("พิมพ์เอกสาร");
-        jButtonPrintDoc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonPrintDocActionPerformed(evt);
-            }
-        });
-
-        jLabel32.setText("caseid");
-
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel32)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonPrintDoc)
-                .addGap(73, 73, 73))
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonPrintDoc)
-                    .addComponent(jLabel32))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jTabbedPane2.addTab("รายงาน", jPanel10);
-
         jScrollPane5.setOpaque(false);
 
         jPanel12.setBackground(new java.awt.Color(255, 255, 255));
@@ -2318,10 +1719,6 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             }
         });
 
-        jCheckW268.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW268.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW268.setText("คำร้องขอผัดฟ้องหรือผัดฟ้องและฝากขังครั้งที่....");
-
         jCheckW267.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW267.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW267.setText("คำร้องขอผัดฟ้องหรือผัดฟ้องและฝากขังครั้งที่ 1");
@@ -2335,7 +1732,6 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                     .addComponent(jCheckW240)
                     .addComponent(jCheckW241, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCheckW242, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckW268, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCheckW269, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCheckW267, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCheckW265, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -2350,28 +1746,29 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jPanel17Layout.setVerticalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel17Layout.createSequentialGroup()
-                .addComponent(jCheckW240)
-                .addGap(0, 0, 0)
-                .addComponent(jCheckW241)
-                .addGap(0, 0, 0)
-                .addComponent(jCheckW242)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckW265)
-                .addGap(0, 0, 0)
-                .addComponent(jCheckW267)
-                .addGap(0, 0, 0)
-                .addComponent(jCheckW268)
-                .addGap(0, 0, 0)
-                .addComponent(jCheckW269))
-            .addGroup(jPanel17Layout.createSequentialGroup()
-                .addComponent(jCheckW221)
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jCheckW223))
-                    .addComponent(jCheckW222))
-                .addGap(0, 0, 0)
-                .addComponent(jCheckW224))
+                        .addComponent(jCheckW240)
+                        .addGap(0, 0, 0)
+                        .addComponent(jCheckW241)
+                        .addGap(0, 0, 0)
+                        .addComponent(jCheckW242)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jCheckW265)
+                        .addGap(0, 0, 0)
+                        .addComponent(jCheckW267))
+                    .addGroup(jPanel17Layout.createSequentialGroup()
+                        .addComponent(jCheckW221)
+                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel17Layout.createSequentialGroup()
+                                .addGap(33, 33, 33)
+                                .addComponent(jCheckW223))
+                            .addComponent(jCheckW222))
+                        .addGap(0, 0, 0)
+                        .addComponent(jCheckW224)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckW269)
+                .addContainerGap())
         );
 
         jPanel16.setBackground(new java.awt.Color(255, 255, 255));
@@ -3224,274 +2621,10 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         // TODO add your handling code here:
     }//GEN-LAST:event_CrimeLocationMooActionPerformed
 
-    private void jButtonPrintDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrintDocActionPerformed
-        // TODO add your handling code here:
-        String no=crimecaseid.getText();
-          caseyear=crimecaseyear.getText();
-           caseno=crimecaseno.getText();
-           casetype=CaseType.getText();
-        File f3=new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
-
-        f3.mkdirs();
-        System.out.print(f3);
-        System.out.print("folder created");
-        if(jCheckW1.isSelected()){
-            W1.w1(no);
-        }
-
-        if(jCheckW2.isSelected()){
-            W2.w2(no);
-
-        }
-        if(jCheckW3.isSelected()){
-            W3.w3(no);
-        }
-        if(jCheckW4.isSelected()){
-            W4.w4(no);
-        }
-        if(jCheckW5.isSelected()){
-            W5.w5(no);
-        }
-        if(jCheckW6.isSelected()){
-            W6.w6(no);
-        }
-        
-        if(jCheckW8.isSelected()){
-            W8.w8(no);
-        }
-        if(jCheckW9.isSelected()){
-            W9.w9(no);
-        }
-        if(jCheckW11.isSelected()){
-            W11.w11(no);
-        }
-        if(jCheckW12.isSelected()){
-            W12.w12(no);
-          }
-        if(jCheckW13.isSelected()){
-            W13.w13(no);
-            }
-         if(jCheckW14.isSelected()){
-             W14.w14(no);
-             }
-                if(jCheckW15.isSelected()){
-                        W15.w15(no);
-                    }
-               if(jCheckW16.isSelected()){
-                        W16.w16(no);
-                    }
-               if(jCheckW18.isSelected()){
-                        W17.w17(no);
-                    }
-              // if(jCheckW18.isSelected()){
-                  //      W18.w18(no);
-                  //  }
-               if(jCheckW19.isSelected()){
-                        W19.w19(no);
-                    }
-               if(jCheckW20.isSelected()){
-                        W20.w20(no);
-                    }
-               
-               if(jCheckW21.isSelected()){
-                        W21.w21(no);
-                    }
-               if(jCheckW22.isSelected()){
-                        W22.w22(no);
-                    }
-               if(jCheckW23.isSelected()){
-                        W23.w23(no);
-                    }
-               if(jCheckW25.isSelected()){
-                        W25.w25(no);
-                    }
-               if(jCheckW26.isSelected()){
-                        W26.w26(no);
-                    }
-               if(jCheckW27.isSelected()){
-                        W27.w27(no);
-                    }
-               if(jCheckW28.isSelected()){
-                        W28.w28(no);
-                    }
-               if(jCheckW29.isSelected()){
-                        W29.w29(no);
-                    }
-               if(jCheckW30.isSelected()){
-                        W30.w30(no);
-                    }
-               if(jCheckW31.isSelected()){
-                        W31.w31(no);
-                    }
-        
-               if(jCheckW33.isSelected()){
-                        W33.w33(no);
-                    }
-               if(jCheckW34.isSelected()){
-                        W34.w34(no);
-                    }
-               if(jCheckW35.isSelected()){
-                        W35.w35(no);
-                    }
-               if(jCheckW36.isSelected()){
-                        W36.w36(no);
-                    }
-               if(jCheckW37.isSelected()){
-                        W37.w37(no);
-                    }
-               if(jCheckW38.isSelected()){
-                        W38.w38(no);
-                    }
-               if(jCheckW39.isSelected()){
-                        W39.w39(no);
-                    }
-               if(jCheckW40.isSelected()){
-                        W40.w40(no);
-                    }
-               if(jCheckW41.isSelected()){
-                        W41.w41(no);
-                    }
-              if(jCheckW43.isSelected()){
-                        W43.w43(no);
-                    }
-               if(jCheckW46.isSelected()){
-                        W46.w46(no);
-                    }
-               if(jCheckW47.isSelected()){
-                        W47.w47(no);
-                    }
-               if(jCheckW48.isSelected()){
-                        W48.w48(no);
-                    }
-               if(jCheckW49.isSelected()){
-                        W49.w49(no);
-                    }
-               if(jCheckW50.isSelected()){
-                        W50.w50(no);
-                    }
-               if(jCheckW51.isSelected()){
-                        W51.w51(no);
-                    }
-               if(jCheckW53.isSelected()){
-                        W53.w53(no);
-                    }
-               if(jCheckW62.isSelected()){
-                        W62.w62(no);
-                    }
-               if(jCheckW67.isSelected()){
-                        W67.w67(no);
-                    }
-        //       if(jCheckW68.isSelected()){
-            //            W68.w68(no);
-            //        }
-               if(jCheckW69.isSelected()){
-                        W69.w69(no);
-                    }
-               if(jCheckW70.isSelected()){
-                        W70.w70(no);
-                    }
-               if(jCheckW71.isSelected()){
-                        W71.w71(no);
-                    }
-              /* if(jCheckW72.isSelected()){
-                        W72.w72(no);
-                    }
-               if(jCheckW73.isSelected()){
-                        W73.w73(no);
-                    }
-               if(jCheckW74.isSelected()){
-                        W74.w74(no);
-                    }
-               */
-               if(jCheckW80.isSelected()){
-                        W80.w80(no);
-                    }
-               if(jCheckW93.isSelected()){
-                        W93.w93(no);
-                    }
-        Desktop desktop = Desktop.getDesktop();
-        File dirToOpen = null;
-        try {
-            dirToOpen = new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
-            desktop.open(dirToOpen);
-        } catch (Exception iae) {
-            System.out.println("File Not Found :"+iae);
-        }
-
-    }//GEN-LAST:event_jButtonPrintDocActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         closeAllDialogs();
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jCheckW68ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW68ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW68ActionPerformed
-
-    private void jCheckW19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW19ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW19ActionPerformed
-
-    private void jCheckW19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckW19MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW19MouseClicked
-
-    private void jCheckW37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW37ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW37ActionPerformed
-
-    private void jCheckW40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW40ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW40ActionPerformed
-
-    private void jCheckW2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckW2MouseClicked
-        // TODO add your handling code here:
-        /*
-        String no=crimecaseno.getText();
-        File f3=new File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/คดีอาญา"+caseno+"-"+caseyear);
-
-        f3.mkdirs();
-        W2.w2(no);
-        System.out.print(f3);
-        System.out.print("folder created");
-        OpenFile(PoliceStaionName, caseyear, caseno,"บันทึกการตรวจสำนวนการสอบสวน.doc");
-        */
-    }//GEN-LAST:event_jCheckW2MouseClicked
-
-    private void jCheckW69ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW69ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW69ActionPerformed
-
-    private void jCheckW41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW41ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW41ActionPerformed
-
-    private void jCheckW1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW1ActionPerformed
-
-    private void jCheckW1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckW1MouseClicked
-        // TODO add your handling code here:
-        /*
-        String no=crimecaseno.getText();
-        File f3=new File("D:/สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/คดีอาญา"+caseno+"-"+caseyear);
-
-        f3.mkdirs();
-        W1.w1(no);
-        System.out.print(f3);
-        System.out.print("folder created");
-        OpenFile(PoliceStaionName, caseyear, caseno,"บันทึกการตรวจสำนวนการสอบสวน.doc");
-        */
-    }//GEN-LAST:event_jCheckW1MouseClicked
-
-    private void jCheckW80ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW80ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW80ActionPerformed
-
-    private void jCheckW93ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW93ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW93ActionPerformed
 
     private void CrimeLocationProvinceItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CrimeLocationProvinceItemStateChanged
         // TODO add your handling code here:
@@ -3881,9 +3014,7 @@ CrimeLocationAmphur.removeAllItems();
                if(jCheckW267.isSelected()){
                         W67.w67(no);
                     }
-              if(jCheckW268.isSelected()){
-                     // W68.w68(no);
-                  }
+            
                if(jCheckW269.isSelected()){
                         W69.w69(no);
                     }
@@ -4263,7 +3394,6 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JButton jButtonAddInvest;
     private javax.swing.JButton jButtonCharge;
     private javax.swing.JButton jButtonEditCase;
-    private javax.swing.JButton jButtonPrintDoc;
     private javax.swing.JButton jButtonPrintDoc2;
     private javax.swing.JButton jButtonSaveCase;
     private javax.swing.JButton jButtonSuspect;
@@ -4280,18 +3410,6 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JRadioButton jCheckSue;
     private javax.swing.JRadioButton jCheckSuicide;
     private javax.swing.JRadioButton jCheckUnknow;
-    private javax.swing.JCheckBox jCheckW1;
-    private javax.swing.JCheckBox jCheckW11;
-    private javax.swing.JCheckBox jCheckW12;
-    private javax.swing.JCheckBox jCheckW13;
-    private javax.swing.JCheckBox jCheckW14;
-    private javax.swing.JCheckBox jCheckW15;
-    private javax.swing.JCheckBox jCheckW16;
-    private javax.swing.JCheckBox jCheckW17;
-    private javax.swing.JCheckBox jCheckW18;
-    private javax.swing.JCheckBox jCheckW19;
-    private javax.swing.JCheckBox jCheckW2;
-    private javax.swing.JCheckBox jCheckW20;
     private javax.swing.JCheckBox jCheckW201;
     private javax.swing.JCheckBox jCheckW202;
     private javax.swing.JCheckBox jCheckW203;
@@ -4301,7 +3419,6 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JCheckBox jCheckW207;
     private javax.swing.JCheckBox jCheckW208;
     private javax.swing.JCheckBox jCheckW209;
-    private javax.swing.JCheckBox jCheckW21;
     private javax.swing.JCheckBox jCheckW211;
     private javax.swing.JCheckBox jCheckW212;
     private javax.swing.JCheckBox jCheckW213;
@@ -4311,7 +3428,6 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JCheckBox jCheckW217;
     private javax.swing.JCheckBox jCheckW218;
     private javax.swing.JCheckBox jCheckW219;
-    private javax.swing.JCheckBox jCheckW22;
     private javax.swing.JCheckBox jCheckW220;
     private javax.swing.JCheckBox jCheckW221;
     private javax.swing.JCheckBox jCheckW222;
@@ -4322,7 +3438,6 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JCheckBox jCheckW227;
     private javax.swing.JCheckBox jCheckW228;
     private javax.swing.JCheckBox jCheckW229;
-    private javax.swing.JCheckBox jCheckW23;
     private javax.swing.JCheckBox jCheckW230;
     private javax.swing.JCheckBox jCheckW231;
     private javax.swing.JCheckBox jCheckW232;
@@ -4343,7 +3458,6 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JCheckBox jCheckW247;
     private javax.swing.JCheckBox jCheckW248;
     private javax.swing.JCheckBox jCheckW249;
-    private javax.swing.JCheckBox jCheckW25;
     private javax.swing.JCheckBox jCheckW250;
     private javax.swing.JCheckBox jCheckW251;
     private javax.swing.JCheckBox jCheckW252;
@@ -4354,7 +3468,6 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JCheckBox jCheckW257;
     private javax.swing.JCheckBox jCheckW258;
     private javax.swing.JCheckBox jCheckW259;
-    private javax.swing.JCheckBox jCheckW26;
     private javax.swing.JCheckBox jCheckW260;
     private javax.swing.JCheckBox jCheckW261;
     private javax.swing.JCheckBox jCheckW262;
@@ -4363,9 +3476,7 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JCheckBox jCheckW265;
     private javax.swing.JCheckBox jCheckW266;
     private javax.swing.JCheckBox jCheckW267;
-    private javax.swing.JCheckBox jCheckW268;
     private javax.swing.JCheckBox jCheckW269;
-    private javax.swing.JCheckBox jCheckW27;
     private javax.swing.JCheckBox jCheckW270;
     private javax.swing.JCheckBox jCheckW271;
     private javax.swing.JCheckBox jCheckW272;
@@ -4375,45 +3486,8 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JCheckBox jCheckW276;
     private javax.swing.JCheckBox jCheckW277;
     private javax.swing.JCheckBox jCheckW278;
-    private javax.swing.JCheckBox jCheckW28;
     private javax.swing.JCheckBox jCheckW280;
-    private javax.swing.JCheckBox jCheckW29;
     private javax.swing.JCheckBox jCheckW293;
-    private javax.swing.JCheckBox jCheckW3;
-    private javax.swing.JCheckBox jCheckW30;
-    private javax.swing.JCheckBox jCheckW31;
-    private javax.swing.JCheckBox jCheckW33;
-    private javax.swing.JCheckBox jCheckW34;
-    private javax.swing.JCheckBox jCheckW35;
-    private javax.swing.JCheckBox jCheckW36;
-    private javax.swing.JCheckBox jCheckW37;
-    private javax.swing.JCheckBox jCheckW38;
-    private javax.swing.JCheckBox jCheckW39;
-    private javax.swing.JCheckBox jCheckW4;
-    private javax.swing.JCheckBox jCheckW40;
-    private javax.swing.JCheckBox jCheckW41;
-    private javax.swing.JCheckBox jCheckW43;
-    private javax.swing.JCheckBox jCheckW46;
-    private javax.swing.JCheckBox jCheckW47;
-    private javax.swing.JCheckBox jCheckW48;
-    private javax.swing.JCheckBox jCheckW49;
-    private javax.swing.JCheckBox jCheckW5;
-    private javax.swing.JCheckBox jCheckW50;
-    private javax.swing.JCheckBox jCheckW51;
-    private javax.swing.JCheckBox jCheckW52;
-    private javax.swing.JCheckBox jCheckW53;
-    private javax.swing.JCheckBox jCheckW59;
-    private javax.swing.JCheckBox jCheckW6;
-    private javax.swing.JCheckBox jCheckW62;
-    private javax.swing.JCheckBox jCheckW67;
-    private javax.swing.JCheckBox jCheckW68;
-    private javax.swing.JCheckBox jCheckW69;
-    private javax.swing.JCheckBox jCheckW70;
-    private javax.swing.JCheckBox jCheckW71;
-    private javax.swing.JCheckBox jCheckW8;
-    private javax.swing.JCheckBox jCheckW80;
-    private javax.swing.JCheckBox jCheckW9;
-    private javax.swing.JCheckBox jCheckW93;
     private javax.swing.JComboBox<String> jComboPoliceName;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -4440,7 +3514,6 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
@@ -4461,7 +3534,6 @@ catch (Exception d) {  //System.out.println(d);
     public static javax.swing.JLabel jLabelNumberSus;
     public static javax.swing.JLabel jLabelNumberWitness;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
@@ -4474,10 +3546,8 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JPanel jPanelInvestSend;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;

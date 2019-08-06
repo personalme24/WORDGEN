@@ -1377,10 +1377,12 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 
     private void Print1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Print1ActionPerformed
         // TODO add your handling code here:
+        
         if(SueFirst.getText().equals("")){
                  JOptionPane.showMessageDialog(jPanel1,"แจ้งเตือน", "กรุณากรอกข้อมูล", JOptionPane.INFORMATION_MESSAGE);
         }
         else{
+           
         W67.w67(caseid);
          Desktop desktop = Desktop.getDesktop();
         File dirToOpen = null;
@@ -1399,6 +1401,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
          JOptionPane.showMessageDialog(jPanel1,"กรุณากรอกข้อมูล", "แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);
         }
         else{
+             String suetime="1";
          W68.w68(caseid,SueThird.getText());
            Desktop desktop = Desktop.getDesktop();
         File dirToOpen = null;

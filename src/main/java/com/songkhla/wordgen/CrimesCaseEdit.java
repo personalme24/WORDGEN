@@ -560,7 +560,6 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jCheckW224 = new javax.swing.JCheckBox();
         jCheckW265 = new javax.swing.JCheckBox();
         jCheckW269 = new javax.swing.JCheckBox();
-        jCheckW268 = new javax.swing.JCheckBox();
         jCheckW267 = new javax.swing.JCheckBox();
         jPanel16 = new javax.swing.JPanel();
         jCheckW246 = new javax.swing.JCheckBox();
@@ -1648,10 +1647,6 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             }
         });
 
-        jCheckW268.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckW268.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW268.setText("คำร้องขอผัดฟ้องหรือผัดฟ้องและฝากขังครั้งที่....");
-
         jCheckW267.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW267.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckW267.setText("คำร้องขอผัดฟ้องหรือผัดฟ้องและฝากขังครั้งที่ 1");
@@ -1665,7 +1660,6 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                     .addComponent(jCheckW240)
                     .addComponent(jCheckW241, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCheckW242, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckW268, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCheckW269, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCheckW267, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCheckW265, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1680,28 +1674,29 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jPanel17Layout.setVerticalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel17Layout.createSequentialGroup()
-                .addComponent(jCheckW240)
-                .addGap(0, 0, 0)
-                .addComponent(jCheckW241)
-                .addGap(0, 0, 0)
-                .addComponent(jCheckW242)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckW265)
-                .addGap(0, 0, 0)
-                .addComponent(jCheckW267)
-                .addGap(0, 0, 0)
-                .addComponent(jCheckW268)
-                .addGap(0, 0, 0)
-                .addComponent(jCheckW269))
-            .addGroup(jPanel17Layout.createSequentialGroup()
-                .addComponent(jCheckW221)
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jCheckW223))
-                    .addComponent(jCheckW222))
-                .addGap(0, 0, 0)
-                .addComponent(jCheckW224))
+                        .addComponent(jCheckW240)
+                        .addGap(0, 0, 0)
+                        .addComponent(jCheckW241)
+                        .addGap(0, 0, 0)
+                        .addComponent(jCheckW242)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jCheckW265)
+                        .addGap(0, 0, 0)
+                        .addComponent(jCheckW267))
+                    .addGroup(jPanel17Layout.createSequentialGroup()
+                        .addComponent(jCheckW221)
+                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel17Layout.createSequentialGroup()
+                                .addGap(33, 33, 33)
+                                .addComponent(jCheckW223))
+                            .addComponent(jCheckW222))
+                        .addGap(0, 0, 0)
+                        .addComponent(jCheckW224)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jCheckW269)
+                .addContainerGap())
         );
 
         jPanel16.setBackground(new java.awt.Color(255, 255, 255));
@@ -2645,10 +2640,6 @@ CrimeLocationAmphur.removeAllItems();
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckW206ActionPerformed
 
-    private void jCheckW269ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW269ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckW269ActionPerformed
-
     private void jCheckW204ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW204ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckW204ActionPerformed
@@ -2686,6 +2677,10 @@ CrimeLocationAmphur.removeAllItems();
             
         yourAttemptActionPerformed();
     }//GEN-LAST:event_jButtonPrintDoc2ActionPerformed
+
+    private void jCheckW269ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW269ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckW269ActionPerformed
      private void yourAttemptActionPerformed() {
 
 
@@ -2949,9 +2944,7 @@ CrimeLocationAmphur.removeAllItems();
                if(jCheckW267.isSelected()){
                         W67.w67(no);
                     }
-              if(jCheckW268.isSelected()){
-                       // W68.w68(no);
-                  }
+     
                if(jCheckW269.isSelected()){
                         W69.w69(no);
                     }
@@ -3403,7 +3396,6 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JCheckBox jCheckW265;
     private javax.swing.JCheckBox jCheckW266;
     private javax.swing.JCheckBox jCheckW267;
-    private javax.swing.JCheckBox jCheckW268;
     private javax.swing.JCheckBox jCheckW269;
     private javax.swing.JCheckBox jCheckW270;
     private javax.swing.JCheckBox jCheckW271;
