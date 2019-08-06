@@ -281,26 +281,24 @@ public class BailAssetAdd extends javax.swing.JDialog {
             else{
             try{
                 String sqlUpdate= "UPDATE BailAsset Set\n "
-                + "BailAssetOrder=?,"
                 + "BailAssetDetail=?,"
                 + "BailAssetBath=?,"
                 + "BailAmount=?,"
                 + "BailAssetTotal=?,"
                 + "BailAssetRemark=?"
                 
-                + "Where BailCaseId=? and BailPersonId=?";
+                + "Where BailCaseId=? and BailPersonId=? and BailAssetOrder=?";
                 
                 pst=con.prepareStatement(sqlUpdate);
+                pst.setString(1,BailAssetDetail.getText());
+                pst.setString(2,BailAssetBath.getText());
+                pst.setString(3,BailAmount.getText());           
+                pst.setString(4,BailAssetTotal.getText());
+                pst.setString(5,BailAssetRemark.getText());
+                pst.setString(6,caseId);
+                pst.setString(7,personId);
+                pst.setString(8,BailAssetOrder.getText());
                 
-                pst.setString(1,BailAssetOrder.getText());
-                pst.setString(2,BailAssetDetail.getText());
-                pst.setString(3,BailAssetBath.getText());
-                pst.setString(4,BailAmount.getText());           
-                pst.setString(5,BailAssetTotal.getText());
-                pst.setString(6,BailAssetRemark.getText());
-                pst.setString(7,caseId);
-                pst.setString(8,personId);
-   
                 int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการแก้ไขข้อมูล", "ยืนยัน",
         JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (response == JOptionPane.YES_OPTION) {

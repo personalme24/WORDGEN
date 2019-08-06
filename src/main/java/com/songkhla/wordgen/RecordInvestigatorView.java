@@ -16,6 +16,7 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import org.json.simple.JSONObject;
 import java.awt.Font;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -31,6 +32,9 @@ public class RecordInvestigatorView extends javax.swing.JDialog {
     public RecordInvestigatorView(JFrame parrent,JSONObject datain) {
         super(parrent,true);
         initComponents();
+         ImageIcon img = new ImageIcon("./Master/WD.png");
+            setIconImage(img.getImage());
+            setTitle("ระบบสำนวนอิเล็กทรอนิกส์ (CRIMES)");
         caseIdRec=datain.get("CaseIdRec")+"";
         TypeCase=datain.get("TypeCase")+"";
 

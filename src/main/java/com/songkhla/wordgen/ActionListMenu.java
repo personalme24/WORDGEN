@@ -31,7 +31,7 @@ public class ActionListMenu extends javax.swing.JDialog {
 
         initComponents();
         jScrollPane3.getVerticalScrollBar().setUI(new CustomScrollBarUI());
-         ImageIcon img = new ImageIcon("D://Master//WD.png");
+         ImageIcon img = new ImageIcon("./Master/WD.png");
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
             jTableAction.getTableHeader().setFont(new Font("TH SarabunPSK", Font.BOLD, 20));
@@ -215,7 +215,7 @@ public class ActionListMenu extends javax.swing.JDialog {
         );
 
         jButton6.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jButton6.setIcon(new javax.swing.ImageIcon("D:\\Master\\home.png")); // NOI18N
+        jButton6.setIcon(new javax.swing.ImageIcon("./Master/home.png"));
         jButton6.setText("เมนูหลัก");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

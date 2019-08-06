@@ -31,6 +31,7 @@ import org.jdatepicker.impl.UtilDateModel;
 import org.json.simple.JSONObject;
 import java.util.Properties;
 import javax.swing.JOptionPane;
+import javax.swing.ImageIcon;
 /**
  *
  * @author Petpilin
@@ -40,7 +41,9 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
     /**
      * Creates new form CrimesCaseView
      */
-    
+ 
+
+
      JFrame frame = new JFrame();
         JDialog dialog = new JDialog(frame);//frame is owner
         JFrame facc = (JFrame)(dialog.getParent());
@@ -50,7 +53,7 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
                 super(parrent,true);
 
         initComponents();
-        ImageIcon img = new ImageIcon("D://Master//WD.png");
+        ImageIcon img = new ImageIcon("./Master/WD.png");
         setIconImage(img.getImage());
         setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
     
@@ -162,7 +165,7 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
         });
 
         jButton2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon("D:\\Master\\home.png")); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon("./Master/home.png"));
         jButton2.setText("เมนูหลัก");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,7 +187,7 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
                         .addComponent(jButtonEdit)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 824, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 852, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addGap(73, 73, 73))
         );
@@ -348,7 +351,7 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jLabel10.setIcon(new javax.swing.ImageIcon("D:\\Master\\error.png")); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon("./Master/error.png"));
         jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel10MouseClicked(evt);
@@ -389,7 +392,7 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
                     .addComponent(jPanelRequestDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtSearchSus, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel10))
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanelSearchLayout.setVerticalGroup(
             jPanelSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

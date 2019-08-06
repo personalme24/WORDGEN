@@ -37,7 +37,7 @@ public class ChargeOverView extends javax.swing.JDialog {
     public ChargeOverView(JFrame parrent) {
       super(parrent,true);
         initComponents();
-         ImageIcon img = new ImageIcon("D://Master//WD.png");
+         ImageIcon img = new ImageIcon("./Master/WD.png");
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
         RefreshData();

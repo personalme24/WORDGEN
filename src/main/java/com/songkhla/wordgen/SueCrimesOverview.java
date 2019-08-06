@@ -51,7 +51,7 @@ public class SueCrimesOverview extends javax.swing.JDialog {
         super(parrent,true);
 
         initComponents();
-        ImageIcon img = new ImageIcon("D://Master//WD.png");
+        ImageIcon img = new ImageIcon("./Master/WD.png");
         setIconImage(img.getImage());
          setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
            jTableSue.setOpaque(false);
@@ -133,7 +133,7 @@ public class SueCrimesOverview extends javax.swing.JDialog {
         jLabel1.setText("ผู้ต้องหาผัดฟ้องฝากขัง");
 
         jButton3.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon("D:\\Master\\home.png")); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon("./Master/home.png"));
         jButton3.setText("เมนูหลัก");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,9 +148,9 @@ public class SueCrimesOverview extends javax.swing.JDialog {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 909, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 935, Short.MAX_VALUE)
                 .addComponent(jButton3)
-                .addGap(155, 155, 155))
+                .addGap(129, 129, 129))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

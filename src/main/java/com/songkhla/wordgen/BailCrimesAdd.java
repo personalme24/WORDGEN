@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package com.songkhla.wordgen;
+import static com.songkhla.wordgen.AssetOverView.jTableAsset;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -32,7 +33,7 @@ public class BailCrimesAdd extends javax.swing.JDialog {
     public BailCrimesAdd(JFrame parrent,JSONObject datain) {
         super(parrent,true);
         initComponents();
-        ImageIcon img = new ImageIcon("D://Master//WD.png");
+        ImageIcon img = new ImageIcon("./Master/WD.png");
         setIconImage(img.getImage());
          setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
         refreshAssetData();
@@ -80,7 +81,7 @@ public class BailCrimesAdd extends javax.swing.JDialog {
         jLabel34 = new javax.swing.JLabel();
         jButtonAddSue = new javax.swing.JButton();
         jButtonEditSue = new javax.swing.JButton();
-        jButtonDelete = new javax.swing.JButton();
+        jButtonDeleteBailAsset = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jLabel35 = new javax.swing.JLabel();
@@ -113,7 +114,7 @@ public class BailCrimesAdd extends javax.swing.JDialog {
         jLabel1.setText("เพิ่ม/แก้ไข การประกันตัวผู้ต้องหา");
 
         jButton2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon("D:\\Master\\home.png")); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon("./Master/home.png"));
         jButton2.setText("เมนูหลัก");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -242,11 +243,11 @@ public class BailCrimesAdd extends javax.swing.JDialog {
             }
         });
 
-        jButtonDelete.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButtonDelete.setText("ลบ");
-        jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
+        jButtonDeleteBailAsset.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jButtonDeleteBailAsset.setText("ลบ");
+        jButtonDeleteBailAsset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonDeleteActionPerformed(evt);
+                jButtonDeleteBailAssetActionPerformed(evt);
             }
         });
 
@@ -267,7 +268,7 @@ public class BailCrimesAdd extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonEditSue, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonDelete)))
+                                .addComponent(jButtonDeleteBailAsset)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -281,7 +282,7 @@ public class BailCrimesAdd extends javax.swing.JDialog {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonAddSue)
                     .addComponent(jButtonEditSue)
-                    .addComponent(jButtonDelete))
+                    .addComponent(jButtonDeleteBailAsset))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -602,13 +603,30 @@ public class BailCrimesAdd extends javax.swing.JDialog {
 
     private void jButtonDelete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDelete1ActionPerformed
         // TODO add your handling code here:
+        
         refreshBailSendData();
     }//GEN-LAST:event_jButtonDelete1ActionPerformed
 
-    private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
+    private void jButtonDeleteBailAssetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteBailAssetActionPerformed
         // TODO add your handling code here:
+         if(jTableBailAsset.getSelectedRow()>=0){
+            try{
+//                String crimecaseno = txtCaseno.getText();
+                String BailAssetId = jTableBailAsset.getModel().getValueAt(jTableBailAsset.getSelectedRow(), 6)+"";
+//                String AssetId = jTableAsset.getModel().getValueAt(jTableAsset.getSelectedRow(), 4)+"";
+                String sql = "Delete from BailAsset WHERE BailAssetId='"+BailAssetId+"' and BailCaseId='"+caseId+"'";
+                Connection con = ConnectDatabase.connect();
+                Statement stmt = con.createStatement();
+                stmt.executeUpdate(sql);
+                System.out.println("SQL : "+sql);
+                stmt.close();
+            
+            }catch(Exception ex){
+                ex.printStackTrace();
+            }
+        }       
         refreshAssetData();
-    }//GEN-LAST:event_jButtonDeleteActionPerformed
+    }//GEN-LAST:event_jButtonDeleteBailAssetActionPerformed
 
     private void jButtonEditSueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditSueActionPerformed
         // TODO add your handling code here:
@@ -648,7 +666,7 @@ public class BailCrimesAdd extends javax.swing.JDialog {
 
                 rs.close();
                 stmt.close();
-                refreshAssetData();
+               
             }catch(Exception ex){
                 ex.printStackTrace();
 
@@ -656,7 +674,7 @@ public class BailCrimesAdd extends javax.swing.JDialog {
         }else{
 
         }
-       
+        refreshAssetData();
     }//GEN-LAST:event_jButtonEditSueActionPerformed
 
     private void jButtonAddSueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddSueActionPerformed
@@ -700,7 +718,7 @@ public class BailCrimesAdd extends javax.swing.JDialog {
         Statement stmt = con.createStatement();
 //        String a=txtCaseNO.getText();
         String sql;
-                sql= "select BailAssetOrder,BailAssetDetail,BailAssetBath,BailAmount,BailAssetTotal,BailAssetRemark,BailCaseId,BailPersonId\n" +
+                sql= "select BailAssetId,BailAssetOrder,BailAssetDetail,BailAssetBath,BailAmount,BailAssetTotal,BailAssetRemark,BailCaseId,BailPersonId\n" +
                      "from BailAsset\n"
                    + "where BailCaseId='"+caseId+"' and BailPersonId='"+personId+"'";
     
@@ -709,12 +727,15 @@ public class BailCrimesAdd extends javax.swing.JDialog {
         Vector<Vector> tabledata = new Vector<Vector>();
         while(rs.next()){
             Vector<String> row = new Vector<String>();
+           
+            
             row.add(rs.getString("BailAssetOrder"));
             row.add(rs.getString("BailAssetDetail"));
             row.add(rs.getString("BailAmount"));
             row.add(rs.getString("BailAssetBath"));      
             row.add(rs.getString("BailAssetTotal"));
             row.add(rs.getString("BailAssetRemark"));
+             row.add(rs.getString("BailAssetId"));
 //            row.add(rs.getString("Age"));
 //            row.add(rs.getString("Race"));
 //            row.add(rs.getString("Nationality"));
@@ -731,6 +752,8 @@ public class BailCrimesAdd extends javax.swing.JDialog {
          ColumnName.add("ราคาบาท");
          ColumnName.add("รวมมูลค่า");
          ColumnName.add("หมายเหตุ");
+         ColumnName.add("BailAssetId");
+
 //         ColumnName.add("ครบ 2 เดือน");
          
 
@@ -741,14 +764,19 @@ public class BailCrimesAdd extends javax.swing.JDialog {
             ColumnName
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class,
+                java.lang.String.class, java.lang.String.class, java.lang.String.class,
+                java.lang.String.class, java.lang.String.class, java.lang.String.class,
+                java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-     
+             jTableBailAsset.getColumnModel().getColumn(6).setWidth(0);
+jTableBailAsset.getColumnModel().getColumn(6).setMinWidth(0);
+jTableBailAsset.getColumnModel().getColumn(6).setMaxWidth(0); 
         }catch(Exception ex){
             ex.printStackTrace();
         }
@@ -860,8 +888,8 @@ public class BailCrimesAdd extends javax.swing.JDialog {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonAddSue;
     private javax.swing.JButton jButtonAddSue1;
-    private javax.swing.JButton jButtonDelete;
     private javax.swing.JButton jButtonDelete1;
+    private javax.swing.JButton jButtonDeleteBailAsset;
     private javax.swing.JButton jButtonEditSue;
     private javax.swing.JButton jButtonEditSue1;
     private javax.swing.JLabel jLabel1;

@@ -14,6 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.json.simple.JSONObject;
@@ -34,6 +35,9 @@ public class SueCrimesAdd extends javax.swing.JDialog {
     public SueCrimesAdd(JFrame parrent,JSONObject datain,JSONObject dataId) {
         super(parrent,true);
         initComponents();
+         ImageIcon img = new ImageIcon("./Master/WD.png");
+        setIconImage(img.getImage());
+        setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
         comboInvest();
          jLabel3.setVisible(false);
          jLabel2.setVisible(false); 

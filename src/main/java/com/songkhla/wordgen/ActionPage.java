@@ -54,7 +54,7 @@ public class ActionPage extends javax.swing.JDialog {
     public ActionPage(JFrame parrent,JSONObject datain,JSONObject caseid) {
         super(parrent,true);
         initComponents();       
-         ImageIcon img = new ImageIcon("D://Master//WD.png");
+         ImageIcon img = new ImageIcon("./Master/WD.png");
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
         con=ConnectDatabase.connect();
@@ -198,7 +198,7 @@ public class ActionPage extends javax.swing.JDialog {
         ButtonAddAction1.setBackground(java.awt.SystemColor.windowText);
         ButtonAddAction1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         ButtonAddAction1.setForeground(new java.awt.Color(255, 255, 255));
-        ButtonAddAction1.setText("เพิ่มเป็นข้อมูลพื้นฐาน");
+        ButtonAddAction1.setText("เพิ่มเป็นข้อหาใหม่");
         ButtonAddAction1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButtonAddAction1ActionPerformed(evt);
@@ -408,9 +408,9 @@ public class ActionPage extends javax.swing.JDialog {
         // TODO add your handling code here:
            String intAc="INSERT into ActionsCase(ActionCode,ActionCrimes,ActionDetail,ActionNote,AnswerAccuser,AnswerSuspect) values(?,?,?,?,?,?) ";
 //          String intCr="insert into CrimesCase(AnswerSuspect,AnswerAccuse) values(?,?) ";
-       if(isInsert){
+     
             try {
-           String idAction=ActionPageInsert.IdAction();
+           String idAction=IdAction();
            pst=con.prepareStatement(intAc);
            pst.setString(1, idAction);
             pst.setString(2, ActionCrimes.getText());
@@ -427,18 +427,45 @@ public class ActionPage extends javax.swing.JDialog {
                      pst.execute();
                      System.out.println("SQLLLLL : "+intAc);
                      pst.close();
-              } 
+//        setVisible(false);
+              }
         } catch (Exception e) {
           JOptionPane.showMessageDialog(jPanel1,e,null, JOptionPane.INFORMATION_MESSAGE);
             
         }
-    }
+    
    
    
-        setVisible(false);
                                            
     }//GEN-LAST:event_ButtonAddAction1ActionPerformed
-
+ public static String IdAction(){
+         Connection con=null;
+         
+         con=ConnectDatabase.connect();
+            String sqlId="Select max(ActionCode) ActionCode from ActionsCase";
+        int id=0;
+        try {
+            Statement s=con.createStatement();
+            ResultSet rs=s.executeQuery(sqlId);
+            
+            if (rs.next()) {
+                id=rs.getInt("ActionCode"); 
+            }
+            
+            if(id==0){
+                id=1;
+            }
+            else{
+                id=id+1;
+            }
+             return String.valueOf(id);
+        
+        } catch (Exception e) {
+            return null;
+//            System.out.println(e);
+        } 
+    
+    }
     /**
      * @param args the command line arguments
      */

@@ -34,7 +34,7 @@ public class AssetOverView extends javax.swing.JDialog {
     public AssetOverView(JFrame parrent,JSONObject datain) {
         super(parrent,true);
         initComponents();
-        ImageIcon img = new ImageIcon("D://Master//WD.png");
+        ImageIcon img = new ImageIcon("./Master/WD.png");
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
         EvidenceRecordNumber.setVisible(false);
@@ -403,19 +403,7 @@ public class AssetOverView extends javax.swing.JDialog {
         
 //            System.out.println(name);
       }
-//          JSONObject data = new JSONObject(); 
-//                            
-//                    data.put("AssetList",ArrayData);
-                 
-                             //  Convert CrimcaseEdit to JFrame   
-//                       JFrame frame = new JFrame();
-//                     JDialog dialog = new JDialog(frame);//frame is owner
-//                    JFrame f = (JFrame)(dialog.getParent());
-//                     f.removeAll();
-//                            AssetNewEdit af=new AssetNewEdit(f,data);
-//                            af.pack();
-//                             af.setLocationRelativeTo(null);
-//                            af.setVisible(true);    		
+		
             if(TypeCase.equals("อาญา")){
             CrimesCaseEdit.ListAsset.setText(ArrayData);
             }

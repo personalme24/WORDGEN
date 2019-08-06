@@ -39,7 +39,7 @@ public class ChargeOverViewMenu extends javax.swing.JDialog {
     public ChargeOverViewMenu(JFrame parrent) {
       super(parrent,true);
         initComponents();
-         ImageIcon img = new ImageIcon("D://Master//WD.png");
+         ImageIcon img = new ImageIcon("./Master/WD.png");
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
                  jTableCharge.getTableHeader().setFont(new Font("TH SarabunPSK", Font.BOLD, 20));
@@ -219,7 +219,7 @@ public class ChargeOverViewMenu extends javax.swing.JDialog {
         );
 
         jButton7.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jButton7.setIcon(new javax.swing.ImageIcon("D:\\Master\\home.png")); // NOI18N
+        jButton7.setIcon(new javax.swing.ImageIcon("./Master/home.png"));
         jButton7.setText("เมนูหลัก");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

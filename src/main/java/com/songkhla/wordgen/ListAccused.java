@@ -36,7 +36,7 @@ String typeC;
         super(parrent,true);
 
         initComponents();  
-         ImageIcon img = new ImageIcon("D://Master//WD.png");
+        ImageIcon img = new ImageIcon("./Master/WD.png");
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
         txtCaseNO.setVisible(false);
@@ -157,7 +157,7 @@ String typeC;
         });
 
         jButton3.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon("D:\\Master\\home.png")); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon("./Master/home.png"));
         jButton3.setText("เมนูหลัก");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,17 +173,19 @@ String typeC;
                 .addGap(37, 37, 37)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jButtonAddAccused, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonEditAccured, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonDeleteAccured, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(txtCaseNO))
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3)
-                .addGap(22, 22, 22))
+                        .addComponent(txtCaseNO)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton3)
+                        .addGap(38, 38, 38))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,12 +197,9 @@ String typeC;
                     .addComponent(jButtonAddAccused)
                     .addComponent(jButtonEditAccured)
                     .addComponent(jButtonDeleteAccured)
-                    .addComponent(txtCaseNO))
+                    .addComponent(txtCaseNO)
+                    .addComponent(jButton3))
                 .addGap(20, 20, 20))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(jButton3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -449,6 +448,7 @@ jTableAccure.getColumnModel().getColumn(7).setMaxWidth(0);
          if(jTableAccure.getRowCount()==1){
 //             int rows = jTableAccure.getRowCount();
             if(typeC.equals("อาญา")){
+                
             CrimesCaseEdit.jTextAccused.setText(jTableAccure.getValueAt(0, 2).toString()); 
             }
             if(typeC.equals("จราจร")){
@@ -470,8 +470,20 @@ jTableAccure.getColumnModel().getColumn(7).setMaxWidth(0);
             IdentityEdit.jTextAccused.setText(jTableAccure.getValueAt(0, 2).toString()+"และคนอื่นๆ"); 
             }
             }
-               int rows = jTableAccure.getRowCount();
-                       CrimesCaseEdit.jLabelNumberAcc.setText(rows+"");
+            
+               if(typeC.equals("อาญา")){
+             int rows = jTableAccure.getRowCount();
+                       CrimesCaseEdit.jLabelNumberAcc.setText(rows+"");  
+            }
+            if(typeC.equals("จราจร")){
+             int rows = jTableAccure.getRowCount();
+                       TrafficEdit.jLabelNumberAcc.setText(rows+"");   
+            }
+              if(typeC.equals("ชันสูตร")){
+            int rows = jTableAccure.getRowCount();
+                       IdentityEdit.jLabelNumberAcc.setText(rows+"");   
+            }
+          
         }catch(Exception ex){
             ex.printStackTrace();
         }

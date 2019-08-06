@@ -5,6 +5,7 @@
  */
 package com.songkhla.wordgen;
 
+import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 
@@ -21,6 +22,9 @@ public class BaseDataMenu extends javax.swing.JDialog {
        super(parrent,true);
 
         initComponents();
+        ImageIcon img = new ImageIcon("./Master/WD.png");
+        setIconImage(img.getImage());
+        setTitle("ระบบสำนวนอิเล็กทรอนิกส์ (CRIMES)");
     }
 
     /**
@@ -270,7 +274,7 @@ public class BaseDataMenu extends javax.swing.JDialog {
         jLabel13.setText("ข้อมูลพื้นฐาน");
 
         jButton2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon("D:\\Master\\home.png")); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon("./Master/home.png"));
         jButton2.setText("เมนูหลัก");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

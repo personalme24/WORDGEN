@@ -55,7 +55,7 @@ public class BailCrimesForm extends javax.swing.JDialog {
     public BailCrimesForm(JFrame parrent) {
                 super(parrent,true);
         initComponents();
-            ImageIcon img = new ImageIcon("D://Master//WD.png");
+            ImageIcon img = new ImageIcon("./Master/WD.png");
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
         eventJStatusManage();
@@ -123,7 +123,7 @@ jTableBail.setPreferredScrollableViewportSize(Toolkit.getDefaultToolkit().getScr
         jLabel1.setText("ผู้ต้องหาประกันตัว");
 
         jButton3.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon("D:\\Master\\home.png")); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon("./Master/home.png"));
         jButton3.setText("เมนูหลัก");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -299,7 +299,7 @@ jTableBail.setPreferredScrollableViewportSize(Toolkit.getDefaultToolkit().getScr
         });
 
         AddEditBail.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        AddEditBail.setIcon(new javax.swing.ImageIcon("D:\\Master\\edit (1).png")); // NOI18N
+        AddEditBail.setIcon(new javax.swing.ImageIcon("./Master/edit (1).png"));
         AddEditBail.setText("แก้ไข");
         AddEditBail.setPreferredSize(new java.awt.Dimension(79, 30));
         AddEditBail.addActionListener(new java.awt.event.ActionListener() {

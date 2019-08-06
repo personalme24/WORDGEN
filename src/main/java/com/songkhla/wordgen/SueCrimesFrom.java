@@ -77,7 +77,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         super(parrent,true);
         initComponents();
 //        DataLastSue();
-        ImageIcon img = new ImageIcon("D://Master//WD.png");
+        ImageIcon img = new ImageIcon("./Master/WD.png");
         setIconImage(img.getImage());
         setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
        
@@ -334,7 +334,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         jLabel1.setText("ผัดฟ้องฝากขัง");
 
         jButton4.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jButton4.setIcon(new javax.swing.ImageIcon("D:\\Master\\home.png")); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon("./Master/home.png"));
         jButton4.setText("เมนูหลัก");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

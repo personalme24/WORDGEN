@@ -40,7 +40,7 @@ public class InvesInformationFrom extends javax.swing.JDialog {
     public InvesInformationFrom(JFrame parrent,JSONObject datain) {
         super(parrent,true);
         initComponents();
-            ImageIcon img = new ImageIcon("D://Master//WD.png");
+            ImageIcon img = new ImageIcon("./Master/WD.png");
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
             

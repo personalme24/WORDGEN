@@ -553,9 +553,12 @@
               </Layout>
             </Container>
             <Component class="javax.swing.JLabel" name="jLabel10">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel10"/>
-              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel10MouseClicked"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jLabel10.setIcon(new javax.swing.ImageIcon(&quot;./Master/error.png&quot;));"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>

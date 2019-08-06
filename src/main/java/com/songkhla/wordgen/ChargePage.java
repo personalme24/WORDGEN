@@ -11,6 +11,10 @@ import static com.songkhla.wordgen.ActionPage.ActionDetail;
 import static com.songkhla.wordgen.ActionPage.ActionNote;
 import static com.songkhla.wordgen.ActionPage.AnswerAccuser;
 import static com.songkhla.wordgen.ActionPage.AnswerSuspect;
+import static com.songkhla.wordgen.ChargePageInsert.ChargeName;
+import static com.songkhla.wordgen.ChargePageInsert.Law;
+import static com.songkhla.wordgen.ChargePageInsert.Note;
+import static com.songkhla.wordgen.ChargePageInsert.RateOfPenalty;
 import static com.songkhla.wordgen.CrimesCaseEdit.ChargeNameCase;
 import static com.songkhla.wordgen.CrimesCaseEdit.jLabelChargeCode;
 import java.awt.Dimension;
@@ -103,6 +107,7 @@ public class ChargePage extends javax.swing.JDialog {
         jButtonSaveCharge = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         caseno = new javax.swing.JLabel();
+        jButtonSaveChargeData = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("ข้อมูลข้อหา");
@@ -197,6 +202,16 @@ public class ChargePage extends javax.swing.JDialog {
 
         caseno.setText("jLabel7");
 
+        jButtonSaveChargeData.setBackground(java.awt.SystemColor.windowText);
+        jButtonSaveChargeData.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jButtonSaveChargeData.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonSaveChargeData.setText("เพิ่มเป็นข้อหาใหม่");
+        jButtonSaveChargeData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSaveChargeDataActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -225,7 +240,10 @@ public class ChargePage extends javax.swing.JDialog {
                                 .addComponent(ChargeName, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton2))))
-                    .addComponent(jButtonSaveCharge, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButtonSaveCharge, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonSaveChargeData)))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -255,7 +273,9 @@ public class ChargePage extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonSaveCharge)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonSaveCharge)
+                    .addComponent(jButtonSaveChargeData))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -383,6 +403,34 @@ public class ChargePage extends javax.swing.JDialog {
             
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButtonSaveChargeDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveChargeDataActionPerformed
+        // TODO add your handling code here:
+           String intCh="INSERT into Charge(ChargeCode,ChargeName,Law,RateOfPenalty,Note) values(?,?,?,?,?) ";
+//          String intCr="insert into CrimesCase(AnswerSuspect,AnswerAccuse) values(?,?) ";
+        try {
+           
+           pst=con.prepareStatement(intCh);
+           String idCh=ChargePageInsert.IdCharge();
+               pst.setString(1,idCh);
+            pst.setString(2,ChargeName.getText());
+            pst.setString(3,Law.getText());
+            pst.setString(4,RateOfPenalty.getText());
+             pst.setString(5,Note.getText());
+            
+           
+             int response = JOptionPane.showConfirmDialog(jPanel2, "ต้องการบันทึกข้อมูล", "ยืนยัน",
+        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (response == JOptionPane.YES_OPTION) {
+               pst.execute();
+//           System.out.println("SQLLLLL : "+intCh);
+           pst.close();
+          } 
+
+        } catch (Exception e) {
+         JOptionPane.showMessageDialog(jPanel2,"Cannot Save", null , JOptionPane.INFORMATION_MESSAGE);    
+        }
+    }//GEN-LAST:event_jButtonSaveChargeDataActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -431,6 +479,7 @@ public class ChargePage extends javax.swing.JDialog {
     private javax.swing.JLabel caseno;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonSaveCharge;
+    private javax.swing.JButton jButtonSaveChargeData;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

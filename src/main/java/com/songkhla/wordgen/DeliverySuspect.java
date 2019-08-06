@@ -21,6 +21,7 @@ import org.jdatepicker.impl.UtilDateModel;
 import org.json.simple.JSONObject;
 import javax.swing.SpinnerDateModel;
 import java.util.Date;
+import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JSpinner;
 
@@ -42,6 +43,9 @@ public class DeliverySuspect extends javax.swing.JDialog {
         super(parrent,true);        
 
         initComponents();
+        ImageIcon img = new ImageIcon("./Master/WD.png");
+        setIconImage(img.getImage());
+        setTitle("ระบบสำนวนอิเล็กทรอนิกส์ (CRIMES)");
         personid=dataId.get("BailPersonId")+"";
         jLabel2.setText(personid);
         jLabel2.setVisible(false);
