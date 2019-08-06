@@ -56,13 +56,16 @@ import com.songkhla.document.W51;
 import com.songkhla.document.W52;
 import com.songkhla.document.W53;
 import com.songkhla.document.W6;
+import com.songkhla.document.W61;
 import com.songkhla.document.W62;
 import com.songkhla.document.W63;
 import com.songkhla.document.W64;
 import com.songkhla.document.W65;
+import com.songkhla.document.W66;
 import com.songkhla.document.W67;
 import com.songkhla.document.W68;
 import com.songkhla.document.W69;
+import com.songkhla.document.W7;
 import com.songkhla.document.W70;
 import com.songkhla.document.W71;
 import com.songkhla.document.W711;
@@ -71,6 +74,8 @@ import com.songkhla.document.W73;
 import com.songkhla.document.W74;
 import com.songkhla.document.W75;
 import com.songkhla.document.W76;
+import com.songkhla.document.W77;
+import com.songkhla.document.W78;
 import com.songkhla.document.W8;
 import com.songkhla.document.W80;
 import com.songkhla.document.W9;
@@ -849,14 +854,14 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                 CrimeLocationMooActionPerformed(evt);
             }
         });
-        jPanel1.add(CrimeLocationMoo, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 100, 71, 29));
+        jPanel1.add(CrimeLocationMoo, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 100, 71, 30));
 
         jLabel24.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel24.setText("ตรอก/ซอย");
         jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 100, -1, -1));
 
         CrimeLocationSoi.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
-        jPanel1.add(CrimeLocationSoi, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 100, 128, -1));
+        jPanel1.add(CrimeLocationSoi, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 100, 128, 30));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -2756,7 +2761,8 @@ CrimeLocationAmphur.removeAllItems();
    
             caseyear=crimecaseyear.getText();
            caseno=crimecaseno.getText();
-           casetype=CaseType.getText();     
+           casetype=CaseType.getText();   
+           
         File f3=new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
    
         f3.mkdirs();
@@ -2782,10 +2788,9 @@ CrimeLocationAmphur.removeAllItems();
         if(jCheckW206.isSelected()){
             W6.w6(no);
         }
-        /*
         if(jCheckW207.isSelected()){
-            W7.w7(no);
-        }*/
+           W7.w7(no);
+        }
         if(jCheckW208.isSelected()){
             W8.w8(no);
         }
@@ -2813,9 +2818,9 @@ CrimeLocationAmphur.removeAllItems();
                if(jCheckW217.isSelected()){
                         W17.w17(no);
                     }
-              // if(jCheckW218.isSelected()){
-                  //      W18.w18(no);
-                  //  }
+               if(jCheckW218.isSelected()){
+                      W18.w18(no);
+                     }
                if(jCheckW219.isSelected()){
                         W19.w19(no);
                     }
@@ -2923,6 +2928,9 @@ CrimeLocationAmphur.removeAllItems();
                if(jCheckW253.isSelected()){
                         W53.w53(no);
                     }
+               if(jCheckW261.isSelected()){
+                        W61.w61(no);
+                    }
                if(jCheckW262.isSelected()){
                         W62.w62(no);
                     }
@@ -2936,13 +2944,13 @@ CrimeLocationAmphur.removeAllItems();
                         W65.w65(no);
                     }
                if(jCheckW266.isSelected()){
-                        //W66.w66(no);
+                        W66.w66(no);
                     }
                if(jCheckW267.isSelected()){
                         W67.w67(no);
                     }
               if(jCheckW268.isSelected()){
-                     // W68.w68(no);
+                       // W68.w68(no);
                   }
                if(jCheckW269.isSelected()){
                         W69.w69(no);
@@ -2968,6 +2976,13 @@ CrimeLocationAmphur.removeAllItems();
                if(jCheckW276.isSelected()){
                         W76.w76(no);
                     }
+               if(jCheckW277.isSelected()){
+                        W77.w77(no);
+                    }
+               if(jCheckW278.isSelected()){
+                        W78.w78(no);
+                    }
+               
                if(jCheckW280.isSelected()){
                         W80.w80(no);
                     }
