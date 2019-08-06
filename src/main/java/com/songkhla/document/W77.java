@@ -51,6 +51,7 @@ public class W77 {
             PreparedStatement pst=null;
              
              String PoliceStationName="";
+             String suspectName="";
              String THNumBook="";
              String TelStation="";
              String ProtectChild="";
@@ -99,8 +100,8 @@ public class W77 {
                               "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
                               "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                               "left join ActionsCaseData on crimecase.ActionCodeCase = ActionsCaseData.ActionCodeCase\n"+
-                              "where crimecase.CaseId='"+cc+"' and Person.TypePerson='ผู้ต้องหา'\n" +
-                              "group by crimecase.CaseId,Person.NoPerson,BailAsset.BailAssetId";
+                              "where crimecase.CaseId='"+cc+"' and Person.TypePerson='ผู้ต้องหา' and Person.CourtSuspect='ศาลเด็กและเยาวชน'\n" +
+                              "group by crimecase.CaseId,Person.NoPerson";
        
                    
             
@@ -116,6 +117,7 @@ public class W77 {
                     ccYear=s.getString("crimecaseyears");
                     casetype =s.getString("casetype");
                     caseno  =s.getString("crimecasenoyear");
+                    suspectName =s.getString("FullNamePerson");
             
                 SimpleDateFormat sdfstart ;
                 Calendar  calstart = Calendar.getInstance();
@@ -145,6 +147,7 @@ public class W77 {
                 bookmarkvalue.put("C441", Checknull(s.getString("OccuredTime")));
                 bookmarkvalue.put("C6", Checknull(ToDate(s.getString("CaseRequestDate"))));
                 bookmarkvalue.put("C661", Checknull(s.getString("CaseRequestTime")));
+                bookmarkvalue.put("C8", Checknull(s.getString("CrimeLocation")));
                 bookmarkvalue.put("C9", Checknull(s.getString("CrimeLocationMoo")));
                 bookmarkvalue.put("C10", Checknull(s.getString("CrimeLocationSoi")));
                 bookmarkvalue.put("C11", Checknull(s.getString("CrimeLocationRoad")));
@@ -164,15 +167,19 @@ public class W77 {
                    
                     
                     bookmarkvalue.put("PY7",  Checknull(s.getString("FullNamePerson")));
+                    bookmarkvalue.put("PY11", Checknull(ToDate(s.getString("BirthDay"))));
+                    bookmarkvalue.put("PY12", Checknull(s.getString("Gender")));
                     bookmarkvalue.put("PY13", Checknull(s.getString("Age")));
                     bookmarkvalue.put("PY15", Checknull(s.getString("Nationality"))); 
                     bookmarkvalue.put("PY16", Checknull(s.getString("Religion"))); 
                     bookmarkvalue.put("PY17", Checknull(s.getString("Occupation")));
+                    bookmarkvalue.put("PL22", Checknull(s.getString("HouseNumber")));
+                    bookmarkvalue.put("PL23", Checknull(s.getString("Moo")));
                     bookmarkvalue.put("PY24", Checknull(s.getString("Tambon"))); 
-                    bookmarkvalue.put("PY25", Checknull(s.getString("Amp")));
+                    bookmarkvalue.put("PY25", Checknull(s.getString("Amphur")));
                     bookmarkvalue.put("PY26", Checknull(s.getString("Province")));
-                    bookmarkvalue.put("PY31", Checknull(s.getString("Father")));
-                    bookmarkvalue.put("PY32", Checknull(s.getString("Mother")));
+                    bookmarkvalue.put("PY31", Checknull(s.getString("FatherFullName")));
+                    bookmarkvalue.put("PY32", Checknull(s.getString("MotherFullName")));
                     bookmarkvalue.put("PY33", Checknull(s.getString("TambonBirthday")));
                     bookmarkvalue.put("PY34", Checknull(s.getString("AmphurBirthday")));
                     bookmarkvalue.put("PY35", Checknull(s.getString("ProvinceBirthday")));
@@ -192,13 +199,7 @@ public class W77 {
                        bookmarkvalue.put("P04", Checknull(LastName));
                        bookmarkvalue.put("P05", Checknull(Position));
                        
-                            bookmarkvalue.put("C8", Checknull(s.getString("CrimeLocation")));
-                            bookmarkvalue.put("C9", Checknull(s.getString("CrimeLocationMoo")));
-                            bookmarkvalue.put("C10", Checknull(s.getString("CrimeLocationSoi")));
-                            bookmarkvalue.put("C11", Checknull(s.getString("CrimeLocationRoad")));
-                            bookmarkvalue.put("C12", Checknull(s.getString("CrimeLocationDistrict")));
-                            bookmarkvalue.put("C13", Checknull(s.getString("CrimeLocationAmphur")));
-                            bookmarkvalue.put("C14", Checknull(s.getString("CrimeLocationProvince")));
+                        
              
 			JSONArray tablecolumn = new JSONArray();
 
@@ -221,7 +222,7 @@ public class W77 {
                         processTABLE(bookmarkvalue,wordMLPackage);
                         
                        
-			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/หนังสือแจ้งการจับกุมเด็กและเยาวชน"+s.getString("FullNamePerson")+""+ cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/หนังสือแจ้งการจับกุมเด็กและเยาวชน"+suspectName+""+ cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -250,6 +251,7 @@ public static void nw77() {
                             bookmarkvalue.put("C441","");
                             bookmarkvalue.put("C6", "");
                             bookmarkvalue.put("C661", "");
+                            bookmarkvalue.put("C8", "");
                             bookmarkvalue.put("C9", "");
                             bookmarkvalue.put("C10", "");
                             bookmarkvalue.put("C11", "");
@@ -262,10 +264,14 @@ public static void nw77() {
                     bookmarkvalue.put("B2", "");
                     
                     bookmarkvalue.put("PY7", ""); 
+                    bookmarkvalue.put("PY11", ""); 
+                    bookmarkvalue.put("PY12", ""); 
                     bookmarkvalue.put("PY13", ""); 
                     bookmarkvalue.put("PY15", ""); 
                     bookmarkvalue.put("PY16", "");
                     bookmarkvalue.put("PY17", "");
+                    bookmarkvalue.put("PY22", ""); 
+                    bookmarkvalue.put("PY23", ""); 
                     bookmarkvalue.put("PY24", ""); 
                     bookmarkvalue.put("PY25", ""); 
                     bookmarkvalue.put("PY26", "");
