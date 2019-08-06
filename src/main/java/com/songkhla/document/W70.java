@@ -125,6 +125,7 @@ public static void w70(String cc) {
                 bookmarkvalue.put("C3",Checknull(ccYear));
                 bookmarkvalue.put("CC2",Checknull(caseno));
                 bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
+                bookmarkvalue.put("S02",Checknull(PoliceStationName));
                 bookmarkvalue.put("S27",Checknull(ProvincProsecutor));
                 bookmarkvalue.put("S13",Checknull(HeadName));
                 bookmarkvalue.put("S14",Checknull(HeadPosition));
@@ -238,6 +239,7 @@ public static void nw70() {
                 bookmarkvalue.put("C3","");
                 bookmarkvalue.put("CC2","");
                 bookmarkvalue.put("S2","");
+                bookmarkvalue.put("S02","");
                 bookmarkvalue.put("S27","");
                 bookmarkvalue.put("S13","");
                 bookmarkvalue.put("S14","");

@@ -69,7 +69,8 @@ public class W16 {
 //                String ch;
 //                   String sql="SELECT * from CrimeCase Where crimecaseno = '"+cc+"'";
                    String sql= "select RecordInquiry.*,crimecase.* from RecordInquiry \n" +
-                               "left join crimecase on RecordInquiry.CaseIdRecord =crimecase.CaseId";
+                               "left join crimecase on RecordInquiry.CaseIdRecord =crimecase.CaseId \n" +
+                               "where crimecase.CaseId='"+cc+"'";
                            
 //                   pst=conn.prepareStatement(sql);
 //           pst=PreparedStatement(sql);
@@ -108,17 +109,18 @@ public class W16 {
      
 			JSONArray tablecolumn = new JSONArray();
 			
-			tablecolumn.add("RE2");
-                        tablecolumn.add("RE3");
-			tablecolumn.add("RE4");
+			tablecolumn.add("RE5");
+                        tablecolumn.add("RE6");
+			tablecolumn.add("RE7");
                         
 
 			JSONObject row1 = new JSONObject();
 			
 			
-			row1.put("RE2",Checknull(ToDate(s.getString("DateRecord"))));
-                        row1.put("RE3",Checknull(s.getString("NameInguiry")));
-                        row1.put("RE4",Checknull(s.getString("DetailRecord")));
+			row1.put("RE5",Checknull(ToDate(s.getString("DateRecord"))));
+                        row1.put("RE6",Checknull(s.getString("DetailRecord")));
+                        row1.put("RE7",Checknull(s.getString("NameInguiry")));
+                        
 
 			JSONArray.add(row1);
                         

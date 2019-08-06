@@ -120,14 +120,14 @@ public static void w68(String cc,String sueTime) {
 //                System.out.print("ข้อหา :: "+s.getString("ChargeCode"));
 //                System.out.print(" - ");
                  JSONObject bookmarkvalue = new JSONObject();  
-               
+               System.out.print("SueSecond.."+ s.getString("SueSecond"));
                  bookmarkvalue.put("PS90", Checknull(s.getString("SueSecond")));
                   bookmarkvalue.put("PS106", Checknull(s.getString("SueFirstTotal")));
               
-                 bookmarkvalue.put("PS107", Checknull(ChangFormat(s.getString("SueFirstEnd"))));               
+                 bookmarkvalue.put("PS107", Checknull(ToDate(ChangFormat(s.getString("SueFirstEnd")))));               
                 bookmarkvalue.put("PS109", Checknull(s.getString("SueSecTotal")));
-                bookmarkvalue.put("PS110", Checknull(ChangFormat(s.getString("SueSecDate"))));                
-                bookmarkvalue.put("PS111", Checknull(ChangFormat(s.getString("SueSecEnd"))));   
+                bookmarkvalue.put("PS110", Checknull(ToDate(ChangFormat(s.getString("SueSecDate")))));                
+                bookmarkvalue.put("PS111", Checknull(ToDate(ChangFormat(s.getString("SueSecEnd")))));   
                 
                 bookmarkvalue.put("C1",Checknull(Date));
                 bookmarkvalue.put("C01",Checknull(Month));
@@ -135,7 +135,7 @@ public static void w68(String cc,String sueTime) {
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3",Checknull(ccYear));
                  bookmarkvalue.put("CC2",Checknull(caseno));
-                bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
+                bookmarkvalue.put("S2",Checknull(PoliceStationName));
                 bookmarkvalue.put("S5", Checknull(StationAmphur));
                 bookmarkvalue.put("S6", Checknull(StationProvince));
                 bookmarkvalue.put("S10",Checknull(TelStation));
@@ -205,7 +205,7 @@ public static void w68(String cc,String sueTime) {
 					.load(new java.io.File("./TEMPLATE/w68.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/คำร้องขอ"+StatusSue+"ครั้งที่ " +cs+"-"+ccYear+""+s.getString("SueSecond")+".doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/คำร้องขอ"+StatusSue+"ครั้งที่"+s.getString("SueSecond")+"" + cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
