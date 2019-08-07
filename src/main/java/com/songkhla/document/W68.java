@@ -116,7 +116,7 @@ public static void w68(String cc,String sueTime) {
                
                sdfstart = new SimpleDateFormat("yyyy", new Locale("th", "TH"));  
                Year=sdfstart.format(calstart.getTime());
-                 
+                 System.out.println("Sueeeeeeeeeeeeeeeeeeeeeeeeeee : "+sueTime);
 //                System.out.print("ข้อหา :: "+s.getString("ChargeCode"));
 //                System.out.print(" - ");
                  JSONObject bookmarkvalue = new JSONObject();  
