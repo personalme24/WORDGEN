@@ -269,7 +269,7 @@ public static void w68(String cc,String sueTime) {
 					.load(new java.io.File("./TEMPLATE/w68.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/คำร้องขอ"+StatusSue+"ครั้งที่"+s.getString("SueSecond")+"" + cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/คำร้องขอ"+StatusSue+"ครั้งที่ "+sueTime +s.getString("FullNamePerson")+""+ cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -290,7 +290,11 @@ public static void nw68() {
                  bookmarkvalue.put("PS107", "");               
                 bookmarkvalue.put("PS109", "");
                 bookmarkvalue.put("PS110", "");                
-                bookmarkvalue.put("PS111", "");   
+                bookmarkvalue.put("PS111", "");  
+                bookmarkvalue.put("PS112", "");
+                bookmarkvalue.put("PS113", "");
+                bookmarkvalue.put("PS114", "");
+                bookmarkvalue.put("PS115", "");
                 bookmarkvalue.put("CC2","");
                 bookmarkvalue.put("C1","");
                 bookmarkvalue.put("C01","");
