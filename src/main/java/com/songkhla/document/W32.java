@@ -81,11 +81,11 @@ public class W32 {
                          Position=rs1.getString("Position");
                       }
                   
-                   String sql="select crimecase.*,ChargeCase.*,Person.ArrestDate,Person.PlaceArrest,Person.ArrestDateTime \n" +
+                   String sql="select crimecase.*,ChargeCase.*,Person.* \n" +
                                "from crimecase \n" +
                                "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
-                                "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
-                                "where crimecase.CaseId='"+cc+"'\n"+
+                               "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
+                                "where crimecase.CaseId='"+cc+"' and Person.TypePerson='ผู้ต้องหา' and Person.CourtSuspect='ศาลเด็กและเยาวชน'\n"+
                                 "group by crimecase.CaseId";
                    
 //                   pst=conn.prepareStatement(sql);
@@ -119,20 +119,20 @@ public class W32 {
 		bookmarkvalue.put("C2",Checknull(cs));
                  bookmarkvalue.put("CC2",Checknull(caseno));
                 bookmarkvalue.put("C3",Checknull(ccYear));
-                 bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
+                 bookmarkvalue.put("S2",Checknull(PoliceStationName));
                  bookmarkvalue.put("S5", Checknull(StationAmphur));
                  bookmarkvalue.put("S6", Checknull(StationProvince));
                  bookmarkvalue.put("S27",Checknull(ProvincProsecutor));
                  bookmarkvalue.put("S10",Checknull(TelStation));
                  
-                bookmarkvalue.put("P54",Checknull(ToDate(s.getString("ArrestDate"))));
+                bookmarkvalue.put("P54",Checknull(ToDate(s.getString("ArrestDateTime"))));
                  bookmarkvalue.put("P55",Checknull(s.getString("PlaceArrest")));
-                 bookmarkvalue.put("P88",Checknull(s.getString("ArrestDateTime")));
+                 bookmarkvalue.put("P88",Checknull(ToTime(s.getString("ArrestDateTime"))));
                    
                   
                     
                        bookmarkvalue.put("B2", Checknull(s.getString("ChargeNameCase")));
-                      bookmarkvalue.put("AS1", Checknull(s.getString("NoAsset")));
+                      
                      
                       
                         bookmarkvalue.put("P02", Checknull(RankPolice));
@@ -361,6 +361,19 @@ public class W32 {
              Logger.getLogger(W32.class.getName()).log(Level.SEVERE, null, ex);
          }
                return ResultDate;
+    }
+     private static String ToTime(String strTime){
+               String ResultTime="";
+         try {
+    	       SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm", new Locale("th", "TH"));  
+               SimpleDateFormat dateto  = new SimpleDateFormat("HH:mm", new Locale("th", "TH"));  
+               Date date=null;
+               date = df.parse(strTime);               
+               ResultTime=dateto.format(date.getTime());
+         } catch (ParseException ex) {
+             Logger.getLogger(W62.class.getName()).log(Level.SEVERE, null, ex);
+         }
+               return ResultTime;
     }
     public static String Checknull(String input){
 					if(input==null||input==""||input=="null") { return ""; }

@@ -51,6 +51,7 @@ public class W78 {
             PreparedStatement pst=null;
              
              String PoliceStationName="";
+             String suspectName="";
              String THNumBook="";
              String TelStation="";
              String ProtectChild="";
@@ -99,8 +100,8 @@ public class W78 {
                               "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
                               "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                               "left join ActionsCaseData on crimecase.ActionCodeCase = ActionsCaseData.ActionCodeCase\n"+
-                              "where crimecase.CaseId='"+cc+"' and Person.TypePerson='ผู้ต้องหา'\n" +
-                              "group by crimecase.CaseId,Person.NoPerson,BailAsset.BailAssetId";
+                              "where crimecase.CaseId='"+cc+"' and Person.TypePerson='ผู้ต้องหา' and Person.CourtSuspect='ศาลเด็กและเยาวชน'\n" +
+                              "group by crimecase.CaseId,Person.NoPerson";
        
                    
             
@@ -116,6 +117,7 @@ public class W78 {
                     ccYear=s.getString("crimecaseyears");
                     casetype =s.getString("casetype");
                     caseno  =s.getString("crimecasenoyear");
+                    suspectName =s.getString("FullNamePerson");
             
                 SimpleDateFormat sdfstart ;
                 Calendar  calstart = Calendar.getInstance();
@@ -145,6 +147,7 @@ public class W78 {
                 bookmarkvalue.put("C441", Checknull(s.getString("OccuredTime")));
                 bookmarkvalue.put("C6", Checknull(ToDate(s.getString("CaseRequestDate"))));
                 bookmarkvalue.put("C661", Checknull(s.getString("CaseRequestTime")));
+                bookmarkvalue.put("C8", Checknull(s.getString("CrimeLocation")));
                 bookmarkvalue.put("C9", Checknull(s.getString("CrimeLocationMoo")));
                 bookmarkvalue.put("C10", Checknull(s.getString("CrimeLocationSoi")));
                 bookmarkvalue.put("C11", Checknull(s.getString("CrimeLocationRoad")));
@@ -165,7 +168,7 @@ public class W78 {
                     
                     bookmarkvalue.put("PY7",  Checknull(s.getString("FullNamePerson")));
                     bookmarkvalue.put("PY69", Checknull(s.getString("ParentName")));
-                    bookmarkvalue.put("PY97", Checknull(s.getString("StatusSuspect")));
+                    
                    
                     
                       
@@ -174,13 +177,7 @@ public class W78 {
                        bookmarkvalue.put("P04", Checknull(LastName));
                        bookmarkvalue.put("P05", Checknull(Position));
                        
-                            bookmarkvalue.put("C8", Checknull(s.getString("CrimeLocation")));
-                            bookmarkvalue.put("C9", Checknull(s.getString("CrimeLocationMoo")));
-                            bookmarkvalue.put("C10", Checknull(s.getString("CrimeLocationSoi")));
-                            bookmarkvalue.put("C11", Checknull(s.getString("CrimeLocationRoad")));
-                            bookmarkvalue.put("C12", Checknull(s.getString("CrimeLocationDistrict")));
-                            bookmarkvalue.put("C13", Checknull(s.getString("CrimeLocationAmphur")));
-                            bookmarkvalue.put("C14", Checknull(s.getString("CrimeLocationProvince")));
+                          
              
 			JSONArray tablecolumn = new JSONArray();
 
@@ -203,7 +200,7 @@ public class W78 {
                         processTABLE(bookmarkvalue,wordMLPackage);
                         
                        
-			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/หนังสือแจ้งการจับกุมเด็กและเยาวชนไปยังผู้ปกครอง"+s.getString("FullNamePerson")+""+ cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/หนังสือแจ้งการจับกุมเด็กและเยาวชนไปยังผู้ปกครอง "+suspectName+""+ cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -232,6 +229,7 @@ public static void nw78() {
                             bookmarkvalue.put("C441","");
                             bookmarkvalue.put("C6", "");
                             bookmarkvalue.put("C661", "");
+                            bookmarkvalue.put("C8", "");
                             bookmarkvalue.put("C9", "");
                             bookmarkvalue.put("C10", "");
                             bookmarkvalue.put("C11", "");
@@ -244,7 +242,6 @@ public static void nw78() {
                     bookmarkvalue.put("B2", "");
                     
                     bookmarkvalue.put("PY7", ""); 
-                    bookmarkvalue.put("PY97", ""); 
                     bookmarkvalue.put("PY69", ""); 
                   
                     

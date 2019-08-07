@@ -56,6 +56,7 @@ public static void w66(String cc) {
              String StationAmphur="";
              String StationProvince="";
              String JuvenileCourt="";
+            
              String TelStation="";
              String RankPolice ="";
              String FirstName ="";
@@ -85,7 +86,7 @@ public static void w66(String cc) {
                       }
 //                
 
-                   String sql="select crimecase.*,Person.*,ChargeCase.*,ActionsCaseData*\n" +
+                   String sql="select crimecase.*,Person.*,ChargeCase.*,ActionsCaseData.*\n" +
                               "from crimecase \n" +
                               "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                               "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
@@ -129,7 +130,8 @@ public static void w66(String cc) {
                 bookmarkvalue.put("S5", Checknull(StationAmphur));
                 bookmarkvalue.put("S6", Checknull(StationProvince));
                 bookmarkvalue.put("S10",Checknull(TelStation));
-                bookmarkvalue.put("S17",Checknull(JuvenileCourt));
+                bookmarkvalue.put("S18",Checknull(JuvenileCourt));
+                
                    
 //                   ----------------------------ผู้กล่าวหา--------------------
                
@@ -156,8 +158,8 @@ public static void w66(String cc) {
                     bookmarkvalue.put("P27", Checknull(s.getString("ZipCode")));
                     bookmarkvalue.put("P28", Checknull(s.getString("PhonePerson")));
                     
-                    bookmarkvalue.put("P31", Checknull(s.getString("Father")));
-                    bookmarkvalue.put("P32", Checknull(s.getString("Mother")));
+                    bookmarkvalue.put("P31", Checknull(s.getString("FatherFullName")));
+                    bookmarkvalue.put("P32", Checknull(s.getString("MotherFullName")));
                     bookmarkvalue.put("P33", Checknull(s.getString("TambonBirthday")));
                     bookmarkvalue.put("P34", Checknull(s.getString("AmphurBirthday")));
                     bookmarkvalue.put("P35", Checknull(s.getString("ProvinceBirthday")));
@@ -255,7 +257,7 @@ public static void nw66() {
                 bookmarkvalue.put("S5", "");
                 bookmarkvalue.put("S6", "");
                 bookmarkvalue.put("S10","");
-                bookmarkvalue.put("S17","");
+                bookmarkvalue.put("S18","");
                    
 //                   ----------------------------ผู้กล่าวหา--------------------
                

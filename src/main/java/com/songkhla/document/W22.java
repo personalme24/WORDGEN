@@ -58,6 +58,7 @@ public class W22 {
              String StationAmphur="";
              String StationProvince="";
              String ProvincProsecutor="";
+             String StationAddress ="";
              String TelStation="";
              String RankPolice ="";
              String FirstName ="";
@@ -73,6 +74,9 @@ public class W22 {
                   while (rs.next()) {                    
                          PoliceStationName=rs.getString("PoliceStaionName");
                          ProvincProsecutor=rs.getString("ProvincProsecutor");
+                         StationAddress=rs.getString("StationAddress");
+                         StationAmphur=rs.getString("StationAmphur");
+                         StationProvince=rs.getString("StationProvince");
                          TelStation=rs.getString("TelStation");
                       }
             
@@ -86,7 +90,7 @@ public class W22 {
                          Position=rs1.getString("Position");
                       }
                   
-                   String sql="select crimecase.*,ChargeCaseCase.*,P1.*,P2.*\n" +
+                   String sql="select crimecase.*,ChargeCase.*,P1.*,P2.*\n" +
                                "from crimecase inner join(\n" +
                               "SELECT  min(Person.NoPerson),Person.FullNamePerson AccuredName,Person.Age AgeAccured,Person.Race AccuredRace,Person.Nationality AccuredNati "
                            + "  FROM Person where Person.TypePerson='ผู้กล่าวหา'\n" +
@@ -138,6 +142,8 @@ public class W22 {
                  bookmarkvalue.put("CC2",Checknull(caseno));
                 bookmarkvalue.put("C3", Checknull(ccYear));
                  bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
+                 bookmarkvalue.put("S02",Checknull(PoliceStationName));
+                 bookmarkvalue.put("S4",Checknull(StationAddress));
                  bookmarkvalue.put("S5", Checknull(StationAmphur));
                  bookmarkvalue.put("S6", Checknull(StationProvince));
                  bookmarkvalue.put("S27",Checknull(ProvincProsecutor));
@@ -244,6 +250,8 @@ public class W22 {
                 bookmarkvalue.put("CC2","");
                 bookmarkvalue.put("C3", "");
                  bookmarkvalue.put("S2","");
+                 bookmarkvalue.put("S02","");
+                 bookmarkvalue.put("S4", "");
                  bookmarkvalue.put("S5", "");
                  bookmarkvalue.put("S6", "");
                  bookmarkvalue.put("S27","");

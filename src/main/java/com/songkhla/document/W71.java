@@ -225,7 +225,7 @@ public class W71 {
                        bookmarkvalue.put("P05", Checknull(Position));
                        
                 String   BailAssetTotal = s.getString("BailAssetTotal").replace (",", "");
-                         BailAssetTotal = s.getString("BailAssetTotal").replace (".", "");
+                         
                        
                  if ((BailAssetTotal) != null)
                     {
