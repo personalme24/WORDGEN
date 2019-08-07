@@ -100,6 +100,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
@@ -125,8 +127,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.animation.Animation;
 import javax.swing.ButtonGroup;
+import javax.swing.ComboBoxEditor;
 import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -137,6 +141,7 @@ import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.SpinnerDateModel;
 import javax.swing.SwingUtilities;
 import javax.swing.SwingWorker;
@@ -145,9 +150,12 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import javax.swing.plaf.basic.BasicComboBoxEditor;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
+import org.jdesktop.swingx.autocomplete.AutoCompleteComboBoxEditor;
+import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 import org.json.simple.JSONObject;
 
 /**
@@ -170,10 +178,11 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         super(parrent,true);
 
            initComponents(); 
-            UIManager.put("ProgressBar.background", Color.BLUE);
             ImageIcon img = new ImageIcon("./Master/WD.png");
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็กทรอนิกส์ (CRIMES)");
+     
+
 //            JScrollBar hbar=new JScrollBar(JScrollBar.HORIZONTAL, 30, 20, 0, 500);
 //            jScrollPane1.getVerticalScrollBar().setUI(new MyScrollBarUI());
 //            jScrollPane1.getHorizontalScrollBar().setUI(new CustomScrollBarUI());
@@ -186,10 +195,6 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 //       jLabel32.setVisible(false);
 //====================================== Police==========================================
         try{
-            
-//            String sql="Select crimecasenoyear,crimecaseno,crimecaseyears,CaseType from CrimeCase where CaseId='"+caseid+"'";
-//         Statement stmt = con.createStatement();
-//                ResultSet rs = stmt.executeQuery(sql);  
                 
             con=ConnectDatabase.connect();
       
@@ -197,12 +202,9 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         Statement stmt1 = con.createStatement();
                 ResultSet rs1 = stmt1.executeQuery(sqlDataPoliceStation); 
                 
-        if(rs1.next()){
-         
+        if(rs1.next()){         
              PoliceStaionName=rs1.getString("PoliceStaionName");
-
                     }
-
         }
         catch(Exception e){
         e.printStackTrace();
@@ -254,15 +256,13 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 //--------------------------------------Date Filed----------------------------------------------
 
 
-      
-       
 //        jTextPoliceName.setText(Data.getPolicName());
         jLabelActionCode.setVisible(false);
         jLabelChargeCode.setVisible(false);
         crimecaseid.setVisible(false);
  
             comboInvest();
- comboProvince();
+            comboProvince();
  
         if(datain!=null){
             try {
@@ -925,6 +925,16 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         CrimeLocationAmphur.setEditable(true);
         CrimeLocationAmphur.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         CrimeLocationAmphur.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        CrimeLocationAmphur.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                CrimeLocationAmphurItemStateChanged(evt);
+            }
+        });
+        CrimeLocationAmphur.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CrimeLocationAmphurActionPerformed(evt);
+            }
+        });
         jPanel1.add(CrimeLocationAmphur, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 150, 190, 30));
 
         CrimeLocationDistrict.setEditable(true);
@@ -2563,7 +2573,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             String a="select Province.DOPA_CODE DOPA_CODE,Province.PROVINCEID PROVINCEID from Province\n"+
             "where Province.NAMEPROVINCE='"+CrimeLocationProvince.getSelectedItem()+"'";
                     	ResultSet res2 = st2.executeQuery(a);
-System.out.println("provinceid: "+CrimeLocationProvince.getSelectedItem());
+            System.out.println("provinceid: "+CrimeLocationProvince.getSelectedItem());
         if(res2.next()){
         provinceid=res2.getString("PROVINCEID");
         }
@@ -2574,7 +2584,7 @@ System.out.println("provinceid: "+CrimeLocationProvince.getSelectedItem());
         	ResultSet res = st.executeQuery(c);
 	//Vector<Object> v=new Vector<Object>();
 //	           System.out.println("provinceid: "+provinceid);
-CrimeLocationAmphur.removeAllItems();
+        CrimeLocationAmphur.removeAllItems();
 	while(res.next())
 	{
 	CrimeLocationAmphur.addItem(res.getString("NameAmphur"));
@@ -2588,6 +2598,8 @@ CrimeLocationAmphur.removeAllItems();
 
     private void CrimeLocationProvinceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrimeLocationProvinceActionPerformed
         // TODO add your handling code here:
+//               AutoCompleteDecorator.decorate(CrimeLocationProvince);
+      
     }//GEN-LAST:event_CrimeLocationProvinceActionPerformed
 
     private void jButtonEditCaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditCaseActionPerformed
@@ -2681,6 +2693,55 @@ CrimeLocationAmphur.removeAllItems();
     private void jCheckW269ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW269ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckW269ActionPerformed
+
+    private void CrimeLocationAmphurItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CrimeLocationAmphurItemStateChanged
+        // TODO add your handling code here:
+         String provinceid="";
+                  String amphurid="";
+
+        Connection con2 = ConnectDatabase.connect();
+        try {
+            Statement st2 = con2.createStatement();
+            Statement st3 = con2.createStatement();
+
+            String a="select Province.DOPA_CODE DOPA_CODE,Province.PROVINCEID PROVINCEID from Province\n"+
+            "where Province.NAMEPROVINCE='"+CrimeLocationProvince.getSelectedItem()+"'";
+             String b="select Amphur.LOC_CODE LOC_CODE from Amphur\n"+
+            "where Amphur.NAMEAMPHUR='"+CrimeLocationAmphur.getSelectedItem()+"'";
+                    	ResultSet res2 = st2.executeQuery(a);
+                        ResultSet res3 = st3.executeQuery(b);
+        if(res2.next()){
+        provinceid=res2.getString("PROVINCEID");
+        
+        }
+//        System.out.println("provinceid: "+provinceid);
+        if(res3.next()){
+        amphurid=res3.getString("LOC_CODE");
+        }
+	Statement st = con2.createStatement();
+        	String c = "select Tambon.NAMETAMBON NAMETAMBON\n" +
+                            "from Tambon\n" +
+                            "where Tambon.DOPA_CODE like '"+provinceid+amphurid+"%';";
+        	ResultSet res = st.executeQuery(c);
+	//Vector<Object> v=new Vector<Object>();
+//	           System.out.println("provinceid: "+c);
+         CrimeLocationDistrict.removeAllItems();
+	while(res.next())
+	{
+	CrimeLocationDistrict.addItem(res.getString("NAMETAMBON"));
+
+	
+	}
+        }
+        catch (Exception d) {  //System.out.println(d);  
+}
+    }//GEN-LAST:event_CrimeLocationAmphurItemStateChanged
+
+    private void CrimeLocationAmphurActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrimeLocationAmphurActionPerformed
+        // TODO add your handling code here:
+//              AutoCompleteDecorator.decorate(CrimeLocationAmphur);
+      
+    }//GEN-LAST:event_CrimeLocationAmphurActionPerformed
      private void yourAttemptActionPerformed() {
 
 
@@ -3288,6 +3349,7 @@ catch (Exception d) {  //System.out.println(d);
 ////                return null;
     }
     }
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JTextField ActionCrimes;
     private javax.swing.JTextArea CapitalCrimeCaseNumber;

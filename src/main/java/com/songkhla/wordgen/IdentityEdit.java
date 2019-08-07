@@ -77,6 +77,7 @@ import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseid;
 import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseno;
 import static com.songkhla.wordgen.ListAccused.jTableAccure;
 import static com.songkhla.wordgen.ListAccused.txtCaseNO;
+import static com.songkhla.wordgen.TrafficEdit.crimecaseid;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
@@ -140,6 +141,7 @@ import javax.swing.event.DocumentListener;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
+import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 import org.json.simple.JSONObject;
 
 /**
@@ -165,6 +167,9 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             ImageIcon img = new ImageIcon("./Master/WD.png");
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็กทรอนิกส์ (CRIMES)");
+//            AutoCompleteDecorator.decorate(CrimeLocationProvince);
+//            AutoCompleteDecorator.decorate(CrimeLocationAmphur);
+//            AutoCompleteDecorator.decorate(CrimeLocationDistrict);
 //            JScrollBar hbar=new JScrollBar(JScrollBar.HORIZONTAL, 30, 20, 0, 500);
 //            jScrollPane1.getVerticalScrollBar().setUI(new MyScrollBarUI());
 //            jScrollPane1.getHorizontalScrollBar().setUI(new CustomScrollBarUI());
@@ -953,6 +958,11 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         CrimeLocationAmphur.setEditable(true);
         CrimeLocationAmphur.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         CrimeLocationAmphur.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        CrimeLocationAmphur.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                CrimeLocationAmphurItemStateChanged(evt);
+            }
+        });
         jPanel1.add(CrimeLocationAmphur, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 120, 190, 30));
 
         CrimeLocationDistrict.setEditable(true);
@@ -1023,7 +1033,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         });
 
         jLabel22.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel22.setText("ผู้ต้องหา");
+        jLabel22.setText("ผู้ตาย");
 
         jTextSuspect.setEditable(false);
         jTextSuspect.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
@@ -1184,8 +1194,8 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel22))
+                            .addComponent(jLabel19)
+                            .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextSuspect, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
@@ -2400,11 +2410,12 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         JDialog dialog = new JDialog(frame);//frame is owner
         JFrame fr = (JFrame)(dialog.getParent());
         fr.removeAll();
-
+        JSONObject data2 = new JSONObject();
+        data2.put("caseid", crimecaseid.getText());
+        data2.put("typecase", "ชันสูตร");
         if(ActionCrimes.getText().length()==0 || ActionCrimes.getText()==null|| ActionCrimes.getText().isEmpty()){
-            JSONObject data = new JSONObject();
-             data.put("caseid", crimecaseid.getText());
-            ActionPage d = new ActionPage(fr,null,data);
+
+            ActionPage d = new ActionPage(fr,null,data2);
             d.pack();
             d.setLocationRelativeTo(null);
             d.setVisible(true);
@@ -2431,7 +2442,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                     data.put("ActionCaseId", rs.getString("ActionCaseId"));
                     
 
-                    ActionPage d = new ActionPage(fr,data,null);
+                    ActionPage d = new ActionPage(fr,data,data2);
                     d.pack();
                     d.setLocationRelativeTo(null);
                     d.setVisible(true);
@@ -2455,10 +2466,13 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         JDialog dialog = new JDialog(frame);//frame is owner
         JFrame f = (JFrame)(dialog.getParent());
         f.removeAll();
+         JSONObject data2 = new JSONObject();
+        data2.put("caseid", crimecaseid.getText());
+        data2.put("typecase", "ชันสูตร");
         if(ChargeNameCase.getText().length()==0 || ChargeNameCase.getText()==null|| ChargeNameCase.getText().isEmpty()){
             JSONObject data = new JSONObject();
             data.put("caseid",crimecaseid.getText());
-            ChargePage d = new ChargePage(f,null,data);
+            ChargePage d = new ChargePage(f,null,data2);
             d.pack();
             d.setLocationRelativeTo(null);
             d.setVisible(true);
@@ -2484,7 +2498,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                     data.put("ChargeCaseId", rs.getString("ChargeCaseId"));
                     
 
-                    ChargePage d = new ChargePage(f,data,null);
+                    ChargePage d = new ChargePage(f,data,data2);
                     d.pack();
                     d.setLocationRelativeTo(null);
                     d.setVisible(true);
@@ -2757,6 +2771,49 @@ CrimeLocationAmphur.removeAllItems();
 
         yourAttemptActionPerformed();
     }//GEN-LAST:event_jButtonPrintDoc2ActionPerformed
+
+    private void CrimeLocationAmphurItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CrimeLocationAmphurItemStateChanged
+        // TODO add your handling code here:
+         String provinceid="";
+                  String amphurid="";
+
+        Connection con2 = ConnectDatabase.connect();
+        try {
+            Statement st2 = con2.createStatement();
+            Statement st3 = con2.createStatement();
+
+            String a="select Province.DOPA_CODE DOPA_CODE,Province.PROVINCEID PROVINCEID from Province\n"+
+            "where Province.NAMEPROVINCE='"+CrimeLocationProvince.getSelectedItem()+"'";
+             String b="select Amphur.LOC_CODE LOC_CODE from Amphur\n"+
+            "where Amphur.NAMEAMPHUR='"+CrimeLocationAmphur.getSelectedItem()+"'";
+                    	ResultSet res2 = st2.executeQuery(a);
+                        ResultSet res3 = st3.executeQuery(b);
+        if(res2.next()){
+        provinceid=res2.getString("PROVINCEID");
+        
+        }
+//        System.out.println("provinceid: "+provinceid);
+        if(res3.next()){
+        amphurid=res3.getString("LOC_CODE");
+        }
+	Statement st = con2.createStatement();
+        	String c = "select Tambon.NAMETAMBON NAMETAMBON\n" +
+                            "from Tambon\n" +
+                            "where Tambon.DOPA_CODE like '"+provinceid+amphurid+"%';";
+        	ResultSet res = st.executeQuery(c);
+	//Vector<Object> v=new Vector<Object>();
+//	           System.out.println("provinceid: "+c);
+         CrimeLocationDistrict.removeAllItems();
+	while(res.next())
+	{
+	CrimeLocationDistrict.addItem(res.getString("NAMETAMBON"));
+
+	
+	}
+        }
+        catch (Exception d) {  //System.out.println(d);  
+}
+    }//GEN-LAST:event_CrimeLocationAmphurItemStateChanged
   
        private void yourAttemptActionPerformed() {
 

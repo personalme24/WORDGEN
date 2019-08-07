@@ -645,6 +645,11 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         SueFirstDate.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
 
         SueFirstTotal.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        SueFirstTotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SueFirstTotalActionPerformed(evt);
+            }
+        });
         SueFirstTotal.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 SueFirstTotalKeyTyped(evt);
@@ -1119,7 +1124,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 1258, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(17, Short.MAX_VALUE))))
+                        .addContainerGap(21, Short.MAX_VALUE))))
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
@@ -1131,7 +1136,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonSave, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
+                .addComponent(jButtonSave, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -1466,6 +1471,12 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         // TODO add your handling code here:
         MainMenuWord.closeAllDialogs();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void SueFirstTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueFirstTotalActionPerformed
+        // TODO add your handling code here:
+        int a ;
+        
+    }//GEN-LAST:event_SueFirstTotalActionPerformed
     public void DateTotal(){
      SueFirstTotal.getDocument().addDocumentListener(new DocumentListener() {
                            public void changedUpdate(DocumentEvent e) {

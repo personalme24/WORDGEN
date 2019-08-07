@@ -68,8 +68,6 @@ public class CreateTable {
                 "	DateSendInjured	VARCHAR(100)	,	\n"+
                 "	NameSendInjured	VARCHAR(100)	,	\n"+
                 "	PlaceBorn	VARCHAR(100)	,	\n"+
-                "	DateOfDie	DATETIME	,	\n"+
-                "	BodyFoundDate	DATETIME	,	\n"+
                 "	DeathLocation	VARCHAR(100)	,	\n"+
                 "	TambomDie	VARCHAR(100)	,	\n"+
                 "	AmphurDie	VARCHAR(100)	,	\n"+

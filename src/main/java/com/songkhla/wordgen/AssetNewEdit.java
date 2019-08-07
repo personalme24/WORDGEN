@@ -41,7 +41,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
         crimecaseno.setVisible(false);
-          crimecaseno.setText(CrimesCaseEdit.crimecaseid.getText());
+          crimecaseno.setText(AssetOverView.txtCaseno.getText());
       
         try { Connection con = ConnectDatabase.connect();
             Statement stmt = con.createStatement();

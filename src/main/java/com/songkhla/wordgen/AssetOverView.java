@@ -41,7 +41,7 @@ public class AssetOverView extends javax.swing.JDialog {
         CaseId=datain.get("CaseId")+"";
         TypeCase=datain.get("TypeCase")+"";
 
-        txtCaseno.setVisible(true);
+        txtCaseno.setVisible(false);
         JTable rowTable = new RowNumberTable(jTableAsset);
         jScrollPane2.setRowHeaderView(rowTable);
         jScrollPane2.setCorner(JScrollPane.UPPER_LEFT_CORNER,
@@ -452,7 +452,7 @@ public class AssetOverView extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
     public static javax.swing.JTable jTableAsset;
-    private javax.swing.JLabel txtCaseno;
+    public static javax.swing.JLabel txtCaseno;
     // End of variables declaration//GEN-END:variables
 
 }

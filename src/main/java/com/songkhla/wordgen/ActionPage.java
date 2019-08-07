@@ -198,7 +198,7 @@ public class ActionPage extends javax.swing.JDialog {
         ButtonAddAction1.setBackground(java.awt.SystemColor.windowText);
         ButtonAddAction1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         ButtonAddAction1.setForeground(new java.awt.Color(255, 255, 255));
-        ButtonAddAction1.setText("เพิ่มเป็นข้อหาใหม่");
+        ButtonAddAction1.setText("เพิ่มเป็นพฤติการณ์ใหม่");
         ButtonAddAction1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButtonAddAction1ActionPerformed(evt);
@@ -389,7 +389,10 @@ public class ActionPage extends javax.swing.JDialog {
          TrafficEdit.ActionCrimes.setText(ActionCrimes.getText());
         TrafficEdit.jLabelActionCode.setText(ActionCode.getText());
      }
-       
+     else if(typecase.equals("ชันสูตร")){
+         IdentityEdit.ActionCrimes.setText(ActionCrimes.getText());
+        IdentityEdit.jLabelActionCode.setText(ActionCode.getText());
+     }  
         setVisible(false);
     }//GEN-LAST:event_ButtonAddActionActionPerformed
 
