@@ -139,6 +139,7 @@ public class W42 {
                 bookmarkvalue.put("C3",Checknull(ccYear));
                 
                 bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
+                bookmarkvalue.put("S02",Checknull(PoliceStationName));
                 
                 bookmarkvalue.put("PA7",Checknull(s.getString("AccureandOther")));
                   
@@ -201,7 +202,7 @@ public class W42 {
 					.load(new java.io.File("./TEMPLATE/w42.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/แบบคำขอรับชดใช้ค่าใช้จ่ายเบื้อต้นอันเกิดจากการขนส่ง" +cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/แบบคำขอรับชดใช้ค่าใช้จ่ายเบื้องต้นอันเกิดจากการขนส่ง" +cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -227,6 +228,7 @@ public static void nw42() {
                 bookmarkvalue.put("C3","");
                 
                 bookmarkvalue.put("S2","");
+                bookmarkvalue.put("S02","");
                 
                  bookmarkvalue.put("PA7","");
                   
@@ -256,7 +258,7 @@ public static void nw42() {
 					.load(new java.io.File("./TEMPLATE/w42.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			
-			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/แบบคำขอรับชดใช้ค่าใช้จ่ายเบื้อต้นอันเกิดจากการขนส่ง.doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/แบบคำขอรับชดใช้ค่าใช้จ่ายเบื้องต้นอันเกิดจากการขนส่ง.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
