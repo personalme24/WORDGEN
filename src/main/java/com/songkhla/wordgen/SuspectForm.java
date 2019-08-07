@@ -77,7 +77,7 @@ public class SuspectForm extends javax.swing.JDialog {
             ImageIcon img = new ImageIcon("D://Master//WD.png");
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็กทรอนิกส์ (CRIMES)");
-     
+     jLabel36.setVisible(false);
 //  ---------------------------------------------Date Filed----------------------------------------------
      UtilDateModel model = new UtilDateModel();
 //            model.setValue(Calendar.getInstance().getTime()); 
@@ -232,19 +232,20 @@ public class SuspectForm extends javax.swing.JDialog {
             SusConfress.setSelectedItem(datain.get("SusConfress"));
             SimpleDateFormat format=new SimpleDateFormat("d/MM/yyyy");
             String DateArr=(datain.get("ArrestDateTime")+"");
-             ArrestDateTime.getJFormattedTextField().setText(datain.get("ArrestDateTime")+"");            
-//            if(DateArr.equals("")||DateArr.equals(null)){  
-//             ArrestDateTime.getJFormattedTextField().setText("");
-//                 }
-//            else{
-//             Date d=null;     
-//            try{
-//             d=format.parse(DateArr);
-//            }
-//            catch(Exception e){
-//            }
-//             ArrestDateTime.getJFormattedTextField().setText(format.format(d));
-//            }
+            
+//             ArrestDateTime.getJFormattedTextField().setText(datain.get("ArrestDateTime")+"");            
+            if(DateArr.equals("")||DateArr.equals(null)||DateArr.equals("null")){  
+             ArrestDateTime.getJFormattedTextField().setText("");
+                 }
+            else{
+             Date d=null;     
+            try{
+             d=format.parse(DateArr);
+            }
+            catch(Exception e){
+            }
+             ArrestDateTime.getJFormattedTextField().setText(format.format(d));
+            }
 
             ArrestDateTimeEnd.setText(datain.get("ArrestDateTimeEnd")+"");
             BailDate.getJFormattedTextField().setText(datain.get("BailDate")+"");
@@ -297,7 +298,7 @@ public class SuspectForm extends javax.swing.JDialog {
              jRadioUnknowSuspect.setSelected(true);
             isInsert=true;
             jLabel36.setText(ListSuspect.txtCaseNO.getText());
-            jLabel36.setVisible(false);
+            
     
         }
              FullNamePerson.getDocument().addDocumentListener(new DocumentListener() {
@@ -1066,7 +1067,7 @@ public class SuspectForm extends javax.swing.JDialog {
 
         JSpinner.DateEditor timeEditor = new JSpinner.DateEditor(jSpinnerArrTime, "HH:mm");
         jSpinnerArrTime.setEditor(timeEditor);
-        jSpinnerArrTime.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        jSpinnerArrTime.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         jSpinnerArrTime.setPreferredSize(new java.awt.Dimension(29, 25));
 
         jPanelRestoreDate.setBackground(new java.awt.Color(255, 255, 255));
@@ -1329,14 +1330,6 @@ public class SuspectForm extends javax.swing.JDialog {
                         .addComponent(jCheckBail, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(jPanel5Layout.createSequentialGroup()
-                            .addComponent(jLabelArrestDate, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jPanelDateArrest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jLabelArrTime, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jSpinnerArrTime, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel5Layout.createSequentialGroup()
                             .addComponent(jLabelFreezeOrg)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(Attach))
@@ -1352,6 +1345,14 @@ public class SuspectForm extends javax.swing.JDialog {
                             .addComponent(jLabelRestoreDate, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jPanelRestoreDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel5Layout.createSequentialGroup()
+                            .addComponent(jLabelArrestDate, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jPanelDateArrest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jLabelArrTime, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jSpinnerArrTime, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel5Layout.createSequentialGroup()
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jLabelArrestPlace, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1410,7 +1411,7 @@ public class SuspectForm extends javax.swing.JDialog {
                     .addComponent(jLabelArrestDate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabelArrTime, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jSpinnerArrTime, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jSpinnerArrTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanelDateArrest, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1556,15 +1557,15 @@ public class SuspectForm extends javax.swing.JDialog {
                 pst.setString(31,PlaceArrest.getText());
                 pst.setString(32,CourtSuspect.getSelectedItem().toString());
                 pst.setString(33,BailDate.getJFormattedTextField().getText());
-                if(CourtSuspect.getSelectedItem().toString().equals("ศาลอาญา") && jCheckBail.isSelected()){
+                if(CourtSuspect.getSelectedItem().toString().equals("ศาลอาญา/ศาลจังหวัด") && jCheckBail.isSelected()){
                     pst.setString(34,"");
                 }
-                else if(CourtSuspect.getSelectedItem().toString().equals("ศาลอาญา") && jRadioStatus1.isSelected()){
+                else if(CourtSuspect.getSelectedItem().toString().equals("ศาลอาญา/ศาลจังหวัด") && jRadioStatus1.isSelected()){
                     pst.setString(34,"");
                 }
-                else if(CourtSuspect.getSelectedItem().toString().equals("ศาลอาญา") && jRadioSue.isSelected()){
-                    pst.setString(34,"");
-                }
+//                else if(CourtSuspect.getSelectedItem().toString().equals("ศาลอาญา") && jRadioSue.isSelected()){
+//                    pst.setString(34,"");
+//                }
                 else if(CourtSuspect.getSelectedItem().toString().equals("ศาลเด็กและเยาวชน")){
                     pst.setString(34,CalculateDateTime24(arrestDate));
                 }

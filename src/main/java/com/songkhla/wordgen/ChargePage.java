@@ -320,7 +320,7 @@ public class ChargePage extends javax.swing.JDialog {
 //       JOptionPane.showMessageDialog(jPanel1,null, "Data Save", JOptionPane.INFORMATION_MESSAGE);
 
                 
-      int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
+      int response = JOptionPane.showConfirmDialog(jPanel2, "ต้องการบันทึกข้อมูล", "ยืนยัน",
         JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
   if (response == JOptionPane.YES_OPTION) {
 //             con=ConnectDatabase.connect();

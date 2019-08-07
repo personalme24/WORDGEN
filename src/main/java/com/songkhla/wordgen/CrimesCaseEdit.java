@@ -146,6 +146,8 @@ import javax.swing.SpinnerDateModel;
 import javax.swing.SwingUtilities;
 import javax.swing.SwingWorker;
 import javax.swing.UIManager;
+import javax.swing.event.CaretEvent;
+import javax.swing.event.CaretListener;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.DocumentEvent;
@@ -370,20 +372,16 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
            isInsert=true;
           
         }
-
+ jLabel33.setVisible(false);
 //         System.out.println("dd ;"+CalculateDateArrest(od, da)+"");
+//OccuredDate.addKeyListener(new java.awt.event.KeyAdapter() {
+//    public void KeyRelease(java.awt.event.KeyEvent evt) {
+//             JOptionPane.showMessageDialog(jPanel1,"ไม่เกิน 12 วัน","แจ้งเตือน",  JOptionPane.INFORMATION_MESSAGE); 
+//       }
+//});
 
-  
             
     }
-//   private class CloseListener implements ActionListener{
-//
-//    public void actionPerformed(ActionEvent e) {
-//        Window win = SwingUtilities.getWindowAncestor((Component) e.getSource());
-//        win.dispose();
-//    System.out.println("Frame Closed. ");
-//    }
-//}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -2295,16 +2293,6 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
          jButtonEditCase.setEnabled(true);
          CloseTextBox();
          System.out.println("SQL : "+sqlUpdate);
-//           JFrame frame = new JFrame();
-//        JDialog dialog = new JDialog(frame);//frame is owner
-//        JFrame fr = (JFrame)(dialog.getParent());
-//        fr.removeAll();
-//        JSONObject data=new JSONObject();
-//         data.put("caseid", caseid);
-//        ReportforCrimesCase n=new ReportforCrimesCase(fr,data);
-//        n.pack();
-//        n.setLocationRelativeTo(null);
-//        n.setVisible(true);
 
     } 
             } catch (Exception e) {
@@ -3016,7 +3004,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                         W71.w71(no);
                     }
                if(jCheckW272.isSelected()){
-                        W72.nw72();
+                        W72.w72(no);
                     }
                if(jCheckW273.isSelected()){
                         W73.w73(no);
@@ -3163,6 +3151,7 @@ catch (Exception d) {  //System.out.println(d);
     JScrollPane scroll = new JScrollPane(text);
     return scroll;
   }
+    
     /**
      * @param args the command line arguments
      */
@@ -3212,7 +3201,20 @@ catch (Exception d) {  //System.out.println(d);
             }
         });
     }
-    
+    private class DateKeyListener implements  java.awt.event.KeyListener{
+   public void keyPressed(KeyEvent keyEvent) {
+       
+      }
+
+      public void keyReleased(KeyEvent keyEvent) {
+         JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 12 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);
+      }
+
+      public void keyTyped(KeyEvent keyEvent) {
+       
+      }
+
+  }
     public void openTextBox(){
 //    RestoreDate.setVisible(false);  
   

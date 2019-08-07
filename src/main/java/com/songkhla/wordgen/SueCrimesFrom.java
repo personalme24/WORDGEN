@@ -21,6 +21,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.BufferedInputStream;
@@ -220,7 +221,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
      
        DateTotal();
 //       RefreshData(); 
-
+//SueFirstTotal.addKeyListener(new TextFieldTotalListener());
    
     }
     
@@ -258,6 +259,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         ArrestDateTimeEnd = new javax.swing.JTextField();
         CourtSuspect = new javax.swing.JLabel();
         PeopleRegistrationID = new javax.swing.JLabel();
+        CourtSuspect1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
@@ -450,6 +452,9 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         PeopleRegistrationID.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         PeopleRegistrationID.setText("PeopleRegistrationID");
 
+        CourtSuspect1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        CourtSuspect1.setText("อำนาจศาล");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -460,26 +465,28 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel30)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(CourtSuspect)
-                        .addGap(97, 97, 97))
+                        .addGap(97, 717, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addGap(28, 28, 28)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(FullNamePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(AccureandOther, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(crimecaseno, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel31)
                                 .addGap(18, 18, 18)
                                 .addComponent(PeopleRegistrationID)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(FullNamePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27)
+                                .addComponent(CourtSuspect1)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(AccureandOther, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(CourtSuspect)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel15)
@@ -505,13 +512,13 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(crimecaseno, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PeopleRegistrationID)
+                    .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CourtSuspect)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(crimecaseno, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(PeopleRegistrationID)
-                        .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(CourtSuspect1))
                 .addGap(9, 9, 9)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(FullNamePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -645,14 +652,9 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         SueFirstDate.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
 
         SueFirstTotal.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
-        SueFirstTotal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SueFirstTotalActionPerformed(evt);
-            }
-        });
         SueFirstTotal.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                SueFirstTotalKeyTyped(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                SueFirstTotalKeyReleased(evt);
             }
         });
 
@@ -728,6 +730,11 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         );
 
         SueSecTotal.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        SueSecTotal.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                SueSecTotalKeyReleased(evt);
+            }
+        });
 
         SueSecRequest.setEditable(true);
         SueSecRequest.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
@@ -738,6 +745,11 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         SueSecCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
 
         SueThirdTotal.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        SueThirdTotal.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                SueThirdTotalKeyReleased(evt);
+            }
+        });
 
         SueThirdRequest.setEditable(true);
         SueThirdRequest.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
@@ -748,16 +760,36 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         SueSevCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
 
         SueSevenTotal.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        SueSevenTotal.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                SueSevenTotalKeyReleased(evt);
+            }
+        });
 
         SueSevRequest.setEditable(true);
         SueSevRequest.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         SueSevRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
 
         SueFourthTotal.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        SueFourthTotal.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                SueFourthTotalKeyReleased(evt);
+            }
+        });
 
         SueFifthTotal.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        SueFifthTotal.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                SueFifthTotalKeyReleased(evt);
+            }
+        });
 
         SueSixthTotal.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        SueSixthTotal.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                SueSixthTotalKeyReleased(evt);
+            }
+        });
 
         SueFourthRequest.setEditable(true);
         SueFourthRequest.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
@@ -1445,38 +1477,229 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_Print5ActionPerformed
 
-    private void SueFirstTotalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SueFirstTotalKeyTyped
-        // TODO add your handling code here:
-//        int totaldate=Integer.parseInt(SueFirstTotal.getText());
-          if(Court.equals("ศาลแขวง")&&StatusBail.equals("ประกัน")){      
-
-       }
-          if(Court.equals("ศาลแขวง")){      
-                 
-       }
-            if(Court.equals("ศาลอาญา")&&RatePrison.equals("มากกว่า")){      
-//           if(totaldate>12){
-//            JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 12 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE); 
-//           }      
-       }
-           if(Court.equals("ศาลอาญา")&&RatePrison.equals("น้อยกว่า")){      
-//           if(totaldate>12){
-//            JOptionPane.showMessageDialog(jPanel1,"ไม่เกิน 12 วัน","แจ้งเตือน",  JOptionPane.INFORMATION_MESSAGE); 
-//           }      
-       }
-        
-    }//GEN-LAST:event_SueFirstTotalKeyTyped
-
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         MainMenuWord.closeAllDialogs();
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void SueFirstTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueFirstTotalActionPerformed
+    private void SueFirstTotalKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SueFirstTotalKeyReleased
         // TODO add your handling code here:
-        int a ;
-        
-    }//GEN-LAST:event_SueFirstTotalActionPerformed
+             
+        String text = SueFirstTotal.getText();
+        int totaldate = Integer.parseInt(text);
+        if(Court.equals("ศาลแขวง")&&StatusBail.equals("ประกัน")){
+          if(totaldate>6){ 
+        JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 6 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE); 
+         SueFirstTotal.setText("");
+        }
+        }
+         if(Court.equals("ศาลแขวง")){      
+           if(totaldate>6){      
+            JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 6 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE); 
+              SueFirstTotal.setText("");
+           }      
+       }
+            if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("มากกว่า")){      
+           if(totaldate>12){
+            JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 12 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE); 
+              SueFirstTotal.setText("");
+           }      
+       }
+           if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("น้อยกว่า")){      
+           if(totaldate>12){
+            JOptionPane.showMessageDialog(jPanel1,"ไม่เกิน 12 วัน","แจ้งเตือน",  JOptionPane.INFORMATION_MESSAGE); 
+              SueFirstTotal.setText("");
+           }      
+       }
+
+ 
+    }//GEN-LAST:event_SueFirstTotalKeyReleased
+
+    private void SueSecTotalKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SueSecTotalKeyReleased
+        // TODO add your handling code here:
+             
+        String text = SueSecTotal.getText();
+        int totaldate = Integer.parseInt(text);
+        if(Court.equals("ศาลแขวง")&&StatusBail.equals("ประกัน")){
+          if(totaldate>6){ 
+        JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 6 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE); 
+         SueSecTotal.setText("");
+        }
+        }
+         if(Court.equals("ศาลแขวง")){      
+           if(totaldate>6){      
+            JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 6 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE); 
+              SueSecTotal.setText("");
+           }      
+       }
+            if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("มากกว่า")){      
+           if(totaldate>12){
+            JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 12 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE); 
+              SueSecTotal.setText("");
+           }      
+       }
+           if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("น้อยกว่า")){      
+           if(totaldate>12){
+            JOptionPane.showMessageDialog(jPanel1,"ไม่เกิน 12 วัน","แจ้งเตือน",  JOptionPane.INFORMATION_MESSAGE); 
+              SueSecTotal.setText("");
+           }      
+       }
+
+    }//GEN-LAST:event_SueSecTotalKeyReleased
+
+    private void SueThirdTotalKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SueThirdTotalKeyReleased
+        // TODO add your handling code here:
+        String text = SueThirdTotal.getText();
+        int totaldate = Integer.parseInt(text);
+        if(Court.equals("ศาลแขวง")&&StatusBail.equals("ประกัน")){
+          if(totaldate>6){ 
+        JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 6 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE); 
+         SueThirdTotal.setText("");
+        }
+        }
+         if(Court.equals("ศาลแขวง")){      
+           if(totaldate>6){      
+            JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 6 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE); 
+              SueThirdTotal.setText("");
+           }      
+       }
+            if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("มากกว่า")){      
+           if(totaldate>12){
+            JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 12 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE); 
+              SueThirdTotal.setText("");
+           }      
+       }
+           if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("น้อยกว่า")){      
+           if(totaldate>12){
+            JOptionPane.showMessageDialog(jPanel1,"ไม่เกิน 12 วัน","แจ้งเตือน",  JOptionPane.INFORMATION_MESSAGE); 
+              SueThirdTotal.setText("");
+           }      
+       }
+
+ 
+    }//GEN-LAST:event_SueThirdTotalKeyReleased
+
+    private void SueFourthTotalKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SueFourthTotalKeyReleased
+        // TODO add your handling code here:
+           String text = SueFourthTotal.getText();
+        int totaldate = Integer.parseInt(text);
+        if(Court.equals("ศาลแขวง")&&StatusBail.equals("ประกัน")){
+          if(totaldate>6){ 
+        JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 6 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE); 
+         SueFourthTotal.setText("");
+        }
+        }
+         if(Court.equals("ศาลแขวง")){      
+           if(totaldate>6){      
+            JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 6 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE); 
+              SueFourthTotal.setText("");
+           }      
+       }
+            if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("มากกว่า")){      
+           if(totaldate>12){
+            JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 12 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE); 
+              SueFourthTotal.setText("");
+           }      
+       }
+           if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("น้อยกว่า")){      
+           if(totaldate>12){
+            JOptionPane.showMessageDialog(jPanel1,"ไม่เกิน 12 วัน","แจ้งเตือน",  JOptionPane.INFORMATION_MESSAGE); 
+              SueFourthTotal.setText("");
+           }      
+       }
+
+    }//GEN-LAST:event_SueFourthTotalKeyReleased
+
+    private void SueFifthTotalKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SueFifthTotalKeyReleased
+        // TODO add your handling code here:
+              String text = SueFifthTotal.getText();
+        int totaldate = Integer.parseInt(text);
+        if(Court.equals("ศาลแขวง")&&StatusBail.equals("ประกัน")){
+          if(totaldate>6){ 
+        JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 6 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE); 
+         SueFifthTotal.setText("");
+        }
+        }
+         if(Court.equals("ศาลแขวง")){      
+           if(totaldate>6){      
+            JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 6 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE); 
+              SueFifthTotal.setText("");
+           }      
+       }
+            if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("มากกว่า")){      
+           if(totaldate>12){
+            JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 12 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE); 
+              SueFifthTotal.setText("");
+           }      
+       }
+           if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("น้อยกว่า")){      
+           if(totaldate>12){
+            JOptionPane.showMessageDialog(jPanel1,"ไม่เกิน 12 วัน","แจ้งเตือน",  JOptionPane.INFORMATION_MESSAGE); 
+              SueFifthTotal.setText("");
+           }      
+       }
+    }//GEN-LAST:event_SueFifthTotalKeyReleased
+
+    private void SueSixthTotalKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SueSixthTotalKeyReleased
+        // TODO add your handling code here:
+                 String text = SueSixthTotal.getText();
+        int totaldate = Integer.parseInt(text);
+        if(Court.equals("ศาลแขวง")&&StatusBail.equals("ประกัน")){
+          if(totaldate>6){ 
+        JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 6 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE); 
+         SueSixthTotal.setText("");
+        }
+        }
+         if(Court.equals("ศาลแขวง")){      
+           if(totaldate>6){      
+            JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 6 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE); 
+              SueSixthTotal.setText("");
+           }      
+       }
+            if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("มากกว่า")){      
+           if(totaldate>12){
+            JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 12 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE); 
+              SueSixthTotal.setText("");
+           }      
+       }
+           if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("น้อยกว่า")){      
+           if(totaldate>12){
+            JOptionPane.showMessageDialog(jPanel1,"ไม่เกิน 12 วัน","แจ้งเตือน",  JOptionPane.INFORMATION_MESSAGE); 
+              SueSixthTotal.setText("");
+           }      
+       }
+    }//GEN-LAST:event_SueSixthTotalKeyReleased
+
+    private void SueSevenTotalKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SueSevenTotalKeyReleased
+        // TODO add your handling code here:
+                     String text = SueSevenTotal.getText();
+        int totaldate = Integer.parseInt(text);
+        if(Court.equals("ศาลแขวง")&&StatusBail.equals("ประกัน")){
+          if(totaldate>6){ 
+        JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 6 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE); 
+         SueSevenTotal.setText("");
+        }
+        }
+         if(Court.equals("ศาลแขวง")){      
+           if(totaldate>6){      
+            JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 6 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE); 
+              SueSevenTotal.setText("");
+           }      
+       }
+            if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("มากกว่า")){      
+           if(totaldate>12){
+            JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 12 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE); 
+              SueSevenTotal.setText("");
+           }      
+       }
+           if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("น้อยกว่า")){      
+           if(totaldate>12){
+            JOptionPane.showMessageDialog(jPanel1,"ไม่เกิน 12 วัน","แจ้งเตือน",  JOptionPane.INFORMATION_MESSAGE); 
+              SueSevenTotal.setText("");
+           }      
+       }
+    }//GEN-LAST:event_SueSevenTotalKeyReleased
+ 
     public void DateTotal(){
      SueFirstTotal.getDocument().addDocumentListener(new DocumentListener() {
                            public void changedUpdate(DocumentEvent e) {
@@ -1949,6 +2172,7 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JTextField ArrestDateTimeEnd;
     private javax.swing.JTextField ChargeName;
     private javax.swing.JLabel CourtSuspect;
+    private javax.swing.JLabel CourtSuspect1;
     private javax.swing.JTextField DateArrest;
     private javax.swing.JTextField FifthDate;
     private javax.swing.JTextField FourthDate;
