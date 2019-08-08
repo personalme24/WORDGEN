@@ -161,7 +161,7 @@ public class IdentityEdit extends javax.swing.JDialog {
     boolean isInsert;
        String Province_name;
     String caseid,caseidLast,province;
-     String caseyear,casetype,caseno,PoliceStaionName;
+     String caseyear,casetype,caseno,PoliceStaionName,CauseDead;
      ButtonGroup g;
 JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDate;
     /**
@@ -186,6 +186,16 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         g.add(jCheckNotSue);
         g.add(jCheckNoInvest);
         g.add(jCheckOtherInvest);
+        
+      ButtonGroup ca=new ButtonGroup();
+        ca.add(jCheckControl);
+        ca.add(jCheckAnimal);
+        ca.add(jCheckKill);
+        ca.add(jCheckSuicide);
+       ca.add(jCheckExtraordinary);
+        ca.add(jCheckAccident);
+        ca.add(jCheckUnknow);
+
        jLabel35.setVisible(false);
 //====================================== Police==========================================
         try{
@@ -279,6 +289,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                 Date timeReq = timeFormat.parse(rt);
                 Date timeAcc = timeFormat.parse(at);
                 Date timeOccu = timeFormat.parse(ot);
+                CauseDead=datain.get("CauseDead")+"";
                 isInsert=false;
                 caseid= "" + datain.get("CaseId");
                 crimecaseid.setText(datain.get("CaseId")+"");
@@ -323,6 +334,35 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             Invest_SendCaseDate.getJFormattedTextField().setText(datain.get("Invest_SendCaseDate")+"");
             CapitalCrimeCaseNumber.setText(datain.get("CapitalCrimeCaseNumber")+"");
             RecordInvestCase.setText(datain.get("RecordInvestCase")+"");
+            if(CauseDead.equals("ระหว่างควบคุม")){
+            jCheckControl.setSelected(true);
+            
+            }
+            else if(CauseDead.equals("สัตว์ทำร้ายตาย")){
+            jCheckAnimal.setSelected(true);
+            
+            }
+            else if(CauseDead.equals("ผู้อื่นทำให้ตาย")){
+            jCheckKill.setSelected(true);
+            
+            }
+            else if(CauseDead.equals("ฆ่าตัวตาย")){
+            jCheckSuicide.setSelected(true);
+            
+            }
+            else if(CauseDead.equals("ถูกเจ้าพนักงานทำให้ตาย(วิสามัญ)")){
+            jCheckExtraordinary.setSelected(true);
+            
+            }
+            else if(CauseDead.equals("อุบัติเหตุ")){
+            jCheckAccident.setSelected(true);
+            
+            }
+             else if(CauseDead.equals("มิปรากฎเหตุ")){
+            jCheckUnknow.setSelected(true);
+            
+            }
+            CircumstancesOfDeath.setText(datain.get("CircumstancesOfDeath")+"");
             if(investSta.equals("อยู่ระหว่างสอบสวน")){
                 jCheckDuringInvest.setSelected(true);
             }
@@ -1764,11 +1804,10 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                     .addComponent(jCheckW265, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jCheckW224, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jCheckW221, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jCheckW223, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jCheckW222, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jCheckW224, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckW221, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckW223, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckW222, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCheckW279, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         jPanel17Layout.setVerticalGroup(
@@ -2118,8 +2157,9 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                 .addComponent(jLabelChargeCode)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
                         .addComponent(jButtonSaveCase, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jButtonEditCase, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -2135,7 +2175,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                         .addContainerGap()
                         .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonSaveCase)
                     .addComponent(jButtonEditCase))
                 .addContainerGap(36, Short.MAX_VALUE))
@@ -2194,8 +2234,8 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             "CaseAcceptDate,CaseAccepTime,DailyNumber,OccuredDate,OccuredTime,CrimeLocation,CrimeLocationMoo,CrimeLocationSoi,CrimeLocationRoad,CrimeLocationDistrict,CrimeLocationAmphur,"+
             "CrimeLocationProvince,TypeCourt,AccureandOther,SuspectandOther,WitnessandOther,Investigator_Result,CourtResult,Invest_SendtoDepartment,"+
             "PoliceNameCase,AssetList,AssetCode,crimecasenoyear,RecordInvestCase,Investigator_Number,Invest_SendCaseDate,Prosecutor_Result,"
-          + "CapitalCrimeCaseNumber,TotalAcc,TotalSus,TotalWitness)"+
-            "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+          + "CapitalCrimeCaseNumber,TotalAcc,TotalSus,TotalWitness,CauseDead,CircumstancesOfDeath)"+
+            "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             System.out.println(sql);
             try {
 
@@ -2256,9 +2296,28 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                 pst.setString(36,jLabelNumberAcc.getText());
                 pst.setString(37,jLabelNumberSus.getText());
                 pst.setString(38,jLabelNumberWitness.getText());                
-                
-
-       
+                if(jCheckControl.isSelected()){
+                    pst.setString(39,jCheckControl.getText());
+                }
+                if(jCheckAnimal.isSelected()){
+                    pst.setString(39,jCheckAnimal.getText());
+                }
+                if(jCheckKill.isSelected()){
+                    pst.setString(39,jCheckKill.getText());
+                }
+                if(jCheckSuicide.isSelected()){
+                    pst.setString(39,jCheckSuicide.getText());
+                }
+                if(jCheckExtraordinary.isSelected()){
+                    pst.setString(39,jCheckExtraordinary.getText());
+                }
+                if(jCheckAccident.isSelected()){
+                    pst.setString(39,jCheckAccident.getText());
+                }
+                if(jCheckUnknow.isSelected()){
+                    pst.setString(39,jCheckUnknow.getText());
+                }     
+                    pst.setString(40,CircumstancesOfDeath.getText());
          
                
 //       JOptionPane.showMessageDialog(jPanel1,null, "Data Save", JOptionPane.INFORMATION_MESSAGE);
@@ -2328,7 +2387,10 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             +"CapitalCrimeCaseNumber=?,"
             +"TotalAcc=?,"
             +"TotalSus=?," 
-            +"TotalWitness=?"                     
+            +"TotalWitness=?,"
+            +"CauseDead=?," 
+            +"CircumstancesOfDeath=?" 
+                
             +" WHERE  CaseId = ?";
             System.out.println("SQL : "+sqlUpdate);
             try {
@@ -2385,8 +2447,30 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                 pst.setString(34,CapitalCrimeCaseNumber.getText());
                 pst.setString(35,jLabelNumberAcc.getText());
                 pst.setString(36,jLabelNumberSus.getText());
-                pst.setString(37,jLabelNumberWitness.getText());                
-                pst.setString(38,crimecaseid.getText());
+                pst.setString(37,jLabelNumberWitness.getText());   
+                     if(jCheckControl.isSelected()){
+                    pst.setString(38,jCheckControl.getText());
+                }
+                if(jCheckAnimal.isSelected()){
+                    pst.setString(38,jCheckAnimal.getText());
+                }
+                if(jCheckKill.isSelected()){
+                    pst.setString(38,jCheckKill.getText());
+                }
+                if(jCheckSuicide.isSelected()){
+                    pst.setString(38,jCheckSuicide.getText());
+                }
+                if(jCheckExtraordinary.isSelected()){
+                    pst.setString(38,jCheckExtraordinary.getText());
+                }
+                if(jCheckAccident.isSelected()){
+                    pst.setString(38,jCheckAccident.getText());
+                }
+                if(jCheckUnknow.isSelected()){
+                    pst.setString(38,jCheckUnknow.getText());
+                }     
+                pst.setString(39,CircumstancesOfDeath.getText());
+                pst.setString(40,crimecaseid.getText());
                 
                int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการแก้ไขข้อมูล", "ยืนยัน",
         JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);

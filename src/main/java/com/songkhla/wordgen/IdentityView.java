@@ -591,6 +591,9 @@ public class IdentityView extends javax.swing.JDialog {
                     data.put("Invest_SendCaseDate", rs.getString("Invest_SendCaseDate"));
                     data.put("Prosecutor_Result", rs.getString("Prosecutor_Result"));
                     data.put("CapitalCrimeCaseNumber", rs.getString("CapitalCrimeCaseNumber"));
+                    data.put("CircumstancesOfDeath", rs.getString("CircumstancesOfDeath"));
+                    data.put("CauseDead", rs.getString("CauseDead"));
+                    
                     facc.removeAll();
                     IdentityEdit cce =new IdentityEdit(facc,data);
                     cce.pack();

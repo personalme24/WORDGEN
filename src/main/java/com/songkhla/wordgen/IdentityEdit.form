@@ -156,8 +156,9 @@
                   <Component id="jLabelChargeCode" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                           <Component id="jButtonSaveCase" min="-2" pref="102" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jButtonEditCase" min="-2" pref="102" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -180,9 +181,9 @@
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jButtonSaveCase" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonEditCase" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jButtonSaveCase" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonEditCase" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="36" max="32767" attributes="0"/>
               </Group>
@@ -2712,12 +2713,10 @@
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jCheckW224" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
-                                              <Component id="jCheckW221" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
-                                              <Component id="jCheckW223" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
-                                              <Component id="jCheckW222" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="jCheckW224" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
+                                          <Component id="jCheckW221" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
+                                          <Component id="jCheckW223" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
+                                          <Component id="jCheckW222" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
                                           <Component id="jCheckW279" min="-2" pref="350" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
