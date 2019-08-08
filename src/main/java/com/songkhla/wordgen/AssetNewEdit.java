@@ -29,12 +29,12 @@ public class AssetNewEdit extends javax.swing.JDialog {
     Connection con=null;
      PreparedStatement pst=null;
        boolean isInsert;
-        String caseid,cc,noasset;
+        String caseid,cc,noasset,caseType;
    JDatePickerImpl DateSequester;
     /**
      * Creates new form AssetNewEdit
      */
-    public AssetNewEdit(JFrame parrent,JSONObject datain) {
+    public AssetNewEdit(JFrame parrent,JSONObject datain,JSONObject dataType) {
         super(parrent,true);
         initComponents();
          ImageIcon img = new ImageIcon("./Master/WD.png");
@@ -42,7 +42,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
         crimecaseno.setVisible(false);
           crimecaseno.setText(AssetOverView.txtCaseno.getText());
-      
+      caseType=dataType.get("typecase")+"";
         try { Connection con = ConnectDatabase.connect();
             Statement stmt = con.createStatement();
              int id=0;
@@ -78,7 +78,8 @@ public class AssetNewEdit extends javax.swing.JDialog {
         if(datain!=null){
             noasset=datain.get("NoAsset")+"";
             crimecaseno.setText(datain.get("crimecaseno")+"");
-            OrderAsset.setText(datain.get("EvidenceRecordNumber")+"");
+            EvidenceRecordNumber1.setText(datain.get("EvidenceRecordNumber")+"");
+            OrderAsset.setText(datain.get("OrderAsset")+"");
             Name.setText(datain.get("Name")+"");
             OccupantName.setText(datain.get("OccupantName")+"");
             Amount.setText(datain.get("Amount")+"");
@@ -455,7 +456,12 @@ public class AssetNewEdit extends javax.swing.JDialog {
              System.out.println("SQL : "+pst);
         }
         } 
-     CrimesCaseEdit.EvidenceRecordCase.setText(EvidenceRecordNumber1.getText());
+        if(caseType.equals("อาญา")){
+     CrimesCaseEdit.EvidenceRecordCase.setText(EvidenceRecordNumber1.getText());}
+         if(caseType.equals("จราจร")){
+     TrafficEdit.EvidenceRecordCase.setText(EvidenceRecordNumber1.getText());}
+          if(caseType.equals("ชันสูตร")){
+     IdentityEdit.EvidenceRecordCase.setText(EvidenceRecordNumber1.getText());}
 
      
         setVisible(false);
@@ -548,7 +554,7 @@ public  String NoAsset(){
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                    AssetNewEdit  AssetAdd=new AssetNewEdit(null,null);
+                    AssetNewEdit  AssetAdd=new AssetNewEdit(null,null,null);
                     AssetAdd.setVisible(true);
               
             }

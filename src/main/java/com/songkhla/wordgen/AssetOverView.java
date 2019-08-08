@@ -21,6 +21,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import org.json.simple.JSONObject;
+import java.awt.Font;
 
 /**
  *
@@ -42,10 +43,10 @@ public class AssetOverView extends javax.swing.JDialog {
         TypeCase=datain.get("TypeCase")+"";
 
         txtCaseno.setVisible(false);
-        JTable rowTable = new RowNumberTable(jTableAsset);
-        jScrollPane2.setRowHeaderView(rowTable);
-        jScrollPane2.setCorner(JScrollPane.UPPER_LEFT_CORNER,
-         rowTable.getTableHeader());
+//        JTable rowTable = new RowNumberTable(jTableAsset);
+//        jScrollPane2.setRowHeaderView(rowTable);
+//        jScrollPane2.setCorner(JScrollPane.UPPER_LEFT_CORNER,
+//         rowTable.getTableHeader());
         
         txtCaseno.setText(CaseId);
         RefreshData();     
@@ -148,6 +149,8 @@ public class AssetOverView extends javax.swing.JDialog {
         jTableAsset.setRowHeight(25);
         jTableAsset.setRowMargin(2);
         jScrollPane2.setViewportView(jTableAsset);
+        jTableAsset.getTableHeader().setFont(new Font("TH SarabunPSK", Font.BOLD, 20));
+        jTableAsset.getTableHeader().setOpaque(false);
         jTableAsset.getAccessibleContext().setAccessibleDescription("");
 
         EvidenceRecordNumber.setText("jLabel2");
@@ -217,7 +220,10 @@ public class AssetOverView extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         AssetNewEdit  assetAdd=new AssetNewEdit(null,null);
+         JSONObject data2 = new JSONObject();
+          
+             data2.put("typecase", TypeCase);
+        AssetNewEdit  assetAdd=new AssetNewEdit(null,null,data2);
         assetAdd.pack();
        assetAdd.setLocationRelativeTo(null); 
          assetAdd.setVisible(true);        
@@ -231,7 +237,7 @@ public class AssetOverView extends javax.swing.JDialog {
                 String crimecaseno = txtCaseno.getText();
 //                String EvidenceRecordNumber = jTableAsset.getModel().getValueAt(jTableAsset.getSelectedRow(), 1)+"";
                 String AssetId = jTableAsset.getModel().getValueAt(jTableAsset.getSelectedRow(), 4)+"";
-                String sql = "Delete from Asset WHERE Name='"+AssetId+"' and caseIdAsset='"+crimecaseno+"'";
+                String sql = "Delete from Asset WHERE NoAsset='"+AssetId+"' and caseIdAsset='"+crimecaseno+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 stmt.executeUpdate(sql);
@@ -253,16 +259,19 @@ public class AssetOverView extends javax.swing.JDialog {
                 String crimecaseno = txtCaseno.getText();
 //                String EvidenceRecordNumber = jTableAsset.getModel().getValueAt(jTableAsset.getSelectedRow(), 1)+"";
                 String AssetId = jTableAsset.getModel().getValueAt(jTableAsset.getSelectedRow(), 4)+"";
-                String sql = "select * from Asset where Name='"+AssetId+"' and caseIdAsset='"+crimecaseno+"'";
+                String sql = "select * from Asset where NoAsset='"+AssetId+"' and caseIdAsset='"+crimecaseno+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                ResultSet rs = stmt.executeQuery(sql);
+               JSONObject data2 = new JSONObject();         
+             data2.put("typecase", TypeCase);
                        //  Convert CrimcaseEdit to JFrame   
 //                    System.out.println("Delete : "+sql);
                 if(rs.next()){
                     JSONObject data = new JSONObject(); 
                      data.put("NoAsset", rs.getString("NoAsset"));
                     data.put("StatusAsset", rs.getString("StatusAsset"));
+                    data.put("OrderAsset", rs.getString("OrderAsset"));                    
                     data.put("EvidenceRecordNumber", rs.getString("EvidenceRecordNumber"));
                     data.put("crimecaseno", rs.getString("caseIdAsset"));
                     data.put("Name", rs.getString("Name"));
@@ -281,7 +290,7 @@ public class AssetOverView extends javax.swing.JDialog {
                      JDialog dialog = new JDialog(frame);//frame is owner
                     JFrame f = (JFrame)(dialog.getParent());
                      f.removeAll();
-                            AssetNewEdit af=new AssetNewEdit(f,data);
+                            AssetNewEdit af=new AssetNewEdit(f,data,data2);
                             af.pack();
                              af.setLocationRelativeTo(null);
                             af.setVisible(true);    		
