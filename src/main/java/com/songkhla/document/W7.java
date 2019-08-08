@@ -136,15 +136,15 @@ public class W7 {
                   bookmarkvalue.put("S10",Checknull(TelStation));
                   bookmarkvalue.put("S27",Checknull(ProvincProsecutor));
                   
-                 bookmarkvalue.put("PS7",Checknull(s.getString("AccureandOther")));
-                  bookmarkvalue.put("PS13", Checknull(s.getString("AgeAccured")));
-                   bookmarkvalue.put("PS14", Checknull(s.getString("AccuredRace")));
-                    bookmarkvalue.put("PS15", Checknull(s.getString("AccuredNati"))); 
+                 bookmarkvalue.put("PA7",Checknull(s.getString("AccureandOther")));
+                  bookmarkvalue.put("PA13", Checknull(s.getString("AgeAccured")));
+                   bookmarkvalue.put("PA14", Checknull(s.getString("AccuredRace")));
+                    bookmarkvalue.put("PA15", Checknull(s.getString("AccuredNati"))); 
 
-                    bookmarkvalue.put("PA7",  Checknull(s.getString("SuspectandOther"))); 
-                    bookmarkvalue.put("PA13", Checknull(s.getString("suspectAge")));
-                     bookmarkvalue.put("PA14", Checknull(s.getString("suspectRace")));
-                         bookmarkvalue.put("PA15",Checknull(s.getString("suspectNati")));
+                    bookmarkvalue.put("PS7",  Checknull(s.getString("SuspectandOther"))); 
+                    bookmarkvalue.put("PS13", Checknull(s.getString("suspectAge")));
+                     bookmarkvalue.put("PS14", Checknull(s.getString("suspectRace")));
+                         bookmarkvalue.put("PS15",Checknull(s.getString("suspectNati")));
                          
                          bookmarkvalue.put("PD7",Checknull(s.getString("FullNamePerson")));
                          
