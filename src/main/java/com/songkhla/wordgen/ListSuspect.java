@@ -47,6 +47,9 @@ String typeC,cid;
        cid=datain.get("CaseIdSus")+"";
         typeC=datain.get("TypeCaseS")+"";
         jLabel2.setText(typeC);
+        if(typeC.equals("Dead")){
+        jLabel1.setText("ข้อมูลผู้ตาย");
+        }
 //        System.out.println("sfsd : "+typeC);
        RefreshData();
     }
@@ -437,7 +440,12 @@ String typeC,cid;
         rs.close();
         stmt.close();
         Vector ColumnName = new Vector();
-         ColumnName.add("ลำดับผู้ต้องหา");
+        
+         if(typeC.equals("Dead")){
+         ColumnName.add("ลำดับผู้ตาย");
+         }
+         else{
+         ColumnName.add("ลำดับผู้ต้องหา");}
          ColumnName.add("เลขบัตรประชาชน");
         ColumnName.add("ชื่อ-นามสุกล");
         ColumnName.add("อายุ");

@@ -230,20 +230,20 @@ String typeC;
              JDialog dialog = new JDialog(frame);//frame is owner
              JFrame facc = (JFrame)(dialog.getParent());               
              facc.removeAll();
-       if(typeC.equals("ชันสูตร")){
-       Identity_AccusedForm ida=new Identity_AccusedForm(facc,null);
-                  ida.pack();
-        ida.setLocationRelativeTo(null);      
-       ida.setVisible(true);
-       }  
-       else{  
+//       if(typeC.equals("ชันสูตร")){
+//       Identity_AccusedForm ida=new Identity_AccusedForm(facc,null);
+//                  ida.pack();
+//        ida.setLocationRelativeTo(null);      
+//       ida.setVisible(true);
+//       }  
+//       else{  
         AccusedForm accusedF=new AccusedForm(facc,null);
                 accusedF.pack();
         accusedF.setLocationRelativeTo(null); 
         accusedF.setVisible(true);
         
         
-       }
+//       }
         RefreshData();
        
     }//GEN-LAST:event_jButtonAddAccusedActionPerformed

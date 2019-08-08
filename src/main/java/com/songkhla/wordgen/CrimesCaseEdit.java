@@ -102,6 +102,7 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.TextEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
@@ -373,12 +374,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
           
         }
  jLabel33.setVisible(false);
-//         System.out.println("dd ;"+CalculateDateArrest(od, da)+"");
-//OccuredDate.addKeyListener(new java.awt.event.KeyAdapter() {
-//    public void KeyRelease(java.awt.event.KeyEvent evt) {
-//             JOptionPane.showMessageDialog(jPanel1,"ไม่เกิน 12 วัน","แจ้งเตือน",  JOptionPane.INFORMATION_MESSAGE); 
-//       }
-//});
+
 
             
     }
@@ -2067,7 +2063,10 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+//   public void textValueChanged(TextEvent Evnt) 
+//          { 
+//            if(Oc);
+//          } 
     private void jButtonSaveCaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveCaseActionPerformed
         // TODO add your handling code here:
 

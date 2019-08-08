@@ -213,18 +213,18 @@ String noPerson;
              JDialog dialog = new JDialog(frame);//frame is owner
              JFrame s = (JFrame)(dialog.getParent());               
              s.removeAll();
-       if(typeC.equals("ชันสูตร")){        
-       Identity_witnessForm idw=new Identity_witnessForm(s,null);
-       idw.pack();
-       idw.setLocationRelativeTo(null);
-       idw.setVisible(true);   
-       }
-       else{         
+//       if(typeC.equals("ชันสูตร")){        
+//       Identity_witnessForm idw=new Identity_witnessForm(s,null);
+//       idw.pack();
+//       idw.setLocationRelativeTo(null);
+//       idw.setVisible(true);   
+//       }
+//       else{         
          WitnessForm wf=new WitnessForm(s,null);
         wf.pack();                            
         wf.setLocationRelativeTo(null);     
         wf.setVisible(true);
-       }
+//       }
 
         RefreshData();
        

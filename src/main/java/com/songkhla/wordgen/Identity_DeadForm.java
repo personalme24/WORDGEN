@@ -870,11 +870,11 @@ public class Identity_DeadForm extends javax.swing.JDialog {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(BtSaveAccused)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -888,7 +888,7 @@ public class Identity_DeadForm extends javax.swing.JDialog {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 718, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 687, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -907,7 +907,7 @@ public class Identity_DeadForm extends javax.swing.JDialog {
             "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
             "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,"
             + "caseIdPerson,Identification,OrderPerson,PlaceOfFoundBody,BodyFoundDate,BodyFoundTime,DateOfDie,TimeOfDie)\n"
-            + " VALUES (?,?,? ,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            + " VALUES (?,?,? ,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             //           String sqlSueFirst="insert into sue (SueTimes,SueDate,)";
             System.out.println("SQL : "+sql);
             try {
@@ -956,7 +956,8 @@ public class Identity_DeadForm extends javax.swing.JDialog {
                 if (response == JOptionPane.YES_OPTION) {
                     pst.executeUpdate();
                     pst.close();
-                    System.out.println("SQL : "+sql);
+//                    System.out.println("SQL : "+sql);
+                    InsertPerson();
                     setVisible(false);
                 }
 
@@ -1275,7 +1276,68 @@ public class Identity_DeadForm extends javax.swing.JDialog {
 					if(input==null||input==""||input=="null") { return ""; }
 					return input;
         }
+ public void InsertPerson(){
+       con=ConnectDatabase.connect();
+        PreparedStatement pst2;
+        boolean isPerson;
+      try {
+              Statement st = con.createStatement();
+           String sel="Select FullNamePerson,PeopleRegistrationID from persondata where FullNamePerson='"+FullNamePerson.getText()+"' and PeopleRegistrationID='"+PeopleRegistrationID.getText()+"'";
+           ResultSet rc = st.executeQuery(sel);
+        if(rc.next()){
+        
+        isPerson=false;
+        }
+        else{
+         isPerson=true;
+        }
+        if(isPerson){    
+        String sql2="INSERT INTO PersonData (Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
+                        "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
+                        "PhonePerson,Province,Race,Religion,Tambon,Weight,ZipCode)\n"
+                + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        
+         System.out.println("SQL : "+sql2);
+      try {
+            pst2=con.prepareStatement(sql2);
+                              pst2.setString(1,Age.getText());
+                              pst2.setString(2,Amphur.getText());
+                              pst2.setString(3,BirthDay.getJFormattedTextField().getText());
+                              pst2.setString(4,BloodGroup.getText());
+                              pst2.setString(5,ExpiredDate.getJFormattedTextField().getText());
+                              pst2.setString(6,FatherFullName.getText());
+                              pst2.setString(7,FullNamePerson.getText());
+                              pst2.setString(8,FullNamePersonEn.getText());
+                              pst2.setString(9,Gender.getSelectedItem().toString());
+                              pst2.setString(10,Height.getText());
+                              pst2.setString(11,HouseNumber.getText());
+                              pst2.setString(12,IssueDate.getJFormattedTextField().getText());
+                              pst2.setString(13,Moo.getText());
+                              pst2.setString(14,MotherFullName.getText());
+                              pst2.setString(15,Nationality.getText());
+                              pst2.setString(16,Occupation.getText());
+                              pst2.setString(17,OtherName.getText());
+                              pst2.setString(18,PassportNumber.getText());
+                              pst2.setString(19,PeopleRegistrationID.getText());
+                              pst2.setString(20,PhonePerson.getText());
+                              pst2.setString(21,Province.getText());
+                              pst2.setString(22,Race.getText());
+                              pst2.setString(23,Religion.getText());
+                              pst2.setString(24,Tambon.getText());                         
+                              pst2.setString(25,Weight.getText());
+                              pst2.setString(26,ZipCode.getText());
+                                pst2.executeUpdate(); 
+                                pst2.close();
+        } catch (Exception e) {
+             JOptionPane.showMessageDialog(jPanel1,e,null, JOptionPane.INFORMATION_MESSAGE);
 
+//             System.out.println("SQL : "+pst2);
+        }
+        }
+      } catch (Exception e) {
+      }
+  
+  }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Age;
     private javax.swing.JTextField Amphur;
