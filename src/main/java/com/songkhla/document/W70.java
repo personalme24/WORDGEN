@@ -61,6 +61,8 @@ public static void w70(String cc) {
              String FirstName ="";
              String LastName ="";
              String Position ="";
+             int BailAssetId=0;
+             int SumValue=0;
             try {
                 
                  String sqlDataPoliceStation="SELECT * FROM PoliceStation";
@@ -85,16 +87,18 @@ public static void w70(String cc) {
                       }
 //                
 
-                   String sql="select crimecase.*,Person.*,ChargeCase.*\n" +
+                   String sql="select crimecase.*,Person.*,ChargeCase.*,BailAsset.*\n" +
                               "from crimecase \n" +
                               "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                               "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
+                              "left join BailAsset on Person.caseIdPerson = BailAsset.BailCaseId\n" +
                               "where crimecase.CaseId='"+cc+"'and Person.TypePerson='ผู้ต้องหา'\n" +
-                              "group by crimecase.CaseId,Person.NoPerson";
+                              "group by crimecase.CaseId,Person.NoPerson,BailAsset.BailAssetId";
 
                 Statement st = conn.createStatement();
             ResultSet s=st.executeQuery(sql); 
                 System.out.println(sql);
+                String VarBA3 = null;
             while((s!=null) && (s.next()))
             {  String  cs =s.getString("crimecaseno");
                  ccYear=s.getString("crimecaseyears");
@@ -178,36 +182,28 @@ public static void w70(String cc) {
                             bookmarkvalue.put("C13", Checknull(s.getString("CrimeLocationAmphur")));
                             bookmarkvalue.put("C14", Checknull(s.getString("CrimeLocationProvince")));
                             bookmarkvalue.put("C15", Checknull(s.getString("DailyNumber")));
+                            
+                             String   BailAssetTotal = s.getString("BailAssetTotal").replace (",", "");
+                   
+                 if ((BailAssetTotal) != null)
+                    {
+                    
+                   SumValue = SumValue+Integer.parseInt(BailAssetTotal);
+                    } 
+                      ++BailAssetId ;
+                            VarBA3= VarBA3+","+s.getString("BailAssetDetail");
+                            bookmarkvalue.put("AB3","หลักทัพย์ที่ใช้ประกัน "+Checknull(VarBA3).substring(5)+" ราคาประเมิน "+Checknull(Integer.toString(SumValue))+" บาท");
+                            
   
 			JSONArray tablecolumn = new JSONArray();
-//			tablecolumn.add("P03");
-//			tablecolumn.add("P02");
-//			tablecolumn.add("SUSPECT");
-//			tablecolumn.add("VICTIM");
-//			tablecolumn.add("REMARK");
+
 			JSONArray table1 = new JSONArray();
 			JSONObject row1 = new JSONObject();
-//			row1.put("P03","-");
-//			row1.put("P02", ccYear);
-//			row1.put("SUSPECT", "period1");
-//			row1.put("VICTIM", "period1");
-//			row1.put("REMARK", "period1");
+
 			table1.add(row1);
 			
-//			JSONObject repl2 = new JSONObject();
-//			repl2.put("CRIMESNO", "function1");
-//			repl2.put("DESCRIPTION", "desc1");
-//			repl2.put("SUSPECT", "period1");
-//			repl2.put("VICTIM", "period1");
-//			repl2.put("REMARK", "period1");
-//			table1.add(repl2);
 		JSONObject tableobj = new JSONObject();
-//		tableobj.put("COLUMNS", tablecolumn);
-//		tableobj.put("TABLEDATA", table1);
-			
-//		JSONArray TABLES = new JSONArray();
-//		TABLES.add(tableobj);
-//		bookmarkvalue.put("TABLES", TABLES);
+
 		System.out.println(bookmarkvalue.toJSONString());
 		
 		
@@ -293,7 +289,7 @@ public static void nw70() {
                             bookmarkvalue.put("C14", "");
                             bookmarkvalue.put("C15", "");
                     
-                    
+                            bookmarkvalue.put("AB3", "");
           
 		try {
                   
