@@ -15,6 +15,7 @@ import com.songkhla.document.W14;
 import com.songkhla.document.W15;
 import com.songkhla.document.W16;
 import com.songkhla.document.W17;
+import com.songkhla.document.W18;
 import com.songkhla.document.W19;
 import com.songkhla.document.W2;
 import com.songkhla.document.W20;
@@ -2893,9 +2894,9 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                if(jCheckW217.isSelected()){
                         W17.w17(no);
                     }
-              // if(jCheckW218.isSelected()){
-                  //      W18.w18(no);
-                  //  }
+               if(jCheckW218.isSelected()){
+                        W18.w18(no);
+                    }
                if(jCheckW219.isSelected()){
                         W19.w19(no);
                     }

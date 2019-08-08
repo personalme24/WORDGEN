@@ -278,7 +278,8 @@ String noPerson;
                     data.put("ZipCode", rs.getString("ZipCode"));
                      data.put("OrderPerson", rs.getString("OrderPerson"));
                      data.put("Related", rs.getString("Related"));
-                   
+                     data.put("OtherName", rs.getString("OtherName"));
+
                             WitnessForm wF=new WitnessForm(f,data);
                             wF.pack();
                             wF.setLocationRelativeTo(null);                            

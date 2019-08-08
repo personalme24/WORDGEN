@@ -374,7 +374,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
           
         }
  jLabel33.setVisible(false);
-
+//OccuredDate.getJFormattedTextField().addCaretListener( new TextFieldSusListener());
 
             
     }
@@ -2063,10 +2063,16 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-//   public void textValueChanged(TextEvent Evnt) 
-//          { 
-//            if(Oc);
-//          } 
+//  private class TextFieldSusListener implements  CaretListener{
+//   public void caretUpdate(CaretEvent e){
+//    if(OccuredDate.getJFormattedTextField().getText().equals("9/8/2562")){
+//            JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 6 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);
+//           Date date = new Date();
+//
+//    }
+//    
+//  }
+//  }
     private void jButtonSaveCaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveCaseActionPerformed
         // TODO add your handling code here:
 

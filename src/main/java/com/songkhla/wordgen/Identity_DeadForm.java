@@ -126,11 +126,20 @@ public class Identity_DeadForm extends javax.swing.JDialog {
         
 
           if(datain!=null){
-        
+              Date timeDie=null;
+                  Date timeFoundBody=null;
+              try{
+                  
             isInsert=false;
             String statusSus,statusBail;
             statusSus=datain.get("StatusSuspect")+"";
-
+                SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm");
+                 timeDie = timeFormat.parse(datain.get("TimeOfDie")+"");
+                 timeFoundBody = timeFormat.parse(datain.get("BodyFoundTime")+"");
+              }catch(Exception ex){
+              
+              
+              }
             Gender.setSelectedItem(datain.get("Gender"));               
             caseid=datain.get("caseIdPerson")+"";
             noPerson=datain.get("NoPerson")+"";
@@ -164,12 +173,13 @@ public class Identity_DeadForm extends javax.swing.JDialog {
             Identification.setText(datain.get("Identification")+"");
             DeathLocation.setText(datain.get("DeathLocation")+"");
             FoundBodyDate.getJFormattedTextField().setText(datain.get("BodyFoundDate")+"");
-            jSpinnerBodyFoundTime.setValue(datain.get("BodyFoundTime"));
+            jSpinnerBodyFoundTime.setValue(timeFoundBody);
             DeadDate.getJFormattedTextField().setText(datain.get("DateOfDie")+"");
-            jSpinnerDeadTime.setValue(datain.get("TimeOfDie"));            
+            jSpinnerDeadTime.setValue(timeDie);            
             
       
             SimpleDateFormat format=new SimpleDateFormat("d/MM/yyyy");
+
         }else{
            
 //           crimecaseno.setText(ListSuspect.txtCaseNO.getText());
@@ -1033,7 +1043,7 @@ public class Identity_DeadForm extends javax.swing.JDialog {
                 pst.setString(22,Race.getText());
                 pst.setString(23,Religion.getText());
                 pst.setString(24,Tambon.getText());
-                pst.setString(25,"ผู้ต้องหา");
+                pst.setString(25,"ผู้ตาย");
                 pst.setString(26,Weight.getText());
                 pst.setString(27,ZipCode.getText());
                 pst.setString(28,OrderPerson.getText());

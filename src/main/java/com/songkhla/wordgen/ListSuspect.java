@@ -256,7 +256,7 @@ String typeC,cid;
                         "Height,Weight,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
                         "PhonePerson,OrderPerson,StatusSuspect,BailDate,StatusBail,RatePrison,CourtSuspect,ArrestDateTimeEnd,Province,Race,Religion,Tambon,TypePerson,"
                         + "ZipCode,caseIdPerson,ArrestDateTime,PlaceArrest,SusConfress,PlaceOfFoundBody,DeathLocation,BodyFoundDate,BodyFoundTime,DateOfDie,TimeOfDie\n"
-                        + "from person where noperson='"+Noperson+ "' and caseIdPerson='"+crimecaseno+"' and TypePerson='ผู้ต้องหา'";
+                        + "from person where noperson='"+Noperson+ "' and caseIdPerson='"+crimecaseno+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);
@@ -309,10 +309,16 @@ String typeC,cid;
                 data.put("BodyFoundTime", rs.getString("BodyFoundTime"));
                    data.put("DateOfDie", rs.getString("DateOfDie"));
                    data.put("TimeOfDie", rs.getString("TimeOfDie"));
+                   if(typeC.equals("Dead")){
+                      Identity_DeadForm id=new Identity_DeadForm(f,data);
+                             id.pack();
+                             id.setLocationRelativeTo(null);
+                            id.setVisible(true);    
+                   }else{
                             SuspectForm suspectF=new SuspectForm(f,data);
                              suspectF.pack();
                              suspectF.setLocationRelativeTo(null);
-                            suspectF.setVisible(true);    		
+                            suspectF.setVisible(true);   } 		
                 }
                 
                 rs.close();

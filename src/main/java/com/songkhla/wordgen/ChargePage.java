@@ -379,8 +379,8 @@ public class ChargePage extends javax.swing.JDialog {
         TrafficEdit.jLabelChargeCode.setText(ChargeCode.getText());
      }
          else if(typecase.equals("ชันสูตร")){
-         TrafficEdit.ChargeNameCase.setText(ChargeName.getText());
-        TrafficEdit.jLabelChargeCode.setText(ChargeCode.getText());
+         IdentityEdit.ChargeNameCase.setText(ChargeName.getText());
+        IdentityEdit.jLabelChargeCode.setText(ChargeCode.getText());
      } 
            setVisible(false);
         
