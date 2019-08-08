@@ -240,7 +240,7 @@
                 <Component class="javax.swing.JTextField" name="crimecaseno">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="22" style="0"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                   </Properties>
                   <AuxValues>
@@ -320,7 +320,7 @@
                   <Properties>
                     <Property name="editable" type="boolean" value="false"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="22" style="0"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                   </Properties>
                   <AuxValues>
@@ -365,7 +365,7 @@
                 <Component class="javax.swing.JTextField" name="CrimeLocation">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="22" style="0"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -416,7 +416,7 @@
                 <Component class="javax.swing.JTextField" name="ActionCrimes">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="22" style="0"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                   </Properties>
                   <AuxValues>
@@ -482,7 +482,7 @@
                 <Component class="javax.swing.JTextField" name="DailyNumber">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="22" style="0"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -507,7 +507,7 @@
                 <Component class="javax.swing.JTextField" name="crimecaseyear">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="22" style="0"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -575,7 +575,7 @@
                   <Properties>
                     <Property name="editable" type="boolean" value="false"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="22" style="0"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -639,7 +639,7 @@
                   <Properties>
                     <Property name="editable" type="boolean" value="false"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="22" style="0"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                   </Properties>
                   <AuxValues>
@@ -739,7 +739,7 @@
                   <Properties>
                     <Property name="editable" type="boolean" value="false"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="22" style="0"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                   </Properties>
                   <AuxValues>
@@ -787,7 +787,7 @@
                 <Component class="javax.swing.JTextField" name="CrimeLocationRoad">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="22" style="0"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -812,7 +812,7 @@
                 <Component class="javax.swing.JTextField" name="CrimeLocationMoo">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="22" style="0"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -840,7 +840,7 @@
                 <Component class="javax.swing.JTextField" name="CrimeLocationSoi">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="22" style="0"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -928,7 +928,7 @@
                   <Properties>
                     <Property name="editable" type="boolean" value="true"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="22" style="0"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="1">
@@ -953,7 +953,7 @@
                   <Properties>
                     <Property name="editable" type="boolean" value="true"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="22" style="0"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="1">
@@ -978,7 +978,7 @@
                   <Properties>
                     <Property name="editable" type="boolean" value="true"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="22" style="0"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="1">
@@ -1189,7 +1189,7 @@
                   <Properties>
                     <Property name="editable" type="boolean" value="false"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="20" style="0"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                   </Properties>
                   <AuxValues>
@@ -1229,7 +1229,7 @@
                   <Properties>
                     <Property name="editable" type="boolean" value="false"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="20" style="0"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                   </Properties>
                   <AuxValues>
@@ -1275,7 +1275,7 @@
                   <Properties>
                     <Property name="editable" type="boolean" value="false"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="20" style="0"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                   </Properties>
                   <AuxValues>
@@ -1285,7 +1285,7 @@
                 <Component class="javax.swing.JTextField" name="Investigator_Number">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="20" style="0"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -1300,7 +1300,7 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="TH SarabunPSK" size="22" style="0"/>
+                          <Font name="TH SarabunPSK" size="22" style="1"/>
                         </Property>
                         <Property name="lineWrap" type="boolean" value="true"/>
                         <Property name="rows" type="int" value="3"/>
@@ -1326,7 +1326,7 @@
                 <Component class="javax.swing.JTextField" name="jTextInvestSendtoDepartment">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="20" style="0"/>
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -1532,7 +1532,7 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="TH SarabunPSK" size="22" style="0"/>
+                          <Font name="TH SarabunPSK" size="22" style="1"/>
                         </Property>
                         <Property name="lineWrap" type="boolean" value="true"/>
                         <Property name="rows" type="int" value="3"/>
@@ -1558,7 +1558,7 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="TH SarabunPSK" size="22" style="0"/>
+                          <Font name="TH SarabunPSK" size="22" style="1"/>
                         </Property>
                         <Property name="lineWrap" type="boolean" value="true"/>
                         <Property name="rows" type="int" value="3"/>
@@ -2584,12 +2584,14 @@
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jCheckW224" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
-                                          <Component id="jCheckW221" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
-                                          <Component id="jCheckW223" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
-                                          <Component id="jCheckW222" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jCheckW224" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
+                                              <Component id="jCheckW221" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
+                                              <Component id="jCheckW223" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
+                                              <Component id="jCheckW222" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jCheckW279" min="-2" pref="350" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -2606,7 +2608,10 @@
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="jCheckW265" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              <Component id="jCheckW267" min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="jCheckW267" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jCheckW279" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="jCheckW221" min="-2" max="-2" attributes="0"/>
@@ -2744,6 +2749,20 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="&#xe04;&#xe33;&#xe23;&#xe49;&#xe2d;&#xe07;&#xe02;&#xe2d;&#xe1c;&#xe31;&#xe14;&#xe1f;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe23;&#xe37;&#xe2d;&#xe1c;&#xe31;&#xe14;&#xe1f;&#xe49;&#xe2d;&#xe07;&#xe41;&#xe25;&#xe30;&#xe1d;&#xe32;&#xe01;&#xe02;&#xe31;&#xe07;&#xe04;&#xe23;&#xe31;&#xe49;&#xe07;&#xe17;&#xe35;&#xe48; 1"/>
                               </Properties>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="jCheckW279">
+                              <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                </Property>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="TH SarabunPSK" size="22" style="1"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="&#xe1e;&#xe34;&#xe21;&#xe1e;&#xe4c;&#xe25;&#xe32;&#xe22;&#xe19;&#xe34;&#xe49;&#xe27;&#xe21;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckW279ActionPerformed"/>
+                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>
