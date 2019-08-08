@@ -78,7 +78,7 @@ String typeC,cid;
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
-        jTableSuspect.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        jTableSuspect.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jTableSuspect.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

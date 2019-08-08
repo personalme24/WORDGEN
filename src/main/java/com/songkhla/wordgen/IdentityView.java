@@ -206,7 +206,7 @@ public class IdentityView extends javax.swing.JDialog {
                 .addContainerGap())
         );
 
-        jTable1.setFont(new java.awt.Font("TH SarabunPSK", 1, 18)); // NOI18N
+        jTable1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jTable1.setForeground(new java.awt.Color(51, 51, 51));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -720,7 +720,6 @@ public class IdentityView extends javax.swing.JDialog {
             row.add(rs.getString("AccureandOther"));
             row.add(rs.getString("SuspectandOther"));
             row.add(rs.getString("ChargeName"));
-//            row.add("-");
             row.add(rs.getString("CaseAcceptDate"));
             row.add(rs.getString("CaseRequestDate"));
             row.add(rs.getString("Investigator_Result"));

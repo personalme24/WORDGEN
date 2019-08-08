@@ -136,7 +136,7 @@ public class AssetOverView extends javax.swing.JDialog {
         txtCaseno.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         txtCaseno.setText("เลขคดี");
 
-        jTableAsset.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        jTableAsset.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jTableAsset.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

@@ -2584,12 +2584,10 @@
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jCheckW224" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
-                                              <Component id="jCheckW221" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
-                                              <Component id="jCheckW223" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
-                                              <Component id="jCheckW222" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="jCheckW224" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
+                                          <Component id="jCheckW221" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
+                                          <Component id="jCheckW223" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
+                                          <Component id="jCheckW222" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
                                           <Component id="jCheckW279" min="-2" pref="350" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>

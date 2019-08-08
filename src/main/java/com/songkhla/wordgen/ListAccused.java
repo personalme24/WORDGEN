@@ -72,7 +72,7 @@ String typeC;
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
-        jTableAccure.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        jTableAccure.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jTableAccure.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},

@@ -85,7 +85,7 @@ public class InvesInformationView1 extends javax.swing.JDialog{
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
         );
 
-        jTableInvest.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        jTableInvest.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jTableInvest.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},

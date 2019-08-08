@@ -198,9 +198,9 @@ public class RecordInvestigatorView extends javax.swing.JDialog {
         if(jTableRecord.getSelectedRow()>=0){
            
             try{
-                String NameInguiry = jTableRecord.getModel().getValueAt(jTableRecord.getSelectedRow(), 2)+"";            
+                String IdRecord = jTableRecord.getModel().getValueAt(jTableRecord.getSelectedRow(), 3)+"";            
                 String sql = "select IdRecord,DateRecord,NameInguiry,DetailRecord,CaseIdRecord from RecordInquiry"
-                        + " where NameInguiry='"+NameInguiry+"' and CaseIdRecord="+crimecaseno;
+                        + " where IdRecord='"+IdRecord+"' and CaseIdRecord="+crimecaseno;
 //                 System.out.println("dddddddddddddd:"+sql);
                  Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
@@ -237,6 +237,21 @@ public class RecordInvestigatorView extends javax.swing.JDialog {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+           if(jTableRecord.getSelectedRow()>=0){
+            try{
+                String IdRecord= jTableRecord.getModel().getValueAt(jTableRecord.getSelectedRow(), 3)+"";
+                String sql = "Delete from RecordInquiry WHERE IdRecord='"+IdRecord+"'";
+                Connection con = ConnectDatabase.connect();
+                Statement stmt = con.createStatement();
+                stmt.executeUpdate(sql);
+
+                //            rs.close();
+                stmt.close();
+                RefreshData();
+            }catch(Exception ex){
+                ex.printStackTrace();
+            }
+        }
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -249,7 +264,7 @@ public class RecordInvestigatorView extends javax.swing.JDialog {
         Connection con = ConnectDatabase.connect();
         Statement stmt = con.createStatement();
 
-        String sql = "select DateRecord,NameInguiry,DetailRecord\n"+
+        String sql = "select IdRecord,DateRecord,NameInguiry,DetailRecord\n"+
                      "from RecordInquiry where CaseIdRecord='"+caseIdRec+"'";
       
         ResultSet rs = stmt.executeQuery(sql);
@@ -257,9 +272,11 @@ public class RecordInvestigatorView extends javax.swing.JDialog {
         Vector<Vector> tabledata = new Vector<Vector>();
         while(rs.next()){
             Vector<String> row = new Vector<String>();
+           
             row.add(rs.getString("DateRecord"));
-            row.add(rs.getString("DetailRecord"));
             row.add(rs.getString("NameInguiry"));
+            row.add(rs.getString("DetailRecord")); 
+            row.add(rs.getString("IdRecord"));
             tabledata.add(row);
         }
         rs.close();
@@ -268,6 +285,8 @@ public class RecordInvestigatorView extends javax.swing.JDialog {
          ColumnName.add("วันที่");
         ColumnName.add("งานที่ปฏิบัติ");
         ColumnName.add("ชื่อ");
+         ColumnName.add("IdRecord");
+
          System.out.println("SQL : "+sql);
      
         jTableRecord.setModel(new javax.swing.table.DefaultTableModel(
@@ -296,7 +315,9 @@ public class RecordInvestigatorView extends javax.swing.JDialog {
         }catch(Exception ex){
             ex.printStackTrace();
         }
-           
+           jTableRecord.getColumnModel().getColumn(3).setWidth(0);
+jTableRecord.getColumnModel().getColumn(3).setMinWidth(0);
+jTableRecord.getColumnModel().getColumn(3).setMaxWidth(0);
      
     }
     public static void main(String args[]) {

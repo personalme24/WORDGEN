@@ -91,7 +91,7 @@ public class ActionList extends javax.swing.JDialog {
             }
         });
 
-        jTableAction.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jTableAction.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jTableAction.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

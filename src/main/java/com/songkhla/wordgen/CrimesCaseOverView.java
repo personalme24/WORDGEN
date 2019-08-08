@@ -210,7 +210,7 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
                 .addContainerGap())
         );
 
-        jTable1.setFont(new java.awt.Font("TH SarabunPSK", 1, 18)); // NOI18N
+        jTable1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jTable1.setForeground(new java.awt.Color(51, 51, 51));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

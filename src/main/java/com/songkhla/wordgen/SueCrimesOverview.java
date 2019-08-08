@@ -221,6 +221,8 @@ public class SueCrimesOverview extends javax.swing.JDialog {
         jLabel2.setText("ถึง");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 70, -1, -1));
 
+        jPanelDateStart.setBackground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout jPanelDateStartLayout = new javax.swing.GroupLayout(jPanelDateStart);
         jPanelDateStart.setLayout(jPanelDateStartLayout);
         jPanelDateStartLayout.setHorizontalGroup(
@@ -233,6 +235,8 @@ public class SueCrimesOverview extends javax.swing.JDialog {
         );
 
         jPanel1.add(jPanelDateStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, 210, 40));
+
+        jPanelDateEnd.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanelDateEndLayout = new javax.swing.GroupLayout(jPanelDateEnd);
         jPanelDateEnd.setLayout(jPanelDateEndLayout);
@@ -532,12 +536,6 @@ sql=sql+" where StatusSuspect='ฝากขัง'";
             row.add(ChangFormat(rs.getString("SueFifthEnd")));
              row.add(ChangFormat(rs.getString("SueSixthEnd")));
             row.add(ChangFormat(rs.getString("SueSevenEnd")));
-
-               
-//            row.add(rs.getString("Age"));
-//            row.add(rs.getString("Race"));
-//            row.add(rs.getString("Nationality"));
-//            row.add(rs.getString("Religion"));
             tabledata.add(row);
         }
         rs.close();
