@@ -92,7 +92,7 @@ public class W50 {
                               "from crimecase \n" +
                               "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                               "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
-                              "where crimecase.CaseId='"+cc+"'and Person.TypePerson='ผู้กล่าวหา'\n" +
+                              "where crimecase.CaseId='"+cc+"'and Person.Related='ผู้เสียหาย'\n" +
                               "group by crimecase.CaseId,Person.NoPerson";
                    
 //                   pst=conn.prepareStatement(sql);

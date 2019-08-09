@@ -44,6 +44,158 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 public class W52 {
+    public static void w52(String cc) {
+     
+            Connection conn=null;
+            conn=ConnectDatabase.connect();
+            PreparedStatement pst=null;
+             String ccYear;
+             String casetype;
+             String caseno;
+             String PoliceStationName="";
+             String StationAmphur="";
+             String StationProvince="";
+             String ProvincProsecutor="";
+             String TelStation="";
+             String RankPolice ="";
+             String FirstName ="";
+             String LastName ="";
+             String Position ="";
+             
+             
+            try {
+//               
+                    String sqlDataPoliceStation="SELECT * FROM PoliceStation";
+                      Statement sp = conn.createStatement();
+                  ResultSet rs=sp.executeQuery(sqlDataPoliceStation); 
+                  while (rs.next()) {                    
+                         PoliceStationName=rs.getString("PoliceStaionName");
+                         StationAmphur=rs.getString("StationAmphur");
+                         StationProvince=rs.getString("StationProvince");
+                         ProvincProsecutor=rs.getString("ProvincProsecutor");
+                         TelStation=rs.getString("TelStation");
+                      }
+            
+                    String sqlDataPolice="SELECT * FROM Police";
+                      Statement sp1 = conn.createStatement();
+                  ResultSet rs1=sp1.executeQuery(sqlDataPolice); 
+                  while (rs1.next()) {                    
+                         RankPolice =rs1.getString("RankPolice");
+                         FirstName=rs1.getString("FirstName");
+                         LastName=rs1.getString("LastName");
+                         Position=rs1.getString("Position");
+                      }
+                  
+                   String sql="select crimecase.*,Person.*,ChargeCase.*\n" +
+                              "from crimecase \n" +
+                              "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
+                              "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
+                              "where crimecase.CaseId='"+cc+"'and Person.Related='ผู้เสียหาย'\n" +
+                              "group by crimecase.CaseId,Person.NoPerson";
+                   
+//                   pst=conn.prepareStatement(sql);
+//           pst=PreparedStatement(sql);
+                Statement st = conn.createStatement();
+            ResultSet s=st.executeQuery(sql); 
+                System.out.println(sql);
+            while((s!=null) && (s.next()))
+            {  String  
+                    cs =s.getString("crimecaseno");
+                    ccYear=s.getString("crimecaseyears");
+                 casetype =s.getString("casetype");
+                 caseno  =s.getString("crimecasenoyear");
+                String Date="";
+                String Month="";
+                String Year="";
+                SimpleDateFormat sdfstart ;
+                Calendar  calstart = Calendar.getInstance();
+                sdfstart = new SimpleDateFormat("d", new Locale("th", "TH"));  
+               Date =sdfstart.format(calstart.getTime());
+              
+               sdfstart = new SimpleDateFormat("MMMM", new Locale("th", "TH"));  
+               Month=sdfstart.format(calstart.getTime());
+               
+               sdfstart = new SimpleDateFormat("yyyy", new Locale("th", "TH"));  
+               Year=sdfstart.format(calstart.getTime());
+//              
+                 JSONObject bookmarkvalue = new JSONObject();
+//                 bookmarkvalue.put("C1","Date");
+//                 bookmarkvalue.put("S27","-");
+                bookmarkvalue.put("C1",Checknull(Date));
+                bookmarkvalue.put("C01",Checknull(Month));
+                bookmarkvalue.put("C001",Checknull(Year));
+		bookmarkvalue.put("C2",Checknull(cs));
+                bookmarkvalue.put("C3", Checknull(ccYear));
+                bookmarkvalue.put("CC2",Checknull(caseno));
+                
+                bookmarkvalue.put("S2","");
+                bookmarkvalue.put("S4", "");
+                bookmarkvalue.put("S29","");
+
+                    bookmarkvalue.put("PA8", "");
+                    bookmarkvalue.put("PA54", ""); 
+                    bookmarkvalue.put("PA15", "");
+                    bookmarkvalue.put("PA6", "");
+                  
+                     
+
+                      bookmarkvalue.put("B2", "");
+                      
+                       bookmarkvalue.put("P02", "");
+                        bookmarkvalue.put("P03", "");
+                        bookmarkvalue.put("P04", "");
+                        bookmarkvalue.put("P05", "");
+                   
+    
+			JSONArray tablecolumn = new JSONArray();
+			tablecolumn.add("C2");
+			tablecolumn.add("C3");
+//			tablecolumn.add("SUSPECT");
+//			tablecolumn.add("VICTIM");
+//			tablecolumn.add("REMARK");
+			JSONArray table1 = new JSONArray();
+			JSONObject row1 = new JSONObject();
+			row1.put("C2",cs);
+			row1.put("C3", ccYear);
+//			row1.put("SUSPECT", "period1");
+//			row1.put("VICTIM", "period1");
+//			row1.put("REMARK", "period1");
+			table1.add(row1);
+			
+//			JSONObject repl2 = new JSONObject();
+//			repl2.put("CRIMESNO", "function1");
+//			repl2.put("DESCRIPTION", "desc1");
+//			repl2.put("SUSPECT", "period1");
+//			repl2.put("VICTIM", "period1");
+//			repl2.put("REMARK", "period1");
+//			table1.add(repl2);
+		JSONObject tableobj = new JSONObject();
+		tableobj.put("COLUMNS", tablecolumn);
+		tableobj.put("TABLEDATA", table1);
+			
+		JSONArray TABLES = new JSONArray();
+		TABLES.add(tableobj);
+		bookmarkvalue.put("TABLES", TABLES);
+		System.out.println(bookmarkvalue.toJSONString());
+		
+		
+		try {
+                  
+			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
+					.load(new java.io.File("./TEMPLATE/w52.docx"));
+			processVariable(bookmarkvalue,wordMLPackage);
+			processTABLE(bookmarkvalue,wordMLPackage);
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/หนังสือขอให้ตรวจสอบหนังสือเดินทางฯของต่างด้าว "+ cs+"-"+ccYear+".doc"));
+		}catch( Exception ex) {
+			ex.printStackTrace();
+		}
+            }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        
+              
+	}
 
 public static void nw52() {
      

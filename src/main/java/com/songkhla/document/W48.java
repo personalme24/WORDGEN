@@ -160,6 +160,7 @@ public class W48 {
                 bookmarkvalue.put("PS55",Checknull(s.getString("PlaceArrest")));
                
                 bookmarkvalue.put("A2", Checknull(s.getString("ActionCrimesCase")));
+                bookmarkvalue.put("B2", Checknull(s.getString("ChargeNameCase")));
                 
                 
                       
@@ -262,7 +263,7 @@ public static void nw48() {
                 bookmarkvalue.put("PS55","");
                
                   bookmarkvalue.put("A2", "");
-                
+                  bookmarkvalue.put("B2", "");
                 
                       
                         bookmarkvalue.put("P02", "");

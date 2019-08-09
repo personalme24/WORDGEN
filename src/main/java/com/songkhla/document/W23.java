@@ -135,6 +135,7 @@ public static void w23(String cc) {
 //                   ----------------------------ผู้ตาย--------------------
                    
                     bookmarkvalue.put("PD7", Checknull(s.getString("FullNamePerson"))); 
+                    bookmarkvalue.put("PD12", Checknull(s.getString("Gender")));
                     bookmarkvalue.put("PD13", Checknull(s.getString("Age")));
                     bookmarkvalue.put("PD14", Checknull(s.getString("Race")));
                     bookmarkvalue.put("PD15", Checknull(s.getString("Nationality")));
@@ -157,12 +158,12 @@ public static void w23(String cc) {
                     bookmarkvalue.put("PD50", Checknull(s.getString("TambomFoundBody")));
                     bookmarkvalue.put("PD51", Checknull(s.getString("AmphurFoundBody")));
                     bookmarkvalue.put("PD52", Checknull(s.getString("ProvinceFoundBody")));
-                    bookmarkvalue.put("PD53", Checknull(s.getString("CircumstancesOfDeath")));
+                    bookmarkvalue.put("PD53", "เหตุที่ตายคือ "+Checknull(s.getString("CauseDead")));
                     bookmarkvalue.put("PD83", Checknull(s.getString("TimeOfDie")));
                     bookmarkvalue.put("PD84", Checknull(s.getString("BodyFoundTime")));
                     
 
-                       bookmarkvalue.put("C59", Checknull(s.getString("CircumstancesOfDeath")));
+                       bookmarkvalue.put("C59","โดย "+Checknull(s.getString("CircumstancesOfDeath")));
                       
                      bookmarkvalue.put("P02", Checknull(RankPolice));
                      bookmarkvalue.put("P03", Checknull(FirstName));
@@ -227,6 +228,7 @@ public static void nw23() {
                     bookmarkvalue.put("PD3",""); 
                     bookmarkvalue.put("PD5", ""); 
                     bookmarkvalue.put("PD7", ""); 
+                    bookmarkvalue.put("PD12", "");
                     bookmarkvalue.put("PD13", "");
                     bookmarkvalue.put("PD14","");
                     bookmarkvalue.put("PD15", "");
