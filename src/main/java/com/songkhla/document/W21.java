@@ -85,18 +85,18 @@ public class W21 {
                          Position=rs1.getString("Position");
                       }
                   
-                   String sql="select crimecase.*,ChargeCase.*,P1.*,P2.*\n" +
-                               "from crimecase inner join(\n" +
+                   String sql="select crimecase.*,ChargeCase.*,P1.*,P2.*,Person.*\n" +
+                                "from crimecase inner join(\n" +
                               "SELECT  min(Person.NoPerson),Person.FullNamePerson AccuredName,Person.Age AgeAccured,Person.Race AccuredRace,Person.Nationality AccuredNati "
-                           + "  FROM Person where Person.TypePerson='ผู้กล่าวหา'\n" +
+                            + "  FROM Person where Person.TypePerson='ผู้กล่าวหา'\n" +
                               ")P1\n" +
                               "inner join(\n" +
                                 "SELECT min(Person.NoPerson),Person.FullNamePerson suspectName,Person.Age suspectAge,Person.Amphur suspectAmp,Person.Race suspectRace,\n"+
-                                "Person.Nationality suspectNati FROM Person where Person.TypePerson='ผู้ต้องหา'\n" +
+                                "Person.Nationality suspectNati FROM Person where Person.TypePerson='ผู้ตาย'\n" +
                                 ")P2\n" +
                                 "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                                 "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
-                                "where crimecase.CaseId='"+cc+"'\n"+
+                                "where crimecase.CaseId='"+cc+"' and Person.TypePerson='ผู้ตาย'\n"+
                                 "group by crimecase.CaseId";
                    
 //                   pst=conn.prepareStatement(sql);
@@ -142,7 +142,7 @@ public class W21 {
                  bookmarkvalue.put("S27",Checknull(ProvincProsecutor));
                  bookmarkvalue.put("S10",Checknull(TelStation));
                    
-                  bookmarkvalue.put("PA7",Checknull(s.getString("AccureandOther")));
+                  bookmarkvalue.put("PD7",Checknull(s.getString("suspectName")));
                  
                    
                          

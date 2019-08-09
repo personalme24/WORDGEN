@@ -148,7 +148,7 @@ public class W47 {
                 bookmarkvalue.put("PA12", Checknull(s.getString("Gender")));
                 bookmarkvalue.put("PA13", Checknull(s.getString("Age")));
                 bookmarkvalue.put("PA14", Checknull(s.getString("Race")));
-                bookmarkvalue.put("PA15", Checknull(s.getString("Religion"))); 
+                bookmarkvalue.put("PA15", Checknull(s.getString("Nationality"))); 
                 bookmarkvalue.put("PA17", Checknull(s.getString("Occupation"))); 
                 bookmarkvalue.put("PA22", Checknull(s.getString("HouseNumber"))); 
                 bookmarkvalue.put("PA23", Checknull(s.getString("Moo"))); 
