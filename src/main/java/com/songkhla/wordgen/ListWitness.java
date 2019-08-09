@@ -79,7 +79,7 @@ String noPerson;
 
             },
             new String [] {
-                "ชื่อ-นามสกุล", "เลขบัตรประชน", "เลขคดี"
+                "เลขคดี", "ชื่อ-นามสกุล", "เลขบัตรประชน"
             }
         ));
         jTableWitness.setGridColor(new java.awt.Color(255, 255, 255));
@@ -112,7 +112,7 @@ String noPerson;
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("ข้อมูลพยานและบุคคลอื่นๆ");
 
-        jButtonDeleteAccured.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        jButtonDeleteAccured.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jButtonDeleteAccured.setText("ลบ");
         jButtonDeleteAccured.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,7 +120,7 @@ String noPerson;
             }
         });
 
-        jButtonEditAccured.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        jButtonEditAccured.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jButtonEditAccured.setText("แก้ไข");
         jButtonEditAccured.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,7 +130,7 @@ String noPerson;
 
         txtCaseNO.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
-        jButtonAddAccused.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        jButtonAddAccused.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jButtonAddAccused.setText("เพิ่ม");
         jButtonAddAccused.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
