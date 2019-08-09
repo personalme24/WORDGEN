@@ -76,6 +76,7 @@ import com.songkhla.document.W75;
 import com.songkhla.document.W76;
 import com.songkhla.document.W77;
 import com.songkhla.document.W78;
+import com.songkhla.document.W79;
 import com.songkhla.document.W8;
 import com.songkhla.document.W80;
 import com.songkhla.document.W9;
@@ -3057,7 +3058,9 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                if(jCheckW278.isSelected()){
                         W78.w78(no);
                     }
-               
+               if(jCheckW279.isSelected()){
+                        W79.w79(no);
+                    }
                if(jCheckW280.isSelected()){
                         W80.w80(no);
                     }
