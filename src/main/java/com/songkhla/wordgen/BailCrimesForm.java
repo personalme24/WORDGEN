@@ -563,17 +563,18 @@ jTableBail.setPreferredScrollableViewportSize(Toolkit.getDefaultToolkit().getScr
 "                (select * from DeliverySuspect where deliorder=5) as deli5 on deli1.delipersonid=deli5.delipersonid\n" +
 "                left outer join\n" +
 "                (select * from DeliverySuspect where deliorder=6) as deli6 on deli1.delipersonid=deli6.delipersonid\n" +
-"where 	Person.StatusBail='ประกัน'			\n" +
-"group by Person.NoPerson";
+"where 	Person.StatusBail='ประกัน'" ;
+          
 //                sql= "select StatusBail,CaseId,ArrestDateTimeEnd,crimecasenoyear,SueFirstDate,Investigator_Result,TypePerson,BailDate,PeopleRegistrationID,FullNamePerson,StatusSuspect,CaseIdPerson,CaseAcceptDate \n" +
 //                     "from Person\n" +
 //                     "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId "
 //                   + "where TypePerson='ผู้ต้องหา' and StatusBail='ประกัน' or StatusSuspect='"+jComboStatus.getSelectedItem()+"'";
       if(jCheckOnly.isSelected())
       {
-      sql=sql+" and Investigator_Result='อยู่ระหว่างสอบสวน'";
+      sql=sql+" and CrimeCase.Investigator_Result='อยู่ระหว่างสอบสวน' group by Person.NoPerson";
       
-      }
+      }else{
+      sql=sql+" group by Person.NoPerson";}
       
         ResultSet rs = stmt.executeQuery(sql);
 //          System.out.println("SQL : "+sql);

@@ -192,17 +192,12 @@ public class SueCrimesOverview extends javax.swing.JDialog {
                 return types [columnIndex];
             }
         });
-        jTableSue.setGridColor(new java.awt.Color(0, 0, 0));
-        jTableSue.setFocusable(false);
-
         jTableSue.setGridColor(new java.awt.Color(255, 255, 255));
+        jTableSue.setFocusable(false);
 
         jTableSue.setIntercellSpacing(new java.awt.Dimension(0, 0));
 
         jTableSue.setRowHeight(25);
-
-        jTableSue.setSelectionBackground(new java.awt.Color(77, 0, 0));
-
         jTableSue.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTableSue);
 

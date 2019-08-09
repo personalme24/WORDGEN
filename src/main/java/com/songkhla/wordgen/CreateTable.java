@@ -76,7 +76,7 @@ public class CreateTable {
                 "	TambomFoundBody	VARCHAR(100)	,	\n"+
                 "	AmphurFoundBody	VARCHAR(100)	,	\n"+
                 "	ProvinceFoundBody	VARCHAR(100)	,	\n"+
-                "	CircumstancesOfDeath	VARCHAR(100)	,	\n"+
+                "	CircumstancesOfDeathPer	VARCHAR(100)	,	\n"+
                 "	ArrestDate	VARCHAR(100)	,	\n"+
                 "	ArrestTime	VARCHAR(100)	,	\n"+                                           
                 "	PlaceArrest	VARCHAR(100)	,	\n"+

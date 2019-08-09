@@ -92,7 +92,6 @@ String typeC,cid;
         jTableSuspect.getTableHeader().setOpaque(false);
         jTableSuspect.setRowHeight(25);
         jTableSuspect.setRowMargin(2);
-        jTableSuspect.setSelectionBackground(new java.awt.Color(0, 153, 255));
         jScrollPane1.setViewportView(jTableSuspect);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

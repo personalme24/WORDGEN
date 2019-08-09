@@ -245,7 +245,6 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
         jTable1.setGridColor(new java.awt.Color(255, 255, 255));
         jTable1.setIntercellSpacing(new java.awt.Dimension(0, 0));
         jTable1.setRowHeight(25);
-        jTable1.setSelectionBackground(new java.awt.Color(0, 153, 255));
         jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable1);
 
@@ -301,6 +300,7 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
+        txtSearchSus.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         txtSearchSus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSearchSusActionPerformed(evt);
@@ -308,8 +308,9 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
         });
 
         jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel6.setText("ผู้ต้องหาคนที่ 1");
+        jLabel6.setText("ผู้ต้องหา");
 
+        txtSearchCase.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         txtSearchCase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSearchCaseActionPerformed(evt);
@@ -319,6 +320,7 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
         jLabel9.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel9.setText("วันที่รับแจ้ง");
 
+        txtSearchCharge.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         txtSearchCharge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSearchChargeActionPerformed(evt);
@@ -331,6 +333,7 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
         jLabel7.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel7.setText("วันที่รับคำร้องทุกข์");
 
+        txtSearchAcc.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         txtSearchAcc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSearchAccActionPerformed(evt);
@@ -703,8 +706,9 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
         Connection con = ConnectDatabase.connect();
         Statement stmt = con.createStatement();
         String sql = "select crimecase.*,Charge.* from crimecase"
-                + " left join Charge on Charge.ChargeCode=crimecase.ChargeCodeCase"
-                + " where CaseType='คดีอาญา'"+getFilterCondition();
+                + " left join Charge on Charge.ChargeCode=crimecase.ChargeCodeCase\n"
+                +"left join Person on Person.CaseIdPerson=crimecase.CaseId"
+                + " where CaseType='คดีอาญา'"+getFilterCondition()+" group by crimecase.CaseId";
 
 //                + "left join Person on Person.caseIdPerson = CrimeCase.CaseId "+getFilterCondition();
 
@@ -765,10 +769,10 @@ jTable1.getColumnModel().getColumn(0).setMaxWidth(0);
             filter.put("crimecasenoyear", txtSearchCase.getText().trim());       
         }
          if(txtSearchAcc.getText().trim().length()>0){
-            filter.put("AccureandOther", txtSearchAcc.getText().trim());       
+            filter.put("FullNamePerson", txtSearchAcc.getText().trim());       
         }
          if(txtSearchSus.getText().trim().length()>0){
-            filter.put("SuspectandOther", txtSearchSus.getText().trim());       
+            filter.put("FullNamePerson", txtSearchSus.getText().trim());       
         }
          if(txtSearchCharge.getText().trim().length()>0){
             filter.put("ChargeName", txtSearchCharge.getText().trim());       

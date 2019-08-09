@@ -208,15 +208,15 @@
                     </Column>
                   </TableColumnModel>
                 </Property>
-                <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="0" type="rgb"/>
+                <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="new java.awt.Color(255, 255, 255)" type="code"/>
                 </Property>
                 <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                 </Property>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jTableSue.setFocusable(false);&#xa;&#xa;jTableSue.setGridColor(new java.awt.Color(255, 255, 255));&#xa;&#xa;jTableSue.setIntercellSpacing(new java.awt.Dimension(0, 0));&#xa;&#xa;jTableSue.setRowHeight(25);&#xa;&#xa;jTableSue.setSelectionBackground(new java.awt.Color(77, 0, 0));&#xa;&#xa;jTableSue.getTableHeader().setReorderingAllowed(false);"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jTableSue.setFocusable(false);&#xa;&#xa;&#xa;&#xa;jTableSue.setIntercellSpacing(new java.awt.Dimension(0, 0));&#xa;&#xa;jTableSue.setRowHeight(25);&#xa;jTableSue.getTableHeader().setReorderingAllowed(false);"/>
               </AuxValues>
             </Component>
           </SubComponents>

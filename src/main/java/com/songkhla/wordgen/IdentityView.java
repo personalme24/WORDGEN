@@ -709,7 +709,8 @@ public class IdentityView extends javax.swing.JDialog {
         Statement stmt = con.createStatement();
         String sql = "select crimecase.*,Charge.* from crimecase"
                 + " left join Charge on Charge.ChargeCode=crimecase.ChargeCodeCase"
-                + " where CaseType='คดีชันสูตร'"+getFilterCondition();
+                +"left join Person on Person.CaseIdPerson=crimecase.CaseId"
+                + " where CaseType='คดีชันสูตร'"+getFilterCondition()+" group by crimecase.CaseId";
 
 //                + "left join Person on Person.caseIdPerson = CrimeCase.CaseId "+getFilterCondition();
 
@@ -769,10 +770,10 @@ jTable1.getColumnModel().getColumn(0).setMaxWidth(0);
             filter.put("crimecasenoyear", txtSearchCase.getText().trim());       
         }
          if(txtSearchAcc.getText().trim().length()>0){
-            filter.put("AccureandOther", txtSearchAcc.getText().trim());       
+            filter.put("FullNamePerson", txtSearchAcc.getText().trim());       
         }
          if(txtSearchSus.getText().trim().length()>0){
-            filter.put("SuspectandOther", txtSearchSus.getText().trim());       
+            filter.put("FullNamePerson", txtSearchSus.getText().trim());       
         }
          if(txtSearchCharge.getText().trim().length()>0){
             filter.put("ChargeName", txtSearchCharge.getText().trim());       

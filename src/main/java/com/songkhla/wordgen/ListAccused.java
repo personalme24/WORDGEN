@@ -101,7 +101,6 @@ String typeC;
         jTableAccure.setGridColor(new java.awt.Color(255, 255, 255));
         jTableAccure.setRowHeight(25);
         jTableAccure.setRowMargin(2);
-        jTableAccure.setSelectionBackground(new java.awt.Color(0, 153, 255));
         jTableAccure.getTableHeader().setFont(new Font("TH SarabunPSK", Font.BOLD, 20));
         jTableAccure.getTableHeader().setOpaque(false);
         jScrollPane1.setViewportView(jTableAccure);

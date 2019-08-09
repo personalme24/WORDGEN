@@ -690,8 +690,6 @@ public class StationForm extends javax.swing.JDialog {
            //Connection con = ConnectDatabase.connect();
       
               if(isInsert){
-                     int dialogResult = JOptionPane.showConfirmDialog (null, "ทำการบันทึกข้อมูล?", "ยืนยันการบันทึกข้อมูล",JOptionPane.YES_NO_OPTION);
-                    if(dialogResult == JOptionPane.YES_OPTION){
           try {  
               Statement stmt = con.createStatement();
      
@@ -747,11 +745,10 @@ public class StationForm extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, e);
             System.out.println("SQL : "+pst);
         }
-              }
+              
               }
               else{
-                      int dialogResult = JOptionPane.showConfirmDialog (null, "ทำการแก้ไขข้อมูล?", "ยืนยันการแก้ไขข้อมูล",JOptionPane.YES_NO_OPTION);
-          if(dialogResult == JOptionPane.YES_OPTION){
+                     
          try{
          String sqlUpdate= "UPDATE PoliceStation Set\n "
         + "PoliceStartionCode=?,"
@@ -838,7 +835,7 @@ public class StationForm extends javax.swing.JDialog {
             System.out.println("SQL : "+pst);
             
         }
-              }
+              
         setVisible(false);
               }
     }//GEN-LAST:event_jButtonSaveStationActionPerformed

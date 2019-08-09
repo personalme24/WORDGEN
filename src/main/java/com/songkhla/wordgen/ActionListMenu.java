@@ -122,7 +122,6 @@ public class ActionListMenu extends javax.swing.JDialog {
         jTableAction.setFocusable(false);
         jTableAction.setIntercellSpacing(new java.awt.Dimension(0, 0));
         jTableAction.setRowHeight(25);
-        jTableAction.setShowVerticalLines(false);
         jTableAction.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableActionMouseClicked(evt);

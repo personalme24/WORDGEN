@@ -241,7 +241,6 @@ public class TrafficOverView extends javax.swing.JDialog {
         jTable1.setGridColor(new java.awt.Color(255, 255, 255));
         jTable1.setIntercellSpacing(new java.awt.Dimension(0, 0));
         jTable1.setRowHeight(25);
-        jTable1.setSelectionBackground(new java.awt.Color(0, 153, 255));
         jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable1);
 
@@ -706,7 +705,8 @@ public class TrafficOverView extends javax.swing.JDialog {
         Statement stmt = con.createStatement();
         String sql = "select crimecase.*,Charge.* from crimecase"
                 + " left join Charge on Charge.ChargeCode=crimecase.ChargeCodeCase"
-                + " where CaseType='คดีจราจร'"+getFilterCondition();
+                +"left join Person on Person.CaseIdPerson=crimecase.CaseId"
+                + " where CaseType='คดีจราจร'"+getFilterCondition()+" group by crimecase.CaseId";
 
 //                + "left join Person on Person.caseIdPerson = CrimeCase.CaseId "+getFilterCondition();
 
@@ -767,10 +767,10 @@ jTable1.getColumnModel().getColumn(0).setMaxWidth(0);
             filter.put("crimecasenoyear", txtSearchCase.getText().trim());       
         }
          if(txtSearchAcc.getText().trim().length()>0){
-            filter.put("AccureandOther", txtSearchAcc.getText().trim());       
+            filter.put("FullNamePerson", txtSearchAcc.getText().trim());       
         }
          if(txtSearchSus.getText().trim().length()>0){
-            filter.put("SuspectandOther", txtSearchSus.getText().trim());       
+            filter.put("FullNamePerson", txtSearchSus.getText().trim());       
         }
          if(txtSearchCharge.getText().trim().length()>0){
             filter.put("ChargeName", txtSearchCharge.getText().trim());       

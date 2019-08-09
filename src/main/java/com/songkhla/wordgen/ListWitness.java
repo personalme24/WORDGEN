@@ -87,7 +87,6 @@ String noPerson;
         jTableWitness.getTableHeader().setOpaque(false);
         jTableWitness.setRowHeight(25);
         jTableWitness.setRowMargin(2);
-        jTableWitness.setSelectionBackground(new java.awt.Color(0, 153, 255));
         jScrollPane1.setViewportView(jTableWitness);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

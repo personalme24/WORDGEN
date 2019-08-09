@@ -257,9 +257,9 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         ArrestDateTimeEnd = new javax.swing.JTextField();
-        CourtSuspect = new javax.swing.JLabel();
-        PeopleRegistrationID = new javax.swing.JLabel();
         CourtSuspect1 = new javax.swing.JLabel();
+        PeopleRegistrationID = new javax.swing.JTextField();
+        CourtSuspect = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
@@ -402,6 +402,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         jLabel30.setText("เลขคดีที่ ");
 
         crimecaseno.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        crimecaseno.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         crimecaseno.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         crimecaseno.setEnabled(false);
 
@@ -445,15 +446,18 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         ArrestDateTimeEnd.setEditable(false);
         ArrestDateTimeEnd.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
 
-        CourtSuspect.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        CourtSuspect.setText("ศาล");
-
-        PeopleRegistrationID.setBackground(new java.awt.Color(255, 255, 255));
-        PeopleRegistrationID.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        PeopleRegistrationID.setText("PeopleRegistrationID");
-
         CourtSuspect1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         CourtSuspect1.setText("อำนาจศาล");
+
+        PeopleRegistrationID.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        PeopleRegistrationID.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        PeopleRegistrationID.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        PeopleRegistrationID.setEnabled(false);
+
+        CourtSuspect.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        CourtSuspect.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        CourtSuspect.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        CourtSuspect.setEnabled(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -465,7 +469,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel30)
-                        .addGap(97, 717, Short.MAX_VALUE))
+                        .addGap(97, 707, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addGap(28, 28, 28)
@@ -481,12 +485,11 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel31)
                                 .addGap(18, 18, 18)
-                                .addComponent(PeopleRegistrationID)
-                                .addGap(27, 27, 27)
+                                .addComponent(PeopleRegistrationID, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(CourtSuspect1)
-                                .addGap(18, 18, 18)
-                                .addComponent(CourtSuspect)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(CourtSuspect))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel15)
@@ -515,10 +518,10 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(crimecaseno, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PeopleRegistrationID)
                     .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CourtSuspect)
-                    .addComponent(CourtSuspect1))
+                    .addComponent(CourtSuspect1)
+                    .addComponent(PeopleRegistrationID, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CourtSuspect, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(9, 9, 9)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(FullNamePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2171,14 +2174,14 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JTextField AccureandOther;
     private javax.swing.JTextField ArrestDateTimeEnd;
     private javax.swing.JTextField ChargeName;
-    private javax.swing.JLabel CourtSuspect;
+    private javax.swing.JTextField CourtSuspect;
     private javax.swing.JLabel CourtSuspect1;
     private javax.swing.JTextField DateArrest;
     private javax.swing.JTextField FifthDate;
     private javax.swing.JTextField FourthDate;
     private javax.swing.JTextField FullNamePerson;
     private javax.swing.JTextField NumberImprison;
-    private javax.swing.JLabel PeopleRegistrationID;
+    private javax.swing.JTextField PeopleRegistrationID;
     private javax.swing.JTextField PlaceArrest;
     private javax.swing.JButton Print1;
     private javax.swing.JButton Print2;

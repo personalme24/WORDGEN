@@ -297,8 +297,7 @@ public class PolisForm extends javax.swing.JDialog {
                         pst.setString(5,Position.getText());
                         pst.executeUpdate();
                         pst.close();
-                        
-                        JOptionPane.showMessageDialog(null, "บันทึกข้อมูลเรียบร้อย");    
+
                         String sql2="INSERT INTO InvestInformation (InvestId,InvestCardID,InvestRank,InvestName,"
                         + "InvestPosition) VALUES (?,?,?,?,?)";
                         pst=con.prepareStatement(sql2);

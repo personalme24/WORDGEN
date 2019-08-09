@@ -174,6 +174,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
      String caseyear,casetype,caseno,PoliceStaionName;
      ButtonGroup g;
 JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDate;
+ UtilDateModel model;
     /**
      * Creates new form CrimesCaseEdit
      */
@@ -216,7 +217,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 
              
 //  ---------------------------------------------Date Filed----------------------------------------------
-           UtilDateModel model = new UtilDateModel();
+          model = new UtilDateModel();
             model.setValue(Calendar.getInstance().getTime());
             Properties p = new Properties();        
             p.put("text.today", "Today");
@@ -224,6 +225,9 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             p.put("text.year", "Year");
         JDatePanelImpl datePanel = new JDatePanelImpl(model,p);
          CaseRequestDateTime = new JDatePickerImpl(datePanel,new DateLabelFormatter());
+           CaseRequestDateTime.setPreferredSize(new Dimension(220,30));
+    CaseRequestDateTime.getComponent(0).setPreferredSize(new Dimension(190,30)); //JFormattedTextField
+    CaseRequestDateTime.getComponent(1).setPreferredSize(new Dimension(30,30));//JButton
         CaseRequestDateTime.setTextEditable(true);
         CaseRequestDateTime.setBackground(Color.WHITE);
         jPanel6.setLayout(new FlowLayout());
@@ -231,9 +235,11 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         
         UtilDateModel model2 = new UtilDateModel();
             model2.setValue(Calendar.getInstance().getTime());
-
          JDatePanelImpl datePanel2 = new JDatePanelImpl(model2, p);
         CaseAcceptDate = new JDatePickerImpl(datePanel2,new DateLabelFormatter());
+        CaseAcceptDate.setPreferredSize(new Dimension(220,30));
+    CaseAcceptDate.getComponent(0).setPreferredSize(new Dimension(190,30)); //JFormattedTextField
+    CaseAcceptDate.getComponent(1).setPreferredSize(new Dimension(30,30));//JButton
         CaseAcceptDate.setTextEditable(true);
         CaseAcceptDate.setBackground(Color.WHITE);
         jPanel7.setLayout(new FlowLayout());
@@ -243,6 +249,9 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             model3.setValue(Calendar.getInstance().getTime());
          JDatePanelImpl datePanel3 = new JDatePanelImpl(model3, p);
         OccuredDate = new JDatePickerImpl(datePanel3,new DateLabelFormatter());
+         OccuredDate.setPreferredSize(new Dimension(220,30));
+    OccuredDate.getComponent(0).setPreferredSize(new Dimension(190,30)); //JFormattedTextField
+    OccuredDate.getComponent(1).setPreferredSize(new Dimension(30,30));//JButton
         OccuredDate.setTextEditable(true);
         OccuredDate.setBackground(Color.WHITE);
         jPanel2.setLayout(new FlowLayout());
@@ -252,6 +261,9 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             model4.setValue(Calendar.getInstance().getTime());
          JDatePanelImpl datePanel4 = new JDatePanelImpl(model4, p);
         Invest_SendCaseDate = new JDatePickerImpl(datePanel4,new DateLabelFormatter());
+         Invest_SendCaseDate.setPreferredSize(new Dimension(220,30));
+    Invest_SendCaseDate.getComponent(0).setPreferredSize(new Dimension(190,30)); //JFormattedTextField
+    Invest_SendCaseDate.getComponent(1).setPreferredSize(new Dimension(30,30));//JButton
         Invest_SendCaseDate.setTextEditable(true);
         Invest_SendCaseDate.setBackground(Color.WHITE);
         jPanelInvestSend.setLayout(new FlowLayout());
@@ -2075,16 +2087,16 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-//  private class TextFieldSusListener implements  CaretListener{
-//   public void caretUpdate(CaretEvent e){
-//    if(OccuredDate.getJFormattedTextField().getText().equals("9/8/2562")){
-//            JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 6 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);
-//           Date date = new Date();
-//
-//    }
-//    
-//  }
-//  }
+  private class TextFieldSusListener implements  CaretListener{
+   public void caretUpdate(CaretEvent e){
+    if(OccuredDate.getJFormattedTextField().getText().equals("10/8/2562")){
+            JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 6 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);
+            
+
+    } 
+    
+  }
+  }
     private void jButtonSaveCaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveCaseActionPerformed
         // TODO add your handling code here:
 
@@ -2988,7 +3000,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                         W51.w51(no);
                     }
                if(jCheckW252.isSelected()){
-                        W52.nw52();
+                        W52.w52(no);
                     }
                if(jCheckW253.isSelected()){
                         W53.w53(no);
