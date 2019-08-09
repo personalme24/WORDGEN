@@ -1632,7 +1632,8 @@ public class SuspectForm extends javax.swing.JDialog {
             + "StatusSuspect=?,"
             + "StatusBail=?,"
             + "RatePrison=?,"
-            + "SusConfress=?,"                     
+            + "SusConfress=?," 
+           + "PlaceArrest=?," 
             + "OrderPerson=? where NoPerson=? and TypePerson=?   ";
 
             try {
@@ -1715,10 +1716,11 @@ public class SuspectForm extends javax.swing.JDialog {
 
                 pst.setString(35,RatePrison.getSelectedItem().toString());
                 pst.setString(36,SusConfress.getSelectedItem().toString());
-                pst.setString(37,OrderPerson.getText());
-                pst.setString(38,noPerson);
+                pst.setString(37,PlaceArrest.getText());
+                pst.setString(38,OrderPerson.getText());
+                pst.setString(39,noPerson);
 
-                pst.setString(39,"ผู้ต้องหา");
+                pst.setString(40,"ผู้ต้องหา");
 
                 int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
                     JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
