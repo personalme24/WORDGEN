@@ -6,6 +6,7 @@
 package com.songkhla.wordgen;
 import static com.songkhla.wordgen.ListSuspect.txtCaseNO;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -69,6 +70,9 @@ public class SueCrimesOverview extends javax.swing.JDialog {
             p.put("text.year", "Year");
         JDatePanelImpl datePanel = new JDatePanelImpl(model, p);
          DateFilterStart = new JDatePickerImpl(datePanel,new DateLabelFormatter());
+           DateFilterStart.setPreferredSize(new Dimension(220,32));
+    DateFilterStart.getComponent(0).setPreferredSize(new Dimension(190,32)); //JFormattedTextField
+    DateFilterStart.getComponent(1).setPreferredSize(new Dimension(32,32));//JButton
         DateFilterStart.setTextEditable(true);
         DateFilterStart.setBackground(Color.WHITE);
         jPanelDateStart.setLayout(new FlowLayout());
@@ -79,6 +83,9 @@ public class SueCrimesOverview extends javax.swing.JDialog {
          
         JDatePanelImpl datePanel2 = new JDatePanelImpl(model2, p);
          DateFilterEnd = new JDatePickerImpl(datePanel2,new DateLabelFormatter());
+         DateFilterEnd.setPreferredSize(new Dimension(220,30));
+    DateFilterEnd.getComponent(0).setPreferredSize(new Dimension(190,32)); //JFormattedTextField
+    DateFilterEnd.getComponent(1).setPreferredSize(new Dimension(32,32));//JButton
         DateFilterEnd.setTextEditable(true);
         DateFilterEnd.setBackground(Color.WHITE);
         jPanelDateEnd.setLayout(new FlowLayout());
@@ -146,11 +153,11 @@ public class SueCrimesOverview extends javax.swing.JDialog {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(37, 37, 37)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 897, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 867, Short.MAX_VALUE)
                 .addComponent(jButton3)
-                .addGap(167, 167, 167))
+                .addGap(51, 51, 51))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,7 +166,7 @@ public class SueCrimesOverview extends javax.swing.JDialog {
                 .addComponent(jButton3))
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, -1));
 
         jTableSue.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jTableSue.setModel(new javax.swing.table.DefaultTableModel(
@@ -210,11 +217,11 @@ public class SueCrimesOverview extends javax.swing.JDialog {
                 jButtonAddSueActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonAddSue, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 80, 30));
+        jPanel1.add(jButtonAddSue, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 80, 30));
 
         jLabel2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel2.setText("ถึง");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 70, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 80, -1, -1));
 
         jPanelDateStart.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -248,7 +255,7 @@ public class SueCrimesOverview extends javax.swing.JDialog {
 
         jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel3.setText("วันที่ครบกำหนด");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, -1, -1));
 
         jButtonDate.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jButtonDate.setText("ค้นหา");
@@ -257,7 +264,7 @@ public class SueCrimesOverview extends javax.swing.JDialog {
                 jButtonDateActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 70, -1, -1));
+        jPanel1.add(jButtonDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 80, -1, -1));
 
         jButtonClearSearch.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jButtonClearSearch.setText("ล้างข้อมูล");
@@ -266,11 +273,11 @@ public class SueCrimesOverview extends javax.swing.JDialog {
                 jButtonClearSearchActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonClearSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 70, 100, -1));
+        jPanel1.add(jButtonClearSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 80, 100, -1));
 
         jLabel5.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel5.setText("สถานะ");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, -1, 30));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, -1, 30));
 
         jComboBox1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ทั้งหมด", "ผัดฟ้องฝากขัง", "ผัดฟ้อง", "ฝากขัง", " " }));
@@ -279,13 +286,13 @@ public class SueCrimesOverview extends javax.swing.JDialog {
                 jComboBox1ItemStateChanged(evt);
             }
         });
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 150, 30));
+        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 150, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1217, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1212, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

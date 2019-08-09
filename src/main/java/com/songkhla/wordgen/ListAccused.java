@@ -118,8 +118,8 @@ String typeC;
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(254, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(4, 93, 179));
@@ -293,7 +293,9 @@ String typeC;
                     data.put("Religion", rs.getString("Religion"));
                     data.put("Tambon", rs.getString("Tambon"));
                      data.put("ZipCode", rs.getString("ZipCode"));
-                     data.put("OrderPerson", rs.getString("OrderPerson"));         
+                     data.put("OrderPerson", rs.getString("OrderPerson"));
+                      data.put("OtherName", rs.getString("OtherName"));
+
                             AccusedForm accusedF=new AccusedForm(f,data);
                              accusedF.pack();
                              accusedF.setLocationRelativeTo(null);

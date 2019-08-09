@@ -235,9 +235,9 @@ public class SuspectForm extends javax.swing.JDialog {
             SusConfress.setSelectedItem(datain.get("SusConfress"));
             SimpleDateFormat format=new SimpleDateFormat("d/MM/yyyy");
             String DateArr=(datain.get("ArrestDateTime")+"");
-            
+               System.out.println("dsssssss :"+DateArr+"aa");
 //             ArrestDateTime.getJFormattedTextField().setText(datain.get("ArrestDateTime")+"");            
-            if(DateArr.equals("")||DateArr.equals(null)||DateArr.equals("null")){  
+            if(DateArr.equals(" ")||DateArr.equals(null)||DateArr.equals("null")||DateArr.equals("")){  
              ArrestDateTime.getJFormattedTextField().setText("");
                  }
             else{
