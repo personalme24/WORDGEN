@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -28,6 +29,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import org.apache.xalan.trace.SelectionEvent;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
@@ -57,6 +59,8 @@ public class SueCrimesOverview extends javax.swing.JDialog {
          setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
            jTableSue.setOpaque(false);
         jTableSue.getTableHeader().setFont(new Font("TH SarabunPSK",Font.BOLD,20));
+        jTableSue.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+jTableSue.setPreferredScrollableViewportSize(Toolkit.getDefaultToolkit().getScreenSize());
      
 //        CalculateDate();
 //        TestDate();
@@ -70,9 +74,9 @@ public class SueCrimesOverview extends javax.swing.JDialog {
             p.put("text.year", "Year");
         JDatePanelImpl datePanel = new JDatePanelImpl(model, p);
          DateFilterStart = new JDatePickerImpl(datePanel,new DateLabelFormatter());
-           DateFilterStart.setPreferredSize(new Dimension(220,32));
-    DateFilterStart.getComponent(0).setPreferredSize(new Dimension(190,32)); //JFormattedTextField
-    DateFilterStart.getComponent(1).setPreferredSize(new Dimension(32,32));//JButton
+           DateFilterStart.setPreferredSize(new Dimension(200,32));
+    DateFilterStart.getComponent(0).setPreferredSize(new Dimension(170,32)); //JFormattedTextField
+    DateFilterStart.getComponent(1).setPreferredSize(new Dimension(30,32));//JButton
         DateFilterStart.setTextEditable(true);
         DateFilterStart.setBackground(Color.WHITE);
         jPanelDateStart.setLayout(new FlowLayout());
@@ -83,9 +87,9 @@ public class SueCrimesOverview extends javax.swing.JDialog {
          
         JDatePanelImpl datePanel2 = new JDatePanelImpl(model2, p);
          DateFilterEnd = new JDatePickerImpl(datePanel2,new DateLabelFormatter());
-         DateFilterEnd.setPreferredSize(new Dimension(220,30));
-    DateFilterEnd.getComponent(0).setPreferredSize(new Dimension(190,32)); //JFormattedTextField
-    DateFilterEnd.getComponent(1).setPreferredSize(new Dimension(32,32));//JButton
+         DateFilterEnd.setPreferredSize(new Dimension(200,30));
+    DateFilterEnd.getComponent(0).setPreferredSize(new Dimension(170,32)); //JFormattedTextField
+    DateFilterEnd.getComponent(1).setPreferredSize(new Dimension(30,32));//JButton
         DateFilterEnd.setTextEditable(true);
         DateFilterEnd.setBackground(Color.WHITE);
         jPanelDateEnd.setLayout(new FlowLayout());
@@ -121,7 +125,9 @@ public class SueCrimesOverview extends javax.swing.JDialog {
         jButtonDate = new javax.swing.JButton();
         jButtonClearSearch = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBoxSue = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
+        jComboBoxCaseType = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -208,7 +214,7 @@ public class SueCrimesOverview extends javax.swing.JDialog {
         jTableSue.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTableSue);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 1120, 269));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 1120, 350));
 
         jButtonAddSue.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jButtonAddSue.setText("เปิด");
@@ -217,11 +223,11 @@ public class SueCrimesOverview extends javax.swing.JDialog {
                 jButtonAddSueActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonAddSue, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 80, 30));
+        jPanel1.add(jButtonAddSue, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 80, 30));
 
         jLabel2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel2.setText("ถึง");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 80, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, -1, -1));
 
         jPanelDateStart.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -236,7 +242,7 @@ public class SueCrimesOverview extends javax.swing.JDialog {
             .addGap(0, 40, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanelDateStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, 210, 40));
+        jPanel1.add(jPanelDateStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 210, 40));
 
         jPanelDateEnd.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -251,11 +257,11 @@ public class SueCrimesOverview extends javax.swing.JDialog {
             .addGap(0, 40, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanelDateEnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 70, 210, 40));
+        jPanel1.add(jPanelDateEnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 210, 40));
 
         jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel3.setText("วันที่ครบกำหนด");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
         jButtonDate.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jButtonDate.setText("ค้นหา");
@@ -264,7 +270,7 @@ public class SueCrimesOverview extends javax.swing.JDialog {
                 jButtonDateActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 80, -1, -1));
+        jPanel1.add(jButtonDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 80, -1, -1));
 
         jButtonClearSearch.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jButtonClearSearch.setText("ล้างข้อมูล");
@@ -273,20 +279,38 @@ public class SueCrimesOverview extends javax.swing.JDialog {
                 jButtonClearSearchActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonClearSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 80, 100, -1));
+        jPanel1.add(jButtonClearSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 80, 100, -1));
 
         jLabel5.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel5.setText("สถานะ");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, -1, 30));
+        jLabel5.setText("ประเภทคดี");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, -1, 30));
 
-        jComboBox1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ทั้งหมด", "ผัดฟ้องฝากขัง", "ผัดฟ้อง", "ฝากขัง", " " }));
-        jComboBox1.addItemListener(new java.awt.event.ItemListener() {
+        jComboBoxSue.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jComboBoxSue.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ทั้งหมด", "ผัดฟ้องฝากขัง", "ผัดฟ้อง", "ฝากขัง" }));
+        jComboBoxSue.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jComboBox1ItemStateChanged(evt);
+                jComboBoxSueItemStateChanged(evt);
             }
         });
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 150, 30));
+        jPanel1.add(jComboBoxSue, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 120, 30));
+
+        jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel6.setText("สถานะการผัดฟ้องฝากขัง");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, -1, 30));
+
+        jComboBoxCaseType.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jComboBoxCaseType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ทั้งหมด", "อาญา", "จราจร", "ชันสูตร" }));
+        jComboBoxCaseType.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBoxCaseTypeItemStateChanged(evt);
+            }
+        });
+        jComboBoxCaseType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxCaseTypeActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jComboBoxCaseType, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 150, 100, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -308,13 +332,15 @@ public class SueCrimesOverview extends javax.swing.JDialog {
         // TODO add your handling code here:
          if(jTableSue.getSelectedRow()>=0){
             try{
-                String crimecasenoyear = jTableSue.getModel().getValueAt(jTableSue.getSelectedRow(), 0)+"";
-                String nameSuspect = jTableSue.getModel().getValueAt(jTableSue.getSelectedRow(), 1)+"";
-                 String dateArr = jTableSue.getModel().getValueAt(jTableSue.getSelectedRow(), 2)+"";
+                String crimecaseno = jTableSue.getModel().getValueAt(jTableSue.getSelectedRow(), 0)+"";
+                String nameSuspect = jTableSue.getModel().getValueAt(jTableSue.getSelectedRow(), 3)+"";
+                String CaseType = jTableSue.getModel().getValueAt(jTableSue.getSelectedRow(), 1)+"";
+
+//                 String dateArr = jTableSue.getModel().getValueAt(jTableSue.getSelectedRow(), 2)+"";
                 String sql="select CaseId,crimecasenoyear,AccureandOther,ChargeName,crimecaseyears,crimecaseno,CaseType,Person.* from Person\n"+
                            "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId\n"+
                            "left join Charge on CrimeCase.ChargeCodeCase=Charge.ChargeCode\n"+
-                          " Where crimecasenoyear='"+crimecasenoyear+"' and FullNamePerson='"+nameSuspect+"'";
+                          " Where CaseId='"+crimecaseno+"' and FullNamePerson='"+nameSuspect+"' and CaseType='"+CaseType+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);
@@ -436,10 +462,19 @@ public class SueCrimesOverview extends javax.swing.JDialog {
         MainMenuWord.closeAllDialogs();
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
+    private void jComboBoxSueItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxSueItemStateChanged
         // TODO add your handling code here:
         RefreshData();
-    }//GEN-LAST:event_jComboBox1ItemStateChanged
+    }//GEN-LAST:event_jComboBoxSueItemStateChanged
+
+    private void jComboBoxCaseTypeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxCaseTypeItemStateChanged
+        // TODO add your handling code here:
+        RefreshData();
+    }//GEN-LAST:event_jComboBoxCaseTypeItemStateChanged
+
+    private void jComboBoxCaseTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCaseTypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxCaseTypeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -488,26 +523,42 @@ public class SueCrimesOverview extends javax.swing.JDialog {
         Statement stmt = con.createStatement();
 //        String a=txtCaseNO.getText();
         String sql;
-                sql=    "select crimecasenoyear,StatusSuspect,CaseIdPerson,CaseId,SueFirstDate,SueSecDate,CourtSuspect,"
+                sql=    "select CaseId,crimecasenoyear,CaseType,StatusSuspect,CaseIdPerson,SueFirstDate,SueSecDate,CourtSuspect,"
                         + "SueThirdDate,SueFourthDate,SueFifthDate,SueSixthDate,SueSevenDate,"
                         + "FullNamePerson,SueFirstEnd,SueSecEnd,SueThirdEnd,SueFourthEnd,SueFifthEnd,SueSixthEnd,SueSevenEnd\n"
                         + "from Person\n"+
                         "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId ";
-                    if(jComboBox1.getSelectedItem().equals("ทั้งหมด")){
+                    if(jComboBoxSue.getSelectedItem().equals("ทั้งหมด")){
 
                     sql=sql+" where StatusSuspect IN('ผัดฟ้องฝากขัง','ผัดฟ้อง','ฝากขัง')";
                     }
-                    else if(jComboBox1.getSelectedItem().equals("ผัดฟ้องฝากขัง")){
+                    else if(jComboBoxSue.getSelectedItem().equals("ผัดฟ้องฝากขัง")){
 
                     sql=sql+" where StatusSuspect='ผัดฟ้องฝากขัง'";
                     }
-                    else if(jComboBox1.getSelectedItem().equals("ผัดฟ้อง")){
+                    else if(jComboBoxSue.getSelectedItem().equals("ผัดฟ้อง")){
 
                     sql=sql+" where StatusSuspect='ผัดฟ้อง'";
                     }
-                    else if(jComboBox1.getSelectedItem().equals("ฝากขัง")){
+                    else if(jComboBoxSue.getSelectedItem().equals("ฝากขัง")){
 
                     sql=sql+" where StatusSuspect='ฝากขัง'";
+                    }
+                    if(jComboBoxCaseType.getSelectedItem().equals("ทั้งหมด")){
+
+                    sql=sql+"and  CaseType IN('คดีอาญา','คดีจราจร','คดีชันสูตร')";
+                    }
+                    else if(jComboBoxCaseType.getSelectedItem().equals("อาญา")){
+
+                    sql=sql+" and CaseType='คดีอาญา'";
+                    }
+                    else if(jComboBoxCaseType.getSelectedItem().equals("จราจร")){
+
+                    sql=sql+" and CaseType='คดีจราจร'";
+                    }
+                    else if(jComboBoxCaseType.getSelectedItem().equals("ชันสูตร")){
+
+                    sql=sql+" and CaseType='คดีชันสูตร'";
                     }
 //                if(jButtonDate.getModel().isPressed()){
 //        sql=sql+" and\n" +
@@ -537,6 +588,8 @@ public class SueCrimesOverview extends javax.swing.JDialog {
         while(rs.next()){
           
             Vector<String> row = new Vector<String>();
+            row.add(rs.getString("CaseId"));
+             row.add(rs.getString("CaseType"));
             row.add(rs.getString("crimecasenoyear"));
             row.add(rs.getString("FullNamePerson"));
             row.add(rs.getString("CourtSuspect"));            
@@ -553,8 +606,9 @@ public class SueCrimesOverview extends javax.swing.JDialog {
         rs.close();
         stmt.close();
         Vector ColumnName = new Vector(); 
-    
-         ColumnName.add("เลขคดี");
+        ColumnName.add("CaseId");
+         ColumnName.add("ประเภทคดี");
+         ColumnName.add("เลขคดี"); 
          ColumnName.add("ผู้ต้องหา"); 
          ColumnName.add("ศาล");  
          ColumnName.add("สถานะ");              
@@ -579,7 +633,11 @@ public class SueCrimesOverview extends javax.swing.JDialog {
             ColumnName
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, 
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, 
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, 
+                java.lang.String.class, java.lang.String.class, java.lang.String.class,
+                java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -590,6 +648,24 @@ public class SueCrimesOverview extends javax.swing.JDialog {
         }catch(Exception ex){
             ex.printStackTrace();
         }
+        jTableSue.getColumnModel().getColumn(0).setWidth(0);
+jTableSue.getColumnModel().getColumn(0).setMinWidth(0);
+jTableSue.getColumnModel().getColumn(0).setMaxWidth(0); 
+
+jTableSue.getColumnModel().getColumn(1).setMinWidth(80);                
+jTableSue.getColumnModel().getColumn(3).setMinWidth(125);
+jTableSue.getColumnModel().getColumn(4).setMinWidth(135);
+jTableSue.getColumnModel().getColumn(5).setMinWidth(100);
+
+jTableSue.getColumnModel().getColumn(6).setMinWidth(120);
+jTableSue.getColumnModel().getColumn(7).setMinWidth(120);
+jTableSue.getColumnModel().getColumn(8).setMinWidth(120);
+jTableSue.getColumnModel().getColumn(9).setMinWidth(120);
+jTableSue.getColumnModel().getColumn(10).setMinWidth(120);
+jTableSue.getColumnModel().getColumn(11).setMinWidth(120);
+jTableSue.getColumnModel().getColumn(12).setMinWidth(120);
+
+
     }
 
      private String getFilterCondition(){
@@ -663,11 +739,13 @@ public class SueCrimesOverview extends javax.swing.JDialog {
     private javax.swing.JButton jButtonAddSue;
     private javax.swing.JButton jButtonClearSearch;
     private javax.swing.JButton jButtonDate;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBoxCaseType;
+    private javax.swing.JComboBox<String> jComboBoxSue;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanelDateEnd;

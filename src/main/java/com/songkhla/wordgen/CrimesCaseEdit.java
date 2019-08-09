@@ -175,7 +175,8 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
      String caseyear,casetype,caseno,PoliceStaionName;
      ButtonGroup g;
 JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDate;
- UtilDateModel model;
+
+   ArrayList<String> personname=new ArrayList<String>();
     /**
      * Creates new form CrimesCaseEdit
      */
@@ -218,7 +219,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 
              
 //  ---------------------------------------------Date Filed----------------------------------------------
-          model = new UtilDateModel();
+      UtilDateModel model = new UtilDateModel();
             model.setValue(Calendar.getInstance().getTime());
             Properties p = new Properties();        
             p.put("text.today", "Today");
@@ -279,7 +280,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
  
             comboInvest();
             comboProvince();
- 
+
         if(datain!=null){
             try {
                 CloseTextBox();
@@ -391,6 +392,21 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 
             
     }
+//    private int getMaximumMatchingOffset(String pattern, Object selectedItem) {
+//  String selectedAsString=selectedItem.toString();
+//  int match=selectedAsString.length();
+//  // look for items that match the given pattern
+//  for (int i=0, n=model.getSize(); i < n; i++) {
+//    String itemAsString = model.getElementAt(i).toString();
+//    if (startsWithIgnoreCase(itemAsString, pattern)) {
+//      // current item matches the pattern
+//      // how many leading characters have the selected and the current item in common?
+//      int tmpMatch=equalStartLength(itemAsString, selectedAsString);
+//      if (tmpMatch < match) match=tmpMatch;
+//    }
+//  }
+//  return match;
+//}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -3171,14 +3187,9 @@ catch (Exception d) {  //System.out.println(d);
              int Province_id = Integer.parseInt(res.getString("PROVINCEID"));
               Province_name = res.getString("nameprovince"); 
 	CrimeLocationProvince.addItem(res.getString("nameprovince"));
-        
-
-	
 	}
-        
-//        else{jComboPoliceName.addItem("");}
-	
-}
+//        else{jComboPoliceName.addItem("");}	
+            }
 catch (Exception d) {  //System.out.println(d);  
 }
     }

@@ -176,8 +176,8 @@ public class Identity_DeadForm extends javax.swing.JDialog {
             jSpinnerBodyFoundTime.setValue(timeFoundBody);
             DeadDate.getJFormattedTextField().setText(datain.get("DateOfDie")+"");
             jSpinnerDeadTime.setValue(timeDie);            
-            
-      
+            OtherName.setText(datain.get("OtherName")+"");
+            PlaceOfFoundBody.setText(datain.get("PlaceOfFoundBody")+"");
             SimpleDateFormat format=new SimpleDateFormat("d/MM/yyyy");
 
         }else{

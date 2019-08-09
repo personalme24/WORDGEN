@@ -188,7 +188,7 @@ public class SuspectForm extends javax.swing.JDialog {
                  
            FullNamePerson.addCaretListener(new TextFieldSusListener());
           jComboBoxListName.addActionListener(new ComboBoxActionListener());
-
+//---------------------------------------------------Data--------------------------------------------
           if(datain!=null){
         
             isInsert=false;
@@ -226,8 +226,10 @@ public class SuspectForm extends javax.swing.JDialog {
             Occupation.setText(datain.get("Occupation")+"");
             PassportNumber.setText(datain.get("PassportNumber")+"");
             PhonePerson.setText(datain.get("PhonePerson")+"");
+            PlaceArrest.setText(datain.get("PlaceArrest")+"");
             Province.setText(datain.get("Province")+"");
              ZipCode.setText(datain.get("ZipCode")+"");           
+             OtherName.setText(datain.get("OtherName")+"");
             Race.setText(datain.get("Race")+"");
             Religion.setText(datain.get("Religion")+"");
             Tambon.setText(datain.get("Tambon")+"");
@@ -304,6 +306,7 @@ public class SuspectForm extends javax.swing.JDialog {
             
     
         }
+//          ------------------------------------Data------------------------------------------
              FullNamePerson.getDocument().addDocumentListener(new DocumentListener() {
                            public void changedUpdate(DocumentEvent e) {
                                          SetTextPerson();
@@ -318,35 +321,35 @@ public class SuspectForm extends javax.swing.JDialog {
                            }
              }
              );
- CourtSuspect.addItemListener(new ItemListener() {
-     
-        public void itemStateChanged(ItemEvent arg0) {
-              if (arg0.getStateChange() == ItemEvent.SELECTED) {
-         String selectedValue = arg0.getItem().toString();
-          // do something with object
-          jCheckBail.setSelected(false);
-          g.clearSelection();
-          if(selectedValue.equals("ศาลอาญา/ศาลจังหวัด")){
-          
-             jRadioStatus1.setText("ฝากขัง");
-             jRadioStatus2.setText("แจ้งข้อหาปล่อยตัว");
-             jRadioSue.setVisible(false);
-         }
-          else if(selectedValue.equals("ศาลแขวง")){
-             jRadioStatus1.setText("ผัดฟ้องฝากขัง");
-             jRadioStatus2.setText("ผัดฟ้อง");
-             jRadioSue.setVisible(true);
-         }
-          else  if(selectedValue.equals("ศาลแขวง")&& jCheckBail.isSelected()){
-                jRadioStatus1.setText("ผัดฟ้องฝากขัง");
-                 jRadioStatus1.setSelected(false);
-             jRadioStatus2.setText("ผัดฟ้อง");
-             jRadioSue.setVisible(true);
-             jRadioStatus1.setEnabled(false);
-             jRadioCantCatch.setEnabled(false);   }
-       }     
-        }
-    });
+                CourtSuspect.addItemListener(new ItemListener() {
+
+                       public void itemStateChanged(ItemEvent arg0) {
+                             if (arg0.getStateChange() == ItemEvent.SELECTED) {
+                        String selectedValue = arg0.getItem().toString();
+                         // do something with object
+                         jCheckBail.setSelected(false);
+                         g.clearSelection();
+                         if(selectedValue.equals("ศาลอาญา/ศาลจังหวัด")){
+
+                            jRadioStatus1.setText("ฝากขัง");
+                            jRadioStatus2.setText("แจ้งข้อหาปล่อยตัว");
+                            jRadioSue.setVisible(false);
+                        }
+                         else if(selectedValue.equals("ศาลแขวง")){
+                            jRadioStatus1.setText("ผัดฟ้องฝากขัง");
+                            jRadioStatus2.setText("ผัดฟ้อง");
+                            jRadioSue.setVisible(true);
+                        }
+                         else  if(selectedValue.equals("ศาลแขวง")&& jCheckBail.isSelected()){
+                               jRadioStatus1.setText("ผัดฟ้องฝากขัง");
+                                jRadioStatus1.setSelected(false);
+                            jRadioStatus2.setText("ผัดฟ้อง");
+                            jRadioSue.setVisible(true);
+                            jRadioStatus1.setEnabled(false);
+                            jRadioCantCatch.setEnabled(false);   }
+                      }     
+                       }
+                   });
     }
     
 

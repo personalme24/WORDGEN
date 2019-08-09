@@ -308,6 +308,7 @@ String typeC,cid;
                 data.put("BodyFoundTime", rs.getString("BodyFoundTime"));
                    data.put("DateOfDie", rs.getString("DateOfDie"));
                    data.put("TimeOfDie", rs.getString("TimeOfDie"));
+                   data.put("OtherName", rs.getString("OtherName"));
                    if(typeC.equals("Dead")){
                       Identity_DeadForm id=new Identity_DeadForm(f,data);
                              id.pack();
