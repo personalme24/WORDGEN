@@ -128,7 +128,7 @@ public class W52 {
                 bookmarkvalue.put("C3", Checknull(ccYear));
                 bookmarkvalue.put("CC2",Checknull(caseno));
                 
-                bookmarkvalue.put("S2","");
+                bookmarkvalue.put("S2",Checknull(PoliceStationName));
                 bookmarkvalue.put("S4", "");
                 bookmarkvalue.put("S29","");
 
