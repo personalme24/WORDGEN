@@ -69,6 +69,9 @@ public class WitnessForm extends javax.swing.JDialog {
             p.put("text.year", "Year");
           JDatePanelImpl datePanel2 = new JDatePanelImpl(model2, p);
          IssueDate = new JDatePickerImpl(datePanel2,new DateLabelFormatter());
+    IssueDate.setPreferredSize(new Dimension(247,30));
+    IssueDate.getComponent(0).setPreferredSize(new Dimension(217,30)); //JFormattedTextField
+    IssueDate.getComponent(1).setPreferredSize(new Dimension(30,30));//JButton
         IssueDate.setTextEditable(true);
         IssueDate.setBackground(Color.WHITE);
         jPanelIssueDate.setLayout(new FlowLayout());
@@ -87,6 +90,9 @@ public class WitnessForm extends javax.swing.JDialog {
             model4.setValue(Calendar.getInstance().getTime());
         JDatePanelImpl datePanel4 = new JDatePanelImpl(model4, p);
          BirthDay = new JDatePickerImpl(datePanel4,new DateLabelFormatter());
+                 BirthDay.setPreferredSize(new Dimension(247,30));
+    BirthDay.getComponent(0).setPreferredSize(new Dimension(217,30)); //JFormattedTextField
+    BirthDay.getComponent(1).setPreferredSize(new Dimension(30,30));//JButton
         BirthDay.setTextEditable(true);
         BirthDay.setBackground(Color.WHITE);
         jPanelBirthDay.setLayout(new FlowLayout());
@@ -452,6 +458,8 @@ public class WitnessForm extends javax.swing.JDialog {
         jLabel19.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel19.setText("เกี่ยวข้องเป็น");
 
+        jPanelBirthDay.setBackground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout jPanelBirthDayLayout = new javax.swing.GroupLayout(jPanelBirthDay);
         jPanelBirthDay.setLayout(jPanelBirthDayLayout);
         jPanelBirthDayLayout.setHorizontalGroup(
@@ -463,6 +471,7 @@ public class WitnessForm extends javax.swing.JDialog {
             .addGap(0, 32, Short.MAX_VALUE)
         );
 
+        jPanelIssueDate.setBackground(new java.awt.Color(255, 255, 255));
         jPanelIssueDate.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
 
         javax.swing.GroupLayout jPanelIssueDateLayout = new javax.swing.GroupLayout(jPanelIssueDate);
@@ -473,9 +482,10 @@ public class WitnessForm extends javax.swing.JDialog {
         );
         jPanelIssueDateLayout.setVerticalGroup(
             jPanelIssueDateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 32, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
+        jPanelExpiredDate.setBackground(new java.awt.Color(255, 255, 255));
         jPanelExpiredDate.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
 
         javax.swing.GroupLayout jPanelExpiredDateLayout = new javax.swing.GroupLayout(jPanelExpiredDate);
@@ -630,11 +640,11 @@ public class WitnessForm extends javax.swing.JDialog {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(17, 17, 17)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanelIssueDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanelExpiredDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                            .addComponent(jPanelExpiredDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanelIssueDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

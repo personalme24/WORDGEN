@@ -708,7 +708,7 @@ public class IdentityView extends javax.swing.JDialog {
         Connection con = ConnectDatabase.connect();
         Statement stmt = con.createStatement();
         String sql = "select crimecase.*,Charge.* from crimecase"
-                + " left join Charge on Charge.ChargeCode=crimecase.ChargeCodeCase"
+                + " left join Charge on Charge.ChargeCode=crimecase.ChargeCodeCase\n"
                 +"left join Person on Person.CaseIdPerson=crimecase.CaseId"
                 + " where CaseType='คดีชันสูตร'"+getFilterCondition()+" group by crimecase.CaseId";
 

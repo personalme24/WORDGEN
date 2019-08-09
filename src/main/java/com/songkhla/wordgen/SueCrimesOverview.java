@@ -274,6 +274,11 @@ public class SueCrimesOverview extends javax.swing.JDialog {
 
         jComboBox1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ทั้งหมด", "ผัดฟ้องฝากขัง", "ผัดฟ้อง", "ฝากขัง", " " }));
+        jComboBox1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox1ItemStateChanged(evt);
+            }
+        });
         jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 150, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -424,6 +429,11 @@ public class SueCrimesOverview extends javax.swing.JDialog {
         MainMenuWord.closeAllDialogs();
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
+        // TODO add your handling code here:
+        RefreshData();
+    }//GEN-LAST:event_jComboBox1ItemStateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -476,22 +486,22 @@ public class SueCrimesOverview extends javax.swing.JDialog {
                         + "FullNamePerson,SueFirstEnd,SueSecEnd,SueThirdEnd,SueFourthEnd,SueFifthEnd,SueSixthEnd,SueSevenEnd\n"
                         + "from Person\n"+
                         "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId ";
-if(jComboBox1.getSelectedItem().equals("ทั้งหมด")){
+                    if(jComboBox1.getSelectedItem().equals("ทั้งหมด")){
 
-sql=sql+" where StatusSuspect IN('ผัดฟ้องฝากขัง','ผัดฟ้อง','ฝากขัง')";
-}
-else if(jComboBox1.getSelectedItem().equals("ผัดฟ้องฝากขัง")){
+                    sql=sql+" where StatusSuspect IN('ผัดฟ้องฝากขัง','ผัดฟ้อง','ฝากขัง')";
+                    }
+                    else if(jComboBox1.getSelectedItem().equals("ผัดฟ้องฝากขัง")){
 
-sql=sql+" where StatusSuspect='ผัดฟ้องฝากขัง'";
-}
-else if(jComboBox1.getSelectedItem().equals("ผัดฟ้อง")){
+                    sql=sql+" where StatusSuspect='ผัดฟ้องฝากขัง'";
+                    }
+                    else if(jComboBox1.getSelectedItem().equals("ผัดฟ้อง")){
 
-sql=sql+" where StatusSuspect='ผัดฟ้อง'";
-}
-else if(jComboBox1.getSelectedItem().equals("ฝากขัง")){
+                    sql=sql+" where StatusSuspect='ผัดฟ้อง'";
+                    }
+                    else if(jComboBox1.getSelectedItem().equals("ฝากขัง")){
 
-sql=sql+" where StatusSuspect='ฝากขัง'";
-}
+                    sql=sql+" where StatusSuspect='ฝากขัง'";
+                    }
 //                if(jButtonDate.getModel().isPressed()){
 //        sql=sql+" and\n" +
 //        "SueFirstEnd  between '"+ChangFormatDate(DateFilterStart.getJFormattedTextField().getText())+"' and '"+ChangFormatDate(DateFilterEnd.getJFormattedTextField().getText())+"' or\n" +
