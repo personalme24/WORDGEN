@@ -528,7 +528,7 @@
             <Component class="javax.swing.JTextField" name="PeopleRegistrationID">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="TH SarabunPSK" size="22" style="0"/>
+                  <Font name="TH SarabunPSK" size="22" style="1"/>
                 </Property>
               </Properties>
               <Events>
@@ -546,7 +546,7 @@
             <Component class="javax.swing.JTextField" name="FullNamePerson">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="TH SarabunPSK" size="22" style="0"/>
+                  <Font name="TH SarabunPSK" size="22" style="1"/>
                 </Property>
               </Properties>
             </Component>
@@ -577,7 +577,7 @@
             <Component class="javax.swing.JTextField" name="OtherName">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="TH SarabunPSK" size="22" style="0"/>
+                  <Font name="TH SarabunPSK" size="22" style="1"/>
                 </Property>
               </Properties>
               <Events>
@@ -595,7 +595,7 @@
             <Component class="javax.swing.JTextField" name="FullNamePersonEn">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="TH SarabunPSK" size="22" style="0"/>
+                  <Font name="TH SarabunPSK" size="22" style="1"/>
                 </Property>
               </Properties>
             </Component>
@@ -610,7 +610,7 @@
             <Component class="javax.swing.JTextField" name="PassportNumber">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="TH SarabunPSK" size="22" style="0"/>
+                  <Font name="TH SarabunPSK" size="22" style="1"/>
                 </Property>
               </Properties>
             </Component>
@@ -633,7 +633,7 @@
             <Component class="javax.swing.JTextField" name="Age">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="TH SarabunPSK" size="22" style="0"/>
+                  <Font name="TH SarabunPSK" size="22" style="1"/>
                 </Property>
               </Properties>
               <Events>
@@ -652,14 +652,14 @@
             <Component class="javax.swing.JTextField" name="Nationality">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="TH SarabunPSK" size="22" style="0"/>
+                  <Font name="TH SarabunPSK" size="22" style="1"/>
                 </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="Race">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="TH SarabunPSK" size="22" style="0"/>
+                  <Font name="TH SarabunPSK" size="22" style="1"/>
                 </Property>
               </Properties>
             </Component>
@@ -674,7 +674,7 @@
             <Component class="javax.swing.JTextField" name="Religion">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="TH SarabunPSK" size="22" style="0"/>
+                  <Font name="TH SarabunPSK" size="20" style="1"/>
                 </Property>
               </Properties>
             </Component>
@@ -689,7 +689,7 @@
             <Component class="javax.swing.JTextField" name="Height">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="TH SarabunPSK" size="22" style="0"/>
+                  <Font name="TH SarabunPSK" size="22" style="1"/>
                 </Property>
               </Properties>
             </Component>
@@ -704,7 +704,7 @@
             <Component class="javax.swing.JTextField" name="Weight">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="TH SarabunPSK" size="22" style="0"/>
+                  <Font name="TH SarabunPSK" size="22" style="1"/>
                 </Property>
               </Properties>
             </Component>
@@ -719,7 +719,7 @@
             <Component class="javax.swing.JTextField" name="BloodGroup">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="TH SarabunPSK" size="22" style="0"/>
+                  <Font name="TH SarabunPSK" size="22" style="1"/>
                 </Property>
               </Properties>
             </Component>
@@ -759,7 +759,7 @@
             <Component class="javax.swing.JTextField" name="Occupation">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="TH SarabunPSK" size="22" style="0"/>
+                  <Font name="TH SarabunPSK" size="22" style="1"/>
                 </Property>
               </Properties>
             </Component>
@@ -774,7 +774,7 @@
             <Component class="javax.swing.JTextField" name="FatherFullName">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="TH SarabunPSK" size="22" style="0"/>
+                  <Font name="TH SarabunPSK" size="22" style="1"/>
                 </Property>
               </Properties>
             </Component>
@@ -789,7 +789,7 @@
             <Component class="javax.swing.JTextField" name="MotherFullName">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="TH SarabunPSK" size="22" style="0"/>
+                  <Font name="TH SarabunPSK" size="22" style="1"/>
                 </Property>
               </Properties>
             </Component>
@@ -804,7 +804,7 @@
             <Component class="javax.swing.JTextField" name="PhonePerson">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="TH SarabunPSK" size="22" style="0"/>
+                  <Font name="TH SarabunPSK" size="22" style="1"/>
                 </Property>
               </Properties>
               <AccessibilityProperties>
@@ -891,7 +891,7 @@
             <Component class="javax.swing.JTextField" name="Moo">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="TH SarabunPSK" size="22" style="0"/>
+                  <Font name="TH SarabunPSK" size="22" style="1"/>
                 </Property>
               </Properties>
             </Component>
@@ -922,7 +922,7 @@
             <Component class="javax.swing.JTextField" name="ZipCode">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="TH SarabunPSK" size="22" style="0"/>
+                  <Font name="TH SarabunPSK" size="22" style="1"/>
                 </Property>
               </Properties>
               <Events>
@@ -940,28 +940,28 @@
             <Component class="javax.swing.JTextField" name="ZipCode1">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="TH SarabunPSK" size="22" style="0"/>
+                  <Font name="TH SarabunPSK" size="22" style="1"/>
                 </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="HouseNumber">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="TH SarabunPSK" size="22" style="0"/>
+                  <Font name="TH SarabunPSK" size="22" style="1"/>
                 </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="Tambon">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="TH SarabunPSK" size="22" style="0"/>
+                  <Font name="TH SarabunPSK" size="22" style="1"/>
                 </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="Amphur">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="TH SarabunPSK" size="22" style="0"/>
+                  <Font name="TH SarabunPSK" size="22" style="1"/>
                 </Property>
               </Properties>
             </Component>
@@ -976,7 +976,7 @@
             <Component class="javax.swing.JTextField" name="Identification">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="TH SarabunPSK" size="22" style="0"/>
+                  <Font name="TH SarabunPSK" size="22" style="1"/>
                 </Property>
               </Properties>
             </Component>
@@ -1030,7 +1030,7 @@
             <Component class="javax.swing.JTextField" name="Province">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="TH SarabunPSK" size="22" style="0"/>
+                  <Font name="TH SarabunPSK" size="22" style="1"/>
                 </Property>
               </Properties>
             </Component>
@@ -1061,7 +1061,7 @@
             <Component class="javax.swing.JTextField" name="OrderPerson">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="TH SarabunPSK" size="22" style="0"/>
+                  <Font name="TH SarabunPSK" size="22" style="1"/>
                 </Property>
               </Properties>
             </Component>
@@ -1194,7 +1194,7 @@
                           <Component id="jCheckBail" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jPanel8" max="-2" attributes="0"/>
+                      <Component id="jPanel8" min="127" pref="127" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabelBailDate" min="-2" pref="32" max="-2" attributes="0"/>
@@ -1258,7 +1258,7 @@
             <Component class="javax.swing.JTextField" name="PlaceArrest">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="TH SarabunPSK" size="22" style="0"/>
+                  <Font name="TH SarabunPSK" size="22" style="1"/>
                 </Property>
               </Properties>
               <Events>
@@ -1396,7 +1396,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="TH SarabunPSK" size="22" style="0"/>
+                  <Font name="TH SarabunPSK" size="22" style="1"/>
                 </Property>
               </Properties>
               <Events>
@@ -1542,7 +1542,7 @@
             <Component class="javax.swing.JTextField" name="Attach">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="TH SarabunPSK" size="22" style="0"/>
+                  <Font name="TH SarabunPSK" size="22" style="1"/>
                 </Property>
               </Properties>
             </Component>
@@ -1597,7 +1597,7 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jRadioWithdrawComplaint" pref="155" max="32767" attributes="0"/>
+                              <Component id="jRadioWithdrawComplaint" pref="147" max="32767" attributes="0"/>
                               <Component id="jRadioOther" max="32767" attributes="0"/>
                               <Component id="jRadioStatus2" alignment="0" max="32767" attributes="0"/>
                           </Group>

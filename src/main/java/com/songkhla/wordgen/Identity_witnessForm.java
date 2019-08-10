@@ -196,7 +196,7 @@ public class Identity_witnessForm extends javax.swing.JDialog {
         jLabel14.setText("ที่ทำงาน ตำแหน่ง หน้าที่");
 
         Gender.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        Gender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "หญิง", "ชาย", "ไม่ระบุ" }));
+        Gender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ชาย", "หญิง", "ไม่ระบุ" }));
 
         Occupation.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
