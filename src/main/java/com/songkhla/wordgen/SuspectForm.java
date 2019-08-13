@@ -536,7 +536,7 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabel2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel2.setText("เลขบัตรประชาชน");
 
-        PeopleRegistrationID.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        PeopleRegistrationID.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         PeopleRegistrationID.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 PeopleRegistrationIDKeyTyped(evt);
@@ -546,7 +546,7 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabel5.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel5.setText("ชื่อ-สกุล");
 
-        FullNamePerson.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        FullNamePerson.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel1.setText("วันที่ออกบัตร");
@@ -557,7 +557,7 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabel7.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel7.setText("ชื่อสกุลอื่น");
 
-        OtherName.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        OtherName.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         OtherName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 OtherNameActionPerformed(evt);
@@ -567,12 +567,12 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabel11.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel11.setText("ชื่อภาษาอังกฤษ");
 
-        FullNamePersonEn.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        FullNamePersonEn.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
         jLabel9.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel9.setText("เลขหนังสือเดินทาง");
 
-        PassportNumber.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        PassportNumber.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
         jLabel10.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel10.setText("วันเกิด");
@@ -580,7 +580,7 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel8.setText("อายุ");
 
-        Age.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        Age.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         Age.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AgeActionPerformed(evt);
@@ -595,29 +595,29 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabel12.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel12.setText("สัญชาติ");
 
-        Nationality.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        Nationality.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
-        Race.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        Race.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
         jLabel18.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel18.setText("ศาสนา");
 
-        Religion.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        Religion.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
 
         jLabel16.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel16.setText("สูง");
 
-        Height.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        Height.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
         jLabel17.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel17.setText("น้ำหนัก");
 
-        Weight.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        Weight.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
         jLabel20.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel20.setText("หมู่โลหิต");
 
-        BloodGroup.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        BloodGroup.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
         jLabel15.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel15.setText("เพศ");
@@ -628,22 +628,22 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabel14.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel14.setText("อาชีพ");
 
-        Occupation.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        Occupation.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
         jLabel26.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel26.setText("ชื่อบิดา");
 
-        FatherFullName.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        FatherFullName.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
         jLabel29.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel29.setText("ชื่อมารดา");
 
-        MotherFullName.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        MotherFullName.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
         jLabel25.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel25.setText("หมายเลขโทรศัพท์");
 
-        PhonePerson.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        PhonePerson.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
         jPanelIssueDate.setBackground(new java.awt.Color(255, 255, 255));
         jPanelIssueDate.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
@@ -690,7 +690,7 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabel19.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel19.setText("เชื้อชาติ");
 
-        Moo.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        Moo.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
         jLabel21.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel21.setText("บ้านเลขที่");
@@ -701,7 +701,7 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabel32.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel32.setText("เคยต้องโทษ");
 
-        ZipCode.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        ZipCode.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         ZipCode.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 ZipCodeKeyTyped(evt);
@@ -711,18 +711,18 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabel24.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel24.setText("รหัสไปรษณีย์");
 
-        ZipCode1.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        ZipCode1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
-        HouseNumber.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        HouseNumber.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
-        Tambon.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        Tambon.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
-        Amphur.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        Amphur.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
         jLabel22.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel22.setText("แขวง/ตำบล");
 
-        Identification.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        Identification.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
         jLabel23.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel23.setText("เขต/อำเภอ");
@@ -746,7 +746,7 @@ public class SuspectForm extends javax.swing.JDialog {
             }
         });
 
-        Province.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        Province.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
         jLabel27.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel27.setText("จังหวัด");
@@ -757,7 +757,7 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabel35.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel35.setText("ผู้ต้องหาคนที่");
 
-        OrderPerson.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        OrderPerson.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
         jComboBoxListName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -1033,7 +1033,7 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabelArrestPlace.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabelArrestPlace.setText("สถานที่จับกุม");
 
-        PlaceArrest.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        PlaceArrest.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         PlaceArrest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PlaceArrestActionPerformed(evt);
@@ -1104,7 +1104,7 @@ public class SuspectForm extends javax.swing.JDialog {
 
         ArrestDateTimeEnd.setEditable(false);
         ArrestDateTimeEnd.setBackground(new java.awt.Color(255, 255, 255));
-        ArrestDateTimeEnd.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        ArrestDateTimeEnd.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         ArrestDateTimeEnd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ArrestDateTimeEndActionPerformed(evt);
@@ -1177,7 +1177,7 @@ public class SuspectForm extends javax.swing.JDialog {
             .addGap(0, 32, Short.MAX_VALUE)
         );
 
-        Attach.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        Attach.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
         jLabelFreezeDate.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabelFreezeDate.setText("วันที่อายัดตัว");
@@ -1256,7 +1256,7 @@ public class SuspectForm extends javax.swing.JDialog {
                     .addComponent(jRadioStatus1))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioWithdrawComplaint, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+                    .addComponent(jRadioWithdrawComplaint, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
                     .addComponent(jRadioOther, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jRadioStatus2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
@@ -1390,7 +1390,7 @@ public class SuspectForm extends javax.swing.JDialog {
                     .addComponent(jLabel3)
                     .addComponent(jCheckBail))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel8, 127, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelBailDate, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
