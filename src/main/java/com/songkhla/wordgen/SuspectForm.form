@@ -279,7 +279,7 @@
                                       <EmptySpace min="28" pref="28" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="ZipCode1" min="-2" pref="406" max="-2" attributes="0"/>
+                                              <Component id="StatusSueAndPutInJail" min="-2" pref="406" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="jLabel33" min="-2" max="-2" attributes="0"/>
                                           </Group>
@@ -462,7 +462,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="jLabel32" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                              <Component id="ZipCode1" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                              <Component id="StatusSueAndPutInJail" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                               <Component id="SusConfress" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jLabel33" min="-2" pref="32" max="-2" attributes="0"/>
@@ -937,7 +937,7 @@
                 <Property name="text" type="java.lang.String" value="&#xe23;&#xe2b;&#xe31;&#xe2a;&#xe44;&#xe1b;&#xe23;&#xe29;&#xe13;&#xe35;&#xe22;&#xe4c;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="ZipCode1">
+            <Component class="javax.swing.JTextField" name="StatusSueAndPutInJail">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="TH SarabunPSK" size="22" style="1"/>
@@ -1597,7 +1597,7 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jRadioWithdrawComplaint" pref="147" max="32767" attributes="0"/>
+                              <Component id="jRadioWithdrawComplaint" pref="155" max="32767" attributes="0"/>
                               <Component id="jRadioOther" max="32767" attributes="0"/>
                               <Component id="jRadioStatus2" alignment="0" max="32767" attributes="0"/>
                           </Group>
@@ -1615,7 +1615,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jRadioSue" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jRadioSue" alignment="0" pref="39" max="32767" attributes="0"/>
                               <Component id="jRadioStatus2" alignment="1" max="32767" attributes="0"/>
                               <Component id="jRadioStatus1" min="-2" max="-2" attributes="0"/>
                           </Group>

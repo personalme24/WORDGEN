@@ -254,7 +254,7 @@ String typeC,cid;
                 String sql = "select NoPerson,Identification,CurrentAddress,Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,Weight,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
                         "PhonePerson,OrderPerson,StatusSuspect,BailDate,StatusBail,RatePrison,CourtSuspect,ArrestDateTimeEnd,Province,Race,Religion,Tambon,TypePerson,"
-                        + "ZipCode,caseIdPerson,ArrestDateTime,PlaceArrest,SusConfress,PlaceOfFoundBody,DeathLocation,BodyFoundDate,BodyFoundTime,DateOfDie,TimeOfDie\n"
+                        + "ZipCode,caseIdPerson,ArrestDateTime,PlaceArrest,SusConfress,PlaceOfFoundBody,DeathLocation,StatusSueAndPutInJail,BodyFoundDate,BodyFoundTime,DateOfDie,TimeOfDie\n"
                         + "from person where noperson='"+Noperson+ "' and caseIdPerson='"+crimecaseno+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
@@ -308,6 +308,7 @@ String typeC,cid;
                 data.put("BodyFoundTime", rs.getString("BodyFoundTime"));
                    data.put("DateOfDie", rs.getString("DateOfDie"));
                    data.put("TimeOfDie", rs.getString("TimeOfDie"));
+                   data.put("StatusSueAndPutInJail", rs.getString("StatusSueAndPutInJail"));
                    data.put("OtherName", rs.getString("OtherName"));
                    if(typeC.equals("Dead")){
                       Identity_DeadForm id=new Identity_DeadForm(f,data);

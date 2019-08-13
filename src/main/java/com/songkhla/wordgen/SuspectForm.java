@@ -203,6 +203,7 @@ public class SuspectForm extends javax.swing.JDialog {
             jLabel36.setText(datain.get("caseIdPerson")+"");
             PeopleRegistrationID.setText(datain.get("PeopleRegistrationID")+"");
             String known=datain.get("FullNamePerson")+"";
+            Identification.setText(datain.get("Identification")+"");
             if(known.equals("ไม่รู้ตัว")){
             jRadioUnknowSuspect.setSelected(true);
             }
@@ -419,7 +420,7 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabel32 = new javax.swing.JLabel();
         ZipCode = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
-        ZipCode1 = new javax.swing.JTextField();
+        StatusSueAndPutInJail = new javax.swing.JTextField();
         HouseNumber = new javax.swing.JTextField();
         Tambon = new javax.swing.JTextField();
         Amphur = new javax.swing.JTextField();
@@ -711,7 +712,7 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabel24.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel24.setText("รหัสไปรษณีย์");
 
-        ZipCode1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        StatusSueAndPutInJail.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
         HouseNumber.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
@@ -872,7 +873,7 @@ public class SuspectForm extends javax.swing.JDialog {
                                 .addGap(28, 28, 28)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addComponent(ZipCode1, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(StatusSueAndPutInJail, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel33))
                                     .addComponent(Identification, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1014,7 +1015,7 @@ public class SuspectForm extends javax.swing.JDialog {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(ZipCode1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(StatusSueAndPutInJail, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(SusConfress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1256,7 +1257,7 @@ public class SuspectForm extends javax.swing.JDialog {
                     .addComponent(jRadioStatus1))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioWithdrawComplaint, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                    .addComponent(jRadioWithdrawComplaint, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
                     .addComponent(jRadioOther, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jRadioStatus2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
@@ -1270,7 +1271,7 @@ public class SuspectForm extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioSue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jRadioSue, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
                     .addComponent(jRadioStatus2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jRadioStatus1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1481,8 +1482,8 @@ public class SuspectForm extends javax.swing.JDialog {
             String sql="INSERT INTO Person (Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
             "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
             "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,StatusSuspect,"
-            + "caseIdPerson,ArrestDateTime,PlaceArrest,CourtSuspect,BailDate,ArrestDateTimeEnd,StatusBail,RatePrison,Identification,OrderPerson,SusConfress)\n"
-            + " VALUES (?,?,? ,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            + "caseIdPerson,ArrestDateTime,PlaceArrest,CourtSuspect,BailDate,ArrestDateTimeEnd,StatusBail,RatePrison,Identification,OrderPerson,SusConfress,StatusSueAndPutInJail)\n"
+            + " VALUES (?,?,? ,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             //           String sqlSueFirst="insert into sue (SueTimes,SueDate,)";
             System.out.println("SQL : "+sql);
             try {
@@ -1578,6 +1579,7 @@ public class SuspectForm extends javax.swing.JDialog {
                 pst.setString(37,Identification.getText());
                 pst.setString(38,OrderPerson.getText());
                 pst.setString(39,SusConfress.getSelectedItem().toString());
+                pst.setString(40,StatusSueAndPutInJail.getText());
 
                 int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
                     JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
@@ -1634,6 +1636,7 @@ public class SuspectForm extends javax.swing.JDialog {
             + "RatePrison=?,"
             + "SusConfress=?," 
            + "PlaceArrest=?," 
+            +"StatusSueAndPutInJail=?,"        
             + "OrderPerson=? where NoPerson=? and TypePerson=?   ";
 
             try {
@@ -1717,10 +1720,12 @@ public class SuspectForm extends javax.swing.JDialog {
                 pst.setString(35,RatePrison.getSelectedItem().toString());
                 pst.setString(36,SusConfress.getSelectedItem().toString());
                 pst.setString(37,PlaceArrest.getText());
-                pst.setString(38,OrderPerson.getText());
-                pst.setString(39,noPerson);
+                pst.setString(38,StatusSueAndPutInJail.getText());
+                
+                pst.setString(39,OrderPerson.getText());
+                pst.setString(40,noPerson);
 
-                pst.setString(40,"ผู้ต้องหา");
+                pst.setString(41,"ผู้ต้องหา");
 
                 int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
                     JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
@@ -2016,7 +2021,7 @@ public class SuspectForm extends javax.swing.JDialog {
        Tambon.setEnabled(false);
        Amphur.setEnabled(false);
        Province.setEnabled(false);
-       ZipCode1.setEnabled(false);
+       StatusSueAndPutInJail.setEnabled(false);
        SusConfress.setEnabled(false);
        Identification.setEnabled(false);
        ExpiredDate.getComponent(1).setEnabled(false);
@@ -2064,7 +2069,7 @@ public class SuspectForm extends javax.swing.JDialog {
        Tambon.setEnabled(true);
        Amphur.setEnabled(true);
        Province.setEnabled(true);
-       ZipCode1.setEnabled(true);
+       StatusSueAndPutInJail.setEnabled(true);
        SusConfress.setEnabled(true);
        Identification.setEnabled(true);
       ExpiredDate.getComponent(1).setEnabled(true);
@@ -2485,11 +2490,11 @@ public class SuspectForm extends javax.swing.JDialog {
     private javax.swing.JTextField Race;
     private javax.swing.JComboBox<String> RatePrison;
     private javax.swing.JTextField Religion;
+    private javax.swing.JTextField StatusSueAndPutInJail;
     private javax.swing.JComboBox<String> SusConfress;
     private javax.swing.JTextField Tambon;
     private javax.swing.JTextField Weight;
     private javax.swing.JTextField ZipCode;
-    private javax.swing.JTextField ZipCode1;
     private javax.swing.JCheckBox jCheckBail;
     private javax.swing.JComboBox<String> jComboBoxListName;
     private javax.swing.JLabel jLabel1;
