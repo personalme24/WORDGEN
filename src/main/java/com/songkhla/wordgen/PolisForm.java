@@ -55,7 +55,6 @@ public class PolisForm extends javax.swing.JDialog {
             try {
             closeEdit();
                          idpolice.setText(datain.get("IdPolice")+"");
-
              IdCardPolice.setText(datain.get("IdCardPolice")+"");
              RankPolice.setText(datain.get("RankPolice")+"");
              FirstName.setText(datain.get("FirstName")+"");
@@ -339,14 +338,14 @@ public class PolisForm extends javax.swing.JDialog {
         + "FirstName=?,"
         + "LastName=?,"
         + "Position=?"
-        + "Where IdCardPolice=?";
+        + "Where IdPolice=?";
             pst=con.prepareStatement(sqlUpdate);
             pst.setString(1,IdCardPolice.getText());
             pst.setString(2,RankPolice.getText());
             pst.setString(3,FirstName.getText());
             pst.setString(4,LastName.getText());
             pst.setString(5,Position.getText());
-            pst.setString(6,IdCardPolice.getText());
+            pst.setString(6,idpolice.getText());
      
             System.out.println("SQL : "+sqlUpdate);
  int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการแก้ไขข้อมูล", "ยืนยัน",
