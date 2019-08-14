@@ -143,6 +143,7 @@ public class W8 {
                 bookmarkvalue.put("PA13", Checknull(s.getString("Age")));
                 bookmarkvalue.put("PA14", Checknull(s.getString("Race")));
                 bookmarkvalue.put("PA15", Checknull(s.getString("Nationality"))); 
+                bookmarkvalue.put("PA16", Checknull(s.getString("Religion")));
                 bookmarkvalue.put("PA17", Checknull(s.getString("Occupation"))); 
                 bookmarkvalue.put("PA22", Checknull(s.getString("HouseNumber"))); 
                 bookmarkvalue.put("PA23", Checknull(s.getString("Moo"))); 
@@ -244,6 +245,7 @@ public class W8 {
                 bookmarkvalue.put("PA13", "");
                 bookmarkvalue.put("PA14", "");
                 bookmarkvalue.put("PA15", ""); 
+                bookmarkvalue.put("PA16", "");
                 bookmarkvalue.put("PA17", ""); 
                 bookmarkvalue.put("PA22", ""); 
                 bookmarkvalue.put("PA23", ""); 
