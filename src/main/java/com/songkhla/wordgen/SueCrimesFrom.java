@@ -4,9 +4,80 @@
  * and open the template in the editor.
  */
 package com.songkhla.wordgen;
+import com.songkhla.document.W1;
+import com.songkhla.document.W11;
+import com.songkhla.document.W12;
+import com.songkhla.document.W13;
+import com.songkhla.document.W14;
+import com.songkhla.document.W15;
+import com.songkhla.document.W16;
+import com.songkhla.document.W17;
+import com.songkhla.document.W18;
+import com.songkhla.document.W19;
+import com.songkhla.document.W2;
+import com.songkhla.document.W20;
+import com.songkhla.document.W21;
+import com.songkhla.document.W22;
+import com.songkhla.document.W23;
+import com.songkhla.document.W24;
+import com.songkhla.document.W25;
+import com.songkhla.document.W26;
+import com.songkhla.document.W27;
+import com.songkhla.document.W28;
+import com.songkhla.document.W29;
+import com.songkhla.document.W3;
+import com.songkhla.document.W30;
+import com.songkhla.document.W31;
+import com.songkhla.document.W32;
+import com.songkhla.document.W33;
+import com.songkhla.document.W34;
+import com.songkhla.document.W35;
+import com.songkhla.document.W36;
+import com.songkhla.document.W37;
+import com.songkhla.document.W38;
+import com.songkhla.document.W39;
+import com.songkhla.document.W4;
+import com.songkhla.document.W40;
+import com.songkhla.document.W41;
+import com.songkhla.document.W42;
+import com.songkhla.document.W43;
+import com.songkhla.document.W44;
+import com.songkhla.document.W45;
+import com.songkhla.document.W46;
+import com.songkhla.document.W47;
+import com.songkhla.document.W48;
+import com.songkhla.document.W49;
+import com.songkhla.document.W5;
 import static com.songkhla.document.W5.Checknull;
+import com.songkhla.document.W50;
+import com.songkhla.document.W51;
+import com.songkhla.document.W52;
+import com.songkhla.document.W53;
+import com.songkhla.document.W6;
+import com.songkhla.document.W61;
+import com.songkhla.document.W62;
+import com.songkhla.document.W63;
+import com.songkhla.document.W64;
+import com.songkhla.document.W65;
+import com.songkhla.document.W66;
 import com.songkhla.document.W67;
 import com.songkhla.document.W68;
+import com.songkhla.document.W69;
+import com.songkhla.document.W7;
+import com.songkhla.document.W70;
+import com.songkhla.document.W71;
+import com.songkhla.document.W72;
+import com.songkhla.document.W73;
+import com.songkhla.document.W74;
+import com.songkhla.document.W75;
+import com.songkhla.document.W76;
+import com.songkhla.document.W77;
+import com.songkhla.document.W78;
+import com.songkhla.document.W79;
+import com.songkhla.document.W8;
+import com.songkhla.document.W80;
+import com.songkhla.document.W9;
+import com.songkhla.document.W93;
 
 import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseno;
 import java.awt.Color;
@@ -49,6 +120,7 @@ import java.util.Locale;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import javax.swing.ImageIcon;
+import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
 import javax.swing.JTextField;
@@ -467,11 +539,10 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel30)
-                        .addGap(97, 707, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel30))
                         .addGap(28, 28, 28)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -488,7 +559,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                                 .addComponent(PeopleRegistrationID, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(CourtSuspect1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(17, 17, 17)
                                 .addComponent(CourtSuspect))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -606,6 +677,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -614,7 +686,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 .addGap(4, 4, 4)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(SueStartLast)
-                    .addComponent(NumberImprison, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(NumberImprison, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
@@ -628,7 +700,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(SueEndLast, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -647,7 +718,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                     .addComponent(SueStartLast, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SueEndLast, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(102, 102, 102))
         );
 
         jPanel5.setEnabled(false);
@@ -1147,6 +1218,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1156,11 +1228,11 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 1258, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(21, Short.MAX_VALUE))))
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1207, 1207, 1207))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 1258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1170,10 +1242,11 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonSave, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                .addGap(13, 13, 13)
+                .addComponent(jButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1186,10 +1259,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 708, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 719, Short.MAX_VALUE)
         );
 
         pack();
@@ -1422,16 +1492,8 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                  JOptionPane.showMessageDialog(jPanel1,"แจ้งเตือน", "กรุณากรอกข้อมูล", JOptionPane.INFORMATION_MESSAGE);
         }
         else{
-           
-        W67.w67(caseid);
-         Desktop desktop = Desktop.getDesktop();
-        File dirToOpen = null;
-        try {
-            dirToOpen = new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
-            desktop.open(dirToOpen);
-        } catch (Exception iae) {
-            System.out.println("File Not Found :"+iae);
-        }}
+           yourAttemptActionPerformed();
+        }
         
     }//GEN-LAST:event_Print1ActionPerformed
 
@@ -1441,16 +1503,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
          JOptionPane.showMessageDialog(jPanel1,"กรุณากรอกข้อมูล", "แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);
         }
         else{
-             String suetime="1";
-         W68.w68(caseid,SueThird.getText());
-           Desktop desktop = Desktop.getDesktop();
-        File dirToOpen = null;
-        try {
-            dirToOpen = new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
-            desktop.open(dirToOpen);
-        } catch (Exception iae) {
-            System.out.println("File Not Found :"+iae);
-        }
+            yourAttemptActionPerformed();
         }
     }//GEN-LAST:event_Print3ActionPerformed
 
@@ -1460,15 +1513,8 @@ public class SueCrimesFrom extends javax.swing.JDialog {
            JOptionPane.showMessageDialog(jPanel1,"กรุณากรอกข้อมูล", "แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);
         }
           else{
-           W68.w68(caseid,SueSecond.getText());
-            Desktop desktop = Desktop.getDesktop();
-        File dirToOpen = null;
-        try {
-            dirToOpen = new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
-            desktop.open(dirToOpen);
-        } catch (Exception iae) {
-            System.out.println("File Not Found :"+iae);
-        }}
+              yourAttemptActionPerformed();
+          }
           
     }//GEN-LAST:event_Print2ActionPerformed
 
@@ -1914,63 +1960,125 @@ public class SueCrimesFrom extends javax.swing.JDialog {
     return newFormatDate;
     
     }
+     private void yourAttemptActionPerformed() {
+
+
+       
+    new BackgroundWorker().execute();
+
+
+    }
+       
     public class BackgroundWorker extends SwingWorker<Void, Void> {
 
-		private JProgressBar pb;
+    private static final long SLEEP_TIME =10;
+    private String text;
+        private JProgressBar pb;
 		private JDialog dialog;
-		
-//		public BackgroundWorker() {
-//			addPropertyChangeListener(new PropertyChangeListener() {
-//				@Override
-//				public void propertyChange(PropertyChangeEvent evt) {
-//					if ("progress".equalsIgnoreCase(evt.getPropertyName())) {
-//						if (dialog == null) {
-//							dialog = new JDialog();
-//							dialog.setTitle("Downloading...");
-//							dialog.setLayout(new GridBagLayout());
-//							dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
-//							GridBagConstraints gbc = new GridBagConstraints();
-//							gbc.insets = new Insets(2, 2, 2, 2);
-//							gbc.weightx = 1;
-//							gbc.gridy = 0;
-//							dialog.add(new JLabel("Downloading..."), gbc);
-//							pb = new JProgressBar();
-//							pb.setStringPainted(true);
-//							gbc.gridy = 1;
-//							dialog.add(pb, gbc);
-//							dialog.pack();
-//							dialog.setLocationRelativeTo(null);
-//							dialog.setModal(true);
-//							JDialog.setDefaultLookAndFeelDecorated(true); 
-//							dialog.setVisible(true);
-//						}
-//						pb.setValue(getProgress());
-//					}
-//				}
-//
-//			});
-//		}
+//   public void Task() {
+//       
+//    }
+//       public ProgressWorker(JProgressBar progress) {
+//            this.progress = progress;
+//        
+            public BackgroundWorker() {
+           
+			addPropertyChangeListener(new PropertyChangeListener() {
+				@Override
+				public void propertyChange(PropertyChangeEvent evt) {
+					if ("progress".equalsIgnoreCase(evt.getPropertyName())) {
+						 if (dialog == null) {
+							dialog = new JDialog();
+                                                        ImageIcon img = new ImageIcon("./Master/WD.png");
+                                                           dialog.setIconImage(img.getImage());
+							dialog.setTitle("Processing");
+							dialog.setLayout(new GridBagLayout());
+							dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+							GridBagConstraints gbc = new GridBagConstraints();
+							gbc.insets = new Insets(2, 2, 2, 2);
+							gbc.weightx = 1;
+							gbc.gridy = 0;
+							dialog.add(new JLabel("Processing..."), gbc);
+							pb = new JProgressBar();
+							pb.setStringPainted(true);
+//                                                        pb.setForeground(Color.blue);]
+                                               
+                                                        pb.setMaximum(100);
+                                                        pb.setMinimum(0);
+                                                        
+							gbc.gridy = 1;
+							dialog.add(pb, gbc);
+							dialog.pack();
+							dialog.setLocationRelativeTo(null);
+							dialog.setModal(true);
+							JDialog.setDefaultLookAndFeelDecorated(true); 
+							dialog.setVisible(true);
+						}
+						pb.setValue(getProgress());
+					}
+				}
 
-		@Override
-		protected void done() {
-			Print1.setEnabled(true);
+			});
 		}
+    @Override
+    public Void doInBackground() {
+  
+//            JCheckBox[] boxes = {};
+        try { 
+            for (int i = 0; i < 2; i++) {
+//                x = x - i;
+            setProgress((int)((i*100)/2)+1);
+//        setProgress(i * (100 / N));
+//				  setProgress(i);
+				Thread.sleep(10);
+//            Thread.sleep(SLEEP_TIME);// imitate a long-running task
 
-		@Override
-		protected Void doInBackground() throws Exception {
-
-			  if(SueFirst.getText().equals("")){
-                 JOptionPane.showMessageDialog(jPanel1,"แจ้งเตือน", "กรุณากรอกข้อมูล", JOptionPane.INFORMATION_MESSAGE);
+            if(Print1.isEnabled()){
+              W67.w67(caseid);
+            }
+             if(Print2.isEnabled()){
+              W68.w68(caseid,SueSecond.getText());
+            }
+             if(Print3.isEnabled()){
+             W68.w68(caseid,SueThird.getText());
+            }
+             if(Print4.isEnabled()){
+             W68.w68(caseid,SueForth.getText());
+            }
+              if(Print5.isEnabled()){
+             W68.w68(caseid,SueFifth.getText());
+            }
+              if(Print6.isEnabled()){
+             W68.w68(caseid,SueSixth.getText());
+            }
+              if(Print7.isEnabled()){
+             W68.w68(caseid,SueSeventh.getText());
+            }
+            }
+        } catch (InterruptedException e) {
         }
-        else
-        W67.w67(caseid);
-			
-			return null;
-			
+//        setProgress(100);
+        
+        return null;
+    }
 
-		}
-	}
-
+    @Override
+    public void done() {
+                    if (dialog != null) {
+				dialog.dispose();
+			}
+             Desktop desktop = Desktop.getDesktop();
+        File dirToOpen = null;
+        try {
+            dirToOpen = new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
+            desktop.open(dirToOpen);
+        } catch (Exception iae) {
+            System.out.println("File Not Found :"+iae);
+        }
+//          System.out.println(text + " is done");
+//        Toolkit.getDefaultToolkit().beep();
+    }
+}/**/
         public void comboInvest(){
     
      try {
@@ -2169,6 +2277,7 @@ catch (Exception d) {  //System.out.println(d);
            return DateNextTime;
     
     }
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AccureandOther;

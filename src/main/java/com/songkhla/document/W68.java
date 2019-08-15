@@ -269,7 +269,7 @@ public static void w68(String cc,String sueTime) {
 					.load(new java.io.File("./TEMPLATE/w68.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/คำร้องขอ"+StatusSue+"ครั้งที่ "+sueTime +s.getString("FullNamePerson")+""+ cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/คำร้องขอ"+StatusSue+"ครั้งที่ "+sueTime+" "+s.getString("FullNamePerson")+""+ cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

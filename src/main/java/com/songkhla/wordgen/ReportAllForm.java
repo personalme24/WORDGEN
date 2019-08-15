@@ -79,15 +79,27 @@ import com.songkhla.document.W8;
 import com.songkhla.document.W80;
 import com.songkhla.document.W9;
 import com.songkhla.document.W93;
+import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseid;
+import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseno;
 import java.awt.Desktop;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.ImageIcon;
+import javax.swing.JCheckBox;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JProgressBar;
+import javax.swing.SwingWorker;
 import org.docx4j.openpackaging.packages.WordprocessingMLPackage;
 import org.json.simple.JSONObject;
 
@@ -1125,7 +1137,7 @@ public class ReportAllForm extends javax.swing.JDialog {
 
     private void jButtonPrintDoc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrintDoc2ActionPerformed
         // TODO add your handling code here:
-
+        yourAttemptActionPerformed();
         
     }//GEN-LAST:event_jButtonPrintDoc2ActionPerformed
 
@@ -1164,7 +1176,332 @@ public class ReportAllForm extends javax.swing.JDialog {
             }
         });
     }
+   private void yourAttemptActionPerformed() {
 
+
+       
+    new BackgroundWorker().execute();
+
+
+    }
+       
+    public class BackgroundWorker extends SwingWorker<Void, Void> {
+
+    private static final long SLEEP_TIME =10;
+    private String text;
+        private JProgressBar pb;
+		private JDialog dialog;
+//   public void Task() {
+//       
+//    }
+//       public ProgressWorker(JProgressBar progress) {
+//            this.progress = progress;
+//        
+            public BackgroundWorker() {
+           
+			addPropertyChangeListener(new PropertyChangeListener() {
+				@Override
+				public void propertyChange(PropertyChangeEvent evt) {
+					if ("progress".equalsIgnoreCase(evt.getPropertyName())) {
+						 if (dialog == null) {
+							dialog = new JDialog();
+                                                        ImageIcon img = new ImageIcon("./Master/WD.png");
+                                                           dialog.setIconImage(img.getImage());
+							dialog.setTitle("Processing");
+							dialog.setLayout(new GridBagLayout());
+							dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+							GridBagConstraints gbc = new GridBagConstraints();
+							gbc.insets = new Insets(2, 2, 2, 2);
+							gbc.weightx = 1;
+							gbc.gridy = 0;
+							dialog.add(new JLabel("Processing..."), gbc);
+							pb = new JProgressBar();
+							pb.setStringPainted(true);
+//                                                        pb.setForeground(Color.blue);]
+                                               
+                                                        pb.setMaximum(100);
+                                                        pb.setMinimum(0);
+                                                        
+							gbc.gridy = 1;
+							dialog.add(pb, gbc);
+							dialog.pack();
+							dialog.setLocationRelativeTo(null);
+							dialog.setModal(true);
+							JDialog.setDefaultLookAndFeelDecorated(true); 
+							dialog.setVisible(true);
+						}
+						pb.setValue(getProgress());
+					}
+				}
+
+			});
+		}
+    @Override
+    public Void doInBackground() {
+  
+            JCheckBox[] boxes = {jCheckW201,jCheckW202,jCheckW203,jCheckW204,jCheckW205,jCheckW206,
+                                jCheckW208,jCheckW209,jCheckW211,jCheckW212,jCheckW213,jCheckW214};
+        try { 
+            for (int i = 0; i < boxes.length; i++) {
+//                x = x - i;
+            setProgress((int)((i*100)/boxes.length)+1);
+//        setProgress(i * (100 / N));
+//				  setProgress(i);
+				Thread.sleep(10);
+//            Thread.sleep(SLEEP_TIME);// imitate a long-running task
+   
+    
+        File f3=new File("./สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน");
+   
+        f3.mkdirs();
+        System.out.print(f3);
+        System.out.print("folder created");
+          if(jCheckW201.isSelected()){
+            W1.nw1();
+        }
+
+                if(jCheckW202.isSelected()){
+            W2.nw2();
+
+        }
+        if(jCheckW203.isSelected()){
+            W3.nw3();
+        }
+        if(jCheckW204.isSelected()){
+            W4.nw4();
+        }
+        if(jCheckW205.isSelected()){
+            W5.nw5();
+        }
+        if(jCheckW206.isSelected()){
+            W6.nw6();
+        }
+        if(jCheckW207.isSelected()){
+           W7.nw7();
+        }
+        if(jCheckW208.isSelected()){
+            W8.nw8();
+        }
+        if(jCheckW209.isSelected()){
+            W9.nw9();
+        }
+        if(jCheckW211.isSelected()){
+            W11.nw11();
+        }
+        if(jCheckW212.isSelected()){
+            W12.nw12();
+          }
+        if(jCheckW213.isSelected()){
+            W13.nw13();
+            }
+         if(jCheckW214.isSelected()){
+             W14.nw14();
+             }
+                if(jCheckW215.isSelected()){
+                        W15.nw15();
+                    }
+               if(jCheckW216.isSelected()){
+                        W16.nw16();
+                    }
+               if(jCheckW217.isSelected()){
+                        W17.nw17();
+                    }
+               if(jCheckW218.isSelected()){
+                      W18.nw18();
+                     }
+               if(jCheckW219.isSelected()){
+                        W19.nw19();
+                    }
+               if(jCheckW220.isSelected()){
+                        W20.nw20();
+                    }
+               
+               if(jCheckW221.isSelected()){
+                        W21.nw21();
+                    }
+               if(jCheckW222.isSelected()){
+                        W22.nw22();
+                    }
+               if(jCheckW223.isSelected()){
+                        W23.nw23();
+                    }
+               if(jCheckW224.isSelected()){
+                        W24.nw24();
+                    }
+               if(jCheckW225.isSelected()){
+                        W25.nw25();
+                    }
+               
+               if(jCheckW226.isSelected()){
+                        W26.nw26();
+                    }
+               if(jCheckW227.isSelected()){
+                        W27.nw27();
+                    }
+               if(jCheckW228.isSelected()){
+                        W28.nw28();
+                    }
+               if(jCheckW229.isSelected()){
+                        W29.nw29();
+                    }
+               if(jCheckW230.isSelected()){
+                        W30.nw30();
+                    }
+               if(jCheckW231.isSelected()){
+                        W31.nw31();
+                    }
+               if(jCheckW232.isSelected()){
+                        W32.nw32();
+                    }
+               if(jCheckW233.isSelected()){
+                        W33.nw33();
+                    }
+               if(jCheckW234.isSelected()){
+                        W34.nw34();
+                    }
+               if(jCheckW235.isSelected()){
+                        W35.nw35();
+                    }
+               if(jCheckW236.isSelected()){
+                        W36.nw36();
+                    }
+               if(jCheckW237.isSelected()){
+                        W37.nw37();
+                    }
+               if(jCheckW238.isSelected()){
+                        W38.nw38();
+                    }
+               if(jCheckW239.isSelected()){
+                        W39.nw39();
+                    }
+               if(jCheckW240.isSelected()){
+                     W40.nw40();
+                  }
+               if(jCheckW241.isSelected()){
+                        W41.nw41();
+                    }
+              if(jCheckW242.isSelected()){
+                        W42.nw42();
+                    }
+              if(jCheckW243.isSelected()){
+                        W43.nw43();
+                    }
+              if(jCheckW244.isSelected()){
+                        W44.nw44();
+                    }
+              if(jCheckW245.isSelected()){
+                        W45.nw45();
+                    }
+               if(jCheckW246.isSelected()){
+                        W46.nw46();
+                    }
+               if(jCheckW247.isSelected()){
+                        W47.nw47();
+                    }
+               if(jCheckW248.isSelected()){
+                        W48.nw48();
+                    }
+               if(jCheckW249.isSelected()){
+                        W49.nw49();
+                    }
+               if(jCheckW250.isSelected()){
+                        W50.nw50();
+                    }
+               if(jCheckW251.isSelected()){
+                        W51.nw51();
+                    }
+               if(jCheckW252.isSelected()){
+                        W52.nw52();
+                    }
+               if(jCheckW253.isSelected()){
+                        W53.nw53();
+                    }
+               if(jCheckW261.isSelected()){
+                        W61.nw61();
+                    }
+               if(jCheckW262.isSelected()){
+                        W62.nw62();
+                    }
+               if(jCheckW263.isSelected()){
+                        W63.nw63();
+                    }
+               if(jCheckW264.isSelected()){
+                        W64.nw64();
+                    }
+               if(jCheckW265.isSelected()){
+                        W65.nw65();
+                    }
+               if(jCheckW266.isSelected()){
+                        W66.nw66();
+                    }
+               if(jCheckW267.isSelected()){
+                        W67.nw67();
+                    }
+     
+               if(jCheckW269.isSelected()){
+                        W69.nw69();
+                    }
+               if(jCheckW270.isSelected()){
+                        W70.nw70();
+                    }
+               if(jCheckW271.isSelected()){
+                        W71.nw71();
+                    }
+               if(jCheckW272.isSelected()){
+                        W72.nw72();
+                    }
+               if(jCheckW273.isSelected()){
+                        W73.nw73();
+                    }
+               if(jCheckW274.isSelected()){
+                        W74.nw74();
+                    }
+               if(jCheckW275.isSelected()){
+                        W75.nw75();
+                    }
+               if(jCheckW276.isSelected()){
+                        W76.nw76();
+                    }
+               if(jCheckW277.isSelected()){
+                        W77.nw77();
+                    }
+               if(jCheckW278.isSelected()){
+                        W78.nw78();
+                    }
+               if(jCheckW279.isSelected()){
+                        W79.nw79();
+                    }
+               if(jCheckW280.isSelected()){
+                        W80.nw80();
+                    }
+               if(jCheckW293.isSelected()){
+                        W93.nw93();
+                    }
+            }
+        } catch (InterruptedException e) {
+        }
+//        setProgress(100);
+        
+        return null;
+    }
+
+    @Override
+    public void done() {
+                    if (dialog != null) {
+				dialog.dispose();
+			}
+             Desktop desktop = Desktop.getDesktop();
+        File dirToOpen = null;
+        try {
+            dirToOpen = new File("./สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน");
+            desktop.open(dirToOpen);
+        } catch (Exception iae) {
+            System.out.println("File Not Found :"+iae);
+        }
+//          System.out.println(text + " is done");
+//        Toolkit.getDefaultToolkit().beep();
+    }
+}/**/
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel crimecaseno;
     private javax.swing.JButton jButtonPrintDoc2;
