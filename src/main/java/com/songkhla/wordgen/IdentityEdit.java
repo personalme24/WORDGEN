@@ -100,6 +100,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
@@ -174,9 +176,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             ImageIcon img = new ImageIcon("./Master/WD.png");
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็กทรอนิกส์ (CRIMES)");
-//            AutoCompleteDecorator.decorate(CrimeLocationProvince);
-//            AutoCompleteDecorator.decorate(CrimeLocationAmphur);
-//            AutoCompleteDecorator.decorate(CrimeLocationDistrict);
+
 //            JScrollBar hbar=new JScrollBar(JScrollBar.HORIZONTAL, 30, 20, 0, 500);
 //            jScrollPane1.getVerticalScrollBar().setUI(new MyScrollBarUI());
 //            jScrollPane1.getHorizontalScrollBar().setUI(new CustomScrollBarUI());
@@ -411,11 +411,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 //	System.out.println(dateFormat.format(date));
             caseidLast=IdCase();
            crimecaseid.setText(IdCase());
-        
-           
-//           CaseAcceptDate.setDate(date);
-//           CaseRequestDateTime.setDate(date);
-//           OccuredDate.setDate(date);
+            jCheckDuringInvest.setSelected(true);
            isInsert=true;
           
         }
@@ -423,29 +419,8 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         String od=OccuredDate.getJFormattedTextField().getText();
 
 //         System.out.println("dd ;"+CalculateDateArrest(od, da)+"");
-
-//   OccuredDate.getJFormattedTextField().getDocument().addDocumentListener(new DocumentListener() {
-//  public void changedUpdate(DocumentEvent e) {
-////     if(CalculateDateArrest(OccuredDate.getJFormattedTextField().getText(), CaseAcceptDate.getJFormattedTextField().getText())<0){
-////        JOptionPane.showConfirmDialog(jPanel1, "วันที่เกิดเหตุ", "ยืนยัน",
-////        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-////         System.out.println("dd ;"+CalculateDateArrest(OccuredDate.getJFormattedTextField().getText(), CaseAcceptDate.getJFormattedTextField().getText())+"");
-////    }
-//  }
-//  public void removeUpdate(DocumentEvent e) {
-//  
-//  }
-//  public void insertUpdate(DocumentEvent e) {
-////        JOptionPane.showMessageDialog(null, "Date Format Error!! using dd/MM/yyyy");
-//      if(CalculateDateArrest(OccuredDate.getJFormattedTextField().getText(), CaseAcceptDate.getJFormattedTextField().getText())<0){
-//    JOptionPane.showConfirmDialog(jPanel1, "วันที่เกิดเหตุ", "ยืนยัน",
-//        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-//     System.out.println("dd ;"+CalculateDateArrest(OccuredDate.getJFormattedTextField().getText(), CaseAcceptDate.getJFormattedTextField().getText())+"");
-//    }
-//  }
-//  
-//            
-//   });
+ChangProvince();
+AutoCompleteDecorator.decorate(CrimeLocationProvince); 
             
     }
 //   private class CloseListener implements ActionListener{
@@ -2746,34 +2721,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 
     private void CrimeLocationProvinceItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CrimeLocationProvinceItemStateChanged
         // TODO add your handling code here:
-        String provinceid="";
-        Connection con2 = ConnectDatabase.connect();
-        try {
-            Statement st2 = con2.createStatement();
-            String a="select Province.DOPA_CODE DOPA_CODE,Province.PROVINCEID PROVINCEID from Province\n"+
-            "where Province.NAMEPROVINCE='"+CrimeLocationProvince.getSelectedItem()+"'";
-                    	ResultSet res2 = st2.executeQuery(a);
-System.out.println("provinceid: "+CrimeLocationProvince.getSelectedItem());
-        if(res2.next()){
-        provinceid=res2.getString("PROVINCEID");
-        }
-	Statement st = con2.createStatement();
-        	String c = "select Amphur.NameAmphur NameAmphur\n" +
-                            "from Amphur\n" +
-                            "where Amphur.DOPA_CODE like '"+provinceid+"%';";
-        	ResultSet res = st.executeQuery(c);
-	//Vector<Object> v=new Vector<Object>();
-//	           System.out.println("provinceid: "+provinceid);
-CrimeLocationAmphur.removeAllItems();
-	while(res.next())
-	{
-	CrimeLocationAmphur.addItem(res.getString("NameAmphur"));
-
-	
-	}
-        }
-        catch (Exception d) {  //System.out.println(d);  
-}
+       
     }//GEN-LAST:event_CrimeLocationProvinceItemStateChanged
 
     private void CrimeLocationProvinceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrimeLocationProvinceActionPerformed
@@ -2878,45 +2826,7 @@ CrimeLocationAmphur.removeAllItems();
 
     private void CrimeLocationAmphurItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CrimeLocationAmphurItemStateChanged
         // TODO add your handling code here:
-         String provinceid="";
-                  String amphurid="";
-
-        Connection con2 = ConnectDatabase.connect();
-        try {
-            Statement st2 = con2.createStatement();
-            Statement st3 = con2.createStatement();
-
-            String a="select Province.DOPA_CODE DOPA_CODE,Province.PROVINCEID PROVINCEID from Province\n"+
-            "where Province.NAMEPROVINCE='"+CrimeLocationProvince.getSelectedItem()+"'";
-             String b="select Amphur.LOC_CODE LOC_CODE from Amphur\n"+
-            "where Amphur.NAMEAMPHUR='"+CrimeLocationAmphur.getSelectedItem()+"'";
-                    	ResultSet res2 = st2.executeQuery(a);
-                        ResultSet res3 = st3.executeQuery(b);
-        if(res2.next()){
-        provinceid=res2.getString("PROVINCEID");
-        
-        }
-//        System.out.println("provinceid: "+provinceid);
-        if(res3.next()){
-        amphurid=res3.getString("LOC_CODE");
-        }
-	Statement st = con2.createStatement();
-        	String c = "select Tambon.NAMETAMBON NAMETAMBON\n" +
-                            "from Tambon\n" +
-                            "where Tambon.DOPA_CODE like '"+provinceid+amphurid+"%';";
-        	ResultSet res = st.executeQuery(c);
-	//Vector<Object> v=new Vector<Object>();
-//	           System.out.println("provinceid: "+c);
-         CrimeLocationDistrict.removeAllItems();
-	while(res.next())
-	{
-	CrimeLocationDistrict.addItem(res.getString("NAMETAMBON"));
-
-	
-	}
-        }
-        catch (Exception d) {  //System.out.println(d);  
-}
+       
     }//GEN-LAST:event_CrimeLocationAmphurItemStateChanged
 
     private void jCheckW279ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW279ActionPerformed
@@ -3453,6 +3363,11 @@ catch (Exception d) {  //System.out.println(d);
        jTextSuspect.setEnabled(true);
        jTextWitness.setEnabled(true);
        CourtType.setEnabled(true);
+         jCheckDuringInvest.setEnabled(true);
+       jCheckSue.setEnabled(true);
+       jCheckNotSue.setEnabled(true);
+       jCheckNoInvest.setEnabled(true);
+       jCheckOtherInvest.setEnabled(true);
     }
    public void CloseTextBox(){
 //    RestoreDate.setVisible(false);  
@@ -3501,7 +3416,11 @@ catch (Exception d) {  //System.out.println(d);
         jTextAccused.setEnabled(false);
        jTextSuspect.setEnabled(false);
        jTextWitness.setEnabled(false);
-
+        jCheckDuringInvest.setEnabled(false);
+       jCheckSue.setEnabled(false);
+       jCheckNotSue.setEnabled(false);
+       jCheckNoInvest.setEnabled(false);
+       jCheckOtherInvest.setEnabled(false);
 //              g.setEnabled(false);
 
       
@@ -3536,7 +3455,87 @@ catch (Exception d) {  //System.out.println(d);
           return diffDays;               
     
     }
-    
+      public void ChangProvince(){
+        CrimeLocationProvince.addItemListener(new ItemListener() {
+        public void itemStateChanged(ItemEvent arg0) {
+            //Do Something
+            
+             String provinceid="";
+        Connection con2 = ConnectDatabase.connect();
+        try {
+            Statement st2 = con2.createStatement();
+            String a="select Province.DOPA_CODE DOPA_CODE,Province.PROVINCEID PROVINCEID from Province\n"+
+            "where Province.NAMEPROVINCE='"+CrimeLocationProvince.getSelectedItem()+"'";
+                    	ResultSet res2 = st2.executeQuery(a);
+            System.out.println("provinceid: "+CrimeLocationProvince.getSelectedItem());
+        if(res2.next()){
+        provinceid=res2.getString("PROVINCEID");
+        }
+	Statement st = con2.createStatement();
+        	String c = "select Amphur.NameAmphur NameAmphur\n" +
+                            "from Amphur\n" +
+                            "where Amphur.DOPA_CODE like '"+provinceid+"%';";
+        	ResultSet res = st.executeQuery(c);
+	//Vector<Object> v=new Vector<Object>();
+//	           System.out.println("provinceid: "+provinceid);
+        CrimeLocationAmphur.removeAllItems();
+	while(res.next())
+	{
+	CrimeLocationAmphur.addItem(res.getString("NameAmphur"));
+
+	
+	}
+        }
+        catch (Exception d) {  //System.out.println(d);  
+}
+      
+        }
+    });
+      CrimeLocationAmphur.addItemListener(new ItemListener() {
+        public void itemStateChanged(ItemEvent arg0) {
+            //Do Something
+            String provinceid="";
+                  String amphurid="";
+
+        Connection con2 = ConnectDatabase.connect();
+        try {
+            Statement st2 = con2.createStatement();
+            Statement st3 = con2.createStatement();
+
+            String a="select Province.DOPA_CODE DOPA_CODE,Province.PROVINCEID PROVINCEID from Province\n"+
+            "where Province.NAMEPROVINCE='"+CrimeLocationProvince.getSelectedItem()+"'";
+             String b="select Amphur.LOC_CODE LOC_CODE from Amphur\n"+
+            "where Amphur.NAMEAMPHUR='"+CrimeLocationAmphur.getSelectedItem()+"'";
+                    	ResultSet res2 = st2.executeQuery(a);
+                        ResultSet res3 = st3.executeQuery(b);
+        if(res2.next()){
+        provinceid=res2.getString("PROVINCEID");
+        
+        }
+//        System.out.println("provinceid: "+provinceid);
+        if(res3.next()){
+        amphurid=res3.getString("LOC_CODE");
+        }
+	Statement st = con2.createStatement();
+        	String c = "select Tambon.NAMETAMBON NAMETAMBON\n" +
+                            "from Tambon\n" +
+                            "where Tambon.DOPA_CODE like '"+provinceid+amphurid+"%';";
+        	ResultSet res = st.executeQuery(c);
+	//Vector<Object> v=new Vector<Object>();
+//	           System.out.println("provinceid: "+c);
+         CrimeLocationDistrict.removeAllItems();
+	while(res.next())
+	{
+	CrimeLocationDistrict.addItem(res.getString("NAMETAMBON"));
+
+	
+	}
+        }
+        catch (Exception d) {  //System.out.println(d);  
+}
+        }
+    });      
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JTextField ActionCrimes;
     private javax.swing.JTextArea CapitalCrimeCaseNumber;

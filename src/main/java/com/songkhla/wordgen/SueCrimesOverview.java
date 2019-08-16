@@ -214,7 +214,7 @@ jTableSue.setPreferredScrollableViewportSize(Toolkit.getDefaultToolkit().getScre
         jTableSue.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTableSue);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 1120, 350));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 1120, 440));
 
         jButtonAddSue.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jButtonAddSue.setText("เปิด");

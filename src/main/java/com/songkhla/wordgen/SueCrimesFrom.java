@@ -82,6 +82,7 @@ import com.songkhla.document.W93;
 import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseno;
 import java.awt.Color;
 import java.awt.Desktop;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
@@ -142,6 +143,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
     String caseid;
     String dateF,dateTot,Court,StatusBail,RatePrison;
          String caseyear,casetype,caseno,PoliceStaionName;
+
 //    JDatePickerImpl SueSecDate,SueThirdDate,SueFourthDate,SueFifthDate,SueSixthDate,SueSevDate;
     /**
      * Creates new form SueCrimesFrom
@@ -207,6 +209,8 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         }catch(Exception ex){
             ex.printStackTrace();
         }
+   
+//      ---------------------------------------------------Data-----------------------------------------------
         if(datain != null){
             
          try{
@@ -231,9 +235,10 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             CourtSuspect.setText(datain.get("CourtSuspect")+"");            
             SueFirst.setText(Checknull(datain.get("SueFirst")));
             SueFirstDate.setText(Checknull(datain.get("SueFirstDate")));        
+//            SueFirstEnd.setText(Checknull(datain.get("SueFirstEnd")));
             SueFirstEnd.setText(Checknull(datain.get("SueFirstEnd")));
+
           
-                 SueFirstEnd.setText(Checknull(datain.get("SueFirstEnd")));
           
             SueFirstTotal.setText(Checknull(datain.get("SueFirstTotal")));
            SueFirstRequest.setSelectedItem(Checknull(datain.get("SueFirstRequest")));
@@ -433,7 +438,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(1060, 1060, 1060)
                 .addComponent(jButton4)
                 .addGap(27, 27, 27))
         );
@@ -449,7 +454,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         jPanel6.setBackground(new java.awt.Color(0, 102, 204));
 
         jLabel24.setBackground(java.awt.SystemColor.activeCaptionBorder);
-        jLabel24.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel24.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setText("ข้อมูลคดี");
 
@@ -622,7 +627,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         jPanel7.setForeground(new java.awt.Color(102, 0, 0));
 
         jLabel25.setBackground(java.awt.SystemColor.activeCaptionBorder);
-        jLabel25.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel25.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(255, 255, 255));
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel25.setText("ข้อมูลการผัดฟ้อง/ฝากขัง(ล่าสุด)");
@@ -1060,11 +1065,8 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addComponent(SueThirdRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(SueFirstRequest, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SueFourthRequest, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(SueFirstRequest, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SueFourthRequest, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel5Layout.createSequentialGroup()
@@ -1109,14 +1111,13 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                                 .addComponent(SueFirstDate, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(6, 6, 6)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(4, 4, 4)
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(SueSecDateT, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(SueSecond, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(SueSecDateT, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGap(2, 2, 2)
                                 .addComponent(SueSecRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(4, 4, 4)
+                        .addGap(6, 6, 6)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(ThirdDate, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1203,7 +1204,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                         .addComponent(Print1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(Print2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGap(30, 30, 30))
         );
 
         jButtonSave.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -1222,17 +1223,15 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(1207, 1207, 1207))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 1258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0))))
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 1258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(28, 28, 28))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1242,9 +1241,9 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(13, 13, 13)
-                .addComponent(jButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
