@@ -44,8 +44,8 @@ import org.docx4j.wml.Tr;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-public class W57 {
-    public static void w57(String cc) {
+public class W60 {
+    public static void w60(String cc) {
             Connection conn=null;
             conn=ConnectDatabase.connect();
             PreparedStatement pst=null;
@@ -183,11 +183,11 @@ public class W57 {
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("./TEMPLATE/w57.docx"));
+					.load(new java.io.File("./TEMPLATE/w60.docx"));
                         
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/ตำหนิรูปพรรณทรัพย์หาย "+cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/แบบรายการรถยนต์-จยยฯ ที่ได้คืน "+cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -199,7 +199,7 @@ public class W57 {
         
               
 	}
-public static void nw57() {
+public static void nw60() {
      
 
                  JSONObject bookmarkvalue = new JSONObject();
@@ -236,11 +236,11 @@ public static void nw57() {
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("./TEMPLATE/w57.docx"));
+					.load(new java.io.File("./TEMPLATE/w60.docx"));
                         
 			processVariable(bookmarkvalue,wordMLPackage);
 			
-			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/ตำหนิรูปพรรณทรัพย์หาย.doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/แบบรายการรถยนต์-จยยฯ ที่ได้คืน.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -363,7 +363,7 @@ public static void nw57() {
                date = df.parse(strDate);               
                ResultDate=dateto.format(date.getTime());}
          } catch (ParseException ex) {
-             Logger.getLogger(W57.class.getName()).log(Level.SEVERE, null, ex);
+             Logger.getLogger(W60.class.getName()).log(Level.SEVERE, null, ex);
          }
                return ResultDate;
 }

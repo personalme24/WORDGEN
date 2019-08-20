@@ -54,7 +54,14 @@ import com.songkhla.document.W50;
 import com.songkhla.document.W51;
 import com.songkhla.document.W52;
 import com.songkhla.document.W53;
+import com.songkhla.document.W54;
+import com.songkhla.document.W55;
+import com.songkhla.document.W56;
+import com.songkhla.document.W57;
+import com.songkhla.document.W58;
+import com.songkhla.document.W59;
 import com.songkhla.document.W6;
+import com.songkhla.document.W60;
 import com.songkhla.document.W61;
 import com.songkhla.document.W62;
 import com.songkhla.document.W63;
@@ -1414,6 +1421,27 @@ public class ReportAllForm extends javax.swing.JDialog {
                     }
                if(jCheckW253.isSelected()){
                         W53.nw53();
+                    }
+               if(jCheckW254.isSelected()){
+                        W54.nw54();
+                    }
+               if(jCheckW255.isSelected()){
+                        W55.nw55();
+                    }
+               if(jCheckW256.isSelected()){
+                        W56.nw56();
+                    }
+               if(jCheckW257.isSelected()){
+                        W57.nw57();
+                    }
+               if(jCheckW258.isSelected()){
+                        W58.nw58();
+                    }
+               if(jCheckW259.isSelected()){
+                        W59.nw59();
+                    }
+               if(jCheckW260.isSelected()){
+                        W60.nw60();
                     }
                if(jCheckW261.isSelected()){
                         W61.nw61();

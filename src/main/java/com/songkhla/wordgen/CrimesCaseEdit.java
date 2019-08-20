@@ -55,7 +55,14 @@ import com.songkhla.document.W50;
 import com.songkhla.document.W51;
 import com.songkhla.document.W52;
 import com.songkhla.document.W53;
+import com.songkhla.document.W54;
+import com.songkhla.document.W55;
+import com.songkhla.document.W56;
+import com.songkhla.document.W57;
+import com.songkhla.document.W58;
+import com.songkhla.document.W59;
 import com.songkhla.document.W6;
+import com.songkhla.document.W60;
 import com.songkhla.document.W61;
 import com.songkhla.document.W62;
 import com.songkhla.document.W63;
@@ -2988,6 +2995,27 @@ AutoCompleteDecorator.decorate(CrimeLocationProvince);
                     }
                if(jCheckW253.isSelected()){
                         W53.w53(no);
+                    }
+                if(jCheckW254.isSelected()){
+                        W54.w54(no);
+                    }
+                if(jCheckW255.isSelected()){
+                        W55.w55(no);
+                    }
+                if(jCheckW256.isSelected()){
+                        W56.w56(no);
+                    }
+                if(jCheckW257.isSelected()){
+                        W57.w57(no);
+                    }
+                if(jCheckW258.isSelected()){
+                        W58.w58(no);
+                    }
+                if(jCheckW259.isSelected()){
+                        W59.w59(no);
+                    }
+                if(jCheckW260.isSelected()){
+                        W60.w60(no);
                     }
                if(jCheckW261.isSelected()){
                         W61.w61(no);

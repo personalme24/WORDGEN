@@ -53,8 +53,8 @@ public class W58 {
              String casetype;
              String caseno;
              String PoliceStationName="";
-             String StationAmphur="";
-             String StationProvince="";
+             String KK="";
+             String BK="";
              String ProvincProsecutor="";
              String TelStation="";
              String CriminalCourt ="";
@@ -73,8 +73,8 @@ public class W58 {
                   ResultSet rs=sp.executeQuery(sqlDataPoliceStation); 
                   while (rs.next()) {                    
                          PoliceStationName=rs.getString("PoliceStaionName");
-                         StationAmphur=rs.getString("StationAmphur");
-                         StationProvince=rs.getString("StationProvince");
+                         KK=rs.getString("KK");
+                         BK=rs.getString("BK");
                          ProvincProsecutor=rs.getString("ProvincProsecutor");
                          TelStation=rs.getString("TelStation");
                          THNumBook= rs.getString("THNumBook");
@@ -129,8 +129,8 @@ public class W58 {
                 bookmarkvalue.put("C3",Checknull(ccYear));
                 bookmarkvalue.put("CC2",Checknull(caseno));
                 bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
-                bookmarkvalue.put("S5", Checknull(StationAmphur));
-                bookmarkvalue.put("S6", Checknull(StationProvince));
+                bookmarkvalue.put("S7", Checknull(KK));
+                bookmarkvalue.put("S8", Checknull(BK));
                 bookmarkvalue.put("S29", Checknull(THNumBook));
                 
                 
@@ -211,8 +211,8 @@ public static void nw58() {
                 bookmarkvalue.put("C3","");
                 bookmarkvalue.put("CC2","");
                 bookmarkvalue.put("S2","");
-                bookmarkvalue.put("S5", "");
-                bookmarkvalue.put("S6", "");
+                bookmarkvalue.put("S7", "");
+                bookmarkvalue.put("S8", "");
                 bookmarkvalue.put("S27","");
                 bookmarkvalue.put("S10","");
                 bookmarkvalue.put("S29","");
