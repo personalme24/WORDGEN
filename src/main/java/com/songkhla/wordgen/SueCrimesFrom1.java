@@ -135,7 +135,7 @@ import org.jdatepicker.impl.UtilDateModel;
  *
  * @author Petpilin
  */
-public class SueCrimesFrom extends javax.swing.JDialog {
+public class SueCrimesFrom1 extends javax.swing.JDialog {
     Connection con=null;
     PreparedStatement pst=null;
     DataCase dc =new DataCase();
@@ -148,7 +148,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
     /**
      * Creates new form SueCrimesFrom
      */
-    public SueCrimesFrom(JFrame parrent,JSONObject datain) {
+    public SueCrimesFrom1(JFrame parrent,JSONObject datain) {
         super(parrent,true);
         initComponents();
 //        DataLastSue();
@@ -1015,7 +1015,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(SueFirst, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1390,6 +1390,15 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         //        setVisible(false);
     }//GEN-LAST:event_jButtonSaveActionPerformed
 
+    private void SueStartLastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueStartLastActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SueStartLastActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        MainMenuWord.closeAllDialogs();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     private void Print2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Print2ActionPerformed
         // TODO add your handling code here:
         if(SueSecond.getText().equals("")){
@@ -1672,15 +1681,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             }
         }
     }//GEN-LAST:event_SueFirstTotalKeyReleased
-
-    private void SueStartLastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SueStartLastActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SueStartLastActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-        MainMenuWord.closeAllDialogs();
-    }//GEN-LAST:event_jButton4ActionPerformed
        public void Block(){
        if(Court.equals("ศาลแขวง")&&StatusBail.equals("ประกัน"))
        {
@@ -2160,14 +2160,15 @@ catch (Exception d) {  //System.out.println(d);
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SueCrimesFrom.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SueCrimesFrom1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SueCrimesFrom.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SueCrimesFrom1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SueCrimesFrom.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SueCrimesFrom1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SueCrimesFrom.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SueCrimesFrom1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

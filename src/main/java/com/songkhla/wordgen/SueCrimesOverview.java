@@ -161,9 +161,9 @@ jTableSue.setPreferredScrollableViewportSize(Toolkit.getDefaultToolkit().getScre
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 867, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 892, Short.MAX_VALUE)
                 .addComponent(jButton3)
-                .addGap(51, 51, 51))
+                .addGap(26, 26, 26))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,7 +214,7 @@ jTableSue.setPreferredScrollableViewportSize(Toolkit.getDefaultToolkit().getScre
         jTableSue.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTableSue);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 1120, 440));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 1140, 440));
 
         jButtonAddSue.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jButtonAddSue.setText("เปิด");

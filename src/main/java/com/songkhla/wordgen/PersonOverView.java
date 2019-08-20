@@ -247,7 +247,6 @@ public class PersonOverView extends javax.swing.JDialog {
                     data.put("Nationality", rs.getString("Nationality"));
                     data.put("Religion", rs.getString("Religion"));
                     data.put("Occupation", rs.getString("Occupation"));
-                    data.put("TypePerson", rs.getString("TypePerson"));
                     data.put("OtherName", rs.getString("OtherName"));
                     
                      JFrame frame = new JFrame();

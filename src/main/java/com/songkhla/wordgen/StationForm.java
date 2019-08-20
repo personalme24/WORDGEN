@@ -38,7 +38,7 @@ public class StationForm extends javax.swing.JDialog {
         setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
        if(datain != null)
        {
-           
+                    closeText();
                             PoliceStationCode.setText(datain.get("PoliceStartionCode")+"");
                             PoliceStationName.setText(datain.get("PoliceStaionName")+"");
                             PoliceStationShort.setText(datain.get("PoliceStaionShort")+"");
@@ -157,6 +157,7 @@ public class StationForm extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         CauseSerious = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
+        jButtonEditStation = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("ข้อมูลหน่วยงานและหน่วยงานที่เกี่ยวข้อง");
@@ -392,6 +393,14 @@ public class StationForm extends javax.swing.JDialog {
         jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 24)); // NOI18N
         jLabel3.setText("ข้อมูลหน่วยงานที่เกี่ยวข้อง");
 
+        jButtonEditStation.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jButtonEditStation.setText("แก้ไข");
+        jButtonEditStation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEditStationActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -558,7 +567,9 @@ public class StationForm extends javax.swing.JDialog {
                                             .addComponent(CheckOtherExhibit)))))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(44, 44, 44)
-                        .addComponent(jButtonSaveStation, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButtonSaveStation, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonEditStation, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -665,7 +676,9 @@ public class StationForm extends javax.swing.JDialog {
                     .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(5, 5, 5)
-                .addComponent(jButtonSaveStation)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonSaveStation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonEditStation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
@@ -679,7 +692,7 @@ public class StationForm extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -687,6 +700,22 @@ public class StationForm extends javax.swing.JDialog {
 
     private void jButtonSaveStationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveStationActionPerformed
         con=ConnectDatabase.connect();
+         try{
+         Statement st = con.createStatement();
+        String sqlCheck="Select PoliceStartionCode from PoliceStation where PoliceStartionCode='"+PoliceStationCode.getText()+"'";
+        System.out.println("Check : "+sqlCheck);
+         ResultSet rc = st.executeQuery(sqlCheck);
+        if(rc.next()){
+        
+        isInsert=false;
+        }
+        else{
+         isInsert=true;
+        }
+        }
+        catch(Exception ex){
+        ex.printStackTrace();
+        }
            //Connection con = ConnectDatabase.connect();
       
               if(isInsert){
@@ -738,8 +767,11 @@ public class StationForm extends javax.swing.JDialog {
         if (response == JOptionPane.YES_OPTION) {
                pst.executeUpdate(); 
                pst.close();
+                closeText();
+          jButtonEditStation.setEnabled(true);
+           jButtonSaveStation.setEnabled(false);
 //               System.out.println("SQLUP :"+sql);
-                setVisible(false);
+
           } 
               } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
@@ -825,8 +857,9 @@ public class StationForm extends javax.swing.JDialog {
         if (response == JOptionPane.YES_OPTION) {
                pst.executeUpdate(); 
                pst.close();
-//               System.out.println("SQLUP :"+sql);
-                setVisible(false);
+                    closeText();
+          jButtonEditStation.setEnabled(true);
+           jButtonSaveStation.setEnabled(false);
           } 
                     }
             
@@ -836,7 +869,7 @@ public class StationForm extends javax.swing.JDialog {
             
         }
               
-        setVisible(false);
+     
               }
     }//GEN-LAST:event_jButtonSaveStationActionPerformed
 
@@ -883,6 +916,12 @@ public class StationForm extends javax.swing.JDialog {
            evt.consume();  
          } // TODO add your handling code here:
     }//GEN-LAST:event_TelStationKeyTyped
+
+    private void jButtonEditStationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditStationActionPerformed
+        // TODO add your handling code here:
+         openText();
+        jButtonSaveStation.setEnabled(true);
+    }//GEN-LAST:event_jButtonEditStationActionPerformed
 private void data() 
 {
             String sql= "select * from PoliceStation";
@@ -965,7 +1004,78 @@ private void data()
             }
         });
     }
-      
+      private void openText(){
+    PoliceStationCode.setEnabled(true);
+        PoliceStationName.setEnabled(true);
+    PoliceStationShort.setEnabled(true);
+    BK.setEnabled(true);
+    BH.setEnabled(true);
+    StationAddress.setEnabled(true);
+    StationMoo.setEnabled(true);
+    StationTambon.setEnabled(true);
+    StationAmphur.setEnabled(true);
+    StationProvince.setEnabled(true);
+    Postcode.setEnabled(true);
+    TelStation.setEnabled(true);
+    PhonePolice.setEnabled(true);
+    THNumBook.setEnabled(true);
+    Fax.setEnabled(true);
+    HeadName.setEnabled(true);
+    HeadPosition.setEnabled(true);
+    HeadWorkName.setEnabled(true);
+    HeadWorkPosition.setEnabled(true);
+    CriminalCourt.setEnabled(true);
+    JuvenileCourt.setEnabled(true);
+    DistrictCourt.setEnabled(true);
+    MilitaryCourt.setEnabled(true);
+    AssetCourt.setEnabled(true);
+    CheckGun.setEnabled(true);
+    LocationOfD.setEnabled(true);
+    CheckOtherExhibit.setEnabled(true);
+    CheckDrug.setEnabled(true);
+    ProtectChild.setEnabled(true);
+    ProvincProsecutor.setEnabled(true);
+    ProvincProsecutorCh.setEnabled(true);
+    CauseSerious.setEnabled(true);
+
+    }
+    private void closeText(){
+    PoliceStationCode.setEnabled(false);
+        PoliceStationName.setEnabled(false);
+    PoliceStationShort.setEnabled(false);
+    BK.setEnabled(false);
+    BH.setEnabled(false);
+    StationAddress.setEnabled(false);
+    StationMoo.setEnabled(false);
+    StationTambon.setEnabled(false);
+    StationAmphur.setEnabled(false);
+    StationProvince.setEnabled(false);
+    Postcode.setEnabled(false);
+    TelStation.setEnabled(false);
+    PhonePolice.setEnabled(false);
+    THNumBook.setEnabled(false);
+    Fax.setEnabled(false);
+    HeadName.setEnabled(false);
+    HeadPosition.setEnabled(false);
+    HeadWorkName.setEnabled(false);
+    HeadWorkPosition.setEnabled(false);
+    CriminalCourt.setEnabled(false);
+    JuvenileCourt.setEnabled(false);
+    DistrictCourt.setEnabled(false);
+    MilitaryCourt.setEnabled(false);
+    AssetCourt.setEnabled(false);
+    CheckGun.setEnabled(false);
+    LocationOfD.setEnabled(false);
+    CheckOtherExhibit.setEnabled(false);
+    CheckDrug.setEnabled(false);
+    ProtectChild.setEnabled(false);
+    ProvincProsecutor.setEnabled(false);
+    ProvincProsecutorCh.setEnabled(false);
+    CauseSerious.setEnabled(false);
+    
+
+    
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AssetCourt;
@@ -1000,6 +1110,7 @@ private void data()
     private javax.swing.JTextField StationTambon;
     private javax.swing.JTextField THNumBook;
     private javax.swing.JTextField TelStation;
+    private javax.swing.JButton jButtonEditStation;
     private javax.swing.JButton jButtonSaveStation;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

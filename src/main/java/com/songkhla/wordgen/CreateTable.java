@@ -351,7 +351,7 @@ public class CreateTable {
                         "	Position	VARCHAR(100)		\n"+
                          "	);";
 	  String sqlPoliceStat ="CREATE TABLE IF NOT EXISTS PoliceStation (\n"+
-	              "	PoliceStartionCode	VARCHAR(100)	Primary Key,	\n"+
+                          "	PoliceStartionCode	VARCHAR(100)	Primary Key,	\n"+
                         "	PoliceStaionName	VARCHAR(100)	,	\n"+
                         "	PoliceStaionShort	VARCHAR(100)	,	\n"+
                         "	StationAddress	VARCHAR(100)	,	\n"+

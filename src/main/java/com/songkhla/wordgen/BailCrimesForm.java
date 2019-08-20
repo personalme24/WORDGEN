@@ -646,25 +646,23 @@ jTableBail.setPreferredScrollableViewportSize(Toolkit.getDefaultToolkit().getScr
                 @Override
                 public Component getTableCellRendererComponent(JTable table,Object value, boolean isSelected, boolean hasFocus, int row, int col) {             
                     super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, col);
-
-            //        String status = (String)table.getModel().getValueAt(row, 4);
+                    
+            //        String status = (String)table.getModel().getValueAt(row, 4);  
+         
                        String s2=String.valueOf(value);  
-                     int a=  CalculateDateBail(s2);
+                       int a=  CalculateDateBail(s2);
+
+                   table.setSelectionBackground(new Color(0,120,215));
                     if(col==5 && a<=0||col==6 && a<=0||col==7 && a<=0||col==8 && a<=0||col==9 && a<=0||col==10 && a<=0){
-                   
-                        setBackground(Color.WHITE);
                         setForeground(Color.RED);
 //                        setFont("TH sarabunPSK",th);
                     }
                     else if(col==5 && a>0||col==6 && a>0||col==7 && a>0||col==8 && a>0||col==9 && a>0||col==10 && a>0){
-                    setBackground(Color.WHITE);
+//                    setBackground(Color.WHITE);
                     setForeground(Color.BLUE);
-                    
                     }
-
-                    else {
-                       
-                        setBackground(Color.WHITE);
+                    else {                     
+//                        setBackground(Color.WHITE);
                         setForeground(Color.BLACK);
                     }  
                       

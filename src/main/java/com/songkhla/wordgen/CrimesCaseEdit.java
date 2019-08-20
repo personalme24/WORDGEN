@@ -193,7 +193,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 
 //            JScrollBar hbar=new JScrollBar(JScrollBar.HORIZONTAL, 30, 20, 0, 500);
 //            jScrollPane1.getVerticalScrollBar().setUI(new MyScrollBarUI());
-//            jScrollPane1.getHorizontalScrollBar().setUI(new CustomScrollBarUI());
+            jScrollPane5.getVerticalScrollBar().setUI(new CustomScrollBarUI());
          g=new ButtonGroup();
         g.add(jCheckDuringInvest);
         g.add(jCheckSue);
@@ -390,12 +390,40 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
           
         }
  jLabel33.setVisible(false);
-//OccuredDate.getJFormattedTextField().addCaretListener( new TextFieldSusListener());
 ChangProvince();
 AutoCompleteDecorator.decorate(CrimeLocationProvince); 
-//AutoCompleteDecorator.decorate(CrimeLocationAmphur); 
+//            OccuredDate.getJFormattedTextField().getDocument().addDocumentListener(new DocumentListener() {
+//
+//                    public void changedUpdate(DocumentEvent e) {
+//                        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
+//                        Date date = new Date();
+//                        dateFormat.format(date);
+//                         if(OccuredDate.getJFormattedTextField().getText().equals("23/8/2562")){ 
+//                         JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 6 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);                  
+//                      OccuredDate.getJFormattedTextField().setText(null); }
+//                 
+//           
+//
+//
+//              }
+//              public void removeUpdate(DocumentEvent e) {
+//
+//              }
+//              public void insertUpdate(DocumentEvent e) {
+//              SimpleDateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
+//                        Date date = new Date();
+//                        dateFormat.format(date);
+//                         if(OccuredDate.getJFormattedTextField().getText().equals("23/8/2562")){ 
+//                         JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 6 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE); 
+//                        OccuredDate.getJFormattedTextField().setText(null);
+//              }
+//              }
+//
+//
+//                   }); 
 
-
+//
+//
         }
 //    private int getMaximumMatchingOffset(String pattern, Object selectedItem) {
 //  String selectedAsString=selectedItem.toString();
