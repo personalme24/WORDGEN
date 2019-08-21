@@ -174,6 +174,8 @@ public class W54 {
                             bookmarkvalue.put("C5", Checknull(ToDate(s.getString("CaseAcceptDate"))));
                             bookmarkvalue.put("C551", Checknull(s.getString("CaseAccepTime")));
                             bookmarkvalue.put("C15", Checknull(s.getString("DailyNumber")));
+                            bookmarkvalue.put("C6",(ToDate(s.getString("CaseRequestDate"))));
+                            bookmarkvalue.put("C661", Checknull(s.getString("CaseRequestTime")));
                                 
                                 bookmarkvalue.put("P02", Checknull(RankPolice));
                                 bookmarkvalue.put("P03", Checknull(FirstName));
@@ -291,6 +293,8 @@ public static void nw54() {
                             bookmarkvalue.put("C12", "");
                             bookmarkvalue.put("C5", "");
                             bookmarkvalue.put("C551", "");
+                            bookmarkvalue.put("C6", "");
+                            bookmarkvalue.put("C661", "");
                             bookmarkvalue.put("C15", "");
                                 
                         bookmarkvalue.put("P02", "");
