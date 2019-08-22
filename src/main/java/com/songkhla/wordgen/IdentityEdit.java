@@ -299,13 +299,13 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 //          ID.setText(datain.get("CaseId")+"");
             crimecaseno.setText(datain.get("crimecaseno")+"");
             crimecaseyear.setText(datain.get("crimecaseyears")+"");
-            jLabelChargeCode.setText(datain.get("ChargeCode")+"");
-            String cn=datain.get("ChargeName")+"";
+            jLabelChargeCode.setText(datain.get("ChargeCodeCase")+"");
+            String cn=datain.get("ChargeNameCase")+"";
             if(cn.equals("null")){
             ChargeNameCase.setText("");
             }
             else{
-            ChargeNameCase.setText(datain.get("ChargeName")+"");}
+            ChargeNameCase.setText(datain.get("ChargeNameCase")+"");}
 //            CaseRequestDateTime.setText(datain.get("CaseRequestDate")+"");
             jTextAccused.setText(datain.get("AccureandOther")+"");
             CourtType.setSelectedItem(datain.get("TypeCourt"));

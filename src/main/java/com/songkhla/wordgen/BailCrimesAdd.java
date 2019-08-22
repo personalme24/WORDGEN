@@ -16,6 +16,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.json.simple.JSONObject;
 import java.awt.Font;
+import javax.swing.BorderFactory;
 
 /**
  *
@@ -36,6 +37,7 @@ public class BailCrimesAdd extends javax.swing.JDialog {
         ImageIcon img = new ImageIcon("./Master/WD.png");
         setIconImage(img.getImage());
          setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
+         ChargeName.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
         refreshAssetData();
         refreshBailSendData();
         caseId=datain.get("CaseId")+"";

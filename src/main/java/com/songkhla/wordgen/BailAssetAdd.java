@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -28,6 +29,9 @@ public class BailAssetAdd extends javax.swing.JDialog {
     public BailAssetAdd(JFrame parrent,JSONObject datain,JSONObject dataId) {
                 super(parrent,true);        
                 initComponents();
+                ImageIcon img = new ImageIcon("./Master/WD.png");
+                setIconImage(img.getImage());
+                setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
                 jLabel2.setVisible(false);
                 jLabel3.setVisible(false);
                 caseId=dataId.get("BailCaseId")+"";

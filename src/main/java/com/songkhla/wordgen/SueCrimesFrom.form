@@ -199,8 +199,8 @@
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="DateArrest" pref="218" max="32767" attributes="0"/>
-                                  <Component id="PlaceArrest" max="32767" attributes="0"/>
+                                  <Component id="DateArrest" max="32767" attributes="0"/>
+                                  <Component id="PlaceArrest" min="-2" pref="218" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -212,7 +212,7 @@
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="ChargeName" max="32767" attributes="0"/>
+                                      <Component id="ChargeName" min="-2" pref="381" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>

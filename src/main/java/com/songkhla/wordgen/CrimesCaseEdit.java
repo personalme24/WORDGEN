@@ -112,6 +112,9 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.TextEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -311,13 +314,13 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 //          ID.setText(datain.get("CaseId")+"");
             crimecaseno.setText(datain.get("crimecaseno")+"");
             crimecaseyear.setText(datain.get("crimecaseyears")+"");
-            jLabelChargeCode.setText(datain.get("ChargeCode")+"");
-            String cn=datain.get("ChargeName")+"";
+            jLabelChargeCode.setText(datain.get("ChargeCodeCase")+"");
+            String cn=datain.get("ChargeNameCase")+"";
             if(cn.equals("null")){
             ChargeNameCase.setText("");
             }
             else{
-            ChargeNameCase.setText(datain.get("ChargeName")+"");}
+            ChargeNameCase.setText(datain.get("ChargeNameCase")+"");}
 //            CaseRequestDateTime.setText(datain.get("CaseRequestDate")+"");
             jTextAccused.setText(datain.get("AccureandOther")+"");
             CourtType.setSelectedItem(datain.get("TypeCourt"));
@@ -398,7 +401,8 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         }
  jLabel33.setVisible(false);
 ChangProvince();
-AutoCompleteDecorator.decorate(CrimeLocationProvince); 
+//    OccuredDate.getJFormattedTextField().addComponentListener(l);
+    AutoCompleteDecorator.decorate(CrimeLocationProvince); 
 //            OccuredDate.getJFormattedTextField().getDocument().addDocumentListener(new DocumentListener() {
 //
 //                    public void changedUpdate(DocumentEvent e) {
@@ -2146,7 +2150,8 @@ AutoCompleteDecorator.decorate(CrimeLocationProvince);
     }// </editor-fold>//GEN-END:initComponents
   private class TextFieldSusListener implements  CaretListener{
    public void caretUpdate(CaretEvent e){
-    if(OccuredDate.getJFormattedTextField().getText().equals("10/8/2562")){
+    if(OccuredDate.getJFormattedTextField().getText().equals("23/8/2562")){
+        OccuredDate.getJFormattedTextField().setText("");
             JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 6 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);
             
 
@@ -3484,8 +3489,57 @@ catch (Exception d) {  //System.out.println(d);
 }
         }
     });      
+      
     }
-   
+    class MouseDateListener implements MouseListener{
+        
+        public void mouseClicked(MouseEvent we)
+        {
+if(OccuredDate.getJFormattedTextField().getText().equals("23/8/2562")){ 
+                         JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 6 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);                  
+                      OccuredDate.getJFormattedTextField().setText(""); }
+        }
+
+        public void mouseEntered(MouseEvent we)
+        {
+
+        }
+
+        public void mouseExited(MouseEvent we)
+        {
+
+        }
+
+
+        public void mousePressed(MouseEvent we)
+        {
+if(OccuredDate.getJFormattedTextField().getText().equals("23/8/2562")){ 
+                         JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 6 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);                  
+                      OccuredDate.getJFormattedTextField().setText(""); }
+        }
+        public void mouseReleased(MouseEvent we)
+        {
+             if(OccuredDate.getJFormattedTextField().getText().equals("23/8/2562")){ 
+                         JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 6 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);                  
+                      OccuredDate.getJFormattedTextField().setText(""); }
+        }
+//      public void keyTyped(KeyEvent e) {
+//      }
+//      public void keyPressed(KeyEvent e) {
+//             if(OccuredDate.getJFormattedTextField().getText().equals("23/8/2562")){ 
+//                         JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 6 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);                  
+//                      OccuredDate.getJFormattedTextField().setText(""); }
+//      
+////         if(e.getKeyCode() == KeyEvent.VK_ENTER){
+////            statusLabel.setText("Entered text: " + textField.getText());
+////         }
+//      }
+//      public void keyReleased(KeyEvent e) {
+//           if(OccuredDate.getJFormattedTextField().getText().equals("23/8/2562")){ 
+//                         JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 6 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);                  
+//                      OccuredDate.getJFormattedTextField().setText(""); }
+//      }   
+   }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JTextField ActionCrimes;
     private javax.swing.JTextArea CapitalCrimeCaseNumber;

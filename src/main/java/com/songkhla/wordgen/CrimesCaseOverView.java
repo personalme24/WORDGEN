@@ -246,6 +246,11 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
         jTable1.setIntercellSpacing(new java.awt.Dimension(0, 0));
         jTable1.setRowHeight(25);
         jTable1.getTableHeader().setReorderingAllowed(false);
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -548,9 +553,9 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
             try{
                 String crimecaseid = jTable1.getModel().getValueAt(jTable1.getSelectedRow(), 0)+"";
 
-                String sql="select crimecase.*,charge.*,ActionsCase.* from crimecase "
-                + "left join charge on crimecase.ChargeCodeCase=charge.ChargeCode "
-                + "left join ActionsCase on crimecase.ActionCodeCase=ActionsCase.ActionCode "
+                String sql="select crimecase.*,chargecase.ChargeCodeCase ChargeCase,chargecase.ChargeNameCase ChargeNameCase,ActionsCaseData.ActionCodeCase ActionCase,ActionsCaseData.ActionCrimesCase ActionCrimesCase from crimecase "
+                + "left join chargecase on crimecase.CaseId=chargecase.ChargeCaseId "
+                + "left join ActionsCaseData on crimecase.CaseId=ActionsCaseData.ActionCaseId "
                 + "where CaseId='"+crimecaseid+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
@@ -562,8 +567,8 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
                     data.put("CaseType", rs.getString("CaseType"));
                     data.put("crimecaseno", rs.getString("crimecaseno"));
                     data.put("crimecaseyears", rs.getString("crimecaseyears"));
-                    data.put("ChargeCode", rs.getString("ChargeCode"));
-                    data.put("ChargeName", rs.getString("ChargeName"));
+                    data.put("ChargeCodeCase", rs.getString("ChargeCase"));
+                    data.put("ChargeNameCase", rs.getString("ChargeNameCase"));
                     data.put("CaseRequestDate", rs.getString("CaseRequestDate"));
                     data.put("CaseRequestTime", rs.getString("CaseRequestTime"));
                     data.put("CaseAcceptDate", rs.getString("CaseAcceptDate"));
@@ -585,8 +590,8 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
                     data.put("AssetList", rs.getString("AssetList"));
                     data.put("AssetCode", rs.getString("AssetCode"));
                     data.put("RecordInvestCase", rs.getString("RecordInvestCase"));
-                    data.put("ActionCrimes", rs.getString("ActionCrimes"));
-                    data.put("ActionCode", rs.getString("ActionCode"));
+                    data.put("ActionCrimes", rs.getString("ActionCrimesCase"));
+                    data.put("ActionCode", rs.getString("ActionCase"));
                     data.put("OccuredDate", rs.getString("OccuredDate"));
                     data.put("OccuredTime", rs.getString("OccuredTime"));
                     data.put("StatusKnowSuspect", rs.getString("StatusKnowSuspect"));
@@ -629,6 +634,7 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
                              "DELETE FROM RecordInquiry WHERE caseidrecord='"+crimecaseId+"';\n"+
                              "DELETE FROM Person WHERE caseidperson='"+crimecaseId+"';\n"+
                              "DELETE FROM ChargeCase WHERE ChargeCaseId='"+crimecaseId+"';\n"+
+                             "DELETE FROM RecordInquiry WHERE CaseIdRecord='"+crimecaseId+"';\n"+
                              "DELETE FROM ActionsCaseData WHERE ActionCaseId='"+crimecaseId+"';";
                 Connection con = ConnectDatabase.connect();
 //                System.out.println("Delete:"+sql);
@@ -656,6 +662,12 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
         // TODO add your handling code here:
         jPanelSearch.setVisible(false);
     }//GEN-LAST:event_jLabel10MouseClicked
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        boolean a=jTable1.isEditing();
+        a=false;
+    }//GEN-LAST:event_jTable1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -705,8 +717,8 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
          
         Connection con = ConnectDatabase.connect();
         Statement stmt = con.createStatement();
-        String sql = "select crimecase.*,Charge.* from crimecase"
-                + " left join Charge on Charge.ChargeCode=crimecase.ChargeCodeCase\n"
+        String sql = "select crimecase.*,chargecase.ChargeCodeCase ChargeCase,chargecase.ChargeNameCase ChargeNameCase from crimecase "
+                + "left join chargecase on crimecase.CaseId=chargecase.ChargeCaseId "
                 +"left join Person on Person.CaseIdPerson=crimecase.CaseId"
                 + " where CaseType='คดีอาญา'"+getFilterCondition()+" group by crimecase.CaseId";
 
@@ -721,7 +733,7 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
             row.add(rs.getString("crimecasenoyear"));
             row.add(rs.getString("AccureandOther"));
             row.add(rs.getString("SuspectandOther"));
-            row.add(rs.getString("ChargeName"));
+            row.add(rs.getString("ChargeNameCase"));
 //            row.add("-");
             row.add(rs.getString("CaseAcceptDate"));
             row.add(rs.getString("CaseRequestDate"));

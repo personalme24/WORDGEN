@@ -500,32 +500,37 @@ jTableSuspect.getColumnModel().getColumn(7).setMaxWidth(0);
             IdentityEdit.jTextSuspect.setText(jTableSuspect.getValueAt(0, 2).toString()); 
             }
             }
+     int rows = jTableSuspect.getRowCount();
+        rows = jTableSuspect.getRowCount();
       if(jTableSuspect.getRowCount()<=0){
 //             int rows = jTableAccure.getRowCount();
             if(typeC.equals("อาญา")){
+                 CrimesCaseEdit.jLabelNumberSus.setText(rows+"");
             CrimesCaseEdit.jTextSuspect.setText(""); 
             }
             if(typeC.equals("จราจร")){
+                TrafficEdit.jLabelNumberSus.setText(rows+"");
             TrafficEdit.jTextSuspect.setText(""); 
             }
               if(typeC.equals("Dead")){
+                     IdentityEdit.jLabelNumberSus.setText(rows+"");
             IdentityEdit.jTextSuspect.setText(""); 
             }
             }
             if(jTableSuspect.getRowCount()>1){
             
             if(typeC.equals("อาญา")){
-             int rows = jTableSuspect.getRowCount();
+            
              CrimesCaseEdit.jLabelNumberSus.setText(rows+"");
             CrimesCaseEdit.jTextSuspect.setText(jTableSuspect.getValueAt(0, 2).toString()+"และพวก"); 
             }
             if(typeC.equals("จราจร")){
-                int rows = jTableSuspect.getRowCount();
+              
              TrafficEdit.jLabelNumberSus.setText(rows+"");
             TrafficEdit.jTextSuspect.setText(jTableSuspect.getValueAt(0, 2).toString()+"และพวก"); 
             }
               if(typeC.equals("Dead")){
-                     int rows = jTableSuspect.getRowCount();
+              
              IdentityEdit.jLabelNumberSus.setText(rows+"");
             IdentityEdit.jTextSuspect.setText(jTableSuspect.getValueAt(0, 2).toString()+"และพวก"); 
             }

@@ -36,6 +36,7 @@ import org.json.simple.JSONObject;
 import org.xlsx4j.sml.Col;
 import java.awt.Font;
 import java.awt.Toolkit;
+import javax.swing.BorderFactory;
 import javax.swing.JScrollPane;
 
 /**
@@ -55,6 +56,7 @@ public class BailCrimesForm extends javax.swing.JDialog {
     public BailCrimesForm(JFrame parrent) {
                 super(parrent,true);
         initComponents();
+        ChargeName.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
             ImageIcon img = new ImageIcon("./Master/WD.png");
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
@@ -136,7 +138,7 @@ jTableBail.setPreferredScrollableViewportSize(Toolkit.getDefaultToolkit().getScr
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(23, 23, 23)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton3)
@@ -219,7 +221,10 @@ jTableBail.setPreferredScrollableViewportSize(Toolkit.getDefaultToolkit().getScr
         ChargeName.setEditable(false);
         ChargeName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         ChargeName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        ChargeName.setAutoscrolls(false);
         ChargeName.setBorder(null);
+        ChargeName.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ChargeName.setName(""); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel6.setText("ข้อหา");
@@ -320,7 +325,7 @@ jTableBail.setPreferredScrollableViewportSize(Toolkit.getDefaultToolkit().getScr
                         .addComponent(AddEditBail, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(935, 935, 935)
                         .addComponent(jCheckOnly)))
-                .addGap(0, 41, Short.MAX_VALUE))
+                .addGap(41, 41, 41))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -366,10 +371,10 @@ jTableBail.setPreferredScrollableViewportSize(Toolkit.getDefaultToolkit().getScr
 
                 String sql="select crimecasenoyear,NoPerson,crimecaseno,Investigator_Result,TypePerson,ArrestDateTimeEnd,BailDate,CourtSuspect,"
                         + "PeopleRegistrationID,PlaceArrest,ArrestDateTime,FullNamePerson,StatusSuspect,CaseId,CaseIdPerson,"
-                        + "CaseAcceptDate,ChargeCode,ChargeName\n" +
+                        + "CaseAcceptDate,chargecase.ChargeCodeCase ChargeCase,chargecase.ChargeNameCase ChargeNameCase\n" +
                      "from Person\n" +
                      "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId\n"+
-                     "left join Charge on CrimeCase.ChargeCodeCase=Charge.ChargeCode\n"+                  
+                     "left join chargecase on crimecase.CaseId=chargecase.ChargeCaseId " +                
                      "where TypePerson='ผู้ต้องหา' and crimecasenoyear='"+crimecaseid+"' and FullNamePerson='"+fullname+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
@@ -380,8 +385,8 @@ jTableBail.setPreferredScrollableViewportSize(Toolkit.getDefaultToolkit().getScr
                     data.put("CaseId", rs.getString("CaseId"));
                     data.put("crimecaseno", rs.getString("crimecaseno"));
                     data.put("crimecasenoyear", rs.getString("crimecasenoyear"));
-                    data.put("ChargeCode", rs.getString("ChargeCode"));
-                    data.put("ChargeName", rs.getString("ChargeName"));
+                    data.put("ChargeCode", rs.getString("ChargeCase"));
+                    data.put("ChargeName", rs.getString("ChargeNameCase"));
                     data.put("FullNamePerson", rs.getString("FullNamePerson"));
                     data.put("CaseIdPerson", rs.getString("CaseIdPerson"));
                     data.put("NoPerson", rs.getString("NoPerson"));
@@ -420,12 +425,12 @@ jTableBail.setPreferredScrollableViewportSize(Toolkit.getDefaultToolkit().getScr
             String crimecaseid = jTableBail.getModel().getValueAt(jTableBail.getSelectedRow(), 0)+"";
             String fullname = jTableBail.getModel().getValueAt(jTableBail.getSelectedRow(), 1)+"";
 
-            String  sql= "select crimecasenoyear,ChargeName,Investigator_Result,TypePerson,BailDate,"
+            String  sql= "select crimecasenoyear,chargecase.ChargeCodeCase ChargeCase,chargecase.ChargeNameCase ChargeNameCase,Investigator_Result,TypePerson,BailDate,"
                     + "PeopleRegistrationID,PlaceArrest,ArrestDateTime,FullNamePerson,StatusSuspect,CaseId,CaseIdPerson,"
                     + "CaseAcceptDate \n" +
             "from Person\n" +
             "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId "+
-            "left join Charge on CrimeCase.ChargeCodeCase=Charge.ChargeCode "  +
+             "left join chargecase on crimecase.CaseId=chargecase.ChargeCaseId "+
             "where TypePerson='ผู้ต้องหา' and  crimecasenoyear='"+crimecaseid+"' and FullNamePerson='"+fullname+"'" ;
             Connection con = ConnectDatabase.connect();
             Statement stmt = con.createStatement();
@@ -434,7 +439,7 @@ jTableBail.setPreferredScrollableViewportSize(Toolkit.getDefaultToolkit().getScr
             if(rs.next()){
                 crimecaseno.setText(rs.getString("crimecasenoyear"));
                 SuspectFullName.setText(rs.getString("FullNamePerson"));
-                ChargeName.setText(rs.getString("ChargeName"));
+                ChargeName.setText(rs.getString("ChargeNameCase"));
                 PlaceArrest.setText(rs.getString("PlaceArrest"));
                 ArrestDate.setText(rs.getString("ArrestDateTime"));
             }
@@ -504,12 +509,12 @@ jTableBail.setPreferredScrollableViewportSize(Toolkit.getDefaultToolkit().getScr
                   String crimecaseid = jTableBail.getModel().getValueAt(jTableBail.getSelectedRow(), 0)+"";
             String fullname = jTableBail.getModel().getValueAt(jTableBail.getSelectedRow(), 1)+"";
 
-            String  sql= "select crimecasenoyear,ChargeName,Investigator_Result,TypePerson,BailDate,"
+            String  sql= "select crimecasenoyear,chargecase.ChargeCodeCase ChargeCase,chargecase.ChargeNameCase ChargeNameCase,Investigator_Result,TypePerson,BailDate,"
                     + "PeopleRegistrationID,FullNamePerson,StatusSuspect,CaseId,CaseIdPerson,"
                     + "CaseAcceptDate \n" +
             "from Person\n" +
             "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId "+
-            "left join Charge on CrimeCase.ChargeCodeCase=Charge.ChargeCode "  +
+            "left join chargecase on crimecase.CaseId=chargecase.ChargeCaseId "+
             "where TypePerson='ผู้ต้องหา' and  crimecasenoyear='"+crimecaseid+"' and FullNamePerson='"+fullname+"'" ;
             Connection con = ConnectDatabase.connect();
             Statement stmt = con.createStatement();
@@ -518,7 +523,7 @@ jTableBail.setPreferredScrollableViewportSize(Toolkit.getDefaultToolkit().getScr
             if(rs.next()){
                 crimecaseno.setText(rs.getString("crimecasenoyear"));
                 SuspectFullName.setText(rs.getString("FullNamePerson"));
-                ChargeName.setText(rs.getString("ChargeName"));
+                ChargeName.setText(rs.getString("ChargeNameCase"));
 
             }
 
@@ -648,16 +653,30 @@ jTableBail.setPreferredScrollableViewportSize(Toolkit.getDefaultToolkit().getScr
                     super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, col);
                     
             //        String status = (String)table.getModel().getValueAt(row, 4);  
-         
+                      String c6= String.valueOf(table.getValueAt(row, 6));
+                      String c7= String.valueOf(table.getValueAt(row, 7));
+                      String c8= String.valueOf(table.getValueAt(row, 8));
+                      String c9= String.valueOf(table.getValueAt(row, 9));
+                      String c10= String.valueOf(table.getValueAt(row, 10));
+                      String c11= String.valueOf(table.getValueAt(row, 11));
+                      
                        String s2=String.valueOf(value);  
-                       int a=  CalculateDateBail(s2);
+//                       System.out.println("dddddddddddddddddddd :"+aa);
+                       int col6=  CalculateDateBail(c6);
+                       int col7=  CalculateDateBail(c7);
+                       int col8=  CalculateDateBail(c8);
+                       int col9=  CalculateDateBail(c9);
+                       int col10=  CalculateDateBail(c10);
+                       int col11=  CalculateDateBail(c11);
+                  
+                       
 
                    table.setSelectionBackground(new Color(0,120,215));
-                    if(col==5 && a<=0||col==6 && a<=0||col==7 && a<=0||col==8 && a<=0||col==9 && a<=0||col==10 && a<=0){
+                    if(col==6 && col6<=0||col==7 && col7<=0||col==8 && col8<=0||col==9 && col9<=0||col==10 && col10<=0||col==11 && col11<=0){
                         setForeground(Color.RED);
 //                        setFont("TH sarabunPSK",th);
                     }
-                    else if(col==5 && a>0||col==6 && a>0||col==7 && a>0||col==8 && a>0||col==9 && a>0||col==10 && a>0){
+                    else if(col==6 && col6>0||col==7 && col7>0||col==8 && col8>0||col==9 && col9>0||col==10 && col10>0||col==5 && col11>0){
 //                    setBackground(Color.WHITE);
                     setForeground(Color.BLUE);
                     }
@@ -713,31 +732,31 @@ jTableBail.getColumnModel().getColumn(11).setMinWidth(130);
 
     public int CalculateDateBail(String DateCheck){
        int diffDays =0;   
-//       try{
-//     
-//               Locale lc = new Locale("th","TH");
-//           SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy",lc);
-//                        SimpleDateFormat  format = new SimpleDateFormat("dd/MM/yyyy",lc);  
-//                        String d2Day=dateFormat.format(new Date());
-//                        Date dateTo =null;
-//                        Date datebail=null;
-//                        if(DateCheck == null ||DateCheck.equals("")||DateCheck.equals(null)||DateCheck.equals(" ")){
-//                           diffDays=0;
-//                        }
-//                        else{
-//                             dateTo=format.parse(d2Day);
-//                          datebail=format.parse(DateCheck);
+       try{
+     
+               Locale lc = new Locale("th","TH");
+           SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy",lc);
+                        SimpleDateFormat  format = new SimpleDateFormat("dd/MM/yyyy",lc);  
+                        String d2Day=dateFormat.format(new Date());
+                        Date dateTo =null;
+                        Date datebail=null;
+                        if(DateCheck == null ||DateCheck.equals("")||DateCheck.equals(null)||DateCheck.equals("null")){
+                           diffDays=0;
+                        }
+                        else{
+                             dateTo=format.parse(d2Day);
+                          datebail=format.parse(DateCheck);
 //                               System.out.println("DateNew : "+datebail);
 //                        System.out.println("DateToday : "+dateTo);
-//                            long diff = datebail.getTime() - dateTo.getTime();
-//                             diffDays = (int)(diff / (24 * 60 * 60 * 1000));                          
+                            long diff = datebail.getTime() - dateTo.getTime();
+                             diffDays = (int)(diff / (24 * 60 * 60 * 1000));                          
 //                             System.out.println("Time in Day: " + diffDays + " Days."); 
-//                        }
-//                
-//       }catch(Exception e){
-//           e.printStackTrace();
-//       
-//       }
+                        }
+                
+       }catch(Exception e){
+           e.printStackTrace();
+       
+       }
           return diffDays;               
     
     }

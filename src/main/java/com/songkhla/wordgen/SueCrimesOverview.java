@@ -337,9 +337,9 @@ jTableSue.setPreferredScrollableViewportSize(Toolkit.getDefaultToolkit().getScre
                 String CaseType = jTableSue.getModel().getValueAt(jTableSue.getSelectedRow(), 1)+"";
 
 //                 String dateArr = jTableSue.getModel().getValueAt(jTableSue.getSelectedRow(), 2)+"";
-                String sql="select CaseId,crimecasenoyear,AccureandOther,ChargeName,crimecaseyears,crimecaseno,CaseType,Person.* from Person\n"+
+                String sql="select CaseId,crimecasenoyear,AccureandOther,chargecase.ChargeCodeCase ChargeCase,chargecase.ChargeNameCase ChargeNameCase,crimecaseyears,crimecaseno,CaseType,Person.* from Person\n"+
                            "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId\n"+
-                           "left join Charge on CrimeCase.ChargeCodeCase=Charge.ChargeCode\n"+
+                            "left join chargecase on crimecase.CaseId=chargecase.ChargeCaseId\n" +
                           " Where CaseId='"+crimecaseno+"' and FullNamePerson='"+nameSuspect+"' and CaseType='"+CaseType+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
@@ -350,7 +350,7 @@ jTableSue.setPreferredScrollableViewportSize(Toolkit.getDefaultToolkit().getScre
                     data.put("CaseId", rs.getString("CaseId"));
                     data.put("crimecasenoyear", rs.getString("crimecasenoyear"));
                     data.put("AccureandOther", rs.getString("AccureandOther"));
-                    data.put("ChargeName", rs.getString("ChargeName"));
+                    data.put("ChargeName", rs.getString("ChargeNameCase"));
                     data.put("crimecaseyears", rs.getString("crimecaseyears"));
                     data.put("crimecaseno", rs.getString("crimecaseno"));
                     data.put("CaseType", rs.getString("CaseType"));
