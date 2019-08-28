@@ -87,12 +87,17 @@ public static void w70(String cc) {
                       }
 //                
 
-                   String sql="select crimecase.*,Person.*,ChargeCase.*,BailAsset.*\n" +
+                   String sql="select crimecase.*,Person.*,P2.*,ChargeCase.*,BailAsset.*\n" +
                               "from crimecase \n" +
-                              "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
+                              "inner join( \n" +
+                              "SELECT min(Person.NoPerson),Person.PeopleRegistrationID suspectPeopleRegistrationID,Person.IssueDate suspectIssueDate,Person.FullNamePerson suspectFullNamePerson,Person.Age suspectAge,"
+                            + "Person.Race suspectRace,Person.Nationality suspectNationality,Person.Religion suspectReligion,Person.IssuedBy suspectIssuedBy, \n" +
+                              "Person.Occupation suspectOccupation,Person.HouseNumber suspectHouseNumber,Person.Moo suspectMoo,Person.Tambon suspectTambon,Person.Amphur suspectAmphur,Person.Province suspectProvince,Person.Soi suspectSoi,Person.SusConfress suspectSusConfress\n" +
+                              "FROM Person where Person.TypePerson='ผู้ต้องหา')P2 \n" +
                               "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
+                              "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                               "left join BailAsset on Person.caseIdPerson = BailAsset.BailCaseId\n" +
-                              "where crimecase.CaseId='"+cc+"'and Person.TypePerson='ผู้ต้องหา'\n" +
+                              "where crimecase.CaseId='"+cc+"' and Person.Related='นายประกัน'\n" +
                               "group by crimecase.CaseId,Person.NoPerson,BailAsset.BailAssetId";
 
                 Statement st = conn.createStatement();
@@ -141,22 +146,34 @@ public static void w70(String cc) {
                 
                 
 //                   ----------------------------ผู้ต้องหา--------------------
-                    bookmarkvalue.put("PS2", Checknull(s.getString("PeopleRegistrationID"))); 
-                    bookmarkvalue.put("PS3",Checknull(ToDate(s.getString("IssueDate")))); 
-                    bookmarkvalue.put("PS5",Checknull(s.getString("IssuedBy"))); 
-                    bookmarkvalue.put("PS7", Checknull(s.getString("FullNamePerson"))); 
-                    bookmarkvalue.put("PS13", Checknull(s.getString("Age")));
-                    bookmarkvalue.put("PS14", Checknull(s.getString("Race")));
-                    bookmarkvalue.put("PS15", Checknull(s.getString("Nationality")));
-                    bookmarkvalue.put("PS16", Checknull(s.getString("Religion")));
-                    bookmarkvalue.put("PS17", Checknull(s.getString("Occupation")));
-                    bookmarkvalue.put("PS22", Checknull(s.getString("HouseNumber")));
-                    bookmarkvalue.put("PS23", Checknull(s.getString("Moo")));
-                    bookmarkvalue.put("PS24", Checknull(s.getString("Tambon")));
-                    bookmarkvalue.put("PS25", Checknull(s.getString("Amphur")));
-                    bookmarkvalue.put("PS26", Checknull(s.getString("Province")));
-                    bookmarkvalue.put("PS105", Checknull(s.getString("Soi")));
-                    bookmarkvalue.put("PS108", Checknull(s.getString("SusConfress")));
+                    bookmarkvalue.put("PS2", Checknull(s.getString("suspectPeopleRegistrationID"))); 
+                    bookmarkvalue.put("PS3",Checknull(ToDate(s.getString("suspectIssueDate")))); 
+                    bookmarkvalue.put("PS5",Checknull(s.getString("suspectIssuedBy"))); 
+                    bookmarkvalue.put("PS7", Checknull(s.getString("suspectFullNamePerson"))); 
+                    bookmarkvalue.put("PS13", Checknull(s.getString("suspectAge")));
+                    bookmarkvalue.put("PS14", Checknull(s.getString("suspectRace")));
+                    bookmarkvalue.put("PS15", Checknull(s.getString("suspectNationality")));
+                    bookmarkvalue.put("PS16", Checknull(s.getString("suspectReligion")));
+                    bookmarkvalue.put("PS17", Checknull(s.getString("suspectOccupation")));
+                    bookmarkvalue.put("PS22", Checknull(s.getString("suspectHouseNumber")));
+                    bookmarkvalue.put("PS23", Checknull(s.getString("suspectMoo")));
+                    bookmarkvalue.put("PS24", Checknull(s.getString("suspectTambon")));
+                    bookmarkvalue.put("PS25", Checknull(s.getString("suspectAmphur")));
+                    bookmarkvalue.put("PS26", Checknull(s.getString("suspectProvince")));
+                    bookmarkvalue.put("PS105", Checknull(s.getString("suspectSoi")));
+                    bookmarkvalue.put("PS108", Checknull(s.getString("suspectSusConfress")));
+                    
+                bookmarkvalue.put("PB7",  Checknull(s.getString("FullNamePerson")));
+                bookmarkvalue.put("PB13", Checknull(s.getString("Age")));
+                bookmarkvalue.put("PB14", Checknull(s.getString("Race")));
+                bookmarkvalue.put("PB15", Checknull(s.getString("Nationality")));
+                bookmarkvalue.put("PB22", Checknull(s.getString("HouseNumber"))); 
+                bookmarkvalue.put("PB23", Checknull(s.getString("Moo"))); 
+                bookmarkvalue.put("PB24", Checknull(s.getString("Tambon"))); 
+                bookmarkvalue.put("PB25", Checknull(s.getString("Amphur"))); 
+                bookmarkvalue.put("PB26", Checknull(s.getString("Province"))); 
+                bookmarkvalue.put("PB104", Checknull(s.getString("Road")));
+                bookmarkvalue.put("PB105", Checknull(s.getString("Soi")));
                     
                      
 
@@ -192,7 +209,7 @@ public static void w70(String cc) {
                     } 
                       ++BailAssetId ;
                             VarBA3= VarBA3+","+s.getString("BailAssetDetail");
-                            bookmarkvalue.put("AB3","หลักทัพย์ที่ใช้ประกัน "+Checknull(VarBA3).substring(5)+" ราคาประเมิน "+Checknull(Integer.toString(SumValue))+" บาท");
+                            bookmarkvalue.put("AB3","หลักทรัพย์ที่ใช้ประกัน "+Checknull(VarBA3).substring(5)+" ราคาประเมิน "+Checknull(Integer.toString(SumValue))+" บาท");
                             
   
 			JSONArray tablecolumn = new JSONArray();
@@ -213,7 +230,7 @@ public static void w70(String cc) {
 					.load(new java.io.File("./TEMPLATE/w70.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/บันทึกการเสนอสัญญาประกัน "+s.getString("FullNamePerson")+"" +cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/บันทึกการเสนอสัญญาประกัน "+s.getString("suspectFullNamePerson")+"" +cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -264,7 +281,17 @@ public static void nw70() {
                     bookmarkvalue.put("PS105","");
                     bookmarkvalue.put("PS108","");
                     
-                     
+                bookmarkvalue.put("PB7", "");
+                bookmarkvalue.put("PB13", "");
+                bookmarkvalue.put("PB14", "");
+                bookmarkvalue.put("PB15", "");
+                bookmarkvalue.put("PB22", ""); 
+                bookmarkvalue.put("PB23", ""); 
+                bookmarkvalue.put("PB24", ""); 
+                bookmarkvalue.put("PB25", ""); 
+                bookmarkvalue.put("PB26", ""); 
+                bookmarkvalue.put("PB104", ""); 
+                bookmarkvalue.put("PB105", ""); 
 
                       bookmarkvalue.put("B2", "");
                       bookmarkvalue.put("B3", "");

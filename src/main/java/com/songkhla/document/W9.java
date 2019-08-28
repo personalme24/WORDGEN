@@ -160,7 +160,7 @@ public static void w9(String cc) {
                     bookmarkvalue.put("PS33", Checknull(s.getString("TambonBirthday")));
                     bookmarkvalue.put("PS34", Checknull(s.getString("AmphurBirthday")));
                     bookmarkvalue.put("PS35", Checknull(s.getString("ProvinceBirthday")));
-                    
+                    bookmarkvalue.put("PS75", Checknull(s.getString("TypePerson")));
                     
                     bookmarkvalue.put("PS001", Checknull(s.getString("CrimeLocation"))+" ต."+Checknull(s.getString("CrimeLocationDistrict"))+" อ."+Checknull(s.getString("CrimeLocationAmphur"))+" จ."+Checknull(s.getString("CrimeLocationProvince")));
                     bookmarkvalue.put("PS002", Checknull(ToDate(s.getString("OccuredDate")))+" เวลา "+Checknull(s.getString("OccuredTime"))+" น.");
@@ -280,6 +280,7 @@ public static void nw9( ) {
                     bookmarkvalue.put("PS33","");
                     bookmarkvalue.put("PS34","");
                     bookmarkvalue.put("PS35","");
+                    bookmarkvalue.put("PS75","");
                     bookmarkvalue.put("PS001","");
                     bookmarkvalue.put("PS002","");
                      
