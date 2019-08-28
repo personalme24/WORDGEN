@@ -54,6 +54,7 @@ public class W8 {
              String ccYear;
              String casetype;
              String caseno;
+             String Occupation;
              String PoliceStationName="";
              String StationAmphur="";
              String StationProvince="";
@@ -106,6 +107,7 @@ public class W8 {
                     ccYear=s.getString("crimecaseyears");
                     casetype =s.getString("casetype");
                  caseno  =s.getString("crimecasenoyear");
+                 Occupation=s.getString("Occupation");
                 String Date="";
                 String Month="";
                 String Year="";
@@ -200,8 +202,19 @@ public class W8 {
 		bookmarkvalue.put("TABLES", TABLES);
 		System.out.println(bookmarkvalue.toJSONString());
 		
-		
+		if (Occupation.equals("รับราชการตำรวจ")){
 		try {
+                  
+			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
+					.load(new java.io.File("./TEMPLATE/w811.docx"));
+			processVariable(bookmarkvalue,wordMLPackage);
+			processTABLE(bookmarkvalue,wordMLPackage);
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/บันทึกคำให้การของผู้กล่าวหา "+s.getString("FullNamePerson")+""+ cs+"-"+ccYear+".doc"));
+		}catch( Exception ex) {
+			ex.printStackTrace();
+		}
+                }else
+                    try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
 					.load(new java.io.File("./TEMPLATE/w8.docx"));
@@ -210,7 +223,8 @@ public class W8 {
 			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/บันทึกคำให้การของผู้กล่าวหา "+s.getString("FullNamePerson")+""+ cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
-		}
+		}      
+                
             }
             } catch (Exception e) {
                 e.printStackTrace();

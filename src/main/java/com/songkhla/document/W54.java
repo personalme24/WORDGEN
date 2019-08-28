@@ -168,7 +168,7 @@ public class W54 {
                          
                      
                        
-                            bookmarkvalue.put("C4",(ToDate(s.getString("OccuredDate"))));
+                            bookmarkvalue.put("C4",Checknull(ToDate(s.getString("OccuredDate"))));
                             bookmarkvalue.put("C441", Checknull(s.getString("OccuredTime")));
                             bookmarkvalue.put("C12", Checknull(s.getString("CrimeLocationDistrict")));
                             bookmarkvalue.put("C5", Checknull(ToDate(s.getString("CaseAcceptDate"))));
