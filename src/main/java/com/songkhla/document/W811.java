@@ -88,10 +88,11 @@ public class W811 {
                          Position=rs1.getString("Position");
                       }
                   
-                   String sql="select crimecase.*,Person.*,ChargeCase.*\n" +
+                   String sql="select crimecase.*,Person.*,ChargeCase.*,ActionsCaseData.*\n" +
                               "from crimecase \n" +
                               "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                               "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
+                              "left join ActionsCaseData on crimecase.ActionCodeCase = ActionsCaseData.ActionCodeCase\n"+
                               "where crimecase.CaseId='"+cc+"'and Person.TypePerson='ผู้กล่าวหา'\n" +
                               "group by crimecase.CaseId,Person.NoPerson";
                    
@@ -136,6 +137,8 @@ public class W811 {
                 bookmarkvalue.put("S27",Checknull(ProvincProsecutor));
                 bookmarkvalue.put("S10",Checknull(TelStation));
                 
+                bookmarkvalue.put("A2", Checknull(s.getString("ActionCrimesCase")));
+                
                 bookmarkvalue.put("PA2",  Checknull(s.getString("PeopleRegistrationID")));
                 bookmarkvalue.put("PA3",  Checknull(ToDate(s.getString("IssueDate"))));
                 bookmarkvalue.put("PA5",  Checknull(s.getString("IssuedBy")));
@@ -154,6 +157,7 @@ public class W811 {
                 bookmarkvalue.put("PA30", Checknull(s.getString("SubHeadmanName"))); 
                 bookmarkvalue.put("PA31", Checknull(s.getString("FatherFullName"))); 
                 bookmarkvalue.put("PA32", Checknull(s.getString("MotherFullName"))); 
+                bookmarkvalue.put("PA75", Checknull(s.getString("TypePerson"))); 
                 
                 bookmarkvalue.put("PS7",  Checknull(s.getString("SuspectandOther")));
                 
@@ -161,6 +165,20 @@ public class W811 {
           
                      
                     bookmarkvalue.put("B2", Checknull(s.getString("ChargeNameCase")));
+                    
+                    
+                            bookmarkvalue.put("C4",Checknull(ToDate(s.getString("OccuredDate"))));
+                            bookmarkvalue.put("C441", Checknull(s.getString("OccuredTime")));
+                            bookmarkvalue.put("C12", Checknull(s.getString("CrimeLocationDistrict")));
+                            bookmarkvalue.put("C5", Checknull(ToDate(s.getString("CaseAcceptDate"))));
+                            bookmarkvalue.put("C551",Checknull(s.getString("CaseAccepTime")));
+                            bookmarkvalue.put("C8", Checknull(s.getString("CrimeLocation")));
+                            bookmarkvalue.put("C9", Checknull(s.getString("CrimeLocationMoo")));
+                            bookmarkvalue.put("C10", Checknull(s.getString("CrimeLocationSoi")));
+                            bookmarkvalue.put("C11", Checknull(s.getString("CrimeLocationRoad")));
+                            bookmarkvalue.put("C12", Checknull(s.getString("CrimeLocationDistrict")));
+                            bookmarkvalue.put("C13", Checknull(s.getString("CrimeLocationAmphur")));
+                            bookmarkvalue.put("C14", Checknull(s.getString("CrimeLocationProvince")));
                       
                        bookmarkvalue.put("P02", Checknull(RankPolice));
                        bookmarkvalue.put("P03", Checknull(FirstName));

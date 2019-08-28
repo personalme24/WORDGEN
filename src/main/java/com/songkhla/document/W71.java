@@ -209,8 +209,8 @@ public class W71 {
                     
                 bookmarkvalue.put("PB7",  Checknull(s.getString("FullNamePerson")));
                 bookmarkvalue.put("PB13", Checknull(s.getString("Age")));
-                bookmarkvalue.put("PB14", Checknull(s.getString("Nationality")));
-                bookmarkvalue.put("PB15", Checknull(s.getString("Religion")));
+                bookmarkvalue.put("PB14", Checknull(s.getString("Race")));
+                bookmarkvalue.put("PB15", Checknull(s.getString("Nationality")));
                 bookmarkvalue.put("PB22", Checknull(s.getString("HouseNumber"))); 
                 bookmarkvalue.put("PB23", Checknull(s.getString("Moo"))); 
                 bookmarkvalue.put("PB24", Checknull(s.getString("Tambon"))); 
