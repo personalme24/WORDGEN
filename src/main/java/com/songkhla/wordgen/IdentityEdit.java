@@ -2068,7 +2068,7 @@ AutoCompleteDecorator.decorate(CrimeLocationProvince);
         jLabel35.setText("caseid");
 
         jButtonPrintDoc2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jButtonPrintDoc2.setText("พิมพ์เอกสาร");
+        jButtonPrintDoc2.setText("สร้างเอกสาร");
         jButtonPrintDoc2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonPrintDoc2ActionPerformed(evt);

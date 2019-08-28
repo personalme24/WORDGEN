@@ -200,10 +200,10 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็กทรอนิกส์ (CRIMES)");
      
-
+jButtonDuplicate.setVisible(false);
 //            JScrollBar hbar=new JScrollBar(JScrollBar.HORIZONTAL, 30, 20, 0, 500);
 //            jScrollPane1.getVerticalScrollBar().setUI(new MyScrollBarUI());
-            jScrollPane5.getVerticalScrollBar().setUI(new CustomScrollBarUI());
+//            jScrollPane5.getVerticalScrollBar().setUI(new CustomScrollBarUI());
          g=new ButtonGroup();
         g.add(jCheckDuringInvest);
         g.add(jCheckSue);
@@ -466,6 +466,7 @@ ChangProvince();
         crimecaseid = new javax.swing.JLabel();
         jLabelActionCode = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jButtonDuplicate = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
@@ -686,6 +687,13 @@ ChangProvince();
             }
         });
 
+        jButtonDuplicate.setText("jButton1");
+        jButtonDuplicate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDuplicateActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -700,6 +708,8 @@ ChangProvince();
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabelActionCode)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonDuplicate)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton2)
                 .addGap(67, 67, 67))
         );
@@ -711,7 +721,8 @@ ChangProvince();
                     .addComponent(CaseType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(crimecaseid)
                     .addComponent(jLabelActionCode)
-                    .addComponent(jButton2))
+                    .addComponent(jButton2)
+                    .addComponent(jButtonDuplicate))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1862,7 +1873,7 @@ ChangProvince();
 
         jCheckW273.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW273.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW273.setText("บันทึกรับรองการป็นโสด");
+        jCheckW273.setText("บันทึกรับรองการเป็นโสด");
 
         jCheckW272.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW272.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -2041,7 +2052,7 @@ ChangProvince();
         jLabel33.setText("caseid");
 
         jButtonPrintDoc2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jButtonPrintDoc2.setText("พิมพ์เอกสาร");
+        jButtonPrintDoc2.setText("สร้างเอกสาร");
         jButtonPrintDoc2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonPrintDoc2ActionPerformed(evt);
@@ -2071,7 +2082,7 @@ ChangProvince();
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel33)
                     .addComponent(jButtonPrintDoc2))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(130, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("รายงาน", jPanel11);
@@ -2759,6 +2770,19 @@ ChangProvince();
     private void jCheckW279ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW279ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckW279ActionPerformed
+
+    private void jButtonDuplicateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDuplicateActionPerformed
+        // TODO add your handling code here:
+//        setVisible(false);
+//           JFrame frame = new JFrame();
+//        JDialog dialog = new JDialog(frame);//frame is owner
+//        JFrame in = (JFrame)(dialog.getParent());
+//        in.removeAll();
+//        CrimesCaseEdit iv=new CrimesCaseEdit(null,null);
+//         iv.pack();
+//            iv.setLocationRelativeTo(null);
+//        iv.setVisible(true);
+    }//GEN-LAST:event_jButtonDuplicateActionPerformed
      private void yourAttemptActionPerformed() {
 
 
@@ -3572,6 +3596,7 @@ if(OccuredDate.getJFormattedTextField().getText().equals("23/8/2562")){
     private javax.swing.JButton jButtonAddAsset;
     private javax.swing.JButton jButtonAddInvest;
     private javax.swing.JButton jButtonCharge;
+    private javax.swing.JButton jButtonDuplicate;
     private javax.swing.JButton jButtonEditCase;
     private javax.swing.JButton jButtonPrintDoc2;
     private javax.swing.JButton jButtonSaveCase;

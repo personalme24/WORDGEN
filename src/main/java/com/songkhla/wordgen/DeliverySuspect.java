@@ -33,7 +33,7 @@ public class DeliverySuspect extends javax.swing.JDialog {
     Connection con=null;
     PreparedStatement pst=null;
     DataCase dc =new DataCase();
-    String personid;
+    String personid,DeliId;
     boolean isInsert;
     JDatePickerImpl DeliDate;
     /**
@@ -68,7 +68,7 @@ public class DeliverySuspect extends javax.swing.JDialog {
              SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm");
             String dt=datain.get("DeliTimes")+"";
             Date timeDeli = timeFormat.parse(dt);
-
+            DeliId =datain.get("DeliId")+"";
             DeliDate.getJFormattedTextField().setText(datain.get("DeliDate")+"");
             DeliOrder.setText(datain.get("DeliOrder")+"");
             DeliPlace.setText(datain.get("DeliPlace")+"");
@@ -292,19 +292,31 @@ public class DeliverySuspect extends javax.swing.JDialog {
         }
         }else{
             try{
-                String sqlUpdate= "UPDATE Person Set\n "
-                + "DueDate=?,"
-                + "DueDateTime=?,"
-                + "HandOverLocation=?,"
-                + "Where =?";
+                String sqlUpdate= "UPDATE DeliverySuspect Set\n "
+               + "DeliOrder=?,"         
+                + "DeliDate=?,"
+                + "DeliTimes=?,"
+                + "DeliPlace=?"
+                + " Where DeliId=?";
                 
                 pst=con.prepareStatement(sqlUpdate);
-                pst.setString(1,DeliDate.getJFormattedTextField().getText());
-                pst.setString(2,deliTimes);
-                pst.setString(3,DeliPlace.getText());
-                pst.executeUpdate();
-                JOptionPane.showMessageDialog(null, "Data Saved successfully");
-                System.out.println("SQL : "+sqlUpdate);
+                pst.setString(1,DeliOrder.getText());
+                pst.setString(2,DeliDate.getJFormattedTextField().getText());
+                pst.setString(3,deliTimes);
+                pst.setString(4,DeliPlace.getText());
+                pst.setString(5,DeliId);
+
+                
+                int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
+        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+  if (response == JOptionPane.YES_OPTION) {
+//             con=ConnectDatabase.connect();
+        pst.executeUpdate();
+         pst.close();
+//         System.out.println("SQL : "+sql);
+        setVisible(false);
+
+    } 
                 }
                 catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);

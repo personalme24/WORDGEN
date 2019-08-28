@@ -120,6 +120,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
@@ -155,7 +156,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         ImageIcon img = new ImageIcon("./Master/WD.png");
         setIconImage(img.getImage());
         setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
-       
+        ChargeName.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 //        jLabel2.setVisible(false);
     
           person=datain.get("NoPerson")+"";
@@ -1396,7 +1397,8 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(jPanel1,"กรุณากรอกข้อมูล", "แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);
         }
         else{
-            yourAttemptActionPerformed();
+            yourAttemptActionPerformed2();
+//  W68.w68(caseid,SueSecond.getText());
         }
     }//GEN-LAST:event_Print2ActionPerformed
 
@@ -2004,7 +2006,14 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 
 
     }
+          private void yourAttemptActionPerformed2() {
+
+
        
+    new BackgroundWorker2().execute();
+
+
+    }  
     public class BackgroundWorker extends SwingWorker<Void, Void> {
 
     private static final long SLEEP_TIME =10;
@@ -2069,27 +2078,121 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 				Thread.sleep(10);
 //            Thread.sleep(SLEEP_TIME);// imitate a long-running task
 
-            if(Print1.isEnabled()){
+            if(Print1.isEnabled()&& !"".equals(SueSecond.getText())){
               W67.w67(caseid);
             }
-             if(Print2.isEnabled()){
+//             if(Print2.isEnabled() && !"".equals(SueSecond.getText())){
+//              W68.w68(caseid,SueSecond.getText());
+//            }
+//             if(Print3.isEnabled()&& !"".equals(SueSecond.getText())){
+//             W68.w68(caseid,SueThird.getText());
+//            }
+//             if(Print4.isEnabled()&& !"".equals(SueSecond.getText())){
+//             W68.w68(caseid,SueForth.getText());
+//            }
+//              if(Print5.isEnabled()&& !"".equals(SueSecond.getText())){
+//             W68.w68(caseid,SueFifth.getText());
+//            }
+//              if(Print6.isEnabled()&& !"".equals(SueSecond.getText())){
+//             W68.w68(caseid,SueSixth.getText());
+//            }
+//              if(Print7.isEnabled()&& !"".equals(SueSecond.getText())){
+//             W68.w68(caseid,SueSeventh.getText());
+//            }
+            }
+        } catch (InterruptedException e) {
+        }
+//        setProgress(100);
+        
+        return null;
+    }
+
+    @Override
+    public void done() {
+                    if (dialog != null) {
+				dialog.dispose();
+			}
+             Desktop desktop = Desktop.getDesktop();
+        File dirToOpen = null;
+        try {
+            dirToOpen = new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
+            desktop.open(dirToOpen);
+        } catch (Exception iae) {
+            System.out.println("File Not Found :"+iae);
+        }
+//          System.out.println(text + " is done");
+//        Toolkit.getDefaultToolkit().beep();
+    }
+}/**/
+     public class BackgroundWorker2 extends SwingWorker<Void, Void> {
+
+    private static final long SLEEP_TIME =10;
+    private String text;
+        private JProgressBar pb;
+		private JDialog dialog;
+//   public void Task() {
+//       
+//    }
+//       public ProgressWorker(JProgressBar progress) {
+//            this.progress = progress;
+//        
+            public BackgroundWorker2() {
+           
+			addPropertyChangeListener(new PropertyChangeListener() {
+				@Override
+				public void propertyChange(PropertyChangeEvent evt) {
+					if ("progress".equalsIgnoreCase(evt.getPropertyName())) {
+						 if (dialog == null) {
+							dialog = new JDialog();
+                                                        ImageIcon img = new ImageIcon("./Master/WD.png");
+                                                           dialog.setIconImage(img.getImage());
+							dialog.setTitle("Processing");
+							dialog.setLayout(new GridBagLayout());
+							dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+							GridBagConstraints gbc = new GridBagConstraints();
+							gbc.insets = new Insets(2, 2, 2, 2);
+							gbc.weightx = 1;
+							gbc.gridy = 0;
+							dialog.add(new JLabel("Processing..."), gbc);
+							pb = new JProgressBar();
+							pb.setStringPainted(true);
+//                                                        pb.setForeground(Color.blue);]
+                                               
+                                                        pb.setMaximum(100);
+                                                        pb.setMinimum(0);
+                                                        
+							gbc.gridy = 1;
+							dialog.add(pb, gbc);
+							dialog.pack();
+							dialog.setLocationRelativeTo(null);
+							dialog.setModal(true);
+							JDialog.setDefaultLookAndFeelDecorated(true); 
+							dialog.setVisible(true);
+						}
+						pb.setValue(getProgress());
+					}
+				}
+
+			});
+		}
+    @Override
+    public Void doInBackground() {
+  
+//            JCheckBox[] boxes = {};
+        try { 
+            for (int i = 0; i < 2; i++) {
+//                x = x - i;
+            setProgress((int)((i*100)/2)+1);
+//        setProgress(i * (100 / N));
+//				  setProgress(i);
+				Thread.sleep(10);
+//            Thread.sleep(SLEEP_TIME);// imitate a long-running task
+
+            
+             if(Print2.isEnabled() && !"".equals(SueSecond.getText())){
               W68.w68(caseid,SueSecond.getText());
             }
-             if(Print3.isEnabled()){
-             W68.w68(caseid,SueThird.getText());
-            }
-             if(Print4.isEnabled()){
-             W68.w68(caseid,SueForth.getText());
-            }
-              if(Print5.isEnabled()){
-             W68.w68(caseid,SueFifth.getText());
-            }
-              if(Print6.isEnabled()){
-             W68.w68(caseid,SueSixth.getText());
-            }
-              if(Print7.isEnabled()){
-             W68.w68(caseid,SueSeventh.getText());
-            }
+            
             }
         } catch (InterruptedException e) {
         }

@@ -1796,7 +1796,7 @@ AutoCompleteDecorator.decorate(CrimeLocationProvince);
 
         jCheckW273.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW273.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW273.setText("บันทึกรับรองการป็นโสด");
+        jCheckW273.setText("บันทึกรับรองการเป็นโสด");
 
         jCheckW272.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW272.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -1975,7 +1975,7 @@ AutoCompleteDecorator.decorate(CrimeLocationProvince);
         jLabel33.setText("caseid");
 
         jButtonPrintDoc2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jButtonPrintDoc2.setText("พิมพ์เอกสาร");
+        jButtonPrintDoc2.setText("สร้างเอกสาร");
         jButtonPrintDoc2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonPrintDoc2ActionPerformed(evt);

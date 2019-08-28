@@ -570,7 +570,7 @@ public class BailCrimesAdd extends javax.swing.JDialog {
             try{
                 String DeliOrder= jTableBailSend.getModel().getValueAt(jTableBailSend.getSelectedRow(), 0)+"";
 
-                String sql="select DeliOrder,DeliDate,DeliTimes,DeliPlace,DeliPersonId from DeliverySuspect where DeliOrder='"+DeliOrder+"' and DeliPersonId='"+personId+"'";
+                String sql="select DeliId,DeliOrder,DeliDate,DeliTimes,DeliPlace,DeliPersonId from DeliverySuspect where DeliOrder='"+DeliOrder+"' and DeliPersonId='"+personId+"'";
                 System.out.println("Editbutton :"+sql);
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
@@ -578,6 +578,7 @@ public class BailCrimesAdd extends javax.swing.JDialog {
 
                 if(rs.next()){
                     JSONObject data = new JSONObject();
+                     data.put("DeliId", rs.getString("DeliId"));
                     data.put("DeliOrder", rs.getString("DeliOrder"));
                     data.put("DeliDate", rs.getString("DeliDate"));
                     data.put("DeliTimes", rs.getString("DeliTimes"));

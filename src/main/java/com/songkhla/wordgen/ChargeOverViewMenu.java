@@ -90,6 +90,11 @@ public class ChargeOverViewMenu extends javax.swing.JDialog {
 
         jButton3.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButton3.setText("ค้นหา");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jTableCharge.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jTableCharge.setForeground(new java.awt.Color(51, 51, 51));
@@ -362,6 +367,11 @@ public class ChargeOverViewMenu extends javax.swing.JDialog {
         // TODO add your handling code here:
         MainMenuWord.closeAllDialogs();
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        RefreshData();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

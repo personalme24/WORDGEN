@@ -20,6 +20,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -65,8 +67,9 @@ public class SuspectForm extends javax.swing.JDialog {
      String noPerson,caseid;
      JDatePickerImpl ArrestDateTime,IssueDate,ExpiredDate,BirthDay,RestoreDate,BailDate,AttachlDate;
       JDatePanelImpl datePanel3;
+      
            ArrayList<String> personname=new ArrayList<String>();
-
+    ButtonGroup g=new ButtonGroup();       
     /**
      * Creates new form AccusedForm
      */
@@ -174,7 +177,7 @@ public class SuspectForm extends javax.swing.JDialog {
         kno.add(jRadioUnknowSuspect);
         kno.add(jRadioKnowSuspect);
         
-             ButtonGroup g=new ButtonGroup();
+             
         g.add(jRadioSue);
         g.add(jRadioStatus1);
         g.add(jRadioCantCatch);
@@ -188,6 +191,9 @@ public class SuspectForm extends javax.swing.JDialog {
                  
            FullNamePerson.addCaretListener(new TextFieldSusListener());
           jComboBoxListName.addActionListener(new ComboBoxActionListener());
+           jRadioStatus1.setEnabled(false);
+     
+          
 //---------------------------------------------------Data--------------------------------------------
           if(datain!=null){
         
@@ -247,10 +253,11 @@ public class SuspectForm extends javax.swing.JDialog {
              Date d=null;     
             try{
              d=format.parse(DateArr);
+             ArrestDateTime.getJFormattedTextField().setText(format.format(d));
             }
             catch(Exception e){
             }
-             ArrestDateTime.getJFormattedTextField().setText(format.format(d));
+//             
             }
 
             ArrestDateTimeEnd.setText(datain.get("ArrestDateTimeEnd")+"");
@@ -449,7 +456,6 @@ public class SuspectForm extends javax.swing.JDialog {
         jSpinnerArrTime = new javax.swing.JSpinner(sm);
         jPanelRestoreDate = new javax.swing.JPanel();
         jPanelBailDate = new javax.swing.JPanel();
-        jLabelBailDate = new javax.swing.JLabel();
         jLabelArrestEnd = new javax.swing.JLabel();
         ArrestDateTimeEnd = new javax.swing.JTextField();
         jCheckBail = new javax.swing.JCheckBox();
@@ -477,6 +483,7 @@ public class SuspectForm extends javax.swing.JDialog {
         jRadioSue = new javax.swing.JRadioButton();
         jPanel7 = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
+        jLabelBailDate = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -1097,9 +1104,6 @@ public class SuspectForm extends javax.swing.JDialog {
             .addGap(0, 32, Short.MAX_VALUE)
         );
 
-        jLabelBailDate.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabelBailDate.setText("วันประกัน");
-
         jLabelArrestEnd.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabelArrestEnd.setText("วัน-เวลาที่สิ้นสุดการควบคุมตัว");
 
@@ -1175,7 +1179,7 @@ public class SuspectForm extends javax.swing.JDialog {
         );
         jPanelAttachlDateLayout.setVerticalGroup(
             jPanelAttachlDateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 32, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         Attach.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -1195,10 +1199,20 @@ public class SuspectForm extends javax.swing.JDialog {
         jRadioOther.setBackground(new java.awt.Color(255, 255, 255));
         jRadioOther.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jRadioOther.setText("อื่นๆ");
+        jRadioOther.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioOtherMouseClicked(evt);
+            }
+        });
 
         jRadioFreeze.setBackground(new java.awt.Color(255, 255, 255));
         jRadioFreeze.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jRadioFreeze.setText("อายัดตัว");
+        jRadioFreeze.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioFreezeMouseClicked(evt);
+            }
+        });
 
         jRadioCantCatch.setBackground(new java.awt.Color(255, 255, 255));
         jRadioCantCatch.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -1208,10 +1222,20 @@ public class SuspectForm extends javax.swing.JDialog {
                 jRadioCantCatchItemStateChanged(evt);
             }
         });
+        jRadioCantCatch.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioCantCatchMouseClicked(evt);
+            }
+        });
 
         jRadioWithdrawComplaint.setBackground(new java.awt.Color(255, 255, 255));
         jRadioWithdrawComplaint.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jRadioWithdrawComplaint.setText("ถอนคำร้องทุกข์");
+        jRadioWithdrawComplaint.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioWithdrawComplaintMouseClicked(evt);
+            }
+        });
         jRadioWithdrawComplaint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioWithdrawComplaintActionPerformed(evt);
@@ -1221,6 +1245,11 @@ public class SuspectForm extends javax.swing.JDialog {
         jRadioRestore.setBackground(new java.awt.Color(255, 255, 255));
         jRadioRestore.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jRadioRestore.setText("ส่งฟื้นฟู");
+        jRadioRestore.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioRestoreMouseClicked(evt);
+            }
+        });
 
         jRadioStatus1.setBackground(new java.awt.Color(255, 255, 255));
         jRadioStatus1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -1228,6 +1257,11 @@ public class SuspectForm extends javax.swing.JDialog {
         jRadioStatus1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jRadioStatus1ItemStateChanged(evt);
+            }
+        });
+        jRadioStatus1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioStatus1MouseClicked(evt);
             }
         });
 
@@ -1240,10 +1274,20 @@ public class SuspectForm extends javax.swing.JDialog {
                 jRadioStatus2ItemStateChanged(evt);
             }
         });
+        jRadioStatus2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioStatus2MouseClicked(evt);
+            }
+        });
 
         jRadioSue.setBackground(new java.awt.Color(255, 255, 255));
         jRadioSue.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jRadioSue.setText("ฟ้องวาจา");
+        jRadioSue.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioSueMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -1307,6 +1351,9 @@ public class SuspectForm extends javax.swing.JDialog {
             .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
         );
 
+        jLabelBailDate.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabelBailDate.setText("วันประกัน");
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -1344,7 +1391,7 @@ public class SuspectForm extends javax.swing.JDialog {
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jLabelArrestPlace, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabelRate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabelBailDate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabelBailDate, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel5Layout.createSequentialGroup()
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1393,9 +1440,9 @@ public class SuspectForm extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel8, 127, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelBailDate, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanelBailDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanelBailDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelBailDate, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelRate)
@@ -1425,10 +1472,10 @@ public class SuspectForm extends javax.swing.JDialog {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Attach, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelFreezeOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanelAttachlDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelFreezeDate, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabelFreezeDate, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                    .addComponent(jPanelAttachlDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -1449,7 +1496,7 @@ public class SuspectForm extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addGap(87, 87, 87))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1463,7 +1510,7 @@ public class SuspectForm extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 732, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 778, Short.MAX_VALUE)
         );
 
         pack();
@@ -1992,6 +2039,102 @@ public class SuspectForm extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_SusConfressActionPerformed
 
+    private void jRadioStatus1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioStatus1MouseClicked
+        // TODO add your handling code here:
+         int clickCount = 0;
+            if (jRadioStatus1.isSelected()) {
+
+        if (++clickCount % 2 == 0) {
+
+            g.clearSelection();
+        }
+    }
+    }//GEN-LAST:event_jRadioStatus1MouseClicked
+
+    private void jRadioStatus2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioStatus2MouseClicked
+        // TODO add your handling code here:
+         int clickCount = 0;
+        if (jRadioStatus2.isSelected()) {
+
+        if (++clickCount % 2 == 0) {
+
+            g.clearSelection();
+        }
+    }
+    }//GEN-LAST:event_jRadioStatus2MouseClicked
+
+    private void jRadioSueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioSueMouseClicked
+        // TODO add your handling code here:
+         int clickCount = 0;
+        if (jRadioSue.isSelected()) {
+
+        if (++clickCount % 2 == 0) {
+
+            g.clearSelection();
+        }
+    }
+    }//GEN-LAST:event_jRadioSueMouseClicked
+
+    private void jRadioCantCatchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioCantCatchMouseClicked
+        // TODO add your handling code here:
+         int clickCount = 0;
+        if (jRadioCantCatch.isSelected()) {
+
+        if (++clickCount % 2 == 0) {
+
+            g.clearSelection();
+        }
+    }
+    }//GEN-LAST:event_jRadioCantCatchMouseClicked
+
+    private void jRadioWithdrawComplaintMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioWithdrawComplaintMouseClicked
+        // TODO add your handling code here:
+         int clickCount = 0;
+        if (jRadioWithdrawComplaint.isSelected()) {
+
+        if (++clickCount % 2 == 0) {
+
+            jRadioWithdrawComplaint.setSelected(false);
+        }
+    }
+    }//GEN-LAST:event_jRadioWithdrawComplaintMouseClicked
+
+    private void jRadioRestoreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioRestoreMouseClicked
+        // TODO add your handling code here:
+         int clickCount = 0;
+         if (jRadioRestore.isSelected()) {
+
+        if (++clickCount % 2 == 0) {
+
+            g.clearSelection();
+        }
+    }
+    }//GEN-LAST:event_jRadioRestoreMouseClicked
+
+    private void jRadioFreezeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioFreezeMouseClicked
+        // TODO add your handling code here:
+         int clickCount = 0;
+        if (jRadioFreeze.isSelected()) {
+
+        if (++clickCount % 2 == 0) {
+
+            g.clearSelection();
+        }
+    }
+    }//GEN-LAST:event_jRadioFreezeMouseClicked
+
+    private void jRadioOtherMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioOtherMouseClicked
+        // TODO add your handling code here:
+         int clickCount = 0;
+         if (jRadioOther.isSelected()) {
+
+        if (++clickCount % 2 == 0) {
+
+            g.clearSelection();
+        }
+    }
+    }//GEN-LAST:event_jRadioOtherMouseClicked
+
     public void eventJButtonManage(){
  
    jRadioUnknowSuspect.addItemListener(new ItemListener() {
@@ -2221,7 +2364,7 @@ public class SuspectForm extends javax.swing.JDialog {
     jSpinnerArrTime.setVisible(false);          
     PlaceArrest.setVisible(false); 
     jPanelRestoreDate.setVisible(false);
-//     jLabelBailDate.setVisible(false);
+
 //     
 //            jPanelBailDate.setVisible(false);   
             jLabelArrestEnd.setVisible(false);
