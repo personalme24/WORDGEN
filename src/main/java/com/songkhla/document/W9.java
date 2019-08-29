@@ -147,7 +147,7 @@ public static void w9(String cc) {
                     bookmarkvalue.put("PS14", Checknull(s.getString("Race")));
                     bookmarkvalue.put("PS15", Checknull(s.getString("Nationality")));
                     bookmarkvalue.put("PS16", Checknull(s.getString("Religion")));
-                    bookmarkvalue.put("PS17", Checknull(s.getString("Occupation")));
+                    bookmarkvalue.put("PS17", Checknull(s.getString("Occupation"))+" โทร. "+Checknull(s.getString("PhonePerson"))); 
                     bookmarkvalue.put("PS22", Checknull(s.getString("HouseNumber")));
                     bookmarkvalue.put("PS23", Checknull(s.getString("Moo")));
                     bookmarkvalue.put("PS24", Checknull(s.getString("Tambon")));

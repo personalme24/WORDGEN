@@ -113,25 +113,35 @@ public static void w67(String cc) {
                 String Date="";
                 String Month="";
                 String Year="";
-                SimpleDateFormat sdfstart ;
-                Calendar  calstart = Calendar.getInstance();
-                sdfstart = new SimpleDateFormat("d", new Locale("th", "TH"));  
-               Date =sdfstart.format(calstart.getTime());
-              
+                  
+           
+                SimpleDateFormat sdfstart = new SimpleDateFormat("d/MM/yyyy", new Locale("th", "TH"));  
+                SimpleDateFormat dateto  = new SimpleDateFormat("d MMMM yyyy", new Locale("th", "TH")); 
+                Date date=null;
+         
+               date = sdfstart.parse(s.getString("ArrestDateTimeEnd"));   
+               System.out.print("4444"+date);
+               
+               sdfstart = new SimpleDateFormat("d", new Locale("th", "TH"));  
+               Date =sdfstart.format(date.getTime());
+               
                sdfstart = new SimpleDateFormat("MMMM", new Locale("th", "TH"));  
-               Month=sdfstart.format(calstart.getTime());
+               Month=sdfstart.format(date.getTime());
                
                sdfstart = new SimpleDateFormat("yyyy", new Locale("th", "TH"));  
-               Year=sdfstart.format(calstart.getTime());
+               Year=sdfstart.format(date.getTime());
+             
+                
+               
                  
 //                System.out.print("ข้อหา :: "+s.getString("ChargeCode"));
 //                System.out.print(" - ");
                  JSONObject bookmarkvalue = new JSONObject();
 //              
-                bookmarkvalue.put("C1",Checknull(Date));
-                bookmarkvalue.put("C01",Checknull(Month));
-                bookmarkvalue.put("C001",Checknull(Year));
-		bookmarkvalue.put("C2",Checknull(cs));
+                bookmarkvalue.put("C010",Checknull(Date));
+                bookmarkvalue.put("C012",Checknull(Month));
+                bookmarkvalue.put("C013",Checknull(Year));
+		//bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3",Checknull(ccYear));
                 bookmarkvalue.put("CC2",Checknull(caseno));
                 bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
