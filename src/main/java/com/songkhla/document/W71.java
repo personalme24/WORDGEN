@@ -148,7 +148,7 @@ public class W71 {
                    String sql="select crimecase.*,Person.*,P2.*,ChargeCase.*,BailAsset.*\n" +
                               "from crimecase \n" +
                               "inner join( \n" +
-                              "SELECT min(Person.NoPerson),Person.FullNamePerson suspectName FROM Person where Person.TypePerson='ผู้ต้องหา')P2 \n" +
+                              "SELECT min(Person.NoPerson),Person.FullNamePerson suspectName FROM Person where Person.TypePerson='ผู้ต้องหา'and Person.StatusBail='ประกัน'  and Person.caseIdPerson='"+cc+"')P2 \n" +
                               "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
                               "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                               "left join BailAsset on Person.caseIdPerson = BailAsset.BailCaseId\n" +
