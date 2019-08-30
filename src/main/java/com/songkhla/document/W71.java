@@ -19,6 +19,7 @@ import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -223,21 +224,25 @@ public class W71 {
                        bookmarkvalue.put("P03", Checknull(FirstName));
                        bookmarkvalue.put("P04", Checknull(LastName));
                        bookmarkvalue.put("P05", Checknull(Position));
-                       
-                String   BailAssetTotal = s.getString("BailAssetTotal").replace (",", "");
-                         
-                       
+                
+                String[]   BailAssetTotal1 = s.getString("BailAssetTotal").split(" ");
+                System.out.println(">>>>>"+Arrays.toString(BailAssetTotal1));
+                String a=BailAssetTotal1[0];
+                
+                String   BailAssetTotal = a.replace (",", "");
+               System.out.println(">>>>>"+BailAssetTotal);
                  if ((BailAssetTotal) != null)
                     {
                     
                     SumValue = SumValue+Integer.parseInt(BailAssetTotal);
                     } 
-                   bookmarkvalue.put("BA661",Checknull(Integer.toString(SumValue)));
+                   bookmarkvalue.put("BA661",Checknull(regexCommafy(Integer.toString(SumValue))));
                    bookmarkvalue.put("BA6611",Checknull(ThaiBaht(Integer.toString(SumValue))));
                      ++BailAssetId ;
                      
                      
                       System.out.println(">>>>>"+BailAssetId);
+
 			JSONArray tablecolumn = new JSONArray();
 			tablecolumn.add("BA2");
 			tablecolumn.add("BA3");
@@ -607,5 +612,18 @@ public class W71 {
   return bahtTH;
 
  }
+  private static String regexCommafy(String inputNum)
+    {
+        String regex = "(\\d)(?=(\\d{3})+$)";
+        String [] splittedNum = inputNum.split("\\.");
+        if(splittedNum.length==2)
+        {
+            return splittedNum[0].replaceAll(regex, "$1,")+"."+splittedNum[1];
+        }
+        else
+        {
+            return inputNum.replaceAll(regex, "$1,");
+        }
+    }
          
 }

@@ -17,6 +17,7 @@ import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -169,14 +170,19 @@ public class W14 {
                     */
 	
 			++OrderAsset ;
-                    String   Value = s.getString("Value").replace (",", "");
+                    String[]   Value1 = s.getString("Value").split(" ");
+                System.out.println(">>>>>"+Arrays.toString(Value1));
+                String a=Value1[0];
+                
+                String   Value = a.replace (",", "");
+                System.out.println(">>>>>"+Value);
                    
                     if ((Value) != null){
                     
                     SumValue = SumValue+Integer.parseInt(Value);
                     } 
                     bookmarkvalue.put("AS331",Checknull(Integer.toString(OrderAsset)));
-                    bookmarkvalue.put("AS661",Checknull(Integer.toString(SumValue)));
+                    bookmarkvalue.put("AS661",Checknull(regexCommafy(Integer.toString(SumValue))));
                     bookmarkvalue.put("AS1",Checknull(s.getString("EvidenceRecordNumber")));
                     
                     
@@ -423,4 +429,17 @@ public static void nw14() {
         }
         return sb.toString();  
     }  
+    private static String regexCommafy(String inputNum)
+    {
+        String regex = "(\\d)(?=(\\d{3})+$)";
+        String [] splittedNum = inputNum.split("\\.");
+        if(splittedNum.length==2)
+        {
+            return splittedNum[0].replaceAll(regex, "$1,")+"."+splittedNum[1];
+        }
+        else
+        {
+            return inputNum.replaceAll(regex, "$1,");
+        }
+    }
 }

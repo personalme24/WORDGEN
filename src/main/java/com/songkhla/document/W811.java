@@ -137,7 +137,7 @@ public class W811 {
                 bookmarkvalue.put("S27",Checknull(ProvincProsecutor));
                 bookmarkvalue.put("S10",Checknull(TelStation));
                 
-                bookmarkvalue.put("A2", Checknull(s.getString("ActionCrimesCase")));
+                bookmarkvalue.put("A2", Checknull(s.getString("ActionDetailCase")));
                 
                 bookmarkvalue.put("PA2",  Checknull(s.getString("PeopleRegistrationID")));
                 bookmarkvalue.put("PA3",  Checknull(ToDate(s.getString("IssueDate"))));
@@ -147,7 +147,7 @@ public class W811 {
                 bookmarkvalue.put("PA14", Checknull(s.getString("Race")));
                 bookmarkvalue.put("PA15", Checknull(s.getString("Nationality"))); 
                 bookmarkvalue.put("PA16", Checknull(s.getString("Religion")));
-                bookmarkvalue.put("PA17", Checknull(s.getString("Occupation"))); 
+                bookmarkvalue.put("PA17", Checknull(s.getString("Occupation"))+" โทร. "+Checknull(s.getString("PhonePerson")));  
                 bookmarkvalue.put("PA22", Checknull(s.getString("HouseNumber"))); 
                 bookmarkvalue.put("PA23", Checknull(s.getString("Moo"))); 
                 bookmarkvalue.put("PA24", Checknull(s.getString("Tambon"))); 
