@@ -17,6 +17,7 @@ import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -52,6 +53,7 @@ public static void w70(String cc) {
             String ccYear;
             String casetype;
             String caseno;
+            String suspectFullNamePerson="";
              String PoliceStationName="";
              String HeadName="";
              String HeadPosition="";
@@ -93,7 +95,7 @@ public static void w70(String cc) {
                               "SELECT min(Person.NoPerson),Person.PeopleRegistrationID suspectPeopleRegistrationID,Person.IssueDate suspectIssueDate,Person.FullNamePerson suspectFullNamePerson,Person.Age suspectAge,"
                             + "Person.Race suspectRace,Person.Nationality suspectNationality,Person.Religion suspectReligion,Person.IssuedBy suspectIssuedBy, \n" +
                               "Person.Occupation suspectOccupation,Person.HouseNumber suspectHouseNumber,Person.Moo suspectMoo,Person.Tambon suspectTambon,Person.Amphur suspectAmphur,Person.Province suspectProvince,Person.Soi suspectSoi,Person.SusConfress suspectSusConfress\n" +
-                              "FROM Person where Person.TypePerson='ผู้ต้องหา')P2 \n" +
+                              "FROM Person where Person.TypePerson='ผู้ต้องหา' and Person.StatusBail='ประกัน'  and Person.caseIdPerson='"+cc+"')P2 \n" +
                               "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
                               "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                               "left join BailAsset on Person.caseIdPerson = BailAsset.BailCaseId\n" +
@@ -109,6 +111,7 @@ public static void w70(String cc) {
                  ccYear=s.getString("crimecaseyears");
                  casetype =s.getString("casetype");
                  caseno  =s.getString("crimecasenoyear");
+                 suspectFullNamePerson= s.getString("suspectFullNamePerson");
                 String Date="";
                 String Month="";
                 String Year="";
@@ -149,7 +152,8 @@ public static void w70(String cc) {
                     bookmarkvalue.put("PS2", Checknull(s.getString("suspectPeopleRegistrationID"))); 
                     bookmarkvalue.put("PS3",Checknull(ToDate(s.getString("suspectIssueDate")))); 
                     bookmarkvalue.put("PS5",Checknull(s.getString("suspectIssuedBy"))); 
-                    bookmarkvalue.put("PS7", Checknull(s.getString("suspectFullNamePerson"))); 
+                    bookmarkvalue.put("PS7", Checknull(suspectFullNamePerson)); 
+                    System.out.print("ชื่อผู้ต้องหา"+suspectFullNamePerson);
                     bookmarkvalue.put("PS13", Checknull(s.getString("suspectAge")));
                     bookmarkvalue.put("PS14", Checknull(s.getString("suspectRace")));
                     bookmarkvalue.put("PS15", Checknull(s.getString("suspectNationality")));
@@ -200,7 +204,12 @@ public static void w70(String cc) {
                             bookmarkvalue.put("C14", Checknull(s.getString("CrimeLocationProvince")));
                             bookmarkvalue.put("C15", Checknull(s.getString("DailyNumber")));
                             
-                             String   BailAssetTotal = s.getString("BailAssetTotal").replace (",", "");
+                String[]   BailAssetTotal1 = s.getString("BailAssetTotal").split(" ");
+                System.out.println(">>>>>"+Arrays.toString(BailAssetTotal1));
+                String a=BailAssetTotal1[0];
+                
+                String   BailAssetTotal = a.replace (",", "");
+               System.out.println(">>>>>"+BailAssetTotal);
                    
                  if ((BailAssetTotal) != null)
                     {
@@ -209,7 +218,7 @@ public static void w70(String cc) {
                     } 
                       ++BailAssetId ;
                             VarBA3= VarBA3+","+s.getString("BailAssetDetail");
-                            bookmarkvalue.put("AB3","หลักทรัพย์ที่ใช้ประกัน "+Checknull(VarBA3).substring(5)+" ราคาประเมิน "+Checknull(Integer.toString(SumValue))+" บาท");
+                            bookmarkvalue.put("AB3","หลักทรัพย์ที่ใช้ประกัน "+Checknull(VarBA3).substring(5)+" ราคาประเมิน "+Checknull(regexCommafy(Integer.toString(SumValue)))+" บาท");
                             
   
 			JSONArray tablecolumn = new JSONArray();
@@ -230,7 +239,7 @@ public static void w70(String cc) {
 					.load(new java.io.File("./TEMPLATE/w70.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/บันทึกการเสนอสัญญาประกัน "+s.getString("suspectFullNamePerson")+"" +cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/บันทึกการเสนอสัญญาประกัน "+suspectFullNamePerson+"" +cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -469,5 +478,18 @@ public static void nw70() {
         }
         return sb.toString();  
     }  
+    private static String regexCommafy(String inputNum)
+    {
+        String regex = "(\\d)(?=(\\d{3})+$)";
+        String [] splittedNum = inputNum.split("\\.");
+        if(splittedNum.length==2)
+        {
+            return splittedNum[0].replaceAll(regex, "$1,")+"."+splittedNum[1];
+        }
+        else
+        {
+            return inputNum.replaceAll(regex, "$1,");
+        }
+    }
 }
 
