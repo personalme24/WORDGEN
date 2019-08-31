@@ -97,6 +97,19 @@ public class AssetNewEdit extends javax.swing.JDialog {
             OrderAsset.setText(OrderAsset());
             isInsert=true;
         }
+        
+//        ----------------------------Right Click---------------------------------
+          JTextPopupMenu.addTo(EvidenceRecordNumber1);
+           JTextPopupMenu.addTo(Name);
+          JTextPopupMenu.addTo(OccupantName);
+          JTextPopupMenu.addTo(DefectMark);
+          JTextPopupMenu.addTo(PlaceFoundExhibit);
+          JTextPopupMenu.addTo(PointFoundCheck);
+          JTextPopupMenu.addTo(Amount);
+          JTextPopupMenu.addTo(Value);
+          JTextPopupMenu.addTo(Remark);
+
+
     }
 
     /**

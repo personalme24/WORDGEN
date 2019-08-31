@@ -88,6 +88,10 @@ public class ChargePage extends javax.swing.JDialog {
                            }
              }
              );
+     JTextPopupMenu.addTo(ChargeName);
+         JTextPopupMenu.addTo(Law);
+         JTextPopupMenu.addTo(RateOfPenalty);
+         JTextPopupMenu.addTo(Note);
      
     }
 
@@ -234,7 +238,7 @@ public class ChargePage extends javax.swing.JDialog {
         ChargeName.setColumns(20);
         ChargeName.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         ChargeName.setLineWrap(true);
-        ChargeName.setRows(2);
+        ChargeName.setRows(1);
         ChargeName.setTabSize(1);
         jScrollChangeName.setViewportView(ChargeName);
 

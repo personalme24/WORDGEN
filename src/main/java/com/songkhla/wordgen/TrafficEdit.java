@@ -365,20 +365,13 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         else{
             jButtonEditCase.setEnabled(false);
               jTabbedPane2.setEnabledAt(jTabbedPane2.getTabCount()-1, false);
-//            Date date2=new Date();
-//            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
-//            Date date = dateFormat.parse(date2);
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
 	Date date = new Date();
         dateFormat.format(date);
 //	System.out.println(dateFormat.format(date));
             caseidLast=IdCase();
            crimecaseid.setText(IdCase());
-        
-           
-//           CaseAcceptDate.setDate(date);
-//           CaseRequestDateTime.setDate(date);
-//           OccuredDate.setDate(date);
+
            isInsert=true;
           jCheckDuringInvest.setSelected(true);
 
@@ -386,6 +379,23 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         String da=CaseAcceptDate.getJFormattedTextField().getText();
         String od=OccuredDate.getJFormattedTextField().getText();
 AutoCompleteDecorator.decorate(CrimeLocationProvince); 
+//---------------------------Right Clickkk------------------------
+JTextPopupMenu.addTo(crimecaseno);
+JTextPopupMenu.addTo(crimecaseyear);
+JTextPopupMenu.addTo(OccuredDate.getJFormattedTextField());
+JTextPopupMenu.addTo(CaseAcceptDate.getJFormattedTextField());
+JTextPopupMenu.addTo(CaseRequestDateTime.getJFormattedTextField());
+JTextPopupMenu.addTo(DailyNumber);
+JTextPopupMenu.addTo(CrimeLocation);
+JTextPopupMenu.addTo(CrimeLocationMoo);
+JTextPopupMenu.addTo(CrimeLocationSoi);
+JTextPopupMenu.addTo(CrimeLocationRoad);
+JTextPopupMenu.addTo(jTextInvestSendtoDepartment);
+JTextPopupMenu.addTo(Investigator_Number);
+JTextPopupMenu.addTo(Invest_SendCaseDate.getJFormattedTextField());
+JTextPopupMenu.addTo(CapitalCrimeCaseNumber);
+JTextPopupMenu.addTo(Prosecutor_Result);
+JTextPopupMenu.addTo(CourtResult);
 
             
     }

@@ -92,6 +92,12 @@ public class ActionPage extends javax.swing.JDialog {
                            }
              }
              );
+         JTextPopupMenu.addTo(ActionCrimes);
+         JTextPopupMenu.addTo(ActionDetail);
+         JTextPopupMenu.addTo(AnswerAccuser);
+         JTextPopupMenu.addTo(AnswerSuspect);
+         JTextPopupMenu.addTo(ActionNote);
+
     }
 
     /**

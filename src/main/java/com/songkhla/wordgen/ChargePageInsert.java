@@ -67,7 +67,11 @@ public class ChargePageInsert extends javax.swing.JDialog {
             else{
             isInsert=true;
         }
-     
+     JTextPopupMenu.addTo(ChargeName);
+     JTextPopupMenu.addTo(Law);
+     JTextPopupMenu.addTo(RateOfPenalty);
+     JTextPopupMenu.addTo(Note);
+
     }
 
 //    ChargePage(CrimesCaseEdit aThis, Object object) {
@@ -137,12 +141,14 @@ public class ChargePageInsert extends javax.swing.JDialog {
         Note.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         Note.setLineWrap(true);
         Note.setRows(5);
+        Note.setTabSize(1);
         jScrollPane1.setViewportView(Note);
 
         RateOfPenalty.setColumns(20);
         RateOfPenalty.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         RateOfPenalty.setLineWrap(true);
         RateOfPenalty.setRows(5);
+        RateOfPenalty.setTabSize(1);
         jScrollPane5.setViewportView(RateOfPenalty);
 
         jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
@@ -155,6 +161,7 @@ public class ChargePageInsert extends javax.swing.JDialog {
         Law.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         Law.setLineWrap(true);
         Law.setRows(5);
+        Law.setTabSize(1);
         jScrollPane4.setViewportView(Law);
 
         jLabel2.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N

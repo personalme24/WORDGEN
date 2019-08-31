@@ -54,7 +54,12 @@ public class BailAssetAdd extends javax.swing.JDialog {
                 else{
                     BailAssetOrder.setText(IdBailAsset());
                 isInsert=true;}
-                
+                  JTextPopupMenu.addTo(BailAssetDetail);
+           JTextPopupMenu.addTo(BailAssetBath);
+          JTextPopupMenu.addTo(BailAmount);
+          JTextPopupMenu.addTo(BailAssetTotal);
+          JTextPopupMenu.addTo(BailAssetRemark);
+
     }
 
     /**

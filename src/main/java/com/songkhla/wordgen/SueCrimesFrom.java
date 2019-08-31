@@ -158,7 +158,8 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
         ChargeName.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 //        jLabel2.setVisible(false);
-    
+    closePrint();
+    jButtonEdit.setEnabled(false);
           person=datain.get("NoPerson")+"";
             caseid=datain.get("caseIdPerson")+"";   
             dateF=datain.get("SueFirstDate")+"";
@@ -215,6 +216,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         if(datain != null){
             
          try{
+//             closeText();
              StatusSuspect.setText(datain.get("StatusSuspect")+"");
              Court=datain.get("CourtSuspect")+"";
              StatusBail=datain.get("StatusBail")+"";
@@ -412,6 +414,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         SueFirst = new javax.swing.JTextField();
         jButtonSave = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jButtonEdit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -1250,25 +1253,36 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             }
         });
 
+        jButtonEdit.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jButtonEdit.setText("แก้ไข");
+        jButtonEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEditActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 1258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 1258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(12, 12, 12))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)
-                        .addGap(11, 11, 11)))
-                .addGap(12, 12, 12))
+                        .addComponent(jButtonEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15))))
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
@@ -1280,12 +1294,11 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(1, 1, 1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jButtonEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(6, 6, 6)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1409,6 +1422,9 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             if (response == JOptionPane.YES_OPTION) {
                 pst.executeUpdate();
                 pst.close();
+                closeText();
+                openPrint();
+                jButtonEdit.setEnabled(true);
                 System.out.println("SQL : "+sqlUpdate);
             }
 
@@ -1423,7 +1439,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
     private void Print2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Print2ActionPerformed
         // TODO add your handling code here:
         if(SueSecond.getText().equals("")){
-            JOptionPane.showMessageDialog(jPanel1,"กรุณากรอกข้อมูล", "แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(jPanel1,"กรุณากรอกข้อมูลให้ครบถ้วน", "แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);
         }
         else{
             yourAttemptActionPerformed2();
@@ -1434,7 +1450,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
     private void Print7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Print7ActionPerformed
         // TODO add your handling code here:
         if(SueSeventh.getText().equals("")){
-            JOptionPane.showMessageDialog(jPanel1,"กรุณากรอกข้อมูล", "แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(jPanel1,"กรุณากรอกข้อมูลให้ครบถ้วน", "แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);
         }
         else{
             yourAttemptActionPerformed7();
@@ -1444,7 +1460,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
     private void Print6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Print6ActionPerformed
         // TODO add your handling code here:
         if(SueSixth.getText().equals("")){
-            JOptionPane.showMessageDialog(jPanel1,"กรุณากรอกข้อมูล", "แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(jPanel1,"กรุณากรอกข้อมูลให้ครบถ้วน", "แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);
         }
         else{
             yourAttemptActionPerformed6();
@@ -1454,7 +1470,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
     private void Print5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Print5ActionPerformed
         // TODO add your handling code here:
         if(SueFifth.getText().equals("")){
-            JOptionPane.showMessageDialog(jPanel1,"กรุณากรอกข้อมูล", "แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(jPanel1,"กรุณากรอกข้อมูลให้ครบถ้วน", "แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);
         }
         else{
             yourAttemptActionPerformed5();
@@ -1464,7 +1480,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
     private void Print4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Print4ActionPerformed
         // TODO add your handling code here:
         if(SueForth.getText().equals("")){
-            JOptionPane.showMessageDialog(jPanel1,"กรุณากรอกข้อมูล", "แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(jPanel1,"กรุณากรอกข้อมูลให้ครบถ้วน", "แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);
         }
         else{
             yourAttemptActionPerformed4();
@@ -1672,7 +1688,116 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             }
         }
     }//GEN-LAST:event_SueSecTotalKeyReleased
+public void closePrint(){
+Print1.setEnabled(false);
+Print2.setEnabled(false);
+Print3.setEnabled(false);
+Print4.setEnabled(false);
+Print5.setEnabled(false);
+Print6.setEnabled(false);
+Print7.setEnabled(false);
 
+
+}
+public void openPrint(){
+Print1.setEnabled(true);
+Print2.setEnabled(true);
+Print3.setEnabled(true);
+Print4.setEnabled(true);
+Print5.setEnabled(true);
+Print6.setEnabled(true);
+Print7.setEnabled(true);
+}
+public void closeText(){
+SueFirst.setEnabled(false);
+SueFirstDate.setEnabled(false);
+SueFirstTotal.setEnabled(false);
+SueFirstEnd.setEnabled(false);
+SueFirstRequest.setEnabled(false);
+SueFirstCause.setEnabled(false);
+ SueSecond.setEnabled(false);
+            SueSecDateT.setEnabled(false);      
+            SueSecEnd.setEnabled(false);
+            SueSecTotal.setEnabled(false);
+           SueSecRequest.setEnabled(false);
+           SueSecCause.setEnabled(false);
+             SueThird.setEnabled(false);
+            ThirdDate.setEnabled(false);        
+            SueThirdEnd.setEnabled(false);
+            SueThirdTotal.setEnabled(false);
+           SueThirdRequest.setEnabled(false);
+           SueThirdCause.setEnabled(false);
+             SueForth.setEnabled(false);
+            FourthDate.setEnabled(false);        
+            SueFourthEnd.setEnabled(false);
+            SueFourthTotal.setEnabled(false);
+           SueFourthRequest.setEnabled(false);
+           SueFourthCause.setEnabled(false);
+             SueFifth.setEnabled(false);
+            FifthDate.setEnabled(false);      
+            SueFifthEnd.setEnabled(false);
+            SueFifthTotal.setEnabled(false);
+           SueFifthRequest.setEnabled(false);
+           SueFifthCause.setEnabled(false);
+              SueSixth.setEnabled(false);
+            SixthDate.setEnabled(false);       
+            SueSixthEnd.setEnabled(false);
+            SueSixthTotal.setEnabled(false);
+           SueSixthRequest.setEnabled(false);
+           SueSixthCause.setEnabled(false);       
+               SueSeventh.setEnabled(false);
+            SevDate.setEnabled(false);  
+            SueSevenEnd.setEnabled(false);
+            SueSevenTotal.setEnabled(false);
+           SueSevRequest.setEnabled(false);
+           SueSevCause.setEnabled(false);  
+
+}
+public void openText(){
+SueFirst.setEnabled(true);
+SueFirstDate.setEnabled(true);
+SueFirstTotal.setEnabled(true);
+SueFirstEnd.setEnabled(true);
+SueFirstRequest.setEnabled(true);
+SueFirstCause.setEnabled(true);
+ SueSecond.setEnabled(true);
+            SueSecDateT.setEnabled(true);      
+            SueSecEnd.setEnabled(true);
+            SueSecTotal.setEnabled(true);
+           SueSecRequest.setEnabled(true);
+           SueSecCause.setEnabled(true);
+             SueThird.setEnabled(true);
+            ThirdDate.setEnabled(true);        
+            SueThirdEnd.setEnabled(true);
+            SueThirdTotal.setEnabled(true);
+           SueThirdRequest.setEnabled(true);
+           SueThirdCause.setEnabled(true);
+             SueForth.setEnabled(true);
+            FourthDate.setEnabled(true);        
+            SueFourthEnd.setEnabled(true);
+            SueFourthTotal.setEnabled(true);
+           SueFourthRequest.setEnabled(true);
+           SueFourthCause.setEnabled(true);
+             SueFifth.setEnabled(true);
+            FifthDate.setEnabled(true);      
+            SueFifthEnd.setEnabled(true);
+            SueFifthTotal.setEnabled(true);
+           SueFifthRequest.setEnabled(true);
+           SueFifthCause.setEnabled(true);
+              SueSixth.setEnabled(true);
+            SixthDate.setEnabled(true);       
+            SueSixthEnd.setEnabled(true);
+            SueSixthTotal.setEnabled(true);
+           SueSixthRequest.setEnabled(true);
+           SueSixthCause.setEnabled(true);       
+               SueSeventh.setEnabled(true);
+            SevDate.setEnabled(true);  
+            SueSevenEnd.setEnabled(true);
+            SueSevenTotal.setEnabled(true);
+           SueSevRequest.setEnabled(true);
+           SueSevCause.setEnabled(true);  
+
+}
     private void SueFirstTotalKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SueFirstTotalKeyReleased
         // TODO add your handling code here:
 
@@ -1716,6 +1841,12 @@ public class SueCrimesFrom extends javax.swing.JDialog {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButtonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditActionPerformed
+        // TODO add your handling code here:
+        openText();
+        closePrint();
+    }//GEN-LAST:event_jButtonEditActionPerformed
        public void Block(){
        if(Court.equals("ศาลแขวง")&&StatusBail.equals("ประกัน"))
        {
@@ -2051,7 +2182,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 
 
        
-//    new BackgroundWorker3().execute();
+    new BackgroundWorker3().execute();
 
 
     } 
@@ -2059,15 +2190,15 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 
 
        
-//    new BackgroundWorker4().execute();
-
+    new BackgroundWorker4().execute();
+//
 
     } 
     private void yourAttemptActionPerformed5() {
 
 
        
-//    new BackgroundWorker5().execute();
+    new BackgroundWorker5().execute();
 
 
     } 
@@ -2075,7 +2206,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 
 
        
-//    new BackgroundWorker6().execute();
+    new BackgroundWorker6().execute();
 
 
     } 
@@ -2083,7 +2214,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 
 
        
-//    new BackgroundWorker7().execute();
+    new BackgroundWorker7().execute();
 
 
     } 
@@ -2254,7 +2385,11 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 		}
     @Override
     public Void doInBackground() {
-  
+  File f3=new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
+   
+        f3.mkdirs();
+        System.out.print(f3);
+        System.out.print("folder created");
 //            JCheckBox[] boxes = {};
         try { 
             for (int i = 0; i < 2; i++) {
@@ -2290,473 +2425,475 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 //        Toolkit.getDefaultToolkit().beep();
     }
 }/**/
-//       public class BackgroundWorker3 extends SwingWorker<Void, Void> {
-//
-//    private static final long SLEEP_TIME =10;
-//    private String text;
-//        private JProgressBar pb;
-//		private JDialog dialog;
-////   public void Task() {
-////       
-////    }
-////       public ProgressWorker(JProgressBar progress) {
-////            this.progress = progress;
-////        
-//            public BackgroundWorker3() {
-//           
-//			addPropertyChangeListener(new PropertyChangeListener() {
-//				@Override
-//				public void propertyChange(PropertyChangeEvent evt) {
-//					if ("progress".equalsIgnoreCase(evt.getPropertyName())) {
-//						 if (dialog == null) {
-//							dialog = new JDialog();
-//                                                        ImageIcon img = new ImageIcon("./Master/WD.png");
-//                                                           dialog.setIconImage(img.getImage());
-//							dialog.setTitle("Processing");
-//							dialog.setLayout(new GridBagLayout());
-//							dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
-//							GridBagConstraints gbc = new GridBagConstraints();
-//							gbc.insets = new Insets(2, 2, 2, 2);
-//							gbc.weightx = 1;
-//							gbc.gridy = 0;
-//							dialog.add(new JLabel("Processing..."), gbc);
-//							pb = new JProgressBar();
-//							pb.setStringPainted(true);
-////                                                        pb.setForeground(Color.blue);]
-//                                               
-//                                                        pb.setMaximum(100);
-//                                                        pb.setMinimum(0);
-//                                                        
-//							gbc.gridy = 1;
-//							dialog.add(pb, gbc);
-//							dialog.pack();
-//							dialog.setLocationRelativeTo(null);
-//							dialog.setModal(true);
-//							JDialog.setDefaultLookAndFeelDecorated(true); 
-//							dialog.setVisible(true);
-//						}
-//						pb.setValue(getProgress());
-//					}
-//				}
-//
-//			});
-//		}
-//    @Override
-//    public Void doInBackground() {
-//  
-////            JCheckBox[] boxes = {};
-//        try { 
-//            for (int i = 0; i < 2; i++) {
-////                x = x - i;
-//            setProgress((int)((i*100)/2)+1);
-////        setProgress(i * (100 / N));
-////				  setProgress(i);
-//				Thread.sleep(10);
-////            Thread.sleep(SLEEP_TIME);// imitate a long-running task
-//
-//            
-//             if(Print3.isEnabled()){
-//              W68.w68(caseid,SueThird.getText());
-//            }
-//            
-//            }
-//        } catch (InterruptedException e) {
-//        }
-////        setProgress(100);
+       public class BackgroundWorker3 extends SwingWorker<Void, Void> {
+
+    private static final long SLEEP_TIME =10;
+    private String text;
+        private JProgressBar pb;
+		private JDialog dialog;
+//   public void Task() {
+//       
+//    }
+//       public ProgressWorker(JProgressBar progress) {
+//            this.progress = progress;
 //        
-//        return null;
+            public BackgroundWorker3() {
+           
+			addPropertyChangeListener(new PropertyChangeListener() {
+				@Override
+				public void propertyChange(PropertyChangeEvent evt) {
+					if ("progress".equalsIgnoreCase(evt.getPropertyName())) {
+						 if (dialog == null) {
+							dialog = new JDialog();
+                                                        ImageIcon img = new ImageIcon("./Master/WD.png");
+                                                           dialog.setIconImage(img.getImage());
+							dialog.setTitle("Processing");
+							dialog.setLayout(new GridBagLayout());
+							dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+							GridBagConstraints gbc = new GridBagConstraints();
+							gbc.insets = new Insets(2, 2, 2, 2);
+							gbc.weightx = 1;
+							gbc.gridy = 0;
+							dialog.add(new JLabel("Processing..."), gbc);
+							pb = new JProgressBar();
+							pb.setStringPainted(true);
+//                                                        pb.setForeground(Color.blue);]
+                                               
+                                                        pb.setMaximum(100);
+                                                        pb.setMinimum(0);
+                                                        
+							gbc.gridy = 1;
+							dialog.add(pb, gbc);
+							dialog.pack();
+							dialog.setLocationRelativeTo(null);
+							dialog.setModal(true);
+							JDialog.setDefaultLookAndFeelDecorated(true); 
+							dialog.setVisible(true);
+						}
+						pb.setValue(getProgress());
+					}
+				}
+
+			});
+		}
+    @Override
+    public Void doInBackground() {
+  File f3=new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
+   
+        f3.mkdirs();
+        System.out.print(f3);
+        System.out.print("folder created");
+//            JCheckBox[] boxes = {};
+        try { 
+            for (int i = 0; i < 2; i++) {
+//                x = x - i;
+            setProgress((int)((i*100)/2)+1);
+//        setProgress(i * (100 / N));
+//				  setProgress(i);
+				Thread.sleep(10);
+//            Thread.sleep(SLEEP_TIME);// imitate a long-running task
+
+            
+             
+              W68.w68(caseid,SueThird.getText(),StatusSuspect.getText());
+            
+            
+            }
+        } catch (InterruptedException e) {
+        }
+//        setProgress(100);
+        
+        return null;
+    }
+
+    @Override
+    public void done() {
+                    if (dialog != null) {
+				dialog.dispose();
+			}
+             Desktop desktop = Desktop.getDesktop();
+        File dirToOpen = null;
+        try {
+            dirToOpen = new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
+            desktop.open(dirToOpen);
+        } catch (Exception iae) {
+            System.out.println("File Not Found :"+iae);
+        }
+//          System.out.println(text + " is done");
+//        Toolkit.getDefaultToolkit().beep();
+    }
+}/**/
+       public class BackgroundWorker4 extends SwingWorker<Void, Void> {
+
+    private static final long SLEEP_TIME =10;
+    private String text;
+        private JProgressBar pb;
+		private JDialog dialog;
+//   public void Task() {
+//       
 //    }
-//
-//    @Override
-//    public void done() {
-//                    if (dialog != null) {
-//				dialog.dispose();
-//			}
-//             Desktop desktop = Desktop.getDesktop();
-//        File dirToOpen = null;
-//        try {
-//            dirToOpen = new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
-//            desktop.open(dirToOpen);
-//        } catch (Exception iae) {
-//            System.out.println("File Not Found :"+iae);
-//        }
-////          System.out.println(text + " is done");
-////        Toolkit.getDefaultToolkit().beep();
-//    }
-//}/**/
-//       public class BackgroundWorker4 extends SwingWorker<Void, Void> {
-//
-//    private static final long SLEEP_TIME =10;
-//    private String text;
-//        private JProgressBar pb;
-//		private JDialog dialog;
-////   public void Task() {
-////       
-////    }
-////       public ProgressWorker(JProgressBar progress) {
-////            this.progress = progress;
-////        
-//            public BackgroundWorker4() {
-//           
-//			addPropertyChangeListener(new PropertyChangeListener() {
-//				@Override
-//				public void propertyChange(PropertyChangeEvent evt) {
-//					if ("progress".equalsIgnoreCase(evt.getPropertyName())) {
-//						 if (dialog == null) {
-//							dialog = new JDialog();
-//                                                        ImageIcon img = new ImageIcon("./Master/WD.png");
-//                                                           dialog.setIconImage(img.getImage());
-//							dialog.setTitle("Processing");
-//							dialog.setLayout(new GridBagLayout());
-//							dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
-//							GridBagConstraints gbc = new GridBagConstraints();
-//							gbc.insets = new Insets(2, 2, 2, 2);
-//							gbc.weightx = 1;
-//							gbc.gridy = 0;
-//							dialog.add(new JLabel("Processing..."), gbc);
-//							pb = new JProgressBar();
-//							pb.setStringPainted(true);
-////                                                        pb.setForeground(Color.blue);]
-//                                               
-//                                                        pb.setMaximum(100);
-//                                                        pb.setMinimum(0);
-//                                                        
-//							gbc.gridy = 1;
-//							dialog.add(pb, gbc);
-//							dialog.pack();
-//							dialog.setLocationRelativeTo(null);
-//							dialog.setModal(true);
-//							JDialog.setDefaultLookAndFeelDecorated(true); 
-//							dialog.setVisible(true);
-//						}
-//						pb.setValue(getProgress());
-//					}
-//				}
-//
-//			});
-//		}
-//    @Override
-//    public Void doInBackground() {
-//  
-////            JCheckBox[] boxes = {};
-//        try { 
-//            for (int i = 0; i < 2; i++) {
-////                x = x - i;
-//            setProgress((int)((i*100)/2)+1);
-////        setProgress(i * (100 / N));
-////				  setProgress(i);
-//				Thread.sleep(10);
-////            Thread.sleep(SLEEP_TIME);// imitate a long-running task
-//
-//             if(Print4.isEnabled()&& !"".equals(SueSecond.getText())){
-//             W68.w68(caseid,SueForth.getText());
-//            }
-//
-//            }
-//        } catch (InterruptedException e) {
-//        }
-////        setProgress(100);
+//       public ProgressWorker(JProgressBar progress) {
+//            this.progress = progress;
 //        
-//        return null;
+            public BackgroundWorker4() {
+           
+			addPropertyChangeListener(new PropertyChangeListener() {
+				@Override
+				public void propertyChange(PropertyChangeEvent evt) {
+					if ("progress".equalsIgnoreCase(evt.getPropertyName())) {
+						 if (dialog == null) {
+							dialog = new JDialog();
+                                                        ImageIcon img = new ImageIcon("./Master/WD.png");
+                                                           dialog.setIconImage(img.getImage());
+							dialog.setTitle("Processing");
+							dialog.setLayout(new GridBagLayout());
+							dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+							GridBagConstraints gbc = new GridBagConstraints();
+							gbc.insets = new Insets(2, 2, 2, 2);
+							gbc.weightx = 1;
+							gbc.gridy = 0;
+							dialog.add(new JLabel("Processing..."), gbc);
+							pb = new JProgressBar();
+							pb.setStringPainted(true);
+//                                                        pb.setForeground(Color.blue);]
+                                               
+                                                        pb.setMaximum(100);
+                                                        pb.setMinimum(0);
+                                                        
+							gbc.gridy = 1;
+							dialog.add(pb, gbc);
+							dialog.pack();
+							dialog.setLocationRelativeTo(null);
+							dialog.setModal(true);
+							JDialog.setDefaultLookAndFeelDecorated(true); 
+							dialog.setVisible(true);
+						}
+						pb.setValue(getProgress());
+					}
+				}
+
+			});
+		}
+    @Override
+    public Void doInBackground() {
+  
+//            JCheckBox[] boxes = {};
+        try { 
+            for (int i = 0; i < 2; i++) {
+//                x = x - i;
+            setProgress((int)((i*100)/2)+1);
+//        setProgress(i * (100 / N));
+//				  setProgress(i);
+				Thread.sleep(10);
+//            Thread.sleep(SLEEP_TIME);// imitate a long-running task
+
+                           W68.w68(caseid,SueForth.getText(),StatusSuspect.getText());
+
+
+            }
+        } catch (InterruptedException e) {
+        }
+//        setProgress(100);
+        
+        return null;
+    }
+
+    @Override
+    public void done() {
+                    if (dialog != null) {
+				dialog.dispose();
+			}
+             Desktop desktop = Desktop.getDesktop();
+        File dirToOpen = null;
+        try {
+            dirToOpen = new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
+            desktop.open(dirToOpen);
+        } catch (Exception iae) {
+            System.out.println("File Not Found :"+iae);
+        }
+//          System.out.println(text + " is done");
+//        Toolkit.getDefaultToolkit().beep();
+    }
+}/**/
+       public class BackgroundWorker5 extends SwingWorker<Void, Void> {
+
+    private static final long SLEEP_TIME =10;
+    private String text;
+        private JProgressBar pb;
+		private JDialog dialog;
+//   public void Task() {
+//       
 //    }
-//
-//    @Override
-//    public void done() {
-//                    if (dialog != null) {
-//				dialog.dispose();
-//			}
-//             Desktop desktop = Desktop.getDesktop();
-//        File dirToOpen = null;
-//        try {
-//            dirToOpen = new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
-//            desktop.open(dirToOpen);
-//        } catch (Exception iae) {
-//            System.out.println("File Not Found :"+iae);
-//        }
-////          System.out.println(text + " is done");
-////        Toolkit.getDefaultToolkit().beep();
-//    }
-//}/**/
-//       public class BackgroundWorker5 extends SwingWorker<Void, Void> {
-//
-//    private static final long SLEEP_TIME =10;
-//    private String text;
-//        private JProgressBar pb;
-//		private JDialog dialog;
-////   public void Task() {
-////       
-////    }
-////       public ProgressWorker(JProgressBar progress) {
-////            this.progress = progress;
-////        
-//            public BackgroundWorker5() {
-//           
-//			addPropertyChangeListener(new PropertyChangeListener() {
-//				@Override
-//				public void propertyChange(PropertyChangeEvent evt) {
-//					if ("progress".equalsIgnoreCase(evt.getPropertyName())) {
-//						 if (dialog == null) {
-//							dialog = new JDialog();
-//                                                        ImageIcon img = new ImageIcon("./Master/WD.png");
-//                                                           dialog.setIconImage(img.getImage());
-//							dialog.setTitle("Processing");
-//							dialog.setLayout(new GridBagLayout());
-//							dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
-//							GridBagConstraints gbc = new GridBagConstraints();
-//							gbc.insets = new Insets(2, 2, 2, 2);
-//							gbc.weightx = 1;
-//							gbc.gridy = 0;
-//							dialog.add(new JLabel("Processing..."), gbc);
-//							pb = new JProgressBar();
-//							pb.setStringPainted(true);
-////                                                        pb.setForeground(Color.blue);]
-//                                               
-//                                                        pb.setMaximum(100);
-//                                                        pb.setMinimum(0);
-//                                                        
-//							gbc.gridy = 1;
-//							dialog.add(pb, gbc);
-//							dialog.pack();
-//							dialog.setLocationRelativeTo(null);
-//							dialog.setModal(true);
-//							JDialog.setDefaultLookAndFeelDecorated(true); 
-//							dialog.setVisible(true);
-//						}
-//						pb.setValue(getProgress());
-//					}
-//				}
-//
-//			});
-//		}
-//    @Override
-//    public Void doInBackground() {
-//  
-////            JCheckBox[] boxes = {};
-//        try { 
-//            for (int i = 0; i < 2; i++) {
-////                x = x - i;
-//            setProgress((int)((i*100)/2)+1);
-////        setProgress(i * (100 / N));
-////				  setProgress(i);
-//				Thread.sleep(10);
-////            Thread.sleep(SLEEP_TIME);// imitate a long-running task
-//
-//              if(Print5.isEnabled()&& !"".equals(SueSecond.getText())){
-//             W68.w68(caseid,SueFifth.getText());
-//            }
-//
-//            }
-//        } catch (InterruptedException e) {
-//        }
-////        setProgress(100);
+//       public ProgressWorker(JProgressBar progress) {
+//            this.progress = progress;
 //        
-//        return null;
+            public BackgroundWorker5() {
+           
+			addPropertyChangeListener(new PropertyChangeListener() {
+				@Override
+				public void propertyChange(PropertyChangeEvent evt) {
+					if ("progress".equalsIgnoreCase(evt.getPropertyName())) {
+						 if (dialog == null) {
+							dialog = new JDialog();
+                                                        ImageIcon img = new ImageIcon("./Master/WD.png");
+                                                           dialog.setIconImage(img.getImage());
+							dialog.setTitle("Processing");
+							dialog.setLayout(new GridBagLayout());
+							dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+							GridBagConstraints gbc = new GridBagConstraints();
+							gbc.insets = new Insets(2, 2, 2, 2);
+							gbc.weightx = 1;
+							gbc.gridy = 0;
+							dialog.add(new JLabel("Processing..."), gbc);
+							pb = new JProgressBar();
+							pb.setStringPainted(true);
+//                                                        pb.setForeground(Color.blue);]
+                                               
+                                                        pb.setMaximum(100);
+                                                        pb.setMinimum(0);
+                                                        
+							gbc.gridy = 1;
+							dialog.add(pb, gbc);
+							dialog.pack();
+							dialog.setLocationRelativeTo(null);
+							dialog.setModal(true);
+							JDialog.setDefaultLookAndFeelDecorated(true); 
+							dialog.setVisible(true);
+						}
+						pb.setValue(getProgress());
+					}
+				}
+
+			});
+		}
+    @Override
+    public Void doInBackground() {
+  
+//            JCheckBox[] boxes = {};
+        try { 
+            for (int i = 0; i < 2; i++) {
+//                x = x - i;
+            setProgress((int)((i*100)/2)+1);
+//        setProgress(i * (100 / N));
+//				  setProgress(i);
+				Thread.sleep(10);
+//            Thread.sleep(SLEEP_TIME);// imitate a long-running task
+
+            W68.w68(caseid,SueFifth.getText(),StatusSuspect.getText());
+
+
+            }
+        } catch (InterruptedException e) {
+        }
+//        setProgress(100);
+        
+        return null;
+    }
+
+    @Override
+    public void done() {
+                    if (dialog != null) {
+				dialog.dispose();
+			}
+             Desktop desktop = Desktop.getDesktop();
+        File dirToOpen = null;
+        try {
+            dirToOpen = new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
+            desktop.open(dirToOpen);
+        } catch (Exception iae) {
+            System.out.println("File Not Found :"+iae);
+        }
+//          System.out.println(text + " is done");
+//        Toolkit.getDefaultToolkit().beep();
+    }
+}/**/
+       public class BackgroundWorker6 extends SwingWorker<Void, Void> {
+
+    private static final long SLEEP_TIME =10;
+    private String text;
+        private JProgressBar pb;
+		private JDialog dialog;
+//   public void Task() {
+//       
 //    }
-//
-//    @Override
-//    public void done() {
-//                    if (dialog != null) {
-//				dialog.dispose();
-//			}
-//             Desktop desktop = Desktop.getDesktop();
-//        File dirToOpen = null;
-//        try {
-//            dirToOpen = new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
-//            desktop.open(dirToOpen);
-//        } catch (Exception iae) {
-//            System.out.println("File Not Found :"+iae);
-//        }
-////          System.out.println(text + " is done");
-////        Toolkit.getDefaultToolkit().beep();
-//    }
-//}/**/
-//       public class BackgroundWorker6 extends SwingWorker<Void, Void> {
-//
-//    private static final long SLEEP_TIME =10;
-//    private String text;
-//        private JProgressBar pb;
-//		private JDialog dialog;
-////   public void Task() {
-////       
-////    }
-////       public ProgressWorker(JProgressBar progress) {
-////            this.progress = progress;
-////        
-//            public BackgroundWorker6() {
-//           
-//			addPropertyChangeListener(new PropertyChangeListener() {
-//				@Override
-//				public void propertyChange(PropertyChangeEvent evt) {
-//					if ("progress".equalsIgnoreCase(evt.getPropertyName())) {
-//						 if (dialog == null) {
-//							dialog = new JDialog();
-//                                                        ImageIcon img = new ImageIcon("./Master/WD.png");
-//                                                           dialog.setIconImage(img.getImage());
-//							dialog.setTitle("Processing");
-//							dialog.setLayout(new GridBagLayout());
-//							dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
-//							GridBagConstraints gbc = new GridBagConstraints();
-//							gbc.insets = new Insets(2, 2, 2, 2);
-//							gbc.weightx = 1;
-//							gbc.gridy = 0;
-//							dialog.add(new JLabel("Processing..."), gbc);
-//							pb = new JProgressBar();
-//							pb.setStringPainted(true);
-////                                                        pb.setForeground(Color.blue);]
-//                                               
-//                                                        pb.setMaximum(100);
-//                                                        pb.setMinimum(0);
-//                                                        
-//							gbc.gridy = 1;
-//							dialog.add(pb, gbc);
-//							dialog.pack();
-//							dialog.setLocationRelativeTo(null);
-//							dialog.setModal(true);
-//							JDialog.setDefaultLookAndFeelDecorated(true); 
-//							dialog.setVisible(true);
-//						}
-//						pb.setValue(getProgress());
-//					}
-//				}
-//
-//			});
-//		}
-//    @Override
-//    public Void doInBackground() {
-//  
-////            JCheckBox[] boxes = {};
-//        try { 
-//            for (int i = 0; i < 2; i++) {
-////                x = x - i;
-//            setProgress((int)((i*100)/2)+1);
-////        setProgress(i * (100 / N));
-////				  setProgress(i);
-//				Thread.sleep(10);
-////            Thread.sleep(SLEEP_TIME);// imitate a long-running task
-//
-//
-//              if(Print6.isEnabled()&& !"".equals(SueSecond.getText())){
-//             W68.w68(caseid,SueSixth.getText());
-//            }
-//
-//            }
-//        } catch (InterruptedException e) {
-//        }
-////        setProgress(100);
+//       public ProgressWorker(JProgressBar progress) {
+//            this.progress = progress;
 //        
-//        return null;
+            public BackgroundWorker6() {
+           
+			addPropertyChangeListener(new PropertyChangeListener() {
+				@Override
+				public void propertyChange(PropertyChangeEvent evt) {
+					if ("progress".equalsIgnoreCase(evt.getPropertyName())) {
+						 if (dialog == null) {
+							dialog = new JDialog();
+                                                        ImageIcon img = new ImageIcon("./Master/WD.png");
+                                                           dialog.setIconImage(img.getImage());
+							dialog.setTitle("Processing");
+							dialog.setLayout(new GridBagLayout());
+							dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+							GridBagConstraints gbc = new GridBagConstraints();
+							gbc.insets = new Insets(2, 2, 2, 2);
+							gbc.weightx = 1;
+							gbc.gridy = 0;
+							dialog.add(new JLabel("Processing..."), gbc);
+							pb = new JProgressBar();
+							pb.setStringPainted(true);
+//                                                        pb.setForeground(Color.blue);]
+                                               
+                                                        pb.setMaximum(100);
+                                                        pb.setMinimum(0);
+                                                        
+							gbc.gridy = 1;
+							dialog.add(pb, gbc);
+							dialog.pack();
+							dialog.setLocationRelativeTo(null);
+							dialog.setModal(true);
+							JDialog.setDefaultLookAndFeelDecorated(true); 
+							dialog.setVisible(true);
+						}
+						pb.setValue(getProgress());
+					}
+				}
+
+			});
+		}
+    @Override
+    public Void doInBackground() {
+  
+//            JCheckBox[] boxes = {};
+        try { 
+            for (int i = 0; i < 2; i++) {
+//                x = x - i;
+            setProgress((int)((i*100)/2)+1);
+//        setProgress(i * (100 / N));
+//				  setProgress(i);
+				Thread.sleep(10);
+//            Thread.sleep(SLEEP_TIME);// imitate a long-running task
+
+
+              
+             W68.w68(caseid,SueSixth.getText(),StatusSuspect.getText());
+            
+
+            }
+        } catch (InterruptedException e) {
+        }
+//        setProgress(100);
+        
+        return null;
+    }
+
+    @Override
+    public void done() {
+                    if (dialog != null) {
+				dialog.dispose();
+			}
+             Desktop desktop = Desktop.getDesktop();
+        File dirToOpen = null;
+        try {
+            dirToOpen = new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
+            desktop.open(dirToOpen);
+        } catch (Exception iae) {
+            System.out.println("File Not Found :"+iae);
+        }
+//          System.out.println(text + " is done");
+//        Toolkit.getDefaultToolkit().beep();
+    }
+}/**/
+       public class BackgroundWorker7 extends SwingWorker<Void, Void> {
+
+    private static final long SLEEP_TIME =10;
+    private String text;
+        private JProgressBar pb;
+		private JDialog dialog;
+//   public void Task() {
+//       
 //    }
-//
-//    @Override
-//    public void done() {
-//                    if (dialog != null) {
-//				dialog.dispose();
-//			}
-//             Desktop desktop = Desktop.getDesktop();
-//        File dirToOpen = null;
-//        try {
-//            dirToOpen = new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
-//            desktop.open(dirToOpen);
-//        } catch (Exception iae) {
-//            System.out.println("File Not Found :"+iae);
-//        }
-////          System.out.println(text + " is done");
-////        Toolkit.getDefaultToolkit().beep();
-//    }
-//}/**/
-//       public class BackgroundWorker7 extends SwingWorker<Void, Void> {
-//
-//    private static final long SLEEP_TIME =10;
-//    private String text;
-//        private JProgressBar pb;
-//		private JDialog dialog;
-////   public void Task() {
-////       
-////    }
-////       public ProgressWorker(JProgressBar progress) {
-////            this.progress = progress;
-////        
-//            public BackgroundWorker7() {
-//           
-//			addPropertyChangeListener(new PropertyChangeListener() {
-//				@Override
-//				public void propertyChange(PropertyChangeEvent evt) {
-//					if ("progress".equalsIgnoreCase(evt.getPropertyName())) {
-//						 if (dialog == null) {
-//							dialog = new JDialog();
-//                                                        ImageIcon img = new ImageIcon("./Master/WD.png");
-//                                                           dialog.setIconImage(img.getImage());
-//							dialog.setTitle("Processing");
-//							dialog.setLayout(new GridBagLayout());
-//							dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
-//							GridBagConstraints gbc = new GridBagConstraints();
-//							gbc.insets = new Insets(2, 2, 2, 2);
-//							gbc.weightx = 1;
-//							gbc.gridy = 0;
-//							dialog.add(new JLabel("Processing..."), gbc);
-//							pb = new JProgressBar();
-//							pb.setStringPainted(true);
-////                                                        pb.setForeground(Color.blue);]
-//                                               
-//                                                        pb.setMaximum(100);
-//                                                        pb.setMinimum(0);
-//                                                        
-//							gbc.gridy = 1;
-//							dialog.add(pb, gbc);
-//							dialog.pack();
-//							dialog.setLocationRelativeTo(null);
-//							dialog.setModal(true);
-//							JDialog.setDefaultLookAndFeelDecorated(true); 
-//							dialog.setVisible(true);
-//						}
-//						pb.setValue(getProgress());
-//					}
-//				}
-//
-//			});
-//		}
-//    @Override
-//    public Void doInBackground() {
-//  
-////            JCheckBox[] boxes = {};
-//        try { 
-//            for (int i = 0; i < 2; i++) {
-////                x = x - i;
-//            setProgress((int)((i*100)/2)+1);
-////        setProgress(i * (100 / N));
-////				  setProgress(i);
-//				Thread.sleep(10);
-////            Thread.sleep(SLEEP_TIME);// imitate a long-running task
-//
-//
-//              if(Print7.isEnabled()&& !"".equals(SueSecond.getText())){
-//             W68.w68(caseid,SueSeventh.getText());
-//            }
-//            }
-//        } catch (InterruptedException e) {
-//        }
-////        setProgress(100);
+//       public ProgressWorker(JProgressBar progress) {
+//            this.progress = progress;
 //        
-//        return null;
-//    }
-//
-//    @Override
-//    public void done() {
-//                    if (dialog != null) {
-//				dialog.dispose();
-//			}
-//             Desktop desktop = Desktop.getDesktop();
-//        File dirToOpen = null;
-//        try {
-//            dirToOpen = new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
-//            desktop.open(dirToOpen);
-//        } catch (Exception iae) {
-//            System.out.println("File Not Found :"+iae);
-//        }
-////          System.out.println(text + " is done");
-////        Toolkit.getDefaultToolkit().beep();
-//    }
-//}/**/
+            public BackgroundWorker7() {
+           
+			addPropertyChangeListener(new PropertyChangeListener() {
+				@Override
+				public void propertyChange(PropertyChangeEvent evt) {
+					if ("progress".equalsIgnoreCase(evt.getPropertyName())) {
+						 if (dialog == null) {
+							dialog = new JDialog();
+                                                        ImageIcon img = new ImageIcon("./Master/WD.png");
+                                                           dialog.setIconImage(img.getImage());
+							dialog.setTitle("Processing");
+							dialog.setLayout(new GridBagLayout());
+							dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+							GridBagConstraints gbc = new GridBagConstraints();
+							gbc.insets = new Insets(2, 2, 2, 2);
+							gbc.weightx = 1;
+							gbc.gridy = 0;
+							dialog.add(new JLabel("Processing..."), gbc);
+							pb = new JProgressBar();
+							pb.setStringPainted(true);
+//                                                        pb.setForeground(Color.blue);]
+                                               
+                                                        pb.setMaximum(100);
+                                                        pb.setMinimum(0);
+                                                        
+							gbc.gridy = 1;
+							dialog.add(pb, gbc);
+							dialog.pack();
+							dialog.setLocationRelativeTo(null);
+							dialog.setModal(true);
+							JDialog.setDefaultLookAndFeelDecorated(true); 
+							dialog.setVisible(true);
+						}
+						pb.setValue(getProgress());
+					}
+				}
+
+			});
+		}
+    @Override
+    public Void doInBackground() {
+  
+//            JCheckBox[] boxes = {};
+        try { 
+            for (int i = 0; i < 2; i++) {
+//                x = x - i;
+            setProgress((int)((i*100)/2)+1);
+//        setProgress(i * (100 / N));
+//				  setProgress(i);
+				Thread.sleep(10);
+//            Thread.sleep(SLEEP_TIME);// imitate a long-running task
+
+
+             
+             W68.w68(caseid,SueSeventh.getText(),StatusSuspect.getText());
+            
+            }
+        } catch (InterruptedException e) {
+        }
+//        setProgress(100);
+        
+        return null;
+    }
+
+    @Override
+    public void done() {
+                    if (dialog != null) {
+				dialog.dispose();
+			}
+             Desktop desktop = Desktop.getDesktop();
+        File dirToOpen = null;
+        try {
+            dirToOpen = new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
+            desktop.open(dirToOpen);
+        } catch (Exception iae) {
+            System.out.println("File Not Found :"+iae);
+        }
+//          System.out.println(text + " is done");
+//        Toolkit.getDefaultToolkit().beep();
+    }
+}/**/
         public void comboInvest(){
     
      try {
@@ -2858,6 +2995,7 @@ catch (Exception d) {  //System.out.println(d);
                         cal.setTime(dateS);
                         cal.add(Calendar.DAY_OF_MONTH, 1);
                         DateNextDay=sdf.format(cal.getTime());
+                        
 //                        Date dateE=sdf.parse(DateEnd);
 //                long diff = dateE.getTime() - dateS.getTime();
 //                int diffDays = (int)(diff / (24 * 60 * 60 * 1000));
@@ -2909,15 +3047,46 @@ catch (Exception d) {  //System.out.println(d);
     String DateNextTime="";
 //    int totalDate=Integer.parseInt(DateTotal);
         try{
+             Calendar c = Calendar.getInstance();
+    // Set the calendar to monday of the current week
+//    c.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+
+    // Print dates of the current week starting on Monday to Friday
+//    DateFormat df = new SimpleDateFormat("EEE dd/MM/yyyy");
+   
+//        System.out.println(df.format(c.getTime()));
+//        int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
+//        if (dayOfWeek == Calendar.SATURDAY) { // If it's Saturday skip to Monday
+//            c.add(Calendar.DATE, 2);
+//        } else {
+//            c.add(Calendar.DATE, 1);
+//        }
+
+     
             Calendar cal;
             Locale lc = new Locale("th","TH");
-                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy",lc);
+                         SimpleDateFormat newdf = new SimpleDateFormat("EEE dd/MM/yyyy",lc);
                         Date dateS = sdf.parse(DateEnd);
 //                        CalculateDateExpr(DateEnd);
-                    
+                    String datenew;
+                    datenew=newdf.format(dateS);
+                    Date daten=newdf.parse(datenew);
+//                 System.out.println("DaysTotallllllllll : "+dateS);   
+                         
                         cal=Calendar.getInstance();
-                        cal.setTime(dateS);
-                        cal.add(Calendar.DAY_OF_MONTH, 1);
+                        cal.setTime(daten);
+//                                System.out.println(newdf.format(cal.getTime()));
+                        int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
+                        System.out.println(dayOfWeek);
+                         if (dayOfWeek == Calendar.FRIDAY) { // If it's Friday so skip to Monday
+                            cal.add(Calendar.DATE, 3);
+                        } else if (dayOfWeek == Calendar.SATURDAY) { // If it's Saturday skip to Monday
+                            cal.add(Calendar.DATE, 2);
+                        } else {
+                            cal.add(Calendar.DATE, 1);
+                        }
+//                       cal.add(Calendar.DAY_OF_MONTH, 1);
                         DateNextTime=sdf.format(cal.getTime());                  
 //                        Date dateE=sdf.parse(DateEnd);
 //                long diff = dateE.getTime() - dateS.getTime();
@@ -3052,6 +3221,7 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JTextField crimecaseno;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButtonEdit;
     private javax.swing.JButton jButtonSave;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

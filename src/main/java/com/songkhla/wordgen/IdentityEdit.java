@@ -86,6 +86,7 @@ import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseno;
 import static com.songkhla.wordgen.ListAccused.jTableAccure;
 import static com.songkhla.wordgen.ListAccused.txtCaseNO;
 import static com.songkhla.wordgen.TrafficEdit.crimecaseid;
+import static com.songkhla.wordgen.TrafficEdit.crimecaseno;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
@@ -368,12 +369,12 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             if(investSta.equals("อยู่ระหว่างสอบสวน")){
                 jCheckDuringInvest.setSelected(true);
             }
-             else if(investSta.equals("สั่งฟ้อง")){
-                jCheckSue.setSelected(true);
-            }
-              else  if(investSta.equals("สั่งไม่ฟ้อง")){
-                jCheckNotSue.setSelected(true);
-            }
+//             else if(investSta.equals("สั่งฟ้อง")){
+//                jCheckSue.setSelected(true);
+//            }
+//              else  if(investSta.equals("สั่งไม่ฟ้อง")){
+//                jCheckNotSue.setSelected(true);
+//            }
               else  if(investSta.equals("งดการสอบสวน")){
                 jCheckNoInvest.setSelected(true);
             }
@@ -423,7 +424,25 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 //         System.out.println("dd ;"+CalculateDateArrest(od, da)+"");
 ChangProvince();
 AutoCompleteDecorator.decorate(CrimeLocationProvince); 
-            
+//------------------------RightClick-------------------------------
+JTextPopupMenu.addTo(crimecaseno);
+JTextPopupMenu.addTo(crimecaseyear);
+JTextPopupMenu.addTo(OccuredDate.getJFormattedTextField());
+JTextPopupMenu.addTo(CaseAcceptDate.getJFormattedTextField());
+JTextPopupMenu.addTo(CaseRequestDateTime.getJFormattedTextField());
+JTextPopupMenu.addTo(DailyNumber);
+JTextPopupMenu.addTo(CrimeLocation);
+JTextPopupMenu.addTo(CrimeLocationMoo);
+JTextPopupMenu.addTo(CrimeLocationSoi);
+JTextPopupMenu.addTo(CrimeLocationRoad);
+JTextPopupMenu.addTo(jTextInvestSendtoDepartment);
+JTextPopupMenu.addTo(Investigator_Number);
+JTextPopupMenu.addTo(Invest_SendCaseDate.getJFormattedTextField());
+JTextPopupMenu.addTo(CapitalCrimeCaseNumber);
+JTextPopupMenu.addTo(Prosecutor_Result);
+JTextPopupMenu.addTo(CourtResult);
+           JTextPopupMenu.addTo(CircumstancesOfDeath);
+ 
     }
 //   private class CloseListener implements ActionListener{
 //
@@ -2245,12 +2264,12 @@ AutoCompleteDecorator.decorate(CrimeLocationProvince);
                 if(jCheckDuringInvest.isSelected()){
                     pst.setString(24,"อยู่ระหว่างสอบสวน");
                 }
-                if(jCheckSue.isSelected()){
-                    pst.setString(24,"สั่งฟ้อง");
-                }
-                if(jCheckNotSue.isSelected()){
-                    pst.setString(24,"สั่งไม่ฟ้อง");
-                }
+//                if(jCheckSue.isSelected()){
+//                    pst.setString(24,"สั่งฟ้อง");
+//                }
+//                if(jCheckNotSue.isSelected()){
+//                    pst.setString(24,"สั่งไม่ฟ้อง");
+//                }
                 if(jCheckNoInvest.isSelected()){
                     pst.setString(24,"งดการสอบสวน");
                 }

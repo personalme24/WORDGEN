@@ -239,8 +239,8 @@
                                               <Component id="Race" alignment="1" max="32767" attributes="0"/>
                                               <Component id="Occupation" alignment="0" max="32767" attributes="0"/>
                                               <Component id="MotherFullName" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jPanelBirthDay" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jPanelIssueDate" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jPanelBirthDay" alignment="0" pref="247" max="32767" attributes="0"/>
+                                              <Component id="jPanelIssueDate" alignment="0" pref="247" max="32767" attributes="0"/>
                                           </Group>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="1" attributes="0">
@@ -314,7 +314,7 @@
                                       <Component id="jLabel1" pref="32" max="32767" attributes="0"/>
                                       <Component id="jLabel6" alignment="0" pref="32" max="32767" attributes="0"/>
                                       <Component id="jPanelExpiredDate" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jPanelIssueDate" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jPanelIssueDate" alignment="0" pref="32" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">

@@ -59,6 +59,13 @@ public class ActionPageInsert extends javax.swing.JDialog {
         isInsert=true;
         ActionCode.setText(IdAction());
         }
+        
+         JTextPopupMenu.addTo(ActionCrimes);
+         JTextPopupMenu.addTo(ActionDetail);
+         JTextPopupMenu.addTo(AnswerAccuser);
+         JTextPopupMenu.addTo(AnswerSuspect);
+         JTextPopupMenu.addTo(ActionNote);
+
     }
 
     /**

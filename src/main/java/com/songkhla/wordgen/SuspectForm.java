@@ -357,6 +357,7 @@ public class SuspectForm extends javax.swing.JDialog {
                             jRadioStatus1.setText("ฝากขัง");
                             jRadioStatus2.setText("แจ้งข้อหาปล่อยตัว");
                             jRadioSue.setVisible(false);
+                            jRadioRelease.setVisible(false);
                         }
                          else if(selectedValue.equals("ศาลแขวง")){
                             jRadioStatus1.setText("ผัดฟ้องฝากขัง");
@@ -1187,7 +1188,7 @@ public class SuspectForm extends javax.swing.JDialog {
         RatePrison.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ไม่เกิน 10 ปี", "ตั้งแต่ 10 ปีขึ้นไป" }));
 
         CourtSuspect.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        CourtSuspect.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ศาลแขวง", "ศาลอาญา/ศาลจังหวัด", "ศาลเด็กและเยาวชน", "ศาลทหาร", " " }));
+        CourtSuspect.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ศาลแขวง", "ศาลอาญา/ศาลจังหวัด", "ศาลครอบครัวและเยาวชน", "ศาลทหาร", " " }));
         CourtSuspect.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 CourtSuspectItemStateChanged(evt);
@@ -1363,11 +1364,11 @@ public class SuspectForm extends javax.swing.JDialog {
                     .addComponent(jRadioStatus2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jRadioOther, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jRadioRelease, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jRadioRestore, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jRadioRelease, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                    .addComponent(jRadioRestore, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jRadioSue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addGap(16, 16, 16))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1474,8 +1475,8 @@ public class SuspectForm extends javax.swing.JDialog {
                             .addComponent(jLabelRestoreDate, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jPanelRestoreDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1665,7 +1666,7 @@ public class SuspectForm extends javax.swing.JDialog {
 //                else if(CourtSuspect.getSelectedItem().toString().equals("ศาลอาญา") && jRadioSue.isSelected()){
 //                    pst.setString(34,"");
 //                }
-                else if(CourtSuspect.getSelectedItem().toString().equals("ศาลเด็กและเยาวชน")){
+                else if(CourtSuspect.getSelectedItem().toString().equals("ศาลครอบครัวและเยาวชน")){
                     pst.setString(34,CalculateDateTime24(arrestDate));
                 }
                 else{
@@ -1783,7 +1784,7 @@ public class SuspectForm extends javax.swing.JDialog {
                 else if(CourtSuspect.getSelectedItem().toString().equals("ศาลอาญา") && jRadioSue.isSelected()){
                     pst.setString(32,"");
                 }
-                else if(CourtSuspect.getSelectedItem().toString().equals("ศาลเด็กและเยาวชน")){
+                else if(CourtSuspect.getSelectedItem().toString().equals("ศาลครอบครัวและเยาวชน")){
                     pst.setString(32,CalculateDateTime24(arrestDate));
                 }
                 else{
@@ -1814,6 +1815,9 @@ public class SuspectForm extends javax.swing.JDialog {
                 }
                 else if(jRadioWithdrawComplaint.isSelected()){
                     pst.setString(33,"ถอนคำร้องทุกข์");
+                }
+               else if(jRadioRelease.isSelected()){
+                    pst.setString(33,jRadioRelease.getText());
                 }
                 if(jCheckBail.isSelected()){
                     pst.setString(34,"ประกัน");}
@@ -2017,7 +2021,7 @@ public class SuspectForm extends javax.swing.JDialog {
     private void jRadioStatus1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioStatus1ItemStateChanged
         // TODO add your handling code here:
         String a=jRadioStatus1.getText().toString();
-        if(jRadioStatus1.isSelected()&&CourtSuspect.getSelectedItem().equals("ศาลแขวง")||CourtSuspect.getSelectedItem().equals("ศาลทหาร")||CourtSuspect.getSelectedItem().equals("ศาลเด็กและเยาวชน")){
+        if(jRadioStatus1.isSelected()&&CourtSuspect.getSelectedItem().equals("ศาลแขวง")||CourtSuspect.getSelectedItem().equals("ศาลทหาร")||CourtSuspect.getSelectedItem().equals("ศาลครอบครัวและเยาวชน")){
           PlaceArrest.setVisible(true);
           jLabelArrestPlace.setVisible(true);
           jPanelDateArrest.setVisible(true);
@@ -2060,7 +2064,7 @@ public class SuspectForm extends javax.swing.JDialog {
 
     private void jRadioStatus2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioStatus2ItemStateChanged
         // TODO add your handling code here:
-              if(jRadioStatus2.isSelected()&&CourtSuspect.getSelectedItem().equals("ศาลแขวง") ||CourtSuspect.getSelectedItem().equals("ศาลทหาร")||CourtSuspect.getSelectedItem().equals("ศาลเด็กและเยาวชน")){
+              if(jRadioStatus2.isSelected()&&CourtSuspect.getSelectedItem().equals("ศาลแขวง") ||CourtSuspect.getSelectedItem().equals("ศาลทหาร")||CourtSuspect.getSelectedItem().equals("ศาลครอบครัวและเยาวชน")){
           PlaceArrest.setVisible(true);
           jLabelArrestPlace.setVisible(true);
           jPanelDateArrest.setVisible(true);

@@ -1163,9 +1163,9 @@
                                   <Component id="jPanelRestoreDate" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="jPanel8" alignment="0" min="-2" pref="435" max="-2" attributes="0"/>
+                          <Component id="jPanel8" alignment="0" min="-2" pref="445" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="67" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1441,7 +1441,7 @@
                   <StringArray count="5">
                     <StringItem index="0" value="&#xe28;&#xe32;&#xe25;&#xe41;&#xe02;&#xe27;&#xe07;"/>
                     <StringItem index="1" value="&#xe28;&#xe32;&#xe25;&#xe2d;&#xe32;&#xe0d;&#xe32;/&#xe28;&#xe32;&#xe25;&#xe08;&#xe31;&#xe07;&#xe2b;&#xe27;&#xe31;&#xe14;"/>
-                    <StringItem index="2" value="&#xe28;&#xe32;&#xe25;&#xe40;&#xe14;&#xe47;&#xe01;&#xe41;&#xe25;&#xe30;&#xe40;&#xe22;&#xe32;&#xe27;&#xe0a;&#xe19;"/>
+                    <StringItem index="2" value="&#xe28;&#xe32;&#xe25;&#xe04;&#xe23;&#xe2d;&#xe1a;&#xe04;&#xe23;&#xe31;&#xe27;&#xe41;&#xe25;&#xe30;&#xe40;&#xe22;&#xe32;&#xe27;&#xe0a;&#xe19;"/>
                     <StringItem index="3" value="&#xe28;&#xe32;&#xe25;&#xe17;&#xe2b;&#xe32;&#xe23;"/>
                     <StringItem index="4" value=" "/>
                   </StringArray>
@@ -1578,12 +1578,12 @@
                               <Component id="jRadioOther" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jRadioRelease" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="jRadioRelease" alignment="0" pref="136" max="32767" attributes="0"/>
                               <Component id="jRadioRestore" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jRadioSue" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jRadioSue" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="7" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
