@@ -113,7 +113,7 @@ public class ActionPageInsert extends javax.swing.JDialog {
         jLabel3.setText("หมายเหตุ");
 
         ActionDetail.setColumns(10);
-        ActionDetail.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        ActionDetail.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         ActionDetail.setLineWrap(true);
         ActionDetail.setRows(3);
         jScrollPane4.setViewportView(ActionDetail);
@@ -140,7 +140,7 @@ public class ActionPageInsert extends javax.swing.JDialog {
         });
 
         ActionNote.setColumns(20);
-        ActionNote.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        ActionNote.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         ActionNote.setLineWrap(true);
         ActionNote.setRows(3);
         jScrollPane2.setViewportView(ActionNote);

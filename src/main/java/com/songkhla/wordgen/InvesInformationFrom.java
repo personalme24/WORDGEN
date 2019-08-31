@@ -18,6 +18,8 @@ import java.util.Vector;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
@@ -62,12 +64,19 @@ public class InvesInformationFrom extends javax.swing.JDialog {
            InvestRank.setText(datain.get("InvestRank")+"");
            InvestName.setText(datain.get("InvestName")+"");
            InvestPosition.setText(datain.get("InvestPosition")+"");
-          
-           InvestBirthDay.getJFormattedTextField().setText(Checknull(datain.get("InvestBirthDay")+""));
+        if(datain.get("InvestBirthDay")==null||datain.get("InvestBirthDay")=="null"){
+            
+        InvestBirthDay.getJFormattedTextField().setText(Calendar.getInstance().getTime()+"");
+         InvestAge.setText("");
+           InvestTel.setText("");
+        }
+        else{
+                   InvestBirthDay.getJFormattedTextField().setText(Checknull(datain.get("InvestBirthDay")+""));
+
            InvestAge.setText(Checknull(datain.get("InvestAge")+""));
            InvestTel.setText(Checknull(datain.get("InvestTel")+""));
 
-           
+        }
                                  
                                  
         }
@@ -75,6 +84,21 @@ public class InvesInformationFrom extends javax.swing.JDialog {
             InvestId.setText(IdInvest());
              isInsert=true;
         }
+        InvestBirthDay.getJFormattedTextField().getDocument().addDocumentListener(new DocumentListener() {
+                           public void changedUpdate(DocumentEvent e) {
+                                InvestAge.setText(CalculateData.calculateAge(InvestBirthDay.getJFormattedTextField().getText()));
+                           }
+                           public void removeUpdate(DocumentEvent e) {
+//                                SueThirdTotal.setText(CalculateDateTotal(ThirdDate.getText(), SueThirdEnd.getText()));
+
+
+                           }
+                           public void insertUpdate(DocumentEvent e) {
+                              InvestAge.setText(CalculateData.calculateAge(InvestBirthDay.getJFormattedTextField().getText()));
+
+                           }
+             }
+             );
     }
 
     /**

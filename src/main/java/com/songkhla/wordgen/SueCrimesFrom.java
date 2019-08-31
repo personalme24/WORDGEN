@@ -215,6 +215,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         if(datain != null){
             
          try{
+             StatusSuspect.setText(datain.get("StatusSuspect")+"");
              Court=datain.get("CourtSuspect")+"";
              StatusBail=datain.get("StatusBail")+"";
              RatePrison=datain.get("RatePrison")+"";
@@ -286,10 +287,10 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 SueFirstDate.setText("");
          }   
             else{
-                 ArrestDateTimeEnd.setText(datain.get("ArrestDateTimeEnd")+"");
+             ArrestDateTimeEnd.setText(datain.get("ArrestDateTimeEnd")+"");
              SimpleDateFormat  format = new SimpleDateFormat("dd/MM/yyyy");
              Date aa=format.parse(a);
-            SueFirstDate.setText(format.format(aa)+"");
+             SueFirstDate.setText(format.format(aa)+"");
          }
          }  catch(Exception e)
          {e.printStackTrace();}
@@ -341,6 +342,8 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         jPanel4 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
+        StatusSuspect = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
         NumberImprison = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -394,7 +397,6 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         Print6 = new javax.swing.JButton();
         Print7 = new javax.swing.JButton();
         Print2 = new javax.swing.JButton();
-        SueFirst = new javax.swing.JTextField();
         SueSecond = new javax.swing.JTextField();
         SueThird = new javax.swing.JTextField();
         SueForth = new javax.swing.JTextField();
@@ -407,7 +409,9 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         SueFourthEnd = new javax.swing.JTextField();
         SueSevenEnd = new javax.swing.JTextField();
         SueFirstEnd = new javax.swing.JTextField();
+        SueFirst = new javax.swing.JTextField();
         jButtonSave = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -631,18 +635,38 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         jLabel25.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(255, 255, 255));
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel25.setText("ข้อมูลการผัดฟ้อง/ฝากขัง(ล่าสุด)");
+        jLabel25.setText("ข้อมูลการ");
+
+        StatusSuspect.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        StatusSuspect.setForeground(new java.awt.Color(255, 255, 255));
+        StatusSuspect.setText("jLabel19");
+
+        jLabel26.setBackground(java.awt.SystemColor.activeCaptionBorder);
+        jLabel26.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel26.setText("(ล่าสุด)");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel25, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(163, 163, 163)
+                .addComponent(jLabel25)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(StatusSuspect)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel26)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(StatusSuspect)
+                    .addComponent(jLabel26))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -746,9 +770,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         SueFirstCause.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         SueFirstCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
 
-        SueSeventh.setBackground(new java.awt.Color(46, 156, 202));
         SueSeventh.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
-        SueSeventh.setForeground(new java.awt.Color(255, 255, 255));
         SueSeventh.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jPanel8.setBackground(new java.awt.Color(0, 102, 204));
@@ -967,34 +989,19 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             }
         });
 
-        SueFirst.setBackground(new java.awt.Color(46, 156, 202));
-        SueFirst.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
-        SueFirst.setForeground(new java.awt.Color(255, 255, 255));
-        SueFirst.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-
-        SueSecond.setBackground(new java.awt.Color(46, 156, 202));
         SueSecond.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
-        SueSecond.setForeground(new java.awt.Color(255, 255, 255));
         SueSecond.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        SueThird.setBackground(new java.awt.Color(46, 156, 202));
         SueThird.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
-        SueThird.setForeground(new java.awt.Color(255, 255, 255));
         SueThird.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        SueForth.setBackground(new java.awt.Color(46, 156, 202));
         SueForth.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
-        SueForth.setForeground(new java.awt.Color(255, 255, 255));
         SueForth.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        SueFifth.setBackground(new java.awt.Color(46, 156, 202));
         SueFifth.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
-        SueFifth.setForeground(new java.awt.Color(255, 255, 255));
         SueFifth.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        SueSixth.setBackground(new java.awt.Color(46, 156, 202));
         SueSixth.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
-        SueSixth.setForeground(new java.awt.Color(255, 255, 255));
         SueSixth.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         SueSixthEnd.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
@@ -1011,6 +1018,9 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 
         SueFirstEnd.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
 
+        SueFirst.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        SueFirst.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -1019,34 +1029,37 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 .addGap(10, 10, 10)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(SueFirst, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
+                        .addComponent(SueFirst)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(SueFirstDate, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(SueSecond, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(8, 8, 8)
-                        .addComponent(SueSecDateT, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(SueFifth, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(FifthDate, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(SueSixth, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(SixthDate, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(SueSeventh, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(SevDate, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(SueForth, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(8, 8, 8)
-                        .addComponent(FourthDate, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(SueThird, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(8, 8, 8)
-                        .addComponent(ThirdDate, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(SueSecond, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(8, 8, 8)
+                                .addComponent(SueSecDateT, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(SueFifth, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(7, 7, 7)
+                                .addComponent(FifthDate, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(SueSixth, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(7, 7, 7)
+                                .addComponent(SixthDate, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addComponent(SueSeventh, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(SevDate, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(SueForth, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(8, 8, 8)
+                                .addComponent(FourthDate, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(SueThird, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(8, 8, 8)
+                                .addComponent(ThirdDate, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(SueFirstTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1123,9 +1136,9 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 .addGap(22, 22, 22)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(SueFirst, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SueFirstDate, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(SueFirstDate, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                            .addComponent(SueFirst))
                         .addGap(6, 6, 6)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1229,6 +1242,14 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             }
         });
 
+        jButton1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jButton1.setText("แก้ไข");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -1240,9 +1261,13 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 1258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
                         .addComponent(jButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 1258, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1)
+                        .addGap(11, 11, 11)))
                 .addGap(12, 12, 12))
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -1255,7 +1280,11 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jButtonSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -1408,7 +1437,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(jPanel1,"กรุณากรอกข้อมูล", "แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);
         }
         else{
-            yourAttemptActionPerformed();
+            yourAttemptActionPerformed7();
         }
     }//GEN-LAST:event_Print7ActionPerformed
 
@@ -1418,7 +1447,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(jPanel1,"กรุณากรอกข้อมูล", "แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);
         }
         else{
-            yourAttemptActionPerformed();
+            yourAttemptActionPerformed6();
         }
     }//GEN-LAST:event_Print6ActionPerformed
 
@@ -1428,7 +1457,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(jPanel1,"กรุณากรอกข้อมูล", "แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);
         }
         else{
-            yourAttemptActionPerformed();
+            yourAttemptActionPerformed5();
         }
     }//GEN-LAST:event_Print5ActionPerformed
 
@@ -1438,7 +1467,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(jPanel1,"กรุณากรอกข้อมูล", "แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);
         }
         else{
-            yourAttemptActionPerformed();
+            yourAttemptActionPerformed4();
         }
     }//GEN-LAST:event_Print4ActionPerformed
 
@@ -1448,7 +1477,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(jPanel1,"กรุณากรอกข้อมูล", "แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);
         }
         else{
-            yourAttemptActionPerformed();
+            yourAttemptActionPerformed3();
         }
     }//GEN-LAST:event_Print3ActionPerformed
 
@@ -1479,13 +1508,13 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 SueSixthTotal.setText("");
             }
         }
-        if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("มากกว่า")){
+        if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("ตั้งแต่ 10 ปีขึ้นไป")){
             if(totaldate>12){
                 JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 12 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);
                 SueSixthTotal.setText("");
             }
         }
-        if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("น้อยกว่า")){
+        if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("ไม่เกิน 10 ปี")){
             if(totaldate>12){
                 JOptionPane.showMessageDialog(jPanel1,"ไม่เกิน 12 วัน","แจ้งเตือน",  JOptionPane.INFORMATION_MESSAGE);
                 SueSixthTotal.setText("");
@@ -1509,13 +1538,13 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 SueFifthTotal.setText("");
             }
         }
-        if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("มากกว่า")){
+        if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("ตั้งแต่ 10 ปีขึ้นไป")){
             if(totaldate>12){
                 JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 12 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);
                 SueFifthTotal.setText("");
             }
         }
-        if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("น้อยกว่า")){
+        if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("ไม่เกิน 10 ปี")){
             if(totaldate>12){
                 JOptionPane.showMessageDialog(jPanel1,"ไม่เกิน 12 วัน","แจ้งเตือน",  JOptionPane.INFORMATION_MESSAGE);
                 SueFifthTotal.setText("");
@@ -1539,13 +1568,13 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 SueFourthTotal.setText("");
             }
         }
-        if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("มากกว่า")){
+        if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("ตั้งแต่ 10 ปีขึ้นไป")){
             if(totaldate>12){
                 JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 12 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);
                 SueFourthTotal.setText("");
             }
         }
-        if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("น้อยกว่า")){
+        if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("ไม่เกิน 10 ปี")){
             if(totaldate>12){
                 JOptionPane.showMessageDialog(jPanel1,"ไม่เกิน 12 วัน","แจ้งเตือน",  JOptionPane.INFORMATION_MESSAGE);
                 SueFourthTotal.setText("");
@@ -1569,13 +1598,13 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 SueSevenTotal.setText("");
             }
         }
-        if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("มากกว่า")){
+        if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("ตั้งแต่ 10 ปีขึ้นไป")){
             if(totaldate>12){
                 JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 12 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);
                 SueSevenTotal.setText("");
             }
         }
-        if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("น้อยกว่า")){
+        if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("ไม่เกิน 10 ปี")){
             if(totaldate>12){
                 JOptionPane.showMessageDialog(jPanel1,"ไม่เกิน 12 วัน","แจ้งเตือน",  JOptionPane.INFORMATION_MESSAGE);
                 SueSevenTotal.setText("");
@@ -1599,13 +1628,13 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 SueThirdTotal.setText("");
             }
         }
-        if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("มากกว่า")){
+        if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("ตั้งแต่ 10 ปีขึ้นไป")){
             if(totaldate>12){
                 JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 12 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);
                 SueThirdTotal.setText("");
             }
         }
-        if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("น้อยกว่า")){
+        if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("ไม่เกิน 10 ปี")){
             if(totaldate>12){
                 JOptionPane.showMessageDialog(jPanel1,"ไม่เกิน 12 วัน","แจ้งเตือน",  JOptionPane.INFORMATION_MESSAGE);
                 SueThirdTotal.setText("");
@@ -1630,13 +1659,13 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 SueSecTotal.setText("");
             }
         }
-        if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("มากกว่า")){
+        if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("ตั้งแต่ 10 ปีขึ้นไป")){
             if(totaldate>12){
                 JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 12 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);
                 SueSecTotal.setText("");
             }
         }
-        if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("น้อยกว่า")){
+        if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("ไม่เกิน 10 ปี")){
             if(totaldate>12){
                 JOptionPane.showMessageDialog(jPanel1,"ไม่เกิน 12 วัน","แจ้งเตือน",  JOptionPane.INFORMATION_MESSAGE);
                 SueSecTotal.setText("");
@@ -1661,13 +1690,13 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 SueFirstTotal.setText("");
             }
         }
-        if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("มากกว่า")){
+        if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("ตั้งแต่ 10 ปีขึ้นไป")){
             if(totaldate>12){
                 JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 12 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);
                 SueFirstTotal.setText("");
             }
         }
-        if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("น้อยกว่า")){
+        if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("ไม่เกิน 10 ปี")){
             if(totaldate>12){
                 JOptionPane.showMessageDialog(jPanel1,"ไม่เกิน 12 วัน","แจ้งเตือน",  JOptionPane.INFORMATION_MESSAGE);
                 SueFirstTotal.setText("");
@@ -1683,6 +1712,10 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         // TODO add your handling code here:
         MainMenuWord.closeAllDialogs();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
        public void Block(){
        if(Court.equals("ศาลแขวง")&&StatusBail.equals("ประกัน"))
        {
@@ -1718,7 +1751,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
        SueSixthCause.setEnabled(false);
        Print6.setEnabled(false);
        }
-        if(Court.equals("ศาลอาญา")&&RatePrison.equals("น้อยกว่า"))
+        if(Court.equals("ศาลอาญา")&&RatePrison.equals("ไม่เกิน 10 ปี"))
        {
        SueSeventh.setEnabled(false);
        SevDate.setEnabled(false);
@@ -1772,12 +1805,12 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             
            }      
        }
-            if(Court.equals("ศาลอาญา")&&RatePrison.equals("มากกว่า")){      
+            if(Court.equals("ศาลอาญา")&&RatePrison.equals("ตั้งแต่ 10 ปีขึ้นไป")){      
            if(totaldate>12){
             JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 12 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE); 
            }      
        }
-           if(Court.equals("ศาลอาญา")&&RatePrison.equals("น้อยกว่า")){      
+           if(Court.equals("ศาลอาญา")&&RatePrison.equals("ไม่เกิน 10 ปี")){      
            if(totaldate>12){
             JOptionPane.showMessageDialog(jPanel1,"ไม่เกิน 12 วัน","แจ้งเตือน",  JOptionPane.INFORMATION_MESSAGE); 
            }      
@@ -2014,6 +2047,46 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 
 
     }  
+          private void yourAttemptActionPerformed3() {
+
+
+       
+//    new BackgroundWorker3().execute();
+
+
+    } 
+              private void yourAttemptActionPerformed4() {
+
+
+       
+//    new BackgroundWorker4().execute();
+
+
+    } 
+    private void yourAttemptActionPerformed5() {
+
+
+       
+//    new BackgroundWorker5().execute();
+
+
+    } 
+     private void yourAttemptActionPerformed6() {
+
+
+       
+//    new BackgroundWorker6().execute();
+
+
+    } 
+      private void yourAttemptActionPerformed7() {
+
+
+       
+//    new BackgroundWorker7().execute();
+
+
+    } 
     public class BackgroundWorker extends SwingWorker<Void, Void> {
 
     private static final long SLEEP_TIME =10;
@@ -2067,7 +2140,11 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 		}
     @Override
     public Void doInBackground() {
-  
+  File f3=new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
+   
+        f3.mkdirs();
+        System.out.print(f3);
+        System.out.print("folder created");
 //            JCheckBox[] boxes = {};
         try { 
             for (int i = 0; i < 2; i++) {
@@ -2078,7 +2155,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 				Thread.sleep(10);
 //            Thread.sleep(SLEEP_TIME);// imitate a long-running task
 
-            if(Print1.isEnabled()&& !"".equals(SueSecond.getText())){
+            if(Print1.isEnabled()){
               W67.w67(caseid);
             }
 //             if(Print2.isEnabled() && !"".equals(SueSecond.getText())){
@@ -2183,15 +2260,10 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             for (int i = 0; i < 2; i++) {
 //                x = x - i;
             setProgress((int)((i*100)/2)+1);
-//        setProgress(i * (100 / N));
-//				  setProgress(i);
 				Thread.sleep(10);
-//            Thread.sleep(SLEEP_TIME);// imitate a long-running task
 
+              W68.w68(caseid,SueSecond.getText(),StatusSuspect.getText());
             
-             if(Print2.isEnabled() && !"".equals(SueSecond.getText())){
-              W68.w68(caseid,SueSecond.getText());
-            }
             
             }
         } catch (InterruptedException e) {
@@ -2218,6 +2290,473 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 //        Toolkit.getDefaultToolkit().beep();
     }
 }/**/
+//       public class BackgroundWorker3 extends SwingWorker<Void, Void> {
+//
+//    private static final long SLEEP_TIME =10;
+//    private String text;
+//        private JProgressBar pb;
+//		private JDialog dialog;
+////   public void Task() {
+////       
+////    }
+////       public ProgressWorker(JProgressBar progress) {
+////            this.progress = progress;
+////        
+//            public BackgroundWorker3() {
+//           
+//			addPropertyChangeListener(new PropertyChangeListener() {
+//				@Override
+//				public void propertyChange(PropertyChangeEvent evt) {
+//					if ("progress".equalsIgnoreCase(evt.getPropertyName())) {
+//						 if (dialog == null) {
+//							dialog = new JDialog();
+//                                                        ImageIcon img = new ImageIcon("./Master/WD.png");
+//                                                           dialog.setIconImage(img.getImage());
+//							dialog.setTitle("Processing");
+//							dialog.setLayout(new GridBagLayout());
+//							dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+//							GridBagConstraints gbc = new GridBagConstraints();
+//							gbc.insets = new Insets(2, 2, 2, 2);
+//							gbc.weightx = 1;
+//							gbc.gridy = 0;
+//							dialog.add(new JLabel("Processing..."), gbc);
+//							pb = new JProgressBar();
+//							pb.setStringPainted(true);
+////                                                        pb.setForeground(Color.blue);]
+//                                               
+//                                                        pb.setMaximum(100);
+//                                                        pb.setMinimum(0);
+//                                                        
+//							gbc.gridy = 1;
+//							dialog.add(pb, gbc);
+//							dialog.pack();
+//							dialog.setLocationRelativeTo(null);
+//							dialog.setModal(true);
+//							JDialog.setDefaultLookAndFeelDecorated(true); 
+//							dialog.setVisible(true);
+//						}
+//						pb.setValue(getProgress());
+//					}
+//				}
+//
+//			});
+//		}
+//    @Override
+//    public Void doInBackground() {
+//  
+////            JCheckBox[] boxes = {};
+//        try { 
+//            for (int i = 0; i < 2; i++) {
+////                x = x - i;
+//            setProgress((int)((i*100)/2)+1);
+////        setProgress(i * (100 / N));
+////				  setProgress(i);
+//				Thread.sleep(10);
+////            Thread.sleep(SLEEP_TIME);// imitate a long-running task
+//
+//            
+//             if(Print3.isEnabled()){
+//              W68.w68(caseid,SueThird.getText());
+//            }
+//            
+//            }
+//        } catch (InterruptedException e) {
+//        }
+////        setProgress(100);
+//        
+//        return null;
+//    }
+//
+//    @Override
+//    public void done() {
+//                    if (dialog != null) {
+//				dialog.dispose();
+//			}
+//             Desktop desktop = Desktop.getDesktop();
+//        File dirToOpen = null;
+//        try {
+//            dirToOpen = new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
+//            desktop.open(dirToOpen);
+//        } catch (Exception iae) {
+//            System.out.println("File Not Found :"+iae);
+//        }
+////          System.out.println(text + " is done");
+////        Toolkit.getDefaultToolkit().beep();
+//    }
+//}/**/
+//       public class BackgroundWorker4 extends SwingWorker<Void, Void> {
+//
+//    private static final long SLEEP_TIME =10;
+//    private String text;
+//        private JProgressBar pb;
+//		private JDialog dialog;
+////   public void Task() {
+////       
+////    }
+////       public ProgressWorker(JProgressBar progress) {
+////            this.progress = progress;
+////        
+//            public BackgroundWorker4() {
+//           
+//			addPropertyChangeListener(new PropertyChangeListener() {
+//				@Override
+//				public void propertyChange(PropertyChangeEvent evt) {
+//					if ("progress".equalsIgnoreCase(evt.getPropertyName())) {
+//						 if (dialog == null) {
+//							dialog = new JDialog();
+//                                                        ImageIcon img = new ImageIcon("./Master/WD.png");
+//                                                           dialog.setIconImage(img.getImage());
+//							dialog.setTitle("Processing");
+//							dialog.setLayout(new GridBagLayout());
+//							dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+//							GridBagConstraints gbc = new GridBagConstraints();
+//							gbc.insets = new Insets(2, 2, 2, 2);
+//							gbc.weightx = 1;
+//							gbc.gridy = 0;
+//							dialog.add(new JLabel("Processing..."), gbc);
+//							pb = new JProgressBar();
+//							pb.setStringPainted(true);
+////                                                        pb.setForeground(Color.blue);]
+//                                               
+//                                                        pb.setMaximum(100);
+//                                                        pb.setMinimum(0);
+//                                                        
+//							gbc.gridy = 1;
+//							dialog.add(pb, gbc);
+//							dialog.pack();
+//							dialog.setLocationRelativeTo(null);
+//							dialog.setModal(true);
+//							JDialog.setDefaultLookAndFeelDecorated(true); 
+//							dialog.setVisible(true);
+//						}
+//						pb.setValue(getProgress());
+//					}
+//				}
+//
+//			});
+//		}
+//    @Override
+//    public Void doInBackground() {
+//  
+////            JCheckBox[] boxes = {};
+//        try { 
+//            for (int i = 0; i < 2; i++) {
+////                x = x - i;
+//            setProgress((int)((i*100)/2)+1);
+////        setProgress(i * (100 / N));
+////				  setProgress(i);
+//				Thread.sleep(10);
+////            Thread.sleep(SLEEP_TIME);// imitate a long-running task
+//
+//             if(Print4.isEnabled()&& !"".equals(SueSecond.getText())){
+//             W68.w68(caseid,SueForth.getText());
+//            }
+//
+//            }
+//        } catch (InterruptedException e) {
+//        }
+////        setProgress(100);
+//        
+//        return null;
+//    }
+//
+//    @Override
+//    public void done() {
+//                    if (dialog != null) {
+//				dialog.dispose();
+//			}
+//             Desktop desktop = Desktop.getDesktop();
+//        File dirToOpen = null;
+//        try {
+//            dirToOpen = new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
+//            desktop.open(dirToOpen);
+//        } catch (Exception iae) {
+//            System.out.println("File Not Found :"+iae);
+//        }
+////          System.out.println(text + " is done");
+////        Toolkit.getDefaultToolkit().beep();
+//    }
+//}/**/
+//       public class BackgroundWorker5 extends SwingWorker<Void, Void> {
+//
+//    private static final long SLEEP_TIME =10;
+//    private String text;
+//        private JProgressBar pb;
+//		private JDialog dialog;
+////   public void Task() {
+////       
+////    }
+////       public ProgressWorker(JProgressBar progress) {
+////            this.progress = progress;
+////        
+//            public BackgroundWorker5() {
+//           
+//			addPropertyChangeListener(new PropertyChangeListener() {
+//				@Override
+//				public void propertyChange(PropertyChangeEvent evt) {
+//					if ("progress".equalsIgnoreCase(evt.getPropertyName())) {
+//						 if (dialog == null) {
+//							dialog = new JDialog();
+//                                                        ImageIcon img = new ImageIcon("./Master/WD.png");
+//                                                           dialog.setIconImage(img.getImage());
+//							dialog.setTitle("Processing");
+//							dialog.setLayout(new GridBagLayout());
+//							dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+//							GridBagConstraints gbc = new GridBagConstraints();
+//							gbc.insets = new Insets(2, 2, 2, 2);
+//							gbc.weightx = 1;
+//							gbc.gridy = 0;
+//							dialog.add(new JLabel("Processing..."), gbc);
+//							pb = new JProgressBar();
+//							pb.setStringPainted(true);
+////                                                        pb.setForeground(Color.blue);]
+//                                               
+//                                                        pb.setMaximum(100);
+//                                                        pb.setMinimum(0);
+//                                                        
+//							gbc.gridy = 1;
+//							dialog.add(pb, gbc);
+//							dialog.pack();
+//							dialog.setLocationRelativeTo(null);
+//							dialog.setModal(true);
+//							JDialog.setDefaultLookAndFeelDecorated(true); 
+//							dialog.setVisible(true);
+//						}
+//						pb.setValue(getProgress());
+//					}
+//				}
+//
+//			});
+//		}
+//    @Override
+//    public Void doInBackground() {
+//  
+////            JCheckBox[] boxes = {};
+//        try { 
+//            for (int i = 0; i < 2; i++) {
+////                x = x - i;
+//            setProgress((int)((i*100)/2)+1);
+////        setProgress(i * (100 / N));
+////				  setProgress(i);
+//				Thread.sleep(10);
+////            Thread.sleep(SLEEP_TIME);// imitate a long-running task
+//
+//              if(Print5.isEnabled()&& !"".equals(SueSecond.getText())){
+//             W68.w68(caseid,SueFifth.getText());
+//            }
+//
+//            }
+//        } catch (InterruptedException e) {
+//        }
+////        setProgress(100);
+//        
+//        return null;
+//    }
+//
+//    @Override
+//    public void done() {
+//                    if (dialog != null) {
+//				dialog.dispose();
+//			}
+//             Desktop desktop = Desktop.getDesktop();
+//        File dirToOpen = null;
+//        try {
+//            dirToOpen = new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
+//            desktop.open(dirToOpen);
+//        } catch (Exception iae) {
+//            System.out.println("File Not Found :"+iae);
+//        }
+////          System.out.println(text + " is done");
+////        Toolkit.getDefaultToolkit().beep();
+//    }
+//}/**/
+//       public class BackgroundWorker6 extends SwingWorker<Void, Void> {
+//
+//    private static final long SLEEP_TIME =10;
+//    private String text;
+//        private JProgressBar pb;
+//		private JDialog dialog;
+////   public void Task() {
+////       
+////    }
+////       public ProgressWorker(JProgressBar progress) {
+////            this.progress = progress;
+////        
+//            public BackgroundWorker6() {
+//           
+//			addPropertyChangeListener(new PropertyChangeListener() {
+//				@Override
+//				public void propertyChange(PropertyChangeEvent evt) {
+//					if ("progress".equalsIgnoreCase(evt.getPropertyName())) {
+//						 if (dialog == null) {
+//							dialog = new JDialog();
+//                                                        ImageIcon img = new ImageIcon("./Master/WD.png");
+//                                                           dialog.setIconImage(img.getImage());
+//							dialog.setTitle("Processing");
+//							dialog.setLayout(new GridBagLayout());
+//							dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+//							GridBagConstraints gbc = new GridBagConstraints();
+//							gbc.insets = new Insets(2, 2, 2, 2);
+//							gbc.weightx = 1;
+//							gbc.gridy = 0;
+//							dialog.add(new JLabel("Processing..."), gbc);
+//							pb = new JProgressBar();
+//							pb.setStringPainted(true);
+////                                                        pb.setForeground(Color.blue);]
+//                                               
+//                                                        pb.setMaximum(100);
+//                                                        pb.setMinimum(0);
+//                                                        
+//							gbc.gridy = 1;
+//							dialog.add(pb, gbc);
+//							dialog.pack();
+//							dialog.setLocationRelativeTo(null);
+//							dialog.setModal(true);
+//							JDialog.setDefaultLookAndFeelDecorated(true); 
+//							dialog.setVisible(true);
+//						}
+//						pb.setValue(getProgress());
+//					}
+//				}
+//
+//			});
+//		}
+//    @Override
+//    public Void doInBackground() {
+//  
+////            JCheckBox[] boxes = {};
+//        try { 
+//            for (int i = 0; i < 2; i++) {
+////                x = x - i;
+//            setProgress((int)((i*100)/2)+1);
+////        setProgress(i * (100 / N));
+////				  setProgress(i);
+//				Thread.sleep(10);
+////            Thread.sleep(SLEEP_TIME);// imitate a long-running task
+//
+//
+//              if(Print6.isEnabled()&& !"".equals(SueSecond.getText())){
+//             W68.w68(caseid,SueSixth.getText());
+//            }
+//
+//            }
+//        } catch (InterruptedException e) {
+//        }
+////        setProgress(100);
+//        
+//        return null;
+//    }
+//
+//    @Override
+//    public void done() {
+//                    if (dialog != null) {
+//				dialog.dispose();
+//			}
+//             Desktop desktop = Desktop.getDesktop();
+//        File dirToOpen = null;
+//        try {
+//            dirToOpen = new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
+//            desktop.open(dirToOpen);
+//        } catch (Exception iae) {
+//            System.out.println("File Not Found :"+iae);
+//        }
+////          System.out.println(text + " is done");
+////        Toolkit.getDefaultToolkit().beep();
+//    }
+//}/**/
+//       public class BackgroundWorker7 extends SwingWorker<Void, Void> {
+//
+//    private static final long SLEEP_TIME =10;
+//    private String text;
+//        private JProgressBar pb;
+//		private JDialog dialog;
+////   public void Task() {
+////       
+////    }
+////       public ProgressWorker(JProgressBar progress) {
+////            this.progress = progress;
+////        
+//            public BackgroundWorker7() {
+//           
+//			addPropertyChangeListener(new PropertyChangeListener() {
+//				@Override
+//				public void propertyChange(PropertyChangeEvent evt) {
+//					if ("progress".equalsIgnoreCase(evt.getPropertyName())) {
+//						 if (dialog == null) {
+//							dialog = new JDialog();
+//                                                        ImageIcon img = new ImageIcon("./Master/WD.png");
+//                                                           dialog.setIconImage(img.getImage());
+//							dialog.setTitle("Processing");
+//							dialog.setLayout(new GridBagLayout());
+//							dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+//							GridBagConstraints gbc = new GridBagConstraints();
+//							gbc.insets = new Insets(2, 2, 2, 2);
+//							gbc.weightx = 1;
+//							gbc.gridy = 0;
+//							dialog.add(new JLabel("Processing..."), gbc);
+//							pb = new JProgressBar();
+//							pb.setStringPainted(true);
+////                                                        pb.setForeground(Color.blue);]
+//                                               
+//                                                        pb.setMaximum(100);
+//                                                        pb.setMinimum(0);
+//                                                        
+//							gbc.gridy = 1;
+//							dialog.add(pb, gbc);
+//							dialog.pack();
+//							dialog.setLocationRelativeTo(null);
+//							dialog.setModal(true);
+//							JDialog.setDefaultLookAndFeelDecorated(true); 
+//							dialog.setVisible(true);
+//						}
+//						pb.setValue(getProgress());
+//					}
+//				}
+//
+//			});
+//		}
+//    @Override
+//    public Void doInBackground() {
+//  
+////            JCheckBox[] boxes = {};
+//        try { 
+//            for (int i = 0; i < 2; i++) {
+////                x = x - i;
+//            setProgress((int)((i*100)/2)+1);
+////        setProgress(i * (100 / N));
+////				  setProgress(i);
+//				Thread.sleep(10);
+////            Thread.sleep(SLEEP_TIME);// imitate a long-running task
+//
+//
+//              if(Print7.isEnabled()&& !"".equals(SueSecond.getText())){
+//             W68.w68(caseid,SueSeventh.getText());
+//            }
+//            }
+//        } catch (InterruptedException e) {
+//        }
+////        setProgress(100);
+//        
+//        return null;
+//    }
+//
+//    @Override
+//    public void done() {
+//                    if (dialog != null) {
+//				dialog.dispose();
+//			}
+//             Desktop desktop = Desktop.getDesktop();
+//        File dirToOpen = null;
+//        try {
+//            dirToOpen = new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
+//            desktop.open(dirToOpen);
+//        } catch (Exception iae) {
+//            System.out.println("File Not Found :"+iae);
+//        }
+////          System.out.println(text + " is done");
+////        Toolkit.getDefaultToolkit().beep();
+//    }
+//}/**/
         public void comboInvest(){
     
      try {
@@ -2306,6 +2845,32 @@ catch (Exception d) {  //System.out.println(d);
            return DateEnd;
     
     }
+     public String CalculateDateAdd(String DateEnd) {
+
+    String DateNextDay="";
+//    int totalDate=Integer.parseInt(DateTotal);
+        try{
+            Calendar cal;
+            Locale lc = new Locale("th","TH");
+                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                        Date dateS = sdf.parse(DateEnd);
+                        cal=Calendar.getInstance();
+                        cal.setTime(dateS);
+                        cal.add(Calendar.DAY_OF_MONTH, 1);
+                        DateNextDay=sdf.format(cal.getTime());
+//                        Date dateE=sdf.parse(DateEnd);
+//                long diff = dateE.getTime() - dateS.getTime();
+//                int diffDays = (int)(diff / (24 * 60 * 60 * 1000));
+//                DateTotal=diffDays+"";
+//                 System.out.println("DaysTotallllllllll : "+DateTotal); 
+            return DateNextDay;
+            } catch(Exception e){
+                            return null;
+//                System.out.println(e);
+            }
+       
+    
+    }
      public static String Checknull(Object input){
          String a="";
         
@@ -2348,21 +2913,23 @@ catch (Exception d) {  //System.out.println(d);
             Locale lc = new Locale("th","TH");
                         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                         Date dateS = sdf.parse(DateEnd);
-                        CalculateDateExpr(DateEnd);
-                        if(CalculateDateExpr(DateEnd)<=0){
+//                        CalculateDateExpr(DateEnd);
+                    
                         cal=Calendar.getInstance();
                         cal.setTime(dateS);
-                        cal.add(Calendar.DATE, 1);
-                        DateNextTime=sdf.format(cal.getTime());}                   
+                        cal.add(Calendar.DAY_OF_MONTH, 1);
+                        DateNextTime=sdf.format(cal.getTime());                  
 //                        Date dateE=sdf.parse(DateEnd);
 //                long diff = dateE.getTime() - dateS.getTime();
 //                int diffDays = (int)(diff / (24 * 60 * 60 * 1000));
 //                DateTotal=diffDays+"";
 //                 System.out.println("DaysTotallllllllll : "+DateTotal);
+                return DateNextTime;
             } catch(Exception e){
-                System.out.println(e);
+                return null;
+//                System.out.println(e);
             }
-           return DateNextTime;
+          
     
     }
             public int CalculateDateExpr(String DateEnd){
@@ -2440,6 +3007,7 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JButton Print7;
     private javax.swing.JTextField SevDate;
     private javax.swing.JTextField SixthDate;
+    private javax.swing.JLabel StatusSuspect;
     private javax.swing.JTextField SueEndLast;
     private javax.swing.JTextField SueFifth;
     private javax.swing.JComboBox<String> SueFifthCause;
@@ -2482,6 +3050,7 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JTextField ThirdDate;
     private javax.swing.JTextField TotalDate;
     private javax.swing.JTextField crimecaseno;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButtonSave;
     private javax.swing.JLabel jLabel1;
@@ -2497,6 +3066,7 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;

@@ -102,8 +102,8 @@ String noPerson;
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(256, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(93, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(4, 93, 179));
@@ -212,6 +212,8 @@ String noPerson;
              JDialog dialog = new JDialog(frame);//frame is owner
              JFrame s = (JFrame)(dialog.getParent());               
              s.removeAll();
+        JSONObject datacase=new JSONObject();
+        datacase.put("TypeCase",typeC );
 //       if(typeC.equals("ชันสูตร")){        
 //       Identity_witnessForm idw=new Identity_witnessForm(s,null);
 //       idw.pack();
@@ -219,7 +221,7 @@ String noPerson;
 //       idw.setVisible(true);   
 //       }
 //       else{         
-         WitnessForm wf=new WitnessForm(s,null);
+         WitnessForm wf=new WitnessForm(s,null,datacase);
         wf.pack();                            
         wf.setLocationRelativeTo(null);     
         wf.setVisible(true);
@@ -238,6 +240,8 @@ String noPerson;
         if(jTableWitness.getSelectedRow()>=0){
            
             try{
+                 JSONObject datacase=new JSONObject();
+                 datacase.put("TypeCase",typeC );
                 String NoPerson = jTableWitness.getModel().getValueAt(jTableWitness.getSelectedRow(), 7)+"";            
                 String sql = "select NoPerson,Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,Weight,HouseNumber,Related,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
@@ -279,7 +283,7 @@ String noPerson;
                      data.put("Related", rs.getString("Related"));
                      data.put("OtherName", rs.getString("OtherName"));
 
-                            WitnessForm wF=new WitnessForm(f,data);
+                            WitnessForm wF=new WitnessForm(f,data,datacase);
                             wF.pack();
                             wF.setLocationRelativeTo(null);                            
                             wF.setVisible(true);    		
@@ -370,7 +374,7 @@ String noPerson;
         Connection con = ConnectDatabase.connect();
         Statement stmt = con.createStatement();
         String a=txtCaseNO.getText();
-        String sql = "select Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
+        String sql = "select Age,Related,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                      "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
                      "PhonePerson,Province,NoPerson,Race,Religion,Tambon,TypePerson,OrderPerson,Weight,ZipCode,caseIdPerson from person where TypePerson='พยานและบุคคลอื่นๆ' "
                 + "and caseIdPerson='"+a+"'"+getFilterCondition()+"order by OrderPerson ASC";
@@ -388,6 +392,8 @@ String noPerson;
             row.add(rs.getString("Nationality"));
             row.add(rs.getString("Religion"));
             row.add(rs.getString("NoPerson"));
+            row.add(rs.getString("Related"));
+
             tabledata.add(row);
         }
         rs.close();
@@ -400,7 +406,8 @@ String noPerson;
         ColumnName.add("เชื้อชาติ");
         ColumnName.add("สัญชาติ");
         ColumnName.add("ศาสนา");
-        ColumnName.add("เลขคน");        
+        ColumnName.add("เลขคน"); 
+        ColumnName.add("เกี่ยวข้องเป็น");    
          System.out.println("SQL : "+sql);
      
         jTableWitness.setModel(new javax.swing.table.DefaultTableModel(

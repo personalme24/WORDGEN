@@ -49,6 +49,7 @@ public class CreateTable {
                 "	Weight	VARCHAR(100)	,	\n"+
                 "	BloodGroup	VARCHAR(100)	,	\n"+
                 "	Related	VARCHAR(100)	,	\n"+
+                "	RelatedAccused	VARCHAR(100)	,	\n"+                         
                 "	HouseNumber	VARCHAR(100)	,	\n"+
                 "	Moo	VARCHAR(100)	,	\n"+
                 "	Tambon	VARCHAR(100)	,	\n"+
@@ -137,6 +138,7 @@ public class CreateTable {
                 "	FreezeDate     	VARCHAR(100)	,	\n"+                          
                 "	SueLastEndDate	VARCHAR(100)	,	\n"+  
                 "	CourtSuspect	VARCHAR(100)	,	\n"+
+                "       GiveEvidence	VARCHAR(100)	,	\n"+                        
                 "	SueFirst	VARCHAR(100)	,	\n"+
                 "	SueFirstDate	DateTime	,	\n"+
                 "	SueFirstStart	DateTime	,	\n"+
@@ -268,9 +270,11 @@ public class CreateTable {
                         "	crimecaseyears	VARCHAR(100)	,	\n"+
                         "	crimecasenoyear	VARCHAR(100)	,	\n"+
                         "	OccuredDate	DATE	,	\n"+
+                          "	OccuredDateEnd	DATE	,	\n"+
                         "	CaseAcceptDate	DATE	,	\n"+
                         "	CaseRequestDate	DATE	,	\n"+
                         "	OccuredTime	TIME	,	\n"+
+                        "	OccuredTimeEnd	TIME	,	\n"+
                         "	CaseAccepTime	TIME	,	\n"+
                         "	CaseRequestTime	TIME	,	\n"+
                         "	ChargeCodeCase	INTEGER	,	\n"+
@@ -345,13 +349,15 @@ public class CreateTable {
           String sqlPolice ="CREATE TABLE IF NOT EXISTS Police (\n"+
                         "	IdPolice	INTEGER	 Primary Key,	\n"+
 	                "	IdCardPolice	VARCHAR(13)	,	\n"+
+                          "	RankPoliceFull	VARCHAR(100)	,	\n"+
                         "	RankPolice	VARCHAR(100)	,	\n"+
                         "	FirstName	VARCHAR(100)	,	\n"+
                         "	LastName	VARCHAR(100)	,	\n"+
                         "	Position	VARCHAR(100)		\n"+
                          "	);";
 	  String sqlPoliceStat ="CREATE TABLE IF NOT EXISTS PoliceStation (\n"+
-                          "	PoliceStartionCode	VARCHAR(100)	Primary Key,	\n"+
+                       "	PoliceStartionId	INTEGER	Primary Key ,	\n"+ 
+                        "	PoliceStartionCode	VARCHAR(100)   ,	\n"+
                         "	PoliceStaionName	VARCHAR(100)	,	\n"+
                         "	PoliceStaionShort	VARCHAR(100)	,	\n"+
                         "	StationAddress	VARCHAR(100)	,	\n"+
@@ -366,8 +372,12 @@ public class CreateTable {
                         "	TelStation	VARCHAR(100)	,	\n"+
                         "	PhonePolice	VARCHAR(100)	,	\n"+
                         "	Fax	VARCHAR(100)	,	\n"+
+                        "	HeadRankFull	VARCHAR(100)	,	\n"+
+                        "	HeadRankShort	VARCHAR(100)	,	\n"+
                         "	HeadName	VARCHAR(100)	,	\n"+
                         "	HeadPosition	VARCHAR(100)	,	\n"+
+                         "	HeadWorkRankFull	VARCHAR(100)	,	\n"+
+                        "	HeadWorkRankShort	VARCHAR(100)	,	\n"+
                         "	HeadWorkName	VARCHAR(100)	,	\n"+
                         "	HeadWorkPosition	VARCHAR(100)	,	\n"+
                         "	CriminalCourt	VARCHAR(100)	,	\n"+
@@ -434,6 +444,7 @@ public class CreateTable {
              String sqlInvest ="CREATE TABLE IF NOT EXISTS InvestInformation (\n"+
 	             "	InvestId	INTEGER	Primary Key Not Null,	\n"+
                      "	InvestCardID	VARCHAR(100)	,	\n"+
+                      "	InvestRankFull	VARCHAR(100)	,	\n"+    
                     "	InvestRank	VARCHAR(100)	,	\n"+                     
                     "	InvestName	VARCHAR(100)	,	\n"+
                     "	InvestPosition	VARCHAR(100)	,	\n"+

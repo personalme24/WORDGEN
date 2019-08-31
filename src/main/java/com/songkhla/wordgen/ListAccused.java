@@ -229,6 +229,8 @@ String typeC;
              JDialog dialog = new JDialog(frame);//frame is owner
              JFrame facc = (JFrame)(dialog.getParent());               
              facc.removeAll();
+             JSONObject datacase=new JSONObject();
+                 datacase.put("TypeCase",typeC );
 //       if(typeC.equals("ชันสูตร")){
 //       Identity_AccusedForm ida=new Identity_AccusedForm(facc,null);
 //                  ida.pack();
@@ -236,7 +238,7 @@ String typeC;
 //       ida.setVisible(true);
 //       }  
 //       else{  
-        AccusedForm accusedF=new AccusedForm(facc,null);
+        AccusedForm accusedF=new AccusedForm(facc,null,datacase);
                 accusedF.pack();
         accusedF.setLocationRelativeTo(null); 
         accusedF.setVisible(true);
@@ -256,6 +258,8 @@ String typeC;
         if(jTableAccure.getSelectedRow()>=0){
            
             try{
+                 JSONObject datacase=new JSONObject();
+                 datacase.put("TypeCase",typeC );
                 String Noperson = jTableAccure.getModel().getValueAt(jTableAccure.getSelectedRow(), 7)+"";            
                 String sql = "select NoPerson,Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,Weight,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
@@ -296,7 +300,7 @@ String typeC;
                      data.put("OrderPerson", rs.getString("OrderPerson"));
                       data.put("OtherName", rs.getString("OtherName"));
 
-                            AccusedForm accusedF=new AccusedForm(f,data);
+                            AccusedForm accusedF=new AccusedForm(f,data,datacase);
                              accusedF.pack();
                              accusedF.setLocationRelativeTo(null);
                             accusedF.setVisible(true);    		

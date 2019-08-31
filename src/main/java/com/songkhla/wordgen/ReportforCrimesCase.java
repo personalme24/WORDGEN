@@ -114,18 +114,19 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
     PreparedStatement pst=null;;
     public ReportforCrimesCase(JFrame parrent,JSONObject datain) {
                 super(parrent,true);
-
+                
         initComponents();
          ImageIcon img = new ImageIcon("./Master/WD.png");
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
+            caseidreport.setVisible(false);
          //jCheckW5.setSelected(true);
          //jCheckW6.setSelected(true);
 //        crimecaseno.setVisible(false);
 
         if(datain != null){
         caseid=datain.get("caseid")+"";
-//                crimecaseno.setText(caseid);
+                caseidreport.setText(caseid);
 
         con=ConnectDatabase.connect();
 
@@ -258,6 +259,7 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
         jCheckW211 = new javax.swing.JCheckBox();
         jCheckW274 = new javax.swing.JCheckBox();
         jButton1 = new javax.swing.JButton();
+        caseidreport = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1270, 728));
@@ -273,7 +275,7 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addGap(73, 73, 73)
                 .addComponent(jLabel2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1004,6 +1006,8 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
             }
         });
 
+        caseidreport.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1012,7 +1016,10 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(69, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(caseidreport)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton1))
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 1149, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45))
         );
@@ -1023,7 +1030,9 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(caseidreport))
                 .addGap(0, 73, Short.MAX_VALUE))
         );
 
@@ -1177,7 +1186,7 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
 		}
     @Override
     public Void doInBackground() {
-            String no=crimecaseid.getText();
+            String no=caseidreport.getText();
             JCheckBox[] boxes = {jCheckW201,jCheckW202,jCheckW203,jCheckW204,jCheckW205,jCheckW206,jCheckW208,jCheckW209,jCheckW211,jCheckW212,jCheckW213,jCheckW214};
         try { 
             for (int i = 0; i < boxes.length; i++) {
@@ -1492,6 +1501,7 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel caseidreport;
     private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckW201;
     private javax.swing.JCheckBox jCheckW202;

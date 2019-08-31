@@ -150,36 +150,53 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="OrderPerson" min="-2" pref="56" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
+                      </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                  </Group>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                                  <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="Related" min="-2" pref="190" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel11" alignment="1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="FatherFullName" alignment="1" max="32767" attributes="0"/>
-                              <Component id="FullNamePersonEn" alignment="1" max="32767" attributes="0"/>
-                              <Component id="PassportNumber" alignment="0" max="32767" attributes="0"/>
-                              <Component id="PeopleRegistrationID" alignment="0" max="32767" attributes="0"/>
-                              <Component id="Nationality" alignment="1" max="32767" attributes="0"/>
-                              <Component id="BloodGroup" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="HouseNumber" min="-2" pref="92" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel11" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="Moo" pref="62" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="FatherFullName" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="FullNamePersonEn" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="PassportNumber" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="PeopleRegistrationID" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="Nationality" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="BloodGroup" alignment="0" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="HouseNumber" min="-2" pref="92" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="Moo" pref="62" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -284,23 +301,6 @@
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                  <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="Related" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="OrderPerson" min="-2" pref="56" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -849,26 +849,7 @@
                       <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="18">
-                        <StringItem index="0" value=" "/>
-                        <StringItem index="1" value="&#xe1c;&#xe39;&#xe49;&#xe08;&#xe31;&#xe1a;&#xe01;&#xe38;&#xe21;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
-                        <StringItem index="2" value="&#xe1c;&#xe39;&#xe49;&#xe1e;&#xe1a;&#xe01;&#xe32;&#xe23;&#xe01;&#xe23;&#xe30;&#xe17;&#xe33;&#xe1c;&#xe34;&#xe14;"/>
-                        <StringItem index="3" value="&#xe1c;&#xe39;&#xe49;&#xe15;&#xe23;&#xe27;&#xe08;&#xe22;&#xe36;&#xe14;&#xe02;&#xe2d;&#xe07;&#xe01;&#xe25;&#xe32;&#xe07;"/>
-                        <StringItem index="4" value="&#xe1a;&#xe34;&#xe14;&#xe32;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
-                        <StringItem index="5" value="&#xe21;&#xe32;&#xe23;&#xe14;&#xe32;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
-                        <StringItem index="6" value="&#xe1c;&#xe39;&#xe49;&#xe1b;&#xe01;&#xe04;&#xe23;&#xe2d;&#xe07;&#xe2b;&#xe23;&#xe37;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe14;&#xe39;&#xe41;&#xe25;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe2b;&#xe32;"/>
-                        <StringItem index="7" value="&#xe40;&#xe08;&#xe49;&#xe32;&#xe2b;&#xe19;&#xe49;&#xe32;&#xe17;&#xe35;&#xe48;&#xe2a;&#xe37;&#xe1a;&#xe2a;&#xe27;&#xe19;"/>
-                        <StringItem index="8" value="&#xe1c;&#xe39;&#xe49;&#xe40;&#xe2a;&#xe35;&#xe22;&#xe2b;&#xe32;&#xe22;"/>
-                        <StringItem index="9" value="&#xe1c;&#xe39;&#xe49;&#xe15;&#xe32;&#xe22;"/>
-                        <StringItem index="10" value="&#xe1a;&#xe34;&#xe14;&#xe32;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe32;&#xe22;"/>
-                        <StringItem index="11" value="&#xe21;&#xe32;&#xe23;&#xe14;&#xe32;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe32;&#xe22;"/>
-                        <StringItem index="12" value="&#xe0d;&#xe32;&#xe15;&#xe34;&#xe1c;&#xe39;&#xe49;&#xe15;&#xe32;&#xe22;"/>
-                        <StringItem index="13" value="&#xe1e;&#xe22;&#xe32;&#xe19;"/>
-                        <StringItem index="14" value="&#xe19;&#xe32;&#xe22;&#xe1b;&#xe23;&#xe30;&#xe01;&#xe31;&#xe19;"/>
-                        <StringItem index="15" value="&#xe1c;&#xe39;&#xe49;&#xe41;&#xe08;&#xe49;&#xe07;"/>
-                        <StringItem index="16" value="&#xe25;&#xe48;&#xe32;&#xe21;"/>
-                        <StringItem index="17" value="&#xe44;&#xe21;&#xe48;&#xe23;&#xe30;&#xe1a;&#xe38;"/>
-                      </StringArray>
+                      <StringArray count="0"/>
                     </Property>
                   </Properties>
                   <AuxValues>
@@ -879,6 +860,9 @@
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="TH SarabunPSK" size="22" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="0" green="0" red="cc" type="rgb"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="&#xe40;&#xe01;&#xe35;&#xe48;&#xe22;&#xe27;&#xe02;&#xe49;&#xe2d;&#xe07;&#xe40;&#xe1b;&#xe47;&#xe19;"/>
                   </Properties>

@@ -44,7 +44,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 public class W68 {
-public static void w68(String cc,String sueTime) {
+public static void w68(String cc,String sueTime,String stSuspect) {
             Connection conn=null;
             conn=ConnectDatabase.connect();
             PreparedStatement pst=null;
@@ -91,7 +91,7 @@ public static void w68(String cc,String sueTime) {
                               "from crimecase \n" +
                               "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                               "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
-                              "where crimecase.CaseId='"+cc+"'and Person.TypePerson='ผู้ต้องหา'\n" +
+                              "where crimecase.CaseId='"+cc+"'and Person.TypePerson='ผู้ต้องหา' and Person.StatusSuspect='"+stSuspect+"'\n" +
                               "group by crimecase.CaseId,Person.NoPerson";
 
                 Statement st = conn.createStatement();

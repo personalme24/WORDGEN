@@ -1163,6 +1163,7 @@ public class MainMenuWord extends javax.swing.JFrame {
                 System.out.println("ExSql : "+sql);
                 if(rs.next()){
                     JSONObject data = new JSONObject();
+                     data.put("PoliceStartionId", rs.getString("PoliceStartionId"));
                     data.put("PoliceStartionCode", rs.getString("PoliceStartionCode"));
                     data.put("PoliceStaionName", rs.getString("PoliceStaionName"));
                     data.put("PoliceStaionShort", rs.getString("PoliceStaionShort"));
@@ -1195,7 +1196,10 @@ public class MainMenuWord extends javax.swing.JFrame {
                     data.put("StationMoo", rs.getString("StationMoo"));
                     data.put("StationTambon", rs.getString("StationTambon"));
                     data.put("Postcode", rs.getString("Postcode"));                 
-
+                    data.put("HeadRankFull", rs.getString("HeadRankFull"));
+                    data.put("HeadRankShort", rs.getString("HeadRankShort"));
+                    data.put("HeadWorkRankFull", rs.getString("HeadWorkRankFull"));
+                    data.put("HeadWorkRankShort", rs.getString("HeadWorkRankShort"));       
                             StationForm sf = new StationForm(this,data);
                              sf.pack();
                              sf.setLocationRelativeTo(null);

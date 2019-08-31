@@ -348,6 +348,7 @@ jTableSue.setPreferredScrollableViewportSize(Toolkit.getDefaultToolkit().getScre
                 if(rs.next()){
                     JSONObject data = new JSONObject();
                     data.put("CaseId", rs.getString("CaseId"));
+                     data.put("StatusSuspect", rs.getString("StatusSuspect"));
                     data.put("crimecasenoyear", rs.getString("crimecasenoyear"));
                     data.put("AccureandOther", rs.getString("AccureandOther"));
                     data.put("ChargeName", rs.getString("ChargeNameCase"));

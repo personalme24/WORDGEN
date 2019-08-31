@@ -31,7 +31,7 @@ public class ActionList extends javax.swing.JDialog {
          ImageIcon img = new ImageIcon("./Master/WD.png");
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
-           
+           jButton1.setVisible(false);
         RefreshData();
        
     }

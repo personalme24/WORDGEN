@@ -24,6 +24,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Properties;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -46,7 +47,7 @@ public class WitnessForm extends javax.swing.JDialog {
      PreparedStatement pst=null;
      PreparedStatement pst2=null;
      boolean isInsert,isPerson;
-     String noPerson;
+     String noPerson,typeCase;
           ArrayList<String> personname=new ArrayList<String>();
 
           JDatePickerImpl IssueDate,ExpiredDate,BirthDay;
@@ -54,7 +55,7 @@ public class WitnessForm extends javax.swing.JDialog {
     /**
      * Creates new form AccusedForm
      */
-    public WitnessForm(JFrame parrent,JSONObject datain) {
+    public WitnessForm(JFrame parrent,JSONObject datain,JSONObject datacase) {
         super(parrent,true);
         initComponents();  
           ImageIcon img = new ImageIcon("./Master/WD.png");
@@ -100,6 +101,34 @@ public class WitnessForm extends javax.swing.JDialog {
 //        
   FullNamePerson.addCaretListener(new TextFieldCaretListener());
      jComboBoxListName.addActionListener(new ComboBoxActionListener());
+        String[] ItemDead = {"","บิดาผู้ตาย", "มารดาผู้ตาย", "บุตรผู้ตาย", "สามีผูตาย", "ภริยาผู้ตาย", "ผู้ปกครองผู้ตาย", "พี่ร่วมบิดามารดาของผู้ตาย",
+                               "พี่ร่วมบิดาของผู้ตาย", "พี่ร่วมมารดาของผู้ตาย", "น้องร่วมบิดามารดาของผู้ตาย", "น้องร่วมบิดาของผู้ตาย", "น้องร่วมมารดาของผู้ตาย",
+                                "ลุงผู้ตาย","ป้าผู้ตาย","น้าผู้ตาย","อาผู้ตาย","ปู่ผู้ตาย","ย่าผู้ตาย","ตาผู้ตาย","ยายผู้ตาย","หลานผู้ตาย","เหลนผู้ตาย","ผู้มีส่วนได้เสียกับผู้ตาย","พนักงานสอบสวนในคดี"};
+           String[] ItemWitness = {"","ผู้พบการกระทำผิด", "พยาน", "ผู้แจ้ง", "ญาติ", "นายประกัน", "บิดาผู้ต้องหา", "มารดาผู้ต้องหา","ผู้ปกครองหรือผู้ดูแลผู้ต้องหา","เจ้าหน้าที่สืบสวน"
+                                   ,"พนักงานสอบสวนในคดี","ล่าม","ไม่ระบุ"};
+     typeCase=datacase.get("TypeCase")+"";
+     if(typeCase.equals("อาญา")){
+     Related.setModel(new DefaultComboBoxModel<>(ItemWitness));
+     }
+     else if(typeCase.equals("ชันสูตร")){
+     Related.setModel(new DefaultComboBoxModel<>(ItemDead));
+     jLabel19.setText("เกี่ยวข้องกับผู้ตายเป็น");
+     }
+      BirthDay.getJFormattedTextField().getDocument().addDocumentListener(new DocumentListener() {
+                           public void changedUpdate(DocumentEvent e) {
+                                Age.setText(CalculateData.calculateAge(BirthDay.getJFormattedTextField().getText()));
+                           }
+                           public void removeUpdate(DocumentEvent e) {
+//                                SueThirdTotal.setText(CalculateDateTotal(ThirdDate.getText(), SueThirdEnd.getText()));
+
+
+                           }
+                           public void insertUpdate(DocumentEvent e) {
+                              Age.setText(CalculateData.calculateAge(BirthDay.getJFormattedTextField().getText()));
+
+                           }
+             }
+             );
           if(datain!=null){
             isInsert=false;
             noPerson=datain.get("NoPerson")+"";
@@ -170,6 +199,35 @@ public class WitnessForm extends javax.swing.JDialog {
                            }
              }
              );
+          
+//       --------------------------------Right Click----------------------------------------------------
+     JTextPopupMenu.addTo(OrderPerson);
+       JTextPopupMenu.addTo(PeopleRegistrationID);
+       JTextPopupMenu.addTo(ExpiredDate.getJFormattedTextField());
+       JTextPopupMenu.addTo(IssueDate.getJFormattedTextField());
+       JTextPopupMenu.addTo(PassportNumber);
+       JTextPopupMenu.addTo(FullNamePerson);
+       JTextPopupMenu.addTo(OtherName);
+       JTextPopupMenu.addTo(FullNamePersonEn);
+       JTextPopupMenu.addTo(BirthDay.getJFormattedTextField());
+       JTextPopupMenu.addTo(Age);
+       JTextPopupMenu.addTo(Religion);
+       JTextPopupMenu.addTo(Nationality);
+       JTextPopupMenu.addTo(Race);
+       JTextPopupMenu.addTo(Height);
+       JTextPopupMenu.addTo(Weight);
+       JTextPopupMenu.addTo(BloodGroup);
+       JTextPopupMenu.addTo(Occupation);
+       JTextPopupMenu.addTo(FatherFullName);
+       JTextPopupMenu.addTo(MotherFullName);
+       JTextPopupMenu.addTo(PhonePerson);
+       JTextPopupMenu.addTo(HouseNumber);
+       JTextPopupMenu.addTo(Moo);
+       JTextPopupMenu.addTo(Tambon);
+       JTextPopupMenu.addTo(Amphur);
+       JTextPopupMenu.addTo(Province);
+       JTextPopupMenu.addTo(ZipCode);
+       
     }
             
     WitnessForm(ListAccused aThis, boolean b) {
@@ -453,9 +511,9 @@ public class WitnessForm extends javax.swing.JDialog {
 
         Related.setEditable(true);
         Related.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        Related.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "ผู้จับกุมผู้ต้องหา", "ผู้พบการกระทำผิด", "ผู้ตรวจยึดของกลาง", "บิดาผู้ต้องหา", "มารดาผู้ต้องหา", "ผู้ปกครองหรือผู้ดูแลผู้ต้องหา", "เจ้าหน้าที่สืบสวน", "ผู้เสียหาย", "ผู้ตาย", "บิดาผู้ตาย", "มารดาผู้ตาย", "ญาติผู้ตาย", "พยาน", "นายประกัน", "ผู้แจ้ง", "ล่าม", "ไม่ระบุ" }));
 
         jLabel19.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(204, 0, 0));
         jLabel19.setText("เกี่ยวข้องเป็น");
 
         jPanelBirthDay.setBackground(new java.awt.Color(255, 255, 255));
@@ -517,31 +575,44 @@ public class WitnessForm extends javax.swing.JDialog {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(OrderPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(85, 85, 85))
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel21)
-                    .addComponent(jLabel26)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addGap(6, 6, 6)))
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel20)
-                    .addComponent(jLabel11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(FatherFullName, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(FullNamePersonEn, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(PassportNumber)
-                    .addComponent(PeopleRegistrationID)
-                    .addComponent(Nationality, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(BloodGroup)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(HouseNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43)
+                        .addComponent(jLabel19)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel30)
+                        .addComponent(Related, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel21)
+                            .addComponent(jLabel26)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(jLabel2)
+                                    .addGap(6, 6, 6)))
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel20)
+                            .addComponent(jLabel11))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Moo, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(FatherFullName, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(FullNamePersonEn, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(PassportNumber)
+                            .addComponent(PeopleRegistrationID)
+                            .addComponent(Nationality, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(BloodGroup)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(HouseNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel30)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Moo, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)))))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -621,19 +692,6 @@ public class WitnessForm extends javax.swing.JDialog {
                         .addGap(148, 148, 148)
                         .addComponent(BtSaveAccused, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(jLabel19)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Related, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(OrderPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(10, 10, 10))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1047,6 +1105,8 @@ public class WitnessForm extends javax.swing.JDialog {
        jPanel2.remove(jComboBoxListName);
        }
    }
+  
+
   }
 
   public static String IdCase(){

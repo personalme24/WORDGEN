@@ -63,7 +63,7 @@
                       <Component id="BtSaveAccused" min="-2" pref="108" max="-2" attributes="0"/>
                       <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="99" max="32767" attributes="0"/>
+                  <EmptySpace pref="103" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -75,7 +75,7 @@
                   <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="BtSaveAccused" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="36" max="32767" attributes="0"/>
+                  <EmptySpace pref="46" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -231,7 +231,7 @@
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="jLabel38" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="jSpinnerDeadTime" pref="90" max="32767" attributes="0"/>
+                                              <Component id="jSpinnerDeadTime" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -392,11 +392,13 @@
                                               <EmptySpace max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="PassportNumber" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                                          <Component id="jLabel10" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                                          <Component id="jLabel9" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jPanelBirthDay" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="PassportNumber" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                                              <Component id="jLabel10" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                                              <Component id="jLabel9" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
                                   <Group type="102" attributes="0">
@@ -1039,7 +1041,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="TH SarabunPSK" size="22" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="&#xe27;&#xe31;&#xe19;&#xe17;&#xe35;&#xe48;&#xe1e;&#xe1a;&#xe28;&#xe1e;"/>
+                <Property name="text" type="java.lang.String" value="&#xe40;&#xe27;&#xe25;&#xe32;&#xe17;&#xe35;&#xe48;&#xe1e;&#xe1a;&#xe28;&#xe1e;"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="jSpinnerBodyFoundTime">
