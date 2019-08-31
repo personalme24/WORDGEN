@@ -93,15 +93,19 @@ public class W5 {
                          Position=rs1.getString("Position");
                       }
                   
-                   String sql="select crimecase.*,ChargeCase.*,P1.*,P2.*,ActionsCaseData.*\n" +
+                   String sql="select crimecase.*,ChargeCase.*,P1.*,P2.*,P3.*,ActionsCaseData.*\n" +
                                 "from crimecase inner join(\n" +
                               "SELECT  min(Person.NoPerson),Person.FullNamePerson AccuredName,Person.Age AgeAccured,Person.Race AccuredRace,Person.Nationality AccuredNati "
                             + "  FROM Person where Person.TypePerson='ผู้กล่าวหา'\n" +
                               ")P1\n" +
                               "inner join(\n" +
                                 "SELECT min(Person.NoPerson),Person.FullNamePerson suspectName,Person.Age suspectAge,Person.Amphur suspectAmp,Person.Race suspectRace,\n"+
-                                "Person.Nationality suspectNati FROM Person where Person.TypePerson='ผู้ต้องหา'\n" +
+                                "Person.Nationality suspectNati FROM Person where Person.TypePerson='ผู้ต้องหา' and Person.caseIdPerson='"+cc+"'\n" +
                                 ")P2\n" +
+                                "inner join(\n" +
+                                "SELECT min(Person.NoPerson),Person.FullNamePerson WitnessName,Person.Age WitnessAge,Person.Amphur WitnessAmp,Person.Race WitnessRace,\n" +
+                                "Person.Nationality WitnessNati FROM Person where Person.Related='พยาน' and Person.caseIdPerson='"+cc+"'\n" +
+                                ")\n" +
                                 "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                                 "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
                                 "left join ActionsCaseData on crimecase.ActionCodeCase = ActionsCaseData.ActionCodeCase\n"+
@@ -145,9 +149,12 @@ public class W5 {
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3",Checknull(ccYear));
                 bookmarkvalue.put("C37",Checknull(s.getString("Invest_SendtoDepartment")));
+                bookmarkvalue.put("C38",Checknull(s.getString("Investigator_Number")));
                 bookmarkvalue.put("STATUS",Checknull(STATUS));
                 
-                bookmarkvalue.put("A2", Checknull(s.getString("ActionCrimesCase")));
+                bookmarkvalue.put("A2", Checknull(s.getString("ActionDetailCase")));
+                bookmarkvalue.put("A5", Checknull(s.getString("AnswerSuspectCase")));
+                bookmarkvalue.put("A6", Checknull(s.getString("AnswerAccuserCase")));
                 bookmarkvalue.put("C34", Checknull(s.getString("AnswerSuspectCase")));
                 bookmarkvalue.put("C35", Checknull(s.getString("AnswerAccuserCase")));
                 
@@ -171,6 +178,9 @@ public class W5 {
                     bookmarkvalue.put("PS13",  Checknull(s.getString("suspectAge")));
                     bookmarkvalue.put("PS14", Checknull(s.getString("suspectRace")));
                     bookmarkvalue.put("PS15",  Checknull(s.getString("suspectNati")));
+                    
+                    bookmarkvalue.put("PW7",  Checknull(s.getString("WitnessName"))); 
+                   
                          
                         bookmarkvalue.put("B2", Checknull(s.getString("ChargeNameCase")));
                        
@@ -259,6 +269,7 @@ public static void nw5() {
 		bookmarkvalue.put("C2","");
                 bookmarkvalue.put("C3","");
                 bookmarkvalue.put("C37","");
+                bookmarkvalue.put("C38","");
                 bookmarkvalue.put("STATUS","");
                 
                 bookmarkvalue.put("A2", "");
@@ -286,7 +297,7 @@ public static void nw5() {
                     bookmarkvalue.put("PS14", "");
                     bookmarkvalue.put("PS15", "");
                          
-                     
+                        bookmarkvalue.put("PW7","");
                        
                             bookmarkvalue.put("C4","");
                             bookmarkvalue.put("C441", "");

@@ -129,6 +129,7 @@ public class W93 {
                 bookmarkvalue.put("C001",Checknull(Checknull(Year)));
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3",Checknull(ccYear));
+                bookmarkvalue.put("C38",Checknull(s.getString("Investigator_Number")));
                  bookmarkvalue.put("CC2",Checknull(caseno));
                 bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
                 bookmarkvalue.put("S5", Checknull(StationAmphur));
@@ -235,6 +236,7 @@ public static void nw93() {
 		bookmarkvalue.put("C2","");
                 bookmarkvalue.put("C3","");
                 bookmarkvalue.put("CC2","");
+                bookmarkvalue.put("C38","");
                 bookmarkvalue.put("S2","");
                 bookmarkvalue.put("S5", "");
                 bookmarkvalue.put("S6", "");

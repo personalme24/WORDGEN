@@ -136,7 +136,7 @@ public class W46 {
                 
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3",Checknull(ccYear));
-                
+                bookmarkvalue.put("C38",Checknull(s.getString("Investigator_Number")));
                 bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
                 bookmarkvalue.put("S10",Checknull(TelStation));
                 bookmarkvalue.put("S12",Checknull(Fax));
@@ -222,7 +222,7 @@ public static void nw46() {
                 bookmarkvalue.put("CC2","");
 		bookmarkvalue.put("C2","");
                 bookmarkvalue.put("C3","");
-                
+                bookmarkvalue.put("C38","");
                 bookmarkvalue.put("S2","");
                 bookmarkvalue.put("S10","");
                 bookmarkvalue.put("S12","");

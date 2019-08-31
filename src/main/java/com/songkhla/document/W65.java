@@ -124,7 +124,8 @@ public static void w65(String cc) {
                 bookmarkvalue.put("C001",Checknull(Year));
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3",Checknull(ccYear));
-                 bookmarkvalue.put("CC2",Checknull(caseno));
+                bookmarkvalue.put("CC2",Checknull(caseno));
+                bookmarkvalue.put("C38",Checknull(s.getString("Investigator_Number")));
                 bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
                 bookmarkvalue.put("S5", Checknull(StationAmphur));
                 bookmarkvalue.put("S6", Checknull(StationProvince));
@@ -241,6 +242,7 @@ public static void nw65() {
 		bookmarkvalue.put("C2","");
                 bookmarkvalue.put("C3", "");
                 bookmarkvalue.put("CC2","");
+                bookmarkvalue.put("C38","");
                 bookmarkvalue.put("S2","");
                 bookmarkvalue.put("S5", "");
                 bookmarkvalue.put("S6", "");

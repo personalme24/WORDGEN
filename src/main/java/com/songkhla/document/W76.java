@@ -142,7 +142,7 @@ public class W76 {
                 bookmarkvalue.put("CC2",Checknull(caseno));
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3",Checknull(ccYear));
-                
+                bookmarkvalue.put("C38",Checknull(s.getString("Investigator_Number")));
                 bookmarkvalue.put("C4",Checknull(ToDate(s.getString("OccuredDate"))));
                 bookmarkvalue.put("C441", Checknull(s.getString("OccuredTime")));
                 bookmarkvalue.put("C6", Checknull(ToDate(s.getString("CaseRequestDate"))));
@@ -251,7 +251,6 @@ public static void nw76() {
                 bookmarkvalue.put("CC2","");
                 bookmarkvalue.put("C3", "");
                 bookmarkvalue.put("S2","");
-                 
                             bookmarkvalue.put("C4","");
                             bookmarkvalue.put("C441","");
                             bookmarkvalue.put("C6", "");

@@ -128,6 +128,7 @@ public class W60 {
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3",Checknull(ccYear));
                 bookmarkvalue.put("CC2",Checknull(caseno));
+                bookmarkvalue.put("C38",Checknull(s.getString("Investigator_Number")));
                 bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
                 bookmarkvalue.put("S7", Checknull(KK));
                 bookmarkvalue.put("S8", Checknull(BK));
@@ -210,6 +211,7 @@ public static void nw60() {
 		bookmarkvalue.put("C2","");
                 bookmarkvalue.put("C3","");
                 bookmarkvalue.put("CC2","");
+                bookmarkvalue.put("C38","");
                 bookmarkvalue.put("S2","");
                 bookmarkvalue.put("S7", "");
                 bookmarkvalue.put("S8", "");

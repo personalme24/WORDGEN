@@ -60,6 +60,7 @@ public class W22 {
              String ProvincProsecutor="";
              String StationAddress ="";
              String TelStation="";
+             String Fax="";
              String RankPolice ="";
              String FirstName ="";
              String LastName ="";
@@ -78,6 +79,7 @@ public class W22 {
                          StationAmphur=rs.getString("StationAmphur");
                          StationProvince=rs.getString("StationProvince");
                          TelStation=rs.getString("TelStation");
+                         TelStation=rs.getString("Fax");
                       }
             
                     String sqlDataPolice="SELECT * FROM Police";
@@ -148,12 +150,15 @@ public class W22 {
                  bookmarkvalue.put("S6", Checknull(StationProvince));
                  bookmarkvalue.put("S27",Checknull(ProvincProsecutor));
                  bookmarkvalue.put("S10",Checknull(TelStation));
+                 bookmarkvalue.put("S12",Checknull(Fax));
                    
                   bookmarkvalue.put("PA7",Checknull(s.getString("AccureandOther")));
                   bookmarkvalue.put("PS7",  Checknull(s.getString("SuspectandOther"))); 
                    
                          
                       bookmarkvalue.put("B2", Checknull(s.getString("ChargeNameCase")));
+                      
+                      bookmarkvalue.put("C38",Checknull(s.getString("Investigator_Number")));
                       
                         bookmarkvalue.put("P02", Checknull(RankPolice));
                         bookmarkvalue.put("P03", Checknull(FirstName));
@@ -260,7 +265,7 @@ public class W22 {
                   bookmarkvalue.put("PA7","");
                   bookmarkvalue.put("PS7",""); 
                    
-                         
+                      bookmarkvalue.put("C38","");
                       bookmarkvalue.put("B2","");
                       
                         bookmarkvalue.put("P02", "");

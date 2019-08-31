@@ -57,6 +57,8 @@ public class W6 {
              String PoliceStationName="";
              String StationAmphur="";
              String StationProvince="";
+             String HeadName="";
+             String HeadPosition="";
              String ProvincProsecutor="";
              String TelStation="";
             
@@ -72,6 +74,8 @@ public class W6 {
                          StationAmphur=rs.getString("StationAmphur");
                          StationProvince=rs.getString("StationProvince");
                          ProvincProsecutor=rs.getString("ProvincProsecutor");
+                         HeadName =rs.getString("HeadName");
+                         HeadPosition =rs.getString("HeadPosition");
                          TelStation=rs.getString("TelStation");
                       }
             
@@ -136,7 +140,9 @@ public class W6 {
                  bookmarkvalue.put("S02",Checknull(PoliceStationName));
                  bookmarkvalue.put("S5",Checknull(StationAmphur));
                  bookmarkvalue.put("S6",Checknull(StationProvince));
-                  bookmarkvalue.put("S10",Checknull(TelStation));
+                 bookmarkvalue.put("S10",Checknull(TelStation));
+                 bookmarkvalue.put("S13",Checknull(HeadName));
+                 bookmarkvalue.put("S14",Checknull(HeadPosition));
                   bookmarkvalue.put("S27",Checknull(ProvincProsecutor));
                   
                  bookmarkvalue.put("PS7",Checknull(s.getString("AccureandOther")));
@@ -230,7 +236,9 @@ public class W6 {
                  bookmarkvalue.put("S02","");
                  bookmarkvalue.put("S5","");
                  bookmarkvalue.put("S6","");
-                  bookmarkvalue.put("S10","");
+                 bookmarkvalue.put("S10","");
+                 bookmarkvalue.put("S13","");
+                 bookmarkvalue.put("S14","");
                   bookmarkvalue.put("S27","");
                   
                  bookmarkvalue.put("PS7","");

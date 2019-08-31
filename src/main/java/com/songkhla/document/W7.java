@@ -85,7 +85,7 @@ public class W7 {
                               ")P1\n" +
                               "inner join(\n" +
                                 "SELECT min(Person.NoPerson),Person.FullNamePerson suspectName,Person.Age suspectAge,Person.Amphur suspectAmp,Person.Race suspectRace,\n"+
-                                "Person.Nationality suspectNati FROM Person where Person.TypePerson='ผู้ตาย'\n" +
+                                "Person.Nationality suspectNati FROM Person where Person.TypePerson='ผู้ตาย' and Person.caseIdPerson='"+cc+"'\n" +
                                 ")P2\n" +
                                 "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                                 "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
@@ -148,9 +148,7 @@ public class W7 {
                     bookmarkvalue.put("PS13", Checknull(s.getString("suspectAge")));
                     bookmarkvalue.put("PS14", Checknull(s.getString("suspectRace")));
                     bookmarkvalue.put("PS15",Checknull(s.getString("suspectNati")));
-                         
-                         bookmarkvalue.put("PD7",Checknull(s.getString("FullNamePerson")));
-                         
+                     
                       bookmarkvalue.put("B2", Checknull(s.getString("ChargeNameCase")));
                       bookmarkvalue.put("B3", Checknull(s.getString("LawCase")));
                       

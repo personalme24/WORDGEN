@@ -137,6 +137,7 @@ public class W4 {
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3", Checknull(ccYear));
                 bookmarkvalue.put("C37",Checknull(s.getString("Invest_SendtoDepartment")));
+                bookmarkvalue.put("C38",Checknull(s.getString("Investigator_Number")));
                 bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
                 bookmarkvalue.put("S02",Checknull(PoliceStationName));
                   bookmarkvalue.put("S27",Checknull(ProvincProsecutor));
@@ -222,6 +223,7 @@ public class W4 {
 		bookmarkvalue.put("C2","");
                 bookmarkvalue.put("C3","");
                 bookmarkvalue.put("C37","");
+                bookmarkvalue.put("C38","");
                  bookmarkvalue.put("S2","");
                  bookmarkvalue.put("S27","");
                  bookmarkvalue.put("S29","");
