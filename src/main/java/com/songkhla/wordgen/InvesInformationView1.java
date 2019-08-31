@@ -55,8 +55,8 @@ public class InvesInformationView1 extends javax.swing.JDialog{
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableInvest = new javax.swing.JTable();
         jButtonAdd = new javax.swing.JButton();
-        jButtonEdit = new javax.swing.JButton();
         jButtonDelete = new javax.swing.JButton();
+        jButtonEdit = new javax.swing.JButton();
         txtCaseNO = new javax.swing.JTextField();
         jButtonFind = new javax.swing.JButton();
 
@@ -122,19 +122,19 @@ public class InvesInformationView1 extends javax.swing.JDialog{
             }
         });
 
-        jButtonEdit.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButtonEdit.setText("แก้ไข");
-        jButtonEdit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEditActionPerformed(evt);
-            }
-        });
-
         jButtonDelete.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButtonDelete.setText("ลบ");
         jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDeleteActionPerformed(evt);
+            }
+        });
+
+        jButtonEdit.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jButtonEdit.setText("แก้ไข");
+        jButtonEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEditActionPerformed(evt);
             }
         });
 
@@ -151,7 +151,7 @@ public class InvesInformationView1 extends javax.swing.JDialog{
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 645, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 646, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButtonAdd)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -162,7 +162,7 @@ public class InvesInformationView1 extends javax.swing.JDialog{
                         .addComponent(txtCaseNO, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonFind)))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,11 +173,11 @@ public class InvesInformationView1 extends javax.swing.JDialog{
                     .addComponent(txtCaseNO, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonFind)
                     .addComponent(jButtonDelete)
-                    .addComponent(jButtonEdit)
-                    .addComponent(jButtonAdd))
+                    .addComponent(jButtonAdd)
+                    .addComponent(jButtonEdit))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(118, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(144, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -227,7 +227,7 @@ public class InvesInformationView1 extends javax.swing.JDialog{
                 String investId = jTableInvest.getModel().getValueAt(jTableInvest.getSelectedRow(), 0)+"";
 
                 String sql="select InvestId,InvestCardID,InvestRank,InvestName,InvestPosition,"
-                        + "InvestBirthDay,InvestAge,InvestTel from InvestInformation where InvestId="+investId;
+                        + "InvestBirthDay,InvestAge,InvestTel,InvestRankFull from InvestInformation where InvestId="+investId;
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);
@@ -242,6 +242,7 @@ public class InvesInformationView1 extends javax.swing.JDialog{
                     data.put("InvestBirthDay", rs.getString("InvestBirthDay"));
                     data.put("InvestAge", rs.getString("InvestAge"));
                     data.put("InvestTel", rs.getString("InvestTel"));
+                    data.put("InvestRankFull", rs.getString("InvestRankFull"));
                  
                     InvesInformationFrom iif =new InvesInformationFrom(fwit,data);
                     iif.pack();

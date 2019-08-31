@@ -62,6 +62,7 @@ public class InvesInformationFrom extends javax.swing.JDialog {
            InvestId.setText(datain.get("InvestId")+"");
            InvestCardID.setText(datain.get("InvestCardID")+"");
            InvestRank.setText(datain.get("InvestRank")+"");
+           InvestRankFull.setText(datain.get("InvestRankFull")+"");
            InvestName.setText(datain.get("InvestName")+"");
            InvestPosition.setText(datain.get("InvestPosition")+"");
         if(datain.get("InvestBirthDay")==null||datain.get("InvestBirthDay")=="null"){
@@ -115,7 +116,7 @@ public class InvesInformationFrom extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         InvestCardID = new javax.swing.JTextField();
-        InvestRank = new javax.swing.JTextField();
+        InvestRankFull = new javax.swing.JTextField();
         InvestName = new javax.swing.JTextField();
         InvestPosition = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
@@ -130,6 +131,8 @@ public class InvesInformationFrom extends javax.swing.JDialog {
         jLabel16 = new javax.swing.JLabel();
         InvestId = new javax.swing.JLabel();
         jPanelInvestBirth = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        InvestRank = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -172,7 +175,7 @@ public class InvesInformationFrom extends javax.swing.JDialog {
             }
         });
 
-        InvestRank.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        InvestRankFull.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         InvestName.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
@@ -185,7 +188,7 @@ public class InvesInformationFrom extends javax.swing.JDialog {
         jLabel10.setText("ชื่อ-นามสกุล");
 
         jLabel9.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel9.setText("ยศ");
+        jLabel9.setText("ยศเต็ม");
 
         jLabel13.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel13.setText("วันเดือนปีเกิด");
@@ -229,6 +232,11 @@ public class InvesInformationFrom extends javax.swing.JDialog {
             .addGap(0, 33, Short.MAX_VALUE)
         );
 
+        jLabel11.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel11.setText("ยศย่อ");
+
+        InvestRank.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -257,19 +265,25 @@ public class InvesInformationFrom extends javax.swing.JDialog {
                                 .addComponent(InvestPosition, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(InvestName, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(InvestCardID, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(InvestRank, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(InvestCardID, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jPanelInvestBirth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(InvestAge))))
+                                .addComponent(InvestAge))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(InvestRankFull, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(InvestRank)))
+                        .addGap(20, 20, 20))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(InvestTel, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(124, Short.MAX_VALUE))
+                .addGap(124, 124, 124))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -290,6 +304,8 @@ public class InvesInformationFrom extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(InvestRankFull, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(InvestRank, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -337,17 +353,17 @@ public class InvesInformationFrom extends javax.swing.JDialog {
         try {
     
                 String sql="INSERT INTO InvestInformation (InvestId,InvestCardID,InvestRank,InvestName,"
-                        + "InvestPosition,InvestBirthDay,InvestAge,InvestTel) VALUES (?,?,?,?,?,?,?,?)";
+                        + "InvestPosition,InvestBirthDay,InvestAge,InvestTel,InvestRankFull) VALUES (?,?,?,?,?,?,?,?,?)";
                 pst=con.prepareStatement(sql);
                 pst.setString(1,InvestId.getText());
                 pst.setString(2,InvestCardID.getText());
-                pst.setString(3,InvestRank.getText());
+                pst.setString(3,InvestRankFull.getText());
                 pst.setString(4,InvestName.getText());
                 pst.setString(5,InvestPosition.getText());
                 pst.setString(6,InvestBirthDay.getJFormattedTextField().getText());
                pst.setString(7,InvestAge.getText());
                 pst.setString(8,InvestTel.getText());
-               
+               pst.setString(9,InvestRankFull.getText());
                 int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
         JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (response == JOptionPane.YES_OPTION) {
@@ -371,17 +387,19 @@ public class InvesInformationFrom extends javax.swing.JDialog {
                 + "InvestPosition=?,"
                 + "InvestBirthDay=?,"
                 + "InvestAge=?,"
-                + "InvestTel=?"   
+                + "InvestTel=?,"   
+                 + "InvestRankFull=?"   
                 + " Where InvestId=?";
                 pst=con.prepareStatement(sqlUpdate);
                 pst.setString(1,InvestCardID.getText());               
-                pst.setString(2,InvestRank.getText());
+                pst.setString(2,InvestRankFull.getText());
                 pst.setString(3,InvestName.getText());
                 pst.setString(4,InvestPosition.getText());
                 pst.setString(5,InvestBirthDay.getJFormattedTextField().getText());
                 pst.setString(6,InvestAge.getText());
                 pst.setString(7,InvestTel.getText());
-                pst.setString(8,InvestId.getText());
+                 pst.setString(8,InvestRankFull.getText());
+                pst.setString(9,InvestId.getText());
                 pst.executeUpdate();
                  int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการแก้ไขข้อมูล", "ยืนยัน",
                  JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
@@ -502,10 +520,12 @@ public class InvesInformationFrom extends javax.swing.JDialog {
     private javax.swing.JTextField InvestName;
     private javax.swing.JTextField InvestPosition;
     private javax.swing.JTextField InvestRank;
+    private javax.swing.JTextField InvestRankFull;
     private javax.swing.JTextField InvestTel;
     private javax.swing.JButton jButtonSave;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;

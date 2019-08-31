@@ -4,134 +4,65 @@
  * and open the template in the editor.
  */
 package com.songkhla.wordgen;
-import java.awt.Color;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Insets;
-import java.awt.Rectangle;
-import java.awt.RenderingHints;
-//from  w w w. j  a  va  2 s  .c  o m
-import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.JFrame;
-import javax.swing.JScrollBar;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.ScrollPaneLayout;
-import javax.swing.WindowConstants;
-import javax.swing.plaf.basic.BasicScrollBarUI;
- 
+
 /**
  *
  * @author Computer
  */
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import javax.swing.*;
+
 public class Main {
-    public static void main(String[] args) {
- 
-      JTextArea cmp = new JTextArea();
-    String str = "a";
-    for (int i = 0; i < 20; i++) {
-      cmp.append(str + str + "\n");
-    }
-    JScrollPane scrollPane = new JScrollPane(cmp);
-    scrollPane.setComponentZOrder(scrollPane.getVerticalScrollBar(), 0);
-    scrollPane.setComponentZOrder(scrollPane.getViewport(), 1);
-    scrollPane.getVerticalScrollBar().setOpaque(false);
 
-    scrollPane.setLayout(new ScrollPaneLayout() {
-      @Override
-      public void layoutContainer(Container parent) {
-        JScrollPane scrollPane = (JScrollPane) parent;
-
-        Rectangle availR = scrollPane.getBounds();
-        availR.x = availR.y = 0;
-
-        Insets parentInsets = parent.getInsets();
-        availR.x = parentInsets.left;
-        availR.y = parentInsets.top;
-        availR.width -= parentInsets.left + parentInsets.right;
-        availR.height -= parentInsets.top + parentInsets.bottom;
-
-        Rectangle vsbR = new Rectangle();
-        vsbR.width = 12;
-        vsbR.height = availR.height;
-        vsbR.x = availR.x + availR.width - vsbR.width;
-        vsbR.y = availR.y;
-
-        if (viewport != null) {
-          viewport.setBounds(availR);
-        }
-        if (vsb != null) {
-          vsb.setVisible(true);
-          vsb.setBounds(vsbR);
-        }
-      }
+  public static void main(String argv[]) throws Exception {
+    JComboBox<Item> comboBox = new JComboBox<Item>(new Item[] {
+        new Item("Major", "red"), new Item("Critical", "dark"),
+        new Item("Minor", "green") });
+    comboBox.addActionListener(e -> {
+        JComboBox<Item> combo = (JComboBox<Item>) e.getSource();
+        Item item = (Item) combo.getSelectedItem();
+        System.out.println(item.getColor());
     });
-    scrollPane.getVerticalScrollBar().setUI(new MyScrollBarUI());
-    
-    JFrame f = new JFrame();
-    f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-    f.getContentPane().add(scrollPane);
-    f.setSize(320, 240);
-    f.setVisible(true);
+    JFrame frame = new JFrame();
+    frame.add(comboBox);
+    frame.pack();
+    frame.setVisible(true);
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
   }
 }
 
-class MyScrollBarUI extends BasicScrollBarUI {
-  private final Dimension d = new Dimension();
+class Item {
 
-  @Override
-  protected JButton createDecreaseButton(int orientation) {
-    return new JButton() {
-      @Override
-      public Dimension getPreferredSize() {
-        return d;
-      }
-    };
+  private String name;
+  private String color;
+
+  public Item(String name, String color) {
+    this.name = name;
+    this.color = color;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getColor() {
+    return color;
+  }
+
+  public void setColor(String color) {
+    this.color = color;
   }
 
   @Override
-  protected JButton createIncreaseButton(int orientation) {
-    return new JButton() {
-      @Override
-      public Dimension getPreferredSize() {
-        return d;
-      }
-    };
-  }
-
-  @Override
-  protected void paintTrack(Graphics g, JComponent c, Rectangle r) {
-  }
-
-  @Override
-  protected void paintThumb(Graphics g, JComponent c, Rectangle r) {
-    Graphics2D g2 = (Graphics2D) g.create();
-    g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-        RenderingHints.VALUE_ANTIALIAS_ON);
-    Color color = null;
-    JScrollBar sb = (JScrollBar) c;
-    if (!sb.isEnabled() || r.width > r.height) {
-      return;
-    } else if (isDragging) {
-      color = Color.DARK_GRAY;
-    } else if (isThumbRollover()) {
-      color = Color.LIGHT_GRAY;
-    } else {
-      color = Color.GRAY;
-    }
-    g2.setPaint(color);
-    g2.fillRoundRect(r.x, r.y, r.width, r.height, 10, 10);
-    g2.setPaint(Color.WHITE);
-    g2.drawRoundRect(r.x, r.y, r.width, r.height, 10, 10);
-    g2.dispose();
-  }
-
-  @Override
-  protected void setThumbBounds(int x, int y, int width, int height) {
-    super.setThumbBounds(x, y, width, height);
-    scrollbar.repaint();
+  public String toString() {
+    return name;
   }
 }

@@ -601,6 +601,9 @@
                       <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RaceActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel14">
                   <Properties>
@@ -632,9 +635,10 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="Occupation">
                   <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor" postCode="//Occupation = new HintTextField(&quot;&#xe2b;&#xe32;&#xe01;&#xe40;&#xe1b;&#xe47;&#xe19;&#xe15;&#xe33;&#xe23;&#xe27;&#xe08; &#xe23;&#xe31;&#xe1a;&#xe23;&#xe32;&#xe0a;&#xe01;&#xe32;&#xe23;&#xe15;&#xe33;&#xe23;&#xe27;&#xe08;&quot;);">
                       <Font name="TH SarabunPSK" size="22" style="1"/>
                     </Property>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel15">

@@ -1076,7 +1076,8 @@ public class MainMenuWord extends javax.swing.JFrame {
                     data.put("FirstName", rs.getString("FirstName"));
                     data.put("LastName", rs.getString("LastName"));
                     data.put("Position", rs.getString("Position"));
-                 
+                    data.put("RankPoliceFull", rs.getString("RankPoliceFull"));
+
                     PolisForm pf =new PolisForm(this,data);
                      pf.pack();
                     pf.setLocationRelativeTo(null);

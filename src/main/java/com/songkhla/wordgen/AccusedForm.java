@@ -16,6 +16,8 @@ import java.awt.FlowLayout;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -34,6 +36,7 @@ import javax.swing.JFrame;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
+import javax.swing.JTextField;
 import javax.swing.event.CaretEvent;
 import javax.swing.event.CaretListener;
 import javax.swing.event.DocumentEvent;
@@ -69,7 +72,7 @@ public class AccusedForm extends javax.swing.JDialog {
          ImageIcon img = new ImageIcon("./Master/WD.png");
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
-     
+//     Occupation = new HintTextField("Another hint here");
      crimecaseno.setVisible(false);
      FullNamePerson.addCaretListener(new TextFieldCaretListener());
      comboBox.addActionListener(new ComboBoxActionListener());
@@ -418,6 +421,11 @@ public class AccusedForm extends javax.swing.JDialog {
         jLabel13.setText("เชื้อชาติ");
 
         Race.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        Race.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RaceActionPerformed(evt);
+            }
+        });
 
         jLabel14.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel14.setText("อาชีพ");
@@ -431,6 +439,8 @@ public class AccusedForm extends javax.swing.JDialog {
         });
 
         Occupation.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        //Occupation = new HintTextField("หากเป็นตำรวจ รับราชการตำรวจ");
+        Occupation.setToolTipText("");
 
         jLabel15.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel15.setText("เพศ");
@@ -1014,6 +1024,10 @@ public class AccusedForm extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_GenderActionPerformed
 
+    private void RaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RaceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RaceActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1275,7 +1289,38 @@ catch (Exception d) {  //System.out.println(d);
     
     
     }
-     
+    class HintTextField extends JTextField implements FocusListener {
+
+  private final String hint;
+  private boolean showingHint;
+
+  public HintTextField(final String hint) {
+    super(hint);
+    this.hint = hint;
+    this.showingHint = true;
+    super.addFocusListener(this);
+  }
+
+  @Override
+  public void focusGained(FocusEvent e) {
+    if(this.getText().isEmpty()) {
+      super.setText("");
+      showingHint = false;
+    }
+  }
+  @Override
+  public void focusLost(FocusEvent e) {
+    if(this.getText().isEmpty()) {
+      super.setText(hint);
+      showingHint = true;
+    }
+  }
+
+  @Override
+  public String getText() {
+    return showingHint ? "" : super.getText();
+  }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Age;
     private javax.swing.JTextField Amphur;

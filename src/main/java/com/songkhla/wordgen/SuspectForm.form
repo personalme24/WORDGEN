@@ -1573,17 +1573,17 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jRadioWithdrawComplaint" alignment="0" pref="138" max="32767" attributes="0"/>
-                              <Component id="jRadioStatus2" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jRadioOther" max="32767" attributes="0"/>
+                              <Component id="jRadioWithdrawComplaint" alignment="0" pref="129" max="32767" attributes="0"/>
+                              <Component id="jRadioOther" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jRadioStatus2" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jRadioRelease" alignment="0" pref="136" max="32767" attributes="0"/>
+                              <Component id="jRadioRelease" alignment="0" max="32767" attributes="0"/>
                               <Component id="jRadioRestore" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jRadioSue" max="32767" attributes="0"/>
+                              <Component id="jRadioSue" min="-2" pref="136" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>

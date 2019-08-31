@@ -143,6 +143,7 @@ import java.util.logging.Logger;
 import javafx.animation.Animation;
 import javax.swing.ButtonGroup;
 import javax.swing.ComboBoxEditor;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -291,7 +292,7 @@ jButtonDuplicate.setVisible(false);
         jLabelChargeCode.setVisible(false);
         crimecaseid.setVisible(false);
  
-            comboInvest();
+            
             comboProvince();
 
         if(datain!=null){
@@ -331,8 +332,9 @@ jButtonDuplicate.setVisible(false);
             CrimeLocationProvince.setSelectedItem(datain.get("CrimeLocationProvince")+"");
             CrimeLocationMoo.setText(datain.get("CrimeLocationMoo")+"");
             CrimeLocationRoad.setText(datain.get("CrimeLocationRoad")+"");
-            CrimeLocationSoi.setText(datain.get("CrimeLocationSoi")+"");            
-            jComboPoliceName.setSelectedItem(datain.get("PoliceNameCase"));
+            CrimeLocationSoi.setText(datain.get("CrimeLocationSoi")+""); 
+            jComboPoliceName.getModel().setSelectedItem(new ComboItem(datain.get("PoliceNameCase")+"", datain.get("PoliceNameCaseId")+""));
+            comboInvest();
             jTextSuspect.setText(datain.get("SuspectandOther")+"");
             jTextWitness.setText(datain.get("WitnessandOther")+"");
             CaseRequestDateTime.getJFormattedTextField().setText(datain.get("CaseRequestDate")+"");
@@ -387,6 +389,7 @@ jButtonDuplicate.setVisible(false);
          
         }
         else{
+            comboInvest();
             jButtonEditCase.setEnabled(false);
               jTabbedPane2.setEnabledAt(jTabbedPane2.getTabCount()-1, false);
         jCheckDuringInvest.setSelected(true);
@@ -455,6 +458,19 @@ JTextPopupMenu.addTo(Prosecutor_Result);
 JTextPopupMenu.addTo(CourtResult);
 
         }
+//    public static void setSelectedValue(JComboBox comboBox, String value)
+//    {
+//        ComboItem item;
+//        for (int i = 0; i < comboBox.getItemCount(); i++)
+//        {
+//            item = (ComboItem)comboBox.getItemAt(i);
+//            if (item.getValue().equalsIgnoreCase(value))
+//            {
+//                comboBox.setSelectedIndex(i);
+//                break;
+//            }
+//        }
+//    }
 //    private int getMaximumMatchingOffset(String pattern, Object selectedItem) {
 //  String selectedAsString=selectedItem.toString();
 //  int match=selectedAsString.length();
@@ -548,9 +564,6 @@ JTextPopupMenu.addTo(CourtResult);
         CrimeLocationProvince = new javax.swing.JComboBox<>();
         CrimeLocationAmphur = new javax.swing.JComboBox<>();
         CrimeLocationDistrict = new javax.swing.JComboBox<>();
-        jLabel32 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
-        jPanel8 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jTextAccused = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
@@ -768,7 +781,7 @@ JTextPopupMenu.addTo(CourtResult);
 
         jLabel10.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel10.setText("ปจว.ข้อ");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, -1, 30));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, 30));
 
         jLabel4.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel4.setText("/");
@@ -793,13 +806,13 @@ JTextPopupMenu.addTo(CourtResult);
 
         jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel8.setText("วันที่รับแจ้ง");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, 30));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, 30));
 
         JSpinner.DateEditor te = new JSpinner.DateEditor(CaseAcceptTimee, "HH:mm");
         CaseAcceptTimee.setEditor(te);
         //jSpinner1.setValue(new Date());
         CaseAcceptTimee.setPreferredSize(new java.awt.Dimension(29, 25));
-        jPanel1.add(CaseAcceptTimee, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 320, 100, 32));
+        jPanel1.add(CaseAcceptTimee, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 280, 100, 32));
 
         CrimeLocation.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jPanel1.add(CrimeLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 60, 440, -1));
@@ -810,7 +823,7 @@ JTextPopupMenu.addTo(CourtResult);
 
         jLabel12.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel12.setText("เวลารับคำร้องทุกข์");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 320, -1, 30));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, -1, 30));
 
         jLabel13.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel13.setText("วันที่เกิดเหตุ");
@@ -821,12 +834,12 @@ JTextPopupMenu.addTo(CourtResult);
 
         jLabel9.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel9.setText("เวลารับแจ้ง");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, -1, 30));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, -1, 30));
 
         JSpinner.DateEditor timeEditor = new JSpinner.DateEditor(CaseRequestTimee, "HH:mm");
         CaseRequestTimee.setEditor(timeEditor);
         //jSpinner1.setValue(new Date());
-        jPanel1.add(CaseRequestTimee, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 280, 100, 30));
+        jPanel1.add(CaseRequestTimee, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 240, 100, 30));
 
         jLabel7.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel7.setText("พฤติการณ์คดี");
@@ -834,10 +847,10 @@ JTextPopupMenu.addTo(CourtResult);
 
         jLabel11.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel11.setText("วันที่รับคำร้องทุกข์");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, 30));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, 30));
 
         DailyNumber.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jPanel1.add(DailyNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, 110, -1));
+        jPanel1.add(DailyNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 110, -1));
 
         jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel3.setText("อำนาจศาล");
@@ -934,7 +947,16 @@ JTextPopupMenu.addTo(CourtResult);
         jPanel1.add(RecordInvestCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 320, 328, 32));
 
         jComboPoliceName.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jComboPoliceName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
+        jComboPoliceName.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboPoliceNameItemStateChanged(evt);
+            }
+        });
+        jComboPoliceName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboPoliceNameActionPerformed(evt);
+            }
+        });
         jPanel1.add(jComboPoliceName, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 280, 330, 30));
 
         jLabel2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -991,7 +1013,7 @@ JTextPopupMenu.addTo(CourtResult);
             .addGap(0, 32, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 220, -1));
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 220, -1));
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1006,7 +1028,7 @@ JTextPopupMenu.addTo(CourtResult);
             .addGap(0, 32, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 220, -1));
+        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 220, -1));
 
         CrimeLocationProvince.setEditable(true);
         CrimeLocationProvince.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -1042,29 +1064,6 @@ JTextPopupMenu.addTo(CourtResult);
         CrimeLocationDistrict.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         CrimeLocationDistrict.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
         jPanel1.add(CrimeLocationDistrict, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 190, 190, 30));
-
-        jLabel32.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel32.setText("วันที่รับแจ้ง");
-        jPanel1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, 30));
-
-        jLabel34.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel34.setText("เวลารับแจ้ง");
-        jPanel1.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, -1, 30));
-
-        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 32, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 220, -1));
 
         jTabbedPane2.addTab("ข้อมูลคดี", jPanel1);
 
@@ -2222,7 +2221,9 @@ JTextPopupMenu.addTo(CourtResult);
   }
     private void jButtonSaveCaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveCaseActionPerformed
         // TODO add your handling code here:
-
+        ComboItem item = (ComboItem) jComboPoliceName.getSelectedItem();
+        String idpolice=item.getValue();
+        System.out.println("Item :"+item.getValue());
         con=ConnectDatabase.connect();
          try{
          Statement st = con.createStatement();
@@ -2301,7 +2302,7 @@ JTextPopupMenu.addTo(CourtResult);
 
                 pst.setString(25,CourtResult.getText());
                 pst.setString(26,jTextInvestSendtoDepartment.getText());
-                pst.setString(27,jComboPoliceName.getSelectedItem().toString());             
+                pst.setString(27,idpolice);             
                 pst.setString(28,ListAsset.getText());
                 pst.setString(29,EvidenceRecordCase.getText());
                 pst.setString(30,crimecaseno.getText()+"/"+crimecaseyear.getText());
@@ -2422,7 +2423,7 @@ JTextPopupMenu.addTo(CourtResult);
                  pst.setString(23,crimecaseno.getText()+"/"+crimecaseyear.getText());
                 pst.setString(24,CourtResult.getText());
                 pst.setString(25,jTextInvestSendtoDepartment.getText());
-                pst.setString(26,jComboPoliceName.getSelectedItem().toString());
+                pst.setString(26,idpolice);
                 pst.setString(27,CrimeLocationMoo.getText());
                 pst.setString(28,CrimeLocationSoi.getText());
                 pst.setString(29,CrimeLocationRoad.getText());
@@ -2457,124 +2458,6 @@ JTextPopupMenu.addTo(CourtResult);
          jTabbedPane2.setEnabledAt(jTabbedPane2.getTabCount()-1, true);
       
     }//GEN-LAST:event_jButtonSaveCaseActionPerformed
-
-    private void CourtTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CourtTypeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CourtTypeActionPerformed
-
-    private void jButtonActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActionActionPerformed
-        // TODO add your handling code here:
-        JFrame frame = new JFrame();
-        JDialog dialog = new JDialog(frame);//frame is owner
-        JFrame fr = (JFrame)(dialog.getParent());
-        fr.removeAll();
- JSONObject data2 = new JSONObject();
-             data2.put("caseid", crimecaseid.getText());     
-             data2.put("typecase", "อาญา");
-
-        if(ActionCrimes.getText().length()==0 || ActionCrimes.getText()==null|| ActionCrimes.getText().isEmpty()){
-           
-            ActionPage d = new ActionPage(fr,null,data2);
-            d.pack();
-            d.setLocationRelativeTo(null);
-            d.setVisible(true);
-        }
-        else {
-
-            try{
-                //                String crimecaseno = jTable1.getModel().getValueAt(jTable1.getSelectedRow(), 0)+"";
-                String actionCode=jLabelActionCode.getText();
-                String sql="select * From ActionsCaseData where ActionsCaseData.ActionCodeCase='"+actionCode+"' and ActionCaseId="+crimecaseid.getText();
-                                System.out.println("ExSql : "+sql);
-                Connection con = ConnectDatabase.connect();
-                Statement stmt = con.createStatement();
-                ResultSet rs = stmt.executeQuery(sql);
-
-                if(rs.next()){
-                    JSONObject data = new JSONObject();
-                    data.put("ActionCodeCase", rs.getString("ActionCodeCase"));
-                    data.put("ActionCrimesCase", rs.getString("ActionCrimesCase"));
-                    data.put("ActionDetailCase", rs.getString("ActionDetailCase"));
-                    data.put("AnswerSuspectCase", rs.getString("AnswerSuspectCase"));
-                    data.put("AnswerAccuserCase", rs.getString("AnswerAccuserCase"));
-                    data.put("ActionNoteCase", rs.getString("ActionNoteCase"));
-                    data.put("ActionCaseId", rs.getString("ActionCaseId"));
-                    
-
-                    ActionPage d = new ActionPage(fr,data,data2);
-                    d.pack();
-                    d.setLocationRelativeTo(null);
-                    d.setVisible(true);
-
-                }
-
-                rs.close();
-                stmt.close();
-
-            }catch(Exception ex){
-                ex.printStackTrace();
-
-            }
-
-        }
-    }//GEN-LAST:event_jButtonActionActionPerformed
-
-    private void jButtonChargeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChargeActionPerformed
-        // TODO add your handling code here:
-        JFrame frame = new JFrame();
-        JDialog dialog = new JDialog(frame);//frame is owner
-        JFrame f = (JFrame)(dialog.getParent());
-        f.removeAll();
-        JSONObject data2 = new JSONObject();
-             data2.put("caseid", crimecaseid.getText());     
-             data2.put("typecase", "อาญา");
-
-        if(ChargeNameCase.getText().length()==0 || ChargeNameCase.getText()==null|| ChargeNameCase.getText().isEmpty()){
-            JSONObject data = new JSONObject();
-            data.put("caseid",crimecaseid.getText());
-            ChargePage d = new ChargePage(f,null,data2);
-            d.pack();
-            d.setLocationRelativeTo(null);
-            d.setVisible(true);
-        }
-        else {
-
-            try{
-                //                String crimecaseno = jTable1.getModel().getValueAt(jTable1.getSelectedRow(), 0)+"";
-                String chargeCode=jLabelChargeCode.getText();
-                String sql="select * From ChargeCase where ChargeCase.ChargeCodeCase ='"+chargeCode+"' and ChargeCaseId="+crimecaseid.getText();
-                System.out.println("ExSql : "+sql);
-                Connection con = ConnectDatabase.connect();
-                Statement stmt = con.createStatement();
-                ResultSet rs = stmt.executeQuery(sql);
-
-                if(rs.next()){
-                    JSONObject data = new JSONObject();
-                    data.put("ChargeCodeCase", rs.getString("ChargeCodeCase"));
-                    data.put("ChargeNameCase", rs.getString("ChargeNameCase"));
-                    data.put("LawCase", rs.getString("LawCase"));
-                    data.put("RateOfPenaltyCase", rs.getString("RateOfPenaltyCase"));
-                    data.put("NoteCase", rs.getString("NoteCase"));
-                    data.put("ChargeCaseId", rs.getString("ChargeCaseId"));
-                    
-
-                    ChargePage d = new ChargePage(f,data,data2);
-                    d.pack();
-                    d.setLocationRelativeTo(null);
-                    d.setVisible(true);
-
-                }
-
-                rs.close();
-                stmt.close();
-
-            }catch(Exception ex){
-                ex.printStackTrace();
-
-            }
-
-        }
-    }//GEN-LAST:event_jButtonChargeActionPerformed
     public void RefreshDataRec(){
     
      try{
@@ -2599,27 +2482,6 @@ JTextPopupMenu.addTo(CourtResult);
             ex.printStackTrace();
         }
     }
-    private void ListAssetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListAssetActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ListAssetActionPerformed
-
-    private void jButtonAddAssetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddAssetActionPerformed
-        // TODO add your handling code here:
-         String aa=crimecaseid.getText();
-        String type="อาญา";
-        JSONObject data = new JSONObject();
-        data.put("CaseId",aa );
-        data.put("TypeCase",type );
-        JFrame frame = new JFrame();
-        JDialog dialog = new JDialog(frame);//frame is owner
-        JFrame asv = (JFrame)(dialog.getParent());
-        asv.removeAll();
-        AssetOverView as =new AssetOverView(asv,data);
-        as.pack();
-        as.setLocationRelativeTo(null);
-        as.setVisible(true);
-    }//GEN-LAST:event_jButtonAddAssetActionPerformed
-
     private void jButtonAccuredActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccuredActionPerformed
         // TODO add your handling code here:
         String aa=crimecaseid.getText();
@@ -2673,27 +2535,6 @@ JTextPopupMenu.addTo(CourtResult);
         lw.setVisible(true);
     }//GEN-LAST:event_jButtonWitnessActionPerformed
 
-    private void jButtonAddInvestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddInvestActionPerformed
-        String ci=crimecaseid.getText();
-        JSONObject data = new JSONObject();
-        data.put("CaseIdRec",ci );
-         data.put("TypeCase","อาญา" );        
-        JFrame frame = new JFrame();
-        JDialog dialog = new JDialog(frame);//frame is owner
-        JFrame a = (JFrame)(dialog.getParent());
-        a.removeAll();
-        RecordInvestigatorView ri =new RecordInvestigatorView(a,data);
-        ri.pack();
-        ri.setLocationRelativeTo(null);
-        ri.setVisible(true);
-//        RefreshDataRec();
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonAddInvestActionPerformed
-
-    private void CrimeLocationMooActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrimeLocationMooActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CrimeLocationMooActionPerformed
-
 //private void jButtonPrintDoc2ActionPerformed(java.awt.event.ActionEvent evt) {  
 //    yourAttemptActionPerformed();
 //    
@@ -2703,16 +2544,6 @@ JTextPopupMenu.addTo(CourtResult);
         // TODO add your handling code here:
         closeAllDialogs();
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void CrimeLocationProvinceItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CrimeLocationProvinceItemStateChanged
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_CrimeLocationProvinceItemStateChanged
-
-    private void CrimeLocationProvinceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrimeLocationProvinceActionPerformed
-      // TODO add your handling code here:
-       
-    }//GEN-LAST:event_CrimeLocationProvinceActionPerformed
 
     private void jButtonEditCaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditCaseActionPerformed
         // TODO add your handling code here:
@@ -2806,17 +2637,6 @@ JTextPopupMenu.addTo(CourtResult);
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckW269ActionPerformed
 
-    private void CrimeLocationAmphurItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CrimeLocationAmphurItemStateChanged
-        // TODO add your handling code here:
-      
-    }//GEN-LAST:event_CrimeLocationAmphurItemStateChanged
-
-    private void CrimeLocationAmphurActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrimeLocationAmphurActionPerformed
-        // TODO add your handling code here:
-//              AutoCompleteDecorator.decorate(CrimeLocationAmphur);
-      
-    }//GEN-LAST:event_CrimeLocationAmphurActionPerformed
-
     private void jCheckW279ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW279ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckW279ActionPerformed
@@ -2837,6 +2657,194 @@ JTextPopupMenu.addTo(CourtResult);
     private void jCheckW208ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW208ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckW208ActionPerformed
+
+    private void CrimeLocationAmphurActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrimeLocationAmphurActionPerformed
+        // TODO add your handling code here:
+        //              AutoCompleteDecorator.decorate(CrimeLocationAmphur);
+
+    }//GEN-LAST:event_CrimeLocationAmphurActionPerformed
+
+    private void CrimeLocationAmphurItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CrimeLocationAmphurItemStateChanged
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_CrimeLocationAmphurItemStateChanged
+
+    private void CrimeLocationProvinceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrimeLocationProvinceActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_CrimeLocationProvinceActionPerformed
+
+    private void CrimeLocationProvinceItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CrimeLocationProvinceItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CrimeLocationProvinceItemStateChanged
+
+    private void CrimeLocationMooActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrimeLocationMooActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CrimeLocationMooActionPerformed
+
+    private void jButtonAddInvestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddInvestActionPerformed
+        String ci=crimecaseid.getText();
+        JSONObject data = new JSONObject();
+        data.put("CaseIdRec",ci );
+        data.put("TypeCase","อาญา" );
+        JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame a = (JFrame)(dialog.getParent());
+        a.removeAll();
+        RecordInvestigatorView ri =new RecordInvestigatorView(a,data);
+        ri.pack();
+        ri.setLocationRelativeTo(null);
+        ri.setVisible(true);
+        //        RefreshDataRec();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonAddInvestActionPerformed
+
+    private void jButtonAddAssetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddAssetActionPerformed
+        // TODO add your handling code here:
+        String aa=crimecaseid.getText();
+        String type="อาญา";
+        JSONObject data = new JSONObject();
+        data.put("CaseId",aa );
+        data.put("TypeCase",type );
+        JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame asv = (JFrame)(dialog.getParent());
+        asv.removeAll();
+        AssetOverView as =new AssetOverView(asv,data);
+        as.pack();
+        as.setLocationRelativeTo(null);
+        as.setVisible(true);
+    }//GEN-LAST:event_jButtonAddAssetActionPerformed
+
+    private void ListAssetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListAssetActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ListAssetActionPerformed
+
+    private void CourtTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CourtTypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CourtTypeActionPerformed
+
+    private void jButtonActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActionActionPerformed
+        // TODO add your handling code here:
+        JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame fr = (JFrame)(dialog.getParent());
+        fr.removeAll();
+        JSONObject data2 = new JSONObject();
+        data2.put("caseid", crimecaseid.getText());
+        data2.put("typecase", "อาญา");
+
+        if(ActionCrimes.getText().length()==0 || ActionCrimes.getText()==null|| ActionCrimes.getText().isEmpty()){
+
+            ActionPage d = new ActionPage(fr,null,data2);
+            d.pack();
+            d.setLocationRelativeTo(null);
+            d.setVisible(true);
+        }
+        else {
+
+            try{
+                //                String crimecaseno = jTable1.getModel().getValueAt(jTable1.getSelectedRow(), 0)+"";
+                String actionCode=jLabelActionCode.getText();
+                String sql="select * From ActionsCaseData where ActionsCaseData.ActionCodeCase='"+actionCode+"' and ActionCaseId="+crimecaseid.getText();
+                System.out.println("ExSql : "+sql);
+                Connection con = ConnectDatabase.connect();
+                Statement stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery(sql);
+
+                if(rs.next()){
+                    JSONObject data = new JSONObject();
+                    data.put("ActionCodeCase", rs.getString("ActionCodeCase"));
+                    data.put("ActionCrimesCase", rs.getString("ActionCrimesCase"));
+                    data.put("ActionDetailCase", rs.getString("ActionDetailCase"));
+                    data.put("AnswerSuspectCase", rs.getString("AnswerSuspectCase"));
+                    data.put("AnswerAccuserCase", rs.getString("AnswerAccuserCase"));
+                    data.put("ActionNoteCase", rs.getString("ActionNoteCase"));
+                    data.put("ActionCaseId", rs.getString("ActionCaseId"));
+
+                    ActionPage d = new ActionPage(fr,data,data2);
+                    d.pack();
+                    d.setLocationRelativeTo(null);
+                    d.setVisible(true);
+
+                }
+
+                rs.close();
+                stmt.close();
+
+            }catch(Exception ex){
+                ex.printStackTrace();
+
+            }
+
+        }
+    }//GEN-LAST:event_jButtonActionActionPerformed
+
+    private void jButtonChargeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChargeActionPerformed
+        // TODO add your handling code here:
+        JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame f = (JFrame)(dialog.getParent());
+        f.removeAll();
+        JSONObject data2 = new JSONObject();
+        data2.put("caseid", crimecaseid.getText());
+        data2.put("typecase", "อาญา");
+
+        if(ChargeNameCase.getText().length()==0 || ChargeNameCase.getText()==null|| ChargeNameCase.getText().isEmpty()){
+            JSONObject data = new JSONObject();
+            data.put("caseid",crimecaseid.getText());
+            ChargePage d = new ChargePage(f,null,data2);
+            d.pack();
+            d.setLocationRelativeTo(null);
+            d.setVisible(true);
+        }
+        else {
+
+            try{
+                //                String crimecaseno = jTable1.getModel().getValueAt(jTable1.getSelectedRow(), 0)+"";
+                String chargeCode=jLabelChargeCode.getText();
+                String sql="select * From ChargeCase where ChargeCase.ChargeCodeCase ='"+chargeCode+"' and ChargeCaseId="+crimecaseid.getText();
+                System.out.println("ExSql : "+sql);
+                Connection con = ConnectDatabase.connect();
+                Statement stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery(sql);
+
+                if(rs.next()){
+                    JSONObject data = new JSONObject();
+                    data.put("ChargeCodeCase", rs.getString("ChargeCodeCase"));
+                    data.put("ChargeNameCase", rs.getString("ChargeNameCase"));
+                    data.put("LawCase", rs.getString("LawCase"));
+                    data.put("RateOfPenaltyCase", rs.getString("RateOfPenaltyCase"));
+                    data.put("NoteCase", rs.getString("NoteCase"));
+                    data.put("ChargeCaseId", rs.getString("ChargeCaseId"));
+
+                    ChargePage d = new ChargePage(f,data,data2);
+                    d.pack();
+                    d.setLocationRelativeTo(null);
+                    d.setVisible(true);
+
+                }
+
+                rs.close();
+                stmt.close();
+
+            }catch(Exception ex){
+                ex.printStackTrace();
+
+            }
+
+        }
+    }//GEN-LAST:event_jButtonChargeActionPerformed
+
+    private void jComboPoliceNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboPoliceNameActionPerformed
+    // TODO add your handling code here:
+
+    }//GEN-LAST:event_jComboPoliceNameActionPerformed
+
+    private void jComboPoliceNameItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboPoliceNameItemStateChanged
+        // TODO add your handling code here:
+              
+    }//GEN-LAST:event_jComboPoliceNameItemStateChanged
      private void yourAttemptActionPerformed() {
 
 
@@ -3235,15 +3243,18 @@ JTextPopupMenu.addTo(CourtResult);
 
          Connection con2 = ConnectDatabase.connect();
 	Statement st = con2.createStatement();
-        	String c = "Select InvestRank,InvestName from InvestInformation";
+        	String c = "Select InvestId,InvestRank,InvestName from InvestInformation";
         	ResultSet res = st.executeQuery(c);
-	//Vector<Object> v=new Vector<Object>();
 	
 	while(res.next())
-	{
-	jComboPoliceName.addItem(res.getString("InvestRank")+res.getString("InvestName"));
+	{   String id=res.getString("InvestId");
+        String category=res.getString("InvestRank")+res.getString("InvestName");
 
-	
+        Object[] itemData = new Object[] {id, category};
+
+        jComboPoliceName.addItem(new ComboItem(category, id));
+
+       
 	}
 //        else{jComboPoliceName.addItem("");}
 	
@@ -3742,7 +3753,7 @@ if(OccuredDate.getJFormattedTextField().getText().equals("23/8/2562")){
     private javax.swing.JCheckBox jCheckW279;
     private javax.swing.JCheckBox jCheckW280;
     private javax.swing.JCheckBox jCheckW293;
-    private javax.swing.JComboBox<String> jComboPoliceName;
+    private javax.swing.JComboBox<Object> jComboPoliceName;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -3768,9 +3779,7 @@ if(OccuredDate.getJFormattedTextField().getText().equals("23/8/2562")){
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel43;
@@ -3800,7 +3809,6 @@ if(OccuredDate.getJFormattedTextField().getText().equals("23/8/2562")){
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JPanel jPanelInvestSend;
     private javax.swing.JScrollPane jScrollPane2;

@@ -59,6 +59,7 @@ public class PolisForm extends javax.swing.JDialog {
              RankPolice.setText(datain.get("RankPolice")+"");
              FirstName.setText(datain.get("FirstName")+"");
              LastName.setText(datain.get("LastName")+"");
+             RankPoliceFull.setText(datain.get("RankPoliceFull")+"");
              Position.setText(datain.get("Position")+"");
               jButtonSave.setEnabled(false);         
             } catch (Exception ex) {
@@ -99,6 +100,8 @@ public class PolisForm extends javax.swing.JDialog {
         Position = new javax.swing.JTextField();
         jButtonSave = new javax.swing.JButton();
         jButtonEdit = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        RankPoliceFull = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("ข้อมูลผู้ใช้");
@@ -144,7 +147,7 @@ public class PolisForm extends javax.swing.JDialog {
         });
 
         jLabel9.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel9.setText("ยศ");
+        jLabel9.setText("ยศเต็ม");
 
         RankPolice.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
@@ -179,6 +182,11 @@ public class PolisForm extends javax.swing.JDialog {
             }
         });
 
+        jLabel13.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel13.setText("ยศย่อ");
+
+        RankPoliceFull.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -198,7 +206,13 @@ public class PolisForm extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(IdCardPolice)
-                            .addComponent(RankPolice, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(RankPoliceFull, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel13)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(RankPolice, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -214,7 +228,7 @@ public class PolisForm extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(FirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addGap(83, 83, 83))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -227,6 +241,8 @@ public class PolisForm extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(RankPoliceFull, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(RankPolice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -287,25 +303,29 @@ public class PolisForm extends javax.swing.JDialog {
          
                 try {  
                         Statement stmt = con.createStatement();
-                        String sql="INSERT INTO Police (IdCardPolice,RankPolice,FirstName,LastName,Position) VALUES (?,?,?,?,?)";
+                        String sql="INSERT INTO Police (IdCardPolice,RankPolice,FirstName,LastName,Position,RankPoliceFull) VALUES (?,?,?,?,?,?)";
                         pst=con.prepareStatement(sql);
                         pst.setString(1,IdCardPolice.getText());
                         pst.setString(2,RankPolice.getText());
                         pst.setString(3,FirstName.getText());
                         pst.setString(4,LastName.getText());
-                        pst.setString(5,Position.getText());
+                        pst.setString(5,Position.getText());                        
+                        pst.setString(6,RankPoliceFull.getText());
+
+                        
                         pst.executeUpdate();
                         pst.close();
 
                         String sql2="INSERT INTO InvestInformation (InvestId,InvestCardID,InvestRank,InvestName,"
-                        + "InvestPosition) VALUES (?,?,?,?,?)";
+                        + "InvestPosition,InvestRankFull) VALUES (?,?,?,?,?,?)";
                         pst=con.prepareStatement(sql2);
                         pst.setString(1,"1");
                         pst.setString(2,IdCardPolice.getText());
                         pst.setString(3,RankPolice.getText());
                         pst.setString(4,FirstName.getText()+" "+LastName.getText());
                         pst.setString(5,Position.getText());
-                      
+                         pst.setString(5,RankPoliceFull.getText());
+
 //                        setVisible(false);
  int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
         JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
@@ -337,7 +357,9 @@ public class PolisForm extends javax.swing.JDialog {
         + "RankPolice=?,"
         + "FirstName=?,"
         + "LastName=?,"
-        + "Position=?"
+        + "Position=?,"
+        + "RankPoliceFull=?"
+                
         + "Where IdPolice=?";
             pst=con.prepareStatement(sqlUpdate);
             pst.setString(1,IdCardPolice.getText());
@@ -345,7 +367,9 @@ public class PolisForm extends javax.swing.JDialog {
             pst.setString(3,FirstName.getText());
             pst.setString(4,LastName.getText());
             pst.setString(5,Position.getText());
-            pst.setString(6,idpolice.getText());
+            pst.setString(6,RankPoliceFull.getText());
+            
+            pst.setString(7,idpolice.getText());
      
             System.out.println("SQL : "+sqlUpdate);
  int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการแก้ไขข้อมูล", "ยืนยัน",
@@ -397,7 +421,7 @@ private void closeEdit(){
         FirstName.setEnabled(false);
         LastName.setEnabled(false);
         Position.setEnabled(false);
-
+RankPoliceFull.setEnabled(false);
 }
 private void openEdit(){
         IdCardPolice.setEnabled(true);
@@ -406,7 +430,7 @@ private void openEdit(){
         FirstName.setEnabled(true);
         LastName.setEnabled(true);
         Position.setEnabled(true);
-
+        RankPoliceFull.setEnabled(true);
 }
     private void data() 
 {       String a;
@@ -504,6 +528,7 @@ private void openEdit(){
     private javax.swing.JTextField LastName;
     private javax.swing.JTextField Position;
     private javax.swing.JTextField RankPolice;
+    private javax.swing.JTextField RankPoliceFull;
     private javax.swing.JLabel idpolice;
     private javax.swing.JButton jButtonEdit;
     private javax.swing.JButton jButtonSave;
@@ -511,6 +536,7 @@ private void openEdit(){
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;

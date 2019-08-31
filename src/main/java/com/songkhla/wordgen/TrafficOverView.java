@@ -540,9 +540,10 @@ public class TrafficOverView extends javax.swing.JDialog {
             try{
                 String crimecaseid = jTable1.getModel().getValueAt(jTable1.getSelectedRow(), 0)+"";
 
-                String sql="select crimecase.*,chargecase.ChargeCodeCase ChargeCase,chargecase.ChargeNameCase ChargeNameCase,ActionsCaseData.ActionCodeCase ActionCase,ActionsCaseData.ActionCrimesCase ActionCrimesCase  from crimecase "
+                String sql="select crimecase.*,InvestInformation.*,chargecase.ChargeCodeCase ChargeCase,chargecase.ChargeNameCase ChargeNameCase,ActionsCaseData.ActionCodeCase ActionCase,ActionsCaseData.ActionCrimesCase ActionCrimesCase  from crimecase "
                 + "left join chargecase on crimecase.CaseId=chargecase.ChargeCaseId "
                 + "left join ActionsCaseData on crimecase.CaseId=ActionsCaseData.ActionCaseId "
+                + "left join InvestInformation on crimecase.PoliceNameCase=InvestInformation.InvestId "                                     
                 + "where CaseId='"+crimecaseid+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
@@ -590,6 +591,9 @@ public class TrafficOverView extends javax.swing.JDialog {
                     data.put("Invest_SendCaseDate", rs.getString("Invest_SendCaseDate"));
                     data.put("Prosecutor_Result", rs.getString("Prosecutor_Result"));
                     data.put("CapitalCrimeCaseNumber", rs.getString("CapitalCrimeCaseNumber"));
+                    data.put("PoliceNameCase", rs.getString("InvestRank")+rs.getString("InvestName"));
+                    data.put("PoliceNameCaseId", rs.getString("PoliceNameCase"));
+
                     facc.removeAll();
                     TrafficEdit cce =new TrafficEdit(facc,data);
                     cce.pack();

@@ -267,7 +267,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         jLabelChargeCode.setVisible(false);
         crimecaseid.setVisible(false);
  
-            comboInvest();
+           
  comboProvince();
  
         if(datain!=null){
@@ -308,7 +308,8 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             CrimeLocationMoo.setText(datain.get("CrimeLocationMoo")+"");
             CrimeLocationRoad.setText(datain.get("CrimeLocationRoad")+"");
             CrimeLocationSoi.setText(datain.get("CrimeLocationSoi")+"");            
-            jComboPoliceName.setSelectedItem(datain.get("PoliceNameCase"));
+              jComboPoliceName.getModel().setSelectedItem(new ComboItem(datain.get("PoliceNameCase")+"", datain.get("PoliceNameCaseId")+""));
+            comboInvest();
             jTextSuspect.setText(datain.get("SuspectandOther")+"");
             jTextWitness.setText(datain.get("WitnessandOther")+"");
             CaseRequestDateTime.getJFormattedTextField().setText(datain.get("CaseRequestDate")+"");
@@ -363,6 +364,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
          
         }
         else{
+             comboInvest();
             jButtonEditCase.setEnabled(false);
               jTabbedPane2.setEnabledAt(jTabbedPane2.getTabCount()-1, false);
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
@@ -856,7 +858,6 @@ JTextPopupMenu.addTo(CourtResult);
         jPanel1.add(RecordInvestCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 320, 328, 32));
 
         jComboPoliceName.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jComboPoliceName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
         jPanel1.add(jComboPoliceName, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 280, 330, 32));
 
         jLabel2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -2094,7 +2095,8 @@ JTextPopupMenu.addTo(CourtResult);
 
     private void jButtonSaveCaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveCaseActionPerformed
         // TODO add your handling code here:
-
+ComboItem item = (ComboItem) jComboPoliceName.getSelectedItem();
+        String idpolice=item.getValue();
         con=ConnectDatabase.connect();
          try{
          Statement st = con.createStatement();
@@ -2172,7 +2174,7 @@ JTextPopupMenu.addTo(CourtResult);
 
                 pst.setString(25,CourtResult.getText());
                 pst.setString(26,jTextInvestSendtoDepartment.getText());
-                pst.setString(27,jComboPoliceName.getSelectedItem().toString());             
+                pst.setString(27,idpolice);             
                 pst.setString(28,ListAsset.getText());
                 pst.setString(29,EvidenceRecordCase.getText());
                 pst.setString(30,crimecaseno.getText()+"/"+crimecaseyear.getText());
@@ -2303,7 +2305,7 @@ JTextPopupMenu.addTo(CourtResult);
                  pst.setString(23,crimecaseno.getText()+"/"+crimecaseyear.getText());
                 pst.setString(24,CourtResult.getText());
                 pst.setString(25,jTextInvestSendtoDepartment.getText());
-                pst.setString(26,jComboPoliceName.getSelectedItem().toString());
+                pst.setString(26,idpolice);
                 pst.setString(27,CrimeLocationMoo.getText());
                 pst.setString(28,CrimeLocationSoi.getText());
                 pst.setString(29,CrimeLocationRoad.getText());
@@ -3066,15 +3068,18 @@ JTextPopupMenu.addTo(CourtResult);
 
          Connection con2 = ConnectDatabase.connect();
 	Statement st = con2.createStatement();
-        	String c = "Select InvestRank,InvestName from InvestInformation";
+        	String c = "Select InvestId,InvestRank,InvestName from InvestInformation";
         	ResultSet res = st.executeQuery(c);
-	//Vector<Object> v=new Vector<Object>();
 	
 	while(res.next())
-	{
-	jComboPoliceName.addItem(res.getString("InvestRank")+res.getString("InvestName"));
+	{   String id=res.getString("InvestId");
+        String category=res.getString("InvestRank")+res.getString("InvestName");
 
-	
+        Object[] itemData = new Object[] {id, category};
+
+        jComboPoliceName.addItem(new ComboItem(category, id));
+
+       
 	}
 //        else{jComboPoliceName.addItem("");}
 	
@@ -3511,7 +3516,7 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JCheckBox jCheckW279;
     private javax.swing.JCheckBox jCheckW280;
     private javax.swing.JCheckBox jCheckW293;
-    private javax.swing.JComboBox<String> jComboPoliceName;
+    private javax.swing.JComboBox<Object> jComboPoliceName;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
