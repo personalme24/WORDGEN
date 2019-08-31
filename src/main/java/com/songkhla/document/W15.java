@@ -68,7 +68,16 @@ public class W15 {
                         
                       }
                   
-            
+              String sqlDataPolice="SELECT * FROM Police";
+                      Statement sp1 = conn.createStatement();
+                  ResultSet rs1=sp1.executeQuery(sqlDataPolice); 
+                  while (rs1.next()) {                    
+                         RankPolice =rs1.getString("RankPolice");
+                         FirstName=rs1.getString("FirstName");
+                         LastName=rs1.getString("LastName");
+                         Position=rs1.getString("Position");
+                      }
+//                
 //                String ch;
 //                   String sql="SELECT * from CrimeCase Where crimecaseno = '"+cc+"'";
                    String sql="select crimecase.*,ChargeCase.*,Asset.*,P1.*,P2.*\n" +
@@ -186,7 +195,10 @@ public class W15 {
                     bookmarkvalue.put("AS661",Checknull(regexCommafy(Integer.toString(SumValue))));
                     bookmarkvalue.put("AS1",Checknull(s.getString("EvidenceRecordNumber")));
                     
-                    
+                       bookmarkvalue.put("P02", Checknull(RankPolice));
+                       bookmarkvalue.put("P03", Checknull(FirstName));
+                       bookmarkvalue.put("P04", Checknull(LastName));
+                       bookmarkvalue.put("P05", Checknull(Position));
 
 			JSONArray tablecolumn = new JSONArray();
 			System.out.println(">>>>"+OrderAsset);
@@ -279,6 +291,11 @@ public static void nw15() {
                     bookmarkvalue.put("AS331","");
                     bookmarkvalue.put("AS661","");
                     bookmarkvalue.put("AS1","");
+                    
+                       bookmarkvalue.put("P02", "");
+                       bookmarkvalue.put("P03", "");
+                       bookmarkvalue.put("P04", "");
+                       bookmarkvalue.put("P05", "");
                     
                     
 		try {

@@ -103,6 +103,8 @@ public class W31 {
                 Statement st = conn.createStatement();
             ResultSet s=st.executeQuery(sql); 
                 System.out.println(sql);
+                int OrderAsset=0;
+                String Name="";
             while((s!=null) && (s.next()))
             {  String  
                     cs =s.getString("crimecaseno");
@@ -147,6 +149,7 @@ public class W31 {
                    
                       bookmarkvalue.put("A2", Checknull(s.getString("ActionCrimesCase")));  
                       bookmarkvalue.put("B2", Checknull(s.getString("ChargeNameCase")));
+                     
                       bookmarkvalue.put("AS1", Checknull(s.getString("NoAsset")));
                       bookmarkvalue.put("AS64", Checknull(s.getString("PlaceFoundExhibit")));
                       bookmarkvalue.put("AS242", Checknull(s.getString("PointFoundCheck")));
@@ -172,9 +175,10 @@ public class W31 {
                             bookmarkvalue.put("C14", Checknull(s.getString("CrimeLocationProvince")));
                             bookmarkvalue.put("C15", Checknull(s.getString("DailyNumber")));
                             
-                    
-                   
-    
+                            ++OrderAsset ;
+                           Name= Name+","+s.getString("Name");
+                           bookmarkvalue.put("A2111", Checknull(Name));
+                           
 			JSONArray tablecolumn = new JSONArray();
 			tablecolumn.add("C2");
 			tablecolumn.add("C3");

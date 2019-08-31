@@ -139,6 +139,7 @@ public class W61 {
                  bookmarkvalue.put("S8", Checknull(BK));
                  bookmarkvalue.put("S29",Checknull(THNumBook));
                  bookmarkvalue.put("S10",Checknull(TelStation));
+                 bookmarkvalue.put("C38",Checknull(s.getString("Investigator_Number")));
                  
                
                    
@@ -239,6 +240,7 @@ public class W61 {
                 bookmarkvalue.put("CC2","");
 		bookmarkvalue.put("C2","");
                 bookmarkvalue.put("C3", "");
+                bookmarkvalue.put("C38","");
                  bookmarkvalue.put("S2","");
                  bookmarkvalue.put("S5", "");
                  bookmarkvalue.put("S6", "");

@@ -56,6 +56,7 @@ public static void w24(String cc) {
              String PoliceStaionShort="";
              String KK="";
              String HeadName="";
+             String HeadWorkName ="";
              String BK="";
              String BH="";
              String RankPolice ="";
@@ -72,6 +73,7 @@ public static void w24(String cc) {
                          PoliceStaionShort=rs.getString("PoliceStaionShort");
                          KK=rs.getString("KK");
                          HeadName=rs.getString("HeadName");
+                         HeadWorkName =rs.getString("HeadWorkName");
                          BK=rs.getString("BK");
                          BH=rs.getString("BH");
                       }
@@ -134,7 +136,7 @@ public static void w24(String cc) {
                  bookmarkvalue.put("S8",Checknull(BK));
                  bookmarkvalue.put("S9",Checknull(BH));
                  bookmarkvalue.put("S13",Checknull(HeadName));
-                   
+                 bookmarkvalue.put("S15",Checknull(HeadWorkName));
 //              
 //                   ----------------------------ผู้ตาย--------------------
                    

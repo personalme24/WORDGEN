@@ -55,6 +55,8 @@ public class W71 {
             PreparedStatement pst=null;
              
              String PoliceStationName="";
+             String HeadPosition ="";
+             String HeadName="";
              String RankPolice ="";
              String FirstName ="";
              String LastName ="";
@@ -83,7 +85,8 @@ public class W71 {
                   ResultSet rs=sp.executeQuery(sqlDataPoliceStation); 
                   while (rs.next()) {                    
                          PoliceStationName=rs.getString("PoliceStaionName");
-                         
+                         HeadName =rs.getString("HeadName");
+                         HeadPosition =rs.getString("HeadPosition");
                       }
                     rs.close();
                     String sqlDataPolice="SELECT * FROM Police";
@@ -197,6 +200,8 @@ public class W71 {
                 
                 bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
                 bookmarkvalue.put("S02",Checknull(PoliceStationName));
+                bookmarkvalue.put("S13",Checknull(HeadName));
+                bookmarkvalue.put("S14",Checknull(HeadPosition));
                 
                 bookmarkvalue.put("PA7",Checknull(s.getString("AccureandOther")));
                   

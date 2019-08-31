@@ -129,6 +129,7 @@ public class W53 {
                 bookmarkvalue.put("C3", Checknull(ccYear));
                 bookmarkvalue.put("C6", Checknull(ToDate(s.getString("CaseRequestDate"))));
                 bookmarkvalue.put("C15", Checknull(s.getString("DailyNumber")));
+                bookmarkvalue.put("C38",Checknull(s.getString("Investigator_Number")));
                 
                 bookmarkvalue.put("S2",Checknull(PoliceStationName));
                 bookmarkvalue.put("S11", Checknull(PhonePolice));
@@ -207,6 +208,7 @@ public class W53 {
                 bookmarkvalue.put("C3", "");
                 bookmarkvalue.put("C6", "");
                 bookmarkvalue.put("C15", "");
+                bookmarkvalue.put("C38","");
                 
                 bookmarkvalue.put("S2","");
                 bookmarkvalue.put("S11", "");
