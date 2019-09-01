@@ -3116,7 +3116,7 @@ JTextPopupMenu.addTo(CourtResult);
                         W66.w66(no);
                     }
                if(jCheckW267.isSelected()){
-                        W67.w67(no);
+//                        W67.w67(no);
                     }
             
                if(jCheckW269.isSelected()){

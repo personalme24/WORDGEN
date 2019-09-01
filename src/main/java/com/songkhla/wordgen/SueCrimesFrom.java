@@ -286,7 +286,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             String a=datain.get("ArrestDateTimeEnd")+"";
             if(a == null || a.equals("null")|| a.equals("") )
             { ArrestDateTimeEnd.setText("");
-                SueFirstDate.setText("");
+//                SueFirstDate.setText("");
          }   
             else{
              ArrestDateTimeEnd.setText(datain.get("ArrestDateTimeEnd")+"");
@@ -2287,7 +2287,7 @@ SueFirstCause.setEnabled(true);
 //            Thread.sleep(SLEEP_TIME);// imitate a long-running task
 
             if(Print1.isEnabled()){
-              W67.w67(caseid);
+              W67.w67(caseid,StatusSuspect.getText());
             }
 //             if(Print2.isEnabled() && !"".equals(SueSecond.getText())){
 //              W68.w68(caseid,SueSecond.getText());

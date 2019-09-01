@@ -44,7 +44,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 public class W67 {
-public static void w67(String cc) {
+public static void w67(String cc,String stSuspect) {
             Connection conn=null;
             conn=ConnectDatabase.connect();
             PreparedStatement pst=null;
@@ -99,7 +99,7 @@ public static void w67(String cc) {
                               "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
                               "left join ActionsCaseData on crimecase.ActionCodeCase = ActionsCaseData.ActionCodeCase\n"+
                               "left join InvestInformation on crimecase.PoliceNameCase=InvestInformation.InvestId \n" +
-                              "where crimecase.CaseId='"+cc+"'and Person.TypePerson='ผู้ต้องหา'\n" +
+                              "where crimecase.CaseId='"+cc+"'and Person.TypePerson='ผู้ต้องหา' and Person.StatusSuspect='"+stSuspect+"'\n" +
                               "group by crimecase.CaseId,Person.NoPerson";
 
                 Statement st = conn.createStatement();
@@ -120,8 +120,15 @@ public static void w67(String cc) {
                 SimpleDateFormat sdfstart = new SimpleDateFormat("d/MM/yyyy", new Locale("th", "TH"));  
                 SimpleDateFormat dateto  = new SimpleDateFormat("d MMMM yyyy", new Locale("th", "TH")); 
                 Date date=null;
-         
-               date = sdfstart.parse(s.getString("ArrestDateTimeEnd"));   
+                String arrestEnd=s.getString("ArrestDateTimeEnd");
+            if(arrestEnd == null || arrestEnd.equals("null")|| arrestEnd.equals("") )
+            { 
+                date = sdfstart.parse(s.getString("SueFirstDate"));
+                 }   
+           
+                else{
+               date = sdfstart.parse(arrestEnd);  
+            }
                System.out.print("4444"+date);
                
                sdfstart = new SimpleDateFormat("d", new Locale("th", "TH"));  
