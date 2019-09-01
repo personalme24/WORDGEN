@@ -50,6 +50,9 @@ public class W2 {
              String caseno;
              String casetype;
              String STATUS;
+             String HeadName ="";
+             String HeadPosition="";
+             String HeadRankFull="";
              String PoliceStationName="";
              String ProvincProsecutor="";
              String THNumBook ="";
@@ -70,6 +73,9 @@ public class W2 {
                          ProvincProsecutor=rs.getString("ProvincProsecutor");
                          THNumBook = rs.getString("THNumBook");
                          TelStation=rs.getString("TelStation");
+                         HeadName=rs.getString("HeadName");
+                         HeadPosition = rs.getString("HeadPosition");
+                         HeadRankFull=rs.getString("HeadRankFull");
                       }
             
                     String sqlDataPolice="SELECT * FROM Police";
@@ -142,6 +148,9 @@ public class W2 {
                  bookmarkvalue.put("S02",Checknull(PoliceStationName));
                  bookmarkvalue.put("S27",Checknull(ProvincProsecutor));
                  bookmarkvalue.put("S29",Checknull(THNumBook));
+                 bookmarkvalue.put("S13",Checknull(HeadName));
+                 bookmarkvalue.put("S14",Checknull(HeadPosition));
+                 bookmarkvalue.put("S34",Checknull(HeadRankFull));
                  bookmarkvalue.put("S10",Checknull(TelStation));
                  bookmarkvalue.put("STATUS",Checknull(STATUS));
                    
@@ -237,9 +246,12 @@ public class W2 {
                 bookmarkvalue.put("C38","");
                 bookmarkvalue.put("S2","");
                 bookmarkvalue.put("S02","");
-                 bookmarkvalue.put("S27","");
-                 bookmarkvalue.put("S29","");
-                 bookmarkvalue.put("S10","");
+                bookmarkvalue.put("S27","");
+                bookmarkvalue.put("S2","");
+                bookmarkvalue.put("S13","");
+                bookmarkvalue.put("S14","");
+                bookmarkvalue.put("S34","");
+                bookmarkvalue.put("S10","");
                    
                    
                   bookmarkvalue.put("PA7","");

@@ -61,6 +61,9 @@ public static void w9(String cc) {
              String FirstName ="";
              String LastName ="";
              String Position ="";
+             String HeadName ="";
+             String HeadPosition="";
+             String HeadRankFull="";
             try {
                 
                  String sqlDataPoliceStation="SELECT * FROM PoliceStation";
@@ -72,6 +75,9 @@ public static void w9(String cc) {
                          StationProvince=rs.getString("StationProvince");
                          ProvincProsecutor=rs.getString("ProvincProsecutor");
                          TelStation=rs.getString("TelStation");
+                         HeadName=rs.getString("HeadName");
+                         HeadPosition = rs.getString("HeadPosition");
+                         HeadRankFull=rs.getString("HeadRankFull");
                       }
             
                     String sqlDataPolice="SELECT * FROM Police";
@@ -133,6 +139,9 @@ public static void w9(String cc) {
                 bookmarkvalue.put("S6", Checknull(StationProvince));
                 bookmarkvalue.put("S27",Checknull(ProvincProsecutor));
                 bookmarkvalue.put("S10",Checknull(TelStation));
+                bookmarkvalue.put("S13",Checknull(HeadName));
+                bookmarkvalue.put("S14",Checknull(HeadPosition));
+                bookmarkvalue.put("S34",Checknull(HeadRankFull));
                    
 //                   ----------------------------ผู้กล่าวหา--------------------
                
@@ -259,6 +268,9 @@ public static void nw9( ) {
                 bookmarkvalue.put("S6","");
                 bookmarkvalue.put("S27","");
                 bookmarkvalue.put("S10","");
+                 bookmarkvalue.put("S13","");
+                bookmarkvalue.put("S14","");
+                bookmarkvalue.put("S34","");
                    
 //                   ----------------------------ผู้กล่าวหา--------------------
                

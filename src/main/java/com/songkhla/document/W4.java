@@ -61,6 +61,9 @@ public class W4 {
              String FirstName ="";
              String LastName ="";
              String Position ="";
+             String HeadName ="";
+             String HeadPosition="";
+             String HeadRankFull="";
              
              
             try {
@@ -73,6 +76,9 @@ public class W4 {
                          ProvincProsecutor=rs.getString("ProvincProsecutor");
                          THNumBook = rs.getString("THNumBook");
                          TelStation=rs.getString("TelStation");
+                         HeadName=rs.getString("HeadName");
+                         HeadPosition = rs.getString("HeadPosition");
+                         HeadRankFull=rs.getString("HeadRankFull");
                       }
             
                     String sqlDataPolice="SELECT * FROM Police";
@@ -144,6 +150,9 @@ public class W4 {
                   bookmarkvalue.put("S27",Checknull(ProvincProsecutor));
                   bookmarkvalue.put("S29",Checknull(THNumBook));
                    bookmarkvalue.put("S10",Checknull(TelStation));
+                bookmarkvalue.put("S13",Checknull(HeadName));
+                bookmarkvalue.put("S14",Checknull(HeadPosition));
+                bookmarkvalue.put("S34",Checknull(HeadRankFull));
                    
                   bookmarkvalue.put("PA7",Checknull(s.getString("AccureandOther")));
                   bookmarkvalue.put("PA13",Checknull(s.getString("AgeAccured")));
@@ -235,6 +244,9 @@ public class W4 {
                  bookmarkvalue.put("S27","");
                  bookmarkvalue.put("S29","");
                  bookmarkvalue.put("S10","");
+                bookmarkvalue.put("S13","");
+                bookmarkvalue.put("S14","");
+                bookmarkvalue.put("S34","");
                  
                  bookmarkvalue.put("PA7","");
                   bookmarkvalue.put("PA13","");
