@@ -63,6 +63,9 @@ public class W812 {
              String FirstName ="";
              String LastName ="";
              String Position ="";
+             String HeadName ="";
+             String HeadPosition="";
+             String HeadRankFull="";
              
              
             try {
@@ -76,6 +79,9 @@ public class W812 {
                          StationProvince=rs.getString("StationProvince");
                          ProvincProsecutor=rs.getString("ProvincProsecutor");
                          TelStation=rs.getString("TelStation");
+                         HeadName=rs.getString("HeadName");
+                         HeadPosition = rs.getString("HeadPosition");
+                         HeadRankFull=rs.getString("HeadRankFull");
                       }
             
                     String sqlDataPolice="SELECT * FROM Police";
@@ -137,6 +143,9 @@ public class W812 {
                 bookmarkvalue.put("S6", Checknull(StationProvince));
                 bookmarkvalue.put("S27",Checknull(ProvincProsecutor));
                 bookmarkvalue.put("S10",Checknull(TelStation));
+                 bookmarkvalue.put("S13",Checknull(HeadName));
+                bookmarkvalue.put("S14",Checknull(HeadPosition));
+                bookmarkvalue.put("S34",Checknull(HeadRankFull));
                 
                 bookmarkvalue.put("A2", Checknull(s.getString("ActionDetailCase")));
                 
@@ -256,6 +265,9 @@ public class W812 {
                 bookmarkvalue.put("S6","");
                 bookmarkvalue.put("S27","");
                 bookmarkvalue.put("S10","");
+                bookmarkvalue.put("S13","");
+                bookmarkvalue.put("S14","");
+                bookmarkvalue.put("S34","");
                 
                 bookmarkvalue.put("PW2",  "");
                 bookmarkvalue.put("PW3",  "");
