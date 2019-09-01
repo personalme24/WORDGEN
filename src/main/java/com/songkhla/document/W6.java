@@ -61,6 +61,8 @@ public class W6 {
              String HeadPosition="";
              String ProvincProsecutor="";
              String TelStation="";
+             String HeadWorkPosition="";
+             String HeadWorkName="";
              String HeadRankFull="";
              String HeadWorkRankFull ="";
              String HeadRankShort="";
@@ -88,6 +90,8 @@ public class W6 {
                          HeadWorkRankFull =rs.getString("HeadWorkRankFull");
                          HeadRankShort =rs.getString("HeadRankShort");
                          HeadWorkRankShort=rs.getString("HeadWorkRankShort");
+                         HeadWorkName =rs.getString("HeadWorkName");
+                         HeadWorkPosition =rs.getString("HeadWorkPosition");
                       }
             
                   String sqlDataPolice="SELECT * FROM Police";
@@ -163,6 +167,8 @@ public class W6 {
                  bookmarkvalue.put("S10",Checknull(TelStation));
                  bookmarkvalue.put("S13",Checknull(HeadName));
                  bookmarkvalue.put("S14",Checknull(HeadPosition));
+                 bookmarkvalue.put("S15",Checknull(HeadWorkName));
+                 bookmarkvalue.put("S16",Checknull(HeadWorkPosition));
                  bookmarkvalue.put("S27",Checknull(ProvincProsecutor));
                  bookmarkvalue.put("S34",Checknull(HeadRankFull));
                  bookmarkvalue.put("S35",Checknull(HeadRankShort));
@@ -276,6 +282,8 @@ public class W6 {
                  bookmarkvalue.put("S10","");
                  bookmarkvalue.put("S13","");
                  bookmarkvalue.put("S14","");
+                 bookmarkvalue.put("S15","");
+                 bookmarkvalue.put("S16","");
                  bookmarkvalue.put("S27","");
                  bookmarkvalue.put("S34","");
                  bookmarkvalue.put("S35","");

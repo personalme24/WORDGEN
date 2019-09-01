@@ -148,14 +148,13 @@ public class W71 {
 
           ////////////////////////////////ข้อมูลการประกันและทรัพย์สิน/////////////////////////////////////         
                   
-                   String sql="select crimecase.*,Person.*,P2.*,ChargeCase.*,BailAsset.*,InvestInformation.*\n" +
+                   String sql="select crimecase.*,Person.*,P2.*,ChargeCase.*,BailAsset.*\n" +
                               "from crimecase \n" +
                               "inner join( \n" +
                               "SELECT min(Person.NoPerson),Person.FullNamePerson suspectName FROM Person where Person.TypePerson='ผู้ต้องหา'and Person.StatusBail='ประกัน'  and Person.caseIdPerson='"+cc+"')P2 \n" +
                               "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
                               "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                               "left join BailAsset on Person.caseIdPerson = BailAsset.BailCaseId\n" +
-                              "left join InvestInformation on crimecase.PoliceNameCase=InvestInformation.InvestId \n" +
                               "where crimecase.CaseId='"+cc+"' and Person.Related='นายประกัน'\n" +
                               "group by crimecase.CaseId,Person.NoPerson,BailAsset.BailAssetId";
        
@@ -230,13 +229,14 @@ public class W71 {
                        bookmarkvalue.put("P03", Checknull(FirstName));
                        bookmarkvalue.put("P04", Checknull(LastName));
                        bookmarkvalue.put("P05", Checknull(Position));
-*/
+
                         bookmarkvalue.put("P02", Checknull(s.getString("InvestRank")));
                         bookmarkvalue.put("P03", Checknull(s.getString("InvestName")));
                         bookmarkvalue.put("P04", "");
                         bookmarkvalue.put("P05", Checknull(s.getString("InvestPosition")));
                         bookmarkvalue.put("P012", Checknull(s.getString("InvestRankFull"))); //ยศเต็ม
                         bookmarkvalue.put("P013", Checknull(s.getString("InvestPosition"))); //ตำแหน่งเต็ม
+*/
                 
                 String[]   BailAssetTotal1 = s.getString("BailAssetTotal").split(" ");
                 System.out.println(">>>>>"+Arrays.toString(BailAssetTotal1));
