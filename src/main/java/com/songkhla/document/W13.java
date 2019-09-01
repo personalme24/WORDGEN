@@ -79,7 +79,7 @@ public class W13 {
             
 //                String ch;
 //                   String sql="SELECT * from CrimeCase Where crimecaseno = '"+cc+"'";
-                   String sql="select crimecase.*,ChargeCase.*,Asset.*,P1.*,P2.*\n" +
+                   String sql="select crimecase.*,ChargeCase.*,Asset.*,P1.*,P2.*,InvestInformation.*\n" +
                                 "from crimecase inner join(\n" +
                                 "SELECT  min(Person.NoPerson),Person.FullNamePerson AccuredName,Person.Age AgeAccured,Person.Race AccuredRace,Person.Nationality AccuredNati "
                             +   "FROM Person where Person.TypePerson='ผู้กล่าวหา'\n" +
@@ -91,6 +91,7 @@ public class W13 {
                                 "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                                 "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
                                 "left join Asset  on crimecase.CaseId=Asset.caseIdAsset\n" +
+                                "left join InvestInformation on crimecase.PoliceNameCase=InvestInformation.InvestId \n" +
                                 "where crimecase.CaseId='"+cc+"' and Asset.StatusAsset='ได้คืน'\n" +
                                 "group by crimecase.CaseId,Asset.NoAsset";
 //                   pst=conn.prepareStatement(sql);
@@ -192,11 +193,18 @@ public class W13 {
                     bookmarkvalue.put("AS331",Checknull(Integer.toString(OrderAsset)));
                     bookmarkvalue.put("AS661",Checknull(regexCommafy(Integer.toString(SumValue))));
                     bookmarkvalue.put("AS1",Checknull(s.getString("EvidenceRecordNumber")));
-                    
-                      bookmarkvalue.put("P02", Checknull(RankPolice));
+                    /*
+                       bookmarkvalue.put("P02", Checknull(RankPolice));
                        bookmarkvalue.put("P03", Checknull(FirstName));
                        bookmarkvalue.put("P04", Checknull(LastName));
                        bookmarkvalue.put("P05", Checknull(Position));
+*/
+                        bookmarkvalue.put("P02", Checknull(s.getString("InvestRank")));
+                        bookmarkvalue.put("P03", Checknull(s.getString("InvestName")));
+                        bookmarkvalue.put("P04", "");
+                        bookmarkvalue.put("P05", Checknull(s.getString("InvestPosition")));
+                        bookmarkvalue.put("P012", Checknull(s.getString("InvestRankFull"))); //ยศเต็ม
+                        bookmarkvalue.put("P013", Checknull(s.getString("InvestPosition"))); //ตำแหน่งเต็ม
 
 			JSONArray tablecolumn = new JSONArray();
 			System.out.println(">>>>"+OrderAsset);
@@ -291,6 +299,8 @@ public static void nw13() {
                        bookmarkvalue.put("P03", "");
                        bookmarkvalue.put("P04", "");
                        bookmarkvalue.put("P05", "");
+                       bookmarkvalue.put("P012", "");
+                       bookmarkvalue.put("P013", "");
 
 		
 		try {

@@ -90,8 +90,9 @@ public class W54 {
                          Position=rs1.getString("Position");
                       }
                   
-                        String sql="select crimecase.*\n" +
+                        String sql="select crimecase.*,InvestInformation.*\n" +
                               "from crimecase \n" +
+                              "left join InvestInformation on crimecase.PoliceNameCase=InvestInformation.InvestId \n" +
                               "where crimecase.CaseId='"+cc+"'\n" +
                               "group by crimecase.CaseId";
 
@@ -176,12 +177,18 @@ public class W54 {
                             bookmarkvalue.put("C15", Checknull(s.getString("DailyNumber")));
                             bookmarkvalue.put("C6",(ToDate(s.getString("CaseRequestDate"))));
                             bookmarkvalue.put("C661", Checknull(s.getString("CaseRequestTime")));
-                                
+                                /*
                                 bookmarkvalue.put("P02", Checknull(RankPolice));
                                 bookmarkvalue.put("P03", Checknull(FirstName));
                                 bookmarkvalue.put("P04", Checknull(LastName));
                                 bookmarkvalue.put("P05", Checknull(Position));
-                    
+                    */
+                                 bookmarkvalue.put("P02", Checknull(s.getString("InvestRank")));
+                        bookmarkvalue.put("P03", Checknull(s.getString("InvestName")));
+                        bookmarkvalue.put("P04", "");
+                        bookmarkvalue.put("P05", Checknull(s.getString("InvestPosition")));
+                        bookmarkvalue.put("P012", Checknull(s.getString("InvestRankFull"))); //ยศเต็ม
+                        bookmarkvalue.put("P013", Checknull(s.getString("InvestPosition"))); //ตำแหน่งเต็ม
     
 			JSONArray tablecolumn = new JSONArray();
 			tablecolumn.add("C2");
@@ -301,6 +308,8 @@ public static void nw54() {
                         bookmarkvalue.put("P03", "");
                         bookmarkvalue.put("P04", "");
                         bookmarkvalue.put("P05", "");
+                        bookmarkvalue.put("P012", "");
+                        bookmarkvalue.put("P013", "");
                     
     
 		

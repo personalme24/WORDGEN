@@ -84,7 +84,7 @@ public class W28 {
                          Position=rs1.getString("Position");
                       }
                   
-                   String sql="select crimecase.*,ChargeCase.*,ActionsCaseData.*,Asset.*,P1.*,P2.*\n" +
+                   String sql="select crimecase.*,ChargeCase.*,ActionsCaseData.*,Asset.*,P1.*,P2.*,InvestInformation.*\n" +
                                "from crimecase inner join(\n" +
                               "SELECT  min(Person.NoPerson),Person.FullNamePerson AccuredName,Person.Age AgeAccured,Person.Race AccuredRace,Person.Nationality AccuredNati "
                            + "  FROM Person where Person.TypePerson='ผู้กล่าวหา'\n" +
@@ -97,6 +97,7 @@ public class W28 {
                                 "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
                                 "left join ActionsCaseData on crimecase.ActionCodeCase = ActionsCaseData.ActionCodeCase\n"+
                                 "left join Asset  on crimecase.CaseId=Asset.caseIdAsset\n" +
+                                "left join InvestInformation on crimecase.PoliceNameCase=InvestInformation.InvestId \n" +
                                 "where crimecase.CaseId='"+cc+"'\n"+
                                 "group by crimecase.CaseId";
                    
@@ -155,12 +156,20 @@ public class W28 {
                       bookmarkvalue.put("A2", Checknull(s.getString("ActionCrimesCase")));  
                       bookmarkvalue.put("B2", Checknull(s.getString("ChargeNameCase")));
                       bookmarkvalue.put("AS64", Checknull(s.getString("PlaceFoundExhibit")));
+                      /*
                       
                         bookmarkvalue.put("P02", Checknull(RankPolice));
                        bookmarkvalue.put("P03", Checknull(FirstName));
                         bookmarkvalue.put("P04", Checknull(LastName));
                          bookmarkvalue.put("P05", Checknull(Position));
-                         
+                         */
+                        bookmarkvalue.put("P02", Checknull(s.getString("InvestRank")));
+                        bookmarkvalue.put("P03", Checknull(s.getString("InvestName")));
+                        bookmarkvalue.put("P04", "");
+                        bookmarkvalue.put("P05", Checknull(s.getString("InvestPosition")));
+                        bookmarkvalue.put("P012", Checknull(s.getString("InvestRankFull"))); //ยศเต็ม
+                        bookmarkvalue.put("P013", Checknull(s.getString("InvestPosition"))); //ตำแหน่งเต็ม
+                        
                             bookmarkvalue.put("C4",Checknull(ToDate(s.getString("OccuredDate"))));
                             bookmarkvalue.put("C441", Checknull(s.getString("OccuredTime")));
                             
@@ -268,6 +277,8 @@ public static void nw28() {
                         bookmarkvalue.put("P03", "");
                         bookmarkvalue.put("P04", "");
                         bookmarkvalue.put("P05", "");
+                        bookmarkvalue.put("P012", "");
+                        bookmarkvalue.put("P013", "");
                          
                             bookmarkvalue.put("C4","");
                             bookmarkvalue.put("C441","");
