@@ -88,11 +88,12 @@ public class W812 {
                          Position=rs1.getString("Position");
                       }
                   
-                   String sql="select crimecase.*,Person.*,ChargeCase.*,ActionsCaseData.*\n" +
+                   String sql="select crimecase.*,Person.*,ChargeCase.*,ActionsCaseData.*,InvestInformation.*\n" +
                               "from crimecase \n" +
                               "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                               "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
                               "left join ActionsCaseData on crimecase.ActionCodeCase = ActionsCaseData.ActionCodeCase\n"+
+                              "left join InvestInformation on crimecase.PoliceNameCase=InvestInformation.InvestId \n" +
                               "where crimecase.CaseId='"+cc+"'and Person.Related='พยาน'\n" +
                               "group by crimecase.CaseId,Person.NoPerson";
                    
@@ -182,6 +183,8 @@ public class W812 {
                        bookmarkvalue.put("P03", Checknull(FirstName));
                        bookmarkvalue.put("P04", Checknull(LastName));
                        bookmarkvalue.put("P05", Checknull(Position));
+                       bookmarkvalue.put("P012", Checknull(LastName));
+                       bookmarkvalue.put("P013", Checknull(Position));
                     
                    
     
@@ -297,6 +300,8 @@ public class W812 {
                         bookmarkvalue.put("P03", "");
                         bookmarkvalue.put("P04", "");
                         bookmarkvalue.put("P05", "");
+                        bookmarkvalue.put("P012", "");
+                        bookmarkvalue.put("P013", "");
                    
     
 		

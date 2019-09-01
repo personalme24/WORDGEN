@@ -90,8 +90,9 @@ public class W55 {
                          Position=rs1.getString("Position");
                       }
                   
-                        String sql="select crimecase.*\n" +
+                        String sql="select crimecase.*,InvestInformation.*\n" +
                               "from crimecase \n" +
+                              "left join InvestInformation on crimecase.PoliceNameCase=InvestInformation.InvestId \n" +
                               "where crimecase.CaseId='"+cc+"'\n" +
                               "group by crimecase.CaseId";
 
@@ -152,6 +153,8 @@ public class W55 {
                                 bookmarkvalue.put("P03", Checknull(FirstName));
                                 bookmarkvalue.put("P04", Checknull(LastName));
                                 bookmarkvalue.put("P05", Checknull(Position));
+                                bookmarkvalue.put("P012", Checknull(LastName));
+                                bookmarkvalue.put("P013", Checknull(Position));
                     
     
 			JSONArray tablecolumn = new JSONArray();
