@@ -67,7 +67,7 @@ public class InvesInformationFrom extends javax.swing.JDialog {
            InvestPosition.setText(datain.get("InvestPosition")+"");
         if(datain.get("InvestBirthDay")==null||datain.get("InvestBirthDay")=="null"){
             
-        InvestBirthDay.getJFormattedTextField().setText(Calendar.getInstance().getTime()+"");
+//        InvestBirthDay.getJFormattedTextField().setText(Calendar.getInstance().getTime()+"");
          InvestAge.setText("");
            InvestTel.setText("");
         }
@@ -357,7 +357,7 @@ public class InvesInformationFrom extends javax.swing.JDialog {
                 pst=con.prepareStatement(sql);
                 pst.setString(1,InvestId.getText());
                 pst.setString(2,InvestCardID.getText());
-                pst.setString(3,InvestRankFull.getText());
+                pst.setString(3,InvestRank.getText());
                 pst.setString(4,InvestName.getText());
                 pst.setString(5,InvestPosition.getText());
                 pst.setString(6,InvestBirthDay.getJFormattedTextField().getText());
@@ -392,7 +392,7 @@ public class InvesInformationFrom extends javax.swing.JDialog {
                 + " Where InvestId=?";
                 pst=con.prepareStatement(sqlUpdate);
                 pst.setString(1,InvestCardID.getText());               
-                pst.setString(2,InvestRankFull.getText());
+                pst.setString(2,InvestRank.getText());
                 pst.setString(3,InvestName.getText());
                 pst.setString(4,InvestPosition.getText());
                 pst.setString(5,InvestBirthDay.getJFormattedTextField().getText());

@@ -319,12 +319,12 @@ public class PolisForm extends javax.swing.JDialog {
                         String sql2="INSERT INTO InvestInformation (InvestId,InvestCardID,InvestRank,InvestName,"
                         + "InvestPosition,InvestRankFull) VALUES (?,?,?,?,?,?)";
                         pst=con.prepareStatement(sql2);
-                        pst.setString(1,"1");
+                        pst.setString(1,IdInvest());
                         pst.setString(2,IdCardPolice.getText());
                         pst.setString(3,RankPolice.getText());
                         pst.setString(4,FirstName.getText()+" "+LastName.getText());
                         pst.setString(5,Position.getText());
-                         pst.setString(5,RankPoliceFull.getText());
+                         pst.setString(6,RankPoliceFull.getText());
 
 //                        setVisible(false);
  int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
@@ -471,6 +471,34 @@ private void openEdit(){
             
             if (rs.next()) {
                 id=rs.getInt("IdPolice"); 
+            }
+            
+            if(id==0){
+                id=1;
+            }
+            else{
+                id=id+1;
+            }
+             return String.valueOf(id);
+        
+        } catch (Exception e) {
+            return null;
+//            System.out.println(e);
+        } 
+    
+    }
+          public static String IdInvest(){
+         Connection con=null;
+         
+         con=ConnectDatabase.connect();
+            String sqlId="Select max(InvestId) InvestId from InvestInformation";
+        int id=0;
+        try {
+            Statement s=con.createStatement();
+            ResultSet rs=s.executeQuery(sqlId);
+            
+            if (rs.next()) {
+                id=rs.getInt("InvestId"); 
             }
             
             if(id==0){
