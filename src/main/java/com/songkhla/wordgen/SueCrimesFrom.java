@@ -284,7 +284,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
            SueSevRequest.setSelectedItem(Checknull(datain.get("SueSevenRequest")));
            SueSevCause.setSelectedItem(Checknull(datain.get("SueSevenCause")));        
             String a=datain.get("ArrestDateTimeEnd")+"";
-            if(a == null || a.equals("null") )
+            if(a == null || a.equals("null")|| a.equals("") )
             { ArrestDateTimeEnd.setText("");
                 SueFirstDate.setText("");
          }   
