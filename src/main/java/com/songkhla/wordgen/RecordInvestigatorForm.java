@@ -38,7 +38,7 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
     Connection con=null;
     PreparedStatement pst=null;
     DataCase dc =new DataCase();
-    boolean isInsert=true;
+    boolean isInsert;
     String idRecord;
     JDatePickerImpl DateRecord;
     /**

@@ -704,6 +704,7 @@ public class BailCrimesAdd extends javax.swing.JDialog {
         // TODO add your handling code here:
         JSONObject data=new JSONObject();
         data.put("caseid",caseId );
+        data.put("personid",personId );
 //        data.put("BailPersonId",personId );
         JFrame frame = new JFrame();
         JDialog dialog = new JDialog(frame);//frame is owner

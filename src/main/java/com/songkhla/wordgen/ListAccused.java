@@ -260,10 +260,10 @@ String typeC;
             try{
                  JSONObject datacase=new JSONObject();
                  datacase.put("TypeCase",typeC );
-                String Noperson = jTableAccure.getModel().getValueAt(jTableAccure.getSelectedRow(), 7)+"";            
+                String Noperson = jTableAccure.getModel().getValueAt(jTableAccure.getSelectedRow(), 8)+"";            
                 String sql = "select NoPerson,Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,Weight,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                        "PhonePerson,Province,RelatedAccused,Race,OrderPerson,Religion,Tambon,TypePerson,ZipCode,caseIdPerson from person where Noperson='"+Noperson+ "' and caseIdPerson='"+crimecaseno+"' and TypePerson='ผู้กล่าวหา'";
+                        "PhonePerson,Province,Related,Race,OrderPerson,Religion,Tambon,TypePerson,ZipCode,caseIdPerson from person where Noperson='"+Noperson+ "' and caseIdPerson='"+crimecaseno+"' and TypePerson='ผู้กล่าวหา'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);
@@ -299,7 +299,7 @@ String typeC;
                      data.put("ZipCode", rs.getString("ZipCode"));
                      data.put("OrderPerson", rs.getString("OrderPerson"));
                       data.put("OtherName", rs.getString("OtherName"));
-                    data.put("RelatedAccused", rs.getString("RelatedAccused"));
+                    data.put("Related", rs.getString("Related"));
                             AccusedForm accusedF=new AccusedForm(f,data,datacase);
                              accusedF.pack();
                              accusedF.setLocationRelativeTo(null);
@@ -392,7 +392,7 @@ String typeC;
         String a=txtCaseNO.getText();
         String sql = "select Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                      "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                     "PhonePerson,NoPerson,Province,Race,Religion,OrderPerson,Tambon,TypePerson,Weight,ZipCode,caseIdPerson from person where TypePerson='ผู้กล่าวหา' and"
+                     "PhonePerson,NoPerson,Province,Race,Religion,OrderPerson,Tambon,TypePerson,Weight,ZipCode,caseIdPerson,Related from person where TypePerson='ผู้กล่าวหา' and"
                 + " caseIdPerson='"+a+"'"+getFilterCondition()+" order by OrderPerson ASC";
       
         ResultSet rs = stmt.executeQuery(sql);
@@ -407,6 +407,8 @@ String typeC;
             row.add(rs.getString("Race"));
             row.add(rs.getString("Nationality"));
             row.add(rs.getString("Religion"));
+            row.add(rs.getString("Related"));
+            
             row.add(rs.getString("NoPerson"));
             tabledata.add(row);
         }
@@ -420,6 +422,8 @@ String typeC;
         ColumnName.add("เชื้อชาติ");
         ColumnName.add("สัญชาติ");
         ColumnName.add("ศาสนา");
+        ColumnName.add("เกี่ยวข้องเป็น");
+
         ColumnName.add("เลขคน");
          System.out.println("SQL : "+sql);
      
@@ -435,9 +439,9 @@ String typeC;
                 return types [columnIndex];
             }
         });
-         jTableAccure.getColumnModel().getColumn(7).setWidth(0);
-jTableAccure.getColumnModel().getColumn(7).setMinWidth(0);
-jTableAccure.getColumnModel().getColumn(7).setMaxWidth(0); 
+         jTableAccure.getColumnModel().getColumn(8).setWidth(0);
+jTableAccure.getColumnModel().getColumn(8).setMinWidth(0);
+jTableAccure.getColumnModel().getColumn(8).setMaxWidth(0); 
          if(jTableAccure.getRowCount()<=0){
 //             int rows = jTableAccure.getRowCount();
             if(typeC.equals("อาญา")){

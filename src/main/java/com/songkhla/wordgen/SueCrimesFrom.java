@@ -2962,6 +2962,7 @@ catch (Exception d) {  //System.out.println(d);
 
     String DateEnd="";
     int totalDate=Integer.parseInt(DateTotal);
+    int totalNew=totalDate-1;
         try{
             Calendar cal;
             Locale lc = new Locale("th","TH");
@@ -2969,7 +2970,7 @@ catch (Exception d) {  //System.out.println(d);
                         Date dateS = sdf.parse(DateStart);
                         cal=Calendar.getInstance();
                         cal.setTime(dateS);
-                        cal.add(Calendar.DATE, totalDate);
+                        cal.add(Calendar.DATE, totalNew);
                         DateEnd=sdf.format(cal.getTime());
 //                        Date dateE=sdf.parse(DateEnd);
 //                long diff = dateE.getTime() - dateS.getTime();

@@ -3098,10 +3098,10 @@ JTextPopupMenu.addTo(CourtResult);
 //                        W69.w69(no);
 //                    }
                if(jCheckW270.isSelected()){
-                        W70.w70(no);
+                        W70.w70(no,null);
                     }
                if(jCheckW271.isSelected()){
-                        W71.w71(no);
+                        W71.w71(no,null);
                     }
                if(jCheckW272.isSelected()){
                         W72.nw72();

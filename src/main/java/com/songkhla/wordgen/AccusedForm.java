@@ -151,7 +151,7 @@ public class AccusedForm extends javax.swing.JDialog {
             OrderPerson.setText(datain.get("OrderPerson")+"");             
              ZipCode.setText(datain.get("ZipCode")+"");
             OtherName.setText(datain.get("OtherName")+"");
-RelatedAccused.setSelectedItem(datain.get("RelatedAccused")+"");
+RelatedAccused.setSelectedItem(datain.get("Related")+"");
 //                    data.put("Gender", rs.getString("Gender"));
 
 
@@ -898,8 +898,8 @@ RelatedAccused.setSelectedItem(datain.get("RelatedAccused")+"");
         if(isInsert){    
         String sql="INSERT INTO Person (Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                        "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,caseIdPerson,OrderPerson)\n"
-                + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                        "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,caseIdPerson,OrderPerson,Related)\n"
+                + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         String sqlinsert = "INSERT INTO PersonData (FullNamePerson,Race) VALUES (?,?)";
          System.out.println("SQL : "+sql);
       try {
@@ -961,7 +961,7 @@ RelatedAccused.setSelectedItem(datain.get("RelatedAccused")+"");
                                     "BloodGroup=?,ExpiredDate=?,FatherFullName=?,FullNamePerson=?,FullNamePersonEn=?,\n" +
                                     "Gender=?,Height=?,HouseNumber=?,IssueDate=?,Moo=?,MotherFullName=?,Nationality=?,Occupation=?,\n" +
                                     "OtherName=?,PassportNumber=?,PeopleRegistrationID=?,PhonePerson=?,Province=?,Race=?,Religion=?,\n" +
-                                    "Tambon=?,TypePerson=?,Weight=?,ZipCode=? ,caseIdPerson=?,OrderPerson=? where NoPerson=? and TypePerson=?   ";
+                                    "Tambon=?,TypePerson=?,Weight=?,ZipCode=? ,caseIdPerson=?,OrderPerson=?,Related=? where NoPerson=? and TypePerson=?   ";
        
          try {
             pst=con.prepareStatement(sqlUpdate);
@@ -994,8 +994,9 @@ RelatedAccused.setSelectedItem(datain.get("RelatedAccused")+"");
                               pst.setString(27,ZipCode.getText());
                               pst.setString(28,crimecaseno.getText());
                               pst.setString(29,OrderPerson.getText());
-                              pst.setString(30,noPerson);
-                              pst.setString(31,"ผู้กล่าวหา");
+                               pst.setString(30,RelatedAccused.getSelectedItem()+"");
+                              pst.setString(31,noPerson);
+                              pst.setString(32,"ผู้กล่าวหา");
                          int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
                             JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                             if (response == JOptionPane.YES_OPTION) {

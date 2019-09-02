@@ -569,7 +569,7 @@ jTableBail.setPreferredScrollableViewportSize(Toolkit.getDefaultToolkit().getScr
 "                left outer join\n" +
 "                (select * from DeliverySuspect where deliorder=6) as deli6 on deli1.delipersonid=deli6.delipersonid\n" +
 "where 	Person.StatusBail='ประกัน'" ;
-          
+            System.out.println("dddddddd :"+sql);
 //                sql= "select StatusBail,CaseId,ArrestDateTimeEnd,crimecasenoyear,SueFirstDate,Investigator_Result,TypePerson,BailDate,PeopleRegistrationID,FullNamePerson,StatusSuspect,CaseIdPerson,CaseAcceptDate \n" +
 //                     "from Person\n" +
 //                     "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId "

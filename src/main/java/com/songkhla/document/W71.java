@@ -48,7 +48,7 @@ import org.json.simple.JSONObject;
 
 
 public class W71 {
-    public static void w71(String cc) {
+    public static void w71(String cc,String noperson) {
      
             Connection conn=null;
             conn=ConnectDatabase.connect();
@@ -105,7 +105,7 @@ public class W71 {
                                             "FROM DeliverySuspect\n" +
                                             "left join Person on  DeliverySuspect.DeliPersonId = Person.NoPerson \n" +
                                             "left join CrimeCase on Person.caseIdPerson =crimecase.CaseId \n" +
-                                            "where crimecase.CaseId='"+cc+"' ";
+                                            "where crimecase.CaseId='"+cc+"' and Person.NoPerson='"+noperson+"'";
                   
                   Statement sp2 = conn.createStatement();
                   ResultSet rs2=sp2.executeQuery(sqlDataDeliverySuspect); 
@@ -148,15 +148,15 @@ public class W71 {
 
           ////////////////////////////////ข้อมูลการประกันและทรัพย์สิน/////////////////////////////////////         
                   
-                   String sql="select crimecase.*,Person.*,P2.*,ChargeCase.*,BailAsset.*\n" +
-                              "from crimecase \n" +
-                              "inner join( \n" +
-                              "SELECT min(Person.NoPerson),Person.FullNamePerson suspectName FROM Person where Person.TypePerson='ผู้ต้องหา'and Person.StatusBail='ประกัน'  and Person.caseIdPerson='"+cc+"')P2 \n" +
-                              "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
-                              "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
-                              "left join BailAsset on Person.caseIdPerson = BailAsset.BailCaseId\n" +
-                              "where crimecase.CaseId='"+cc+"' and Person.Related='นายประกัน'\n" +
-                              "group by crimecase.CaseId,Person.NoPerson,BailAsset.BailAssetId";
+                   String sql="select crimecase.*,Person.FullNamePerson suspectName,P2.*,ChargeCase.*,BailAsset.*\n" +
+                                "from Person\n" +
+                                "inner join( \n" +
+                                "SELECT Person.*\n" +
+                                "FROM Person where Person.Related='นายประกัน' and Person.caseIdPerson='"+cc+"')P2 \n" +
+                                "left join CrimeCase on Person.caseidperson=CrimeCase.caseid\n" +
+                                "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
+                                "left join BailAsset on Person.noperson = BailAsset.BailpersonId\n" +
+                                "where Person.StatusBail='ประกัน' and CrimeCase.caseid='"+cc+"' and Person.Noperson='"+noperson+"'" ;
        
                    
             
