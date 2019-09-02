@@ -643,7 +643,8 @@ public class ReportAllForm extends javax.swing.JDialog {
 
         jCheckW228.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW228.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW228.setText("บันทึกการตรวจสภาพสภาพรถยนต์");
+        jCheckW228.setText("บันทึกการตรวจสภาพรถยนต์");
+        jCheckW228.setActionCommand("บันทึกการตรวจสภาพรถยนต์");
         jPanel14.add(jCheckW228, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 310, 259, -1));
 
         jCheckW253.setBackground(new java.awt.Color(255, 255, 255));
@@ -848,7 +849,7 @@ public class ReportAllForm extends javax.swing.JDialog {
 
         jCheckW273.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW273.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW273.setText("บันทึกรับรองการป็นโสด");
+        jCheckW273.setText("บันทึกรับรองการเป็นโสด");
 
         jCheckW272.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW272.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N

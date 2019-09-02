@@ -62,6 +62,7 @@ public static void w68(String cc,String sueTime,String stSuspect,String idperson
              String LastName ="";
              String Position ="";
              String StatusSue ="";
+             String CourtSuspect="";
 
             try {
                 
@@ -104,6 +105,7 @@ public static void w68(String cc,String sueTime,String stSuspect,String idperson
                  casetype=s.getString("casetype");
                  StatusSue=Checknull(s.getString("StatusSuspect"));
                  caseno  =s.getString("crimecasenoyear");
+                 CourtSuspect= Checknull(s.getString("CourtSuspect"));
                 String Date="";
                 String Month="";
                 String Year="";
@@ -205,13 +207,24 @@ public static void w68(String cc,String sueTime,String stSuspect,String idperson
                 bookmarkvalue.put("S6", Checknull(StationProvince));
                 bookmarkvalue.put("S10",Checknull(TelStation));
                 bookmarkvalue.put("S17",Checknull(CriminalCourt));
-                   
+                    if ((CourtSuspect).equals("ศาลแขวง") ){
+                    bookmarkvalue.put("CTY","แขวง");
+                }
+                if ((CourtSuspect).equals("ศาลอาญา/ศาลจังหวัด")){
+                    bookmarkvalue.put("CTY","อาญา/ศาลจังหวัด");
+                }
+                if ((CourtSuspect).equals("ศาลเยาวชนและครอบครัว")){
+                    bookmarkvalue.put("CTY","เยาวชนและครอบครัว");
+                }
+                if ((CourtSuspect).equals("ศาลทหาร")){
+                    bookmarkvalue.put("CTY","ทหาร");
+                }
                 
                 //----------------------------ผู้ต้องหา--------------------
                     
                     bookmarkvalue.put("PS7", Checknull(s.getString("FullNamePerson"))); 
                     
-                  
+                    bookmarkvalue.put("CSY", Checknull(s.getString("StatusSuspect"))); 
                      
 
                       bookmarkvalue.put("B2", Checknull(s.getString("ChargeNameCase")));
@@ -315,7 +328,8 @@ public static void nw68() {
                 bookmarkvalue.put("S6", "");
                 bookmarkvalue.put("S10","");
                 bookmarkvalue.put("S17","");
-                   
+                bookmarkvalue.put("CTY","");
+                bookmarkvalue.put("CSY",""); 
                 
                 //----------------------------ผู้ต้องหา--------------------
                     
