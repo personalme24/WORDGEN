@@ -164,7 +164,7 @@ public static void w67(String cc,String stSuspect) {
                 if ((CourtSuspect).equals("ศาลอาญา/ศาลจังหวัด")){
                     bookmarkvalue.put("S17",Checknull(CriminalCourt));
                 }
-                if ((CourtSuspect).equals("ศาลเด็กและเยาวชน")){
+                if ((CourtSuspect).equals("ศาลเยาวชนและครอบครัว")){
                     bookmarkvalue.put("S17",Checknull(JuvenileCourt));
                 }
                 if ((CourtSuspect).equals("ศาลทหาร")){

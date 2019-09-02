@@ -86,7 +86,7 @@ public class W32 {
                                "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                                "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
                                "left join InvestInformation on crimecase.PoliceNameCase=InvestInformation.InvestId \n" +
-                                "where crimecase.CaseId='"+cc+"' and Person.TypePerson='ผู้ต้องหา' and Person.CourtSuspect='ศาลเด็กและเยาวชน'\n"+
+                                "where crimecase.CaseId='"+cc+"' and Person.TypePerson='ผู้ต้องหา' and Person.CourtSuspect='ศาลเยาวชนและครอบครัว'\n"+
                                 "group by crimecase.CaseId";
                    
 //                   pst=conn.prepareStatement(sql);
