@@ -268,10 +268,10 @@
                               <Component id="JuvenileCourt" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="98" pref="98" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="DistrictCourt" alignment="1" min="-2" pref="508" max="-2" attributes="0"/>
-                                  <Component id="CriminalCourt" alignment="0" min="-2" pref="508" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="DistrictCourt" min="-2" pref="500" max="-2" attributes="0"/>
+                                  <Component id="CriminalCourt" min="-2" pref="500" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -764,7 +764,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&#xe28;&#xe32;&#xe25;&#xe08;&#xe31;&#xe07;&#xe2b;&#xe27;&#xe31;&#xe14;&#xe2d;&#xe32;&#xe0d;&#xe32;"/>
+            <Property name="text" type="java.lang.String" value="&#xe28;&#xe32;&#xe25;&#xe08;&#xe31;&#xe07;&#xe2b;&#xe27;&#xe31;&#xe14;/&#xe2d;&#xe32;&#xe0d;&#xe32;"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="CriminalCourt">

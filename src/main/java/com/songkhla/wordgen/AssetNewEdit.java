@@ -461,8 +461,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
                               pst.setString(14,noasset);
 
                               pst.executeUpdate();
-
-                             JOptionPane.showMessageDialog(null, "Data Saved successfully");
+                              JOptionPane.showMessageDialog(jPanel1, "บันทึกข้อมูล",null, JOptionPane.INFORMATION_MESSAGE);
                              pst.close();
         } catch (Exception e) {
              JOptionPane.showMessageDialog(null, e); 

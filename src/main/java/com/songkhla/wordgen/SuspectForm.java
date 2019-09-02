@@ -1188,7 +1188,7 @@ public class SuspectForm extends javax.swing.JDialog {
         RatePrison.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ไม่เกิน 10 ปี", "ตั้งแต่ 10 ปีขึ้นไป" }));
 
         CourtSuspect.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        CourtSuspect.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ศาลแขวง", "ศาลอาญา/ศาลจังหวัด", "ศาลครอบครัวและเยาวชน", "ศาลทหาร", " " }));
+        CourtSuspect.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ศาลแขวง", "ศาลอาญา/ศาลจังหวัด", "ศาลเยาวชนและครอบครัว", "ศาลทหาร", " " }));
         CourtSuspect.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 CourtSuspectItemStateChanged(evt);
@@ -1666,7 +1666,7 @@ public class SuspectForm extends javax.swing.JDialog {
 //                else if(CourtSuspect.getSelectedItem().toString().equals("ศาลอาญา") && jRadioSue.isSelected()){
 //                    pst.setString(34,"");
 //                }
-                else if(CourtSuspect.getSelectedItem().toString().equals("ศาลครอบครัวและเยาวชน")){
+                else if(CourtSuspect.getSelectedItem().toString().equals("ศาลเยาวชนและครอบครัว")){
                     pst.setString(34,CalculateDateTime24(arrestDate));
                 }
                 else{
@@ -1784,7 +1784,7 @@ public class SuspectForm extends javax.swing.JDialog {
                 else if(CourtSuspect.getSelectedItem().toString().equals("ศาลอาญา") && jRadioSue.isSelected()){
                     pst.setString(32,"");
                 }
-                else if(CourtSuspect.getSelectedItem().toString().equals("ศาลครอบครัวและเยาวชน")){
+                else if(CourtSuspect.getSelectedItem().toString().equals("ศาลเยาวชนและครอบครัว")){
                     pst.setString(32,CalculateDateTime24(arrestDate));
                 }
                 else{
@@ -2021,7 +2021,7 @@ public class SuspectForm extends javax.swing.JDialog {
     private void jRadioStatus1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioStatus1ItemStateChanged
         // TODO add your handling code here:
         String a=jRadioStatus1.getText().toString();
-        if(jRadioStatus1.isSelected()&&CourtSuspect.getSelectedItem().equals("ศาลแขวง")||CourtSuspect.getSelectedItem().equals("ศาลทหาร")||CourtSuspect.getSelectedItem().equals("ศาลครอบครัวและเยาวชน")){
+        if(jRadioStatus1.isSelected()&&CourtSuspect.getSelectedItem().equals("ศาลแขวง")||CourtSuspect.getSelectedItem().equals("ศาลทหาร")||CourtSuspect.getSelectedItem().equals("ศาลเยาวชนและครอบครัว")){
           PlaceArrest.setVisible(true);
           jLabelArrestPlace.setVisible(true);
           jPanelDateArrest.setVisible(true);
@@ -2064,7 +2064,7 @@ public class SuspectForm extends javax.swing.JDialog {
 
     private void jRadioStatus2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioStatus2ItemStateChanged
         // TODO add your handling code here:
-              if(jRadioStatus2.isSelected()&&CourtSuspect.getSelectedItem().equals("ศาลแขวง") ||CourtSuspect.getSelectedItem().equals("ศาลทหาร")||CourtSuspect.getSelectedItem().equals("ศาลครอบครัวและเยาวชน")){
+              if(jRadioStatus2.isSelected()&&CourtSuspect.getSelectedItem().equals("ศาลแขวง") ||CourtSuspect.getSelectedItem().equals("ศาลทหาร")||CourtSuspect.getSelectedItem().equals("ศาลเยาวชนและครอบครัว")){
           PlaceArrest.setVisible(true);
           jLabelArrestPlace.setVisible(true);
           jPanelDateArrest.setVisible(true);

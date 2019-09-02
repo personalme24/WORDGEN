@@ -395,7 +395,7 @@ public class StationForm extends javax.swing.JDialog {
         HeadWorkPosition.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel25.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabel25.setText("ศาลจังหวัดอาญา");
+        jLabel25.setText("ศาลจังหวัด/อาญา");
 
         CriminalCourt.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
@@ -696,10 +696,10 @@ public class StationForm extends javax.swing.JDialog {
                             .addGap(643, 643, 643)
                             .addComponent(JuvenileCourt))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                            .addGap(98, 98, 98)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(DistrictCourt, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(CriminalCourt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(106, 106, 106)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(DistrictCourt, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(CriminalCourt, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel26)
