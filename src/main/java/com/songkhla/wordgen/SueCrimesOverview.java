@@ -364,7 +364,7 @@ jTableSue.setPreferredScrollableViewportSize(Toolkit.getDefaultToolkit().getScre
                     data.put("CourtSuspect", rs.getString("CourtSuspect"));                    
                     data.put("RatePrison", rs.getString("RatePrison")); 
                     data.put("SueFirst", rs.getString("SueFirst"));
-                    data.put("SueFirstDate", rs.getString("SueFirstDate"));
+                    data.put("SueFirstDate", ChangFormat(rs.getString("SueFirstDate")));
                      data.put("SueFirstEnd", ChangFormat(rs.getString("SueFirstEnd")));
                       data.put("SueFirstTotal", rs.getString("SueFirstTotal"));
                       data.put("SueFirstRequest", rs.getString("SueFirstRequest"));

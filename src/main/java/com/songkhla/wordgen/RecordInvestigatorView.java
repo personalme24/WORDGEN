@@ -274,8 +274,8 @@ public class RecordInvestigatorView extends javax.swing.JDialog {
             Vector<String> row = new Vector<String>();
            
             row.add(rs.getString("DateRecord"));
-            row.add(rs.getString("NameInguiry"));
-            row.add(rs.getString("DetailRecord")); 
+            row.add(rs.getString("DetailRecord"));
+            row.add(rs.getString("NameInguiry"));           
             row.add(rs.getString("IdRecord"));
             tabledata.add(row);
         }

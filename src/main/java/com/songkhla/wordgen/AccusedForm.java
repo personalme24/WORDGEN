@@ -151,7 +151,7 @@ public class AccusedForm extends javax.swing.JDialog {
             OrderPerson.setText(datain.get("OrderPerson")+"");             
              ZipCode.setText(datain.get("ZipCode")+"");
             OtherName.setText(datain.get("OtherName")+"");
-
+RelatedAccused.setSelectedItem(datain.get("RelatedAccused")+"");
 //                    data.put("Gender", rs.getString("Gender"));
 
 

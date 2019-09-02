@@ -2287,7 +2287,7 @@ SueFirstCause.setEnabled(true);
 //            Thread.sleep(SLEEP_TIME);// imitate a long-running task
 
             if(Print1.isEnabled()){
-              W67.w67(caseid,StatusSuspect.getText());
+              W67.w67(caseid,StatusSuspect.getText(),person);
             }
 //             if(Print2.isEnabled() && !"".equals(SueSecond.getText())){
 //              W68.w68(caseid,SueSecond.getText());
@@ -2397,7 +2397,7 @@ SueFirstCause.setEnabled(true);
             setProgress((int)((i*100)/2)+1);
 				Thread.sleep(10);
 
-              W68.w68(caseid,SueSecond.getText(),StatusSuspect.getText());
+              W68.w68(caseid,SueSecond.getText(),StatusSuspect.getText(),person);
             
             
             }
@@ -2495,7 +2495,7 @@ SueFirstCause.setEnabled(true);
 
             
              
-              W68.w68(caseid,SueThird.getText(),StatusSuspect.getText());
+              W68.w68(caseid,SueThird.getText(),StatusSuspect.getText(),person);
             
             
             }
@@ -2587,7 +2587,7 @@ SueFirstCause.setEnabled(true);
 				Thread.sleep(10);
 //            Thread.sleep(SLEEP_TIME);// imitate a long-running task
 
-                           W68.w68(caseid,SueForth.getText(),StatusSuspect.getText());
+                           W68.w68(caseid,SueForth.getText(),StatusSuspect.getText(),person);
 
 
             }
@@ -2679,7 +2679,7 @@ SueFirstCause.setEnabled(true);
 				Thread.sleep(10);
 //            Thread.sleep(SLEEP_TIME);// imitate a long-running task
 
-            W68.w68(caseid,SueFifth.getText(),StatusSuspect.getText());
+            W68.w68(caseid,SueFifth.getText(),StatusSuspect.getText(),person);
 
 
             }
@@ -2773,7 +2773,7 @@ SueFirstCause.setEnabled(true);
 
 
               
-             W68.w68(caseid,SueSixth.getText(),StatusSuspect.getText());
+             W68.w68(caseid,SueSixth.getText(),StatusSuspect.getText(),person);
             
 
             }
@@ -2867,7 +2867,7 @@ SueFirstCause.setEnabled(true);
 
 
              
-             W68.w68(caseid,SueSeventh.getText(),StatusSuspect.getText());
+             W68.w68(caseid,SueSeventh.getText(),StatusSuspect.getText(),person);
             
             }
         } catch (InterruptedException e) {

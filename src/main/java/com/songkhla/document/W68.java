@@ -44,7 +44,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 public class W68 {
-public static void w68(String cc,String sueTime,String stSuspect) {
+public static void w68(String cc,String sueTime,String stSuspect,String idperson) {
             Connection conn=null;
             conn=ConnectDatabase.connect();
             PreparedStatement pst=null;
@@ -92,7 +92,7 @@ public static void w68(String cc,String sueTime,String stSuspect) {
                               "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                               "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
                               "left join InvestInformation on crimecase.PoliceNameCase=InvestInformation.InvestId \n" +
-                              "where crimecase.CaseId='"+cc+"'and Person.TypePerson='ผู้ต้องหา' and Person.StatusSuspect='"+stSuspect+"'\n" +
+                              "where crimecase.CaseId='"+cc+"'and Person.TypePerson='ผู้ต้องหา' and Person.StatusSuspect='"+stSuspect+"' and Person.NoPerson='"+idperson+"'\n" +
                               "group by crimecase.CaseId,Person.NoPerson";
 
                 Statement st = conn.createStatement();
@@ -137,9 +137,9 @@ public static void w68(String cc,String sueTime,String stSuspect) {
                    if(sueTime.equals("3")){
                   bookmarkvalue.put("PS90", Checknull(s.getString("SueThird")));
                  bookmarkvalue.put("PS112", Checknull(s.getString("SueSecond")));
-                 bookmarkvalue.put("PS113", Checknull(ToDate(ChangFormat(s.getString("SueSecDate")))));  
+//                 bookmarkvalue.put("PS113", Checknull(ToDate(ChangFormat(s.getString("SueSecDate")))));  
                   bookmarkvalue.put("PS106", Checknull(s.getString("SueSecTotal")));
-                bookmarkvalue.put("PS107", Checknull(ToDate(ChangFormat(s.getString("SueSecEnd")))));                
+//                bookmarkvalue.put("PS107", Checknull(ToDate(ChangFormat(s.getString("SueSecEnd")))));                
                     
                  bookmarkvalue.put("PS114", Checknull(s.getString("SueThirdCause")));
                 bookmarkvalue.put("PS109", Checknull(s.getString("SueThirdTotal")));
@@ -463,13 +463,17 @@ public static void nw68() {
         private static String ToDate(String strDate){
                String ResultDate="";
          try {
-    	        if(strDate.equals(null)||strDate.equals("")||strDate.equals("null")) { return ""; }else{
+//    	        if(strDate.equals(null)||strDate.equals("")||strDate.equals("null")) {
+//                    return ""; 
+//                }
+//                else{
     	       SimpleDateFormat df = new SimpleDateFormat("d/MM/yyyy", new Locale("th", "TH"));  
                SimpleDateFormat dateto  = new SimpleDateFormat("d MMMM yyyy", new Locale("th", "TH"));  
                Date date=null;
                
                date = df.parse(strDate);               
-               ResultDate=dateto.format(date.getTime());}
+               ResultDate=dateto.format(date.getTime());
+//         }
          } catch (ParseException ex) {
              Logger.getLogger(W68.class.getName()).log(Level.SEVERE, null, ex);
          }

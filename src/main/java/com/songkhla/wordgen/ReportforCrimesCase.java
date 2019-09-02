@@ -822,7 +822,7 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
 
         jCheckW273.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW273.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW273.setText("บันทึกรับรองการป็นโสด");
+        jCheckW273.setText("บันทึกรับรองการเป็นโสด");
 
         jCheckW272.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW272.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N

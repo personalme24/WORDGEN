@@ -263,7 +263,7 @@ String typeC;
                 String Noperson = jTableAccure.getModel().getValueAt(jTableAccure.getSelectedRow(), 7)+"";            
                 String sql = "select NoPerson,Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,Weight,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                        "PhonePerson,Province,Race,OrderPerson,Religion,Tambon,TypePerson,ZipCode,caseIdPerson from person where Noperson='"+Noperson+ "' and caseIdPerson='"+crimecaseno+"' and TypePerson='ผู้กล่าวหา'";
+                        "PhonePerson,Province,RelatedAccused,Race,OrderPerson,Religion,Tambon,TypePerson,ZipCode,caseIdPerson from person where Noperson='"+Noperson+ "' and caseIdPerson='"+crimecaseno+"' and TypePerson='ผู้กล่าวหา'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);
@@ -299,7 +299,7 @@ String typeC;
                      data.put("ZipCode", rs.getString("ZipCode"));
                      data.put("OrderPerson", rs.getString("OrderPerson"));
                       data.put("OtherName", rs.getString("OtherName"));
-
+                    data.put("RelatedAccused", rs.getString("RelatedAccused"));
                             AccusedForm accusedF=new AccusedForm(f,data,datacase);
                              accusedF.pack();
                              accusedF.setLocationRelativeTo(null);

@@ -71,7 +71,7 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
            NameInguiry.setSelectedItem(datain.get("NameInguiry")+"");
            DetailRecord.setText(datain.get("DetailRecord")+"");
 //           DailyNumber.setText(datain.get("DailyNumber")+"");
-              
+              caseId.setText(datain.get("CaseIdRecord")+"");
            }
        
        else{
@@ -165,6 +165,7 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
         DetailRecord.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         DetailRecord.setLineWrap(true);
         DetailRecord.setRows(5);
+        DetailRecord.setTabSize(1);
         jScrollPane1.setViewportView(DetailRecord);
 
         NameInguiry.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -272,7 +273,7 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
                  String intAcUp="UPDATE RecordInquiry set"
                             + " DateRecord=?,"
                             + " NameInguiry=?,"
-                            + "DetailRecord=? where IdRecord=?";
+                            + "DetailRecord=? where IdRecord=? and CaseIdRecord=?";
 //          String intCr="insert into CrimesCase(AnswerSuspect,AnswerAccuse) values(?,?) ";
         try {
            
@@ -281,7 +282,7 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
            pst.setString(2, NameInguiry.getSelectedItem()+"");
            pst.setString(3, DetailRecord.getText());
            pst.setString(4, idRecord);
-            
+            pst.setString(5, caseId.getText());
           
             int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
                             JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
