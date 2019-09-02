@@ -2544,6 +2544,7 @@
                                   <Font name="TH SarabunPSK" size="22" style="1"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe20;&#xe32;&#xe1e;&#xe2a;&#xe20;&#xe32;&#xe1e;&#xe23;&#xe16;&#xe22;&#xe19;&#xe15;&#xe4c;"/>
+                                <Property name="actionCommand" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;&#xe01;&#xe32;&#xe23;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe20;&#xe32;&#xe1e;&#xe23;&#xe16;&#xe22;&#xe19;&#xe15;&#xe4c;"/>
                               </Properties>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
