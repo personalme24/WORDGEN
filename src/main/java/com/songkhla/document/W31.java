@@ -106,6 +106,7 @@ public class W31 {
                 System.out.println(sql);
                 int OrderAsset=0;
                 String Name="";
+                String PointFoundCheck="";
             while((s!=null) && (s.next()))
             {  String  
                     cs =s.getString("crimecaseno");
@@ -186,7 +187,10 @@ public class W31 {
                             
                             ++OrderAsset ;
                            Name= Name+","+s.getString("Name");
-                           bookmarkvalue.put("A2111", Checknull(Name));
+                           bookmarkvalue.put("AS211", Checknull(Name).substring(1));
+                           
+                            PointFoundCheck= PointFoundCheck+","+s.getString("PointFoundCheck");
+                           bookmarkvalue.put("AS242", Checknull(PointFoundCheck).substring(1));
                            
 			JSONArray tablecolumn = new JSONArray();
 			tablecolumn.add("C2");
