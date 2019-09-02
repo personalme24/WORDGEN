@@ -933,6 +933,7 @@ RelatedAccused.setSelectedItem(datain.get("Related")+"");
                               pst.setString(27,ZipCode.getText());
                               pst.setString(28,crimecaseno.getText());
                               pst.setString(29,OrderPerson.getText());
+                               pst.setString(30,RelatedAccused.getSelectedItem()+"");
 //                              --------------Insert Person---------------------------------
                                pst2=con.prepareStatement(sqlinsert);
                                   pst2.setString(1,FullNamePerson.getText());

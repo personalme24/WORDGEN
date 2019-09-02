@@ -326,7 +326,7 @@ String typeC;
               if(jTableAccure.getSelectedRow()>=0){
                   
             try{
-                String Noperson = jTableAccure.getModel().getValueAt(jTableAccure.getSelectedRow(), 7)+"";
+                String Noperson = jTableAccure.getModel().getValueAt(jTableAccure.getSelectedRow(), 8)+"";
                 String PeopleRegistrationID = jTableAccure.getModel().getValueAt(jTableAccure.getSelectedRow(), 2)+"";
                 String sql = "Delete from person WHERE Noperson='"+Noperson+ "' and  caseIdPerson='"+txtCaseNO.getText()+"'";
                 Connection con = ConnectDatabase.connect();
