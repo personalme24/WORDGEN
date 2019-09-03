@@ -7,6 +7,7 @@ package com.songkhla.wordgen;
 
 
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.sql.Connection;
@@ -98,6 +99,8 @@ public class MainMenuWord extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         howtomenu1 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
+        howtomenu2 = new javax.swing.JPanel();
+        jLabel27 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
@@ -379,8 +382,8 @@ public class MainMenuWord extends javax.swing.JFrame {
 
         jLabel16.setFont(new java.awt.Font("TH SarabunPSK", 1, 28)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setIcon(new javax.swing.ImageIcon("./Master/information.png"));
-        jLabel16.setText("วิธีใช้");
+        jLabel16.setIcon(new javax.swing.ImageIcon("./Master/folderopen.png"));
+        jLabel16.setText("แฟ้มสำนวน");
 
         javax.swing.GroupLayout howtomenu1Layout = new javax.swing.GroupLayout(howtomenu1);
         howtomenu1.setLayout(howtomenu1Layout);
@@ -399,6 +402,45 @@ public class MainMenuWord extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        howtomenu2.setBackground(new java.awt.Color(4, 93, 179));
+        howtomenu2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        howtomenu2.setPreferredSize(new java.awt.Dimension(136, 54));
+        howtomenu2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                howtomenu2MouseMoved(evt);
+            }
+        });
+        howtomenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                howtomenu2MouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                howtomenu2MouseExited(evt);
+            }
+        });
+
+        jLabel27.setFont(new java.awt.Font("TH SarabunPSK", 1, 28)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel27.setIcon(new javax.swing.ImageIcon("./Master/information.png"));
+        jLabel27.setText("วิธีใช้");
+
+        javax.swing.GroupLayout howtomenu2Layout = new javax.swing.GroupLayout(howtomenu2);
+        howtomenu2.setLayout(howtomenu2Layout);
+        howtomenu2Layout.setHorizontalGroup(
+            howtomenu2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(howtomenu2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        howtomenu2Layout.setVerticalGroup(
+            howtomenu2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(howtomenu2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -409,6 +451,7 @@ public class MainMenuWord extends javax.swing.JFrame {
             .addComponent(formmenu, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
             .addComponent(howtomenu, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
             .addComponent(howtomenu1, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+            .addComponent(howtomenu2, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -424,7 +467,9 @@ public class MainMenuWord extends javax.swing.JFrame {
                 .addComponent(howtomenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(howtomenu1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(227, 227, 227))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(howtomenu2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
@@ -655,7 +700,7 @@ public class MainMenuWord extends javax.swing.JFrame {
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18))
         );
@@ -853,18 +898,18 @@ public class MainMenuWord extends javax.swing.JFrame {
                 .addGap(108, 108, 108)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(122, 122, 122)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(127, 127, 127)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel18, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel18, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(130, 130, 130))
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -1256,6 +1301,18 @@ public class MainMenuWord extends javax.swing.JFrame {
     private void howtomenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_howtomenu1MouseClicked
         // TODO add your handling code here:
 //         resetPanelBackground(howtomenu1);
+ File f3=new File("./สำนวนอิเล็กทรอนิกส์");
+          f3.mkdirs();
+             System.out.print(f3);
+        System.out.print("folder created");
+         Desktop desktop = Desktop.getDesktop();
+        File dirToOpen = null;
+        try {
+            dirToOpen = new File("./สำนวนอิเล็กทรอนิกส์");
+            desktop.open(dirToOpen);
+        } catch (Exception iae) {
+            System.out.println("File Not Found :"+iae);
+        }
     }//GEN-LAST:event_howtomenu1MouseClicked
 
     private void howtomenu1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_howtomenu1MouseExited
@@ -1410,6 +1467,18 @@ public class MainMenuWord extends javax.swing.JFrame {
         // TODO add your handling code here:
         resetPanel(jPanel14);
     }//GEN-LAST:event_jPanel14MouseExited
+
+    private void howtomenu2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_howtomenu2MouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_howtomenu2MouseMoved
+
+    private void howtomenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_howtomenu2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_howtomenu2MouseClicked
+
+    private void howtomenu2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_howtomenu2MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_howtomenu2MouseExited
     public void setPanelBackground (JPanel jp){
         jp.setBackground(new Color(0,102,255));
     }
@@ -1571,6 +1640,7 @@ public class MainMenuWord extends javax.swing.JFrame {
     private javax.swing.JPanel formmenu;
     private javax.swing.JPanel howtomenu;
     private javax.swing.JPanel howtomenu1;
+    private javax.swing.JPanel howtomenu2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1588,6 +1658,7 @@ public class MainMenuWord extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;

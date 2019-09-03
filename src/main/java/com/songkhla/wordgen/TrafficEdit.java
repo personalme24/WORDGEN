@@ -273,6 +273,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         if(datain!=null){
             try {
                 CloseTextBox();
+                jButtonOpenFolder.setVisible(true);
                 jButtonSaveCase.setEnabled(false);
                 String knowSus=datain.get("StatusKnowSuspect")+"";
                 String rt=datain.get("CaseRequestTime")+"";
@@ -364,6 +365,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
          
         }
         else{
+             jButtonOpenFolder.setVisible(false);
              comboInvest();
             jButtonEditCase.setEnabled(false);
               jTabbedPane2.setEnabledAt(jTabbedPane2.getTabCount()-1, false);
@@ -424,6 +426,7 @@ JTextPopupMenu.addTo(CourtResult);
         crimecaseid = new javax.swing.JLabel();
         jLabelActionCode = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jButtonOpenFolder = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
@@ -641,6 +644,15 @@ JTextPopupMenu.addTo(CourtResult);
             }
         });
 
+        jButtonOpenFolder.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jButtonOpenFolder.setIcon(new javax.swing.ImageIcon("./Master/open.png"));
+        jButtonOpenFolder.setText("เปิด");
+        jButtonOpenFolder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonOpenFolderActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -655,6 +667,8 @@ JTextPopupMenu.addTo(CourtResult);
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabelActionCode)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonOpenFolder)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton2)
                 .addGap(67, 67, 67))
         );
@@ -666,7 +680,8 @@ JTextPopupMenu.addTo(CourtResult);
                     .addComponent(CaseType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(crimecaseid)
                     .addComponent(jLabelActionCode)
-                    .addComponent(jButton2))
+                    .addComponent(jButton2)
+                    .addComponent(jButtonOpenFolder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -2366,8 +2381,8 @@ ComboItem item = (ComboItem) jComboPoliceName.getSelectedItem();
 
     private void jButtonPrintDoc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrintDoc2ActionPerformed
         // TODO add your handling code here:
-
         yourAttemptActionPerformed();
+        jButtonOpenFolder.setVisible(true);
     }//GEN-LAST:event_jButtonPrintDoc2ActionPerformed
 
     private void jCheckW274ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW274ActionPerformed
@@ -2669,6 +2684,22 @@ ComboItem item = (ComboItem) jComboPoliceName.getSelectedItem();
     private void jCheckW279ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW279ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckW279ActionPerformed
+
+    private void jButtonOpenFolderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOpenFolderActionPerformed
+        // TODO add your handling code here:
+                 File f3=new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
+          f3.mkdirs();
+             System.out.print(f3);
+        System.out.print("folder created");
+        Desktop desktop = Desktop.getDesktop();
+        File dirToOpen = null;
+        try {
+            dirToOpen = new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
+            desktop.open(dirToOpen);
+        } catch (Exception iae) {
+            System.out.println("File Not Found :"+iae);
+        }
+    }//GEN-LAST:event_jButtonOpenFolderActionPerformed
      public static void closeAllDialogs()
 {
     Window[] windows = getWindows();
@@ -3004,6 +3035,7 @@ ComboItem item = (ComboItem) jComboPoliceName.getSelectedItem();
         } catch (Exception iae) {
             System.out.println("File Not Found :"+iae);
         }
+        jButtonOpenFolder.setVisible(true);
 //          System.out.println(text + " is done");
 //        Toolkit.getDefaultToolkit().beep();
     }
@@ -3403,6 +3435,7 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JButton jButtonAddInvest;
     private javax.swing.JButton jButtonCharge;
     private javax.swing.JButton jButtonEditCase;
+    private javax.swing.JButton jButtonOpenFolder;
     private javax.swing.JButton jButtonPrintDoc2;
     private javax.swing.JButton jButtonSaveCase;
     private javax.swing.JButton jButtonSuspect;

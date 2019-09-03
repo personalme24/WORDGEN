@@ -389,6 +389,7 @@ jButtonDuplicate.setVisible(false);
          
         }
         else{
+            jButtonOpenFolder.setVisible(false);
             comboInvest();
             jButtonEditCase.setEnabled(false);
               jTabbedPane2.setEnabledAt(jTabbedPane2.getTabCount()-1, false);
@@ -502,6 +503,7 @@ JTextPopupMenu.addTo(CourtResult);
         jLabelActionCode = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButtonDuplicate = new javax.swing.JButton();
+        jButtonOpenFolder = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
@@ -720,10 +722,19 @@ JTextPopupMenu.addTo(CourtResult);
             }
         });
 
-        jButtonDuplicate.setText("jButton1");
+        jButtonDuplicate.setText("Copy");
         jButtonDuplicate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDuplicateActionPerformed(evt);
+            }
+        });
+
+        jButtonOpenFolder.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jButtonOpenFolder.setIcon(new javax.swing.ImageIcon("./Master/open.png"));
+        jButtonOpenFolder.setText("เปิด");
+        jButtonOpenFolder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonOpenFolderActionPerformed(evt);
             }
         });
 
@@ -743,6 +754,8 @@ JTextPopupMenu.addTo(CourtResult);
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonDuplicate)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonOpenFolder)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2)
                 .addGap(67, 67, 67))
         );
@@ -753,9 +766,14 @@ JTextPopupMenu.addTo(CourtResult);
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CaseType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(crimecaseid)
-                    .addComponent(jLabelActionCode)
-                    .addComponent(jButton2)
-                    .addComponent(jButtonDuplicate))
+                    .addComponent(jLabelActionCode))
+                .addContainerGap())
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jButtonOpenFolder, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                    .addComponent(jButtonDuplicate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -2111,7 +2129,7 @@ JTextPopupMenu.addTo(CourtResult);
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel33)
                     .addComponent(jButtonPrintDoc2))
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("รายงาน", jPanel11);
@@ -2611,6 +2629,7 @@ JTextPopupMenu.addTo(CourtResult);
         // TODO add your handling code here:
             
         yourAttemptActionPerformed();
+       
     }//GEN-LAST:event_jButtonPrintDoc2ActionPerformed
 
     private void jCheckW279ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW279ActionPerformed
@@ -2821,6 +2840,22 @@ JTextPopupMenu.addTo(CourtResult);
         // TODO add your handling code here:
               
     }//GEN-LAST:event_jComboPoliceNameItemStateChanged
+
+    private void jButtonOpenFolderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOpenFolderActionPerformed
+        // TODO add your handling code here:
+         File f3=new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
+          f3.mkdirs();
+             System.out.print(f3);
+        System.out.print("folder created");
+         Desktop desktop = Desktop.getDesktop();
+        File dirToOpen = null;
+        try {
+            dirToOpen = new File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStaionName+"/ปี"+caseyear+"/"+casetype+"/"+casetype+caseno+"-"+caseyear);
+            desktop.open(dirToOpen);
+        } catch (Exception iae) {
+            System.out.println("File Not Found :"+iae);
+        }
+    }//GEN-LAST:event_jButtonOpenFolderActionPerformed
      private void yourAttemptActionPerformed() {
 
 
@@ -3168,6 +3203,8 @@ JTextPopupMenu.addTo(CourtResult);
         } catch (Exception iae) {
             System.out.println("File Not Found :"+iae);
         }
+                jButtonOpenFolder.setVisible(true);
+
 //          System.out.println(text + " is done");
 //        Toolkit.getDefaultToolkit().beep();
     }
@@ -3641,6 +3678,7 @@ if(OccuredDate.getJFormattedTextField().getText().equals("23/8/2562")){
     private javax.swing.JButton jButtonCharge;
     private javax.swing.JButton jButtonDuplicate;
     private javax.swing.JButton jButtonEditCase;
+    private javax.swing.JButton jButtonOpenFolder;
     private javax.swing.JButton jButtonPrintDoc2;
     private javax.swing.JButton jButtonSaveCase;
     private javax.swing.JButton jButtonSuspect;

@@ -191,7 +191,7 @@ public class SuspectForm extends javax.swing.JDialog {
                  
            FullNamePerson.addCaretListener(new TextFieldSusListener());
           jComboBoxListName.addActionListener(new ComboBoxActionListener());
-           jRadioStatus1.setEnabled(false);
+//           jRadioStatus1.setEnabled(false);
      
            BirthDay.getJFormattedTextField().getDocument().addDocumentListener(new DocumentListener() {
                            public void changedUpdate(DocumentEvent e) {
@@ -351,7 +351,17 @@ public class SuspectForm extends javax.swing.JDialog {
                         String selectedValue = arg0.getItem().toString();
                          // do something with object
                          jCheckBail.setSelected(false);
+                         
                          g.clearSelection();
+//                         jRadioStatus1.setEnabled(true);
+//                         jRadioStatus2.setEnabled(true);
+//                         jRadioSue.setEnabled(true);
+//                         jRadioWithdrawComplaint.setEnabled(true);
+//                         jRadioRestore.setEnabled(true);
+//                         jRadioCantCatch.setEnabled(true);
+//                         jRadioFreeze.setEnabled(true);
+//                         jRadioOther.setEnabled(true);                       
+//                                 jRadioRelease.setEnabled(true);
                          if(selectedValue.equals("ศาลอาญา/ศาลจังหวัด")){
 
                             jRadioStatus1.setText("ฝากขัง");
@@ -1906,7 +1916,8 @@ public class SuspectForm extends javax.swing.JDialog {
             ResultSet rs=s.executeQuery(sqlId);
             
             if (rs.next()) {
-                PeopleRegistrationID.setText(rs.getString("PeopleRegistrationID")); 
+                  PeopleRegistrationID.setText(rs.getString("PeopleRegistrationID")); 
+                IssueDate.getJFormattedTextField().setText(rs.getString("PassportNumber"));                 
                 Age.setText(rs.getString("Age")); 
                 Amphur.setText(rs.getString("Amphur")); 
                 BloodGroup.setText(rs.getString("BloodGroup")); 
@@ -1924,6 +1935,13 @@ public class SuspectForm extends javax.swing.JDialog {
                 PhonePerson.setText(rs.getString("PhonePerson")); 
                 MotherFullName.setText(rs.getString("MotherFullName")); 
                 PassportNumber.setText(rs.getString("PassportNumber")); 
+               ExpiredDate.getJFormattedTextField().setText(rs.getString("ExpiredDate")+"");
+            HouseNumber.setText(rs.getString("HouseNumber")+"");
+            Moo.setText(rs.getString("Moo")+"");
+            Province.setText(rs.getString("Province"));
+            Tambon.setText(rs.getString("Tambon")+"");
+             ZipCode.setText(rs.getString("ZipCode")+"");
+            OtherName.setText(rs.getString("OtherName")+"");
 //
 //   
             }

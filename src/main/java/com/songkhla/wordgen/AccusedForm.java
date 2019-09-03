@@ -1267,6 +1267,7 @@ catch (Exception d) {  //System.out.println(d);
             
             if (rs.next()) {
                 PeopleRegistrationID.setText(rs.getString("PeopleRegistrationID")); 
+                IssueDate.getJFormattedTextField().setText(rs.getString("PassportNumber"));                 
                 Age.setText(rs.getString("Age")); 
                 Amphur.setText(rs.getString("Amphur")); 
                 BloodGroup.setText(rs.getString("BloodGroup")); 
@@ -1284,6 +1285,14 @@ catch (Exception d) {  //System.out.println(d);
                 PhonePerson.setText(rs.getString("PhonePerson")); 
                 MotherFullName.setText(rs.getString("MotherFullName")); 
                 PassportNumber.setText(rs.getString("PassportNumber")); 
+               ExpiredDate.getJFormattedTextField().setText(rs.getString("ExpiredDate")+"");
+            HouseNumber.setText(rs.getString("HouseNumber")+"");
+            Moo.setText(rs.getString("Moo")+"");
+            Province.setText(rs.getString("Province"));
+            Tambon.setText(rs.getString("Tambon")+"");
+             ZipCode.setText(rs.getString("ZipCode")+"");
+            OtherName.setText(rs.getString("OtherName")+"");
+
 //
 //   
             }
