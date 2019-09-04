@@ -124,7 +124,7 @@ public class W41 {
                sdfstart = new SimpleDateFormat("yyyy", new Locale("th", "TH"));  
                Year=sdfstart.format(calstart.getTime());
 
-               sdfstart = new SimpleDateFormat("HH:mm", new Locale("th", "TH"));  
+               sdfstart = new SimpleDateFormat("HH.mm", new Locale("th", "TH"));  
                Time=sdfstart.format(calstart.getTime());
                
                  JSONObject bookmarkvalue = new JSONObject();
