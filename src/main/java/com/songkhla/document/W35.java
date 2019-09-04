@@ -373,7 +373,7 @@ public class W35 {
                String ResultTime="";
          try {
     	       SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm", new Locale("th", "TH"));  
-               SimpleDateFormat dateto  = new SimpleDateFormat("HH:mm", new Locale("th", "TH"));  
+               SimpleDateFormat dateto  = new SimpleDateFormat("HH.mm", new Locale("th", "TH"));  
                Date date=null;
                date = df.parse(strTime);               
                ResultTime=dateto.format(date.getTime());
