@@ -1316,7 +1316,7 @@
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JSpinner(sm)"/>
                 <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="Date date=new Date();&#xa;&#xa;SpinnerDateModel sm=new SpinnerDateModel(date,null,null,Calendar.HOUR_OF_DAY);"/>
-                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="JSpinner.DateEditor timeEditor = new JSpinner.DateEditor(jSpinnerArrTime, &quot;HH:mm&quot;);&#xa;jSpinnerArrTime.setEditor(timeEditor);"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="JSpinner.DateEditor timeEditor = new JSpinner.DateEditor(jSpinnerArrTime, &quot;HH.mm&quot;);&#xa;jSpinnerArrTime.setEditor(timeEditor);"/>
               </AuxValues>
             </Component>
             <Container class="javax.swing.JPanel" name="jPanelRestoreDate">

@@ -72,7 +72,6 @@ String typeC,cid;
         jButtonEditAccured = new javax.swing.JButton();
         txtCaseNO = new javax.swing.JLabel();
         jButtonAddAccused = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -144,15 +143,6 @@ String typeC,cid;
             }
         });
 
-        jButton2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon("./Master/home.png"));
-        jButton2.setText("เมนูหลัก");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         jLabel2.setText("jLabel2");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -175,9 +165,7 @@ String typeC,cid;
                         .addComponent(txtCaseNO, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(83, 83, 83)
                         .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2)
-                        .addGap(36, 36, 36))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,8 +178,7 @@ String typeC,cid;
                     .addComponent(jButtonEditAccured)
                     .addComponent(jButtonDeleteAccured)
                     .addComponent(txtCaseNO, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(jButton2))
+                    .addComponent(jLabel2))
                 .addContainerGap())
         );
 
@@ -358,11 +345,6 @@ String typeC,cid;
             }
         }        // TODO add your handling code here:
     }//GEN-LAST:event_jButtonDeleteAccuredActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        MainMenuWord.closeAllDialogs();
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -597,7 +579,6 @@ jTableSuspect.getColumnModel().getColumn(7).setMaxWidth(0);
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonAddAccused;
     private javax.swing.JButton jButtonDeleteAccured;
     private javax.swing.JButton jButtonEditAccured;

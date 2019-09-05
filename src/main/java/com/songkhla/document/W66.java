@@ -456,7 +456,7 @@ public static void nw66() {
          private static String ToTime(String strTime){
                String ResultTime="";
          try {
-    	       SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm", new Locale("th", "TH"));  
+    	       SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH.mm", new Locale("th", "TH"));  
                SimpleDateFormat dateto  = new SimpleDateFormat("HH.mm", new Locale("th", "TH"));  
                Date date=null;
                date = df.parse(strTime);               

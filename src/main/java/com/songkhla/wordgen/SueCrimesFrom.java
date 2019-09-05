@@ -3078,15 +3078,17 @@ catch (Exception d) {  //System.out.println(d);
                         cal=Calendar.getInstance();
                         cal.setTime(daten);
 //                                System.out.println(newdf.format(cal.getTime()));
-                        int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
-                        System.out.println(dayOfWeek);
-                         if (dayOfWeek == Calendar.FRIDAY) { // If it's Friday so skip to Monday
-                            cal.add(Calendar.DATE, 3);
-                        } else if (dayOfWeek == Calendar.SATURDAY) { // If it's Saturday skip to Monday
-                            cal.add(Calendar.DATE, 2);
-                        } else {
-                            cal.add(Calendar.DATE, 1);
-                        }
+//                        int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
+//                        System.out.println(dayOfWeek);
+//                         if (dayOfWeek == Calendar.FRIDAY) { // If it's Friday so skip to Monday
+//                            cal.add(Calendar.DATE, 3);
+//                        } else if (dayOfWeek == Calendar.SATURDAY) { // If it's Saturday skip to Monday
+//                            cal.add(Calendar.DATE, 2);
+//                        } else {
+//                            cal.add(Calendar.DATE, 1);
+//                        }
+                            cal.add(Calendar.DAY_OF_MONTH, 1);
+
 //                       cal.add(Calendar.DAY_OF_MONTH, 1);
                         DateNextTime=sdf.format(cal.getTime());                  
 //                        Date dateE=sdf.parse(DateEnd);

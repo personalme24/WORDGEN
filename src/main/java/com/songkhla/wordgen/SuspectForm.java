@@ -1129,7 +1129,7 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabelArrTime.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabelArrTime.setText("เวลา");
 
-        JSpinner.DateEditor timeEditor = new JSpinner.DateEditor(jSpinnerArrTime, "HH:mm");
+        JSpinner.DateEditor timeEditor = new JSpinner.DateEditor(jSpinnerArrTime, "HH.mm");
         jSpinnerArrTime.setEditor(timeEditor);
         jSpinnerArrTime.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         jSpinnerArrTime.setPreferredSize(new java.awt.Dimension(29, 30));
@@ -1584,7 +1584,7 @@ public class SuspectForm extends javax.swing.JDialog {
     private void BtSaveAccusedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSaveAccusedActionPerformed
         // TODO add your handling code here:
         con=ConnectDatabase.connect();
-        SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+        SimpleDateFormat format = new SimpleDateFormat("HH.mm");
         String arrestTime = format.format(jSpinnerArrTime.getValue());
 
         String arrestDate=Checknull(ArrestDateTime.getJFormattedTextField().getText()+" "+arrestTime);
@@ -2272,7 +2272,7 @@ public class SuspectForm extends javax.swing.JDialog {
         jCheckBail.setEnabled(false);
           ZipCode.setEnabled(false);
           CourtSuspect.setEnabled(false);
-
+        jRadioRelease.setEnabled(false);
             // do something when the button is selected
  
         } 
@@ -2316,6 +2316,7 @@ public class SuspectForm extends javax.swing.JDialog {
         jRadioRestore.setEnabled(true);
         jRadioFreeze.setEnabled(true);
         jRadioWithdrawComplaint.setEnabled(true);
+        jRadioRelease.setEnabled(true);
         jRadioOther.setEnabled(true);
         jCheckBail.setEnabled(true);
         ZipCode.setEnabled(true);
@@ -2570,7 +2571,7 @@ public class SuspectForm extends javax.swing.JDialog {
        try{
      
                Locale lc = new Locale("th","TH");
-                        SimpleDateFormat  format = new SimpleDateFormat("d/MM/yyyy HH:mm",lc);  
+                        SimpleDateFormat  format = new SimpleDateFormat("d/MM/yyyy HH.mm",lc);  
                         Date dateArrest=null;
                        if(DateArrest.equals(" ")){
                        
@@ -2598,7 +2599,7 @@ public class SuspectForm extends javax.swing.JDialog {
        try{
      
                Locale lc = new Locale("th","TH");
-                        SimpleDateFormat  format = new SimpleDateFormat("d/MM/yyyy HH:mm",lc);  
+                        SimpleDateFormat  format = new SimpleDateFormat("d/MM/yyyy HH.mm",lc);  
                         Date dateArrest=null;
                        if(DateArrest.equals(" ")){
                        

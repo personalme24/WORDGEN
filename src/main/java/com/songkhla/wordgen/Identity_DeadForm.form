@@ -349,7 +349,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="37" pref="40" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1047,7 +1047,7 @@
             <Component class="javax.swing.JSpinner" name="jSpinnerBodyFoundTime">
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JSpinner()"/>
-                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="Date date3=new Date();&#xa;&#xa;SpinnerDateModel sm3=new SpinnerDateModel(date3,null,null,Calendar.HOUR_OF_DAY);&#xa;jSpinnerBodyFoundTime = new javax.swing.JSpinner(sm3);&#xa;JSpinner.DateEditor timeEditor3 = new JSpinner.DateEditor(jSpinnerBodyFoundTime, &quot;HH:mm&quot;);&#xa;jSpinnerBodyFoundTime.setEditor(timeEditor3);"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="Date date3=new Date();&#xa;&#xa;SpinnerDateModel sm3=new SpinnerDateModel(date3,null,null,Calendar.HOUR_OF_DAY);&#xa;jSpinnerBodyFoundTime = new javax.swing.JSpinner(sm3);&#xa;JSpinner.DateEditor timeEditor3 = new JSpinner.DateEditor(jSpinnerBodyFoundTime, &quot;HH.mm&quot;);&#xa;jSpinnerBodyFoundTime.setEditor(timeEditor3);"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="DeathLocation">
@@ -1106,7 +1106,7 @@
             <Component class="javax.swing.JSpinner" name="jSpinnerDeadTime">
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JSpinner()"/>
-                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="Date date=new Date();&#xa;&#xa;SpinnerDateModel sm=new SpinnerDateModel(date,null,null,Calendar.HOUR_OF_DAY);&#xa;jSpinnerDeadTime = new javax.swing.JSpinner(sm);&#xa;JSpinner.DateEditor timeEditor = new JSpinner.DateEditor(jSpinnerDeadTime, &quot;HH:mm&quot;);&#xa;jSpinnerDeadTime.setEditor(timeEditor);"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="Date date=new Date();&#xa;&#xa;SpinnerDateModel sm=new SpinnerDateModel(date,null,null,Calendar.HOUR_OF_DAY);&#xa;jSpinnerDeadTime = new javax.swing.JSpinner(sm);&#xa;JSpinner.DateEditor timeEditor = new JSpinner.DateEditor(jSpinnerDeadTime, &quot;HH.mm&quot;);&#xa;jSpinnerDeadTime.setEditor(timeEditor);"/>
               </AuxValues>
             </Component>
           </SubComponents>

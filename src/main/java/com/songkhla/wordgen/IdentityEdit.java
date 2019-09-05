@@ -288,8 +288,8 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                 String knowSus=datain.get("StatusKnowSuspect")+"";
                 String rt=datain.get("CaseRequestTime")+"";
                 String at=datain.get("CaseAcceptTime")+"";
-                String ot=datain.get("CaseAcceptTime")+"";
-                SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm");
+                String ot=datain.get("OccuredTime")+"";
+                SimpleDateFormat timeFormat = new SimpleDateFormat("hh.mm");
                 Date timeReq = timeFormat.parse(rt);
                 Date timeAcc = timeFormat.parse(at);
                 Date timeOccu = timeFormat.parse(ot);
@@ -765,7 +765,7 @@ JTextPopupMenu.addTo(CourtResult);
         jLabel4.setText("/");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, -1, 30));
 
-        JSpinner.DateEditor timeEditor3 = new JSpinner.DateEditor(OccuredDateTime, "HH:mm");
+        JSpinner.DateEditor timeEditor3 = new JSpinner.DateEditor(OccuredDateTime, "HH.mm");
         OccuredDateTime.setEditor(timeEditor3);
         //jSpinner1.setValue(new Date());
         jPanel1.add(OccuredDateTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, 100, 30));
@@ -786,7 +786,7 @@ JTextPopupMenu.addTo(CourtResult);
         jLabel8.setText("วันที่รับแจ้ง");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, 30));
 
-        JSpinner.DateEditor te = new JSpinner.DateEditor(CaseAcceptTimee, "HH:mm");
+        JSpinner.DateEditor te = new JSpinner.DateEditor(CaseAcceptTimee, "HH.mm");
         CaseAcceptTimee.setEditor(te);
         //jSpinner1.setValue(new Date());
         CaseAcceptTimee.setPreferredSize(new java.awt.Dimension(29, 25));
@@ -814,7 +814,7 @@ JTextPopupMenu.addTo(CourtResult);
         jLabel9.setText("เวลารับแจ้ง");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 370, -1, 30));
 
-        JSpinner.DateEditor timeEditor = new JSpinner.DateEditor(CaseRequestTimee, "HH:mm");
+        JSpinner.DateEditor timeEditor = new JSpinner.DateEditor(CaseRequestTimee, "HH.mm");
         CaseRequestTimee.setEditor(timeEditor);
         //jSpinner1.setValue(new Date());
         jPanel1.add(CaseRequestTimee, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 370, 100, 30));
@@ -851,7 +851,7 @@ JTextPopupMenu.addTo(CourtResult);
         jPanel1.add(jButtonAction, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, 110, -1));
 
         CourtType.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        CourtType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ศาลอาญา", "ศาลแขวง", "ศาลเยาวชน", "ศาลทหาร" }));
+        CourtType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ศาลอาญา/ศาลจังหวัด" }));
         CourtType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CourtTypeActionPerformed(evt);
@@ -2216,7 +2216,7 @@ JTextPopupMenu.addTo(CourtResult);
         catch(Exception ex){
         ex.printStackTrace();
         }
-        SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+        SimpleDateFormat format = new SimpleDateFormat("HH.mm");
         String requestTime = format.format(CaseRequestTimee.getValue());
         String acceptTime = format.format(CaseAcceptTimee.getValue());
         String orcuredTime=format.format(OccuredDateTime.getValue());

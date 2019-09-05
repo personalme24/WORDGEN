@@ -448,7 +448,7 @@ public class W31 {
                String ResultTime="";
          try {
               if(strTime.equals(null)||strTime.equals("")||strTime.equals("null")) { return ""; }else{
-    	       SimpleDateFormat df = new SimpleDateFormat("d/MM/yyyy HH:mm", new Locale("th", "TH"));  
+    	       SimpleDateFormat df = new SimpleDateFormat("d/MM/yyyy HH.mm", new Locale("th", "TH"));  
                SimpleDateFormat dateto  = new SimpleDateFormat("HH.mm", new Locale("th", "TH"));  
                Date date=null;
                date = df.parse(strTime);               

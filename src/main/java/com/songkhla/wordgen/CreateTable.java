@@ -24,7 +24,12 @@ public class CreateTable {
 	       Connection cc= ConnectDatabase.connect();
                
 //             String url = "jdbc:sqlite:D://db/SR2.db";
-	        
+	        String sqlLogin = "CREATE TABLE IF NOT EXISTS User (\n"+
+                               "   IdUSer	INTEGER	Primary Key AUTOINCREMENT,	\n"+        
+                               "   Username  VARCHAR(100)	,	\n"+
+                               "   Password  VARCHAR(100)	,	\n"+
+                               "   DateLogin DATE		\n"+                        
+                               "	); ";
 	        // SQL statement for creating a new table
 	        String sqlPerson = "CREATE TABLE IF NOT EXISTS Person (\n"+
                 "	NoPerson	INTEGER	Primary Key AUTOINCREMENT,	\n"+        
@@ -353,6 +358,9 @@ public class CreateTable {
                         "	RankPolice	VARCHAR(100)	,	\n"+
                         "	FirstName	VARCHAR(100)	,	\n"+
                         "	LastName	VARCHAR(100)	,	\n"+
+                        "	Birthday	VARCHAR(100)	,	\n"+
+                        "	Age             VARCHAR(100)	,	\n"+
+                        "	Tel             VARCHAR(100)	,	\n"+
                         "	Position	VARCHAR(100)		\n"+
                          "	);";
 	  String sqlPoliceStat ="CREATE TABLE IF NOT EXISTS PoliceStation (\n"+
@@ -379,7 +387,7 @@ public class CreateTable {
                          "	HeadWorkRankFull	VARCHAR(100)	,	\n"+
                         "	HeadWorkRankShort	VARCHAR(100)	,	\n"+
                         "	HeadWorkName	VARCHAR(100)	,	\n"+
-                        "	HeadWorkPosition	VARCHAR(100)	,	\n"+
+                        "	HeadWorkPosition	VARCHAR(100)	,	\n"+     
                         "	CriminalCourt	VARCHAR(100)	,	\n"+
                         "	JuvenileCourt	VARCHAR(100)	,	\n"+
                         "	DistrictCourt	VARCHAR(100)	,	\n"+

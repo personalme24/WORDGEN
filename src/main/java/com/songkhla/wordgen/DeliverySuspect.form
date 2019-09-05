@@ -241,7 +241,7 @@
         </Container>
         <Component class="javax.swing.JSpinner" name="DeliTimes">
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="JSpinner.DateEditor te = new JSpinner.DateEditor(DeliTimes, &quot;HH:mm&quot;);&#xa;DeliTimes.setEditor(te);&#xa;//jSpinner1.setValue(new Date());&#xa;DeliTimes.setPreferredSize(new java.awt.Dimension(29, 25));&#xa;&#xa;jPanel1.add(DeliTimes, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, 100, 32));"/>
+            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="JSpinner.DateEditor te = new JSpinner.DateEditor(DeliTimes, &quot;HH.mm&quot;);&#xa;DeliTimes.setEditor(te);&#xa;//jSpinner1.setValue(new Date());&#xa;DeliTimes.setPreferredSize(new java.awt.Dimension(29, 25));&#xa;&#xa;jPanel1.add(DeliTimes, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, 100, 32));"/>
             <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JSpinner(sm2)"/>
             <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="Date date2=new Date();&#xa;SpinnerDateModel sm2=new SpinnerDateModel(date2,null,null,Calendar.HOUR_OF_DAY);"/>
           </AuxValues>
