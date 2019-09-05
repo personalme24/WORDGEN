@@ -65,7 +65,7 @@ public class DeliverySuspect extends javax.swing.JDialog {
         
         if(datain != null){
             try{
-             SimpleDateFormat timeFormat = new SimpleDateFormat("hh.mm");
+             SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
             String dt=datain.get("DeliTimes")+"";
             Date timeDeli = timeFormat.parse(dt);
             DeliId =datain.get("DeliId")+"";
@@ -234,7 +234,7 @@ public class DeliverySuspect extends javax.swing.JDialog {
                 .addGap(0, 55, Short.MAX_VALUE))
         );
 
-        JSpinner.DateEditor te = new JSpinner.DateEditor(DeliTimes, "HH.mm");
+        JSpinner.DateEditor te = new JSpinner.DateEditor(DeliTimes, "HH:mm");
         DeliTimes.setEditor(te);
         //jSpinner1.setValue(new Date());
         DeliTimes.setPreferredSize(new java.awt.Dimension(29, 25));
@@ -259,7 +259,7 @@ public class DeliverySuspect extends javax.swing.JDialog {
         // TODO add your handling code here:
 
         con=ConnectDatabase.connect();
-         SimpleDateFormat format = new SimpleDateFormat("HH.mm");
+         SimpleDateFormat format = new SimpleDateFormat("HH:mm");
         String deliTimes = format.format(DeliTimes.getValue());
         if(isInsert){
         try {

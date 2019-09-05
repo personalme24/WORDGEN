@@ -188,7 +188,7 @@ public class CrimesCaseEdit extends javax.swing.JDialog {
     String caseid,caseidLast,province;
      String caseyear,casetype,caseno,PoliceStaionName;
      ButtonGroup g;
-JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDate;
+JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDate,OccuredDateEnd;
 
    ArrayList<String> provinceItem=new ArrayList<String>();
     /**
@@ -284,6 +284,18 @@ jButtonDuplicate.setVisible(false);
         Invest_SendCaseDate.setBackground(Color.WHITE);
         jPanelInvestSend.setLayout(new FlowLayout());
         jPanelInvestSend.add(Invest_SendCaseDate);   
+        
+//        UtilDateModel model5 = new UtilDateModel();
+//            model5.setValue(Calendar.getInstance().getTime());
+//         JDatePanelImpl datePanel5 = new JDatePanelImpl(model5, p);
+//        OccuredDateEnd = new JDatePickerImpl(datePanel5,new DateLabelFormatter());
+//         OccuredDateEnd.setPreferredSize(new Dimension(220,30));
+//    OccuredDateEnd.getComponent(0).setPreferredSize(new Dimension(190,30)); //JFormattedTextField
+//    OccuredDateEnd.getComponent(1).setPreferredSize(new Dimension(30,30));//JButton
+//        OccuredDateEnd.setTextEditable(true);
+//        OccuredDateEnd.setBackground(Color.WHITE);
+//        jPanelOccureDateEnd.setLayout(new FlowLayout());
+//        jPanelOccureDateEnd.add(OccuredDateEnd);   
 //--------------------------------------Date Filed----------------------------------------------
 
 
@@ -303,7 +315,7 @@ jButtonDuplicate.setVisible(false);
                 String rt=datain.get("CaseRequestTime")+"";
                 String at=datain.get("CaseAcceptTime")+"";
                 String ot=datain.get("OccuredTime")+"";
-                SimpleDateFormat timeFormat = new SimpleDateFormat("hh.mm");
+                SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
                 Date timeReq = timeFormat.parse(rt);
                 Date timeAcc = timeFormat.parse(at);
                 Date timeOccu = timeFormat.parse(ot);
@@ -803,9 +815,14 @@ JTextPopupMenu.addTo(CourtResult);
         jLabel4.setText("/");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, -1, 30));
 
-        JSpinner.DateEditor timeEditor3 = new JSpinner.DateEditor(OccuredDateTime, "HH.mm");
+        JSpinner.DateEditor timeEditor3 = new JSpinner.DateEditor(OccuredDateTime, "HH:mm");
         OccuredDateTime.setEditor(timeEditor3);
         //jSpinner1.setValue(new Date());
+        OccuredDateTime.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                OccuredDateTimeKeyReleased(evt);
+            }
+        });
         jPanel1.add(OccuredDateTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 200, 100, 30));
 
         jLabel15.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -824,7 +841,7 @@ JTextPopupMenu.addTo(CourtResult);
         jLabel8.setText("วันที่รับแจ้ง");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, 30));
 
-        JSpinner.DateEditor te = new JSpinner.DateEditor(CaseAcceptTimee, "HH.mm");
+        JSpinner.DateEditor te = new JSpinner.DateEditor(CaseAcceptTimee, "HH:mm");
         CaseAcceptTimee.setEditor(te);
         //jSpinner1.setValue(new Date());
         CaseAcceptTimee.setPreferredSize(new java.awt.Dimension(29, 25));
@@ -845,6 +862,7 @@ JTextPopupMenu.addTo(CourtResult);
         jLabel13.setText("วันที่เกิดเหตุ");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, 30));
 
+        ActionCrimes.setEditable(false);
         ActionCrimes.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jPanel1.add(ActionCrimes, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 330, -1));
 
@@ -852,7 +870,7 @@ JTextPopupMenu.addTo(CourtResult);
         jLabel9.setText("เวลารับแจ้ง");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, -1, 30));
 
-        JSpinner.DateEditor timeEditor = new JSpinner.DateEditor(CaseRequestTimee, "HH.mm");
+        JSpinner.DateEditor timeEditor = new JSpinner.DateEditor(CaseRequestTimee, "HH:mm");
         CaseRequestTimee.setEditor(timeEditor);
         //jSpinner1.setValue(new Date());
         jPanel1.add(CaseRequestTimee, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 240, 100, 30));
@@ -2239,10 +2257,15 @@ JTextPopupMenu.addTo(CourtResult);
         catch(Exception ex){
         ex.printStackTrace();
         }
-        SimpleDateFormat format = new SimpleDateFormat("HH.mm");
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+          SimpleDateFormat formatnew = new SimpleDateFormat("HH:mm");
+//        String orcuredTime1=format.format(OccuredDateTime.getValue());
         String requestTime = format.format(CaseRequestTimee.getValue());
         String acceptTime = format.format(CaseAcceptTimee.getValue());
-        String orcuredTime=format.format(OccuredDateTime.getValue());
+        String orcuredTime=formatnew.format(OccuredDateTime.getValue());
+        
+//       String orcuredTimeEnd=format.format(OccuredTimeEnd.getValue());
+        System.out.println("Timeee: "+orcuredTime);
 
 
         if(isInsert){
@@ -2313,6 +2336,8 @@ JTextPopupMenu.addTo(CourtResult);
                 pst.setString(36,jLabelNumberAcc.getText());
                 pst.setString(37,jLabelNumberSus.getText());
                 pst.setString(38,jLabelNumberWitness.getText());                
+//                pst.setString(37,OccuredDateEnd.getJFormattedTextField().getText());
+//                pst.setString(38,orcuredTimeEnd);                
                 
 
        
@@ -2856,6 +2881,11 @@ JTextPopupMenu.addTo(CourtResult);
             System.out.println("File Not Found :"+iae);
         }
     }//GEN-LAST:event_jButtonOpenFolderActionPerformed
+
+    private void OccuredDateTimeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_OccuredDateTimeKeyReleased
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_OccuredDateTimeKeyReleased
      private void yourAttemptActionPerformed() {
 
 
@@ -2963,7 +2993,7 @@ JTextPopupMenu.addTo(CourtResult);
         }
         if(jCheckW208.isSelected()){
             W8.w8(no);
-            W812.w812(no);
+//            W812.w812(no);
         }
       
         if(jCheckW209.isSelected()){

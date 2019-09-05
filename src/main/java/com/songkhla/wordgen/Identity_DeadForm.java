@@ -147,7 +147,7 @@ public class Identity_DeadForm extends javax.swing.JDialog {
             isInsert=false;
             String statusSus,statusBail;
             statusSus=datain.get("StatusSuspect")+"";
-                SimpleDateFormat timeFormat = new SimpleDateFormat("hh.mm");
+                SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
                  timeDie = timeFormat.parse(datain.get("TimeOfDie")+"");
                  timeFoundBody = timeFormat.parse(datain.get("BodyFoundTime")+"");
               }catch(Exception ex){
@@ -564,7 +564,7 @@ public class Identity_DeadForm extends javax.swing.JDialog {
 
         SpinnerDateModel sm3=new SpinnerDateModel(date3,null,null,Calendar.HOUR_OF_DAY);
         jSpinnerBodyFoundTime = new javax.swing.JSpinner(sm3);
-        JSpinner.DateEditor timeEditor3 = new JSpinner.DateEditor(jSpinnerBodyFoundTime, "HH.mm");
+        JSpinner.DateEditor timeEditor3 = new JSpinner.DateEditor(jSpinnerBodyFoundTime, "HH:mm");
         jSpinnerBodyFoundTime.setEditor(timeEditor3);
 
         DeathLocation.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -595,7 +595,7 @@ public class Identity_DeadForm extends javax.swing.JDialog {
 
         SpinnerDateModel sm=new SpinnerDateModel(date,null,null,Calendar.HOUR_OF_DAY);
         jSpinnerDeadTime = new javax.swing.JSpinner(sm);
-        JSpinner.DateEditor timeEditor = new JSpinner.DateEditor(jSpinnerDeadTime, "HH.mm");
+        JSpinner.DateEditor timeEditor = new JSpinner.DateEditor(jSpinnerDeadTime, "HH:mm");
         jSpinnerDeadTime.setEditor(timeEditor);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -937,7 +937,7 @@ public class Identity_DeadForm extends javax.swing.JDialog {
     private void BtSaveAccusedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSaveAccusedActionPerformed
         // TODO add your handling code here:
         con=ConnectDatabase.connect();
-        SimpleDateFormat format = new SimpleDateFormat("HH.mm");
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm");
         String bodyfoundTime = format.format(jSpinnerBodyFoundTime.getValue());
          String TimeOfDead = format.format(jSpinnerDeadTime.getValue());
 
@@ -1261,7 +1261,7 @@ public class Identity_DeadForm extends javax.swing.JDialog {
        try{
      
                Locale lc = new Locale("th","TH");
-                        SimpleDateFormat  format = new SimpleDateFormat("d/MM/yyyy HH.mm",lc);  
+                        SimpleDateFormat  format = new SimpleDateFormat("d/MM/yyyy HH:mm",lc);  
                         Date dateArrest=null;
                        if(DateArrest.equals(" ")){
                        
@@ -1289,7 +1289,7 @@ public class Identity_DeadForm extends javax.swing.JDialog {
        try{
      
                Locale lc = new Locale("th","TH");
-                        SimpleDateFormat  format = new SimpleDateFormat("d/MM/yyyy HH.mm",lc);  
+                        SimpleDateFormat  format = new SimpleDateFormat("d/MM/yyyy HH:mm",lc);  
                         Date dateArrest=null;
                        if(DateArrest.equals(" ")){
                        

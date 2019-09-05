@@ -1129,7 +1129,7 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabelArrTime.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabelArrTime.setText("เวลา");
 
-        JSpinner.DateEditor timeEditor = new JSpinner.DateEditor(jSpinnerArrTime, "HH.mm");
+        JSpinner.DateEditor timeEditor = new JSpinner.DateEditor(jSpinnerArrTime, "HH:mm");
         jSpinnerArrTime.setEditor(timeEditor);
         jSpinnerArrTime.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
         jSpinnerArrTime.setPreferredSize(new java.awt.Dimension(29, 30));
@@ -2571,7 +2571,7 @@ public class SuspectForm extends javax.swing.JDialog {
        try{
      
                Locale lc = new Locale("th","TH");
-                        SimpleDateFormat  format = new SimpleDateFormat("d/MM/yyyy HH.mm",lc);  
+                        SimpleDateFormat  format = new SimpleDateFormat("d/MM/yyyy HH:mm",lc);  
                         Date dateArrest=null;
                        if(DateArrest.equals(" ")){
                        
@@ -2599,7 +2599,7 @@ public class SuspectForm extends javax.swing.JDialog {
        try{
      
                Locale lc = new Locale("th","TH");
-                        SimpleDateFormat  format = new SimpleDateFormat("d/MM/yyyy HH.mm",lc);  
+                        SimpleDateFormat  format = new SimpleDateFormat("d/MM/yyyy HH:mm",lc);  
                         Date dateArrest=null;
                        if(DateArrest.equals(" ")){
                        

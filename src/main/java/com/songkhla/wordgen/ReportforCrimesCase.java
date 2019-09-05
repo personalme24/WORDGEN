@@ -1000,7 +1000,7 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
         jScrollPane5.setViewportView(jPanel12);
 
         jButton1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jButton1.setText("พิมพ์เอกสาร");
+        jButton1.setText("สร้างเอกสาร");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
