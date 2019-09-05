@@ -150,11 +150,11 @@ public class W1 {
                                 bookmarkvalue.put("P013", Checknull(Position)); //ตำแหน่งเต็ม
                          */
                             bookmarkvalue.put("C4",Checknull(ToDate(s.getString("OccuredDate"))));
-                            bookmarkvalue.put("C441",Checknull(s.getString("OccuredTime")));
+                            bookmarkvalue.put("C441",Checknull(ReplaceCollon(s.getString("OccuredTime"))));
                             bookmarkvalue.put("C5", Checknull(ToDate(s.getString("CaseAcceptDate"))));
-                            bookmarkvalue.put("C551",Checknull(s.getString("CaseAccepTime")));
+                            bookmarkvalue.put("C551",ReplaceCollon(s.getString("CaseAccepTime")));
                             bookmarkvalue.put("C6", Checknull(ToDate(s.getString("CaseRequestDate"))));
-                            bookmarkvalue.put("C661",Checknull(s.getString("CaseRequestTime")));
+                            bookmarkvalue.put("C661",ReplaceCollon(s.getString("CaseRequestTime")));
                             bookmarkvalue.put("C12",Checknull(s.getString("CrimeLocationDistrict")));
                             bookmarkvalue.put("C13",Checknull(s.getString("CrimeLocationAmphur")));
                             bookmarkvalue.put("C14",Checknull(s.getString("CrimeLocationProvince")));
@@ -408,6 +408,10 @@ public class W1 {
          }
                return ResultDate;
      }
+       public static String ReplaceCollon(String inputTime){
+                                        if(inputTime==null||inputTime==""||inputTime=="null") { return ""; }
+					return  inputTime.replaceAll(":", ".");
+					}
      public static String Checknull(String input){
 					if(input==null||input==""||input=="null") { return ""; }
 					return getThaiNumber(input);

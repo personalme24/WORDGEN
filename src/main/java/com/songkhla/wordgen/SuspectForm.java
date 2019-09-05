@@ -1584,7 +1584,7 @@ public class SuspectForm extends javax.swing.JDialog {
     private void BtSaveAccusedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSaveAccusedActionPerformed
         // TODO add your handling code here:
         con=ConnectDatabase.connect();
-        SimpleDateFormat format = new SimpleDateFormat("HH.mm");
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm");
         String arrestTime = format.format(jSpinnerArrTime.getValue());
 
         String arrestDate=Checknull(ArrestDateTime.getJFormattedTextField().getText()+" "+arrestTime);
@@ -1861,7 +1861,10 @@ public class SuspectForm extends javax.swing.JDialog {
             }
 
         }
-
+        if(FullNamePerson.getText().equals(""))
+        {
+         JOptionPane.showMessageDialog(jPanel1, "กรุณากรอกชื่อ","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_BtSaveAccusedActionPerformed
   private class ComboBoxActionListener implements ActionListener{
         public void actionPerformed(ActionEvent e){

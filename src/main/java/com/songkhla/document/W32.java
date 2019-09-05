@@ -128,7 +128,7 @@ public class W32 {
                  
                 bookmarkvalue.put("P54",Checknull(ToDate(s.getString("ArrestDateTime"))));
                  bookmarkvalue.put("P55",Checknull(s.getString("PlaceArrest")));
-                 bookmarkvalue.put("P88",Checknull(ToTime(s.getString("ArrestDateTime"))));
+                 bookmarkvalue.put("P88",ReplaceCollon(ToTime(s.getString("ArrestDateTime"))));
                    
                   
                     
@@ -374,8 +374,8 @@ public class W32 {
      private static String ToTime(String strTime){
                String ResultTime="";
          try {
-    	       SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH.mm", new Locale("th", "TH"));  
-               SimpleDateFormat dateto  = new SimpleDateFormat("HH.mm", new Locale("th", "TH"));  
+    	       SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm", new Locale("th", "TH"));  
+               SimpleDateFormat dateto  = new SimpleDateFormat("HH:mm", new Locale("th", "TH"));  
                Date date=null;
                date = df.parse(strTime);               
                ResultTime=dateto.format(date.getTime());
@@ -388,7 +388,10 @@ public class W32 {
 					if(input==null||input==""||input=="null") { return ""; }
 					return getThaiNumber(input);
 					}
-    
+      public static String ReplaceCollon(String inputTime){
+                                        if(inputTime==null||inputTime==""||inputTime=="null") { return ""; }
+					return  inputTime.replaceAll(":", ".");
+					}
     private static String getThaiNumber(String amount) {  
         if(amount == null || amount.isEmpty()) return "";
         String[] DIGIT_TH = { "๐", "๑", "๒", "๓", "๔", "๕", "๖", "๗", "๘", "๙" };

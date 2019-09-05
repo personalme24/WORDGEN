@@ -131,7 +131,7 @@ public class W78 {
                sdfstart = new SimpleDateFormat("yyyy", new Locale("th", "TH"));  
                Year=sdfstart.format(calstart.getTime());
 
-               sdfstart = new SimpleDateFormat("HH.mm", new Locale("th", "TH"));  
+               sdfstart = new SimpleDateFormat("HH:mm", new Locale("th", "TH"));  
                Time=sdfstart.format(calstart.getTime());
                
                  
@@ -139,15 +139,15 @@ public class W78 {
                 bookmarkvalue.put("C1",Checknull(Date));
                 bookmarkvalue.put("C01",Checknull(Month));
                 bookmarkvalue.put("C001",Checknull(Year));
-                bookmarkvalue.put("C0011",Checknull(Time));
+                bookmarkvalue.put("C0011",ReplaceCollon(Time));
                 bookmarkvalue.put("CC2",Checknull(caseno));
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3",Checknull(ccYear));
                 bookmarkvalue.put("C38",Checknull(s.getString("Investigator_Number")));
                 bookmarkvalue.put("C4",Checknull(ToDate(s.getString("OccuredDate"))));
-                bookmarkvalue.put("C441", Checknull(s.getString("OccuredTime")));
+                bookmarkvalue.put("C441", ReplaceCollon(s.getString("OccuredTime")));
                 bookmarkvalue.put("C6", Checknull(ToDate(s.getString("CaseRequestDate"))));
-                bookmarkvalue.put("C661", Checknull(s.getString("CaseRequestTime")));
+                bookmarkvalue.put("C661", ReplaceCollon(s.getString("CaseRequestTime")));
                 bookmarkvalue.put("C8", Checknull(s.getString("CrimeLocation")));
                 bookmarkvalue.put("C9", Checknull(s.getString("CrimeLocationMoo")));
                 bookmarkvalue.put("C10", Checknull(s.getString("CrimeLocationSoi")));
@@ -436,5 +436,9 @@ public static void nw78() {
     return newFormatDate;
     
     }
+       public static String ReplaceCollon(String inputTime){
+                                        if(inputTime==null||inputTime==""||inputTime=="null") { return ""; }
+					return  inputTime.replaceAll(":", ".");
+					}
 }
 

@@ -164,7 +164,7 @@ public static void w79(String cc) {
                     bookmarkvalue.put("PS32", Checknull(s.getString("MotherFullName")));
                     bookmarkvalue.put("PS54",Checknull(ToDate(s.getString("ArrestDateTime"))));
                     bookmarkvalue.put("PS76", Checknull(s.getString("Office")));
-                    bookmarkvalue.put("PS88",Checknull(ToTime(s.getString("ArrestDateTime"))));
+                    bookmarkvalue.put("PS88",ReplaceCollon(ToTime(s.getString("ArrestDateTime"))));
                     bookmarkvalue.put("PS105",Checknull(s.getString("Soi")));
              
                       bookmarkvalue.put("B2", Checknull(s.getString("ChargeNameCase")));
@@ -183,7 +183,7 @@ public static void w79(String cc) {
                         
                         
                         bookmarkvalue.put("C4",Checknull(ToDate(s.getString("OccuredDate"))));
-                        bookmarkvalue.put("C441", Checknull(s.getString("OccuredTime")));
+                        bookmarkvalue.put("C441", ReplaceCollon(s.getString("OccuredTime")));
                         bookmarkvalue.put("C29",Checknull(s.getString("TypeCourt")));
                         bookmarkvalue.put("C30",Checknull(s.getString("BlackCaseNo")));
                         bookmarkvalue.put("C31",Checknull(s.getString("BlackCaseYear")));
@@ -463,5 +463,9 @@ public static void nw79() {
         }
         return sb.toString();  
     }  
+      public static String ReplaceCollon(String inputTime){
+                                        if(inputTime==null||inputTime==""||inputTime=="null") { return ""; }
+					return  inputTime.replaceAll(":", ".");
+					}
 }
 

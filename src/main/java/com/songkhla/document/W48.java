@@ -157,7 +157,7 @@ public class W48 {
                 bookmarkvalue.put("PS25", Checknull(s.getString("Amphur"))); 
                 bookmarkvalue.put("PS26", Checknull(s.getString("Province"))); 
                
-                bookmarkvalue.put("PS54",Checknull(ToDate(s.getString("ArrestDateTime"))));
+                bookmarkvalue.put("PS54",ReplaceCollon(ToDate(s.getString("ArrestDateTime"))));
                 bookmarkvalue.put("PS55",Checknull(s.getString("PlaceArrest")));
                
                 bookmarkvalue.put("A2", Checknull(s.getString("ActionCrimesCase")));
@@ -434,5 +434,8 @@ public static void nw48() {
         }
         return sb.toString();  
     }  
-        
+      public static String ReplaceCollon(String inputTime){
+                                        if(inputTime==null||inputTime==""||inputTime=="null") { return ""; }
+					return  inputTime.replaceAll(":", ".");
+					}    
 }

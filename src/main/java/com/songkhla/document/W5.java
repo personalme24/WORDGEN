@@ -198,7 +198,7 @@ public class W5 {
                         bookmarkvalue.put("B2", Checknull(s.getString("ChargeNameCase")));
                   
                             bookmarkvalue.put("C4",Checknull(ToDate(s.getString("OccuredDate"))));
-                            bookmarkvalue.put("C441", Checknull(ReplaceCollon(s.getString("OccuredTime"))));
+                            bookmarkvalue.put("C441", ReplaceCollon(s.getString("OccuredTime")));
                             bookmarkvalue.put("C12", Checknull(s.getString("CrimeLocationDistrict")));
                             bookmarkvalue.put("C5", Checknull(ToDate(s.getString("CaseAcceptDate"))));
                             bookmarkvalue.put("C551",Checknull(ReplaceCollon(s.getString("CaseAccepTime"))));
@@ -491,7 +491,7 @@ public static void nw5() {
 					return getThaiNumber(input);
 					}
          public static String ReplaceCollon(String inputTime){
-             
+                                        if(inputTime==null||inputTime==""||inputTime=="null") { return ""; }
 					return  inputTime.replaceAll(":", ".");
 					}
     private static String getThaiNumber(String amount) {  

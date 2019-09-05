@@ -170,13 +170,13 @@ public class W54 {
                      
                        
                             bookmarkvalue.put("C4",Checknull(ToDate(s.getString("OccuredDate"))));
-                            bookmarkvalue.put("C441", Checknull(s.getString("OccuredTime")));
+                            bookmarkvalue.put("C441", ReplaceCollon(s.getString("OccuredTime")));
                             bookmarkvalue.put("C12", Checknull(s.getString("CrimeLocationDistrict")));
                             bookmarkvalue.put("C5", Checknull(ToDate(s.getString("CaseAcceptDate"))));
-                            bookmarkvalue.put("C551", Checknull(s.getString("CaseAccepTime")));
+                            bookmarkvalue.put("C551", ReplaceCollon(s.getString("CaseAccepTime")));
                             bookmarkvalue.put("C15", Checknull(s.getString("DailyNumber")));
                             bookmarkvalue.put("C6",(ToDate(s.getString("CaseRequestDate"))));
-                            bookmarkvalue.put("C661", Checknull(s.getString("CaseRequestTime")));
+                            bookmarkvalue.put("C661", ReplaceCollon(s.getString("CaseRequestTime")));
                                 /*
                                 bookmarkvalue.put("P02", Checknull(RankPolice));
                                 bookmarkvalue.put("P03", Checknull(FirstName));
@@ -466,4 +466,8 @@ public static void nw54() {
         }
         return sb.toString();  
     }  
+      public static String ReplaceCollon(String inputTime){
+                                        if(inputTime==null||inputTime==""||inputTime=="null") { return ""; }
+					return  inputTime.replaceAll(":", ".");
+					}
 }

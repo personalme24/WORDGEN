@@ -126,7 +126,7 @@ public class W43 {
                sdfstart = new SimpleDateFormat("yyyy", new Locale("th", "TH"));  
                Year=sdfstart.format(calstart.getTime());
 
-               sdfstart = new SimpleDateFormat("HH.mm", new Locale("th", "TH"));  
+               sdfstart = new SimpleDateFormat("HH:mm", new Locale("th", "TH"));  
                Time=sdfstart.format(calstart.getTime());
                
                  JSONObject bookmarkvalue = new JSONObject();
@@ -134,7 +134,7 @@ public class W43 {
                 bookmarkvalue.put("C1",Checknull(Date));
                 bookmarkvalue.put("C01",Checknull(Month));
                 bookmarkvalue.put("C001",Checknull(Year));
-                bookmarkvalue.put("C0011",Checknull(Time));
+                bookmarkvalue.put("C0011",ReplaceCollon(Time));
                  bookmarkvalue.put("CC2",Checknull(caseno));
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3",Checknull(ccYear));
@@ -146,7 +146,7 @@ public class W43 {
                 bookmarkvalue.put("PS7",  Checknull(s.getString("SuspectandOther"))); 
                
                 bookmarkvalue.put("C4",Checknull(ToDate(s.getString("OccuredDate"))));
-                bookmarkvalue.put("C441", Checknull(s.getString("OccuredTime")));
+                bookmarkvalue.put("C441", ReplaceCollon(s.getString("OccuredTime")));
                 
                 bookmarkvalue.put("A2", Checknull(s.getString("ActionCrimesCase")));
                 bookmarkvalue.put("AS1", Checknull(s.getString("EvidenceRecordNumber")));
@@ -433,5 +433,8 @@ public class W43 {
         }
         return sb.toString();  
     }  
-        
+          public static String ReplaceCollon(String inputTime){
+                                        if(inputTime==null||inputTime==""||inputTime=="null") { return ""; }
+					return  inputTime.replaceAll(":", ".");
+					}
 }

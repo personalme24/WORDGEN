@@ -133,7 +133,7 @@ public class W31 {
                  
                  bookmarkvalue.put("P54",Checknull(ToDate(s.getString("ArrestDateTime"))));
                  bookmarkvalue.put("P55",Checknull(s.getString("PlaceArrest")));
-                 bookmarkvalue.put("P88",Checknull(ToTime(s.getString("ArrestDateTime"))));
+                 bookmarkvalue.put("P88",ReplaceCollon(ToTime(s.getString("ArrestDateTime"))));
                    
                   bookmarkvalue.put("PA7",Checknull(s.getString("AccureandOther")));
                   
@@ -170,12 +170,12 @@ public class W31 {
                         bookmarkvalue.put("P013", Checknull(s.getString("InvestPosition"))); //ตำแหน่งเต็ม
                         
                             bookmarkvalue.put("C4",Checknull(ToDate(s.getString("OccuredDate"))));
-                            bookmarkvalue.put("C441", Checknull(s.getString("OccuredTime")));
+                            bookmarkvalue.put("C441", ReplaceCollon(s.getString("OccuredTime")));
                             
                             bookmarkvalue.put("C5", Checknull(ToDate(s.getString("CaseAcceptDate"))));
-                            bookmarkvalue.put("C551", Checknull(s.getString("CaseAccepTime")));
+                            bookmarkvalue.put("C551", ReplaceCollon(s.getString("CaseAccepTime")));
                             bookmarkvalue.put("C6", Checknull(ToDate(s.getString("CaseRequestDate"))));
-                            bookmarkvalue.put("C661", Checknull(s.getString("CaseRequestTime")));
+                            bookmarkvalue.put("C661", ReplaceCollon(s.getString("CaseRequestTime")));
                             bookmarkvalue.put("C8", Checknull(s.getString("CrimeLocation")));
                             bookmarkvalue.put("C9", Checknull(s.getString("CrimeLocationMoo")));
                             bookmarkvalue.put("C10", Checknull(s.getString("CrimeLocationSoi")));
@@ -404,7 +404,10 @@ public class W31 {
 		}
 		return result;
 	}
-        
+          public static String ReplaceCollon(String inputTime){
+                                        if(inputTime==null||inputTime==""||inputTime=="null") { return ""; }
+					return  inputTime.replaceAll(":", ".");
+					}
 	private static void replaceTable(JSONArray placeholders, JSONArray data,
 			WordprocessingMLPackage template) throws Docx4JException, JAXBException {
 		List<Object> tables = getAllElementFromObject(template.getMainDocumentPart(), Tbl.class);
@@ -448,8 +451,8 @@ public class W31 {
                String ResultTime="";
          try {
               if(strTime.equals(null)||strTime.equals("")||strTime.equals("null")) { return ""; }else{
-    	       SimpleDateFormat df = new SimpleDateFormat("d/MM/yyyy HH.mm", new Locale("th", "TH"));  
-               SimpleDateFormat dateto  = new SimpleDateFormat("HH.mm", new Locale("th", "TH"));  
+    	       SimpleDateFormat df = new SimpleDateFormat("d/MM/yyyy HH:mm", new Locale("th", "TH"));  
+               SimpleDateFormat dateto  = new SimpleDateFormat("HH:mm", new Locale("th", "TH"));  
                Date date=null;
                date = df.parse(strTime);               
                ResultTime=dateto.format(date.getTime());}

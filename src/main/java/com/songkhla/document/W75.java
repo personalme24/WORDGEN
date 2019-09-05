@@ -135,7 +135,7 @@ public class W75 {
                sdfstart = new SimpleDateFormat("yyyy", new Locale("th", "TH"));  
                Year=sdfstart.format(calstart.getTime());
 
-               sdfstart = new SimpleDateFormat("HH.mm", new Locale("th", "TH"));  
+               sdfstart = new SimpleDateFormat("HH:mm", new Locale("th", "TH"));  
                Time=sdfstart.format(calstart.getTime());
                
                  
@@ -143,7 +143,7 @@ public class W75 {
                 bookmarkvalue.put("C1",Checknull(Date));
                 bookmarkvalue.put("C01",Checknull(Month));
                 bookmarkvalue.put("C001",Checknull(Year));
-                bookmarkvalue.put("C0011",Checknull(Time));
+                bookmarkvalue.put("C0011",ReplaceCollon(Time));
                  bookmarkvalue.put("CC2",Checknull(caseno));
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3",Checknull(ccYear));
@@ -487,5 +487,9 @@ public static void nw75() {
     return newFormatDate;
     
     }
+       public static String ReplaceCollon(String inputTime){
+                                        if(inputTime==null||inputTime==""||inputTime=="null") { return ""; }
+					return  inputTime.replaceAll(":", ".");
+					}
 }
 

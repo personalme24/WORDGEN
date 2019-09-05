@@ -161,7 +161,7 @@ public class W21 {
                         bookmarkvalue.put("P012", Checknull(s.getString("InvestRankFull"))); //ยศเต็ม
                         bookmarkvalue.put("P013", Checknull(s.getString("InvestPosition"))); //ตำแหน่งเต็ม
                             bookmarkvalue.put("C4",Checknull(ToDate(s.getString("OccuredDate"))));
-                            bookmarkvalue.put("C441", Checknull(s.getString("OccuredTime")));
+                            bookmarkvalue.put("C441", ReplaceCollon(s.getString("OccuredTime")));
                             
                         //bookmarkvalue.put("P38", Checknull(ToDate(s.getString("DateSendInjured"))));
                         //bookmarkvalue.put("P39", Checknull(s.getString("NameSendInjured")));
@@ -390,6 +390,10 @@ public class W21 {
          }
                return ResultDate;
 }
+      public static String ReplaceCollon(String inputTime){
+                                        if(inputTime==null||inputTime==""||inputTime=="null") { return ""; }
+					return  inputTime.replaceAll(":", ".");
+					}
     public static String Checknull(String input){
 					if(input==null||input==""||input=="null") { return ""; }
 					return getThaiNumber(input);

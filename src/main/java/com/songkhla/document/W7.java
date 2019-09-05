@@ -177,12 +177,12 @@ public class W7 {
                       bookmarkvalue.put("B3", Checknull(s.getString("LawCase")));
                       
                             bookmarkvalue.put("C4",Checknull(ToDate(s.getString("OccuredDate"))));
-                            bookmarkvalue.put("C441", Checknull(s.getString("OccuredTime")));
+                            bookmarkvalue.put("C441", ReplaceCollon(s.getString("OccuredTime")));
                             
                             bookmarkvalue.put("C5", Checknull(ToDate(s.getString("CaseAcceptDate"))));
-                            bookmarkvalue.put("C551", Checknull(s.getString("CaseAccepTime")));
+                            bookmarkvalue.put("C551", ReplaceCollon(s.getString("CaseAccepTime")));
                             bookmarkvalue.put("C6", Checknull(ToDate(s.getString("CaseRequestDate"))));
-                            bookmarkvalue.put("C661", Checknull(s.getString("CaseRequestTime")));
+                            bookmarkvalue.put("C661", ReplaceCollon(s.getString("CaseRequestTime")));
                             bookmarkvalue.put("C12", Checknull(s.getString("CrimeLocationDistrict")));
                             
                     
@@ -465,7 +465,10 @@ public class W7 {
 					if(input==null||input==""||input=="null") { return ""; }
 					return getThaiNumber(input);
 					}
-    
+      public static String ReplaceCollon(String inputTime){
+                                        if(inputTime==null||inputTime==""||inputTime=="null") { return ""; }
+					return  inputTime.replaceAll(":", ".");
+					}
     private static String getThaiNumber(String amount) {  
         if(amount == null || amount.isEmpty()) return "";
         String[] DIGIT_TH = { "๐", "๑", "๒", "๓", "๔", "๕", "๖", "๗", "๘", "๙" };

@@ -129,7 +129,7 @@ public class W20 {
                sdfstart = new SimpleDateFormat("yyyy", new Locale("th", "TH"));  
                Year=sdfstart.format(calstart.getTime());
                
-               sdfstart = new SimpleDateFormat("HH.mm", new Locale("th", "TH"));  
+               sdfstart = new SimpleDateFormat("HH:mm", new Locale("th", "TH"));  
                Time=sdfstart.format(calstart.getTime());
                  
 //                System.out.print("ข้อหา :: "+s.getString("ChargeCode"));
@@ -171,12 +171,12 @@ public class W20 {
                //String OccuredDate=datefmto.format(date1.getTime());
                
                             bookmarkvalue.put("C4",Checknull(ToDate(s.getString("OccuredDate"))));
-                            bookmarkvalue.put("C441", Checknull(s.getString("OccuredTime")));
+                            bookmarkvalue.put("C441", ReplaceCollon(s.getString("OccuredTime")));
                             
                             bookmarkvalue.put("C5", Checknull(ToDate(s.getString("CaseAcceptDate"))));
-                            bookmarkvalue.put("C551",Checknull(s.getString("CaseAccepTime")));
+                            bookmarkvalue.put("C551",ReplaceCollon(s.getString("CaseAccepTime")));
                             bookmarkvalue.put("C6", Checknull(ToDate(s.getString("CaseRequestDate"))));
-                            bookmarkvalue.put("C661", Checknull(s.getString("CaseRequestTime")));
+                            bookmarkvalue.put("C661", ReplaceCollon(s.getString("CaseRequestTime")));
                             
                             bookmarkvalue.put("C8", Checknull(s.getString("CrimeLocation")));
                             bookmarkvalue.put("C9", Checknull(s.getString("CrimeLocationMoo")));
@@ -351,7 +351,10 @@ public class W20 {
 		}
 		return null;
 	}
-	
+	  public static String ReplaceCollon(String inputTime){
+                                        if(inputTime==null||inputTime==""||inputTime=="null") { return ""; }
+					return  inputTime.replaceAll(":", ".");
+					}
 	private static void addRowToTable(Tbl reviewtable, Tr templateRow, JSONObject datarow) {
 		Tr workingRow = (Tr) XmlUtils.deepCopy(templateRow);
 		List<?> textElements = getAllElementFromObject(workingRow, Text.class);

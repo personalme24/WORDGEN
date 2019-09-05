@@ -161,8 +161,8 @@ public static void w23(String cc) {
                     bookmarkvalue.put("PD51", Checknull(s.getString("AmphurFoundBody")));
                     bookmarkvalue.put("PD52", Checknull(s.getString("ProvinceFoundBody")));
                     bookmarkvalue.put("PD53", "เหตุที่ตายคือ "+Checknull(s.getString("CauseDead")));
-                    bookmarkvalue.put("PD83", Checknull(ToDate(s.getString("DateOfDie")))+" เวลา "+Checknull(s.getString("TimeOfDie")));
-                    bookmarkvalue.put("PD84", Checknull(ToDate(s.getString("BodyFoundDate")))+" เวลา "+Checknull(s.getString("BodyFoundTime")));
+                    bookmarkvalue.put("PD83", Checknull(ToDate(s.getString("DateOfDie")))+" เวลา "+ReplaceCollon(s.getString("TimeOfDie")));
+                    bookmarkvalue.put("PD84", Checknull(ToDate(s.getString("BodyFoundDate")))+" เวลา "+ReplaceCollon(s.getString("BodyFoundTime")));
                     
 
                        bookmarkvalue.put("C59","โดย "+Checknull(s.getString("CircumstancesOfDeath")));
@@ -416,7 +416,10 @@ public static String Checknull(String input){
 					if(input==null||input==""||input=="null") { return ""; }
 					return getThaiNumber(input);
 					}
-    
+      public static String ReplaceCollon(String inputTime){
+                                        if(inputTime==null||inputTime==""||inputTime=="null") { return ""; }
+					return  inputTime.replaceAll(":", ".");
+					}
     private static String getThaiNumber(String amount) {  
         if(amount == null || amount.isEmpty()) return "";
         String[] DIGIT_TH = { "๐", "๑", "๒", "๓", "๔", "๕", "๖", "๗", "๘", "๙" };

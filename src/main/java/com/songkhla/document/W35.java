@@ -127,7 +127,7 @@ public class W35 {
                  
                  bookmarkvalue.put("P54",Checknull(ToDate(s.getString("ArrestDateTime"))));
                  bookmarkvalue.put("P55",Checknull(s.getString("PlaceArrest")));
-                 bookmarkvalue.put("P88",Checknull(ToTime(s.getString("ArrestDateTime"))));
+                 bookmarkvalue.put("P88",ReplaceCollon(ToTime(s.getString("ArrestDateTime"))));
                    
                   
                    
@@ -149,7 +149,7 @@ public class W35 {
                         bookmarkvalue.put("P013", Checknull(s.getString("InvestPosition"))); //ตำแหน่งเต็ม
                          
                           bookmarkvalue.put("C15", Checknull(s.getString("DailyNumber")));
-                          bookmarkvalue.put("C611", Checknull(s.getString("CaseRequestTime"))); 
+                          bookmarkvalue.put("C611", ReplaceCollon(s.getString("CaseRequestTime"))); 
                           bookmarkvalue.put("C47", Checknull(s.getString("AssetCode"))); 
                     
                    
@@ -373,7 +373,7 @@ public class W35 {
                String ResultTime="";
          try {
     	       SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm", new Locale("th", "TH"));  
-               SimpleDateFormat dateto  = new SimpleDateFormat("HH.mm", new Locale("th", "TH"));  
+               SimpleDateFormat dateto  = new SimpleDateFormat("HH:mm", new Locale("th", "TH"));  
                Date date=null;
                date = df.parse(strTime);               
                ResultTime=dateto.format(date.getTime());
@@ -386,7 +386,10 @@ public class W35 {
 					if(input==null||input==""||input=="null") { return ""; }
 					return getThaiNumber(input);
 					}
-    
+      public static String ReplaceCollon(String inputTime){
+                                        if(inputTime==null||inputTime==""||inputTime=="null") { return ""; }
+					return  inputTime.replaceAll(":", ".");
+					}
     private static String getThaiNumber(String amount) {  
         if(amount == null || amount.isEmpty()) return "";
         String[] DIGIT_TH = { "๐", "๑", "๒", "๓", "๔", "๕", "๖", "๗", "๘", "๙" };

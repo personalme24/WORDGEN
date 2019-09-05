@@ -148,7 +148,7 @@ public static void w24(String cc) {
                    
                     
                     bookmarkvalue.put("C6", Checknull(ToDate(s.getString("CaseRequestDate"))));
-                    bookmarkvalue.put("C661",Checknull(s.getString("CaseRequestTime")));
+                    bookmarkvalue.put("C661",ReplaceCollon(s.getString("CaseRequestTime")));
                     bookmarkvalue.put("C15",Checknull(s.getString("DailyNumber")));
                       /*
                      bookmarkvalue.put("P02", Checknull(RankPolice));
@@ -376,7 +376,10 @@ public static String Checknull(String input){
 					if(input==null||input==""||input=="null") { return ""; }
 					return getThaiNumber(input);
 					}
-    
+      public static String ReplaceCollon(String inputTime){
+                                        if(inputTime==null||inputTime==""||inputTime=="null") { return ""; }
+					return  inputTime.replaceAll(":", ".");
+					}
     private static String getThaiNumber(String amount) {  
         if(amount == null || amount.isEmpty()) return "";
         String[] DIGIT_TH = { "๐", "๑", "๒", "๓", "๔", "๕", "๖", "๗", "๘", "๙" };

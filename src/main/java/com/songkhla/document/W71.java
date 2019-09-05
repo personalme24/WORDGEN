@@ -128,7 +128,7 @@ public class W71 {
 			JSONObject row2 = new JSONObject();
 			row2.put("D1",Checknull(Integer.toString(DeliOrderID)));
 			row2.put("D2",Checknull(ToDate(rs2.getString("DeliDate"))));
-                        row2.put("D3",Checknull(rs2.getString("DeliTimes")));
+                        row2.put("D3",ReplaceCollon(rs2.getString("DeliTimes")));
 			row2.put("D4",Checknull(rs2.getString("DeliPlace")));
                  
 			JSONArray1.add(row2);
@@ -185,7 +185,7 @@ public class W71 {
                sdfstart = new SimpleDateFormat("yyyy", new Locale("th", "TH"));  
                Year=sdfstart.format(calstart.getTime());
 
-               sdfstart = new SimpleDateFormat("HH.mm", new Locale("th", "TH"));  
+               sdfstart = new SimpleDateFormat("HH:mm", new Locale("th", "TH"));  
                Time=sdfstart.format(calstart.getTime());
                
                  
@@ -193,7 +193,7 @@ public class W71 {
                 bookmarkvalue.put("C1",Checknull(Date));
                 bookmarkvalue.put("C01",Checknull(Month));
                 bookmarkvalue.put("C001",Checknull(Year));
-                bookmarkvalue.put("C0011",Checknull(Time));
+                bookmarkvalue.put("C0011",ReplaceCollon(Time));
                  bookmarkvalue.put("CC2",Checknull(caseno));
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3",Checknull(ccYear));
@@ -627,6 +627,10 @@ public class W71 {
   return bahtTH;
 
  }
+    public static String ReplaceCollon(String inputTime){
+                                        if(inputTime==null||inputTime==""||inputTime=="null") { return ""; }
+					return  inputTime.replaceAll(":", ".");
+					}
   private static String regexCommafy(String inputNum)
     {
         String regex = "(\\d)(?=(\\d{3})+$)";

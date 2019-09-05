@@ -174,7 +174,7 @@ public static void w9(String cc) {
                     bookmarkvalue.put("PS75", Checknull(s.getString("TypePerson")));
                     
                     bookmarkvalue.put("PS001", Checknull(s.getString("CrimeLocation"))+" ต."+Checknull(s.getString("CrimeLocationDistrict"))+" อ."+Checknull(s.getString("CrimeLocationAmphur"))+" จ."+Checknull(s.getString("CrimeLocationProvince")));
-                    bookmarkvalue.put("PS002", Checknull(ToDate(s.getString("OccuredDate")))+" เวลา "+Checknull(s.getString("OccuredTime"))+" น.");
+                    bookmarkvalue.put("PS002", Checknull(ToDate(s.getString("OccuredDate")))+" เวลา "+ReplaceCollon(s.getString("OccuredTime"))+" น.");
                   
                       bookmarkvalue.put("B2", Checknull(s.getString("ChargeNameCase")));
                       /*
@@ -467,5 +467,9 @@ public static void nw9( ) {
         }
         return sb.toString();  
     }  
+      public static String ReplaceCollon(String inputTime){
+                                        if(inputTime==null||inputTime==""||inputTime=="null") { return ""; }
+					return  inputTime.replaceAll(":", ".");
+					}
 }
 
