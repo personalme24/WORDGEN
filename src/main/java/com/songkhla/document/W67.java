@@ -183,6 +183,7 @@ public static void w67(String cc,String stSuspect,String idperson) {
                   
                      
                     bookmarkvalue.put("A3", Checknull(s.getString("ActionDetailCase")));
+                    bookmarkvalue.put("B3", Checknull(s.getString("LawCase")));
                     bookmarkvalue.put("B2", Checknull(s.getString("ChargeNameCase")));
                       /*
                        bookmarkvalue.put("P02", Checknull(RankPolice));
@@ -302,6 +303,7 @@ public static void nw67() {
                      
                     bookmarkvalue.put("A3", "");
                       bookmarkvalue.put("B2", "");
+                       bookmarkvalue.put("B3", "");
                       
                         bookmarkvalue.put("P02", "");
                         bookmarkvalue.put("P03", "");
