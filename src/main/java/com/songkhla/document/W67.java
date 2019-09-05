@@ -180,6 +180,11 @@ public static void w67(String cc,String stSuspect,String idperson) {
                     bookmarkvalue.put("PS5",Checknull(s.getString("IssuedBy"))); 
                     bookmarkvalue.put("PS7", Checknull(s.getString("FullNamePerson"))); 
                     
+                     bookmarkvalue.put("SF4", Checknull(ToDate(s.getString("SueFirstDate")))); 
+                     bookmarkvalue.put("SF5", Checknull(ToDate(s.getString("SueFirstEnd")))); 
+                     bookmarkvalue.put("SF6", Checknull(s.getString("SueFirstTotal"))); 
+                     bookmarkvalue.put("SF7", Checknull(s.getString("SueFirstCause"))); 
+                    
                   
                      
                     bookmarkvalue.put("A3", Checknull(s.getString("ActionDetailCase")));
@@ -299,7 +304,10 @@ public static void nw67() {
                     bookmarkvalue.put("PS5",""); 
                     bookmarkvalue.put("PS7", ""); 
                     
-                  
+                    bookmarkvalue.put("SF4",""); 
+                    bookmarkvalue.put("SF5",""); 
+                    bookmarkvalue.put("SF6",""); 
+                    bookmarkvalue.put("SF7", "");
                      
                     bookmarkvalue.put("A3", "");
                       bookmarkvalue.put("B2", "");
