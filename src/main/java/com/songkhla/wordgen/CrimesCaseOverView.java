@@ -595,6 +595,8 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
                     data.put("ActionCode", rs.getString("ActionCase"));
                     data.put("OccuredDate", rs.getString("OccuredDate"));
                     data.put("OccuredTime", rs.getString("OccuredTime"));
+                    data.put("OccuredDateEnd", rs.getString("OccuredDateEnd"));
+                    data.put("OccuredTimeEnd", rs.getString("OccuredTimeEnd"));
                     data.put("StatusKnowSuspect", rs.getString("StatusKnowSuspect"));
                     data.put("Invest_SendtoDepartment", rs.getString("Invest_SendtoDepartment"));
                     data.put("TotalAcc", rs.getString("TotalAcc"));
@@ -606,6 +608,7 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
                     data.put("CapitalCrimeCaseNumber", rs.getString("CapitalCrimeCaseNumber"));
                     data.put("PoliceNameCase", rs.getString("InvestRank")+rs.getString("InvestName"));
                     data.put("PoliceNameCaseId", rs.getString("PoliceNameCase"));
+                     data.put("CourtResult", rs.getString("CourtResult"));
 
                     facc.removeAll();
                     CrimesCaseEdit cce =new CrimesCaseEdit(facc,data);

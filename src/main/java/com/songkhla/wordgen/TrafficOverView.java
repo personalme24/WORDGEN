@@ -593,7 +593,9 @@ public class TrafficOverView extends javax.swing.JDialog {
                     data.put("CapitalCrimeCaseNumber", rs.getString("CapitalCrimeCaseNumber"));
                     data.put("PoliceNameCase", rs.getString("InvestRank")+rs.getString("InvestName"));
                     data.put("PoliceNameCaseId", rs.getString("PoliceNameCase"));
-
+                    data.put("CourtResult", rs.getString("CourtResult"));
+                     data.put("OccuredDateEnd", rs.getString("OccuredDateEnd"));
+                    data.put("OccuredTimeEnd", rs.getString("OccuredTimeEnd"));
                     facc.removeAll();
                     TrafficEdit cce =new TrafficEdit(facc,data);
                     cce.pack();

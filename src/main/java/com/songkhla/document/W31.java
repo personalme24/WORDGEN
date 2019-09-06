@@ -406,7 +406,7 @@ public class W31 {
 	}
           public static String ReplaceCollon(String inputTime){
                                         if(inputTime==null||inputTime==""||inputTime=="null") { return ""; }
-					return  inputTime.replaceAll(":", ".");
+					return  getThaiNumber(inputTime.replaceAll(":", "."));
 					}
 	private static void replaceTable(JSONArray placeholders, JSONArray data,
 			WordprocessingMLPackage template) throws Docx4JException, JAXBException {

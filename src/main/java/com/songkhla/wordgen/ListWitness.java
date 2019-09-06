@@ -230,7 +230,7 @@ String noPerson;
                  JSONObject datacase=new JSONObject();
                  datacase.put("TypeCase",typeC );
                 String NoPerson = jTableWitness.getModel().getValueAt(jTableWitness.getSelectedRow(), 7)+"";            
-                String sql = "select NoPerson,Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
+                String sql = "select NoPerson,Age,Amphur,BirthDay,AnswerPerson,OccupationPosition,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,Weight,HouseNumber,Related,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
                         "PhonePerson,Province,Race,OrderPerson,Religion,Tambon,TypePerson,ZipCode,caseIdPerson from person where TypePerson='พยานและบุคคลอื่นๆ' and NoPerson='"+NoPerson+ "' and caseIdPerson='"+crimecaseno+"'";
                 Connection con = ConnectDatabase.connect();
@@ -269,6 +269,9 @@ String noPerson;
                      data.put("OrderPerson", rs.getString("OrderPerson"));
                      data.put("Related", rs.getString("Related"));
                      data.put("OtherName", rs.getString("OtherName"));
+                     data.put("AnswerPerson", rs.getString("AnswerPerson"));
+                     data.put("OccupationPosition", rs.getString("OccupationPosition"));
+                     
 
                             WitnessForm wF=new WitnessForm(f,data,datacase);
                             wF.pack();

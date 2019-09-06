@@ -353,7 +353,7 @@ public class W20 {
 	}
 	  public static String ReplaceCollon(String inputTime){
                                         if(inputTime==null||inputTime==""||inputTime=="null") { return ""; }
-					return  inputTime.replaceAll(":", ".");
+					return  getThaiNumber(inputTime.replaceAll(":", "."));
 					}
 	private static void addRowToTable(Tbl reviewtable, Tr templateRow, JSONObject datarow) {
 		Tr workingRow = (Tr) XmlUtils.deepCopy(templateRow);

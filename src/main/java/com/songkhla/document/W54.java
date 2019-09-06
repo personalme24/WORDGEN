@@ -468,6 +468,6 @@ public static void nw54() {
     }  
       public static String ReplaceCollon(String inputTime){
                                         if(inputTime==null||inputTime==""||inputTime=="null") { return ""; }
-					return  inputTime.replaceAll(":", ".");
+					return  getThaiNumber(inputTime.replaceAll(":", "."));
 					}
 }

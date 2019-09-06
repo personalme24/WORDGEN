@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -595,7 +596,9 @@ public class IdentityView extends javax.swing.JDialog {
                     data.put("CauseDead", rs.getString("CauseDead"));
                     data.put("PoliceNameCase", rs.getString("InvestRank")+rs.getString("InvestName"));
                     data.put("PoliceNameCaseId", rs.getString("PoliceNameCase"));
-
+                    data.put("CourtResult", rs.getString("CourtResult"));
+                    data.put("OccuredDateEnd", rs.getString("OccuredDateEnd"));
+                    data.put("OccuredTimeEnd", rs.getString("OccuredTimeEnd"));
                     facc.removeAll();
                     IdentityEdit cce =new IdentityEdit(facc,data);
                     cce.pack();

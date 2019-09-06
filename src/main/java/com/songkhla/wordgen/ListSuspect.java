@@ -206,6 +206,8 @@ String typeC,cid;
 
     private void jButtonAddAccusedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddAccusedActionPerformed
         // TODO add your handling code here:
+             JSONObject datacase=new JSONObject();
+                 datacase.put("TypeCase",typeC );
          JFrame frame = new JFrame();
              JDialog dialog = new JDialog(frame);//frame is owner
              JFrame s = (JFrame)(dialog.getParent());               
@@ -218,7 +220,7 @@ String typeC,cid;
        }
 
        else{         
-        SuspectForm susF=new SuspectForm(s,null);
+        SuspectForm susF=new SuspectForm(s,null,datacase);
         susF.pack();
       susF.setLocationRelativeTo(null);         
            susF.setVisible(true);
@@ -238,11 +240,12 @@ String typeC,cid;
            
             try{
                 String Noperson = jTableSuspect.getModel().getValueAt(jTableSuspect.getSelectedRow(), 7)+"";            
-                String sql = "select NoPerson,Identification,CurrentAddress,Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
-                        "Height,Weight,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
+                String sql = "select NoPerson,TambomDie,AmphurDie,ProvinceDie,TambomFoundBody,AmphurFoundBody,ProvinceFoundBody,Identification,CurrentAddress,Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
+                        "Height,Weight,HouseNumber,NoArrestWarrant,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
                         "PhonePerson,OrderPerson,StatusSuspect,BailDate,StatusBail,RatePrison,CourtSuspect,ArrestDateTimeEnd,Province,Race,Religion,Tambon,TypePerson,"
                         + "ZipCode,caseIdPerson,ArrestDateTime,PlaceArrest,SusConfress,PlaceOfFoundBody,DeathLocation,StatusSueAndPutInJail,BodyFoundDate,BodyFoundTime,DateOfDie,TimeOfDie\n"
                         + "from person where noperson='"+Noperson+ "' and caseIdPerson='"+crimecaseno+"'";
+         
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);
@@ -297,13 +300,23 @@ String typeC,cid;
                    data.put("TimeOfDie", rs.getString("TimeOfDie"));
                    data.put("StatusSueAndPutInJail", rs.getString("StatusSueAndPutInJail"));
                    data.put("OtherName", rs.getString("OtherName"));
+                     data.put("TambomDie", rs.getString("TambomDie"));
+                data.put("AmphurDie", rs.getString("AmphurDie"));
+                   data.put("ProvinceDie", rs.getString("ProvinceDie"));
+                   data.put("TambomFoundBody", rs.getString("TambomFoundBody"));
+                   data.put("AmphurFoundBody", rs.getString("AmphurFoundBody"));
+                   data.put("ProvinceFoundBody", rs.getString("ProvinceFoundBody"));
+                   data.put("NoArrestWarrant", rs.getString("NoArrestWarrant"));
+
                    if(typeC.equals("Dead")){
                       Identity_DeadForm id=new Identity_DeadForm(f,data);
                              id.pack();
                              id.setLocationRelativeTo(null);
                             id.setVisible(true);    
                    }else{
-                            SuspectForm suspectF=new SuspectForm(f,data);
+                                JSONObject datacase=new JSONObject();
+                            datacase.put("TypeCase",typeC );
+                            SuspectForm suspectF=new SuspectForm(f,data,datacase);
                              suspectF.pack();
                              suspectF.setLocationRelativeTo(null);
                             suspectF.setVisible(true);   } 		

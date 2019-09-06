@@ -24,7 +24,19 @@ public class CreateTable {
 	       Connection cc= ConnectDatabase.connect();
                
 //             String url = "jdbc:sqlite:D://db/SR2.db";
-	        
+	        String sqlLogin = "CREATE TABLE IF NOT EXISTS User (\n"+
+                               "   IdUSer	INTEGER	Primary Key AUTOINCREMENT,	\n"+        
+                               "   Username  VARCHAR(100)	,	\n"+
+                               "   Password  VARCHAR(100)	,	\n"+
+                               "   DateLogin DATE		\n"+                        
+                               "	); ";
+                
+                String sqlAnswer= "CREATE TABLE IF NOT EXISTS Answer (\n"+
+                               "   IdAnswer	INTEGER	Primary Key AUTOINCREMENT,	\n"+        
+                               "   AnswerDetail  VARCHAR(100)	,	\n"+
+                               "   AnswerTypePerson  VARCHAR(100)	,	\n"+
+                               "   AnswerTypeCase VARCHAR(100)		\n"+                        
+                               "	); ";
 	        // SQL statement for creating a new table
 	        String sqlPerson = "CREATE TABLE IF NOT EXISTS Person (\n"+
                 "	NoPerson	INTEGER	Primary Key AUTOINCREMENT,	\n"+        
@@ -45,6 +57,7 @@ public class CreateTable {
                 "	Nationality	VARCHAR(100)	,	\n"+
                 "	Religion	VARCHAR(100)	,	\n"+
                 "	Occupation	VARCHAR(100)	,	\n"+
+                "	OccupationPosition	VARCHAR(100)	,	\n"+                        
                 "	Height	VARCHAR(100)	,	\n"+
                 "	Weight	VARCHAR(100)	,	\n"+
                 "	BloodGroup	VARCHAR(100)	,	\n"+
@@ -79,8 +92,13 @@ public class CreateTable {
                 "	ProvinceFoundBody	VARCHAR(100)	,	\n"+
                 "	CircumstancesOfDeathPer	VARCHAR(100)	,	\n"+
                 "	ArrestDate	VARCHAR(100)	,	\n"+
-                "	ArrestTime	VARCHAR(100)	,	\n"+                                           
+                "	ArrestTime	VARCHAR(100)	,	\n"+ 
+                "	ControlDate	VARCHAR(100)	,	\n"+
+                "	ControlTime	VARCHAR(100)	,	\n"+                                
                 "	PlaceArrest	VARCHAR(100)	,	\n"+
+                 "	PlaceArrestTambon	VARCHAR(100)	,	\n"+
+                "	PlaceArrestAmphur	VARCHAR(100)	,	\n"+
+                 "	PlaceArrestProvince	VARCHAR(100)	,	\n"+
                 "	Country         VARCHAR(100)	,	\n"+
                 "	DoctorCheckBodyID	VARCHAR(100)	,\n"+
                 "	DoctorCheckBody	VARCHAR(100)	,	\n"+
@@ -134,11 +152,17 @@ public class CreateTable {
                 "	Soi     	VARCHAR(100)	,	\n"+
                 "	SusConfress     VARCHAR(100)	,	\n"+                        
                 "	StatusFreeze	VARCHAR(100)	,	\n"+ 
+                "	AnswerPerson	VARCHAR(100)	,	\n"+ 
                 "	FreezeOrganize     	VARCHAR(100)	,	\n"+
                 "	FreezeDate     	VARCHAR(100)	,	\n"+                          
                 "	SueLastEndDate	VARCHAR(100)	,	\n"+  
                 "	CourtSuspect	VARCHAR(100)	,	\n"+
-                "       GiveEvidence	VARCHAR(100)	,	\n"+                        
+                "       GiveEvidence	VARCHAR(100)	,	\n"+    
+                "       StatusArrestWarrant	VARCHAR(100)	,	\n"+                           
+                "       NoArrestWarrant	VARCHAR(100)	,	\n"+    
+                "       NameArrest	VARCHAR(100)	,	\n"+     
+                "	RpAllegationsDate	DATE	,	\n"+
+                "	RpAllegationsTime	VARCHAR(100)	,	\n"+
                 "	SueFirst	VARCHAR(100)	,	\n"+
                 "	SueFirstDate	DateTime	,	\n"+
                 "	SueFirstStart	DateTime	,	\n"+
@@ -214,6 +238,7 @@ public class CreateTable {
                 "	Nationality	VARCHAR(100)	,	\n"+
                 "	Religion	VARCHAR(100)	,	\n"+
                 "	Occupation	VARCHAR(100)	,	\n"+
+               "	OccupationPosition	VARCHAR(100)	,	\n"+
                 "	Height	VARCHAR(100)	,	\n"+
                 "	Weight	VARCHAR(100)	,	\n"+
                 "	BloodGroup	VARCHAR(100)	,	\n"+
@@ -273,10 +298,10 @@ public class CreateTable {
                           "	OccuredDateEnd	DATE	,	\n"+
                         "	CaseAcceptDate	DATE	,	\n"+
                         "	CaseRequestDate	DATE	,	\n"+
-                        "	OccuredTime	datetime	,	\n"+
-                        "	OccuredTimeEnd	datetime	,	\n"+
-                        "	CaseAccepTime	datetime	,	\n"+
-                        "	CaseRequestTime	datetime	,	\n"+
+                        "	OccuredTime	VARCHAR(100)	,	\n"+
+                        "	OccuredTimeEnd	VARCHAR(100)	,	\n"+
+                        "	CaseAccepTime	VARCHAR(100)	,	\n"+
+                        "	CaseRequestTime	VARCHAR(100)	,	\n"+
                         "	ChargeCodeCase	INTEGER	,	\n"+
                         "	CrimeLocation	VARCHAR(100)	,	\n"+
                         "	CrimeLocationMoo	VARCHAR(100)	,	\n"+
@@ -353,6 +378,9 @@ public class CreateTable {
                         "	RankPolice	VARCHAR(100)	,	\n"+
                         "	FirstName	VARCHAR(100)	,	\n"+
                         "	LastName	VARCHAR(100)	,	\n"+
+                        "	Birthday	VARCHAR(100)	,	\n"+
+                        "	Age             VARCHAR(100)	,	\n"+
+                        "	Tel             VARCHAR(100)	,	\n"+
                         "	Position	VARCHAR(100)		\n"+
                          "	);";
 	  String sqlPoliceStat ="CREATE TABLE IF NOT EXISTS PoliceStation (\n"+
@@ -379,7 +407,7 @@ public class CreateTable {
                          "	HeadWorkRankFull	VARCHAR(100)	,	\n"+
                         "	HeadWorkRankShort	VARCHAR(100)	,	\n"+
                         "	HeadWorkName	VARCHAR(100)	,	\n"+
-                        "	HeadWorkPosition	VARCHAR(100)	,	\n"+
+                        "	HeadWorkPosition	VARCHAR(100)	,	\n"+     
                         "	CriminalCourt	VARCHAR(100)	,	\n"+
                         "	JuvenileCourt	VARCHAR(100)	,	\n"+
                         "	DistrictCourt	VARCHAR(100)	,	\n"+
@@ -528,6 +556,8 @@ public class CreateTable {
                        stmt.execute(sqlTambon);  
                        stmt.execute(sqlPersonData);  
                        stmt.execute(sqlActionCase);   
+                        stmt.execute(sqlAnswer);  
+                       stmt.execute(sqlLogin);  
                        stmt.close();
                     System.out.println("Create Table Complete");
 	        } catch (SQLException e) {

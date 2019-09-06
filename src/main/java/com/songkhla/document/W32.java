@@ -390,7 +390,7 @@ public class W32 {
 					}
       public static String ReplaceCollon(String inputTime){
                                         if(inputTime==null||inputTime==""||inputTime=="null") { return ""; }
-					return  inputTime.replaceAll(":", ".");
+					return  getThaiNumber(inputTime.replaceAll(":", "."));
 					}
     private static String getThaiNumber(String amount) {  
         if(amount == null || amount.isEmpty()) return "";

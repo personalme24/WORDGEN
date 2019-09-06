@@ -248,7 +248,7 @@ String typeC;
                  JSONObject datacase=new JSONObject();
                  datacase.put("TypeCase",typeC );
                 String Noperson = jTableAccure.getModel().getValueAt(jTableAccure.getSelectedRow(), 8)+"";            
-                String sql = "select NoPerson,Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
+                String sql = "select NoPerson,Age,AnswerPerson,OccupationPosition,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,Weight,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
                         "PhonePerson,Province,Related,Race,OrderPerson,Religion,Tambon,TypePerson,ZipCode,caseIdPerson from person where Noperson='"+Noperson+ "' and caseIdPerson='"+crimecaseno+"' and TypePerson='ผู้กล่าวหา'";
                 Connection con = ConnectDatabase.connect();
@@ -287,6 +287,9 @@ String typeC;
                      data.put("OrderPerson", rs.getString("OrderPerson"));
                       data.put("OtherName", rs.getString("OtherName"));
                     data.put("Related", rs.getString("Related"));
+                   data.put("AnswerPerson", rs.getString("AnswerPerson"));
+                   data.put("OccupationPosition", rs.getString("OccupationPosition"));
+
                             AccusedForm accusedF=new AccusedForm(f,data,datacase);
                              accusedF.pack();
                              accusedF.setLocationRelativeTo(null);

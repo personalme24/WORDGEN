@@ -204,7 +204,7 @@ String typeC;
        idd.setVisible(true);   
        }
        else{         
-        SuspectForm susF=new SuspectForm(null,null);
+        SuspectForm susF=new SuspectForm(null,null,null);
         susF.pack();
       susF.setLocationRelativeTo(null);         
            susF.setVisible(true);
@@ -275,7 +275,7 @@ String typeC;
                     data.put("PlaceArrest", rs.getString("PlaceArrest"));
                     data.put("caseIdPerson", rs.getString("caseIdPerson"));
                     
-                            SuspectForm suspectF=new SuspectForm(f,data);
+                            SuspectForm suspectF=new SuspectForm(f,data,null);
                              suspectF.pack();
                              suspectF.setLocationRelativeTo(null);
                             suspectF.setVisible(true);    		

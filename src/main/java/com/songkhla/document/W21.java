@@ -392,7 +392,7 @@ public class W21 {
 }
       public static String ReplaceCollon(String inputTime){
                                         if(inputTime==null||inputTime==""||inputTime=="null") { return ""; }
-					return  inputTime.replaceAll(":", ".");
+					return  getThaiNumber(inputTime.replaceAll(":", "."));
 					}
     public static String Checknull(String input){
 					if(input==null||input==""||input=="null") { return ""; }

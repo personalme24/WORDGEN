@@ -259,9 +259,7 @@ public class ActionList extends javax.swing.JDialog {
         ActionPage.ActionCode.setText(jTableAction.getValueAt(number, 0).toString());
         ActionPage.ActionCrimes.setText(jTableAction.getValueAt(number, 1).toString());
         ActionPage.ActionDetail.setText(jTableAction.getValueAt(number, 2).toString());
-        ActionPage.AnswerAccuser.setText(jTableAction.getValueAt(number, 3).toString());
-        ActionPage.AnswerSuspect.setText(jTableAction.getValueAt(number, 4).toString());
-        ActionPage.ActionNote.setText(jTableAction.getValueAt(number, 5).toString());
+        ActionPage.ActionNote.setText(jTableAction.getValueAt(number, 3).toString());
         setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -311,8 +309,6 @@ public class ActionList extends javax.swing.JDialog {
             row.add(rs.getString("ActionCode"));
             row.add(rs.getString("ActionCrimes"));
              row.add(rs.getString("ActionDetail"));          
-            row.add(rs.getString("AnswerAccuser"));  
-            row.add(rs.getString("AnswerSuspect"));
               row.add(rs.getString("ActionNote"));
             tabledata.add(row);
         }
@@ -321,9 +317,7 @@ public class ActionList extends javax.swing.JDialog {
         Vector ColumnName = new Vector();
         ColumnName.add("รหัส");
         ColumnName.add("พฤติการณ์");
-        ColumnName.add("รายละเอียด");
-        ColumnName.add("คำให้การผู้กล่าวหา"); 
-        ColumnName.add("คำให้การผู้ต้องหา");               
+        ColumnName.add("รายละเอียด");           
         ColumnName.add("หมายเหตุ");
         jTableAction.setModel(new javax.swing.table.DefaultTableModel(
             tabledata,

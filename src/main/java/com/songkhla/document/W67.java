@@ -180,8 +180,8 @@ public static void w67(String cc,String stSuspect,String idperson) {
                     bookmarkvalue.put("PS5",Checknull(s.getString("IssuedBy"))); 
                     bookmarkvalue.put("PS7", Checknull(s.getString("FullNamePerson"))); 
                     
-                     bookmarkvalue.put("SF4", Checknull(ToDate(s.getString("SueFirstDate")))); 
-                     bookmarkvalue.put("SF5", Checknull(ToDate(s.getString("SueFirstEnd")))); 
+                     bookmarkvalue.put("SF4", Checknull(ChangFormat(s.getString("SueFirstDate")))); 
+                     bookmarkvalue.put("SF5", Checknull(ChangFormat(s.getString("SueFirstEnd")))); 
                      bookmarkvalue.put("SF6", Checknull(s.getString("SueFirstTotal"))); 
                      bookmarkvalue.put("SF7", Checknull(s.getString("SueFirstCause"))); 
                     
@@ -486,30 +486,55 @@ public static void nw67() {
         }
         return sb.toString();  
     }  
-      public static String ChangFormat(String DateSue){
-        String newFormatDate=null;
-       try{   Calendar cal;
+      private static String ChangFormat(String strDate){
+               String ResultDate="";
+         try {
+              if(strDate.equals(null)||strDate.equals("")||strDate.equals("null")) { return ""; }else{
+    	            String newFormatDate=null;
+                    String newFormatDate2=null;
+
+        Calendar cal,cal2;
        Locale lc = new Locale("th","TH");
         SimpleDateFormat formatdate =new SimpleDateFormat("yyyy/MM/dd");     
-        if(DateSue != null && !"".equals(DateSue)){
-        Date b=formatdate.parse(DateSue);
+       
+        Date b=formatdate.parse(strDate);
          cal = Calendar.getInstance();
           cal.setTime(b); 
           System.out.println("fffffff : "+cal.getTime());
-           SimpleDateFormat dateformat =new SimpleDateFormat("dd/MM/yyyy");   
+           SimpleDateFormat dateformat =new SimpleDateFormat("d MMMM",new Locale("th", "TH")); 
+                      SimpleDateFormat dateformat2 =new SimpleDateFormat("yyyy");   
+
          newFormatDate=dateformat.format(cal.getTime()); 
-        
-        }
-         }
-         catch(Exception e){
-         e.printStackTrace();
-         }
-    return newFormatDate;
+          newFormatDate2=dateformat2.format(cal.getTime());
+          System.out.println("ssssssssssssss : "+newFormatDate);
+          
+          
+//               SimpleDateFormat dateto  = new SimpleDateFormat("d MMMM yyyy");  
+//             
+//               Date date=null;
+//               
+//               date = dateto.parse(newFormatDate);   
+//               cal2 = Calendar.getInstance();
+//          cal2.setTime(date); 
+//          System.out.println("fffffff : "+cal2.getTime());      
+//               System.out.println("sdddddddd:"+date);
+              ResultDate=newFormatDate+" "+newFormatDate2+"";
+
+         } 
     
-    }
+        
+              
+              
+              }
+          catch (Exception ex) {
+             Logger.getLogger(W67.class.getName()).log(Level.SEVERE, null, ex);
+         }
+               return ResultDate;
+}
+      
         public static String ReplaceCollon(String inputTime){
                                         if(inputTime==null||inputTime==""||inputTime=="null") { return ""; }
-					return  inputTime.replaceAll(":", ".");
+					return  getThaiNumber(inputTime.replaceAll(":", "."));
 					}
 }
 

@@ -409,8 +409,9 @@ public class W1 {
                return ResultDate;
      }
        public static String ReplaceCollon(String inputTime){
+//                                        String newTime=
                                         if(inputTime==null||inputTime==""||inputTime=="null") { return ""; }
-					return  inputTime.replaceAll(":", ".");
+					return  getThaiNumber(inputTime.replaceAll(":","." ));
 					}
      public static String Checknull(String input){
 					if(input==null||input==""||input=="null") { return ""; }

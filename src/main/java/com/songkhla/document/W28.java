@@ -422,7 +422,7 @@ public static void nw28() {
 	}
           public static String ReplaceCollon(String inputTime){
                                         if(inputTime==null||inputTime==""||inputTime=="null") { return ""; }
-					return  inputTime.replaceAll(":", ".");
+					return  getThaiNumber(inputTime.replaceAll(":", "."));
 					}
     private static String ToDate(String strDate){
                String ResultDate="";

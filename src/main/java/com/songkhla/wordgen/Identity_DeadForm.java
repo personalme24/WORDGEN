@@ -164,7 +164,7 @@ public class Identity_DeadForm extends javax.swing.JDialog {
             Age.setText(datain.get("Age")+"");
             Amphur.setText(datain.get("Amphur")+"");
             BirthDay.getJFormattedTextField().setText(datain.get("BirthDay")+"");
-            BloodGroup.setText(datain.get("BloodGroup")+"");
+            BloodGroup.setSelectedItem(datain.get("BloodGroup")+"");
             ExpiredDate.getJFormattedTextField().setText(datain.get("ExpiredDate")+"");
             FatherFullName.setText(datain.get("FatherFullName")+"");
             FullNamePersonEn.setText(datain.get("FullNamePersonEn")+"");
@@ -191,6 +191,13 @@ public class Identity_DeadForm extends javax.swing.JDialog {
             DeadDate.getJFormattedTextField().setText(datain.get("DateOfDie")+"");
             jSpinnerDeadTime.setValue(timeDie);            
             OtherName.setText(datain.get("OtherName")+"");
+            TambomDie.setText(datain.get("TambomDie")+"");
+            AmphurDie.setText(datain.get("AmphurDie")+"");
+            ProvinceDie.setText(datain.get("ProvinceDie")+"");
+            TambomFoundBody.setText(datain.get("TambomFoundBody")+"");
+            AmphurFoundBody.setText(datain.get("AmphurFoundBody")+"");
+            ProvinceFoundBody.setText(datain.get("ProvinceFoundBody")+"");
+
             PlaceOfFoundBody.setText(datain.get("PlaceOfFoundBody")+"");
             SimpleDateFormat format=new SimpleDateFormat("d/MM/yyyy");
 
@@ -249,7 +256,6 @@ public class Identity_DeadForm extends javax.swing.JDialog {
         jLabel17 = new javax.swing.JLabel();
         Weight = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
-        BloodGroup = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         Gender = new javax.swing.JComboBox<>();
         jLabel14 = new javax.swing.JLabel();
@@ -293,6 +299,19 @@ public class Identity_DeadForm extends javax.swing.JDialog {
         PlaceOfFoundBody = new javax.swing.JTextField();
         jLabel39 = new javax.swing.JLabel();
         jSpinnerDeadTime = new javax.swing.JSpinner();
+        jLabel3 = new javax.swing.JLabel();
+        TambomDie = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        AmphurDie = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
+        ProvinceDie = new javax.swing.JTextField();
+        jLabel31 = new javax.swing.JLabel();
+        TambomFoundBody = new javax.swing.JTextField();
+        ProvinceFoundBody = new javax.swing.JTextField();
+        AmphurFoundBody = new javax.swing.JTextField();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        BloodGroup = new javax.swing.JComboBox<>();
         BtSaveAccused = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -393,13 +412,16 @@ public class Identity_DeadForm extends javax.swing.JDialog {
         jLabel12.setText("สัญชาติ");
 
         Nationality.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        Nationality.setText("ไทย");
 
         Race.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        Race.setText("ไทย");
 
         jLabel18.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel18.setText("ศาสนา");
 
         Religion.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        Religion.setText("พุทธ");
 
         jLabel16.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel16.setText("สูง");
@@ -413,8 +435,6 @@ public class Identity_DeadForm extends javax.swing.JDialog {
 
         jLabel20.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel20.setText("หมู่โลหิต");
-
-        BloodGroup.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
         jLabel15.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel15.setText("เพศ");
@@ -598,6 +618,68 @@ public class Identity_DeadForm extends javax.swing.JDialog {
         JSpinner.DateEditor timeEditor = new JSpinner.DateEditor(jSpinnerDeadTime, "HH:mm");
         jSpinnerDeadTime.setEditor(timeEditor);
 
+        jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel3.setText("ตำบล");
+
+        TambomDie.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        TambomDie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TambomDieActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel13.setText("อำเภอ");
+
+        AmphurDie.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        AmphurDie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AmphurDieActionPerformed(evt);
+            }
+        });
+
+        jLabel28.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel28.setText("จังหวัด");
+
+        ProvinceDie.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        ProvinceDie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProvinceDieActionPerformed(evt);
+            }
+        });
+
+        jLabel31.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel31.setText("ตำบล");
+
+        TambomFoundBody.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        TambomFoundBody.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TambomFoundBodyActionPerformed(evt);
+            }
+        });
+
+        ProvinceFoundBody.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        ProvinceFoundBody.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProvinceFoundBodyActionPerformed(evt);
+            }
+        });
+
+        AmphurFoundBody.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        AmphurFoundBody.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AmphurFoundBodyActionPerformed(evt);
+            }
+        });
+
+        jLabel40.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel40.setText("จังหวัด");
+
+        jLabel41.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel41.setText("อำเภอ");
+
+        BloodGroup.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "AB", "O", "A Rh-", "B Rh-", "AB Rh-", "O Rh-" }));
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -619,31 +701,38 @@ public class Identity_DeadForm extends javax.swing.JDialog {
                                             .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)))))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(49, 49, 49)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
-                                    .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
+                                        .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addGap(1, 1, 1)
-                                        .addComponent(Identification))
-                                    .addComponent(DeathLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(PlaceOfFoundBody, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(MotherFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(9, 9, 9)
+                                .addComponent(jLabel25)
+                                .addGap(5, 5, 5)
+                                .addComponent(PhonePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(19, 19, 19)
+                                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(Occupation))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jPanelFoundBody, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(HouseNumber, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
-                                    .addComponent(Province))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel24)
-                                    .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE))
+                                    .addComponent(Identification, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(PlaceOfFoundBody, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(DeathLocation, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(jPanelFoundBody, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(HouseNumber, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
+                                            .addComponent(Province))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLabel24)
+                                            .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel4Layout.createSequentialGroup()
@@ -667,17 +756,34 @@ public class Identity_DeadForm extends javax.swing.JDialog {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel38)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jSpinnerDeadTime))))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(MotherFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(9, 9, 9)
-                                .addComponent(jLabel25)
-                                .addGap(5, 5, 5)
-                                .addComponent(PhonePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(19, 19, 19)
-                                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(Occupation, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(jSpinnerDeadTime))
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                                .addComponent(jLabel3)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(TambomDie, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel13)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(AmphurDie, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel28)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(ProvinceDie, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                                .addComponent(jLabel31)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(TambomFoundBody, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel41)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(AmphurFoundBody, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel40)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(ProvinceFoundBody, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(0, 0, Short.MAX_VALUE))))))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
@@ -707,8 +813,7 @@ public class Identity_DeadForm extends javax.swing.JDialog {
                                 .addGap(79, 79, 79)
                                 .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Religion, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(Religion, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(OtherName, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -751,16 +856,16 @@ public class Identity_DeadForm extends javax.swing.JDialog {
                                 .addGap(8, 8, 8)
                                 .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(BloodGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(1, 1, 1)
+                                .addComponent(BloodGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel15)
                                 .addGap(7, 7, 7)
                                 .addComponent(Gender, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(25, 25, 25)
                                 .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(10, 10, 10)
-                                .addComponent(FatherFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(40, 40, 40))
+                                .addComponent(FatherFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(35, 35, 35))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -822,12 +927,13 @@ public class Identity_DeadForm extends javax.swing.JDialog {
                             .addComponent(Height, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Weight, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BloodGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Gender, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(FatherFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(FatherFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(BloodGroup, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)))
                         .addGap(7, 7, 7)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -874,13 +980,29 @@ public class Identity_DeadForm extends javax.swing.JDialog {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DeathLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PlaceOfFoundBody, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabel3)
+                    .addComponent(TambomDie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13)
+                    .addComponent(AmphurDie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel28)
+                    .addComponent(ProvinceDie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel31)
+                        .addComponent(TambomFoundBody, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel41)
+                        .addComponent(AmphurFoundBody, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel40)
+                        .addComponent(ProvinceFoundBody, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(PlaceOfFoundBody, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(11, 11, 11)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Identification, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         PhonePerson.getAccessibleContext().setAccessibleName("");
@@ -910,10 +1032,10 @@ public class Identity_DeadForm extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BtSaveAccused)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -945,8 +1067,9 @@ public class Identity_DeadForm extends javax.swing.JDialog {
             String sql="INSERT INTO Person (Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,DeathLocation,FullNamePerson,FullNamePersonEn,Gender,\n" +
             "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
             "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,"
-            + "caseIdPerson,Identification,OrderPerson,PlaceOfFoundBody,BodyFoundDate,BodyFoundTime,DateOfDie,TimeOfDie)\n"
-            + " VALUES (?,?,? ,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            + "caseIdPerson,Identification,OrderPerson,PlaceOfFoundBody,BodyFoundDate,BodyFoundTime,DateOfDie,TimeOfDie,TambomDie,AmphurDie,ProvinceDie,"
+                    + "TambomFoundBody,AmphurFoundBody,ProvinceFoundBody)\n"
+            + " VALUES (?,?,? ,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             //           String sqlSueFirst="insert into sue (SueTimes,SueDate,)";
             System.out.println("SQL : "+sql);
             try {
@@ -954,7 +1077,7 @@ public class Identity_DeadForm extends javax.swing.JDialog {
                 pst.setString(1,Age.getText());
                 pst.setString(2,Amphur.getText());
                 pst.setString(3,BirthDay.getJFormattedTextField().getText());
-                pst.setString(4,BloodGroup.getText());
+                pst.setString(4,BloodGroup.getSelectedItem().toString());
                 pst.setString(5,ExpiredDate.getJFormattedTextField().getText());
                 pst.setString(6,FatherFullName.getText());
                 pst.setString(7,DeathLocation.getText());
@@ -987,7 +1110,13 @@ public class Identity_DeadForm extends javax.swing.JDialog {
                 pst.setString(34,bodyfoundTime);
                 pst.setString(35,DeadDate.getJFormattedTextField().getText());
                  pst.setString(36,TimeOfDead);
-               
+                pst.setString(37,TambomDie.getText());
+                pst.setString(38,AmphurDie.getText());
+                pst.setString(39,ProvinceDie.getText());
+                pst.setString(40,TambomFoundBody.getText());
+                pst.setString(41,AmphurFoundBody.getText());
+                pst.setString(42,ProvinceFoundBody.getText());
+
 
 
                 int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
@@ -1042,8 +1171,13 @@ public class Identity_DeadForm extends javax.swing.JDialog {
             + "BodyFoundTime=?,"
             + "DateOfDie=?,"
             + "TimeOfDie=?,"
-             + "Identification=?"
-                   
+             + "Identification=?,"
+            + "TambomDie=?,"
+            + "AmphurDie=?,"
+            + "ProvinceDie=?,"
+            + "TambomFoundBody=?,"
+            + "AmphurFoundBody=?,"
+            + "ProvinceFoundBody=?"                 
             + " where NoPerson=? and caseIdPerson=?   ";
 
             try {
@@ -1051,7 +1185,7 @@ public class Identity_DeadForm extends javax.swing.JDialog {
                 pst.setString(1,Age.getText());
                 pst.setString(2,Amphur.getText());
                 pst.setString(3,BirthDay.getJFormattedTextField().getText());
-                pst.setString(4,BloodGroup.getText());
+                pst.setString(4,BloodGroup.getSelectedItem().toString());
                 pst.setString(5,ExpiredDate.getJFormattedTextField().getText());
                 pst.setString(6,FatherFullName.getText());
                 pst.setString(7,FullNamePerson.getText());
@@ -1083,9 +1217,14 @@ public class Identity_DeadForm extends javax.swing.JDialog {
                 pst.setString(33,DeadDate.getJFormattedTextField().getText());
                 pst.setString(34,TimeOfDead);
                 pst.setString(35,Identification.getText());
-
-                pst.setString(36,noPerson);
-                pst.setString(37,crimecaseno.getText());
+               pst.setString(36,TambomDie.getText());
+                pst.setString(37,AmphurDie.getText());
+                pst.setString(38,ProvinceDie.getText());
+                pst.setString(39,TambomFoundBody.getText());
+                pst.setString(40,AmphurFoundBody.getText());
+                pst.setString(41,ProvinceFoundBody.getText());
+                pst.setString(42,noPerson);
+                pst.setString(43,crimecaseno.getText());
      
                 int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
                     JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
@@ -1103,6 +1242,7 @@ public class Identity_DeadForm extends javax.swing.JDialog {
             }
 
         }
+        
 
     }//GEN-LAST:event_BtSaveAccusedActionPerformed
 
@@ -1147,6 +1287,30 @@ public class Identity_DeadForm extends javax.swing.JDialog {
     private void AmphurActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AmphurActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_AmphurActionPerformed
+
+    private void TambomDieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TambomDieActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TambomDieActionPerformed
+
+    private void AmphurDieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AmphurDieActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AmphurDieActionPerformed
+
+    private void ProvinceDieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProvinceDieActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ProvinceDieActionPerformed
+
+    private void TambomFoundBodyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TambomFoundBodyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TambomFoundBodyActionPerformed
+
+    private void ProvinceFoundBodyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProvinceFoundBodyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ProvinceFoundBodyActionPerformed
+
+    private void AmphurFoundBodyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AmphurFoundBodyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AmphurFoundBodyActionPerformed
 
    
  
@@ -1342,7 +1506,7 @@ public class Identity_DeadForm extends javax.swing.JDialog {
                               pst2.setString(1,Age.getText());
                               pst2.setString(2,Amphur.getText());
                               pst2.setString(3,BirthDay.getJFormattedTextField().getText());
-                              pst2.setString(4,BloodGroup.getText());
+                              pst2.setString(4,BloodGroup.getSelectedItem().toString());
                               pst2.setString(5,ExpiredDate.getJFormattedTextField().getText());
                               pst2.setString(6,FatherFullName.getText());
                               pst2.setString(7,FullNamePerson.getText());
@@ -1380,7 +1544,9 @@ public class Identity_DeadForm extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Age;
     private javax.swing.JTextField Amphur;
-    private javax.swing.JTextField BloodGroup;
+    private javax.swing.JTextField AmphurDie;
+    private javax.swing.JTextField AmphurFoundBody;
+    private javax.swing.JComboBox<String> BloodGroup;
     private javax.swing.JButton BtSaveAccused;
     private javax.swing.JTextField DeathLocation;
     private javax.swing.JTextField FatherFullName;
@@ -1401,8 +1567,12 @@ public class Identity_DeadForm extends javax.swing.JDialog {
     private javax.swing.JTextField PhonePerson;
     private javax.swing.JTextField PlaceOfFoundBody;
     private javax.swing.JTextField Province;
+    private javax.swing.JTextField ProvinceDie;
+    private javax.swing.JTextField ProvinceFoundBody;
     private javax.swing.JTextField Race;
     private javax.swing.JTextField Religion;
+    private javax.swing.JTextField TambomDie;
+    private javax.swing.JTextField TambomFoundBody;
     private javax.swing.JTextField Tambon;
     private javax.swing.JTextField Weight;
     private javax.swing.JTextField ZipCode;
@@ -1411,6 +1581,7 @@ public class Identity_DeadForm extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -1426,8 +1597,11 @@ public class Identity_DeadForm extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
@@ -1437,6 +1611,8 @@ public class Identity_DeadForm extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
