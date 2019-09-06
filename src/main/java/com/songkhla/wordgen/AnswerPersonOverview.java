@@ -5,17 +5,31 @@
  */
 package com.songkhla.wordgen;
 
+import java.awt.Font;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Vector;
+import javax.swing.JFrame;
+import org.json.simple.JSONObject;
+
 /**
  *
  * @author Computer
  */
-public class AnswerPersonOverview extends javax.swing.JFrame {
+public class AnswerPersonOverview extends javax.swing.JDialog {
 
     /**
      * Creates new form AnswerPersonOverview
      */
-    public AnswerPersonOverview() {
+    String typeCase,typePerson;
+    public AnswerPersonOverview(JFrame parrent,JSONObject datacase) {
+        super(parrent,true);
         initComponents();
+    
+        typeCase=datacase.get("TypeCase")+"";
+         typePerson=datacase.get("TypePerson")+"";
+       RefreshData();
     }
 
     /**
@@ -29,12 +43,13 @@ public class AnswerPersonOverview extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        AnswerTable = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        AnswerTable.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        AnswerTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -45,9 +60,18 @@ public class AnswerPersonOverview extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        AnswerTable.setRowHeight(25);
+        AnswerTable.getTableHeader().setFont(new Font("TH SarabunPSK", Font.BOLD, 20));
+        AnswerTable.getTableHeader().setOpaque(false);
+        jScrollPane1.setViewportView(AnswerTable);
 
-        jButton1.setText("jButton1");
+        jButton1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jButton1.setText("เลือก");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -86,6 +110,13 @@ public class AnswerPersonOverview extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+         int number=AnswerTable.getSelectedRow();
+        AnswerPersonForm.AnswerDetail.setText(AnswerTable.getValueAt(number, 1).toString());
+        setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -116,15 +147,58 @@ public class AnswerPersonOverview extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AnswerPersonOverview().setVisible(true);
+//                new AnswerPersonOverview().setVisible(true);
             }
         });
     }
+ public void RefreshData(){
+        try{
+        Connection con = ConnectDatabase.connect();
+        Statement stmt = con.createStatement();
+        String sql = "select * from Answer where AnswerTypeCase='"+typeCase+"' and AnswerTypePerson='"+typePerson+"'";
+        ResultSet rs = stmt.executeQuery(sql);
+        Vector<Vector> tabledata = new Vector<Vector>();
+        while(rs.next()){
+            Vector<String> row = new Vector<String>();
+            row.add(rs.getString("IdAnswer"));
+            row.add(rs.getString("AnswerDetail"));
+             row.add(rs.getString("AnswerTypePerson"));
+              row.add(rs.getString("AnswerTypeCase"));
+            tabledata.add(row);
+        }
+        rs.close();
+        stmt.close();
+        Vector ColumnName = new Vector();
+        ColumnName.add("รหัส");
+        ColumnName.add("คำให้การ");
+        ColumnName.add("ประเภท");
+        ColumnName.add("คดี");
+        AnswerTable.setModel(new javax.swing.table.DefaultTableModel(
+            tabledata,
+            ColumnName
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
 
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+//         jTableAction.getColumnModel().getColumn(0).setWidth(40);
+//jTableAction.getColumnModel().getColumn(0).setMinWidth(40);
+AnswerTable.getColumnModel().getColumn(0).setMaxWidth(40); 
+//jTableAction.getColumnModel().getColumn(2).setMaxWidth(200); 
+
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable AnswerTable;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

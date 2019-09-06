@@ -141,7 +141,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
     PreparedStatement pst=null;
     DataCase dc =new DataCase();
     String person;
-    String caseid;
+    String caseid,stSuspect,arrestDate;
     String dateF,dateTot,Court,StatusBail,RatePrison;
          String caseyear,casetype,caseno,PoliceStaionName;
 
@@ -216,7 +216,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         if(datain != null){
             
          try{
-//             closeText();
+              stSuspect=datain.get("StatusSuspect")+"";
              StatusSuspect.setText(datain.get("StatusSuspect")+"");
              Court=datain.get("CourtSuspect")+"";
              StatusBail=datain.get("StatusBail")+"";
@@ -235,8 +235,129 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 //            SueFirstDate.setText(datain.get("SueFirstDate")+"");   
             PlaceArrest.setText(Checknull(datain.get("PlaceArrest")));
             DateArrest.setText(Checknull(datain.get("ArrestDateTime")));
-           
-            CourtSuspect.setText(datain.get("CourtSuspect")+"");            
+           String a=datain.get("ArrestDateTimeEnd")+"";
+                    if(a == null || a.equals("null")|| a.equals("") )
+                    { ArrestDateTimeEnd.setText("");
+        //                SueFirstDate.setText("");
+                 }   
+            else{
+             ArrestDateTimeEnd.setText(datain.get("ArrestDateTimeEnd")+"");
+             SimpleDateFormat  format = new SimpleDateFormat("d/MM/yyyy");
+             Date aa=format.parse(a);
+             SueFirstDate.setText(format.format(aa)+"");
+             arrestDate=format.format(aa)+"";
+            
+         }
+            CourtSuspect.setText(datain.get("CourtSuspect")+"");
+            String firstsue=datain.get("SueFirst")+"";
+             System.out.println("ddddddddddddddddd:"+firstsue+":gggggggg");
+             
+             if(firstsue.equals(null) ||firstsue.equals("null")||firstsue.equals(""))
+            {
+                
+                if(stSuspect.equals("ผัดฟ้องฝากขัง")||stSuspect.equals("ผัดฟ้อง")){
+            SueFirst.setText("1");
+            SueFirstDate.setText(arrestDate);
+            SueFirstTotal.setText("6");
+            SueFirstEnd.setText(CalculateDateEnd(SueFirstDate.getText(), SueFirstTotal.getText()));
+            SueFirstRequest.setSelectedIndex(1);
+            SueSecond.setText("2");
+            SueSecDateT.setText(CalculateDateNextTimes(SueFirstEnd.getText()));
+            SueSecTotal.setText("6");
+            SueSecEnd.setText(CalculateDateEnd(SueSecDateT.getText(), SueSecTotal.getText()));
+            SueSecRequest.setSelectedIndex(1);
+            SueThird.setText("3");
+            ThirdDate.setText(CalculateDateNextTimes(SueSecEnd.getText()));
+            SueThirdTotal.setText("6");
+            SueThirdEnd.setText(CalculateDateEnd(ThirdDate.getText(), SueThirdTotal.getText()));
+            SueThirdRequest.setSelectedIndex(1);
+            SueForth.setText("4");
+            FourthDate.setText(CalculateDateNextTimes(SueThirdEnd.getText()));
+            SueFourthTotal.setText("6");
+            SueFourthEnd.setText(CalculateDateEnd(FourthDate.getText(), SueFourthTotal.getText()));
+            SueFourthRequest.setSelectedIndex(1);
+            SueFifth.setText("5");
+            FifthDate.setText(CalculateDateNextTimes(SueFourthEnd.getText()));
+            SueFifthTotal.setText("6");
+            SueFifthEnd.setText(CalculateDateEnd(FifthDate.getText(), SueFifthTotal.getText()));
+            SueFifthRequest.setSelectedIndex(1);
+                }
+                 if(stSuspect.equals("ฝากขัง")&& RatePrison.equals("ไม่เกิน 10 ปี")){
+            SueFirst.setText("1");
+            SueFirstDate.setText(arrestDate);
+            SueFirstTotal.setText("12");
+            SueFirstEnd.setText(CalculateDateEnd(SueFirstDate.getText(), SueFirstTotal.getText()));
+            SueFirstRequest.setSelectedIndex(1);
+            SueSecond.setText("2");
+            SueSecDateT.setText(CalculateDateNextTimes(SueFirstEnd.getText()));
+            SueSecTotal.setText("12");
+            SueSecEnd.setText(CalculateDateEnd(SueSecDateT.getText(), SueSecTotal.getText()));
+            SueSecRequest.setSelectedIndex(1);
+            SueThird.setText("3");
+            ThirdDate.setText(CalculateDateNextTimes(SueSecEnd.getText()));
+            SueThirdTotal.setText("12");
+            SueThirdEnd.setText(CalculateDateEnd(ThirdDate.getText(), SueThirdTotal.getText()));
+            SueThirdRequest.setSelectedIndex(1);
+            SueForth.setText("4");
+            FourthDate.setText(CalculateDateNextTimes(SueThirdEnd.getText()));
+            SueFourthTotal.setText("12");
+            SueFourthEnd.setText(CalculateDateEnd(FourthDate.getText(), SueFourthTotal.getText()));
+            SueFourthRequest.setSelectedIndex(1);
+
+                }
+                    if(stSuspect.equals("ฝากขัง")&& RatePrison.equals("ตั้งแต่ 10 ปีขึ้นไป")){
+            SueFirst.setText("1");
+            SueFirstDate.setText(arrestDate);
+            SueFirstTotal.setText("12");
+            SueFirstEnd.setText(CalculateDateEnd(SueFirstDate.getText(), SueFirstTotal.getText()));
+            SueFirstRequest.setSelectedIndex(1);
+            SueSecond.setText("2");
+            SueSecDateT.setText(CalculateDateNextTimes(SueFirstEnd.getText()));
+            SueSecTotal.setText("12");
+            SueSecEnd.setText(CalculateDateEnd(SueSecDateT.getText(), SueSecTotal.getText()));
+            SueSecRequest.setSelectedIndex(1);
+            SueThird.setText("3");
+            ThirdDate.setText(CalculateDateNextTimes(SueSecEnd.getText()));
+            SueThirdTotal.setText("12");
+            SueThirdEnd.setText(CalculateDateEnd(ThirdDate.getText(), SueThirdTotal.getText()));
+            SueThirdRequest.setSelectedIndex(1);
+            SueForth.setText("4");
+            FourthDate.setText(CalculateDateNextTimes(SueThirdEnd.getText()));
+            SueFourthTotal.setText("12");
+            SueFourthEnd.setText(CalculateDateEnd(FourthDate.getText(), SueFourthTotal.getText()));
+            SueFourthRequest.setSelectedIndex(1);
+            SueFifth.setText("5");
+            FifthDate.setText(CalculateDateNextTimes(SueFourthEnd.getText()));
+            SueFifthTotal.setText("12");
+            SueFifthEnd.setText(CalculateDateEnd(FifthDate.getText(), SueFifthTotal.getText()));
+            SueFifthRequest.setSelectedIndex(1);
+            SueSixth.setText("6");
+            SixthDate.setText(CalculateDateNextTimes(SueFifthEnd.getText()));
+            SueSixthTotal.setText("12");
+            SueSixthEnd.setText(CalculateDateEnd(SixthDate.getText(), SueSixthTotal.getText()));
+            SueSixthRequest.setSelectedIndex(1);
+            SueSeventh.setText("7");
+            SevDate.setText(CalculateDateNextTimes(SueSixthEnd.getText()));
+            SueSevenTotal.setText("12");
+            SueSevenEnd.setText(CalculateDateEnd(SevDate.getText(), SueSevenTotal.getText()));
+            SueSevRequest.setSelectedIndex(1);
+                }
+            }
+             else{
+//             closeText();
+//                 String a=datain.get("ArrestDateTimeEnd")+"";
+//            if(a == null || a.equals("null")|| a.equals("") )
+//            { ArrestDateTimeEnd.setText("");
+////                SueFirstDate.setText("");
+//         }   
+//            else{
+//             ArrestDateTimeEnd.setText(datain.get("ArrestDateTimeEnd")+"");
+//             SimpleDateFormat  format = new SimpleDateFormat("dd/MM/yyyy");
+//             Date aa=format.parse(a);
+//             SueFirstDate.setText(format.format(aa)+"");
+//             arrestDate=format.format(aa)+"";
+//            
+//         }
             SueFirst.setText(Checknull(datain.get("SueFirst")));
             SueFirstDate.setText(Checknull(datain.get("SueFirstDate")));        
 //            SueFirstEnd.setText(Checknull(datain.get("SueFirstEnd")));
@@ -283,17 +404,8 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             SueSevenTotal.setText(Checknull(datain.get("SueSevenTotal")));
            SueSevRequest.setSelectedItem(Checknull(datain.get("SueSevenRequest")));
            SueSevCause.setSelectedItem(Checknull(datain.get("SueSevenCause")));        
-            String a=datain.get("ArrestDateTimeEnd")+"";
-            if(a == null || a.equals("null")|| a.equals("") )
-            { ArrestDateTimeEnd.setText("");
-//                SueFirstDate.setText("");
-         }   
-            else{
-             ArrestDateTimeEnd.setText(datain.get("ArrestDateTimeEnd")+"");
-             SimpleDateFormat  format = new SimpleDateFormat("dd/MM/yyyy");
-             Date aa=format.parse(a);
-             SueFirstDate.setText(format.format(aa)+"");
-         }
+         
+             }
          }  catch(Exception e)
          {e.printStackTrace();}
         }
@@ -770,7 +882,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         SueFirstRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
 
         SueFirstCause.setEditable(true);
-        SueFirstCause.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        SueFirstCause.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         SueFirstCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
 
         SueSeventh.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
@@ -846,7 +958,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         SueSecRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
 
         SueSecCause.setEditable(true);
-        SueSecCause.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        SueSecCause.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         SueSecCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
 
         SueThirdTotal.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
@@ -861,7 +973,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         SueThirdRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
 
         SueSevCause.setEditable(true);
-        SueSevCause.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        SueSevCause.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         SueSevCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
 
         SueSevenTotal.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
@@ -909,19 +1021,19 @@ public class SueCrimesFrom extends javax.swing.JDialog {
         SueSixthRequest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
 
         SueThirdCause.setEditable(true);
-        SueThirdCause.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        SueThirdCause.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         SueThirdCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
 
         SueFourthCause.setEditable(true);
-        SueFourthCause.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        SueFourthCause.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         SueFourthCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
 
         SueFifthCause.setEditable(true);
-        SueFifthCause.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        SueFifthCause.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         SueFifthCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
 
         SueSixthCause.setEditable(true);
-        SueSixthCause.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        SueSixthCause.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         SueSixthCause.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "สอบพยานอีก 5 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 4 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 3 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 2 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "สอบพยานอีก 1 ปาก และรอผลการตรวจสอบพิมพ์มือผู้ต้องหา", "รอผลการตรวจสอบพิมพ์มือผู้ต้องหา" }));
 
         SevDate.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
@@ -2148,11 +2260,11 @@ SueFirstCause.setEnabled(true);
     public static String ChangFormat(String DateSue){
         String newFormatDate=null;
        try{   Calendar cal;
-        SimpleDateFormat formatdate =new SimpleDateFormat("dd/MM/yyyy");     
+        SimpleDateFormat formatdate =new SimpleDateFormat("d/MM/yyyy");     
         Date b=formatdate.parse(DateSue);
          cal = Calendar.getInstance();
           cal.setTime(b); 
-           SimpleDateFormat dateformat =new SimpleDateFormat("yyyy/MM/dd");   
+           SimpleDateFormat dateformat =new SimpleDateFormat("yyyy/MM/d");   
          newFormatDate=dateformat.format(cal.getTime());
     
          }
@@ -2966,7 +3078,7 @@ catch (Exception d) {  //System.out.println(d);
         try{
             Calendar cal;
             Locale lc = new Locale("th","TH");
-                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                        SimpleDateFormat sdf = new SimpleDateFormat("d/MM/yyyy");
                         Date dateS = sdf.parse(DateStart);
                         cal=Calendar.getInstance();
                         cal.setTime(dateS);
@@ -2990,7 +3102,7 @@ catch (Exception d) {  //System.out.println(d);
         try{
             Calendar cal;
             Locale lc = new Locale("th","TH");
-                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                        SimpleDateFormat sdf = new SimpleDateFormat("d/MM/yyyy");
                         Date dateS = sdf.parse(DateEnd);
                         cal=Calendar.getInstance();
                         cal.setTime(dateS);
@@ -3031,7 +3143,7 @@ catch (Exception d) {  //System.out.println(d);
          cal = Calendar.getInstance();
           cal.setTime(b); 
           System.out.println("fffffff : "+cal.getTime());
-           SimpleDateFormat dateformat =new SimpleDateFormat("dd/MM/yyyy");   
+           SimpleDateFormat dateformat =new SimpleDateFormat("d/MM/yyyy");   
          newFormatDate=dateformat.format(cal.getTime()); 
        
         }
@@ -3067,8 +3179,8 @@ catch (Exception d) {  //System.out.println(d);
      
             Calendar cal;
             Locale lc = new Locale("th","TH");
-                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy",lc);
-                         SimpleDateFormat newdf = new SimpleDateFormat("EEE dd/MM/yyyy",lc);
+                        SimpleDateFormat sdf = new SimpleDateFormat("d/MM/yyyy",lc);
+                         SimpleDateFormat newdf = new SimpleDateFormat("EEE d/MM/yyyy",lc);
                         Date dateS = sdf.parse(DateEnd);
 //                        CalculateDateExpr(DateEnd);
                     String datenew;
@@ -3110,8 +3222,8 @@ catch (Exception d) {  //System.out.println(d);
        try{
      if(DateEnd != null && !"".equals(DateEnd)){
                Locale lc = new Locale("th","TH");
-           SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy",lc);
-                        SimpleDateFormat  format = new SimpleDateFormat("dd/MM/yyyy",lc);  
+           SimpleDateFormat dateFormat = new SimpleDateFormat("d/MM/yyyy",lc);
+                        SimpleDateFormat  format = new SimpleDateFormat("d/MM/yyyy",lc);  
                         String d2Day=dateFormat.format(new Date());
                         Date dateTo =null;
                         Date dateArrEnd=null;
@@ -3139,7 +3251,7 @@ catch (Exception d) {  //System.out.println(d);
         try{
             Calendar cal;
             Locale lc = new Locale("th","TH");
-                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                        SimpleDateFormat sdf = new SimpleDateFormat("d/MM/yyyy");
                         Date dateS = sdf.parse(DateEnd);
                         cal=Calendar.getInstance();
                         cal.setTime(dateS);

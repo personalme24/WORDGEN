@@ -243,7 +243,7 @@ String typeC,cid;
                 String sql = "select NoPerson,TambomDie,AmphurDie,ProvinceDie,TambomFoundBody,AmphurFoundBody,ProvinceFoundBody,Identification,CurrentAddress,Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,Weight,HouseNumber,NoArrestWarrant,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
                         "PhonePerson,OrderPerson,StatusSuspect,BailDate,StatusBail,RatePrison,CourtSuspect,ArrestDateTimeEnd,Province,Race,Religion,Tambon,TypePerson,"
-                        + "ZipCode,caseIdPerson,ArrestDateTime,PlaceArrest,SusConfress,PlaceOfFoundBody,DeathLocation,StatusSueAndPutInJail,BodyFoundDate,BodyFoundTime,DateOfDie,TimeOfDie\n"
+                        + "ZipCode,caseIdPerson,ArrestDateTime,PlaceArrest,SusConfress,PlaceOfFoundBody,DeathLocation,StatusSueAndPutInJail,BodyFoundDate,BodyFoundTime,DateOfDie,TimeOfDie,AnswerPerson,PlaceArrestTambon,PlaceArrestAmphur,PlaceArrestProvince\n"
                         + "from person where noperson='"+Noperson+ "' and caseIdPerson='"+crimecaseno+"'";
          
                 Connection con = ConnectDatabase.connect();
@@ -307,6 +307,10 @@ String typeC,cid;
                    data.put("AmphurFoundBody", rs.getString("AmphurFoundBody"));
                    data.put("ProvinceFoundBody", rs.getString("ProvinceFoundBody"));
                    data.put("NoArrestWarrant", rs.getString("NoArrestWarrant"));
+                    data.put("AnswerPerson", rs.getString("AnswerPerson"));
+                   data.put("PlaceArrestTambon", rs.getString("PlaceArrestTambon"));
+                   data.put("PlaceArrestAmphur", rs.getString("PlaceArrestAmphur"));
+                   data.put("PlaceArrestProvince", rs.getString("PlaceArrestProvince"));
 
                    if(typeC.equals("Dead")){
                       Identity_DeadForm id=new Identity_DeadForm(f,data);

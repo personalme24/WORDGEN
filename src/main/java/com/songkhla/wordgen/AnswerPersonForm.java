@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.json.simple.JSONObject;
@@ -213,7 +214,17 @@ public class AnswerPersonForm extends javax.swing.JDialog {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        
+            JSONObject type=new JSONObject();
+        type.put("TypeCase", typecase);
+        type.put("TypePerson", typePerson);
+        JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame in = (JFrame)(dialog.getParent());
+        in.removeAll();
+         AnswerPersonOverview rf =new AnswerPersonOverview(in,type);
+        rf.pack();
+        rf.setLocationRelativeTo(null);
+        rf.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
