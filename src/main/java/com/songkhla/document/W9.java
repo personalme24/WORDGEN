@@ -148,6 +148,7 @@ public static void w9(String cc) {
                 bookmarkvalue.put("PA7",Checknull(s.getString("AccureandOther")));
                
                  bookmarkvalue.put("A5", Checknull(s.getString("AnswerSuspectCase")));
+                 bookmarkvalue.put("A3", Checknull(s.getString("ActionDetailCase")));
                 
 //                   ----------------------------ผู้ต้องหา--------------------
                     bookmarkvalue.put("PS2", Checknull(s.getString("PeopleRegistrationID"))); 
@@ -276,7 +277,8 @@ public static void nw9( ) {
                
                 bookmarkvalue.put("PA7","");
                
-                
+                 bookmarkvalue.put("A3","");
+                 bookmarkvalue.put("A5","");
                 
 //                   ----------------------------ผู้ต้องหา--------------------
                     bookmarkvalue.put("PS2", ""); 
