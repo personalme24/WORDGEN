@@ -72,8 +72,10 @@ public class AccusedForm extends javax.swing.JDialog {
          ImageIcon img = new ImageIcon("./Master/WD.png");
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
+            
 //     Occupation = new HintTextField("Another hint here");
      crimecaseno.setVisible(false);
+     AnswerPerson.setVisible(false);
      FullNamePerson.addCaretListener(new TextFieldCaretListener());
      comboBox.addActionListener(new ComboBoxActionListener());
      UtilDateModel model2 = new UtilDateModel();

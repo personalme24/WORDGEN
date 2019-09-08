@@ -30,12 +30,14 @@ public class AnswerPersonForm extends javax.swing.JDialog {
     super(parrent,true);
 
         initComponents();
+         AnswerTypeCase.setVisible(false);
+          AnswerTypePerson.setVisible(false);
         typePerson=datacase.get("TypePerson")+"";
         typecase=datacase.get("TypeCase")+"";
 
         AnswerTypePerson.setText(typePerson);
         AnswerTypeCase.setText(typecase);
-
+       
         if(typePerson.equals("ผู้กล่าวหา")){
         AnswerDetail.setText( AccusedForm.AnswerPerson.getText());
         }

@@ -63,6 +63,8 @@ public class WitnessForm extends javax.swing.JDialog {
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
             crimecaseno.setVisible(false);
+            AnswerPerson.setVisible(false);
+
       UtilDateModel model2 = new UtilDateModel();
             model2.setValue(Calendar.getInstance().getTime());
             Properties p = new Properties();

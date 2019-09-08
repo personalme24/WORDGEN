@@ -113,12 +113,13 @@ public class W5 {
                   
                    String sql="select crimecase.*,ChargeCase.*,P1.*,P2.*,P3.*,ActionsCaseData.*,InvestInformation.*\n" +
                                 "from crimecase inner join(\n" +
-                              "SELECT  min(Person.NoPerson),Person.FullNamePerson AccuredName,Person.Age AgeAccured,Person.Race AccuredRace,Person.Nationality AccuredNati,Person.AnswerPerson AccuredAnswerPerson"
+                              "SELECT  min(Person.NoPerson),Person.FullNamePerson AccuredName,Person.Age AgeAccured,Person.Race AccuredRace,Person.Nationality AccuredNati,Person.AnswerPerson AccuredAnswerPerson\n"
                             + "FROM Person where Person.TypePerson='ผู้กล่าวหา'\n" +
                               ")P1\n" +
                               "inner join(\n" +
                                 "SELECT min(Person.NoPerson),Person.FullNamePerson suspectName,Person.Age suspectAge,Person.Amphur suspectAmp,Person.Race suspectRace,\n"+
-                                "Person.Nationality suspectNati,Person.NoArrestWarrant suspectNoArrestWarrant,Person.AnswerPerson suspectAnswerPerson,Person.CourtSuspect suspectCourtSuspect,Person.StatusSuspect suspectStatusSuspect"
+                                "Person.Nationality suspectNati,Person.NoArrestWarrant suspectNoArrestWarrant,Person.ArrestDateTime ArrestDateTime,Person.AnswerPerson suspectAnswerPerson,"
+                                + "Person.CourtSuspect suspectCourtSuspect,Person.StatusSuspect suspectStatusSuspect\n"
                             + "FROM Person where Person.TypePerson='ผู้ต้องหา' and Person.caseIdPerson='"+cc+"'\n" +
                                 ")P2\n" +
                                 "inner join(\n" +
@@ -218,8 +219,10 @@ public class W5 {
                     bookmarkvalue.put("PS14", Checknull(s.getString("suspectRace")));
                     bookmarkvalue.put("PS15",  Checknull(s.getString("suspectNati")));
                     bookmarkvalue.put("P54",Checknull(ToDate(s.getString("ArrestDateTime"))));
-                    bookmarkvalue.put("PS91",  Checknull(s.getString("SinceImprison")));
-                    bookmarkvalue.put("PS96",  Checknull(s.getString("")));
+                  bookmarkvalue.put("P54","");
+
+                    bookmarkvalue.put("PS91",  "");
+                    bookmarkvalue.put("PS96",  "");
                     bookmarkvalue.put("PS133",  Checknull(s.getString("suspectAnswerPerson")));
                     bookmarkvalue.put("WN",  Checknull(s.getString("suspectNoArrestWarrant")));
                     
@@ -240,7 +243,8 @@ public class W5 {
                             bookmarkvalue.put("C12", Checknull(s.getString("CrimeLocationDistrict")));
                             bookmarkvalue.put("C13", Checknull(s.getString("CrimeLocationAmphur")));
                             bookmarkvalue.put("C14", Checknull(s.getString("CrimeLocationProvince")));
-                            bookmarkvalue.put("C131", Checknull(s.getString("")));
+                            bookmarkvalue.put("C131", Checknull(ToDate(s.getString("OccuredDateEnd"))));
+                            bookmarkvalue.put("C132", ReplaceCollon(s.getString("OccuredTimeEnd")));
                             
                            
                                 /*

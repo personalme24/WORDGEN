@@ -831,7 +831,7 @@ JTextPopupMenu.addTo(CourtResult);
         jLabel4.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel4.setText("/");
 
-        JSpinner.DateEditor timeEditor3 = new JSpinner.DateEditor(OccuredDateTime, "H:mm");
+        JSpinner.DateEditor timeEditor3 = new JSpinner.DateEditor(OccuredDateTime, "HH:mm");
         OccuredDateTime.setEditor(timeEditor3);
         //jSpinner1.setValue(new Date());
         OccuredDateTime.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -849,7 +849,7 @@ JTextPopupMenu.addTo(CourtResult);
         jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel8.setText("วันที่รับแจ้ง");
 
-        JSpinner.DateEditor te = new JSpinner.DateEditor(CaseAcceptTimee, "H:mm");
+        JSpinner.DateEditor te = new JSpinner.DateEditor(CaseAcceptTimee, "HH:mm");
         CaseAcceptTimee.setEditor(te);
         //jSpinner1.setValue(new Date());
         CaseAcceptTimee.setPreferredSize(new java.awt.Dimension(29, 25));
@@ -869,7 +869,7 @@ JTextPopupMenu.addTo(CourtResult);
         jLabel9.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel9.setText("เวลารับแจ้ง");
 
-        JSpinner.DateEditor timeEditor = new JSpinner.DateEditor(CaseRequestTimee, "H:mm");
+        JSpinner.DateEditor timeEditor = new JSpinner.DateEditor(CaseRequestTimee, "HH:mm");
         CaseRequestTimee.setEditor(timeEditor);
         //jSpinner1.setValue(new Date());
 
@@ -957,7 +957,7 @@ JTextPopupMenu.addTo(CourtResult);
             .addGap(0, 32, Short.MAX_VALUE)
         );
 
-        JSpinner.DateEditor timeEditor4 = new JSpinner.DateEditor(OccuredDateTimeEnd, "H:mm");
+        JSpinner.DateEditor timeEditor4 = new JSpinner.DateEditor(OccuredDateTimeEnd, "HH:mm");
         OccuredDateTimeEnd.setEditor(timeEditor4);
         //jSpinner1.setValue(new Date());
         OccuredDateTimeEnd.addKeyListener(new java.awt.event.KeyAdapter() {

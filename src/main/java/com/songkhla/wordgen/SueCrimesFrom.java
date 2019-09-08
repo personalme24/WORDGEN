@@ -1994,7 +1994,7 @@ SueFirstCause.setEnabled(true);
        SueSixthCause.setEnabled(false);
        Print6.setEnabled(false);
        }
-        if(Court.equals("ศาลอาญา")&&RatePrison.equals("ไม่เกิน 10 ปี"))
+        if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("ไม่เกิน 10 ปี"))
        {
        SueSeventh.setEnabled(false);
        SevDate.setEnabled(false);
@@ -2048,12 +2048,12 @@ SueFirstCause.setEnabled(true);
             
            }      
        }
-            if(Court.equals("ศาลอาญา")&&RatePrison.equals("ตั้งแต่ 10 ปีขึ้นไป")){      
+            if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("ตั้งแต่ 10 ปีขึ้นไป")){      
            if(totaldate>12){
             JOptionPane.showMessageDialog(jPanel1, "ไม่เกิน 12 วัน","แจ้งเตือน", JOptionPane.INFORMATION_MESSAGE); 
            }      
        }
-           if(Court.equals("ศาลอาญา")&&RatePrison.equals("ไม่เกิน 10 ปี")){      
+           if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&RatePrison.equals("ไม่เกิน 10 ปี")){      
            if(totaldate>12){
             JOptionPane.showMessageDialog(jPanel1,"ไม่เกิน 12 วัน","แจ้งเตือน",  JOptionPane.INFORMATION_MESSAGE); 
            }      

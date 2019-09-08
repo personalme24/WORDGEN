@@ -303,7 +303,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                 String ot=datain.get("OccuredTime")+"";
                 String ote=datain.get("OccuredTimeEnd")+"";
 
-                SimpleDateFormat timeFormat = new SimpleDateFormat("H:mm");
+                SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
                 Date timeReq = timeFormat.parse(rt);
                 Date timeAcc = timeFormat.parse(at);
                 Date timeOccu = timeFormat.parse(ot);
@@ -792,7 +792,7 @@ JTextPopupMenu.addTo(CourtResult);
         jLabel4.setText("/");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, -1, 30));
 
-        JSpinner.DateEditor timeEditor3 = new JSpinner.DateEditor(OccuredDateTime, "H:mm");
+        JSpinner.DateEditor timeEditor3 = new JSpinner.DateEditor(OccuredDateTime, "HH:mm");
         OccuredDateTime.setEditor(timeEditor3);
         //jSpinner1.setValue(new Date());
         jPanel1.add(OccuredDateTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, 100, 30));
@@ -809,7 +809,7 @@ JTextPopupMenu.addTo(CourtResult);
         jLabel8.setText("วันที่รับแจ้ง");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, -1, 30));
 
-        JSpinner.DateEditor te = new JSpinner.DateEditor(CaseAcceptTimee, "H:mm");
+        JSpinner.DateEditor te = new JSpinner.DateEditor(CaseAcceptTimee, "HH:mm");
         CaseAcceptTimee.setEditor(te);
         //jSpinner1.setValue(new Date());
         CaseAcceptTimee.setPreferredSize(new java.awt.Dimension(29, 25));
@@ -835,7 +835,7 @@ JTextPopupMenu.addTo(CourtResult);
         jLabel9.setText("เวลารับแจ้ง");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 410, -1, 30));
 
-        JSpinner.DateEditor timeEditor = new JSpinner.DateEditor(CaseRequestTimee, "H:mm");
+        JSpinner.DateEditor timeEditor = new JSpinner.DateEditor(CaseRequestTimee, "HH:mm");
         CaseRequestTimee.setEditor(timeEditor);
         //jSpinner1.setValue(new Date());
         jPanel1.add(CaseRequestTimee, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 410, 100, 30));
@@ -1181,7 +1181,7 @@ JTextPopupMenu.addTo(CourtResult);
 
         jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 20, -1, -1));
 
-        JSpinner.DateEditor timeEditor4 = new JSpinner.DateEditor(OccuredDateTimeEnd, "H:mm");
+        JSpinner.DateEditor timeEditor4 = new JSpinner.DateEditor(OccuredDateTimeEnd, "HH:mm");
         OccuredDateTimeEnd.setEditor(timeEditor4);
         //jSpinner1.setValue(new Date());
         jPanel1.add(OccuredDateTimeEnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 370, 100, 30));
