@@ -83,8 +83,9 @@ public class W80 {
                          Position=rs1.getString("Position");
                       }
                   
-                   String sql="select crimecase.*\n" +
+                   String sql="select crimecase.*,InvestInformation.*\n" +
                                "from crimecase \n" +
+                               "left join InvestInformation on crimecase.PoliceNameCase=InvestInformation.InvestId \n" +
                                "where crimecase.CaseId='"+cc+"'\n"+
                                "group by crimecase.CaseId";
                    
@@ -111,7 +112,12 @@ public class W80 {
                  bookmarkvalue.put("S6", Checknull(StationProvince));
                 
                  
-                
+                        bookmarkvalue.put("P02", Checknull(s.getString("InvestRank")));
+                        bookmarkvalue.put("P03", Checknull(s.getString("InvestName")));
+                        bookmarkvalue.put("P04", "");
+                        bookmarkvalue.put("P05", Checknull(s.getString("InvestPosition")));
+                        bookmarkvalue.put("P012", Checknull(s.getString("InvestRankFull"))); //ยศเต็ม
+                        bookmarkvalue.put("P013", Checknull(s.getString("InvestPosition"))); //ตำแหน่งเต็ม
                     
                    
     

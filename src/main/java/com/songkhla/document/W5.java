@@ -53,6 +53,7 @@ public class W5 {
             String casetype;
              String STATUS;
              String caseno;
+             String CourtSuspect;
              String PoliceStationName="";
              String StationAmphur="";
              String StationProvince="";
@@ -70,6 +71,9 @@ public class W5 {
              String FirstName ="";
              String LastName ="";
              String Position ="";
+             String CriminalCourt="";
+             String JuvenileCourt="";
+             String MilitaryCourt="";
            
              
              
@@ -91,6 +95,10 @@ public class W5 {
                          HeadWorkPosition =rs.getString("HeadWorkPosition");
                          HeadRankFull =rs.getString("HeadRankFull");
                          HeadWorkRankFull =rs.getString("HeadWorkRankFull");
+                         CriminalCourt=rs.getString("CriminalCourt");
+                         DistrictCourt =rs.getString("DistrictCourt");
+                         JuvenileCourt =rs.getString("JuvenileCourt");
+                         MilitaryCourt=rs.getString("MilitaryCourt");
                       }
             String sqlDataPolice="SELECT * FROM Police";
                       Statement sp1 = conn.createStatement();
@@ -105,24 +113,25 @@ public class W5 {
                   
                    String sql="select crimecase.*,ChargeCase.*,P1.*,P2.*,P3.*,ActionsCaseData.*,InvestInformation.*\n" +
                                 "from crimecase inner join(\n" +
-                              "SELECT  min(Person.NoPerson),Person.FullNamePerson AccuredName,Person.Age AgeAccured,Person.Race AccuredRace,Person.Nationality AccuredNati "
-                            + "  FROM Person where Person.TypePerson='ผู้กล่าวหา'\n" +
+                              "SELECT  min(Person.NoPerson),Person.FullNamePerson AccuredName,Person.Age AgeAccured,Person.Race AccuredRace,Person.Nationality AccuredNati,Person.AnswerPerson AccuredAnswerPerson"
+                            + "FROM Person where Person.TypePerson='ผู้กล่าวหา'\n" +
                               ")P1\n" +
                               "inner join(\n" +
                                 "SELECT min(Person.NoPerson),Person.FullNamePerson suspectName,Person.Age suspectAge,Person.Amphur suspectAmp,Person.Race suspectRace,\n"+
-                                "Person.Nationality suspectNati FROM Person where Person.TypePerson='ผู้ต้องหา' and Person.caseIdPerson='"+cc+"'\n" +
+                                "Person.Nationality suspectNati,Person.NoArrestWarrant suspectNoArrestWarrant,Person.AnswerPerson suspectAnswerPerson,Person.CourtSuspect suspectCourtSuspect,Person.StatusSuspect suspectStatusSuspect"
+                            + "FROM Person where Person.TypePerson='ผู้ต้องหา' and Person.caseIdPerson='"+cc+"'\n" +
                                 ")P2\n" +
                                 "inner join(\n" +
                                 "SELECT min(Person.NoPerson),Person.FullNamePerson WitnessName,Person.Age WitnessAge,Person.Amphur WitnessAmp,Person.Race WitnessRace,\n" +
-                                "Person.Nationality WitnessNati FROM Person where Person.Related='พยาน' and Person.caseIdPerson='"+cc+"'\n" +
+                                "Person.Nationality WitnessNati,Person.AnswerPerson WitnessAnswerPerson FROM Person where Person.Related='พยาน' and Person.caseIdPerson='"+cc+"'\n" +
                                 ")P3\n" +
                                 "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                                 "left join ActionsCaseData on crimecase.ActionCodeCase = ActionsCaseData.ActionCodeCase\n"+
                                 "left join InvestInformation on crimecase.PoliceNameCase=InvestInformation.InvestId \n" +
                                 "where crimecase.CaseId='"+cc+"'\n"+
                                 "group by crimecase.CaseId";
-//                   pst=conn.prepareStatement(sql);
-//           pst=PreparedStatement(sql);
+
+                   
                 Statement st = conn.createStatement();
             ResultSet s=st.executeQuery(sql); 
                 System.out.println(sql);
@@ -132,6 +141,7 @@ public class W5 {
                STATUS=s.getString("Investigator_Result");
                casetype =s.getString("casetype");
                caseno  =s.getString("crimecasenoyear");
+               CourtSuspect= Checknull(s.getString("suspectCourtSuspect"));
               String Date="";
                 String Month="";
                 String Year="";
@@ -161,6 +171,8 @@ public class W5 {
                 bookmarkvalue.put("C37",Checknull(s.getString("Invest_SendtoDepartment")));
                 bookmarkvalue.put("C38",Checknull(s.getString("Investigator_Number")));
                 bookmarkvalue.put("STATUS",Checknull(STATUS));
+                bookmarkvalue.put("CTY",Checknull(s.getString("suspectStatusSuspect")));
+                
                 
                 bookmarkvalue.put("A2", Checknull(s.getString("ActionDetailCase")));
                 bookmarkvalue.put("A5", Checknull(s.getString("AnswerSuspectCase")));
@@ -179,6 +191,18 @@ public class W5 {
                 bookmarkvalue.put("S15",Checknull(HeadWorkName));
                 bookmarkvalue.put("S16",Checknull(HeadWorkPosition));
                 bookmarkvalue.put("S19",Checknull(DistrictCourt));
+                 if ((CourtSuspect).equals("ศาลแขวง") ){
+                    bookmarkvalue.put("S19",Checknull(DistrictCourt));
+                }
+                if ((CourtSuspect).equals("ศาลอาญา/ศาลจังหวัด")){
+                    bookmarkvalue.put("S19",Checknull(CriminalCourt));
+                }
+                if ((CourtSuspect).equals("ศาลเยาวชนและครอบครัว")){
+                    bookmarkvalue.put("S19",Checknull(JuvenileCourt));
+                }
+                if ((CourtSuspect).equals("ศาลทหาร")){
+                    bookmarkvalue.put("S19",Checknull(MilitaryCourt));
+                }
                 bookmarkvalue.put("S34",Checknull(HeadRankFull));
                 bookmarkvalue.put("S36",Checknull(HeadWorkRankFull));
                 
@@ -186,20 +210,27 @@ public class W5 {
                   bookmarkvalue.put("PA13", Checknull(s.getString("AgeAccured")));
                   bookmarkvalue.put("PA14", Checknull(s.getString("AccuredRace")));
                   bookmarkvalue.put("PA15", Checknull(s.getString("AccuredNati"))); 
+                  bookmarkvalue.put("PA133", Checknull(s.getString("AccuredAnswerPerson"))); 
+                  
 //                    
                     bookmarkvalue.put("PS7",  Checknull(s.getString("SuspectandOther"))); 
                     bookmarkvalue.put("PS13",  Checknull(s.getString("suspectAge")));
                     bookmarkvalue.put("PS14", Checknull(s.getString("suspectRace")));
                     bookmarkvalue.put("PS15",  Checknull(s.getString("suspectNati")));
+                    bookmarkvalue.put("P54",Checknull(ToDate(s.getString("ArrestDateTime"))));
+                    bookmarkvalue.put("PS91",  Checknull(s.getString("SinceImprison")));
+                    bookmarkvalue.put("PS96",  Checknull(s.getString("")));
+                    bookmarkvalue.put("PS133",  Checknull(s.getString("suspectAnswerPerson")));
+                    bookmarkvalue.put("WN",  Checknull(s.getString("suspectNoArrestWarrant")));
                     
                     bookmarkvalue.put("PW7",  Checknull(s.getString("WitnessName"))); 
+                    bookmarkvalue.put("PW133",  Checknull(s.getString("WitnessAnswerPerson"))); 
                    
                          
                         bookmarkvalue.put("B2", Checknull(s.getString("ChargeNameCase")));
                   
                             bookmarkvalue.put("C4",Checknull(ToDate(s.getString("OccuredDate"))));
                             bookmarkvalue.put("C441", ReplaceCollon(s.getString("OccuredTime")));
-                            bookmarkvalue.put("C12", Checknull(s.getString("CrimeLocationDistrict")));
                             bookmarkvalue.put("C5", Checknull(ToDate(s.getString("CaseAcceptDate"))));
                             bookmarkvalue.put("C551",Checknull(ReplaceCollon(s.getString("CaseAccepTime"))));
                             bookmarkvalue.put("C8", Checknull(s.getString("CrimeLocation")));
@@ -209,6 +240,8 @@ public class W5 {
                             bookmarkvalue.put("C12", Checknull(s.getString("CrimeLocationDistrict")));
                             bookmarkvalue.put("C13", Checknull(s.getString("CrimeLocationAmphur")));
                             bookmarkvalue.put("C14", Checknull(s.getString("CrimeLocationProvince")));
+                            bookmarkvalue.put("C131", Checknull(s.getString("")));
+                            
                            
                                 /*
                                 bookmarkvalue.put("P02", Checknull(RankPolice));
@@ -292,6 +325,7 @@ public static void nw5() {
                 bookmarkvalue.put("C37","");
                 bookmarkvalue.put("C38","");
                 bookmarkvalue.put("STATUS","");
+                bookmarkvalue.put("CTY","");
                 
                 bookmarkvalue.put("A2", "");
                 bookmarkvalue.put("C34", "");
@@ -303,24 +337,30 @@ public static void nw5() {
                 bookmarkvalue.put("S6","");
                 bookmarkvalue.put("S27","");
                 bookmarkvalue.put("S10","");
+                bookmarkvalue.put("S13","");
                 bookmarkvalue.put("S14","");
                 bookmarkvalue.put("S15","");
                 bookmarkvalue.put("S16","");
                 bookmarkvalue.put("S19","");
                 bookmarkvalue.put("S34","");
+                bookmarkvalue.put("S35","");
                 bookmarkvalue.put("S36","");
                 
                   bookmarkvalue.put("PA7","");
                   bookmarkvalue.put("PA13", "");
                   bookmarkvalue.put("PA14", "");
-                  bookmarkvalue.put("PA15",""); 
+                  bookmarkvalue.put("PA15","");
+                  bookmarkvalue.put("PA133",""); 
 //                    
                     bookmarkvalue.put("PS7",  ""); 
                     bookmarkvalue.put("PS13", "");
                     bookmarkvalue.put("PS14", "");
                     bookmarkvalue.put("PS15", "");
+                    bookmarkvalue.put("PS133", "");
+                    bookmarkvalue.put("WN", "");
                          
                         bookmarkvalue.put("PW7","");
+                        bookmarkvalue.put("PW133","");
                        
                             bookmarkvalue.put("C4","");
                             bookmarkvalue.put("C441", "");
