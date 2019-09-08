@@ -203,11 +203,11 @@ public class PersonOverView extends javax.swing.JDialog {
         if(jTable1.getSelectedRow()>=0){
             try{
                 String crimecaseId = jTable1.getModel().getValueAt(jTable1.getSelectedRow(), 0)+"";
-                String sql = "Delete from CrimeCase WHERE CaseId='"+crimecaseId+"'";
+                String sql = "Delete from PersonData WHERE Noperson='"+crimecaseId+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 stmt.executeUpdate(sql);
-
+                System.out.println(sql);
                 //            rs.close();
                 stmt.close();
                 RefreshData();

@@ -787,7 +787,7 @@ public class WitnessForm extends javax.swing.JDialog {
         // TODO add your handling code here:
                con=ConnectDatabase.connect();
                SimpleDateFormat format = new SimpleDateFormat("HH:mm");
-              String sendTime=format.format(InjuryOrDie.TimeSendInjuredOrDie.getValue());
+              String sendTime=format.format(TimeSendInjuredOrDie.getValue());
         if(isInsert){    
         String sql="INSERT INTO Person (Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
@@ -840,6 +840,7 @@ public class WitnessForm extends javax.swing.JDialog {
                               else if(jCheckDead.isSelected()){
                               pst.setString(37,jCheckDead.getText());
                               }
+                              
                               
                                int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
             JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);

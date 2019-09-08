@@ -1822,7 +1822,7 @@ public class SuspectForm extends javax.swing.JDialog {
         con=ConnectDatabase.connect();
         SimpleDateFormat format = new SimpleDateFormat("HH:mm");
         String arrestTime = format.format(jSpinnerArrTime.getValue());
-        String sendTime=format.format(InjuryOrDie.TimeSendInjuredOrDie.getValue());
+        String sendTime=format.format(TimeSendInjuredOrDie.getValue());
         
         String arrestDate=Checknull(ArrestDateTime.getJFormattedTextField().getText()+" "+arrestTime);
         String arrestDateEnd48=  CalculateDateTime48(arrestDate);

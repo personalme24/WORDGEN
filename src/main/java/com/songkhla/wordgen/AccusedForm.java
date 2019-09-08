@@ -64,6 +64,7 @@ public class AccusedForm extends javax.swing.JDialog {
      
      String noPerson,typeCase;
      JDatePickerImpl IssueDate,ExpiredDate,BirthDay;
+     public static JDatePickerImpl DateSendInjuredOrDie;
      ArrayList<String> personname=new ArrayList<String>();
       
 //     private JComboBox<String> comboBox;
@@ -84,7 +85,7 @@ public class AccusedForm extends javax.swing.JDialog {
        CauseSendInjuredOrDie.setVisible(false);
        WhereSendInjuredOrDie.setVisible(false);
        TimeSendInjuredOrDie.setVisible(false);
-       DateSendInjuredOrDie.setVisible(false);
+       jPanel4.setVisible(false);
 
      FullNamePerson.addCaretListener(new TextFieldCaretListener());
      comboBox.addActionListener(new ComboBoxActionListener());
@@ -119,6 +120,15 @@ public class AccusedForm extends javax.swing.JDialog {
         jPanelBirthDay.setLayout(new FlowLayout());
         jPanelBirthDay.add(BirthDay);
 //      
+UtilDateModel model5 = new UtilDateModel();
+            model5.setValue(Calendar.getInstance().getTime());
+        
+          JDatePanelImpl datePanel5 = new JDatePanelImpl(model5, p);
+         DateSendInjuredOrDie = new JDatePickerImpl(datePanel5,new DateLabelFormatter());
+        DateSendInjuredOrDie.setTextEditable(true);
+        DateSendInjuredOrDie.setBackground(Color.WHITE);
+        jPanel4.setLayout(new FlowLayout());
+        jPanel4.add(DateSendInjuredOrDie); 
         typeCase=datacase.get("TypeCase")+"";
                String[] ItemDead = {"","พยาน","บิดาผู้ตาย", "มารดาผู้ตาย", "บุตรผู้ตาย", "สามีผูตาย", "ภริยาผู้ตาย", "ผู้ปกครองผู้ตาย", "พี่ร่วมบิดามารดาของผู้ตาย",
                                "พี่ร่วมบิดาของผู้ตาย", "พี่ร่วมมารดาของผู้ตาย", "น้องร่วมบิดามารดาของผู้ตาย", "น้องร่วมบิดาของผู้ตาย", "น้องร่วมมารดาของผู้ตาย",
@@ -183,18 +193,21 @@ public class AccusedForm extends javax.swing.JDialog {
             catch(Exception ex){
             
             }
-            
-           DateSendInjuredOrDie.setText(datain.get("DateSendInjuredOrDie")+"");   
+           
+           DateSendInjuredOrDie.getJFormattedTextField().setText(datain.get("DateSendInjuredOrDie")+"");   
            CauseSendInjuredOrDie.setText(datain.get("CauseSendInjuredOrDie")+"");
            WhereSendInjuredOrDie.setText(datain.get("WhereSendInjuredOrDie")+"");
 
 
-       
+      
 //                    data.put("Gender", rs.getString("Gender"));
 
 
         }else{
-              
+//              SimpleDateFormat timeFormat = new SimpleDateFormat("dd/MM/yyyy");
+//            Date datedd=new Date();
+//            String dateInjury=timeFormat.format(datedd);
+//           DateSendInjuredOrDie.setText(dateInjury);      
            crimecaseno.setText(ListAccused.txtCaseNO.getText());
             isInsert=true;
           
@@ -362,11 +375,11 @@ public class AccusedForm extends javax.swing.JDialog {
         jButtonInjuryOrDie = new javax.swing.JButton();
         CauseSendInjuredOrDie = new javax.swing.JTextField();
         WhereSendInjuredOrDie = new javax.swing.JTextField();
-        DateSendInjuredOrDie = new javax.swing.JTextField();
         Date date3=new Date();
 
         SpinnerDateModel sm3=new SpinnerDateModel(date3,null,null,Calendar.HOUR_OF_DAY);
         TimeSendInjuredOrDie = new javax.swing.JSpinner(sm3);
+        jPanel4 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -761,9 +774,12 @@ public class AccusedForm extends javax.swing.JDialog {
             }
         });
         jPanel2.add(jButtonInjuryOrDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, -1, 30));
+
+        CauseSendInjuredOrDie.setText(" ");
         jPanel2.add(CauseSendInjuredOrDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 20, -1));
+
+        WhereSendInjuredOrDie.setText(" ");
         jPanel2.add(WhereSendInjuredOrDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, 20, -1));
-        jPanel2.add(DateSendInjuredOrDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, 20, -1));
 
         JSpinner.DateEditor timeEditor3 = new JSpinner.DateEditor(TimeSendInjuredOrDie, "HH:mm");
         TimeSendInjuredOrDie.setEditor(timeEditor3);
@@ -774,6 +790,19 @@ public class AccusedForm extends javax.swing.JDialog {
             }
         });
         jPanel2.add(TimeSendInjuredOrDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, -1, -1));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 10, -1, 20));
 
         jScrollPane1.setViewportView(jPanel2);
         jPanel2.getAccessibleContext().setAccessibleDescription("");
@@ -851,7 +880,7 @@ public class AccusedForm extends javax.swing.JDialog {
     private void BtSaveAccusedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSaveAccusedActionPerformed
  con=ConnectDatabase.connect();   
              SimpleDateFormat format = new SimpleDateFormat("HH:mm");
-              String sendTime=format.format(InjuryOrDie.TimeSendInjuredOrDie.getValue());
+              String sendTime=format.format(TimeSendInjuredOrDie.getValue());
         if(isInsert){    
          
         String sql="INSERT INTO Person (Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
@@ -897,7 +926,7 @@ public class AccusedForm extends javax.swing.JDialog {
                               pst.setString(32,OccupationPosition.getText());
                               pst.setString(33,CauseSendInjuredOrDie.getText());
                               pst.setString(34,WhereSendInjuredOrDie.getText());
-                              pst.setString(35,DateSendInjuredOrDie.getText());
+                              pst.setString(35,DateSendInjuredOrDie.getJFormattedTextField().getText());
                               pst.setString(36,sendTime);
                               if(jCheckInjured.isSelected()){
                                pst.setString(37,jCheckInjured.getText());
@@ -973,7 +1002,7 @@ public class AccusedForm extends javax.swing.JDialog {
                               pst.setString(32,AnswerPerson.getText());
                               pst.setString(33,CauseSendInjuredOrDie.getText());
                               pst.setString(34,WhereSendInjuredOrDie.getText());
-                              pst.setString(35,DateSendInjuredOrDie.getText());
+                              pst.setString(35,DateSendInjuredOrDie.getJFormattedTextField().getText());
                               pst.setString(36,sendTime);
                               if(jCheckInjured.isSelected()){
                                pst.setString(37,jCheckInjured.getText());
@@ -1401,7 +1430,6 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JComboBox<String> BloodGroup;
     private javax.swing.JButton BtSaveAccused;
     public static javax.swing.JTextField CauseSendInjuredOrDie;
-    public static javax.swing.JTextField DateSendInjuredOrDie;
     private javax.swing.JTextField FatherFullName;
     private javax.swing.JTextField FullNamePerson;
     private javax.swing.JTextField FullNamePersonEn;
@@ -1467,6 +1495,7 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanelBirthDay;
     private javax.swing.JPanel jPanelExpiredDate;
     private javax.swing.JPanel jPanelIssueDate;

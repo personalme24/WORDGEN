@@ -39,7 +39,7 @@ public class InjuryOrDie extends javax.swing.JDialog {
         Connection con=null;
     PreparedStatement pst=null;
      Date timeSend ;
-   public static JDatePickerImpl DateSendInjuredOrDie;
+  JDatePickerImpl DateSendInjuredOrDie;
     public InjuryOrDie(JFrame parrent,JSONObject datacase) {
     super(parrent,true);
    
@@ -86,7 +86,7 @@ public class InjuryOrDie extends javax.swing.JDialog {
         CauseSendInjuredOrDie.setText( AccusedForm.CauseSendInjuredOrDie.getText());
         TimeSendInjuredOrDie.setValue(AccusedForm.TimeSendInjuredOrDie.getValue());
         WhereSendInjuredOrDie.setText( AccusedForm.WhereSendInjuredOrDie.getText());
-        DateSendInjuredOrDie.getJFormattedTextField().setText( AccusedForm.DateSendInjuredOrDie.getText());
+        DateSendInjuredOrDie.getJFormattedTextField().setText(AccusedForm.DateSendInjuredOrDie.getJFormattedTextField().getText());
 
         }
         else if(typePerson.equals("ผู้ต้องหา")){
@@ -276,7 +276,7 @@ public class InjuryOrDie extends javax.swing.JDialog {
 
         if(typePerson.equals("ผู้กล่าวหา")){
         AccusedForm.CauseSendInjuredOrDie.setText(CauseSendInjuredOrDie.getText());
-        AccusedForm.DateSendInjuredOrDie.setText(DateSendInjuredOrDie.getJFormattedTextField().getText());
+        AccusedForm.DateSendInjuredOrDie.getJFormattedTextField().setText(DateSendInjuredOrDie.getJFormattedTextField().getText());
         AccusedForm.WhereSendInjuredOrDie.setText(WhereSendInjuredOrDie.getText());
         AccusedForm.TimeSendInjuredOrDie.setValue(TimeSendInjuredOrDie.getValue());
 
