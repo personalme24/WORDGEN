@@ -166,12 +166,13 @@ public static void w9(String cc) {
                     bookmarkvalue.put("PS14", Checknull(s.getString("Race")));
                     bookmarkvalue.put("PS15", Checknull(s.getString("Nationality")));
                     bookmarkvalue.put("PS16", Checknull(s.getString("Religion")));
-                    bookmarkvalue.put("PS17", Checknull(s.getString("Occupation"))+" โทร. "+Checknull(s.getString("PhonePerson"))); 
+                    bookmarkvalue.put("PS17", Checknull(s.getString("Occupation")));
                     bookmarkvalue.put("PS22", Checknull(s.getString("HouseNumber")));
                     bookmarkvalue.put("PS23", Checknull(s.getString("Moo")));
                     bookmarkvalue.put("PS24", Checknull(s.getString("Tambon")));
                     bookmarkvalue.put("PS25", Checknull(s.getString("Amphur")));
                     bookmarkvalue.put("PS26", Checknull(s.getString("Province")));
+                    bookmarkvalue.put("PS28", Checknull(s.getString("PhonePerson"))); 
                     bookmarkvalue.put("PS29", Checknull(s.getString("HeadmanName")));
                     bookmarkvalue.put("PS30", Checknull(s.getString("SubHeadmanName")));
                     bookmarkvalue.put("PS31", Checknull(s.getString("FatherFullName")));
@@ -207,19 +208,7 @@ public static void w9(String cc) {
                         bookmarkvalue.put("P05", Checknull(s.getString("InvestPosition")));
                         bookmarkvalue.put("P012", Checknull(s.getString("InvestRankFull"))); //ยศเต็ม
                         bookmarkvalue.put("P013", Checknull(s.getString("InvestPosition"))); //ตำแหน่งเต็ม
-                               
-                    
-                    
-                    
-                    
-                 
-//		bookmarkvalue.put("P7", s.getString("AccureandOther"));
-//                bookmarkvalue.put("P13", s.getString("AccureandOther"));
-//		bookmarkvalue.put("test01", "พ.ต.อ.");
-//		bookmarkvalue.put("test02", "พนักงานสอบสวน");
-//		bookmarkvalue.put("test03", "สน.ดอนเมือง");
-//                bookmarkvalue.put("test04", "สน.ดอนเมือง5");
-		
+
     
 			JSONArray tablecolumn = new JSONArray();
 //			tablecolumn.add("P03");
@@ -312,6 +301,7 @@ public static void nw9( ) {
                     bookmarkvalue.put("PS24","");
                     bookmarkvalue.put("PS25","");
                     bookmarkvalue.put("PS26","");
+                    bookmarkvalue.put("PS28","");
                     bookmarkvalue.put("PS29","");
                     bookmarkvalue.put("PS30","");
                     bookmarkvalue.put("PS31","");

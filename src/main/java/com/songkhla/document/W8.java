@@ -168,13 +168,14 @@ public class W8 {
                 bookmarkvalue.put("PA14", Checknull(s.getString("Race")));
                 bookmarkvalue.put("PA15", Checknull(s.getString("Nationality"))); 
                 bookmarkvalue.put("PA16", Checknull(s.getString("Religion")));
-                bookmarkvalue.put("PA17", Checknull(s.getString("Occupation"))+" โทร. "+Checknull(s.getString("PhonePerson"))); 
+                bookmarkvalue.put("PA17", Checknull(s.getString("Occupation"))); 
                 bookmarkvalue.put("PA21", Checknull(s.getString("Related"))); 
                 bookmarkvalue.put("PA22", Checknull(s.getString("HouseNumber"))); 
                 bookmarkvalue.put("PA23", Checknull(s.getString("Moo"))); 
                 bookmarkvalue.put("PA24", Checknull(s.getString("Tambon"))); 
                 bookmarkvalue.put("PA25", Checknull(s.getString("Amphur"))); 
                 bookmarkvalue.put("PA26", Checknull(s.getString("Province"))); 
+                bookmarkvalue.put("PA28", Checknull(s.getString("PhonePerson")));
                 bookmarkvalue.put("PA29", Checknull(s.getString("HeadmanName"))); 
                 bookmarkvalue.put("PA30", Checknull(s.getString("SubHeadmanName"))); 
                 bookmarkvalue.put("PA31", Checknull(s.getString("FatherFullName"))); 
@@ -195,12 +196,13 @@ public class W8 {
                 bookmarkvalue.put("PW14", Checknull(s.getString("Race")));
                 bookmarkvalue.put("PW15", Checknull(s.getString("Nationality"))); 
                 bookmarkvalue.put("PW16", Checknull(s.getString("Religion")));
-                bookmarkvalue.put("PW17", Checknull(s.getString("Occupation"))+" โทร. "+Checknull(s.getString("PhonePerson")));  
+                bookmarkvalue.put("PW17", Checknull(s.getString("Occupation")));  
                 bookmarkvalue.put("PW22", Checknull(s.getString("HouseNumber"))); 
                 bookmarkvalue.put("PW23", Checknull(s.getString("Moo"))); 
                 bookmarkvalue.put("PW24", Checknull(s.getString("Tambon"))); 
                 bookmarkvalue.put("PW25", Checknull(s.getString("Amphur"))); 
                 bookmarkvalue.put("PW26", Checknull(s.getString("Province"))); 
+                bookmarkvalue.put("PW28", Checknull(s.getString("PhonePerson")));
                 bookmarkvalue.put("PW29", Checknull(s.getString("HeadmanName"))); 
                 bookmarkvalue.put("PW30", Checknull(s.getString("SubHeadmanName"))); 
                 bookmarkvalue.put("PW31", Checknull(s.getString("FatherFullName"))); 
@@ -210,7 +212,7 @@ public class W8 {
                 bookmarkvalue.put("PW133", Checknull(s.getString("AnswerPerson"))); 
                 bookmarkvalue.put("TY", Checknull(TypePerson));
                 
-                bookmarkvalue.put("PS7",  Checknull(s.getString("SuspectandOther")));
+                bookmarkvalue.put("PS7",  Checknull(s.getString("SuspectandOther"))); 
                 }
             
                
@@ -372,6 +374,7 @@ public class W8 {
                 bookmarkvalue.put("PA24", ""); 
                 bookmarkvalue.put("PA25", ""); 
                 bookmarkvalue.put("PA26", ""); 
+                bookmarkvalue.put("PA28", "");
                 bookmarkvalue.put("PA29", ""); 
                 bookmarkvalue.put("PA30", ""); 
                 bookmarkvalue.put("PA31", ""); 
@@ -395,6 +398,7 @@ public class W8 {
                 bookmarkvalue.put("PW24", ""); 
                 bookmarkvalue.put("PW25", ""); 
                 bookmarkvalue.put("PW26", ""); 
+                bookmarkvalue.put("PW28", "");
                 bookmarkvalue.put("PW29", ""); 
                 bookmarkvalue.put("PW30", ""); 
                 bookmarkvalue.put("PW31", ""); 
