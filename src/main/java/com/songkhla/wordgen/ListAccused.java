@@ -250,7 +250,8 @@ String typeC;
                 String Noperson = jTableAccure.getModel().getValueAt(jTableAccure.getSelectedRow(), 8)+"";            
                 String sql = "select NoPerson,Age,AnswerPerson,OccupationPosition,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,Weight,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                        "PhonePerson,Province,Related,Race,OrderPerson,Religion,Tambon,TypePerson,ZipCode,caseIdPerson from person where Noperson='"+Noperson+ "' and caseIdPerson='"+crimecaseno+"' and TypePerson='ผู้กล่าวหา'";
+                        "PhonePerson,Province,Related,Race,OrderPerson,Religion,Tambon,TypePerson,ZipCode,caseIdPerson,CauseSendInjuredOrDie,WhereSendInjuredOrDie,DateSendInjuredOrDie,TimeSendInjuredOrDie,StatusInjuryOrDie"
+                        + " from person where Noperson='"+Noperson+ "' and caseIdPerson='"+crimecaseno+"' and TypePerson='ผู้กล่าวหา'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);
@@ -289,6 +290,12 @@ String typeC;
                     data.put("Related", rs.getString("Related"));
                    data.put("AnswerPerson", rs.getString("AnswerPerson"));
                    data.put("OccupationPosition", rs.getString("OccupationPosition"));
+
+                   data.put("StatusInjuryOrDie", rs.getString("StatusInjuryOrDie"));
+                    data.put("DateSendInjuredOrDie", rs.getString("DateSendInjuredOrDie"));
+                   data.put("TimeSendInjuredOrDie", rs.getString("TimeSendInjuredOrDie"));
+                   data.put("CauseSendInjuredOrDie", rs.getString("CauseSendInjuredOrDie"));
+                    data.put("WhereSendInjuredOrDie", rs.getString("WhereSendInjuredOrDie"));
 
                             AccusedForm accusedF=new AccusedForm(f,data,datacase);
                              accusedF.pack();

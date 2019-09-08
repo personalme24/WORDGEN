@@ -232,7 +232,8 @@ String noPerson;
                 String NoPerson = jTableWitness.getModel().getValueAt(jTableWitness.getSelectedRow(), 7)+"";            
                 String sql = "select NoPerson,Age,Amphur,BirthDay,AnswerPerson,OccupationPosition,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,Weight,HouseNumber,Related,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                        "PhonePerson,Province,Race,OrderPerson,Religion,Tambon,TypePerson,ZipCode,caseIdPerson from person where TypePerson='พยานและบุคคลอื่นๆ' and NoPerson='"+NoPerson+ "' and caseIdPerson='"+crimecaseno+"'";
+                        "PhonePerson,Province,Race,OrderPerson,Religion,Tambon,TypePerson,ZipCode,caseIdPerson,CauseSendInjuredOrDie,WhereSendInjuredOrDie,DateSendInjuredOrDie,TimeSendInjuredOrDie,StatusInjuryOrDie"
+                        + " from person where TypePerson='พยานและบุคคลอื่นๆ' and NoPerson='"+NoPerson+ "' and caseIdPerson='"+crimecaseno+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(sql);
@@ -273,6 +274,11 @@ String noPerson;
                      data.put("OccupationPosition", rs.getString("OccupationPosition"));
                      
 
+                   data.put("StatusInjuryOrDie", rs.getString("StatusInjuryOrDie"));
+                    data.put("DateSendInjuredOrDie", rs.getString("DateSendInjuredOrDie"));
+                   data.put("TimeSendInjuredOrDie", rs.getString("TimeSendInjuredOrDie"));
+                   data.put("CauseSendInjuredOrDie", rs.getString("CauseSendInjuredOrDie"));
+                    data.put("WhereSendInjuredOrDie", rs.getString("WhereSendInjuredOrDie"));
                             WitnessForm wF=new WitnessForm(f,data,datacase);
                             wF.pack();
                             wF.setLocationRelativeTo(null);                            

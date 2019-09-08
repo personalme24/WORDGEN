@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -30,6 +31,9 @@ public class AnswerPersonForm extends javax.swing.JDialog {
     super(parrent,true);
 
         initComponents();
+            ImageIcon img = new ImageIcon("./Master/WD.png");
+            setIconImage(img.getImage());
+            setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
          AnswerTypeCase.setVisible(false);
           AnswerTypePerson.setVisible(false);
         typePerson=datacase.get("TypePerson")+"";

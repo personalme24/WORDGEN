@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Vector;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import org.json.simple.JSONObject;
 
@@ -26,7 +27,9 @@ public class AnswerPersonOverview extends javax.swing.JDialog {
     public AnswerPersonOverview(JFrame parrent,JSONObject datacase) {
         super(parrent,true);
         initComponents();
-    
+     ImageIcon img = new ImageIcon("./Master/WD.png");
+            setIconImage(img.getImage());
+            setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
         typeCase=datacase.get("TypeCase")+"";
          typePerson=datacase.get("TypePerson")+"";
        RefreshData();
@@ -162,8 +165,8 @@ public class AnswerPersonOverview extends javax.swing.JDialog {
             Vector<String> row = new Vector<String>();
             row.add(rs.getString("IdAnswer"));
             row.add(rs.getString("AnswerDetail"));
-             row.add(rs.getString("AnswerTypePerson"));
-              row.add(rs.getString("AnswerTypeCase"));
+//             row.add(rs.getString("AnswerTypePerson"));
+//              row.add(rs.getString("AnswerTypeCase"));
             tabledata.add(row);
         }
         rs.close();
@@ -171,8 +174,8 @@ public class AnswerPersonOverview extends javax.swing.JDialog {
         Vector ColumnName = new Vector();
         ColumnName.add("รหัส");
         ColumnName.add("คำให้การ");
-        ColumnName.add("ประเภท");
-        ColumnName.add("คดี");
+//        ColumnName.add("ประเภท");
+//        ColumnName.add("คดี");
         AnswerTable.setModel(new javax.swing.table.DefaultTableModel(
             tabledata,
             ColumnName

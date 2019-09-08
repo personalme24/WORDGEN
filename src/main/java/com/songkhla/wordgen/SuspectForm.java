@@ -5,6 +5,10 @@
  */
 package com.songkhla.wordgen;
 
+import static com.songkhla.wordgen.AccusedForm.CauseSendInjuredOrDie;
+import static com.songkhla.wordgen.AccusedForm.DateSendInjuredOrDie;
+import static com.songkhla.wordgen.AccusedForm.TimeSendInjuredOrDie;
+import static com.songkhla.wordgen.AccusedForm.WhereSendInjuredOrDie;
 import static com.songkhla.wordgen.CrimesCaseEdit.ChargeNameCase;
 import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseid;
 import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseno;
@@ -83,7 +87,17 @@ public class SuspectForm extends javax.swing.JDialog {
      jLabel36.setVisible(false);
      jLabelNameArrest.setVisible(false);
      NameArrest.setVisible(false);
-
+     AnswerPerson.setVisible(false);
+      CauseSendInjuredOrDie.setVisible(false);
+       WhereSendInjuredOrDie.setVisible(false);
+       TimeSendInjuredOrDie.setVisible(false);
+       DateSendInjuredOrDie.setVisible(false);
+       jLabel40.setVisible(false);
+       jLabel41.setVisible(false);
+        jButtonInjuryOrDie.setVisible(false); 
+//     jCheckInjured.setVisible(false);
+//      jCheckDead.setVisible(false);
+   
      typecase=datacase.get("TypeCase")+"";
 //  ---------------------------------------------Date Filed----------------------------------------------
      UtilDateModel model = new UtilDateModel();
@@ -262,10 +276,29 @@ public class SuspectForm extends javax.swing.JDialog {
             PlaceArrestTambon.setText(datain.get("PlaceArrestTambon")+"");
             PlaceArrestAmphur.setText(datain.get("PlaceArrestAmphur")+"");
             PlaceArrestProvince.setText(datain.get("PlaceArrestProvince")+"");
-            
+            OccupationPosition.setText(datain.get("OccupationPosition")+"");
             Religion.setText(datain.get("Religion")+"");
             NoArrestWarrant.setText(datain.get("NoArrestWarrant")+"");
             SusConfress.setSelectedItem(datain.get("SusConfress"));
+             String statusInjure=datain.get("StatusInjuryOrDie")+"";
+            if(statusInjure.equals("บาดเจ็บ")){
+            jCheckInjured.setSelected(true);
+            }
+           else if(statusInjure.equals("ตาย")){
+            jCheckDead.setSelected(true);
+            }
+             DateSendInjuredOrDie.setText(datain.get("DateSendInjuredOrDie")+"");   
+           CauseSendInjuredOrDie.setText(datain.get("CauseSendInjuredOrDie")+"");
+           WhereSendInjuredOrDie.setText(datain.get("WhereSendInjuredOrDie")+"");
+           try{
+            String ote=datain.get("TimeSendInjuredOrDie")+"";
+                SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+                Date timeSend = timeFormat.parse(ote);
+                TimeSendInjuredOrDie.setValue(timeSend);
+            }
+            catch(Exception ex){
+            
+            }
             SimpleDateFormat format=new SimpleDateFormat("d/MM/yyyy");
             
             String DateArr=(datain.get("ArrestDateTime")+"");
@@ -520,9 +553,17 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabel40 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
-        Occupation1 = new javax.swing.JTextField();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
+        OccupationPosition = new javax.swing.JTextField();
+        jCheckInjured = new javax.swing.JCheckBox();
+        jCheckDead = new javax.swing.JCheckBox();
+        jButtonInjuryOrDie = new javax.swing.JButton();
+        Date date3=new Date();
+
+        SpinnerDateModel sm3=new SpinnerDateModel(date3,null,null,Calendar.HOUR_OF_DAY);
+        TimeSendInjuredOrDie = new javax.swing.JSpinner(sm3);
+        CauseSendInjuredOrDie = new javax.swing.JTextField();
+        DateSendInjuredOrDie = new javax.swing.JTextField();
+        WhereSendInjuredOrDie = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         jLabelArrestPlace = new javax.swing.JLabel();
         PlaceArrest = new javax.swing.JTextField();
@@ -890,13 +931,45 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabel38.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel38.setText("ที่ทำงาน ตำแหน่ง หน้าที่");
 
-        Occupation1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        OccupationPosition.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
-        jCheckBox1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckBox1.setText("บาดเจ็บ");
+        jCheckInjured.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jCheckInjured.setText("บาดเจ็บ");
+        jCheckInjured.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckInjuredItemStateChanged(evt);
+            }
+        });
+        jCheckInjured.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckInjuredActionPerformed(evt);
+            }
+        });
 
-        jCheckBox2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckBox2.setText("ตาย");
+        jCheckDead.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jCheckDead.setText("ตาย");
+        jCheckDead.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckDeadItemStateChanged(evt);
+            }
+        });
+
+        jButtonInjuryOrDie.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jButtonInjuryOrDie.setText("รายละเอียด");
+        jButtonInjuryOrDie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonInjuryOrDieActionPerformed(evt);
+            }
+        });
+
+        JSpinner.DateEditor timeEditor3 = new JSpinner.DateEditor(TimeSendInjuredOrDie, "HH:mm");
+        TimeSendInjuredOrDie.setEditor(timeEditor3);
+        //jSpinner1.setValue(new Date());
+        TimeSendInjuredOrDie.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TimeSendInjuredOrDieKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -977,25 +1050,39 @@ public class SuspectForm extends javax.swing.JDialog {
                                     .addComponent(jLabel20))
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(11, 11, 11)
-                                .addComponent(PeopleRegistrationID, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(13, 13, 13)
-                                .addComponent(jLabel5))
+                                .addComponent(PeopleRegistrationID, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(OrderPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(11, 11, 11)
-                                .addComponent(jCheckBox1)
-                                .addGap(11, 11, 11)
-                                .addComponent(jCheckBox2)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(FullNamePerson)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BtAddAnswer))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jCheckInjured)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jCheckDead)))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(13, 13, 13)
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(FullNamePerson)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(BtAddAnswer))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonInjuryOrDie)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(WhereSendInjuredOrDie, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(DateSendInjuredOrDie, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(CauseSendInjuredOrDie, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(TimeSendInjuredOrDie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(315, 315, 315)
@@ -1071,19 +1158,30 @@ public class SuspectForm extends javax.swing.JDialog {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(Occupation1, javax.swing.GroupLayout.PREFERRED_SIZE, 595, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(OccupationPosition, javax.swing.GroupLayout.PREFERRED_SIZE, 595, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel35)
-                    .addComponent(OrderPerson)
-                    .addComponent(jCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jCheckBox2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(7, 7, 7)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel35)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(OrderPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jCheckInjured, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jCheckDead, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButtonInjuryOrDie, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(7, 7, 7))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(WhereSendInjuredOrDie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(DateSendInjuredOrDie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CauseSendInjuredOrDie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TimeSendInjuredOrDie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1160,7 +1258,7 @@ public class SuspectForm extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Occupation1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(OccupationPosition, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1724,7 +1822,8 @@ public class SuspectForm extends javax.swing.JDialog {
         con=ConnectDatabase.connect();
         SimpleDateFormat format = new SimpleDateFormat("HH:mm");
         String arrestTime = format.format(jSpinnerArrTime.getValue());
-
+        String sendTime=format.format(InjuryOrDie.TimeSendInjuredOrDie.getValue());
+        
         String arrestDate=Checknull(ArrestDateTime.getJFormattedTextField().getText()+" "+arrestTime);
         String arrestDateEnd48=  CalculateDateTime48(arrestDate);
         ArrestDateTimeEnd.setText(CalculateDateTime48(arrestDate));
@@ -1733,8 +1832,9 @@ public class SuspectForm extends javax.swing.JDialog {
             "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
             "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,StatusSuspect,"
             + "caseIdPerson,ArrestDateTime,PlaceArrest,CourtSuspect,BailDate,ArrestDateTimeEnd,StatusBail,RatePrison,Identification,"
-                    + "OrderPerson,SusConfress,StatusSueAndPutInJail,NoArrestWarrant,AnswerPerson,PlaceArrestTambon,PlaceArrestAmphur,PlaceArrestProvince)\n"
-            + " VALUES (?,?,? ,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                    + "OrderPerson,SusConfress,StatusSueAndPutInJail,NoArrestWarrant,AnswerPerson,PlaceArrestTambon,PlaceArrestAmphur,PlaceArrestProvince,"
+                    + "OccupationPosition,CauseSendInjuredOrDie,WhereSendInjuredOrDie,DateSendInjuredOrDie,TimeSendInjuredOrDie,StatusInjuryOrDie)\n"
+            + " VALUES (?,?,? ,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             //           String sqlSueFirst="insert into sue (SueTimes,SueDate,)";
             System.out.println("SQL : "+sql);
             try {
@@ -1836,7 +1936,18 @@ public class SuspectForm extends javax.swing.JDialog {
                 pst.setString(43,PlaceArrestTambon.getText());
                 pst.setString(44,PlaceArrestAmphur.getText());
                 pst.setString(45,PlaceArrestProvince.getText());
-
+                pst.setString(46,OccupationPosition.getText());
+                    pst.setString(47,CauseSendInjuredOrDie.getText());
+                              pst.setString(48,WhereSendInjuredOrDie.getText());
+                              pst.setString(49,DateSendInjuredOrDie.getText());
+                              pst.setString(50,sendTime);
+                              if(jCheckInjured.isSelected()){
+                               pst.setString(51,jCheckInjured.getText());
+                              }
+                              else if(jCheckDead.isSelected()){
+                              pst.setString(51,jCheckDead.getText());
+                              }
+                              
                 int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
                     JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                 if (response == JOptionPane.YES_OPTION) {
@@ -1899,6 +2010,8 @@ public class SuspectForm extends javax.swing.JDialog {
              +"PlaceArrestTambon=?,"
              +"PlaceArrestAmphur=?,"
              +"PlaceArrestProvince=?,"
+             +"OccupationPosition=?,"
+             +"CauseSendInjuredOrDie=?,WhereSendInjuredOrDie=?,DateSendInjuredOrDie=?,TimeSendInjuredOrDie=?,StatusInjuryOrDie=?,"       
             + "OrderPerson=? where NoPerson=? and TypePerson=?   ";
 
             try {
@@ -1992,11 +2105,21 @@ public class SuspectForm extends javax.swing.JDialog {
                 pst.setString(42,PlaceArrestTambon.getText()); 
                 pst.setString(43,PlaceArrestAmphur.getText()); 
                 pst.setString(44,PlaceArrestProvince.getText()); 
-               
-                pst.setString(45,OrderPerson.getText());
-                pst.setString(46,noPerson);
+                pst.setString(45,OccupationPosition.getText()); 
+               pst.setString(46,CauseSendInjuredOrDie.getText());
+                              pst.setString(47,WhereSendInjuredOrDie.getText());
+                              pst.setString(48,DateSendInjuredOrDie.getText());
+                              pst.setString(49,sendTime);
+                              if(jCheckInjured.isSelected()){
+                               pst.setString(50,jCheckInjured.getText());
+                              }
+                              else if(jCheckDead.isSelected()){
+                              pst.setString(50,jCheckDead.getText());
+                              }
+                pst.setString(51,OrderPerson.getText());
+                pst.setString(52,noPerson);
 
-                pst.setString(47,"ผู้ต้องหา");
+                pst.setString(53,"ผู้ต้องหา");
 
                 int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
                     JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
@@ -2429,6 +2552,55 @@ public class SuspectForm extends javax.swing.JDialog {
         rf.setLocationRelativeTo(null);
         rf.setVisible(true);
     }//GEN-LAST:event_BtAddAnswerActionPerformed
+
+    private void jCheckInjuredItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckInjuredItemStateChanged
+        // TODO add your handling code here:
+
+        if(jCheckInjured.isSelected()){
+            jButtonInjuryOrDie.setVisible(true);
+
+        }
+        else{
+            jButtonInjuryOrDie.setVisible(false);
+
+        }
+    }//GEN-LAST:event_jCheckInjuredItemStateChanged
+
+    private void jCheckInjuredActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckInjuredActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckInjuredActionPerformed
+
+    private void jCheckDeadItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckDeadItemStateChanged
+        // TODO add your handling code here:
+        if(jCheckDead.isSelected()){
+            jButtonInjuryOrDie.setVisible(true);
+
+        }
+        else{
+            jButtonInjuryOrDie.setVisible(false);
+
+        }
+
+    }//GEN-LAST:event_jCheckDeadItemStateChanged
+
+    private void jButtonInjuryOrDieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInjuryOrDieActionPerformed
+        // TODO add your handling code here:
+        JSONObject type=new JSONObject();
+        type.put("TypeCase", typecase);
+        type.put("TypePerson", "ผู้ต้องหา");
+        JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame in = (JFrame)(dialog.getParent());
+        in.removeAll();
+        InjuryOrDie rf =new InjuryOrDie(in,type);
+        rf.pack();
+        rf.setLocationRelativeTo(null);
+        rf.setVisible(true);
+    }//GEN-LAST:event_jButtonInjuryOrDieActionPerformed
+
+    private void TimeSendInjuredOrDieKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TimeSendInjuredOrDieKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TimeSendInjuredOrDieKeyReleased
 
     public void eventJButtonManage(){
  
@@ -2952,7 +3124,9 @@ public class SuspectForm extends javax.swing.JDialog {
     private javax.swing.JComboBox<String> BloodGroup;
     private javax.swing.JButton BtAddAnswer;
     private javax.swing.JButton BtSaveAccused;
+    public static javax.swing.JTextField CauseSendInjuredOrDie;
     private javax.swing.JComboBox<String> CourtSuspect;
+    public static javax.swing.JTextField DateSendInjuredOrDie;
     private javax.swing.JTextField FatherFullName;
     private javax.swing.JTextField FullNamePerson;
     private javax.swing.JTextField FullNamePersonEn;
@@ -2966,7 +3140,7 @@ public class SuspectForm extends javax.swing.JDialog {
     private javax.swing.JTextField Nationality;
     private javax.swing.JTextField NoArrestWarrant;
     private javax.swing.JTextField Occupation;
-    private javax.swing.JTextField Occupation1;
+    private javax.swing.JTextField OccupationPosition;
     private javax.swing.JTextField OrderPerson;
     private javax.swing.JTextField OtherName;
     private javax.swing.JTextField PassportNumber;
@@ -2983,11 +3157,14 @@ public class SuspectForm extends javax.swing.JDialog {
     private javax.swing.JTextField StatusSueAndPutInJail;
     private javax.swing.JComboBox<String> SusConfress;
     private javax.swing.JTextField Tambon;
+    public static javax.swing.JSpinner TimeSendInjuredOrDie;
     private javax.swing.JTextField Weight;
+    public static javax.swing.JTextField WhereSendInjuredOrDie;
     private javax.swing.JTextField ZipCode;
+    private javax.swing.JButton jButtonInjuryOrDie;
     private javax.swing.JCheckBox jCheckBail;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JCheckBox jCheckDead;
+    private javax.swing.JCheckBox jCheckInjured;
     private javax.swing.JComboBox<String> jComboBoxListName;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

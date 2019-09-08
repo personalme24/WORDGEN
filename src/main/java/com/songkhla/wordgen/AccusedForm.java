@@ -23,8 +23,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Properties;
 import javax.swing.Action;
 import javax.swing.ActionMap;
@@ -36,7 +38,9 @@ import javax.swing.JFrame;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
+import javax.swing.JSpinner;
 import javax.swing.JTextField;
+import javax.swing.SpinnerDateModel;
 import javax.swing.event.CaretEvent;
 import javax.swing.event.CaretListener;
 import javax.swing.event.DocumentEvent;
@@ -72,10 +76,16 @@ public class AccusedForm extends javax.swing.JDialog {
          ImageIcon img = new ImageIcon("./Master/WD.png");
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
-            
+      
 //     Occupation = new HintTextField("Another hint here");
      crimecaseno.setVisible(false);
      AnswerPerson.setVisible(false);
+        jButtonInjuryOrDie.setVisible(false);
+       CauseSendInjuredOrDie.setVisible(false);
+       WhereSendInjuredOrDie.setVisible(false);
+       TimeSendInjuredOrDie.setVisible(false);
+       DateSendInjuredOrDie.setVisible(false);
+
      FullNamePerson.addCaretListener(new TextFieldCaretListener());
      comboBox.addActionListener(new ComboBoxActionListener());
      UtilDateModel model2 = new UtilDateModel();
@@ -156,6 +166,30 @@ public class AccusedForm extends javax.swing.JDialog {
            OccupationPosition.setText(datain.get("OccupationPosition")+"");
             AnswerPerson.setText(datain.get("AnswerPerson")+"");
             RelatedAccused.setSelectedItem(datain.get("Related")+"");
+           
+            String statusInjure=datain.get("StatusInjuryOrDie")+"";
+            if(statusInjure.equals("บาดเจ็บ")){
+            jCheckInjured.setSelected(true);
+            }
+           else if(statusInjure.equals("ตาย")){
+            jCheckDead.setSelected(true);
+            }
+            try{
+            String ote=datain.get("TimeSendInjuredOrDie")+"";
+                SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+                Date timeSend = timeFormat.parse(ote);
+                TimeSendInjuredOrDie.setValue(timeSend);
+            }
+            catch(Exception ex){
+            
+            }
+            
+           DateSendInjuredOrDie.setText(datain.get("DateSendInjuredOrDie")+"");   
+           CauseSendInjuredOrDie.setText(datain.get("CauseSendInjuredOrDie")+"");
+           WhereSendInjuredOrDie.setText(datain.get("WhereSendInjuredOrDie")+"");
+
+
+       
 //                    data.put("Gender", rs.getString("Gender"));
 
 
@@ -323,6 +357,16 @@ public class AccusedForm extends javax.swing.JDialog {
         BloodGroup = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         AnswerPerson = new javax.swing.JTextField();
+        jCheckInjured = new javax.swing.JCheckBox();
+        jCheckDead = new javax.swing.JCheckBox();
+        jButtonInjuryOrDie = new javax.swing.JButton();
+        CauseSendInjuredOrDie = new javax.swing.JTextField();
+        WhereSendInjuredOrDie = new javax.swing.JTextField();
+        DateSendInjuredOrDie = new javax.swing.JTextField();
+        Date date3=new Date();
+
+        SpinnerDateModel sm3=new SpinnerDateModel(date3,null,null,Calendar.HOUR_OF_DAY);
+        TimeSendInjuredOrDie = new javax.swing.JSpinner(sm3);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -684,7 +728,52 @@ public class AccusedForm extends javax.swing.JDialog {
         jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 50, -1, 32));
 
         AnswerPerson.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
-        jPanel2.add(AnswerPerson, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 480, 60, 30));
+        jPanel2.add(AnswerPerson, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 470, 60, 30));
+
+        jCheckInjured.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jCheckInjured.setText("บาดเจ็บ");
+        jCheckInjured.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckInjuredItemStateChanged(evt);
+            }
+        });
+        jCheckInjured.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckInjuredActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jCheckInjured, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, 30));
+
+        jCheckDead.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jCheckDead.setText("ตาย");
+        jCheckDead.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckDeadItemStateChanged(evt);
+            }
+        });
+        jPanel2.add(jCheckDead, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, 30));
+
+        jButtonInjuryOrDie.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jButtonInjuryOrDie.setText("รายละเอียด");
+        jButtonInjuryOrDie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonInjuryOrDieActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButtonInjuryOrDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, -1, 30));
+        jPanel2.add(CauseSendInjuredOrDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 20, -1));
+        jPanel2.add(WhereSendInjuredOrDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, 20, -1));
+        jPanel2.add(DateSendInjuredOrDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, 20, -1));
+
+        JSpinner.DateEditor timeEditor3 = new JSpinner.DateEditor(TimeSendInjuredOrDie, "HH:mm");
+        TimeSendInjuredOrDie.setEditor(timeEditor3);
+        //jSpinner1.setValue(new Date());
+        TimeSendInjuredOrDie.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TimeSendInjuredOrDieKeyReleased(evt);
+            }
+        });
+        jPanel2.add(TimeSendInjuredOrDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, -1, -1));
 
         jScrollPane1.setViewportView(jPanel2);
         jPanel2.getAccessibleContext().setAccessibleDescription("");
@@ -760,12 +849,16 @@ public class AccusedForm extends javax.swing.JDialog {
     }//GEN-LAST:event_ZipCodeActionPerformed
 
     private void BtSaveAccusedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSaveAccusedActionPerformed
- con=ConnectDatabase.connect();
+ con=ConnectDatabase.connect();   
+             SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+              String sendTime=format.format(InjuryOrDie.TimeSendInjuredOrDie.getValue());
         if(isInsert){    
+         
         String sql="INSERT INTO Person (Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                        "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,caseIdPerson,OrderPerson,Related,AnswerPerson,OccupationPosition)\n"
-                + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                        "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,caseIdPerson,OrderPerson,Related,AnswerPerson,OccupationPosition,"
+                      + "CauseSendInjuredOrDie,WhereSendInjuredOrDie,DateSendInjuredOrDie,TimeSendInjuredOrDie,StatusInjuryOrDie)\n"
+                + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 //        String sqlinsert = "INSERT INTO PersonData (FullNamePerson,Race) VALUES (?,?)";
          System.out.println("SQL : "+sql);
       try {
@@ -802,6 +895,17 @@ public class AccusedForm extends javax.swing.JDialog {
                                pst.setString(30,RelatedAccused.getSelectedItem()+"");
                                pst.setString(31,AnswerPerson.getText());
                               pst.setString(32,OccupationPosition.getText());
+                              pst.setString(33,CauseSendInjuredOrDie.getText());
+                              pst.setString(34,WhereSendInjuredOrDie.getText());
+                              pst.setString(35,DateSendInjuredOrDie.getText());
+                              pst.setString(36,sendTime);
+                              if(jCheckInjured.isSelected()){
+                               pst.setString(37,jCheckInjured.getText());
+                              }
+                              else if(jCheckDead.isSelected()){
+                              pst.setString(37,jCheckDead.getText());
+                              }
+                              
                                       
 //                              --------------Insert Person---------------------------------
                       
@@ -829,7 +933,8 @@ public class AccusedForm extends javax.swing.JDialog {
                                     "BloodGroup=?,ExpiredDate=?,FatherFullName=?,FullNamePerson=?,FullNamePersonEn=?,\n" +
                                     "Gender=?,Height=?,HouseNumber=?,IssueDate=?,Moo=?,MotherFullName=?,Nationality=?,Occupation=?,\n" +
                                     "OtherName=?,PassportNumber=?,PeopleRegistrationID=?,PhonePerson=?,Province=?,Race=?,Religion=?,\n" +
-                                    "Tambon=?,TypePerson=?,Weight=?,ZipCode=? ,caseIdPerson=?,OrderPerson=?,Related=?,OccupationPosition=?,AnswerPerson=? \n"
+                                    "Tambon=?,TypePerson=?,Weight=?,ZipCode=? ,caseIdPerson=?,OrderPerson=?,Related=?,OccupationPosition=?,"
+                                    + "AnswerPerson=?,CauseSendInjuredOrDie=?,WhereSendInjuredOrDie=?,DateSendInjuredOrDie=?,TimeSendInjuredOrDie=?,StatusInjuryOrDie=? \n"
                                    + "where NoPerson=? and TypePerson=?";
        
          try {
@@ -866,8 +971,20 @@ public class AccusedForm extends javax.swing.JDialog {
                                pst.setString(30,RelatedAccused.getSelectedItem()+"");
                               pst.setString(31,OccupationPosition.getText());
                               pst.setString(32,AnswerPerson.getText());
-                              pst.setString(33,noPerson);
-                              pst.setString(34,"ผู้กล่าวหา");
+                              pst.setString(33,CauseSendInjuredOrDie.getText());
+                              pst.setString(34,WhereSendInjuredOrDie.getText());
+                              pst.setString(35,DateSendInjuredOrDie.getText());
+                              pst.setString(36,sendTime);
+                              if(jCheckInjured.isSelected()){
+                               pst.setString(37,jCheckInjured.getText());
+                              }
+                              else if(jCheckDead.isSelected()){
+                              pst.setString(37,jCheckDead.getText());
+                              }
+                              
+                            
+                              pst.setString(38,noPerson);
+                              pst.setString(39,"ผู้กล่าวหา");
                          int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
                             JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                             if (response == JOptionPane.YES_OPTION) {
@@ -922,6 +1039,57 @@ public class AccusedForm extends javax.swing.JDialog {
     private void ProvinceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProvinceActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ProvinceActionPerformed
+
+    private void jButtonInjuryOrDieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInjuryOrDieActionPerformed
+        // TODO add your handling code here:
+        JSONObject type=new JSONObject();
+        type.put("TypeCase", typeCase);
+        type.put("TypePerson", "ผู้กล่าวหา");
+         JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame in = (JFrame)(dialog.getParent());
+        in.removeAll();
+            InjuryOrDie rf =new InjuryOrDie(in,type);
+        rf.pack();
+        rf.setLocationRelativeTo(null);
+        rf.setVisible(true);
+    }//GEN-LAST:event_jButtonInjuryOrDieActionPerformed
+
+    private void jCheckInjuredItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckInjuredItemStateChanged
+        // TODO add your handling code here:
+               
+        if(jCheckInjured.isSelected()){
+            jButtonInjuryOrDie.setVisible(true);
+
+        }
+        else{
+        jButtonInjuryOrDie.setVisible(false);
+
+
+        }
+    }//GEN-LAST:event_jCheckInjuredItemStateChanged
+
+    private void jCheckInjuredActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckInjuredActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckInjuredActionPerformed
+
+    private void jCheckDeadItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckDeadItemStateChanged
+        // TODO add your handling code here:
+         if(jCheckDead.isSelected()){
+            jButtonInjuryOrDie.setVisible(true);
+
+        }
+        else{
+        jButtonInjuryOrDie.setVisible(false);
+
+
+        }
+          
+    }//GEN-LAST:event_jCheckDeadItemStateChanged
+
+    private void TimeSendInjuredOrDieKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TimeSendInjuredOrDieKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TimeSendInjuredOrDieKeyReleased
 
     /**
      * @param args the command line arguments
@@ -1105,8 +1273,8 @@ catch (Exception d) {  //System.out.println(d);
         if(isPerson){    
         String sql2="INSERT INTO PersonData (Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                        "PhonePerson,Province,Race,Religion,Tambon,Weight,ZipCode)\n"
-                + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                        "PhonePerson,Province,Race,Religion,Tambon,Weight,ZipCode,OccupationPosition)\n"
+                + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         
          System.out.println("SQL : "+sql2);
       try {
@@ -1137,6 +1305,7 @@ catch (Exception d) {  //System.out.println(d);
                               pst2.setString(24,Tambon.getText());                         
                               pst2.setString(25,Weight.getText());
                               pst2.setString(26,ZipCode.getText());
+                                pst2.setString(27,OccupationPosition.getText());
                                 pst2.executeUpdate(); 
                                 pst2.close();
         } catch (Exception e) {
@@ -1231,6 +1400,8 @@ catch (Exception d) {  //System.out.println(d);
     public static javax.swing.JTextField AnswerPerson;
     private javax.swing.JComboBox<String> BloodGroup;
     private javax.swing.JButton BtSaveAccused;
+    public static javax.swing.JTextField CauseSendInjuredOrDie;
+    public static javax.swing.JTextField DateSendInjuredOrDie;
     private javax.swing.JTextField FatherFullName;
     private javax.swing.JTextField FullNamePerson;
     private javax.swing.JTextField FullNamePersonEn;
@@ -1252,11 +1423,16 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JComboBox<String> RelatedAccused;
     private javax.swing.JTextField Religion;
     private javax.swing.JTextField Tambon;
+    public static javax.swing.JSpinner TimeSendInjuredOrDie;
     private javax.swing.JTextField Weight;
+    public static javax.swing.JTextField WhereSendInjuredOrDie;
     private javax.swing.JTextField ZipCode;
     private javax.swing.JComboBox<String> comboBox;
     private javax.swing.JLabel crimecaseno;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonInjuryOrDie;
+    private javax.swing.JCheckBox jCheckDead;
+    private javax.swing.JCheckBox jCheckInjured;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

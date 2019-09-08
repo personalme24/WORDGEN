@@ -317,7 +317,7 @@ jButtonDuplicate.setVisible(false);
                 String at=datain.get("CaseAcceptTime")+"";
                 String ot=datain.get("OccuredTime")+"";
                 String ote=datain.get("OccuredTimeEnd")+"";
-                SimpleDateFormat timeFormat = new SimpleDateFormat("H:mm");
+                SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
                 Date timeReq = timeFormat.parse(rt);
                 Date timeAcc = timeFormat.parse(at);
                 Date timeOccu = timeFormat.parse(ot);
@@ -2512,8 +2512,8 @@ JTextPopupMenu.addTo(CourtResult);
         catch(Exception ex){
         ex.printStackTrace();
         }
-        SimpleDateFormat format = new SimpleDateFormat("H:mm");
-          SimpleDateFormat formatnew = new SimpleDateFormat("H:mm");
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+          SimpleDateFormat formatnew = new SimpleDateFormat("HH:mm");
 //        String orcuredTime1=format.format(OccuredDateTime.getValue());
         String requestTime = format.format(CaseRequestTimee.getValue());
         String acceptTime = format.format(CaseAcceptTimee.getValue());

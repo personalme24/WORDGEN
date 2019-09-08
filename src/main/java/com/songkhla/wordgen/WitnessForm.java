@@ -21,6 +21,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Properties;
@@ -29,6 +30,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerDateModel;
 import javax.swing.event.CaretEvent;
 import javax.swing.event.CaretListener;
 import javax.swing.event.DocumentEvent;
@@ -37,6 +40,7 @@ import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
 import org.json.simple.JSONObject;
+import java.util.Date;
 
 /**
  *
@@ -64,7 +68,11 @@ public class WitnessForm extends javax.swing.JDialog {
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
             crimecaseno.setVisible(false);
             AnswerPerson.setVisible(false);
-
+        jButtonInjuryOrDie.setVisible(false);
+       CauseSendInjuredOrDie.setVisible(false);
+       WhereSendInjuredOrDie.setVisible(false);
+       TimeSendInjuredOrDie.setVisible(false);
+       DateSendInjuredOrDie.setVisible(false);
       UtilDateModel model2 = new UtilDateModel();
             model2.setValue(Calendar.getInstance().getTime());
             Properties p = new Properties();
@@ -104,7 +112,7 @@ public class WitnessForm extends javax.swing.JDialog {
 //        
   FullNamePerson.addCaretListener(new TextFieldCaretListener());
      jComboBoxListName.addActionListener(new ComboBoxActionListener());
-        String[] ItemDead = {"","บิดาผู้ตาย", "มารดาผู้ตาย", "บุตรผู้ตาย", "สามีผูตาย", "ภริยาผู้ตาย", "ผู้ปกครองผู้ตาย", "พี่ร่วมบิดามารดาของผู้ตาย",
+        String[] ItemDead = {"","พยาน","บิดาผู้ตาย", "มารดาผู้ตาย", "บุตรผู้ตาย", "สามีผูตาย", "ภรรยาผู้ตาย", "ผู้ปกครองผู้ตาย", "พี่ร่วมบิดามารดาของผู้ตาย",
                                "พี่ร่วมบิดาของผู้ตาย", "พี่ร่วมมารดาของผู้ตาย", "น้องร่วมบิดามารดาของผู้ตาย", "น้องร่วมบิดาของผู้ตาย", "น้องร่วมมารดาของผู้ตาย",
                                 "ลุงผู้ตาย","ป้าผู้ตาย","น้าผู้ตาย","อาผู้ตาย","ปู่ผู้ตาย","ย่าผู้ตาย","ตาผู้ตาย","ยายผู้ตาย","หลานผู้ตาย","เหลนผู้ตาย","ผู้มีส่วนได้เสียกับผู้ตาย","พนักงานสอบสวนในคดี"};
            String[] ItemWitness = {"","ผู้พบการกระทำผิด", "พยาน", "ผู้แจ้ง", "ญาติ", "นายประกัน", "บิดาผู้ต้องหา", "มารดาผู้ต้องหา","ผู้ปกครองหรือผู้ดูแลผู้ต้องหา","เจ้าหน้าที่สืบสวน"
@@ -168,7 +176,26 @@ public class WitnessForm extends javax.swing.JDialog {
              OccupationPosition.setText(datain.get("OccupationPosition")+"");       
             AnswerPerson.setText(datain.get("AnswerPerson")+"");
 //                    data.put("Gender", rs.getString("Gender"));
-
+ String statusInjure=datain.get("StatusInjuryOrDie")+"";
+            if(statusInjure.equals("บาดเจ็บ")){
+            jCheckInjured.setSelected(true);
+            }
+           else if(statusInjure.equals("ตาย")){
+            jCheckDead.setSelected(true);
+            }
+            try{
+            String ote=datain.get("TimeSendInjuredOrDie")+"";
+                SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+                Date timeSend = timeFormat.parse(ote);
+                TimeSendInjuredOrDie.setValue(timeSend);
+            }
+            catch(Exception ex){
+            
+            }
+            
+           DateSendInjuredOrDie.setText(datain.get("DateSendInjuredOrDie")+"");   
+           CauseSendInjuredOrDie.setText(datain.get("CauseSendInjuredOrDie")+"");
+           WhereSendInjuredOrDie.setText(datain.get("WhereSendInjuredOrDie")+"");        
 
         }else{
            crimecaseno.setText(ListWitness.txtCaseNO.getText());
@@ -317,6 +344,16 @@ public class WitnessForm extends javax.swing.JDialog {
         BloodGroup = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         AnswerPerson = new javax.swing.JTextField();
+        WhereSendInjuredOrDie = new javax.swing.JTextField();
+        Date date3=new Date();
+
+        SpinnerDateModel sm3=new SpinnerDateModel(date3,null,null,Calendar.HOUR_OF_DAY);
+        TimeSendInjuredOrDie = new javax.swing.JSpinner(sm3);
+        jCheckInjured = new javax.swing.JCheckBox();
+        jCheckDead = new javax.swing.JCheckBox();
+        CauseSendInjuredOrDie = new javax.swing.JTextField();
+        DateSendInjuredOrDie = new javax.swing.JTextField();
+        jButtonInjuryOrDie = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -360,9 +397,11 @@ public class WitnessForm extends javax.swing.JDialog {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel2.setPreferredSize(new java.awt.Dimension(1157, 850));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel2.setText("เลขบัตรประชาชน");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 50, -1, 32));
 
         PeopleRegistrationID.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         PeopleRegistrationID.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -370,20 +409,26 @@ public class WitnessForm extends javax.swing.JDialog {
                 PeopleRegistrationIDKeyTyped(evt);
             }
         });
+        jPanel2.add(PeopleRegistrationID, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 52, 189, 32));
 
         jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel1.setText("วันที่ออกบัตร");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(324, 102, -1, 32));
 
         jLabel9.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel9.setText("เลขหนังสือเดินทาง");
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(324, 51, -1, 32));
 
         jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel6.setText("วันที่บัตรหมดอายุ");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(651, 98, -1, 32));
 
         PassportNumber.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jPanel2.add(PassportNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(439, 52, 202, 32));
 
         jLabel5.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel5.setText("ชื่อ-สกุล");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(659, 51, -1, -1));
 
         BtSaveAccused.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         BtSaveAccused.setText("บันทึก");
@@ -392,18 +437,24 @@ public class WitnessForm extends javax.swing.JDialog {
                 BtSaveAccusedActionPerformed(evt);
             }
         });
+        jPanel2.add(BtSaveAccused, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 492, 108, 32));
 
         FullNamePerson.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jPanel2.add(FullNamePerson, new org.netbeans.lib.awtextra.AbsoluteConstraints(726, 51, 231, 33));
 
         OtherName.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jPanel2.add(OtherName, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 103, 189, 32));
 
         FullNamePersonEn.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jPanel2.add(FullNamePersonEn, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 151, 189, 32));
 
         jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel8.setText("อายุ");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(697, 148, -1, 32));
 
         jLabel10.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel10.setText("วันเกิด");
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 154, -1, -1));
 
         Age.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         Age.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -411,84 +462,113 @@ public class WitnessForm extends javax.swing.JDialog {
                 AgeKeyTyped(evt);
             }
         });
+        jPanel2.add(Age, new org.netbeans.lib.awtextra.AbsoluteConstraints(731, 149, 85, 32));
 
         jLabel11.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel11.setText("ชื่อภาษาอังกฤษ");
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 111, 32));
 
         Nationality.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         Nationality.setText("ไทย");
+        jPanel2.add(Nationality, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 211, 189, 32));
 
         jLabel12.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel12.setText("สัญชาติ");
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 111, 32));
 
         jLabel13.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel13.setText("เชื้อชาติ");
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(343, 210, -1, 32));
 
         Race.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         Race.setText("ไทย");
+        jPanel2.add(Race, new org.netbeans.lib.awtextra.AbsoluteConstraints(394, 211, 247, 32));
 
         jLabel14.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel14.setText("ที่ทำงาน ตำแหน่ง หน้าที่");
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 307, -1, -1));
 
         Gender.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         Gender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ชาย", "หญิง", "ไม่ระบุ" }));
+        jPanel2.add(Gender, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 264, 250, 32));
 
         OccupationPosition.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jPanel2.add(OccupationPosition, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 307, 830, 32));
 
         jLabel15.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel15.setText("เพศ");
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(343, 264, 40, 32));
 
         jLabel16.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel16.setText("สูง");
+        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(705, 199, -1, 32));
 
         Religion.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         Religion.setText("พุทธ");
+        jPanel2.add(Religion, new org.netbeans.lib.awtextra.AbsoluteConstraints(864, 149, 93, 32));
 
         jLabel17.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel17.setText("น้ำหนัก");
+        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(818, 199, -1, 32));
 
         Height.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jPanel2.add(Height, new org.netbeans.lib.awtextra.AbsoluteConstraints(731, 200, 83, 30));
 
         jLabel18.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel18.setText("ศาสนา");
+        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 148, -1, 32));
 
         Weight.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jPanel2.add(Weight, new org.netbeans.lib.awtextra.AbsoluteConstraints(864, 200, 93, 32));
 
         jLabel7.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel7.setText("ชื่อสกุลอื่น");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 102, 111, 32));
 
         jLabel20.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel20.setText("หมู่โลหิต");
+        jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 261, 111, 32));
 
         jLabel25.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel25.setText("หมายเลขโทรศัพท์");
+        jPanel2.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 347, -1, 32));
 
         jLabel26.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel26.setText("ชื่อบิดา");
+        jPanel2.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 347, 82, 32));
 
         jLabel29.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel29.setText("ชื่อมารดา");
+        jPanel2.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 347, -1, 32));
 
         jLabel21.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel21.setText("บ้านเลขที่");
+        jPanel2.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 387, 87, 32));
 
         jLabel22.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel22.setText("แขวง/ตำบล");
+        jPanel2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 387, -1, 32));
 
         jLabel23.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel23.setText("เขต/อำเภอ");
+        jPanel2.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 387, -1, 32));
 
         jLabel24.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel24.setText("รหัสไปรษณีย์");
+        jPanel2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 387, -1, 32));
 
         jLabel27.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel27.setText("จังหวัด");
+        jPanel2.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 387, -1, 32));
 
         HouseNumber.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jPanel2.add(HouseNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 387, 80, 32));
 
         FatherFullName.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jPanel2.add(FatherFullName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 347, 189, 32));
 
         MotherFullName.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jPanel2.add(MotherFullName, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 347, 247, 34));
 
         PhonePerson.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         PhonePerson.addActionListener(new java.awt.event.ActionListener() {
@@ -496,15 +576,21 @@ public class WitnessForm extends javax.swing.JDialog {
                 PhonePersonActionPerformed(evt);
             }
         });
+        jPanel2.add(PhonePerson, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 347, 220, 33));
+        PhonePerson.getAccessibleContext().setAccessibleName("");
 
         jLabel30.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel30.setText("หมู่ที่");
+        jPanel2.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 387, -1, 32));
 
         Moo.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jPanel2.add(Moo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 387, 62, 32));
 
         Tambon.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jPanel2.add(Tambon, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 387, 89, 32));
 
         Amphur.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jPanel2.add(Amphur, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 387, 85, 32));
 
         ZipCode.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         ZipCode.addActionListener(new java.awt.event.ActionListener() {
@@ -517,15 +603,19 @@ public class WitnessForm extends javax.swing.JDialog {
                 ZipCodeKeyTyped(evt);
             }
         });
+        jPanel2.add(ZipCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 387, 70, 32));
 
         Province.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jPanel2.add(Province, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 387, 156, 32));
 
         Related.setEditable(true);
         Related.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jPanel2.add(Related, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 427, 190, 32));
 
         jLabel19.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(204, 0, 0));
         jLabel19.setText("เกี่ยวข้องเป็น");
+        jPanel2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 427, -1, 32));
 
         jPanelBirthDay.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -537,8 +627,10 @@ public class WitnessForm extends javax.swing.JDialog {
         );
         jPanelBirthDayLayout.setVerticalGroup(
             jPanelBirthDayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 32, Short.MAX_VALUE)
+            .addGap(0, 42, Short.MAX_VALUE)
         );
+
+        jPanel2.add(jPanelBirthDay, new org.netbeans.lib.awtextra.AbsoluteConstraints(394, 150, -1, -1));
 
         jPanelIssueDate.setBackground(new java.awt.Color(255, 255, 255));
         jPanelIssueDate.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
@@ -554,6 +646,8 @@ public class WitnessForm extends javax.swing.JDialog {
             .addGap(0, 32, Short.MAX_VALUE)
         );
 
+        jPanel2.add(jPanelIssueDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(404, 102, 237, -1));
+
         jPanelExpiredDate.setBackground(new java.awt.Color(255, 255, 255));
         jPanelExpiredDate.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
 
@@ -568,10 +662,14 @@ public class WitnessForm extends javax.swing.JDialog {
             .addGap(0, 32, Short.MAX_VALUE)
         );
 
+        jPanel2.add(jPanelExpiredDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(755, 98, -1, -1));
+
         jLabel4.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel4.setText("พยานและบุคคลอื่นคนที่");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 13, -1, 31));
 
         OrderPerson.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jPanel2.add(OrderPerson, new org.netbeans.lib.awtextra.AbsoluteConstraints(156, 14, 56, 29));
 
         jComboBoxListName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBoxListName.addActionListener(new java.awt.event.ActionListener() {
@@ -579,306 +677,73 @@ public class WitnessForm extends javax.swing.JDialog {
                 jComboBoxListNameActionPerformed(evt);
             }
         });
+        jPanel2.add(jComboBoxListName, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
 
         jLabel28.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel28.setText("อาชีพ");
+        jPanel2.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(684, 253, -1, -1));
 
         Occupation.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jPanel2.add(Occupation, new org.netbeans.lib.awtextra.AbsoluteConstraints(734, 253, 220, 32));
 
         BloodGroup.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         BloodGroup.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "AB", "O", "A Rh-", "B Rh-", "AB Rh-", "O Rh-" }));
+        jPanel2.add(BloodGroup, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 264, 189, 32));
 
-        jButton1.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
+        jButton1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jButton1.setText("คำให้การ");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(963, 51, -1, -1));
+        jPanel2.add(AnswerPerson, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 427, 163, 32));
+        jPanel2.add(WhereSendInjuredOrDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(449, 21, 20, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(FullNamePersonEn, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38)
-                        .addComponent(jLabel10)
-                        .addGap(4, 4, 4)
-                        .addComponent(jPanelBirthDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(jLabel26)
-                        .addGap(8, 8, 8)
-                        .addComponent(FatherFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabel29)
-                        .addGap(4, 4, 4)
-                        .addComponent(MotherFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel25)
-                        .addGap(25, 25, 25)
-                        .addComponent(PhonePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(BtSaveAccused, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel20)
-                                .addGap(29, 29, 29))
-                            .addComponent(jLabel14))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(OccupationPosition, javax.swing.GroupLayout.PREFERRED_SIZE, 830, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(193, 193, 193)
-                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(7, 7, 7)
-                                .addComponent(Gender, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(19, 19, 19)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGap(38, 38, 38)
-                                        .addComponent(jLabel8)
-                                        .addGap(10, 10, 10)
-                                        .addComponent(Age, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(4, 4, 4)
-                                        .addComponent(jLabel18)
-                                        .addGap(4, 4, 4)
-                                        .addComponent(Religion, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGap(25, 25, 25)
-                                        .addComponent(jLabel28)
-                                        .addGap(15, 15, 15)
-                                        .addComponent(Occupation, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGap(46, 46, 46)
-                                        .addComponent(jLabel16)
-                                        .addGap(10, 10, 10)
-                                        .addComponent(Height, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(4, 4, 4)
-                                        .addComponent(jLabel17)
-                                        .addGap(4, 4, 4)
-                                        .addComponent(Weight, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(FullNamePerson)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel12)
-                                .addGap(4, 4, 4)
-                                .addComponent(Nationality, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(BloodGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel13)
-                        .addGap(4, 4, 4)
-                        .addComponent(Race, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(OtherName))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                .addGap(11, 11, 11)
-                                .addComponent(jLabel2)
-                                .addGap(10, 10, 10)
-                                .addComponent(PeopleRegistrationID, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(PassportNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPanelIssueDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanelExpiredDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel4)
-                        .addGap(10, 10, 10)
-                        .addComponent(OrderPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addComponent(jLabel19)
-                                .addGap(13, 13, 13)
-                                .addComponent(Related, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(AnswerPerson))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(70, 70, 70)
-                                .addComponent(jLabel21)
-                                .addGap(3, 3, 3)
-                                .addComponent(HouseNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel30)
-                                .addGap(3, 3, 3)
-                                .addComponent(Moo, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(8, 8, 8)
-                                .addComponent(jLabel22)
-                                .addGap(9, 9, 9)
-                                .addComponent(Tambon, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(1, 1, 1)
-                        .addComponent(jLabel23)
-                        .addGap(3, 3, 3)
-                        .addComponent(Amphur, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(5, 5, 5)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addComponent(Province, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel27))
-                        .addGap(4, 4, 4)
-                        .addComponent(jLabel24)
-                        .addGap(3, 3, 3)
-                        .addComponent(ZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(13, 13, 13)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(OrderPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(6, 6, 6)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(PeopleRegistrationID, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(PassportNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(OtherName, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jPanelIssueDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(15, 15, 15)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(FullNamePersonEn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(4, 4, 4)
-                                .addComponent(jLabel10))
-                            .addComponent(jPanelBirthDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Nationality, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Race, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(BloodGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(Gender, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(FullNamePerson)
-                            .addComponent(jLabel5)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(14, 14, 14)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanelExpiredDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Age, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Religion, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(Weight, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(Height, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(21, 21, 21)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel28)
-                            .addComponent(Occupation, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(11, 11, 11)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel14)
-                    .addComponent(OccupationPosition, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FatherFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(MotherFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PhonePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(HouseNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Moo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Tambon, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Amphur, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Province, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Related, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                    .addComponent(AnswerPerson))
-                .addGap(33, 33, 33)
-                .addComponent(BtSaveAccused, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        JSpinner.DateEditor timeEditor3 = new JSpinner.DateEditor(TimeSendInjuredOrDie, "HH:mm");
+        TimeSendInjuredOrDie.setEditor(timeEditor3);
+        //jSpinner1.setValue(new Date());
+        TimeSendInjuredOrDie.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TimeSendInjuredOrDieKeyReleased(evt);
+            }
+        });
+        jPanel2.add(TimeSendInjuredOrDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(539, 21, -1, -1));
 
-        PhonePerson.getAccessibleContext().setAccessibleName("");
+        jCheckInjured.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jCheckInjured.setText("บาดเจ็บ");
+        jCheckInjured.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckInjuredItemStateChanged(evt);
+            }
+        });
+        jCheckInjured.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckInjuredActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jCheckInjured, new org.netbeans.lib.awtextra.AbsoluteConstraints(218, 13, -1, 30));
+
+        jCheckDead.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jCheckDead.setText("ตาย");
+        jCheckDead.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckDeadItemStateChanged(evt);
+            }
+        });
+        jPanel2.add(jCheckDead, new org.netbeans.lib.awtextra.AbsoluteConstraints(291, 13, -1, 30));
+        jPanel2.add(CauseSendInjuredOrDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(509, 21, 20, -1));
+        jPanel2.add(DateSendInjuredOrDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(479, 21, 20, -1));
+
+        jButtonInjuryOrDie.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jButtonInjuryOrDie.setText("รายละเอียด");
+        jButtonInjuryOrDie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonInjuryOrDieActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButtonInjuryOrDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(342, 13, -1, 30));
 
         jScrollPane1.setViewportView(jPanel2);
         jPanel2.getAccessibleContext().setAccessibleDescription("");
@@ -891,7 +756,7 @@ public class WitnessForm extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1072, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGap(30, 30, 30))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -921,11 +786,14 @@ public class WitnessForm extends javax.swing.JDialog {
     private void BtSaveAccusedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSaveAccusedActionPerformed
         // TODO add your handling code here:
                con=ConnectDatabase.connect();
+               SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+              String sendTime=format.format(InjuryOrDie.TimeSendInjuredOrDie.getValue());
         if(isInsert){    
         String sql="INSERT INTO Person (Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                        "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,caseIdPerson,Related,OrderPerson,AnswerPerson,OccupationPosition)\n"
-                + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                        "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,caseIdPerson,Related,OrderPerson,AnswerPerson,"
+                + "OccupationPosition,CauseSendInjuredOrDie,WhereSendInjuredOrDie,DateSendInjuredOrDie,TimeSendInjuredOrDie,StatusInjuryOrDie)\n"
+                + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
          System.out.println("SQL : "+sql);
       try {
@@ -962,6 +830,16 @@ public class WitnessForm extends javax.swing.JDialog {
                               pst.setString(30,OrderPerson.getText());
                               pst.setString(31,AnswerPerson.getText());
                               pst.setString(32,OccupationPosition.getText());
+                               pst.setString(33,CauseSendInjuredOrDie.getText());
+                              pst.setString(34,WhereSendInjuredOrDie.getText());
+                              pst.setString(35,DateSendInjuredOrDie.getText());
+                              pst.setString(36,sendTime);
+                              if(jCheckInjured.isSelected()){
+                               pst.setString(37,jCheckInjured.getText());
+                              }
+                              else if(jCheckDead.isSelected()){
+                              pst.setString(37,jCheckDead.getText());
+                              }
                               
                                int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
             JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
@@ -983,7 +861,8 @@ public class WitnessForm extends javax.swing.JDialog {
                                     "BloodGroup=?,ExpiredDate=?,FatherFullName=?,FullNamePerson=?,FullNamePersonEn=?,\n" +
                                     "Gender=?,Height=?,HouseNumber=?,IssueDate=?,Moo=?,MotherFullName=?,Nationality=?,Occupation=?,\n" +
                                     "OtherName=?,PassportNumber=?,PeopleRegistrationID=?,PhonePerson=?,Province=?,Race=?,Religion=?,\n" +
-                                    "Tambon=?,TypePerson=?,Weight=?,ZipCode=? ,caseIdPerson=?,OrderPerson=?,Related=?,AnswerPerson=?,OccupationPosition=? where NoPerson=? and TypePerson=?   ";
+                                    "Tambon=?,TypePerson=?,Weight=?,ZipCode=? ,caseIdPerson=?,OrderPerson=?,Related=?,AnswerPerson=?,OccupationPosition=?,"
+                                     + "CauseSendInjuredOrDie=?,WhereSendInjuredOrDie=?,DateSendInjuredOrDie=?,TimeSendInjuredOrDie=?,StatusInjuryOrDie=? where NoPerson=? and TypePerson=?   ";
        
          try {
             pst=con.prepareStatement(sqlUpdate);
@@ -1018,9 +897,19 @@ public class WitnessForm extends javax.swing.JDialog {
                               pst.setString(29,OrderPerson.getText());
                               pst.setString(30,Related.getSelectedItem().toString());
                               pst.setString(31,AnswerPerson.getText());
-                              pst.setString(32,OccupationPosition.getText());                          
-                              pst.setString(33,noPerson);
-                              pst.setString(34,"พยานและบุคคลอื่นๆ");
+                              pst.setString(32,OccupationPosition.getText());      
+                              pst.setString(33,CauseSendInjuredOrDie.getText());
+                              pst.setString(34,WhereSendInjuredOrDie.getText());
+                              pst.setString(35,DateSendInjuredOrDie.getText());
+                              pst.setString(36,sendTime);
+                              if(jCheckInjured.isSelected()){
+                               pst.setString(37,jCheckInjured.getText());
+                              }
+                              else if(jCheckDead.isSelected()){
+                              pst.setString(37,jCheckDead.getText());
+                              }
+                              pst.setString(38,noPerson);
+                              pst.setString(39,"พยานและบุคคลอื่นๆ");
                            int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
             JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                             if (response == JOptionPane.YES_OPTION) {
@@ -1099,6 +988,54 @@ public class WitnessForm extends javax.swing.JDialog {
         rf.setLocationRelativeTo(null);
         rf.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jCheckInjuredItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckInjuredItemStateChanged
+        // TODO add your handling code here:
+
+        if(jCheckInjured.isSelected()){
+            jButtonInjuryOrDie.setVisible(true);
+
+        }
+        else{
+            jButtonInjuryOrDie.setVisible(false);
+
+        }
+    }//GEN-LAST:event_jCheckInjuredItemStateChanged
+
+    private void jCheckInjuredActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckInjuredActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckInjuredActionPerformed
+
+    private void jCheckDeadItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckDeadItemStateChanged
+        // TODO add your handling code here:
+        if(jCheckDead.isSelected()){
+            jButtonInjuryOrDie.setVisible(true);
+
+        }
+        else{
+            jButtonInjuryOrDie.setVisible(false);
+
+        }
+    }//GEN-LAST:event_jCheckDeadItemStateChanged
+
+    private void jButtonInjuryOrDieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInjuryOrDieActionPerformed
+        // TODO add your handling code here:
+        JSONObject type=new JSONObject();
+        type.put("TypeCase", typeCase);
+        type.put("TypePerson", "พยานและบุคคลอื่น");
+        JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame in = (JFrame)(dialog.getParent());
+        in.removeAll();
+        InjuryOrDie rf =new InjuryOrDie(in,type);
+        rf.pack();
+        rf.setLocationRelativeTo(null);
+        rf.setVisible(true);
+    }//GEN-LAST:event_jButtonInjuryOrDieActionPerformed
+
+    private void TimeSendInjuredOrDieKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TimeSendInjuredOrDieKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TimeSendInjuredOrDieKeyReleased
 
     /**
      * @param args the command line arguments
@@ -1265,8 +1202,8 @@ public class WitnessForm extends javax.swing.JDialog {
         if(isPerson){    
         String sql2="INSERT INTO PersonData (Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                        "PhonePerson,Province,Race,Religion,Tambon,Weight,ZipCode)\n"
-                + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                        "PhonePerson,Province,Race,Religion,Tambon,Weight,ZipCode,OccupationPosition)\n"
+                + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         
          System.out.println("SQL : "+sql2);
       try {
@@ -1298,7 +1235,8 @@ public class WitnessForm extends javax.swing.JDialog {
                            
                               pst2.setString(25,Weight.getText());
                               pst2.setString(26,ZipCode.getText());
-                             
+                              pst2.setString(27,OccupationPosition.getText());
+
                      
 //                          
                                
@@ -1359,6 +1297,8 @@ public class WitnessForm extends javax.swing.JDialog {
     public static javax.swing.JTextField AnswerPerson;
     private javax.swing.JComboBox<String> BloodGroup;
     private javax.swing.JButton BtSaveAccused;
+    public static javax.swing.JTextField CauseSendInjuredOrDie;
+    public static javax.swing.JTextField DateSendInjuredOrDie;
     private javax.swing.JTextField FatherFullName;
     private javax.swing.JTextField FullNamePerson;
     private javax.swing.JTextField FullNamePersonEn;
@@ -1380,10 +1320,15 @@ public class WitnessForm extends javax.swing.JDialog {
     private javax.swing.JComboBox<String> Related;
     private javax.swing.JTextField Religion;
     private javax.swing.JTextField Tambon;
+    public static javax.swing.JSpinner TimeSendInjuredOrDie;
     private javax.swing.JTextField Weight;
+    public static javax.swing.JTextField WhereSendInjuredOrDie;
     private javax.swing.JTextField ZipCode;
     private javax.swing.JLabel crimecaseno;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonInjuryOrDie;
+    private javax.swing.JCheckBox jCheckDead;
+    private javax.swing.JCheckBox jCheckInjured;
     private javax.swing.JComboBox<String> jComboBoxListName;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

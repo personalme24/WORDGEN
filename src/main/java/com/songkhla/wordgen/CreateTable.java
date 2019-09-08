@@ -79,8 +79,6 @@ public class CreateTable {
                 "	ProvinceBirthday	VARCHAR(100)	,	\n"+
                 "	NoImprison	VARCHAR(100)	,	\n"+
                 "	CauseImprison	VARCHAR(100)	,	\n"+
-                "	DateSendInjured	VARCHAR(100)	,	\n"+
-                "	NameSendInjured	VARCHAR(100)	,	\n"+
                 "	PlaceBorn	VARCHAR(100)	,	\n"+
                 "	DeathLocation	VARCHAR(100)	,	\n"+
                 "	TambomDie	VARCHAR(100)	,	\n"+
@@ -163,6 +161,13 @@ public class CreateTable {
                 "       NameArrest	VARCHAR(100)	,	\n"+     
                 "	RpAllegationsDate	DATE	,	\n"+
                 "	RpAllegationsTime	VARCHAR(100)	,	\n"+
+                "	StatusInjuryOrDie	VARCHAR(100)	,	\n"+ 
+                 "	DateSendInjuredOrDie	VARCHAR(100)	,	\n"+
+                "	TimeSendInjuredOrDie	VARCHAR(100)	,	\n"+                        
+                "	NameSendInjuredOrDie	VARCHAR(100)	,	\n"+      
+                "	CauseSendInjuredOrDie	VARCHAR(100)	,	\n"+
+                "	WhereSendInjuredOrDie	VARCHAR(100)	,	\n"+   
+                        
                 "	SueFirst	VARCHAR(100)	,	\n"+
                 "	SueFirstDate	DateTime	,	\n"+
                 "	SueFirstStart	DateTime	,	\n"+
