@@ -91,7 +91,7 @@ public static void w23(String cc) {
                               "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                               "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
                               "left join InvestInformation on crimecase.PoliceNameCase=InvestInformation.InvestId \n" +
-                              "where crimecase.CaseId='"+cc+"'and Person.TypePerson='ผู้ตาย' or Person.TypePerson='ผู้บาดเจ็บ' \n" +
+                              "where crimecase.CaseId='"+cc+"'and Person.TypePerson='ผู้ตาย'\n" +
                               "group by crimecase.CaseId,Person.NoPerson";
 
                 Statement st = conn.createStatement();

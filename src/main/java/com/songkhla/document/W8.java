@@ -213,6 +213,7 @@ public class W8 {
                 bookmarkvalue.put("TY", Checknull(TypePerson));
                 
                 bookmarkvalue.put("PS7",  Checknull(s.getString("SuspectandOther"))); 
+                bookmarkvalue.put("PA7",  Checknull(s.getString("AccureandOther")));
                 }
             
                

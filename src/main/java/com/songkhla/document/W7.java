@@ -198,7 +198,7 @@ public class W7 {
                     
                      bookmarkvalue.put("PD7", Checknull(s.getString("FullNamePerson")));  
                      bookmarkvalue.put("PD43", Checknull(ToDate(s.getString("DateOfDie"))));
-                     bookmarkvalue.put("PD44", Checknull(ToDate(s.getString("BodyFoundDate")))+" เวลา "+Checknull(s.getString("BodyFoundTime"))+" น.");
+                     bookmarkvalue.put("PD44", Checknull(ToDate(s.getString("BodyFoundDate"))));
                      bookmarkvalue.put("PD45", Checknull(s.getString("DeathLocation")));
                      bookmarkvalue.put("PD46", Checknull(s.getString("TambomDie")));
                      bookmarkvalue.put("PD47", Checknull(s.getString("AmphurDie")));
