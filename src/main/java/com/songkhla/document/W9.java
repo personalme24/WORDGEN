@@ -64,6 +64,7 @@ public static void w9(String cc) {
              String HeadName ="";
              String HeadPosition="";
              String HeadRankFull="";
+             int OrderPerson=0;
             try {
                 
                  String sqlDataPoliceStation="SELECT * FROM PoliceStation";
@@ -108,6 +109,7 @@ public static void w9(String cc) {
                  ccYear=s.getString("crimecaseyears");
                  casetype =s.getString("casetype");
                  caseno  =s.getString("crimecasenoyear");
+                 OrderPerson =s.getInt("OrderPerson");
                  
                 String Date="";
                 String Month="";
@@ -151,6 +153,11 @@ public static void w9(String cc) {
                  bookmarkvalue.put("A3", Checknull(s.getString("ActionDetailCase")));
                 
 //                   ----------------------------ผู้ต้องหา--------------------
+                    if ((OrderPerson) == 1)
+                    {
+                       bookmarkvalue.put("TYPS","ผู้ต้องหา"); 
+                    }else {bookmarkvalue.put("TYPS","ผู้ต้องหาคนที่ "+OrderPerson); }
+                    
                     bookmarkvalue.put("PS2", Checknull(s.getString("PeopleRegistrationID"))); 
                     bookmarkvalue.put("PS3",Checknull(ToDate(s.getString("IssueDate")))); 
                     bookmarkvalue.put("PS5",Checknull(s.getString("IssuedBy"))); 
@@ -173,17 +180,27 @@ public static void w9(String cc) {
                     bookmarkvalue.put("PS34", Checknull(s.getString("AmphurBirthday")));
                     bookmarkvalue.put("PS35", Checknull(s.getString("ProvinceBirthday")));
                     bookmarkvalue.put("PS75", Checknull(s.getString("TypePerson")));
+                    bookmarkvalue.put("PS124", "");
+                    bookmarkvalue.put("PS133", Checknull(s.getString("AnswerPerson")));
+                    
+                            bookmarkvalue.put("C4",Checknull(ToDate(s.getString("OccuredDate"))));
+                            bookmarkvalue.put("C441", ReplaceCollon(s.getString("OccuredTime")));
+                            bookmarkvalue.put("C5", Checknull(ToDate(s.getString("CaseAcceptDate"))));
+                            bookmarkvalue.put("C551",Checknull(ReplaceCollon(s.getString("CaseAccepTime"))));
+                            bookmarkvalue.put("C8", Checknull(s.getString("CrimeLocation")));
+                            bookmarkvalue.put("C9", Checknull(s.getString("CrimeLocationMoo")));
+                            bookmarkvalue.put("C10", Checknull(s.getString("CrimeLocationSoi")));
+                            bookmarkvalue.put("C11", Checknull(s.getString("CrimeLocationRoad")));
+                            bookmarkvalue.put("C12", Checknull(s.getString("CrimeLocationDistrict")));
+                            bookmarkvalue.put("C13", Checknull(s.getString("CrimeLocationAmphur")));
+                            bookmarkvalue.put("C14", Checknull(s.getString("CrimeLocationProvince")));
+                    
                     
                     bookmarkvalue.put("PS001", Checknull(s.getString("CrimeLocation"))+" ต."+Checknull(s.getString("CrimeLocationDistrict"))+" อ."+Checknull(s.getString("CrimeLocationAmphur"))+" จ."+Checknull(s.getString("CrimeLocationProvince")));
                     bookmarkvalue.put("PS002", Checknull(ToDate(s.getString("OccuredDate")))+" เวลา "+ReplaceCollon(s.getString("OccuredTime"))+" น.");
                   
                       bookmarkvalue.put("B2", Checknull(s.getString("ChargeNameCase")));
-                      /*
-                       bookmarkvalue.put("P02", Checknull(RankPolice));
-                       bookmarkvalue.put("P03", Checknull(FirstName));
-                       bookmarkvalue.put("P04", Checknull(LastName));
-                       bookmarkvalue.put("P05", Checknull(Position));
-                    */
+                  
                         bookmarkvalue.put("P02", Checknull(s.getString("InvestRank")));
                         bookmarkvalue.put("P03", Checknull(s.getString("InvestName")));
                         bookmarkvalue.put("P04", "");
@@ -303,6 +320,8 @@ public static void nw9( ) {
                     bookmarkvalue.put("PS34","");
                     bookmarkvalue.put("PS35","");
                     bookmarkvalue.put("PS75","");
+                    bookmarkvalue.put("PS124","");
+                    bookmarkvalue.put("PS133","");
                     bookmarkvalue.put("PS001","");
                     bookmarkvalue.put("PS002","");
                      
@@ -316,6 +335,18 @@ public static void nw9( ) {
                         bookmarkvalue.put("P012", "");
                         bookmarkvalue.put("P013", "");
                    
+                            bookmarkvalue.put("C4","");
+                            bookmarkvalue.put("C441", "");
+                            bookmarkvalue.put("C12","");
+                            bookmarkvalue.put("C5", "");
+                            bookmarkvalue.put("C551","");
+                            bookmarkvalue.put("C8","");
+                            bookmarkvalue.put("C9","");
+                            bookmarkvalue.put("C10","");
+                            bookmarkvalue.put("C11","");
+                            bookmarkvalue.put("C12","");
+                            bookmarkvalue.put("C13","");
+                            bookmarkvalue.put("C14","");
     
 		
 		try {

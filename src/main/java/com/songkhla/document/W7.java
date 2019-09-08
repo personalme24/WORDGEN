@@ -58,7 +58,10 @@ public class W7 {
              String StationProvince="";
              String ProvincProsecutor="";
              String TelStation="";
+             String HeadWorkName="";
+             String HeadWorkPosition="";
              String HeadName="";
+             String HeadPosition="";
              String HeadRankFull="";
              String HeadWorkRankFull ="";
              String HeadRankShort="";
@@ -82,6 +85,9 @@ public class W7 {
                          ProvincProsecutor=rs.getString("ProvincProsecutor");
                          TelStation=rs.getString("TelStation");
                          HeadName=rs.getString("HeadName");
+                         HeadPosition =rs.getString("HeadPosition");
+                         HeadWorkName=rs.getString("HeadWorkName");
+                         HeadWorkPosition =rs.getString("HeadWorkPosition");
                          HeadRankFull=rs.getString("HeadRankFull");
                          HeadWorkRankFull =rs.getString("HeadWorkRankFull");
                          HeadRankShort =rs.getString("HeadRankShort");
@@ -98,7 +104,7 @@ public class W7 {
                          Position=rs1.getString("Position");
                       }
                    
-                   String sql="select crimecase.*,ChargeCase.*,P1.*,P2.*,Person.*\n" +
+                   String sql="select crimecase.*,ChargeCase.*,P1.*,P2.*,Person.*,InvestInformation.*\n" +
                                 "from crimecase inner join(\n" +
                               "SELECT  min(Person.NoPerson),Person.FullNamePerson AccuredName,Person.Age AgeAccured,Person.Race AccuredRace,Person.Nationality AccuredNati "
                             + "  FROM Person where Person.TypePerson='ผู้กล่าวหา'\n" +
@@ -109,6 +115,7 @@ public class W7 {
                                 ")P2\n" +
                                 "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                                 "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
+                                "left join InvestInformation on crimecase.PoliceNameCase=InvestInformation.InvestId \n" +
                                 "where crimecase.CaseId='"+cc+"' and Person.TypePerson='ผู้ตาย'\n"+
                                 "group by crimecase.CaseId";
                    
@@ -155,10 +162,13 @@ public class W7 {
                  bookmarkvalue.put("S02",Checknull(PoliceStationName));
                  bookmarkvalue.put("S5",Checknull(StationAmphur));
                  bookmarkvalue.put("S6",Checknull(StationProvince));
-                  bookmarkvalue.put("S10",Checknull(TelStation));
-                  bookmarkvalue.put("S13",Checknull(HeadName));
-                  bookmarkvalue.put("S27",Checknull(ProvincProsecutor));
-                  bookmarkvalue.put("S34",Checknull(HeadRankFull));
+                bookmarkvalue.put("S10",Checknull(TelStation));
+                bookmarkvalue.put("S13",Checknull(HeadName));
+                bookmarkvalue.put("S14",Checknull(HeadPosition));
+                bookmarkvalue.put("S15",Checknull(HeadWorkName));
+                bookmarkvalue.put("S16",Checknull(HeadWorkPosition));
+                bookmarkvalue.put("S27",Checknull(ProvincProsecutor));
+                bookmarkvalue.put("S34",Checknull(HeadRankFull));
                  bookmarkvalue.put("S35",Checknull(HeadRankShort));
                  bookmarkvalue.put("S36",Checknull(HeadWorkRankFull));
                  bookmarkvalue.put("S37",Checknull(HeadWorkRankShort));
@@ -193,15 +203,22 @@ public class W7 {
                      bookmarkvalue.put("PD46", Checknull(s.getString("TambomDie")));
                      bookmarkvalue.put("PD47", Checknull(s.getString("AmphurDie")));
                      bookmarkvalue.put("PD48", Checknull(s.getString("ProvinceDie")));
+                     bookmarkvalue.put("PD49", Checknull(s.getString("PlaceOfFoundBody")));
                      bookmarkvalue.put("PD50", Checknull(s.getString("TambomFoundBody")));
+                     bookmarkvalue.put("PD51", Checknull(s.getString("AmphurFoundBody")));
+                     bookmarkvalue.put("PD52", Checknull(s.getString("ProvinceFoundBody")));
+                     bookmarkvalue.put("PD84", Checknull(ReplaceCollon(s.getString("BodyFoundTime"))));
+                     
+                     
+                     bookmarkvalue.put("C51", Checknull(s.getString("CauseDead")));
                      bookmarkvalue.put("C52", Checknull(s.getString("CircumstancesOfDeath")));
                      
-                             bookmarkvalue.put("P02", Checknull(RankPolice));
-                             bookmarkvalue.put("P03", Checknull(FirstName));
-                             bookmarkvalue.put("P04", Checknull(LastName));
-                             bookmarkvalue.put("P05", Checknull(Position));
-                          // bookmarkvalue.put("P012", Checknull(LastName));
-                          // bookmarkvalue.put("P013", Checknull(Position));
+                        bookmarkvalue.put("P02", Checknull(s.getString("InvestRank")));
+                        bookmarkvalue.put("P03", Checknull(s.getString("InvestName")));
+                        bookmarkvalue.put("P04", "");
+                        bookmarkvalue.put("P05", Checknull(s.getString("InvestPosition")));
+                        bookmarkvalue.put("P012", Checknull(s.getString("InvestRankFull"))); //ยศเต็ม
+                        bookmarkvalue.put("P013", Checknull(s.getString("InvestPosition"))); //ตำแหน่งเต็ม
                      
 			JSONArray tablecolumn = new JSONArray();
 			tablecolumn.add("C2");
@@ -266,17 +283,21 @@ public class W7 {
                 bookmarkvalue.put("C37","");
                 
                 bookmarkvalue.put("CC2","");
-                 bookmarkvalue.put("S2","");
-                 bookmarkvalue.put("S02","");
-                 bookmarkvalue.put("S5","");
-                 bookmarkvalue.put("S6","");
-                  bookmarkvalue.put("S10","");
-                  bookmarkvalue.put("S13","");
-                  bookmarkvalue.put("S27","");
-                  bookmarkvalue.put("S34","");
-                 bookmarkvalue.put("S35","");
-                 bookmarkvalue.put("S36","");
-                 bookmarkvalue.put("S37","");
+                bookmarkvalue.put("S2","");
+                bookmarkvalue.put("S02","");
+                bookmarkvalue.put("S5","");
+                bookmarkvalue.put("S6","");
+                bookmarkvalue.put("S10","");
+                bookmarkvalue.put("S13","");
+                bookmarkvalue.put("S27","");
+                bookmarkvalue.put("S14","");
+                bookmarkvalue.put("S15","");
+                bookmarkvalue.put("S16","");
+                bookmarkvalue.put("S19","");
+                bookmarkvalue.put("S34","");
+                bookmarkvalue.put("S35","");
+                bookmarkvalue.put("S36","");
+                bookmarkvalue.put("S37","");
                   
                  bookmarkvalue.put("PS7","");
                   bookmarkvalue.put("PS13","");
@@ -317,7 +338,10 @@ public class W7 {
                      bookmarkvalue.put("PD46", "");
                      bookmarkvalue.put("PD47", "");
                      bookmarkvalue.put("PD48", "");
+                     bookmarkvalue.put("PD49", "");
                      bookmarkvalue.put("PD50", "");
+                     bookmarkvalue.put("PD51", "");
+                     bookmarkvalue.put("PD52", "");
                      bookmarkvalue.put("C52", "");
                      
                         bookmarkvalue.put("P02", "");

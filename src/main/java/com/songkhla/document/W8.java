@@ -55,6 +55,7 @@ public class W8 {
              String casetype;
              String caseno;
              String Occupation;
+             String Related;
              String TypePerson;
              String PoliceStationName="";
              String StationAmphur="";
@@ -102,7 +103,7 @@ public class W8 {
                               "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
                               "left join ActionsCaseData on crimecase.ActionCodeCase = ActionsCaseData.ActionCodeCase\n"+
                                "left join InvestInformation on crimecase.PoliceNameCase=InvestInformation.InvestId \n" +
-                              "where crimecase.CaseId='"+cc+"'and Person.TypePerson='ผู้กล่าวหา'\n" +
+                              "where crimecase.CaseId='"+cc+"'and Person.TypePerson='ผู้กล่าวหา' or Person.Related='พยาน'\n" +
                               "group by crimecase.CaseId,Person.NoPerson";
                    
 //                   pst=conn.prepareStatement(sql);
@@ -118,9 +119,11 @@ public class W8 {
                  caseno  =s.getString("crimecasenoyear");
                  Occupation=s.getString("Occupation");
                  TypePerson =s.getString("TypePerson");
+                 Related =s.getString("Related");
                 String Date="";
                 String Month="";
                 String Year="";
+                
                 SimpleDateFormat sdfstart ;
                 Calendar  calstart = Calendar.getInstance();
                 sdfstart = new SimpleDateFormat("d", new Locale("th", "TH"));  
@@ -142,7 +145,7 @@ public class W8 {
                 bookmarkvalue.put("C001",Checknull(Year));
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3", Checknull(ccYear));
-                 bookmarkvalue.put("CC2",Checknull(caseno));
+                bookmarkvalue.put("CC2",Checknull(caseno));
                 bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
                 bookmarkvalue.put("S02",Checknull(PoliceStationName));
                 bookmarkvalue.put("S5", Checknull(StationAmphur));
@@ -155,6 +158,8 @@ public class W8 {
                 
                 bookmarkvalue.put("A3", Checknull(s.getString("ActionDetailCase")));
                 
+                ///ผู้กล่าวหา
+                if (TypePerson.equals("ผู้กล่าวหา")){
                 bookmarkvalue.put("PA2",  Checknull(s.getString("PeopleRegistrationID")));
                 bookmarkvalue.put("PA3",  Checknull(ToDate(s.getString("IssueDate"))));
                 bookmarkvalue.put("PA5",  Checknull(s.getString("IssuedBy")));
@@ -175,9 +180,39 @@ public class W8 {
                 bookmarkvalue.put("PA31", Checknull(s.getString("FatherFullName"))); 
                 bookmarkvalue.put("PA32", Checknull(s.getString("MotherFullName"))); 
                 bookmarkvalue.put("PA75", Checknull(s.getString("TypePerson")));
+                bookmarkvalue.put("PA123", Checknull(s.getString("OccupationPosition"))); 
+                bookmarkvalue.put("PA133", Checknull(s.getString("AnswerPerson"))); 
                 bookmarkvalue.put("TY", Checknull(TypePerson));
                 
                 bookmarkvalue.put("PS7",  Checknull(s.getString("SuspectandOther")));
+                }
+                else if (Related.equals("พยาน")){
+                bookmarkvalue.put("PW2",  Checknull(s.getString("PeopleRegistrationID")));
+                bookmarkvalue.put("PW3",  Checknull(ToDate(s.getString("IssueDate"))));
+                bookmarkvalue.put("PW5",  Checknull(s.getString("IssuedBy")));
+                bookmarkvalue.put("PW7",  Checknull(s.getString("FullNamePerson")));
+                bookmarkvalue.put("PW13", Checknull(s.getString("Age")));
+                bookmarkvalue.put("PW14", Checknull(s.getString("Race")));
+                bookmarkvalue.put("PW15", Checknull(s.getString("Nationality"))); 
+                bookmarkvalue.put("PW16", Checknull(s.getString("Religion")));
+                bookmarkvalue.put("PW17", Checknull(s.getString("Occupation"))+" โทร. "+Checknull(s.getString("PhonePerson")));  
+                bookmarkvalue.put("PW22", Checknull(s.getString("HouseNumber"))); 
+                bookmarkvalue.put("PW23", Checknull(s.getString("Moo"))); 
+                bookmarkvalue.put("PW24", Checknull(s.getString("Tambon"))); 
+                bookmarkvalue.put("PW25", Checknull(s.getString("Amphur"))); 
+                bookmarkvalue.put("PW26", Checknull(s.getString("Province"))); 
+                bookmarkvalue.put("PW29", Checknull(s.getString("HeadmanName"))); 
+                bookmarkvalue.put("PW30", Checknull(s.getString("SubHeadmanName"))); 
+                bookmarkvalue.put("PW31", Checknull(s.getString("FatherFullName"))); 
+                bookmarkvalue.put("PW32", Checknull(s.getString("MotherFullName"))); 
+                bookmarkvalue.put("PW75", Checknull(s.getString("TypePerson"))); 
+                bookmarkvalue.put("PW123", Checknull(s.getString("OccupationPosition"))); 
+                bookmarkvalue.put("PW133", Checknull(s.getString("AnswerPerson"))); 
+                bookmarkvalue.put("TY", Checknull(TypePerson));
+                
+                bookmarkvalue.put("PS7",  Checknull(s.getString("SuspectandOther")));
+                }
+            
                
                     bookmarkvalue.put("B2", Checknull(s.getString("ChargeNameCase")));
                     
@@ -208,6 +243,7 @@ public class W8 {
                         bookmarkvalue.put("P013", Checknull(s.getString("InvestPosition"))); //ตำแหน่งเต็ม
     
                         
+		
 			JSONArray tablecolumn = new JSONArray();
 			tablecolumn.add("C2");
 			tablecolumn.add("C3");
@@ -239,6 +275,7 @@ public class W8 {
 		bookmarkvalue.put("TABLES", TABLES);
 		System.out.println(bookmarkvalue.toJSONString());
 		
+		if(TypePerson.equals("ผู้กล่าวหา")){
 		if (Occupation.equals("รับราชการตำรวจ")){
 		try {
                   
@@ -249,9 +286,8 @@ public class W8 {
 			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/บันทึกคำให้การของผู้กล่าวหา "+s.getString("FullNamePerson")+""+ cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
-		}
-                
-                }else
+		} 
+                }else 
                     try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
@@ -261,15 +297,41 @@ public class W8 {
 			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/บันทึกคำให้การของผู้กล่าวหา "+s.getString("FullNamePerson")+""+ cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
-		}      
+		}  
+                }
+                if (Related.equals("พยาน")){
+                    if (Occupation.equals("รับราชการตำรวจ")){
+		try {
+                  
+			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
+					.load(new java.io.File("./TEMPLATE/w813.docx"));
+			processVariable(bookmarkvalue,wordMLPackage);
+			processTABLE(bookmarkvalue,wordMLPackage);
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/บันทึกคำให้การของพยาน "+s.getString("FullNamePerson")+""+ cs+"-"+ccYear+".doc"));
+		}catch( Exception ex) {
+			ex.printStackTrace();
+		} 
+                }else 
+                    try {
+                  
+			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
+					.load(new java.io.File("./TEMPLATE/w812.docx"));
+			processVariable(bookmarkvalue,wordMLPackage);
+			processTABLE(bookmarkvalue,wordMLPackage);
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/บันทึกคำให้การของพยาน "+s.getString("FullNamePerson")+""+ cs+"-"+ccYear+".doc"));
+		}catch( Exception ex) {
+			ex.printStackTrace();
+		}     
+                }
                 
             }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        
-              
+     
 	}
+    
+    
 
     public static void nw8() {
      
@@ -315,8 +377,33 @@ public class W8 {
                 bookmarkvalue.put("PA31", ""); 
                 bookmarkvalue.put("PA32", ""); 
                 bookmarkvalue.put("PA75", "");
+                bookmarkvalue.put("PA123", ""); 
+                bookmarkvalue.put("PA133", "");
                 bookmarkvalue.put("TY", "");
                 
+                bookmarkvalue.put("PW2",  "");
+                bookmarkvalue.put("PW3",  "");
+                bookmarkvalue.put("PW5",  "");
+                bookmarkvalue.put("PW7",  "");
+                bookmarkvalue.put("PW13", "");
+                bookmarkvalue.put("PW14", "");
+                bookmarkvalue.put("PW15", ""); 
+                bookmarkvalue.put("PW16", "");
+                bookmarkvalue.put("PW17", ""); 
+                bookmarkvalue.put("PW22", ""); 
+                bookmarkvalue.put("PW23", ""); 
+                bookmarkvalue.put("PW24", ""); 
+                bookmarkvalue.put("PW25", ""); 
+                bookmarkvalue.put("PW26", ""); 
+                bookmarkvalue.put("PW29", ""); 
+                bookmarkvalue.put("PW30", ""); 
+                bookmarkvalue.put("PW31", ""); 
+                bookmarkvalue.put("PW32", ""); 
+                bookmarkvalue.put("PW75", "");
+                bookmarkvalue.put("PW123", ""); 
+                bookmarkvalue.put("PW133", "");
+                bookmarkvalue.put("TY", "");
+               
                 bookmarkvalue.put("PS7", "");
                 
                  bookmarkvalue.put("B2","");
