@@ -97,7 +97,7 @@ public class W21 {
                                 "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                                 "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
                                 "left join InvestInformation on crimecase.PoliceNameCase=InvestInformation.InvestId \n" +
-                                "where crimecase.CaseId='"+cc+"' and Person.TypePerson='ผู้ตาย'  or Person.TypePerson='ผู้บาดเจ็บ' \n"+
+                                "where crimecase.CaseId='"+cc+"' and Person.StatusInjuryOrDie='ตาย' or Person.StatusInjuryOrDie='บาดเจ็บ' \n"+
                                 "group by crimecase.CaseId";
                    
 //                   pst=conn.prepareStatement(sql);
@@ -143,8 +143,11 @@ public class W21 {
                  bookmarkvalue.put("S27",Checknull(ProvincProsecutor));
                  bookmarkvalue.put("S10",Checknull(TelStation));
                    
-                  bookmarkvalue.put("PD7",Checknull(s.getString("suspectName")));
-                 
+                   bookmarkvalue.put("PD7",Checknull(s.getString("FullNamePerson")));
+                   bookmarkvalue.put("PD135", Checknull(ToDate(s.getString("DateSendInjuredOrDie"))));
+                   bookmarkvalue.put("PD136", Checknull(s.getString("TimeSendInjuredOrDie")));
+                   bookmarkvalue.put("PD137", Checknull(s.getString("CauseSendInjuredOrDie")));
+                   bookmarkvalue.put("PD138", Checknull(s.getString("WhereSendInjuredOrDie")));
                    
                          
                       bookmarkvalue.put("B2", Checknull(s.getString("ChargeNameCase")));
@@ -164,10 +167,8 @@ public class W21 {
                             bookmarkvalue.put("C441", ReplaceCollon(s.getString("OccuredTime")));
                             bookmarkvalue.put("C131", Checknull(ToDate(s.getString("OccuredDateEnd"))));
                             bookmarkvalue.put("C132", ReplaceCollon(s.getString("OccuredTimeEnd")));
-                            
-                            
-                         // bookmarkvalue.put("P38", Checknull(ToDate(s.getString("DateSendInjured"))));
-                         // bookmarkvalue.put("P39", Checknull(s.getString("NameSendInjured")));
+                          
+                          
                     
                    
     
@@ -238,7 +239,13 @@ public class W21 {
                  bookmarkvalue.put("S27","");
                  bookmarkvalue.put("S10","");
                    
-                  bookmarkvalue.put("PA7","");
+                  bookmarkvalue.put("PD7","");
+                  bookmarkvalue.put("PD135","");
+                  bookmarkvalue.put("PD136","");
+                  bookmarkvalue.put("PD137","");
+                  bookmarkvalue.put("PD138","");
+                  
+                  
                  
                    
                          
