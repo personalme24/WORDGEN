@@ -202,7 +202,7 @@ public static void w68(String cc,String sueTime,String stSuspect,String idperson
 		bookmarkvalue.put("C2",Checknull(cs));
                 bookmarkvalue.put("C3",Checknull(ccYear));
                  bookmarkvalue.put("CC2",Checknull(caseno));
-                bookmarkvalue.put("S2",Checknull(PoliceStationName));
+                bookmarkvalue.put("S2",Checknull(PoliceStationName).substring(10));
                 bookmarkvalue.put("S5", Checknull(StationAmphur));
                 bookmarkvalue.put("S6", Checknull(StationProvince));
                 bookmarkvalue.put("S10",Checknull(TelStation));

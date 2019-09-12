@@ -175,15 +175,15 @@ public class W6 {
                  bookmarkvalue.put("S36",Checknull(HeadWorkRankFull));
                  bookmarkvalue.put("S37",Checknull(HeadWorkRankShort));
                   
-                 bookmarkvalue.put("PS7",Checknull(s.getString("AccureandOther")));
-                  bookmarkvalue.put("PS13", Checknull(s.getString("AgeAccured")));
-                   bookmarkvalue.put("PS14", Checknull(s.getString("AccuredRace")));
-                    bookmarkvalue.put("PS15", Checknull(s.getString("AccuredNati"))); 
+                 bookmarkvalue.put("PA7",Checknull(s.getString("AccureandOther")));
+                  bookmarkvalue.put("PA13", Checknull(s.getString("AgeAccured")));
+                   bookmarkvalue.put("PA14", Checknull(s.getString("AccuredRace")));
+                    bookmarkvalue.put("PA15", Checknull(s.getString("AccuredNati"))); 
 
-                    bookmarkvalue.put("PA7",  Checknull(s.getString("SuspectandOther"))); 
-                    bookmarkvalue.put("PA13", Checknull(s.getString("suspectAge")));
-                     bookmarkvalue.put("PA14", Checknull(s.getString("suspectRace")));
-                         bookmarkvalue.put("PA15",Checknull(s.getString("suspectNati")));
+                    bookmarkvalue.put("PS7",  Checknull(s.getString("SuspectandOther"))); 
+                    bookmarkvalue.put("PS13", Checknull(s.getString("suspectAge")));
+                     bookmarkvalue.put("PS14", Checknull(s.getString("suspectRace")));
+                         bookmarkvalue.put("PS15",Checknull(s.getString("suspectNati")));
                          
                       bookmarkvalue.put("B2", Checknull(s.getString("ChargeNameCase")));
                       bookmarkvalue.put("B3", Checknull(s.getString("LawCase")));
