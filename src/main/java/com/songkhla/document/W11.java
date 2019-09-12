@@ -245,7 +245,7 @@ public class W11 {
                         row1.put("AS5",Checknull(s.getString("Amount")));
                         row1.put("AS6",Checknull(s.getString("Value")));
                         row1.put("AS8",Checknull(s.getString("OccupantName")));
-                        row1.put("AS9",ToDate(Checknull(s.getString("DateSequester"))));
+                        row1.put("AS9",Checknull(ToDate(s.getString("DateSequester"))));
                         row1.put("AS10",Checknull(s.getString("Remark")));
                         
 			JSONArray.add(row1);
