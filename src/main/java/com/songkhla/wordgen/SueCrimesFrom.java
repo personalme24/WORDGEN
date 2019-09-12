@@ -255,7 +255,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
              if(firstsue.equals(null) ||firstsue.equals("null")||firstsue.equals(""))
             {
                 
-                if(stSuspect.equals("ผัดฟ้องฝากขัง")||stSuspect.equals("ผัดฟ้อง")){
+                if(Court.equals("ศาลแขวง")&&(stSuspect.equals("ผัดฟ้องฝากขัง")||stSuspect.equals("ผัดฟ้อง"))){
             SueFirst.setText("1");
             SueFirstDate.setText(arrestDate);
             SueFirstTotal.setText("6");
@@ -282,7 +282,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             SueFifthEnd.setText(CalculateDateEnd(FifthDate.getText(), SueFifthTotal.getText()));
             SueFifthRequest.setSelectedIndex(1);
                 }
-                 if(stSuspect.equals("ฝากขัง")&& RatePrison.equals("ไม่เกิน 10 ปี")){
+                 if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&stSuspect.equals("ฝากขัง")&& RatePrison.equals("ไม่เกิน 10 ปี")){
             SueFirst.setText("1");
             SueFirstDate.setText(arrestDate);
             SueFirstTotal.setText("12");
@@ -305,7 +305,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             SueFourthRequest.setSelectedIndex(1);
 
                 }
-                    if(stSuspect.equals("ฝากขัง")&& RatePrison.equals("ตั้งแต่ 10 ปีขึ้นไป")){
+                    if(Court.equals("ศาลอาญา/ศาลจังหวัด")&&stSuspect.equals("ฝากขัง")&& RatePrison.equals("ตั้งแต่ 10 ปีขึ้นไป")){
             SueFirst.setText("1");
             SueFirstDate.setText(arrestDate);
             SueFirstTotal.setText("12");
@@ -342,6 +342,20 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             SueSevenEnd.setText(CalculateDateEnd(SevDate.getText(), SueSevenTotal.getText()));
             SueSevRequest.setSelectedIndex(1);
                 }
+                     if(Court.equals("ศาลเยาวชนและครอบครัว")&&(stSuspect.equals("ผัดฟ้องฝากขัง")||stSuspect.equals("ผัดฟ้อง"))){
+            SueFirst.setText("1");
+            SueFirstDate.setText(arrestDate);
+            SueFirstTotal.setText("15");
+            SueFirstEnd.setText(CalculateDateEnd(SueFirstDate.getText(), SueFirstTotal.getText()));
+            SueFirstRequest.setSelectedIndex(1);
+            SueSecond.setText("2");
+            SueSecDateT.setText(CalculateDateNextTimes(SueFirstEnd.getText()));
+            SueSecTotal.setText("15");
+            SueSecEnd.setText(CalculateDateEnd(SueSecDateT.getText(), SueSecTotal.getText()));
+            SueSecRequest.setSelectedIndex(1);
+            
+                }
+                    
             }
              else{
 //             closeText();
@@ -2018,7 +2032,44 @@ SueFirstCause.setEnabled(true);
        SueFifthCause.setEnabled(false);
        Print5.setEnabled(false);
        }
-
+        if(Court.equals("ศาลเยาวชนและครอบครัว"))
+       {
+       SueSeventh.setEnabled(false);
+       SevDate.setEnabled(false);
+       SueSevenEnd.setEnabled(false);
+       SueSevenTotal.setEnabled(false);
+       SueSevRequest.setEnabled(false);
+       SueSevCause.setEnabled(false);
+       Print7.setEnabled(false);
+       SueSixth.setEnabled(false);
+       SixthDate.setEnabled(false);
+       SueSixthEnd.setEnabled(false);
+       SueSixthTotal.setEnabled(false);
+       SueSixthRequest.setEnabled(false);
+       SueSixthCause.setEnabled(false);
+       Print6.setEnabled(false);
+          SueFifth.setEnabled(false);
+       FifthDate.setEnabled(false);
+       SueFifthEnd.setEnabled(false);
+       SueFifthTotal.setEnabled(false);
+       SueFifthRequest.setEnabled(false);
+       SueFifthCause.setEnabled(false);
+       Print5.setEnabled(false);
+       SueForth.setEnabled(false);
+       FourthDate.setEnabled(false);
+       SueFourthTotal.setEnabled(false);
+       SueFourthEnd.setEnabled(false);
+       SueFourthRequest.setEnabled(false);
+       SueFourthCause.setEnabled(false);
+       Print4.setEnabled(false);
+       SueThird.setEnabled(false);
+       ThirdDate.setEnabled(false);
+       SueThirdTotal.setEnabled(false);
+       SueThirdEnd.setEnabled(false);
+       SueThirdRequest.setEnabled(false);
+       SueThirdCause.setEnabled(false);
+       Print3.setEnabled(false);
+       }
  
 //   try{
 //     Connection con = ConnectDatabase.connect();

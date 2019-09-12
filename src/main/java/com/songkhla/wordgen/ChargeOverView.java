@@ -18,6 +18,8 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import org.json.simple.JSONObject;
 import java.awt.Font;
+import java.awt.Toolkit;
+import javax.swing.JTable;
 
 /**
  *
@@ -41,6 +43,8 @@ public class ChargeOverView extends javax.swing.JDialog {
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
             jButton1.setVisible(false);
+            jTable1.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+            jTable1.setPreferredScrollableViewportSize(Toolkit.getDefaultToolkit().getScreenSize());
         RefreshData();
     }
 
@@ -361,7 +365,12 @@ public class ChargeOverView extends javax.swing.JDialog {
                 return types [columnIndex];
             }
         });
-        
+        jTable1.getColumnModel().getColumn(0).setMinWidth(90);                
+        jTable1.getColumnModel().getColumn(1).setMinWidth(285);
+        jTable1.getColumnModel().getColumn(2).setMinWidth(125);
+        jTable1.getColumnModel().getColumn(3).setMinWidth(125);
+        jTable1.getColumnModel().getColumn(4).setMinWidth(95);
+
         }catch(Exception ex){
             ex.printStackTrace();
         }

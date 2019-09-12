@@ -97,7 +97,8 @@ public class SuspectForm extends javax.swing.JDialog {
         jButtonInjuryOrDie.setVisible(false); 
 //     jCheckInjured.setVisible(false);
 //      jCheckDead.setVisible(false);
-   
+        StatusSuspectOther.setVisible(false);
+          jLabelStatusSuspect.setVisible(false);
      typecase=datacase.get("TypeCase")+"";
 //  ---------------------------------------------Date Filed----------------------------------------------
      UtilDateModel model = new UtilDateModel();
@@ -280,6 +281,7 @@ public class SuspectForm extends javax.swing.JDialog {
             Religion.setText(datain.get("Religion")+"");
             NoArrestWarrant.setText(datain.get("NoArrestWarrant")+"");
             SusConfress.setSelectedItem(datain.get("SusConfress"));
+            StatusSuspectOther.setText(datain.get("StatusSuspectOther")+"");
              String statusInjure=datain.get("StatusInjuryOrDie")+"";
             if(statusInjure.equals("บาดเจ็บ")){
             jCheckInjured.setSelected(true);
@@ -299,19 +301,34 @@ public class SuspectForm extends javax.swing.JDialog {
             catch(Exception ex){
             
             }
-            SimpleDateFormat format=new SimpleDateFormat("d/MM/yyyy");
-            
+            SimpleDateFormat format=new SimpleDateFormat("d/M/yyyy");
+            SimpleDateFormat format2=new SimpleDateFormat("d/M/yyyy HH:mm");
+           SimpleDateFormat formattime=new SimpleDateFormat("HH:mm");
+
             String DateArr=(datain.get("ArrestDateTime")+"");
+             String TimeArr=(datain.get("ArrestDateTime")+"");
+
                System.out.println("dsssssss :"+DateArr+"aa");
+               
 //             ArrestDateTime.getJFormattedTextField().setText(datain.get("ArrestDateTime")+"");            
             if(DateArr.equals(" ")||DateArr.equals(null)||DateArr.equals("null")||DateArr.equals("")){  
              ArrestDateTime.getJFormattedTextField().setText("");
                  }
             else{
-             Date d=null;     
+             Date d=null;   
+             Date t=null;
+             Date t2;
+
             try{
-             d=format.parse(DateArr);
+             d=format2.parse(DateArr);
+             t=format2.parse(TimeArr);
+            String t22=formattime.format(t);
+            t2=formattime.parse(t22);
+
+                System.out.println("dsssssss :"+t22+"tt");
+                 System.out.println("dsssssss :"+format.format(d)+"dd");
              ArrestDateTime.getJFormattedTextField().setText(format.format(d));
+             jSpinnerArrTime.setValue(t2);
             }
             catch(Exception e){
             }
@@ -355,6 +372,7 @@ public class SuspectForm extends javax.swing.JDialog {
                 }   
               else if(statusSus.equals("อื่นๆ")){
              jRadioOther.setSelected(true);
+             
                 }  
             else if(statusSus.equals("ถอนคำร้องทุกข์")){
              jRadioWithdrawComplaint.setSelected(true);  
@@ -363,6 +381,27 @@ public class SuspectForm extends javax.swing.JDialog {
              jCheckBail.setSelected(true);
              }      
              StatusSueAndPutInJail.setText(datain.get("StatusSueAndPutInJail")+"");
+             String court=datain.get("CourtSuspect")+"";
+               if(court.equals("ศาลอาญา/ศาลจังหวัด")){
+
+                            jRadioStatus1.setText("ฝากขัง");
+                            jRadioStatus2.setText("แจ้งข้อหาปล่อยตัว");
+                            jRadioSue.setVisible(false);
+                            jRadioRelease.setVisible(false);
+                        }
+                         else if(court.equals("ศาลแขวง")){
+                            jRadioStatus1.setText("ผัดฟ้องฝากขัง");
+                            jRadioStatus2.setText("ผัดฟ้อง");
+                            jRadioSue.setVisible(true);
+                        }
+                         else  if(court.equals("ศาลแขวง")&& jCheckBail.isSelected()){
+                               jRadioStatus1.setText("ผัดฟ้องฝากขัง");
+                                jRadioStatus1.setSelected(false);
+                            jRadioStatus2.setText("ผัดฟ้อง");
+                            jRadioSue.setVisible(true);
+                            jRadioStatus1.setEnabled(false);
+                            jRadioCantCatch.setEnabled(false);   }
+                      
 
         }else{
            
@@ -600,6 +639,8 @@ public class SuspectForm extends javax.swing.JDialog {
         jRadioStatus2 = new javax.swing.JRadioButton();
         jRadioSue = new javax.swing.JRadioButton();
         jRadioRelease = new javax.swing.JRadioButton();
+        StatusSuspectOther = new javax.swing.JTextField();
+        jLabelStatusSuspect = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
         jLabelBailDate = new javax.swing.JLabel();
@@ -852,8 +893,18 @@ public class SuspectForm extends javax.swing.JDialog {
         HouseNumber.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
         Tambon.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        Tambon.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TambonKeyReleased(evt);
+            }
+        });
 
         Amphur.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        Amphur.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                AmphurKeyReleased(evt);
+            }
+        });
 
         jLabel22.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel22.setText("แขวง/ตำบล");
@@ -874,8 +925,9 @@ public class SuspectForm extends javax.swing.JDialog {
             }
         });
 
+        SusConfress.setEditable(true);
         SusConfress.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        SusConfress.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "รับสารภาพ", "ปฏิเสธ", "ภาคเสธ" }));
+        SusConfress.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "รับสารภาพ", "ปฏิเสธ", "ภาคเสธ" }));
         SusConfress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SusConfressActionPerformed(evt);
@@ -1123,8 +1175,8 @@ public class SuspectForm extends javax.swing.JDialog {
                                         .addComponent(Moo, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(SusConfress, 0, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(ZipCode)
+                            .addComponent(SusConfress, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(BtSaveAccused, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1453,6 +1505,11 @@ public class SuspectForm extends javax.swing.JDialog {
         jRadioOther.setBackground(new java.awt.Color(255, 255, 255));
         jRadioOther.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jRadioOther.setText("อื่นๆ");
+        jRadioOther.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jRadioOtherItemStateChanged(evt);
+            }
+        });
         jRadioOther.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jRadioOtherMouseClicked(evt);
@@ -1546,6 +1603,11 @@ public class SuspectForm extends javax.swing.JDialog {
         jRadioRelease.setBackground(new java.awt.Color(255, 255, 255));
         jRadioRelease.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jRadioRelease.setText("แจ้งข้อหาปล่อยตัว");
+        jRadioRelease.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jRadioReleaseItemStateChanged(evt);
+            }
+        });
         jRadioRelease.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jRadioReleaseMouseClicked(evt);
@@ -1557,6 +1619,11 @@ public class SuspectForm extends javax.swing.JDialog {
             }
         });
 
+        StatusSuspectOther.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+
+        jLabelStatusSuspect.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabelStatusSuspect.setText("อื่นๆ");
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
@@ -1564,29 +1631,36 @@ public class SuspectForm extends javax.swing.JDialog {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioCantCatch)
-                    .addComponent(jRadioFreeze, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioStatus1))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jRadioWithdrawComplaint, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
-                    .addComponent(jRadioOther, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jRadioStatus2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jRadioRelease, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jRadioRestore, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jRadioSue, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jRadioCantCatch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jRadioFreeze, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jRadioStatus1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jRadioWithdrawComplaint, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
+                            .addComponent(jRadioOther, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jRadioStatus2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jRadioRelease, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jRadioRestore, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jRadioSue, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(jLabelStatusSuspect)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(StatusSuspectOther, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioSue, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
-                    .addComponent(jRadioStatus2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jRadioStatus1))
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jRadioStatus1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jRadioSue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jRadioStatus2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioCantCatch)
@@ -1597,7 +1671,10 @@ public class SuspectForm extends javax.swing.JDialog {
                     .addComponent(jRadioFreeze)
                     .addComponent(jRadioOther)
                     .addComponent(jRadioRelease))
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 14, Short.MAX_VALUE)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelStatusSuspect, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                    .addComponent(StatusSuspectOther, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         jPanel7.setBackground(new java.awt.Color(4, 93, 179));
@@ -1632,6 +1709,22 @@ public class SuspectForm extends javax.swing.JDialog {
 
         jLabelArrestProvince.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabelArrestProvince.setText("จังหวัด");
+
+        PlaceArrestTambon.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        PlaceArrestTambon.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                PlaceArrestTambonKeyReleased(evt);
+            }
+        });
+
+        PlaceArrestAmphur.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        PlaceArrestAmphur.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                PlaceArrestAmphurKeyReleased(evt);
+            }
+        });
+
+        PlaceArrestProvince.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
 
         jLabel39.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel39.setText("เลขที่คำร้องขอหมายจับ");
@@ -1708,7 +1801,7 @@ public class SuspectForm extends javax.swing.JDialog {
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(RatePrison, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(PlaceArrest)))))
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addGap(74, 74, 74))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1724,8 +1817,8 @@ public class SuspectForm extends javax.swing.JDialog {
                     .addComponent(jLabel13)
                     .addComponent(CourtSuspect, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel8, 127, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1895,7 +1988,7 @@ public class SuspectForm extends javax.swing.JDialog {
                     pst.setString(28,"ถอนคำร้องทุกข์");
                 }
                 else if(jRadioOther.isSelected()){
-                    pst.setString(28,"อื่นๆ");
+                    pst.setString(28,StatusSuspectOther.getText());
                 }
                 pst.setString(29,jLabel36.getText());
                 //                pst.setString(30,BailDate.getText());
@@ -2083,7 +2176,7 @@ public class SuspectForm extends javax.swing.JDialog {
                     pst.setString(33,"อายัดตัว");
                 }
                 else if(jRadioOther.isSelected()){
-                    pst.setString(33,"อื่นๆ");
+                    pst.setString(33,StatusSuspectOther.getText());
                 }
                 else if(jRadioWithdrawComplaint.isSelected()){
                     pst.setString(33,"ถอนคำร้องทุกข์");
@@ -2601,6 +2694,307 @@ public class SuspectForm extends javax.swing.JDialog {
     private void TimeSendInjuredOrDieKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TimeSendInjuredOrDieKeyReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_TimeSendInjuredOrDieKeyReleased
+
+    private void jRadioOtherItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioOtherItemStateChanged
+        // TODO add your handling code here:
+         
+        if(jRadioOther.isSelected()){
+          StatusSuspectOther.setVisible(true);
+          jLabelStatusSuspect.setVisible(true);
+          PlaceArrest.setVisible(true);
+          jLabelArrestPlace.setVisible(true);
+          jPanelDateArrest.setVisible(true);
+          jLabelArrestDate.setVisible(true);
+          jLabelArrTime.setVisible(true);
+          jSpinnerArrTime.setVisible(true);
+          jLabelArrestTambon.setVisible(true);
+          PlaceArrestTambon.setVisible(true);
+          jLabelArrestAmphur.setVisible(true);
+          PlaceArrestAmphur.setVisible(true);
+          jLabelArrestProvince.setVisible(true);
+          PlaceArrestProvince.setVisible(true);
+
+                 
+        
+        }
+   
+        else{
+        StatusSuspectOther.setVisible(false);
+          jLabelStatusSuspect.setVisible(false);
+              PlaceArrest.setVisible(false);
+          jLabelArrestPlace.setVisible(false);
+            jLabelArrestTambon.setVisible(false);
+          PlaceArrestTambon.setVisible(false);
+          jLabelArrestAmphur.setVisible(false);
+          PlaceArrestAmphur.setVisible(false);
+          jLabelArrestProvince.setVisible(false);
+          PlaceArrestProvince.setVisible(false);
+          jPanelDateArrest.setVisible(false);
+          jLabelArrestDate.setVisible(false);
+          jLabelArrTime.setVisible(false);
+          jSpinnerArrTime.setVisible(false);
+          jLabelRate.setVisible(false);
+          RatePrison.setVisible(false);
+
+        
+        }
+    }//GEN-LAST:event_jRadioOtherItemStateChanged
+
+    private void jRadioReleaseItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioReleaseItemStateChanged
+        // TODO add your handling code here:
+         if(jRadioRelease.isSelected()){
+        
+          PlaceArrest.setVisible(true);
+          jLabelArrestPlace.setVisible(true);
+          jPanelDateArrest.setVisible(true);
+          jLabelArrestDate.setVisible(true);
+          jLabelArrTime.setVisible(true);
+          jSpinnerArrTime.setVisible(true);
+          jLabelArrestTambon.setVisible(true);
+          PlaceArrestTambon.setVisible(true);
+          jLabelArrestAmphur.setVisible(true);
+          PlaceArrestAmphur.setVisible(true);
+          jLabelArrestProvince.setVisible(true);
+          PlaceArrestProvince.setVisible(true);
+
+                 
+        
+        }
+   
+        else{
+       
+              PlaceArrest.setVisible(false);
+          jLabelArrestPlace.setVisible(false);
+            jLabelArrestTambon.setVisible(false);
+          PlaceArrestTambon.setVisible(false);
+          jLabelArrestAmphur.setVisible(false);
+          PlaceArrestAmphur.setVisible(false);
+          jLabelArrestProvince.setVisible(false);
+          PlaceArrestProvince.setVisible(false);
+          jPanelDateArrest.setVisible(false);
+          jLabelArrestDate.setVisible(false);
+          jLabelArrTime.setVisible(false);
+          jSpinnerArrTime.setVisible(false);
+          jLabelRate.setVisible(false);
+          RatePrison.setVisible(false);
+
+        
+        }
+    }//GEN-LAST:event_jRadioReleaseItemStateChanged
+
+    private void TambonKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TambonKeyReleased
+        // TODO add your handling code here:
+          String provinceid="";
+         String loTam="",amp="",zp="",loAmphur="",pro="";
+        Connection con2 = ConnectDatabase.connect();
+        try {
+            Statement st2 = con2.createStatement();
+            String a="select Tambon.DOPA_CODE DOPA_CODE,Tambon.ZIPCODE ZIPCODE from Tambon\n"+
+            "where Tambon.NAMETAMBON='"+Tambon.getText()+"'";
+            ResultSet res2 = st2.executeQuery(a);
+//            System.out.println("provinceid: "+CrimeLocationProvince.getSelectedItem());
+        if(res2.next()){
+            zp=res2.getString("ZIPCODE");
+        provinceid=res2.getString("DOPA_CODE");
+       loTam= provinceid.substring(0, 4);
+          ZipCode.setText(zp);
+        }
+	Statement st = con2.createStatement();
+        String c = "select Amphur.DOPA_CODE DOPA_CODE,NameAmphur\n" +
+                            "from Amphur\n" +
+                            "where Amphur.DOPA_CODE like '"+loTam+"%';";
+                    System.out.println("sddddddddd:"+c);
+
+        ResultSet res = st.executeQuery(c);
+	//Vector<Object> v=new Vector<Object>();
+//	           System.out.println("provinceid: "+provinceid);
+	if(res.next())
+	{
+         
+	 amp=res.getString("NameAmphur");
+        String ffa=res.getString("DOPA_CODE");
+        loAmphur=ffa.substring(0, 2);
+         Amphur.setText(amp);
+	
+	}  
+        Statement st3 = con2.createStatement();
+        String c3 = "select nameprovince\n" +
+                            "from province\n" +
+                            "where provinceid = '"+loAmphur+"';";
+            System.out.println("sddddddddd:"+c3);
+        ResultSet res3 = st3.executeQuery(c3);
+        if(res3.next())
+	{
+         
+	 pro=res3.getString("nameprovince");
+      Province.setText(pro);
+	
+	}  
+      
+        
+      
+        }
+        catch (Exception d) {  //System.out.println(d);  
+}
+      
+    }//GEN-LAST:event_TambonKeyReleased
+
+    private void AmphurKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AmphurKeyReleased
+        // TODO add your handling code here:
+        String provinceid="";
+         String loPro="",amp="",zp="",loAmphur="",pro="";
+        Connection con2 = ConnectDatabase.connect();
+        try {
+
+	Statement st = con2.createStatement();
+        String c = "select Amphur.DOPA_CODE DOPA_CODE,NameAmphur\n" +
+                            "from Amphur\n" +
+                            "where Amphur.NameAmphur = '"+Amphur.getText()+"';";
+                    System.out.println("sddddddddd:"+c);
+
+        ResultSet res = st.executeQuery(c);
+	//Vector<Object> v=new Vector<Object>();
+//	           System.out.println("provinceid: "+provinceid);
+	if(res.next())
+	{
+         
+        String ffa=res.getString("DOPA_CODE");
+        loAmphur=ffa.substring(0, 4);
+        loPro=ffa.substring(0, 2);
+	
+	}  
+        
+         Statement st2 = con2.createStatement();
+            String a="select Tambon.DOPA_CODE DOPA_CODE,Tambon.ZIPCODE ZIPCODE from Tambon\n"+
+            "where Tambon.DOPA_CODE like '"+loAmphur+"%'";
+            ResultSet res2 = st2.executeQuery(a);
+        Statement st3 = con2.createStatement();
+          if(res2.next()){
+            zp=res2.getString("ZIPCODE");
+          ZipCode.setText(zp);
+        }
+        String c3 = "select nameprovince\n" +
+                            "from province\n" +
+                            "where provinceid = '"+loPro+"';";
+            System.out.println("sddddddddd:"+c3);
+        ResultSet res3 = st3.executeQuery(c3);
+        if(res3.next())
+	{
+         
+	 pro=res3.getString("nameprovince");
+      Province.setText(pro);
+	
+	}  
+      
+        
+      
+        }
+        catch (Exception d) {  //System.out.println(d);  
+}
+    }//GEN-LAST:event_AmphurKeyReleased
+
+    private void PlaceArrestTambonKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PlaceArrestTambonKeyReleased
+        // TODO add your handling code here:
+           String provinceid="";
+         String loTam="",amp="",zp="",loAmphur="",pro="";
+        Connection con2 = ConnectDatabase.connect();
+        try {
+            Statement st2 = con2.createStatement();
+            String a="select Tambon.DOPA_CODE DOPA_CODE,Tambon.ZIPCODE ZIPCODE from Tambon\n"+
+            "where Tambon.NAMETAMBON='"+PlaceArrestTambon.getText()+"'";
+            ResultSet res2 = st2.executeQuery(a);
+//            System.out.println("provinceid: "+CrimeLocationProvince.getSelectedItem());
+        if(res2.next()){
+    
+        provinceid=res2.getString("DOPA_CODE");
+       loTam= provinceid.substring(0, 4);
+        
+        }
+	Statement st = con2.createStatement();
+        String c = "select Amphur.DOPA_CODE DOPA_CODE,NameAmphur\n" +
+                            "from Amphur\n" +
+                            "where Amphur.DOPA_CODE like '"+loTam+"%';";
+                    System.out.println("sddddddddd:"+c);
+
+        ResultSet res = st.executeQuery(c);
+	//Vector<Object> v=new Vector<Object>();
+//	           System.out.println("provinceid: "+provinceid);
+	if(res.next())
+	{
+         
+	 amp=res.getString("NameAmphur");
+        String ffa=res.getString("DOPA_CODE");
+        loAmphur=ffa.substring(0, 2);
+         PlaceArrestAmphur.setText(amp);
+	
+	}  
+        Statement st3 = con2.createStatement();
+        String c3 = "select nameprovince\n" +
+                            "from province\n" +
+                            "where provinceid = '"+loAmphur+"';";
+            System.out.println("sddddddddd:"+c3);
+        ResultSet res3 = st3.executeQuery(c3);
+        if(res3.next())
+	{
+         
+	 pro=res3.getString("nameprovince");
+      PlaceArrestProvince.setText(pro);
+	
+	}  
+      
+        
+      
+        }
+        catch (Exception d) {  //System.out.println(d);  
+        }
+    }//GEN-LAST:event_PlaceArrestTambonKeyReleased
+
+    private void PlaceArrestAmphurKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PlaceArrestAmphurKeyReleased
+        // TODO add your handling code here:
+           String provinceid="";
+         String loPro="",amp="",zp="",loAmphur="",pro="";
+        Connection con2 = ConnectDatabase.connect();
+        try {
+
+	Statement st = con2.createStatement();
+        String c = "select Amphur.DOPA_CODE DOPA_CODE,NameAmphur\n" +
+                            "from Amphur\n" +
+                            "where Amphur.NameAmphur = '"+PlaceArrestAmphur.getText()+"';";
+                    System.out.println("sddddddddd:"+c);
+
+        ResultSet res = st.executeQuery(c);
+	//Vector<Object> v=new Vector<Object>();
+//	           System.out.println("provinceid: "+provinceid);
+	if(res.next())
+	{
+         
+        String ffa=res.getString("DOPA_CODE");
+        loAmphur=ffa.substring(0, 4);
+        loPro=ffa.substring(0, 2);
+	
+	}  
+        
+        Statement st3 = con2.createStatement();
+     
+        String c3 = "select nameprovince\n" +
+                            "from province\n" +
+                            "where provinceid = '"+loPro+"';";
+            System.out.println("sddddddddd:"+c3);
+        ResultSet res3 = st3.executeQuery(c3);
+        if(res3.next())
+	{
+         
+	 pro=res3.getString("nameprovince");
+      PlaceArrestProvince.setText(pro);
+	
+	}  
+      
+        
+      
+        }
+        catch (Exception d) {  //System.out.println(d);  
+}
+    }//GEN-LAST:event_PlaceArrestAmphurKeyReleased
 
     public void eventJButtonManage(){
  
@@ -3155,6 +3549,7 @@ public class SuspectForm extends javax.swing.JDialog {
     private javax.swing.JComboBox<String> RatePrison;
     private javax.swing.JTextField Religion;
     private javax.swing.JTextField StatusSueAndPutInJail;
+    private javax.swing.JTextField StatusSuspectOther;
     private javax.swing.JComboBox<String> SusConfress;
     private javax.swing.JTextField Tambon;
     public static javax.swing.JSpinner TimeSendInjuredOrDie;
@@ -3220,6 +3615,7 @@ public class SuspectForm extends javax.swing.JDialog {
     private javax.swing.JLabel jLabelNameArrest;
     private javax.swing.JLabel jLabelRate;
     private javax.swing.JLabel jLabelRestoreDate;
+    private javax.swing.JLabel jLabelStatusSuspect;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;

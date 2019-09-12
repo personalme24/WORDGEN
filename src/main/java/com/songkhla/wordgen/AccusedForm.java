@@ -619,9 +619,24 @@ UtilDateModel model5 = new UtilDateModel();
         jPanel2.add(Moo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 390, 59, 32));
 
         Tambon.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jPanel2.add(Tambon, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 390, 103, 32));
+        Tambon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TambonActionPerformed(evt);
+            }
+        });
+        Tambon.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TambonKeyReleased(evt);
+            }
+        });
+        jPanel2.add(Tambon, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 390, 103, 32));
 
         Amphur.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        Amphur.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                AmphurKeyReleased(evt);
+            }
+        });
         jPanel2.add(Amphur, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 390, 85, 32));
 
         ZipCode.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -731,7 +746,7 @@ UtilDateModel model5 = new UtilDateModel();
         BloodGroup.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "AB", "O", "A Rh-", "B Rh-", "AB Rh-", "O Rh-" }));
         jPanel2.add(BloodGroup, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 223, 32));
 
-        jButton1.setFont(new java.awt.Font("TH SarabunPSK", 0, 18)); // NOI18N
+        jButton1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jButton1.setText("คำให้การ");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1119,6 +1134,124 @@ UtilDateModel model5 = new UtilDateModel();
     private void TimeSendInjuredOrDieKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TimeSendInjuredOrDieKeyReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_TimeSendInjuredOrDieKeyReleased
+
+    private void TambonKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TambonKeyReleased
+        // TODO add your handling code here:
+          String provinceid="";
+         String loTam="",amp="",zp="",loAmphur="",pro="";
+        Connection con2 = ConnectDatabase.connect();
+        try {
+            Statement st2 = con2.createStatement();
+            String a="select Tambon.DOPA_CODE DOPA_CODE,Tambon.ZIPCODE ZIPCODE from Tambon\n"+
+            "where Tambon.NAMETAMBON='"+Tambon.getText()+"'";
+            ResultSet res2 = st2.executeQuery(a);
+//            System.out.println("provinceid: "+CrimeLocationProvince.getSelectedItem());
+        if(res2.next()){
+            zp=res2.getString("ZIPCODE");
+        provinceid=res2.getString("DOPA_CODE");
+       loTam= provinceid.substring(0, 4);
+          ZipCode.setText(zp);
+        }
+	Statement st = con2.createStatement();
+        String c = "select Amphur.DOPA_CODE DOPA_CODE,NameAmphur\n" +
+                            "from Amphur\n" +
+                            "where Amphur.DOPA_CODE like '"+loTam+"%';";
+                    System.out.println("sddddddddd:"+c);
+
+        ResultSet res = st.executeQuery(c);
+	//Vector<Object> v=new Vector<Object>();
+//	           System.out.println("provinceid: "+provinceid);
+	if(res.next())
+	{
+         
+	 amp=res.getString("NameAmphur");
+        String ffa=res.getString("DOPA_CODE");
+        loAmphur=ffa.substring(0, 2);
+         Amphur.setText(amp);
+	
+	}  
+        Statement st3 = con2.createStatement();
+        String c3 = "select nameprovince\n" +
+                            "from province\n" +
+                            "where provinceid = '"+loAmphur+"';";
+            System.out.println("sddddddddd:"+c3);
+        ResultSet res3 = st3.executeQuery(c3);
+        if(res3.next())
+	{
+         
+	 pro=res3.getString("nameprovince");
+      Province.setText(pro);
+	
+	}  
+      
+        
+      
+        }
+        catch (Exception d) {  //System.out.println(d);  
+}
+      
+        
+    }//GEN-LAST:event_TambonKeyReleased
+
+    private void TambonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TambonActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_TambonActionPerformed
+
+    private void AmphurKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AmphurKeyReleased
+        // TODO add your handling code here:
+            String provinceid="";
+         String loPro="",amp="",zp="",loAmphur="",pro="";
+        Connection con2 = ConnectDatabase.connect();
+        try {
+
+	Statement st = con2.createStatement();
+        String c = "select Amphur.DOPA_CODE DOPA_CODE,NameAmphur\n" +
+                            "from Amphur\n" +
+                            "where Amphur.NameAmphur = '"+Amphur.getText()+"';";
+                    System.out.println("sddddddddd:"+c);
+
+        ResultSet res = st.executeQuery(c);
+	//Vector<Object> v=new Vector<Object>();
+//	           System.out.println("provinceid: "+provinceid);
+	if(res.next())
+	{
+         
+        String ffa=res.getString("DOPA_CODE");
+        loAmphur=ffa.substring(0, 4);
+        loPro=ffa.substring(0, 2);
+	
+	}  
+        
+         Statement st2 = con2.createStatement();
+            String a="select Tambon.DOPA_CODE DOPA_CODE,Tambon.ZIPCODE ZIPCODE from Tambon\n"+
+            "where Tambon.DOPA_CODE like '"+loAmphur+"%'";
+            ResultSet res2 = st2.executeQuery(a);
+        Statement st3 = con2.createStatement();
+          if(res2.next()){
+            zp=res2.getString("ZIPCODE");
+          ZipCode.setText(zp);
+        }
+        String c3 = "select nameprovince\n" +
+                            "from province\n" +
+                            "where provinceid = '"+loPro+"';";
+            System.out.println("sddddddddd:"+c3);
+        ResultSet res3 = st3.executeQuery(c3);
+        if(res3.next())
+	{
+         
+	 pro=res3.getString("nameprovince");
+      Province.setText(pro);
+	
+	}  
+      
+        
+      
+        }
+        catch (Exception d) {  //System.out.println(d);  
+}
+      
+    }//GEN-LAST:event_AmphurKeyReleased
 
     /**
      * @param args the command line arguments

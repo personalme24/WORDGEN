@@ -19,6 +19,7 @@ import java.util.Vector;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
@@ -206,10 +207,16 @@ public class PersonOverView extends javax.swing.JDialog {
                 String sql = "Delete from PersonData WHERE Noperson='"+crimecaseId+"'";
                 Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
-                stmt.executeUpdate(sql);
+                 
+                int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการลบข้อมูลบุคคล", null,
+                    JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                if (response == JOptionPane.YES_OPTION) {
+                      stmt.executeUpdate(sql);
                 System.out.println(sql);
                 //            rs.close();
                 stmt.close();
+                }
+             
                 RefreshData();
             }catch(Exception ex){
                 ex.printStackTrace();
@@ -239,16 +246,34 @@ public class PersonOverView extends javax.swing.JDialog {
                     JSONObject data = new JSONObject();
                     data.put("NoPerson", rs.getString("NoPerson"));
                     data.put("PeopleRegistrationID", rs.getString("PeopleRegistrationID"));
+                    data.put("Race", rs.getString("Race"));   
+                    data.put("Nationality", rs.getString("Nationality"));
+                    data.put("Religion", rs.getString("Religion"));
+                    data.put("Occupation", rs.getString("Occupation"));
+                    data.put("OccupationPosition", rs.getString("OccupationPosition"));                    
                     data.put("FullNamePerson", rs.getString("FullNamePerson"));
                     data.put("PassportNumber", rs.getString("PassportNumber"));
                     data.put("BirthDay", rs.getString("BirthDay"));
                     data.put("Age", rs.getString("Age"));
-                    data.put("Race", rs.getString("Race"));
-                    data.put("Nationality", rs.getString("Nationality"));
-                    data.put("Religion", rs.getString("Religion"));
-                    data.put("Occupation", rs.getString("Occupation"));
                     data.put("OtherName", rs.getString("OtherName"));
-                    
+                    data.put("HouseNumber", rs.getString("HouseNumber"));
+                    data.put("Moo", rs.getString("Moo"));
+                    data.put("Tambon", rs.getString("Tambon"));
+                    data.put("Amphur", rs.getString("Amphur"));
+                    data.put("Province", rs.getString("Province"));
+                    data.put("PhonePerson", rs.getString("PhonePerson"));
+                    data.put("FatherFullName", rs.getString("FatherFullName"));
+                    data.put("MotherFullName", rs.getString("MotherFullName"));
+                     data.put("CurrentAddress", rs.getString("CurrentAddress"));
+                    data.put("SpouseFullName", rs.getString("SpouseFullName"));
+                    data.put("Education", rs.getString("Education"));
+                    data.put("StatusSueAndPutInJail", rs.getString("StatusSueAndPutInJail"));
+                    data.put("FatherAddress", rs.getString("FatherAddress"));
+                    data.put("CarUse", rs.getString("CarUse"));
+                    data.put("Identification", rs.getString("Identification"));
+                    data.put("WarrantList", rs.getString("WarrantList"));
+                    data.put("NotePersonData", rs.getString("NotePersonData"));
+                    data.put("FavouritePlace", rs.getString("FavouritePlace"));
                      JFrame frame = new JFrame();
         JDialog dialog = new JDialog(frame);//frame is owner
         JFrame ps = (JFrame)(dialog.getParent());
@@ -267,6 +292,7 @@ public class PersonOverView extends javax.swing.JDialog {
         }else{
 
         }
+        RefreshData();
     }//GEN-LAST:event_jButtonEditActionPerformed
  
     private void jButtonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchActionPerformed
@@ -330,7 +356,7 @@ public class PersonOverView extends javax.swing.JDialog {
             Vector<String> row = new Vector<String>();
             row.add(rs.getString("NoPerson"));
             row.add(rs.getString("PeopleRegistrationID"));
-            row.add(rs.getString("PassportNumber"));
+        
             row.add(rs.getString("FullNamePerson"));
             row.add(rs.getString("BirthDay"));
 //            row.add("-");
@@ -349,7 +375,6 @@ public class PersonOverView extends javax.swing.JDialog {
         Vector ColumnName = new Vector();
         ColumnName.add("ลำดับ");
         ColumnName.add("บัตรประจำตัวประชาชน");
-        ColumnName.add("เลขหนังสือเดินทาง");
         ColumnName.add("ชื่อ-นามสกุล");
         ColumnName.add("วันเดือนปีเกิด");       
         ColumnName.add("อายุ");     

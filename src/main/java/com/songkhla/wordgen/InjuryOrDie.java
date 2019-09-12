@@ -164,7 +164,6 @@ public class InjuryOrDie extends javax.swing.JDialog {
 
         WhereSendInjuredOrDie.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
 
-        jPanelDateSendInjuredOrDie.setBackground(new java.awt.Color(255, 255, 255));
         jPanelDateSendInjuredOrDie.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
 
         javax.swing.GroupLayout jPanelDateSendInjuredOrDieLayout = new javax.swing.GroupLayout(jPanelDateSendInjuredOrDie);

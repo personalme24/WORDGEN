@@ -48,7 +48,7 @@ public class AnswerPersonForm extends javax.swing.JDialog {
         else if(typePerson.equals("ผู้ต้องหา")){
         AnswerDetail.setText( SuspectForm.AnswerPerson.getText());
         }
-         else if(typePerson.equals("พยานและบุคคลอื่นๆ")){
+         else if(typePerson.equals("พยานและบุคคลอื่น")){
         AnswerDetail.setText(WitnessForm.AnswerPerson.getText());
         }
           JTextPopupMenu.addTo(AnswerDetail);

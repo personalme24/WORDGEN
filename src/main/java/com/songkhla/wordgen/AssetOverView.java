@@ -22,6 +22,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import org.json.simple.JSONObject;
 import java.awt.Font;
+import java.awt.Toolkit;
 
 /**
  *
@@ -51,7 +52,8 @@ public class AssetOverView extends javax.swing.JDialog {
         txtCaseno.setText(CaseId);
         RefreshData();     
 //        JScrollPane scrollPane = new JScrollPane(jTableAsset);
-
+//jTableAsset.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+//jTableAsset.setPreferredScrollableViewportSize(Toolkit.getDefaultToolkit().getScreenSize());
 
     }
 
@@ -306,7 +308,7 @@ public class AssetOverView extends javax.swing.JDialog {
         }else{
 
         }
-
+        RefreshData();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
@@ -400,6 +402,11 @@ public class AssetOverView extends javax.swing.JDialog {
         jTableAsset.getColumnModel().getColumn(4).setWidth(0);
         jTableAsset.getColumnModel().getColumn(4).setMinWidth(0);
         jTableAsset.getColumnModel().getColumn(4).setMaxWidth(0); 
+//        jTableAsset.getColumnModel().getColumn(1).setMinWidth(135);                
+//        jTableAsset.getColumnModel().getColumn(2).setMinWidth(70);
+//        jTableAsset.getColumnModel().getColumn(3).setMinWidth(125);
+
+
         String ArrayData="";
 //        ArrayList listData = new ArrayList();
             int rowcount = jTableAsset.getModel().getRowCount();
@@ -407,7 +414,8 @@ public class AssetOverView extends javax.swing.JDialog {
         int id=i+1;
        String nameAs = (String)jTableAsset.getModel().getValueAt(i, 1);
          String number = (String)jTableAsset.getModel().getValueAt(i, 2);
-          ArrayData = ArrayData+id+"."+ nameAs+" จำนวน "+number+" ";
+            System.out.println("sssssssss :"+number);
+          ArrayData = ArrayData+id+"."+ nameAs+" จำนวน "+number;
         if((nameAs != null)&&(!(nameAs.equalsIgnoreCase("")))){
         }
         

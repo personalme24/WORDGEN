@@ -529,6 +529,11 @@ public class Identity_DeadForm extends javax.swing.JDialog {
         HouseNumber.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
         Tambon.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        Tambon.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TambonKeyReleased(evt);
+            }
+        });
 
         jLabel22.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel22.setText("แขวง/ตำบล");
@@ -560,6 +565,11 @@ public class Identity_DeadForm extends javax.swing.JDialog {
         Amphur.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AmphurActionPerformed(evt);
+            }
+        });
+        Amphur.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                AmphurKeyReleased(evt);
             }
         });
 
@@ -627,6 +637,11 @@ public class Identity_DeadForm extends javax.swing.JDialog {
                 TambomDieActionPerformed(evt);
             }
         });
+        TambomDie.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TambomDieKeyReleased(evt);
+            }
+        });
 
         jLabel13.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel13.setText("อำเภอ");
@@ -635,6 +650,11 @@ public class Identity_DeadForm extends javax.swing.JDialog {
         AmphurDie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AmphurDieActionPerformed(evt);
+            }
+        });
+        AmphurDie.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                AmphurDieKeyReleased(evt);
             }
         });
 
@@ -657,6 +677,11 @@ public class Identity_DeadForm extends javax.swing.JDialog {
                 TambomFoundBodyActionPerformed(evt);
             }
         });
+        TambomFoundBody.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TambomFoundBodyKeyReleased(evt);
+            }
+        });
 
         ProvinceFoundBody.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         ProvinceFoundBody.addActionListener(new java.awt.event.ActionListener() {
@@ -669,6 +694,11 @@ public class Identity_DeadForm extends javax.swing.JDialog {
         AmphurFoundBody.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AmphurFoundBodyActionPerformed(evt);
+            }
+        });
+        AmphurFoundBody.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                AmphurFoundBodyKeyReleased(evt);
             }
         });
 
@@ -1309,6 +1339,323 @@ public class Identity_DeadForm extends javax.swing.JDialog {
     private void AmphurFoundBodyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AmphurFoundBodyActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_AmphurFoundBodyActionPerformed
+
+    private void TambonKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TambonKeyReleased
+        // TODO add your handling code here:
+         String provinceid="";
+         String loTam="",amp="",zp="",loAmphur="",pro="";
+        Connection con2 = ConnectDatabase.connect();
+        try {
+            Statement st2 = con2.createStatement();
+            String a="select Tambon.DOPA_CODE DOPA_CODE,Tambon.ZIPCODE ZIPCODE from Tambon\n"+
+            "where Tambon.NAMETAMBON='"+Tambon.getText()+"'";
+            ResultSet res2 = st2.executeQuery(a);
+//            System.out.println("provinceid: "+CrimeLocationProvince.getSelectedItem());
+        if(res2.next()){
+            zp=res2.getString("ZIPCODE");
+        provinceid=res2.getString("DOPA_CODE");
+       loTam= provinceid.substring(0, 4);
+          ZipCode.setText(zp);
+        }
+	Statement st = con2.createStatement();
+        String c = "select Amphur.DOPA_CODE DOPA_CODE,NameAmphur\n" +
+                            "from Amphur\n" +
+                            "where Amphur.DOPA_CODE like '"+loTam+"%';";
+                    System.out.println("sddddddddd:"+c);
+
+        ResultSet res = st.executeQuery(c);
+	//Vector<Object> v=new Vector<Object>();
+//	           System.out.println("provinceid: "+provinceid);
+	if(res.next())
+	{
+         
+	 amp=res.getString("NameAmphur");
+        String ffa=res.getString("DOPA_CODE");
+        loAmphur=ffa.substring(0, 2);
+         Amphur.setText(amp);
+	
+	}  
+        Statement st3 = con2.createStatement();
+        String c3 = "select nameprovince\n" +
+                            "from province\n" +
+                            "where provinceid = '"+loAmphur+"';";
+            System.out.println("sddddddddd:"+c3);
+        ResultSet res3 = st3.executeQuery(c3);
+        if(res3.next())
+	{
+         
+	 pro=res3.getString("nameprovince");
+      Province.setText(pro);
+	
+	}  
+      
+        
+      
+        }
+        catch (Exception d) {  //System.out.println(d);  
+}
+      
+    }//GEN-LAST:event_TambonKeyReleased
+
+    private void AmphurKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AmphurKeyReleased
+        // TODO add your handling code here:
+            String provinceid="";
+         String loPro="",amp="",zp="",loAmphur="",pro="";
+        Connection con2 = ConnectDatabase.connect();
+        try {
+
+	Statement st = con2.createStatement();
+        String c = "select Amphur.DOPA_CODE DOPA_CODE,NameAmphur\n" +
+                            "from Amphur\n" +
+                            "where Amphur.NameAmphur = '"+Amphur.getText()+"';";
+                    System.out.println("sddddddddd:"+c);
+
+        ResultSet res = st.executeQuery(c);
+	//Vector<Object> v=new Vector<Object>();
+//	           System.out.println("provinceid: "+provinceid);
+	if(res.next())
+	{
+         
+        String ffa=res.getString("DOPA_CODE");
+        loAmphur=ffa.substring(0, 4);
+        loPro=ffa.substring(0, 2);
+	
+	}  
+        
+         Statement st2 = con2.createStatement();
+            String a="select Tambon.DOPA_CODE DOPA_CODE,Tambon.ZIPCODE ZIPCODE from Tambon\n"+
+            "where Tambon.DOPA_CODE like '"+loAmphur+"%'";
+            ResultSet res2 = st2.executeQuery(a);
+        Statement st3 = con2.createStatement();
+          if(res2.next()){
+            zp=res2.getString("ZIPCODE");
+          ZipCode.setText(zp);
+        }
+        String c3 = "select nameprovince\n" +
+                            "from province\n" +
+                            "where provinceid = '"+loPro+"';";
+            System.out.println("sddddddddd:"+c3);
+        ResultSet res3 = st3.executeQuery(c3);
+        if(res3.next())
+	{
+         
+	 pro=res3.getString("nameprovince");
+      Province.setText(pro);
+	
+	}  
+      
+        
+      
+        }
+        catch (Exception d) {  //System.out.println(d);  
+            }
+    }//GEN-LAST:event_AmphurKeyReleased
+
+    private void TambomDieKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TambomDieKeyReleased
+        // TODO add your handling code here:
+         String provinceid="";
+         String loTam="",amp="",zp="",loAmphur="",pro="";
+        Connection con2 = ConnectDatabase.connect();
+        try {
+            Statement st2 = con2.createStatement();
+            String a="select Tambon.DOPA_CODE DOPA_CODE,Tambon.ZIPCODE ZIPCODE from Tambon\n"+
+            "where Tambon.NAMETAMBON='"+TambomDie.getText()+"'";
+            ResultSet res2 = st2.executeQuery(a);
+//            System.out.println("provinceid: "+CrimeLocationProvince.getSelectedItem());
+        if(res2.next()){
+    
+        provinceid=res2.getString("DOPA_CODE");
+       loTam= provinceid.substring(0, 4);
+        
+        }
+	Statement st = con2.createStatement();
+        String c = "select Amphur.DOPA_CODE DOPA_CODE,NameAmphur\n" +
+                            "from Amphur\n" +
+                            "where Amphur.DOPA_CODE like '"+loTam+"%';";
+                    System.out.println("sddddddddd:"+c);
+
+        ResultSet res = st.executeQuery(c);
+	//Vector<Object> v=new Vector<Object>();
+//	           System.out.println("provinceid: "+provinceid);
+	if(res.next())
+	{
+         
+	 amp=res.getString("NameAmphur");
+        String ffa=res.getString("DOPA_CODE");
+        loAmphur=ffa.substring(0, 2);
+         AmphurDie.setText(amp);
+	
+	}  
+        Statement st3 = con2.createStatement();
+        String c3 = "select nameprovince\n" +
+                            "from province\n" +
+                            "where provinceid = '"+loAmphur+"';";
+            System.out.println("sddddddddd:"+c3);
+        ResultSet res3 = st3.executeQuery(c3);
+        if(res3.next())
+	{
+         
+	 pro=res3.getString("nameprovince");
+      ProvinceDie.setText(pro);
+	
+	}  
+      
+        
+      
+        }
+        catch (Exception d) {  //System.out.println(d);  
+        }
+    }//GEN-LAST:event_TambomDieKeyReleased
+
+    private void TambomFoundBodyKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TambomFoundBodyKeyReleased
+        // TODO add your handling code here:
+           String provinceid="";
+         String loTam="",amp="",zp="",loAmphur="",pro="";
+        Connection con2 = ConnectDatabase.connect();
+        try {
+            Statement st2 = con2.createStatement();
+            String a="select Tambon.DOPA_CODE DOPA_CODE,Tambon.ZIPCODE ZIPCODE from Tambon\n"+
+            "where Tambon.NAMETAMBON='"+TambomFoundBody.getText()+"'";
+            ResultSet res2 = st2.executeQuery(a);
+//            System.out.println("provinceid: "+CrimeLocationProvince.getSelectedItem());
+        if(res2.next()){
+    
+        provinceid=res2.getString("DOPA_CODE");
+       loTam= provinceid.substring(0, 4);
+        
+        }
+	Statement st = con2.createStatement();
+        String c = "select Amphur.DOPA_CODE DOPA_CODE,NameAmphur\n" +
+                            "from Amphur\n" +
+                            "where Amphur.DOPA_CODE like '"+loTam+"%';";
+                    System.out.println("sddddddddd:"+c);
+
+        ResultSet res = st.executeQuery(c);
+	//Vector<Object> v=new Vector<Object>();
+//	           System.out.println("provinceid: "+provinceid);
+	if(res.next())
+	{
+         
+	 amp=res.getString("NameAmphur");
+        String ffa=res.getString("DOPA_CODE");
+        loAmphur=ffa.substring(0, 2);
+         AmphurFoundBody.setText(amp);
+	
+	}  
+        Statement st3 = con2.createStatement();
+        String c3 = "select nameprovince\n" +
+                            "from province\n" +
+                            "where provinceid = '"+loAmphur+"';";
+            System.out.println("sddddddddd:"+c3);
+        ResultSet res3 = st3.executeQuery(c3);
+        if(res3.next())
+	{
+         
+	 pro=res3.getString("nameprovince");
+      ProvinceFoundBody.setText(pro);
+	
+	}  
+      
+        
+      
+        }
+        catch (Exception d) {  //System.out.println(d);  
+        }
+    }//GEN-LAST:event_TambomFoundBodyKeyReleased
+
+    private void AmphurDieKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AmphurDieKeyReleased
+        // TODO add your handling code here:
+         String provinceid="";
+         String loPro="",amp="",zp="",loAmphur="",pro="";
+        Connection con2 = ConnectDatabase.connect();
+        try {
+
+	Statement st = con2.createStatement();
+        String c = "select Amphur.DOPA_CODE DOPA_CODE,NameAmphur\n" +
+                            "from Amphur\n" +
+                            "where Amphur.NameAmphur = '"+Amphur.getText()+"';";
+                    System.out.println("sddddddddd:"+c);
+
+        ResultSet res = st.executeQuery(c);
+	//Vector<Object> v=new Vector<Object>();
+//	           System.out.println("provinceid: "+provinceid);
+	if(res.next())
+	{
+         
+        String ffa=res.getString("DOPA_CODE");
+        loAmphur=ffa.substring(0, 4);
+        loPro=ffa.substring(0, 2);
+	
+	}  
+        
+        Statement st3 = con2.createStatement();
+     
+        String c3 = "select nameprovince\n" +
+                            "from province\n" +
+                            "where provinceid = '"+loPro+"';";
+            System.out.println("sddddddddd:"+c3);
+        ResultSet res3 = st3.executeQuery(c3);
+        if(res3.next())
+	{
+         
+	 pro=res3.getString("nameprovince");
+      Province.setText(pro);
+	
+	}  
+      
+        
+      
+        }
+        catch (Exception d) {  //System.out.println(d);  
+}
+    }//GEN-LAST:event_AmphurDieKeyReleased
+
+    private void AmphurFoundBodyKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AmphurFoundBodyKeyReleased
+        // TODO add your handling code here:
+         String provinceid="";
+         String loPro="",amp="",zp="",loAmphur="",pro="";
+        Connection con2 = ConnectDatabase.connect();
+        try {
+
+	Statement st = con2.createStatement();
+        String c = "select Amphur.DOPA_CODE DOPA_CODE,NameAmphur\n" +
+                            "from Amphur\n" +
+                            "where Amphur.NameAmphur = '"+AmphurFoundBody.getText()+"';";
+                    System.out.println("sddddddddd:"+c);
+
+        ResultSet res = st.executeQuery(c);
+	//Vector<Object> v=new Vector<Object>();
+//	           System.out.println("provinceid: "+provinceid);
+	if(res.next())
+	{
+         
+        String ffa=res.getString("DOPA_CODE");
+        loAmphur=ffa.substring(0, 4);
+        loPro=ffa.substring(0, 2);
+	
+	}  
+        
+        Statement st3 = con2.createStatement();
+     
+        String c3 = "select nameprovince\n" +
+                            "from province\n" +
+                            "where provinceid = '"+loPro+"';";
+            System.out.println("sddddddddd:"+c3);
+        ResultSet res3 = st3.executeQuery(c3);
+        if(res3.next())
+	{
+         
+	 pro=res3.getString("nameprovince");
+      ProvinceFoundBody.setText(pro);
+	
+	}  
+      
+        
+      
+        }
+        catch (Exception d) {  //System.out.println(d);  
+}
+    }//GEN-LAST:event_AmphurFoundBodyKeyReleased
 
    
  

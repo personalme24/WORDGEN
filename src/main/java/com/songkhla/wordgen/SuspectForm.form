@@ -338,8 +338,8 @@
                                   </Group>
                               </Group>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="SusConfress" max="-2" attributes="0"/>
-                                  <Component id="ZipCode" min="-2" pref="101" max="-2" attributes="0"/>
+                                  <Component id="ZipCode" max="32767" attributes="0"/>
+                                  <Component id="SusConfress" min="-2" pref="101" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -1043,6 +1043,9 @@
                   <Font name="TH SarabunPSK" size="22" style="1"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TambonKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="Amphur">
               <Properties>
@@ -1050,6 +1053,9 @@
                   <Font name="TH SarabunPSK" size="22" style="1"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="AmphurKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel22">
               <Properties>
@@ -1095,14 +1101,16 @@
             </Component>
             <Component class="javax.swing.JComboBox" name="SusConfress">
               <Properties>
+                <Property name="editable" type="boolean" value="true"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="TH SarabunPSK" size="22" style="1"/>
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="3">
-                    <StringItem index="0" value="&#xe23;&#xe31;&#xe1a;&#xe2a;&#xe32;&#xe23;&#xe20;&#xe32;&#xe1e;"/>
-                    <StringItem index="1" value="&#xe1b;&#xe0f;&#xe34;&#xe40;&#xe2a;&#xe18;"/>
-                    <StringItem index="2" value="&#xe20;&#xe32;&#xe04;&#xe40;&#xe2a;&#xe18;"/>
+                  <StringArray count="4">
+                    <StringItem index="0" value=" "/>
+                    <StringItem index="1" value="&#xe23;&#xe31;&#xe1a;&#xe2a;&#xe32;&#xe23;&#xe20;&#xe32;&#xe1e;"/>
+                    <StringItem index="2" value="&#xe1b;&#xe0f;&#xe34;&#xe40;&#xe2a;&#xe18;"/>
+                    <StringItem index="3" value="&#xe20;&#xe32;&#xe04;&#xe40;&#xe2a;&#xe18;"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -1420,7 +1428,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="74" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1440,10 +1448,10 @@
                           <Component id="CourtSuspect" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jPanel8" min="127" pref="127" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      <Component id="jPanel8" min="-2" pref="165" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="jLabel3" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                               <Component id="jCheckBail" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabelBailDate" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
@@ -1812,23 +1820,32 @@
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jRadioCantCatch" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioFreeze" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                              <Component id="jRadioStatus1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jRadioCantCatch" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jRadioFreeze" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jRadioStatus1" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="jRadioWithdrawComplaint" alignment="0" pref="129" max="32767" attributes="0"/>
+                                      <Component id="jRadioOther" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jRadioStatus2" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="jRadioRelease" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jRadioRestore" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jRadioSue" min="-2" pref="136" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabelStatusSuspect" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="StatusSuspectOther" min="-2" pref="378" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jRadioWithdrawComplaint" alignment="0" pref="129" max="32767" attributes="0"/>
-                              <Component id="jRadioOther" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jRadioStatus2" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jRadioRelease" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jRadioRestore" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jRadioSue" min="-2" pref="136" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                          <EmptySpace pref="21" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1836,10 +1853,12 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jRadioSue" alignment="0" pref="39" max="32767" attributes="0"/>
-                              <Component id="jRadioStatus2" alignment="1" max="32767" attributes="0"/>
-                              <Component id="jRadioStatus1" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="jRadioStatus1" alignment="0" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jRadioSue" alignment="3" max="32767" attributes="0"/>
+                                  <Component id="jRadioStatus2" alignment="3" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -1853,7 +1872,11 @@
                               <Component id="jRadioOther" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jRadioRelease" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" pref="14" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabelStatusSuspect" pref="37" max="32767" attributes="0"/>
+                              <Component id="StatusSuspectOther" min="-2" pref="31" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1870,6 +1893,7 @@
                     <Property name="text" type="java.lang.String" value="&#xe2d;&#xe37;&#xe48;&#xe19;&#xe46;"/>
                   </Properties>
                   <Events>
+                    <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jRadioOtherItemStateChanged"/>
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jRadioOtherMouseClicked"/>
                   </Events>
                 </Component>
@@ -1987,9 +2011,25 @@
                     <Property name="text" type="java.lang.String" value="&#xe41;&#xe08;&#xe49;&#xe07;&#xe02;&#xe49;&#xe2d;&#xe2b;&#xe32;&#xe1b;&#xe25;&#xe48;&#xe2d;&#xe22;&#xe15;&#xe31;&#xe27;"/>
                   </Properties>
                   <Events>
+                    <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jRadioReleaseItemStateChanged"/>
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jRadioReleaseMouseClicked"/>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioReleaseActionPerformed"/>
                   </Events>
+                </Component>
+                <Component class="javax.swing.JTextField" name="StatusSuspectOther">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="TH SarabunPSK" size="22" style="0"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabelStatusSuspect">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="TH SarabunPSK" size="22" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="&#xe2d;&#xe37;&#xe48;&#xe19;&#xe46;"/>
+                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -2066,10 +2106,31 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="PlaceArrestTambon">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="TH SarabunPSK" size="22" style="0"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="PlaceArrestTambonKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="PlaceArrestAmphur">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="TH SarabunPSK" size="22" style="0"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="PlaceArrestAmphurKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="PlaceArrestProvince">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="TH SarabunPSK" size="22" style="0"/>
+                </Property>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel39">
               <Properties>

@@ -531,7 +531,67 @@ public static void nw67() {
          }
                return ResultDate;
 }
-      
+      public String CalculateDateSend(String DateSue) {
+
+    String DateNextTime="";
+//    int totalDate=Integer.parseInt(DateTotal);
+        try{
+             Calendar c = Calendar.getInstance();
+    // Set the calendar to monday of the current week
+//    c.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+
+    // Print dates of the current week starting on Monday to Friday
+//    DateFormat df = new SimpleDateFormat("EEE dd/MM/yyyy");
+   
+//        System.out.println(df.format(c.getTime()));
+//        int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
+//        if (dayOfWeek == Calendar.SATURDAY) { // If it's Saturday skip to Monday
+//            c.add(Calendar.DATE, 2);
+//        } else {
+//            c.add(Calendar.DATE, 1);
+//        }
+
+     
+            Calendar cal;
+            Locale lc = new Locale("th","TH");
+                        SimpleDateFormat sdf = new SimpleDateFormat("d/MM/yyyy",lc);
+                         SimpleDateFormat newdf = new SimpleDateFormat("EEE d/MM/yyyy",lc);
+                        Date dateS = sdf.parse(DateSue);
+//                        CalculateDateExpr(DateEnd);
+                    String datenew;
+                    datenew=newdf.format(dateS);
+                    Date daten=newdf.parse(datenew);
+//                 System.out.println("DaysTotallllllllll : "+dateS);   
+                         
+                        cal=Calendar.getInstance();
+                        cal.setTime(daten);
+//                                System.out.println(newdf.format(cal.getTime()));
+//                        int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
+//                        System.out.println(dayOfWeek);
+//                         if (dayOfWeek == Calendar.FRIDAY) { // If it's Friday so skip to Monday
+//                            cal.add(Calendar.DATE, 3);
+//                        } else if (dayOfWeek == Calendar.SATURDAY) { // If it's Saturday skip to Monday
+//                            cal.add(Calendar.DATE, 2);
+//                        } else {
+//                            cal.add(Calendar.DATE, 1);
+//                        }
+                            cal.add(Calendar.DAY_OF_MONTH, 1);
+
+//                       cal.add(Calendar.DAY_OF_MONTH, 1);
+                        DateNextTime=sdf.format(cal.getTime());                  
+//                        Date dateE=sdf.parse(DateEnd);
+//                long diff = dateE.getTime() - dateS.getTime();
+//                int diffDays = (int)(diff / (24 * 60 * 60 * 1000));
+//                DateTotal=diffDays+"";
+//                 System.out.println("DaysTotallllllllll : "+DateTotal);
+                return DateNextTime;
+            } catch(Exception e){
+                return null;
+//                System.out.println(e);
+            }
+          
+    
+    }
         public static String ReplaceCollon(String inputTime){
                                         if(inputTime==null||inputTime==""||inputTime=="null") { return ""; }
 					return  getThaiNumber(inputTime.replaceAll(":", "."));

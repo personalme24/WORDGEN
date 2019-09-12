@@ -30,7 +30,20 @@ public class CreateTable {
                                "   Password  VARCHAR(100)	,	\n"+
                                "   DateLogin DATE		\n"+                        
                                "	); ";
-                
+                String sqlParameter = "CREATE TABLE IF NOT  EXISTS ParameterTable (\n"+
+                               "   IdCaseForCrime	 VARCHAR(100)	,	\n"+        
+                               "   CrimeNo  VARCHAR(100)	,	\n"+
+                               "   CrimeYears  VARCHAR(100)	,	\n"+
+                               "   org_code VARCHAR(100)	,	\n"+ 
+                               "   CaseAcceptDateStart VARCHAR(100)	,	\n"+                        
+                               "   CaseAcceptDateEnd VARCHAR(100)	\n"+                        
+
+                               "	); ";
+                String sqlHolidays = "CREATE TABLE IF NOT EXISTS Holidays (\n"+
+                               "   IDHolidays	INTEGER	Primary Key AUTOINCREMENT,	\n"+        
+                               "   HolidaysDate  VARCHAR(100)	,	\n"+
+                               "   HolidaysName  VARCHAR(100)		\n"+                   
+                               "	); ";
                 String sqlAnswer= "CREATE TABLE IF NOT EXISTS Answer (\n"+
                                "   IdAnswer	INTEGER	Primary Key AUTOINCREMENT,	\n"+        
                                "   AnswerDetail  VARCHAR(100)	,	\n"+
@@ -144,6 +157,7 @@ public class CreateTable {
                 "	TotalDate	VARCHAR(100)	,	\n"+
                 "	TotalTime	VARCHAR(100)	,	\n"+
                 "	StatusSuspect	VARCHAR(100)	,	\n"+
+                "	StatusSuspectOther	VARCHAR(100)	,	\n"+                        
                 "	BailDate	VARCHAR(100)	,	\n"+
                 "	RestoreDate	VARCHAR(100)	,	\n"+ 
                 "	Road     	VARCHAR(100)	,	\n"+
@@ -244,6 +258,7 @@ public class CreateTable {
                 "	Religion	VARCHAR(100)	,	\n"+
                 "	Occupation	VARCHAR(100)	,	\n"+
                "	OccupationPosition	VARCHAR(100)	,	\n"+
+               "	StatusSueAndPutInJail	VARCHAR(100)	,	\n"+              
                 "	Height	VARCHAR(100)	,	\n"+
                 "	Weight	VARCHAR(100)	,	\n"+
                 "	BloodGroup	VARCHAR(100)	,	\n"+
@@ -283,13 +298,16 @@ public class CreateTable {
                 "	SpouseFullName	VARCHAR(100)	,	\n"+
                 "	Education	VARCHAR(100)	,	\n"+
                 "	FriendAddress	VARCHAR(100)	,	\n"+
+                "	CarUse	VARCHAR(100)	,	\n"+              
                 "	FavouritePlace	VARCHAR(100)	,	\n"+
                 "	Identification	VARCHAR(100)	,	\n"+
                 "	InterrogateDate	VARCHAR(100)	,	\n"+
                 "	CurrentAddress	VARCHAR(100)	,	\n"+
                 "	RestoreDate	VARCHAR(100)	,	\n"+ 
                 "	Road     	VARCHAR(100)	,	\n"+
-                "	Soi     	VARCHAR(100)		\n"+                       
+                "	Soi     	VARCHAR(100)	,	\n"+
+                "	NotePersonData  VARCHAR(100)	,	\n"+              
+                "      WarrantList      VARCHAR(100)		\n"+
                 "	);	";	
                        
                   String sqlCrimeCase ="CREATE TABLE IF NOT EXISTS CrimeCase (\n"+
@@ -562,7 +580,9 @@ public class CreateTable {
                        stmt.execute(sqlPersonData);  
                        stmt.execute(sqlActionCase);   
                         stmt.execute(sqlAnswer);  
-                       stmt.execute(sqlLogin);  
+                       stmt.execute(sqlLogin);
+                       stmt.execute(sqlHolidays);  
+                       stmt.execute(sqlParameter);  
                        stmt.close();
                     System.out.println("Create Table Complete");
 	        } catch (SQLException e) {

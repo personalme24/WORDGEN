@@ -432,4 +432,10 @@ public class W1 {
         }
         return sb.toString();  
     }  
+    private static String ChangRankToFull(String rank) {  
+       String rankfull="";
+       if(rank.equals(""))
+       { }
+        return rankfull;  
+    }  
 }

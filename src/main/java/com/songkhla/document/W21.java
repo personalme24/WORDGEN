@@ -145,7 +145,7 @@ public class W21 {
                    
                    bookmarkvalue.put("PD7",Checknull(s.getString("FullNamePerson")));
                    bookmarkvalue.put("PD135", Checknull(ToDate(s.getString("DateSendInjuredOrDie"))));
-                   bookmarkvalue.put("PD136", Checknull(s.getString("TimeSendInjuredOrDie")));
+                   bookmarkvalue.put("PD136", ReplaceCollon(s.getString("TimeSendInjuredOrDie")));
                    bookmarkvalue.put("PD137", Checknull(s.getString("CauseSendInjuredOrDie")));
                    bookmarkvalue.put("PD138", Checknull(s.getString("WhereSendInjuredOrDie")));
                    
