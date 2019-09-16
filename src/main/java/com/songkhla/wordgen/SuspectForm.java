@@ -534,7 +534,6 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabel9 = new javax.swing.JLabel();
         PassportNumber = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         Age = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         Nationality = new javax.swing.JTextField();
@@ -603,6 +602,7 @@ public class SuspectForm extends javax.swing.JDialog {
         CauseSendInjuredOrDie = new javax.swing.JTextField();
         DateSendInjuredOrDie = new javax.swing.JTextField();
         WhereSendInjuredOrDie = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabelArrestPlace = new javax.swing.JLabel();
         PlaceArrest = new javax.swing.JTextField();
@@ -702,11 +702,13 @@ public class SuspectForm extends javax.swing.JDialog {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel31, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+            .addComponent(jLabel31, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jLabel2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -752,9 +754,6 @@ public class SuspectForm extends javax.swing.JDialog {
 
         jLabel10.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel10.setText("วันเกิด");
-
-        jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel8.setText("อายุ");
 
         Age.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         Age.addActionListener(new java.awt.event.ActionListener() {
@@ -1023,6 +1022,9 @@ public class SuspectForm extends javax.swing.JDialog {
             }
         });
 
+        jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel8.setText("อายุ");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -1137,8 +1139,8 @@ public class SuspectForm extends javax.swing.JDialog {
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(315, 315, 315)
-                        .addComponent(jLabel22)
+                        .addGap(307, 307, 307)
+                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(Tambon))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
@@ -1172,7 +1174,7 @@ public class SuspectForm extends javax.swing.JDialog {
                                     .addGroup(jPanel4Layout.createSequentialGroup()
                                         .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(Moo, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(Moo, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(ZipCode)
@@ -1258,8 +1260,8 @@ public class SuspectForm extends javax.swing.JDialog {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanelBirthDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(Age, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(Age, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Religion, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1313,14 +1315,14 @@ public class SuspectForm extends javax.swing.JDialog {
                     .addComponent(OccupationPosition, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(HouseNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Moo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(Tambon, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Tambon, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel22, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1619,7 +1621,7 @@ public class SuspectForm extends javax.swing.JDialog {
             }
         });
 
-        StatusSuspectOther.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        StatusSuspectOther.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
         jLabelStatusSuspect.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabelStatusSuspect.setText("อื่นๆ");
@@ -1710,24 +1712,26 @@ public class SuspectForm extends javax.swing.JDialog {
         jLabelArrestProvince.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabelArrestProvince.setText("จังหวัด");
 
-        PlaceArrestTambon.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        PlaceArrestTambon.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         PlaceArrestTambon.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 PlaceArrestTambonKeyReleased(evt);
             }
         });
 
-        PlaceArrestAmphur.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        PlaceArrestAmphur.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         PlaceArrestAmphur.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 PlaceArrestAmphurKeyReleased(evt);
             }
         });
 
-        PlaceArrestProvince.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        PlaceArrestProvince.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
         jLabel39.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel39.setText("เลขที่คำร้องขอหมายจับ");
+
+        NoArrestWarrant.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -3035,7 +3039,7 @@ public class SuspectForm extends javax.swing.JDialog {
        BirthDay.getComponent(1).setEnabled(false);
        BirthDay.getJFormattedTextField().setEnabled(false);
         jRadioSue.setEnabled(false);
-   
+   OccupationPosition.setEnabled(false);
         jRadioStatus1.setEnabled(false);
         jRadioCantCatch.setEnabled(false);
         jRadioStatus2.setEnabled(false);
@@ -3047,6 +3051,8 @@ public class SuspectForm extends javax.swing.JDialog {
           ZipCode.setEnabled(false);
           CourtSuspect.setEnabled(false);
         jRadioRelease.setEnabled(false);
+        NoArrestWarrant.setEnabled(false);
+    
             // do something when the button is selected
  
         } 
@@ -3083,7 +3089,8 @@ public class SuspectForm extends javax.swing.JDialog {
      BirthDay.getComponent(1).setEnabled(true);
        BirthDay.getJFormattedTextField().setEnabled(true);
              jRadioSue.setEnabled(true);
- 
+    OccupationPosition.setEnabled(true);
+NoArrestWarrant.setEnabled(true);
         jRadioStatus1.setEnabled(true);
         jRadioCantCatch.setEnabled(true);
         jRadioStatus2.setEnabled(true);

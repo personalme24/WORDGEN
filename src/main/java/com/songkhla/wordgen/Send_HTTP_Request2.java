@@ -10,6 +10,7 @@ package com.songkhla.wordgen;
  * @author Computer
  */
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL; 
@@ -19,7 +20,10 @@ import org.json.JSONObject;
 public class Send_HTTP_Request2 {
 	public static void main(String[] args) {
      try {
-         Send_HTTP_Request2.call_me();
+//         Send_HTTP_Request2.call_me();
+           String url=  "http://172.31.191.163:8383/wordgenauthen/?USER=TNCTUK&PASS=12345678";
+//                  String fff =sendGET(url);
+                  System.out.println(sendGET(url));
         } catch (Exception e) {
          e.printStackTrace();
        }
@@ -65,4 +69,33 @@ public static void call_me() throws Exception {
        
 
    }
+private static String sendGET(String GET_URL) throws IOException {
+                String a="";
+		URL serverUrl = new URL(GET_URL);
+		HttpURLConnection con = (HttpURLConnection) serverUrl.openConnection();
+		con.setRequestMethod("GET");
+		con.setRequestProperty("User-Agent", "Mozilla/5.0");
+                con.setRequestProperty("Accept-Charset", "UTF-8");
+		int responseCode = con.getResponseCode();
+		System.out.println("GET Response Code :: " + responseCode);
+		if (responseCode == HttpURLConnection.HTTP_OK) { // success
+			BufferedReader in = new BufferedReader(new InputStreamReader(
+					con.getInputStream(),"UTF-8"));
+			String inputLine;
+			StringBuffer response = new StringBuffer();
+
+			while ((inputLine = in.readLine()) != null) {
+				response.append(inputLine);
+			}
+			in.close();
+
+			// print result
+//			System.out.println(response.toString());
+                        return response.toString();
+		} else {
+			System.out.println("GET request not worked");
+                        return null;
+		}
+                
+	}
 }

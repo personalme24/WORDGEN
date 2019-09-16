@@ -3175,6 +3175,7 @@ JTextPopupMenu.addTo(CourtResult);
             String no=crimecaseid.getText();
             JCheckBox[] boxes = {jCheckW201,jCheckW202,jCheckW203,jCheckW204,jCheckW205,jCheckW206,jCheckW208,jCheckW209,jCheckW211,jCheckW212,jCheckW213,jCheckW214};
         try { 
+
             for (int i = 0; i < boxes.length; i++) {
 //                x = x - i;
             setProgress((int)((i*100)/boxes.length)+1);

@@ -708,6 +708,7 @@ public class Identity_DeadForm extends javax.swing.JDialog {
         jLabel41.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel41.setText("อำเภอ");
 
+        BloodGroup.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         BloodGroup.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "AB", "O", "A Rh-", "B Rh-", "AB Rh-", "O Rh-" }));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);

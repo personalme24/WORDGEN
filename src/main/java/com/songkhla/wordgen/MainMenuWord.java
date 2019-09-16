@@ -64,7 +64,7 @@ public class MainMenuWord extends javax.swing.JFrame {
         setMinimumSize(new Dimension(1280, 720));
         setMaximizedBounds ( new Rectangle ( 1280, 720 ) );
         setResizable(false);
-     
+     jLabel13.setVisible(true);
         con=ConnectDatabase.connect();
         CreateTable.createNewTable();      
         CreateTable.InsertBaseData();

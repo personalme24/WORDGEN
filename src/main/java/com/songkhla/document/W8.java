@@ -187,7 +187,7 @@ public class W8 {
                 
                 bookmarkvalue.put("PS7",  Checknull(s.getString("SuspectandOther")));
                 }
-                else if (Related.equals("พยาน")){
+                else if (TypePerson.equals("พยานและบุคคลอื่นๆ")){
                 bookmarkvalue.put("PW2",  Checknull(s.getString("PeopleRegistrationID")));
                 bookmarkvalue.put("PW3",  Checknull(ToDate(s.getString("IssueDate"))));
                 bookmarkvalue.put("PW5",  Checknull(s.getString("IssuedBy")));
@@ -196,7 +196,8 @@ public class W8 {
                 bookmarkvalue.put("PW14", Checknull(s.getString("Race")));
                 bookmarkvalue.put("PW15", Checknull(s.getString("Nationality"))); 
                 bookmarkvalue.put("PW16", Checknull(s.getString("Religion")));
-                bookmarkvalue.put("PW17", Checknull(s.getString("Occupation")));  
+                bookmarkvalue.put("PW17", Checknull(s.getString("Occupation")));
+                bookmarkvalue.put("PW21", Checknull(s.getString("Related"))); 
                 bookmarkvalue.put("PW22", Checknull(s.getString("HouseNumber"))); 
                 bookmarkvalue.put("PW23", Checknull(s.getString("Moo"))); 
                 bookmarkvalue.put("PW24", Checknull(s.getString("Tambon"))); 
@@ -302,7 +303,7 @@ public class W8 {
 			ex.printStackTrace();
 		}  
                 }
-                if (Related.equals("พยาน")){
+                if (TypePerson.equals("พยานและบุคคลอื่นๆ")){
                     if (Occupation.equals("รับราชการตำรวจ")){
 		try {
                   

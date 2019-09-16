@@ -28,6 +28,7 @@ public class CreateTable {
                                "   IdUSer	INTEGER	Primary Key AUTOINCREMENT,	\n"+        
                                "   Username  VARCHAR(100)	,	\n"+
                                "   Password  VARCHAR(100)	,	\n"+
+                               "   StatusLogin  VARCHAR(100)	,	\n"+
                                "   DateLogin DATE		\n"+                        
                                "	); ";
                 String sqlParameter = "CREATE TABLE IF NOT  EXISTS ParameterTable (\n"+

@@ -445,7 +445,7 @@ public class AssetNewEdit extends javax.swing.JDialog {
                                     "OrderAsset=?,PointFoundCheck=?,Value=?,caseIdAsset=?,StatusAsset=? where NoAsset=?";
                  try {
             pst=con.prepareStatement(sqlUpdate);
-                              pst.setString(1,OrderAsset.getText());
+                              pst.setString(1,EvidenceRecordNumber1.getText());
                               pst.setString(2,Amount.getText());
                               pst.setString(3,DateSequester.getJFormattedTextField().getText());
                               pst.setString(4,DefectMark.getText());

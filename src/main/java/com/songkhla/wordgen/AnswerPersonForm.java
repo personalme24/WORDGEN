@@ -77,6 +77,7 @@ public class AnswerPersonForm extends javax.swing.JDialog {
 
         AnswerDetail.setColumns(20);
         AnswerDetail.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        AnswerDetail.setLineWrap(true);
         AnswerDetail.setRows(5);
         AnswerDetail.setTabSize(1);
         jScrollPane1.setViewportView(AnswerDetail);
