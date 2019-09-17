@@ -524,7 +524,7 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                       <Connection code="new javax.swing.ImageIcon(&quot;./Master/information.png&quot;)" type="code"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="&#xe27;&#xe34;&#xe18;&#xe35;&#xe43;&#xe0a;&#xe49;"/>
+                    <Property name="text" type="java.lang.String" value="&#xe40;&#xe0a;&#xe37;&#xe48;&#xe2d;&#xe21;&#xe15;&#xe48;&#xe2d;&#xe23;&#xe30;&#xe1a;&#xe1a; CRIMES"/>
                   </Properties>
                 </Component>
               </SubComponents>

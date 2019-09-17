@@ -119,7 +119,7 @@ public class W5 {
                               "inner join(\n" +
                                 "SELECT min(Person.NoPerson),Person.FullNamePerson suspectName,Person.Age suspectAge,Person.Amphur suspectAmp,Person.Race suspectRace,\n"+
                                 "Person.Nationality suspectNati,Person.NoArrestWarrant suspectNoArrestWarrant,Person.ArrestDateTime ArrestDateTime,Person.AnswerPerson suspectAnswerPerson,"
-                                + "Person.CourtSuspect suspectCourtSuspect,Person.StatusSuspect suspectStatusSuspect\n"
+                                + "Person.CourtSuspect suspectCourtSuspect,Person.StatusSuspect suspectStatusSuspect,Person.StatusInjuryOrDie StatusInjuryOrDie\n"
                             + "FROM Person where Person.TypePerson='ผู้ต้องหา' and Person.caseIdPerson='"+cc+"'\n" +
                                 ")P2\n" +
                                 "inner join(\n" +
@@ -172,7 +172,12 @@ public class W5 {
                 bookmarkvalue.put("C37",Checknull(s.getString("Invest_SendtoDepartment")));
                 bookmarkvalue.put("C38",Checknull(s.getString("Investigator_Number")));
                 bookmarkvalue.put("STATUS",Checknull(STATUS));
-                bookmarkvalue.put("CTY",Checknull(s.getString("suspectStatusSuspect")));
+                String StatusInjuryOrDie=s.getString("StatusInjuryOrDie");
+                if(StatusInjuryOrDie.equals("ตาย")){
+                 bookmarkvalue.put("CTY","ผู้ต้องหาถึงแก่ความตาย");
+                }
+                else{
+                bookmarkvalue.put("CTY",Checknull(s.getString("suspectStatusSuspect")));}
                 
                 
                 bookmarkvalue.put("A2", Checknull(s.getString("ActionDetailCase")));

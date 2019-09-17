@@ -2311,13 +2311,17 @@ SueFirstCause.setEnabled(true);
     public static String ChangFormat(String DateSue){
         String newFormatDate=null;
        try{   Calendar cal;
-        SimpleDateFormat formatdate =new SimpleDateFormat("d/MM/yyyy");     
+        SimpleDateFormat formatdate =new SimpleDateFormat("d/MM/yyyy");  
+         if(DateSue == null || DateSue.equals("null")|| DateSue.equals("0")){
+            newFormatDate="";
+        }
+         else{
         Date b=formatdate.parse(DateSue);
          cal = Calendar.getInstance();
           cal.setTime(b); 
            SimpleDateFormat dateformat =new SimpleDateFormat("yyyy/MM/d");   
          newFormatDate=dateformat.format(cal.getTime());
-    
+         }
          }
          catch(Exception e){
          e.printStackTrace();
@@ -3185,7 +3189,7 @@ catch (Exception d) {  //System.out.println(d);
         String newFormatDate=null;
        try{   Calendar cal;
        Locale lc = new Locale("th","TH");
-        SimpleDateFormat formatdate =new SimpleDateFormat("yyyy/MM/dd");     
+        SimpleDateFormat formatdate =new SimpleDateFormat("yyyy/MM/d");     
         if(DateSue == null || DateSue.equals("null")|| DateSue.equals("0")){
             newFormatDate="";
         }

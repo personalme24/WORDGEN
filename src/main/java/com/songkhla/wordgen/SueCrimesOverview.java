@@ -700,13 +700,13 @@ jTableSue.getColumnModel().getColumn(12).setMinWidth(120);
         String newFormatDate=null;
        try{   Calendar cal;
        Locale lc = new Locale("th","TH");
-        SimpleDateFormat formatdate =new SimpleDateFormat("yyyy/MM/dd");     
+        SimpleDateFormat formatdate =new SimpleDateFormat("yyyy/MM/d");     
         if(DateSue != null && !"".equals(DateSue)){
         Date b=formatdate.parse(DateSue);
          cal = Calendar.getInstance();
           cal.setTime(b); 
           System.out.println("fffffff : "+cal.getTime());
-           SimpleDateFormat dateformat =new SimpleDateFormat("dd/MM/yyyy");   
+           SimpleDateFormat dateformat =new SimpleDateFormat("d/MM/yyyy");   
          newFormatDate=dateformat.format(cal.getTime()); 
         
         }
@@ -720,11 +720,11 @@ jTableSue.getColumnModel().getColumn(12).setMinWidth(120);
        public static String ChangFormatDate(String DateSue){
         String newFormatDate=null;
        try{   Calendar cal;
-        SimpleDateFormat formatdate =new SimpleDateFormat("dd/MM/yyyy");     
+        SimpleDateFormat formatdate =new SimpleDateFormat("d/MM/yyyy");     
         Date b=formatdate.parse(DateSue);
          cal = Calendar.getInstance();
           cal.setTime(b); 
-           SimpleDateFormat dateformat =new SimpleDateFormat("yyyy/MM/dd");   
+           SimpleDateFormat dateformat =new SimpleDateFormat("yyyy/MM/d");   
          newFormatDate=dateformat.format(cal.getTime());
     
          }
