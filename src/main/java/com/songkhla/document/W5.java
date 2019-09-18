@@ -173,11 +173,8 @@ public class W5 {
                 bookmarkvalue.put("C38",Checknull(s.getString("Investigator_Number")));
                 bookmarkvalue.put("STATUS",Checknull(STATUS));
                 String StatusInjuryOrDie= Checknull(s.getString("StatusInjuryOrDie"));
-                if(StatusInjuryOrDie.equals("ตาย")){
-                 bookmarkvalue.put("CTY","ผู้ต้องหาถึงแก่ความตาย");
-                }
-                else{
-                bookmarkvalue.put("CTY",Checknull(s.getString("suspectStatusSuspect")));}
+               
+                bookmarkvalue.put("CTY",Checknull(s.getString("suspectStatusSuspect")));
                 
                 
                 bookmarkvalue.put("A2", Checknull(s.getString("ActionDetailCase")));
