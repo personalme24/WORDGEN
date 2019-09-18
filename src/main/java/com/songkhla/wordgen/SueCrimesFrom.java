@@ -250,9 +250,10 @@ public class SueCrimesFrom extends javax.swing.JDialog {
          }
             CourtSuspect.setText(datain.get("CourtSuspect")+"");
             String firstsue=datain.get("SueFirst")+"";
+            String sf=datain.get("SueFirstDate")+"";
              System.out.println("ddddddddddddddddd:"+firstsue+":gggggggg");
              
-             if(firstsue.equals(null) ||firstsue.equals("null")||firstsue.equals(""))
+             if(firstsue.equals(null)||firstsue.equals("null")||firstsue.equals("")||sf.equals("null")||sf.equals(null)||sf.equals(""))
             {
                 
                 if(Court.equals("ศาลแขวง")&&(stSuspect.equals("ผัดฟ้องฝากขัง")||stSuspect.equals("ผัดฟ้อง"))){

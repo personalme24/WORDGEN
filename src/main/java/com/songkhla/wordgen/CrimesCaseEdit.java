@@ -537,7 +537,6 @@ JTextPopupMenu.addTo(CourtResult);
         SpinnerDateModel sm3=new SpinnerDateModel(date3,null,null,Calendar.HOUR_OF_DAY);
         OccuredDateTime = new javax.swing.JSpinner(sm3);
         jLabel14 = new javax.swing.JLabel();
-        ChargeNameCase = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         Date date2=new Date();
 
@@ -570,6 +569,8 @@ JTextPopupMenu.addTo(CourtResult);
         OccuredDateTimeEnd = new javax.swing.JSpinner(sm4);
         jLabel32 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        ChargeNameCase = new javax.swing.JTextArea();
         jPanel10 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         CrimeLocation = new javax.swing.JTextField();
@@ -726,7 +727,6 @@ JTextPopupMenu.addTo(CourtResult);
         jButtonEditCase = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1214, 720));
         setResizable(false);
 
         jPanel3.setBackground(new java.awt.Color(4, 93, 179));
@@ -855,10 +855,6 @@ JTextPopupMenu.addTo(CourtResult);
         jLabel14.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel14.setText("เวลาที่เกิดเหตุ");
         jPanel8.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 151, -1, 30));
-
-        ChargeNameCase.setEditable(false);
-        ChargeNameCase.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jPanel8.add(ChargeNameCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 101, 330, -1));
 
         jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel8.setText("วันที่รับแจ้ง");
@@ -1017,6 +1013,15 @@ JTextPopupMenu.addTo(CourtResult);
         jLabel34.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel34.setText("เวลา");
         jPanel8.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 194, 81, 30));
+
+        ChargeNameCase.setEditable(false);
+        ChargeNameCase.setColumns(20);
+        ChargeNameCase.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        ChargeNameCase.setRows(1);
+        ChargeNameCase.setTabSize(1);
+        jScrollPane6.setViewportView(ChargeNameCase);
+
+        jPanel8.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 330, -1));
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1251,21 +1256,18 @@ JTextPopupMenu.addTo(CourtResult);
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(13, 13, 13))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jTabbedPane2.addTab("ข้อมูลคดี", jPanel1);
@@ -1953,7 +1955,7 @@ JTextPopupMenu.addTo(CourtResult);
 
         jCheckW228.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW228.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW228.setText("บันทึกการตรวจสภาพสภาพรถยนต์");
+        jCheckW228.setText("บันทึกการตรวจสภาพยานพาหนะ");
         jCheckW228.setActionCommand("บันทึกการตรวจสภาพรถยนต์");
         jPanel14.add(jCheckW228, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 310, 259, -1));
 
@@ -3908,7 +3910,7 @@ if(OccuredDate.getJFormattedTextField().getText().equals("23/8/2562")){
     private javax.swing.JSpinner CaseAcceptTimee;
     private javax.swing.JSpinner CaseRequestTimee;
     private javax.swing.JLabel CaseType;
-    public static javax.swing.JTextField ChargeNameCase;
+    public static javax.swing.JTextArea ChargeNameCase;
     private javax.swing.JTextArea CourtResult;
     private javax.swing.JComboBox<String> CourtType;
     private javax.swing.JTextField CrimeLocation;
@@ -4094,6 +4096,7 @@ if(OccuredDate.getJFormattedTextField().getText().equals("23/8/2562")){
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane2;
     public static javax.swing.JTextField jTextAccused;
     private javax.swing.JTextField jTextInvestSendtoDepartment;

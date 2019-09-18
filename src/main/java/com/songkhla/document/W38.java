@@ -85,7 +85,7 @@ public static void w38(String cc) {
                       }
 //                
 
-                   String sql="select crimecase.*,Person.*,ChargeCase.*,InvestInformation\n" +
+                   String sql="select crimecase.*,Person.*,ChargeCase.*,InvestInformation.*\n" +
                               "from crimecase \n" +
                               "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
                               "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +

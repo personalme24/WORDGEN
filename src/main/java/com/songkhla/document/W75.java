@@ -100,7 +100,7 @@ public class W75 {
                             + "Person.Race suspectRace,Person.FatherFullName suspectFather,Person.MotherFullName suspectMother,Person.TambonBirthday suspectTambonBirthday,Person.AmphurBirthday suspectAmphurBirthday,"
                            +  "Person.ProvinceBirthday suspectProvinceBirthday,Person.PlaceBorn suspectPlaceBorn,Person.FatherCareer suspectFatherCareer,Person.FatherAddress suspectFatherAddress,"
                            +  "Person.FatherPhone suspectFatherPhone,Person.MotherCareer suspectMotherCareer,Person.MotherAddress suspectMotherAddress,Person.MotherPhone suspectMotherPhone,\n"+
-                              "Person.Nationality suspectNati,Person.Occupation suspectOcc FROM Person where Person.TypePerson='ผู้ต้องหา'\n" +
+                              "Person.Nationality suspectNati,Person.Occupation suspectOcc FROM Person where Person.TypePerson='ผู้ต้องหา'and Person.caseIdPerson='"+cc+"'\n" +
                               ")P2\n" +
                               "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
                               "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +

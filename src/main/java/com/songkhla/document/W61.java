@@ -183,7 +183,7 @@ public class W61 {
                             bookmarkvalue.put("C13", Checknull(s.getString("CrimeLocationAmphur")));
                             bookmarkvalue.put("C14", Checknull(s.getString("CrimeLocationProvince")));
                             bookmarkvalue.put("C15", Checknull(s.getString("DailyNumber")));
-                            bookmarkvalue.put("C60", Checknull(s.getString("")));
+                            bookmarkvalue.put("C60", Checknull(s.getString("TotalSus")));
                             
                     
                    

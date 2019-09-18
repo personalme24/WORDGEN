@@ -456,25 +456,25 @@ public class BackgroundWorker extends SwingWorker<Void, Void> {
 //             String statusconnect=myResponse.getString("statusconnect"); 
                 con=ConnectDatabase.connect();
      
-              String insertPolice="INSERT INTO Police (IdPolice,IdCardPolice,RankPoliceFull,RankPolice,FirstName,LastName,"
+              String insertPolice="INSERT INTO Police (IdPolice,IdCardPolice,RankPolice,FirstName,LastName,"
                       + "Birthday,Age,Tel,Position) "           
                       + "VALUES (?,?,?,?,?,?,?,?,?,?)";
-               String insertUser="INSERT INTO User (Username,Password,StatusLogin,DateLogin,FirstName,LastName)\n"        
-                      + "VALUES (?,?,?,?,?,?,?,?,?,?)";
-               String insertInvest="INSERT INTO InvestInformation (InvestCardID,InvestRankFull,InvestRank,DateLogin,FirstName,LastName)\n"        
-                      + "VALUES (?,?,?,?,?,?,?,?,?,?)";
+//               String insertUser="INSERT INTO User (Username,Password,StatusLogin,DateLogin,FirstName,LastName)\n"        
+//                      + "VALUES (?,?,?,?,?,?,?,?,?,?)";
+//               String insertInvest="INSERT INTO InvestInformation (InvestCardID,InvestRankFull,InvestRank,DateLogin,FirstName,LastName)\n"        
+//                      + "VALUES (?,?,?,?,?,?,?,?,?,?)";
                try {
                              pst=con.prepareStatement(insertPolice);
                               pst.setString(1,"1");
                               pst.setString(2,myResponse.getString("idcard"));
                               pst.setString(3,myResponse.getString("rank"));
-                              pst.setString(4,myResponse.getString("rank"));
-                              pst.setString(5,myResponse.getString("firstname"));
-                              pst.setString(6,myResponse.getString("lastname"));
-                              pst.setString(7,myResponse.getString("birthday"));
-                              pst.setString(8,myResponse.getString("age"));
-                              pst.setString(9,myResponse.getString("mobilephone"));
-                              pst.setString(10,myResponse.getString("position"));                             
+//                              pst.setString(4,myResponse.getString("rank"));
+                              pst.setString(4,myResponse.getString("firstname"));
+                              pst.setString(5,myResponse.getString("lastname"));
+                              pst.setString(6,myResponse.getString("birthday"));
+                              pst.setString(7,myResponse.getString("age"));
+                              pst.setString(8,myResponse.getString("mobilephone"));
+                              pst.setString(9,myResponse.getString("position"));                             
                               pst.executeUpdate();                
                               pst.close();
                         

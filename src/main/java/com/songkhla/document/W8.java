@@ -103,7 +103,7 @@ public class W8 {
                               "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
                               "left join ActionsCaseData on crimecase.ActionCodeCase = ActionsCaseData.ActionCodeCase\n"+
                                "left join InvestInformation on crimecase.PoliceNameCase=InvestInformation.InvestId \n" +
-                              "where crimecase.CaseId='"+cc+"'and Person.TypePerson='ผู้กล่าวหา' or Person.Related='พยาน'\n" +
+                              "where crimecase.CaseId='"+cc+"'and Person.TypePerson='ผู้กล่าวหา' or Person.TypePerson='พยานและบุคคลอื่นๆ'\n" +
                               "group by crimecase.CaseId,Person.NoPerson";
                    
 //                   pst=conn.prepareStatement(sql);
@@ -291,7 +291,7 @@ public class W8 {
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		} 
-                }else 
+                }else {
                     try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
@@ -301,7 +301,8 @@ public class W8 {
 			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/บันทึกคำให้การของผู้กล่าวหา "+s.getString("FullNamePerson")+""+ cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
-		}  
+		} 
+                    }
                 }
                 if (TypePerson.equals("พยานและบุคคลอื่นๆ")){
                     if (Occupation.equals("รับราชการตำรวจ")){
@@ -315,7 +316,7 @@ public class W8 {
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		} 
-                }else 
+                }else {
                     try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
@@ -325,7 +326,8 @@ public class W8 {
 			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/บันทึกคำให้การของพยาน "+s.getString("FullNamePerson")+""+ cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
-		}     
+		}
+                    }
                 }
                 
             }

@@ -1480,14 +1480,14 @@ JTextPopupMenu.addTo(CourtResult);
                                 .addComponent(jLabel31))
                             .addComponent(jButtonAccured, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonSuspect, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jTextSuspect, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel21)
-                                .addComponent(jLabel30)
-                                .addComponent(jLabelNumberSus))
-                            .addComponent(jButtonSuspect, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabelNumberSus)))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1871,7 +1871,7 @@ JTextPopupMenu.addTo(CourtResult);
 
         jCheckW228.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW228.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW228.setText("บันทึกการตรวจสภาพสภาพรถยนต์");
+        jCheckW228.setText("บันทึกการตรวจสภาพยานพาหนะ");
         jPanel14.add(jCheckW228, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 310, 259, -1));
 
         jCheckW253.setBackground(new java.awt.Color(255, 255, 255));
@@ -3038,6 +3038,8 @@ JTextPopupMenu.addTo(CourtResult);
 					if ("progress".equalsIgnoreCase(evt.getPropertyName())) {
 						 if (dialog == null) {
 							dialog = new JDialog();
+                                                        ImageIcon img = new ImageIcon("./Master/WD.png");
+                                                           dialog.setIconImage(img.getImage());
 							dialog.setTitle("Processing");
 							dialog.setLayout(new GridBagLayout());
 							dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
@@ -3553,6 +3555,7 @@ catch (Exception d) {  //System.out.println(d);
            OccuredDateEnd.getComponent(1).setEnabled(true);
        OccuredDateEnd.getJFormattedTextField().setEnabled(true);
        OccuredDateTimeEnd.setEnabled(true);
+       CircumstancesOfDeath.setEnabled(true);
     }
    public void CloseTextBox(){
 //    RestoreDate.setVisible(false);  
@@ -3609,6 +3612,15 @@ catch (Exception d) {  //System.out.println(d);
            OccuredDateEnd.getComponent(1).setEnabled(false);
        OccuredDateEnd.getJFormattedTextField().setEnabled(false);
        OccuredDateTimeEnd.setEnabled(false);
+       jCheckControl.setEnabled(false);
+       jCheckAnimal.setEnabled(false);
+       jCheckKill.setEnabled(false);
+       jCheckSuicide.setEnabled(false);
+       jCheckExtraordinary.setEnabled(false);
+       jCheckAccident.setEnabled(false);
+       jCheckUnknow.setEnabled(false);
+CircumstancesOfDeath.setEnabled(false);
+
 //              g.setEnabled(false);
 
       

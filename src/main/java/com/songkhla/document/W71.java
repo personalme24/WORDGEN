@@ -154,9 +154,9 @@ public class W71 {
                                 "SELECT Person.*\n" +
                                 "FROM Person where Person.Related='นายประกัน' and Person.caseIdPerson='"+cc+"')P2 \n" +
                                 "left join CrimeCase on Person.caseidperson=CrimeCase.caseid\n" +
-                                "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
+                                "left join ChargeCase on crimecase.caseid=ChargeCase.ChargeCaseid\n" +
                                 "left join BailAsset on Person.noperson = BailAsset.BailpersonId\n" +
-                                "where Person.StatusBail='ประกัน' and CrimeCase.caseid='"+cc+"' and Person.Noperson='"+noperson+"'" ;
+                                "where Person.StatusBail='ประกัน' and CrimeCase.caseid='"+cc+"' and Person.Noperson='"+noperson+"' group by Person.noperson" ;
        
                    
             

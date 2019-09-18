@@ -94,7 +94,7 @@ public class W47 {
                                 "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
                                 "left join ActionsCaseData on crimecase.ActionCodeCase = ActionsCaseData.ActionCodeCase\n"+
                               "left join InvestInformation on crimecase.PoliceNameCase=InvestInformation.InvestId \n" +
-                              "where crimecase.CaseId='"+cc+"'and Person.Related='ผู้เสียหาย'\n" +
+                              "where crimecase.CaseId='"+cc+"'and Person.Related='ผู้เสียหาย' or Person.statusinjuryordie='ตาย'\n" +
                               "group by crimecase.CaseId,Person.NoPerson";
                    
 //                   pst=conn.prepareStatement(sql);

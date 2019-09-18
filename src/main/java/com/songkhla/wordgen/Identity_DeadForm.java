@@ -1574,7 +1574,7 @@ public class Identity_DeadForm extends javax.swing.JDialog {
 	Statement st = con2.createStatement();
         String c = "select Amphur.DOPA_CODE DOPA_CODE,NameAmphur\n" +
                             "from Amphur\n" +
-                            "where Amphur.NameAmphur = '"+Amphur.getText()+"';";
+                            "where Amphur.NameAmphur = '"+AmphurDie.getText()+"';";
                     System.out.println("sddddddddd:"+c);
 
         ResultSet res = st.executeQuery(c);

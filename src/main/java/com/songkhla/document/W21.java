@@ -62,6 +62,8 @@ public class W21 {
              String FirstName ="";
              String LastName ="";
              String Position ="";
+              String namePerson ="";
+
              
              
             try {
@@ -84,21 +86,12 @@ public class W21 {
                          LastName=rs1.getString("LastName");
                          Position=rs1.getString("Position");
                       }
-                  
-                   String sql="select crimecase.*,ChargeCase.*,P1.*,P2.*,Person.*,InvestInformation.*\n" +
-                                "from crimecase inner join(\n" +
-                              "SELECT  min(Person.NoPerson),Person.FullNamePerson AccuredName,Person.Age AgeAccured,Person.Race AccuredRace,Person.Nationality AccuredNati "
-                            + "  FROM Person where Person.TypePerson='ผู้กล่าวหา'\n" +
-                              ")P1\n" +
-                              "inner join(\n" +
-                                "SELECT min(Person.NoPerson),Person.FullNamePerson suspectName,Person.Age suspectAge,Person.Amphur suspectAmp,Person.Race suspectRace,\n"+
-                                "Person.Nationality suspectNati FROM Person where Person.TypePerson='ผู้ตาย'\n" +
-                                ")P2\n" +
-                                "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
-                                "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
-                                "left join InvestInformation on crimecase.PoliceNameCase=InvestInformation.InvestId \n" +
-                                "where crimecase.CaseId='"+cc+"' and Person.StatusInjuryOrDie='ตาย' or Person.StatusInjuryOrDie='บาดเจ็บ' \n"+
-                                "group by crimecase.CaseId";
+                     String sql="select Person.*,crimecase.*,ChargeCase.*,InvestInformation.* from Person \n" +
+                                    "left join crimecase on Person.caseIdPerson=crimecase.CaseId\n" +
+                                    "left join ChargeCase on crimecase.caseid=ChargeCase.ChargeCaseid\n" +
+                                    "left join InvestInformation on crimecase.PoliceNameCase=InvestInformation.InvestId \n" +
+"where Person.TypePerson='ผู้ตาย' or (Person.StatusInjuryOrDie='ตาย' or Person.StatusInjuryOrDie='บาดเจ็บ') and crimecase.CaseId='"+cc+"'";
+                 
                    
 //                   pst=conn.prepareStatement(sql);
 //           pst=PreparedStatement(sql);
@@ -111,11 +104,12 @@ public class W21 {
                     ccYear=s.getString("crimecaseyears");
                     casetype =s.getString("casetype");
                     caseno  =s.getString("crimecasenoyear");
+                    namePerson=s.getString("FullNamePerson");
                  String Date="";
                 String Month="";
                 String Year="";
                 
-                
+                   System.out.println("datgggggggggggggggggggggggge : "+s.getString("DateSendInjuredOrDie"));
                 SimpleDateFormat sdfstart ;
                 Calendar  calstart = Calendar.getInstance();
                 sdfstart = new SimpleDateFormat("d", new Locale("th", "TH"));  
@@ -145,6 +139,7 @@ public class W21 {
                    
                    bookmarkvalue.put("PD7",Checknull(s.getString("FullNamePerson")));
                    bookmarkvalue.put("PD135", Checknull(ToDate(s.getString("DateSendInjuredOrDie"))));
+                
                    bookmarkvalue.put("PD136", ReplaceCollon(s.getString("TimeSendInjuredOrDie")));
                    bookmarkvalue.put("PD137", Checknull(s.getString("CauseSendInjuredOrDie")));
                    bookmarkvalue.put("PD138", Checknull(s.getString("WhereSendInjuredOrDie")));
@@ -210,7 +205,7 @@ public class W21 {
 					.load(new java.io.File("./TEMPLATE/w21.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			processTABLE(bookmarkvalue,wordMLPackage);
-			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/ใบนำส่งผู้บาดเจ็บหรือศพ" +cs+"-"+ccYear+".doc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์"+"/"+PoliceStationName+"/ปี"+ccYear+"/"+casetype+"/"+casetype+cs+"-"+ccYear+"/ใบนำส่งผู้บาดเจ็บหรือศพ "+namePerson+" "+cs+"-"+ccYear+".doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}
@@ -389,13 +384,17 @@ public class W21 {
     private static String ToDate(String strDate){
                String ResultDate="";
          try {
-    	        if(strDate.equals(null)||strDate.equals("")||strDate.equals("null")) { return ""; }else{
-    	       SimpleDateFormat df = new SimpleDateFormat("d/MM/yyyy", new Locale("th", "TH"));  
+    	        if(strDate==null||strDate.equals("")||strDate.equals("null")||strDate.equals(" ")) {  
+                    ResultDate=""; 
+                }
+                else{
+    	       SimpleDateFormat df = new SimpleDateFormat("d/M/yyyy", new Locale("th", "TH"));  
                SimpleDateFormat dateto  = new SimpleDateFormat("d MMMM yyyy", new Locale("th", "TH"));  
                Date date=null;
                
                date = df.parse(strDate);               
-               ResultDate=dateto.format(date.getTime());}
+               ResultDate=dateto.format(date.getTime());
+                }
          } catch (ParseException ex) {
              Logger.getLogger(W21.class.getName()).log(Level.SEVERE, null, ex);
          }
