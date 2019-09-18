@@ -126,7 +126,7 @@ public class W5 {
                                 "SELECT min(Person.NoPerson),Person.FullNamePerson WitnessName,Person.Age WitnessAge,Person.Amphur WitnessAmp,Person.Race WitnessRace,\n" +
                                 "Person.Nationality WitnessNati,Person.AnswerPerson WitnessAnswerPerson FROM Person where Person.Related='พยาน' and Person.caseIdPerson='"+cc+"'\n" +
                                 ")P3\n" +
-                                "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
+                                "left join ChargeCase on crimecase.caseid=ChargeCase.ChargeCaseid\n" +
                                 "left join ActionsCaseData on crimecase.ActionCodeCase = ActionsCaseData.ActionCodeCase\n"+
                                 "left join InvestInformation on crimecase.PoliceNameCase=InvestInformation.InvestId \n" +
                                 "where crimecase.CaseId='"+cc+"'\n"+
@@ -172,7 +172,7 @@ public class W5 {
                 bookmarkvalue.put("C37",Checknull(s.getString("Invest_SendtoDepartment")));
                 bookmarkvalue.put("C38",Checknull(s.getString("Investigator_Number")));
                 bookmarkvalue.put("STATUS",Checknull(STATUS));
-                String StatusInjuryOrDie=s.getString("StatusInjuryOrDie");
+                String StatusInjuryOrDie= Checknull(s.getString("StatusInjuryOrDie"));
                 if(StatusInjuryOrDie.equals("ตาย")){
                  bookmarkvalue.put("CTY","ผู้ต้องหาถึงแก่ความตาย");
                 }

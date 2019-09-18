@@ -83,7 +83,7 @@ public class W32 {
                   
                    String sql="select crimecase.*,ChargeCase.*,Person.*,InvestInformation.* \n" +
                                "from crimecase \n" +
-                               "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
+                               "left join ChargeCase on crimecase.caseid=ChargeCase.ChargeCaseid\n" +
                                "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
                                "left join InvestInformation on crimecase.PoliceNameCase=InvestInformation.InvestId \n" +
                                 "where crimecase.CaseId='"+cc+"' and Person.TypePerson='ผู้ต้องหา' and Person.CourtSuspect='ศาลเยาวชนและครอบครัว'\n"+

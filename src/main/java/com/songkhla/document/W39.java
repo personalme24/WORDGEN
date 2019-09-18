@@ -87,7 +87,7 @@ public static void w39(String cc) {
 
                    String sql="select crimecase.*,Person.*,ChargeCase.*\n" +
                               "from crimecase \n" +
-                              "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
+                              "left join ChargeCase on crimecase.caseid=ChargeCase.ChargeCaseid\n" +
                               "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
                               "where crimecase.CaseId='"+cc+"'and Person.Related='พยาน'\n" +
                               "group by crimecase.CaseId,Person.NoPerson";

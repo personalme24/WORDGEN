@@ -109,16 +109,13 @@ public static void w68(String cc,String sueTime,String stSuspect,String idperson
                 String Date="";
                 String Month="";
                 String Year="";
-                SimpleDateFormat sdfstart ;
-                Calendar  calstart = Calendar.getInstance();
-                sdfstart = new SimpleDateFormat("d", new Locale("th", "TH"));  
-               Date =sdfstart.format(calstart.getTime());
-              
-               sdfstart = new SimpleDateFormat("MMMM", new Locale("th", "TH"));  
-               Month=sdfstart.format(calstart.getTime());
+                
+                SimpleDateFormat sdfstart = new SimpleDateFormat("d/MM/yyyy", new Locale("th", "TH"));  
+                SimpleDateFormat dateto  = new SimpleDateFormat("d MMMM yyyy", new Locale("th", "TH")); 
+                Date date=null;
+             
                
-               sdfstart = new SimpleDateFormat("yyyy", new Locale("th", "TH"));  
-               Year=sdfstart.format(calstart.getTime());
+               
                  System.out.println("Sueeeeeeeeeeeeeeeeeeeeeeeeeee : "+sueTime);
 //                System.out.print("ข้อหา :: "+s.getString("ChargeCode"));
 //                System.out.print(" - ");
@@ -135,6 +132,20 @@ public static void w68(String cc,String sueTime,String stSuspect,String idperson
                 bookmarkvalue.put("PS109", Checknull(s.getString("SueSecTotal")));
                 bookmarkvalue.put("PS110", Checknull(ToDate(ChangFormat(s.getString("SueSecDate")))));                
                 bookmarkvalue.put("PS111", Checknull(ToDate(ChangFormat(s.getString("SueSecEnd")))));   
+                
+                ////
+                 date = sdfstart.parse(s.getString("SueSecDate"));
+               System.out.print("SueSecDate"+date);
+               
+               sdfstart = new SimpleDateFormat("d", new Locale("th", "TH"));  
+               Date =sdfstart.format(date.getTime());
+               
+               sdfstart = new SimpleDateFormat("MMMM", new Locale("th", "TH"));  
+               Month=sdfstart.format(date.getTime());
+               
+               sdfstart = new SimpleDateFormat("yyyy", new Locale("th", "TH"));  
+               Year=sdfstart.format(date.getTime());
+                
                 }
                    if(sueTime.equals("3")){
                   bookmarkvalue.put("PS90", Checknull(s.getString("SueThird")));
@@ -146,7 +157,10 @@ public static void w68(String cc,String sueTime,String stSuspect,String idperson
                  bookmarkvalue.put("PS114", Checknull(s.getString("SueThirdCause")));
                 bookmarkvalue.put("PS109", Checknull(s.getString("SueThirdTotal")));
                 bookmarkvalue.put("PS110", Checknull(ToDate(ChangFormat(s.getString("SueThirdDate")))));                
-                bookmarkvalue.put("PS111", Checknull(ToDate(ChangFormat(s.getString("SueThirdEnd")))));   
+                bookmarkvalue.put("PS111", Checknull(ToDate(ChangFormat(s.getString("SueThirdEnd")))));  
+                
+                ////
+             
                 }
                    if(sueTime.equals("4")){
                   bookmarkvalue.put("PS90", Checknull(s.getString("SueFourth")));

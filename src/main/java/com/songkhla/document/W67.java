@@ -179,6 +179,11 @@ public static void w67(String cc,String stSuspect,String idperson) {
                     bookmarkvalue.put("PS3",Checknull(ToDate(s.getString("IssueDate")))); 
                     bookmarkvalue.put("PS5",Checknull(s.getString("IssuedBy"))); 
                     bookmarkvalue.put("PS7", Checknull(s.getString("FullNamePerson"))); 
+                    bookmarkvalue.put("PS22", Checknull(s.getString("HouseNumber")));
+                    bookmarkvalue.put("PS23", Checknull(s.getString("Moo")));
+                    bookmarkvalue.put("PS24", Checknull(s.getString("Tambon")));
+                    bookmarkvalue.put("PS25", Checknull(s.getString("Amphur")));
+                    bookmarkvalue.put("PS26", Checknull(s.getString("Province")));
                     
                      bookmarkvalue.put("SF4", Checknull(ChangFormat(s.getString("SueFirstDate")))); 
                      bookmarkvalue.put("SF5", Checknull(ChangFormat(s.getString("SueFirstEnd")))); 
@@ -302,7 +307,12 @@ public static void nw67() {
                     bookmarkvalue.put("PS2",""); 
                     bookmarkvalue.put("PS3",""); 
                     bookmarkvalue.put("PS5",""); 
-                    bookmarkvalue.put("PS7", ""); 
+                    bookmarkvalue.put("PS7", "");
+                    bookmarkvalue.put("PS22","");
+                    bookmarkvalue.put("PS23","");
+                    bookmarkvalue.put("PS24","");
+                    bookmarkvalue.put("PS25","");
+                    bookmarkvalue.put("PS26","");
                     
                     bookmarkvalue.put("SF4",""); 
                     bookmarkvalue.put("SF5",""); 

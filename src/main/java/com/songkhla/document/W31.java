@@ -84,7 +84,7 @@ public class W31 {
                   
                    String sql="select crimecase.*,ChargeCase.*,ActionsCaseData.*,Asset.*,Person.*,InvestInformation.*\n" +
                                "from crimecase \n" +
-                               "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
+                               "left join ChargeCase on crimecase.caseid=ChargeCase.ChargeCaseid\n" +
                                 "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
                                 "left join ActionsCaseData on crimecase.ActionCodeCase = ActionsCaseData.ActionCodeCase\n"+
                                 "left join Asset  on crimecase.CaseId=Asset.caseIdAsset\n" +
