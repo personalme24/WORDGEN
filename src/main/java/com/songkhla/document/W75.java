@@ -103,7 +103,7 @@ public class W75 {
                               "Person.Nationality suspectNati,Person.Occupation suspectOcc FROM Person where Person.TypePerson='ผู้ต้องหา'and Person.caseIdPerson='"+cc+"'\n" +
                               ")P2\n" +
                               "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
-                              "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
+                              "left join ChargeCase on crimecase.caseid=ChargeCase.Chargecaseid\n" +
                               "left join InvestInformation on crimecase.PoliceNameCase=InvestInformation.InvestId \n" +
                               "where crimecase.CaseId='"+cc+"' and Person.Related='ล่าม'\n" +
                               "group by crimecase.CaseId,Person.NoPerson";

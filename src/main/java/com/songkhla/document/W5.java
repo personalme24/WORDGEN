@@ -74,6 +74,8 @@ public class W5 {
              String CriminalCourt="";
              String JuvenileCourt="";
              String MilitaryCourt="";
+             String LocationOfDrug="";
+             String CheckDrug="";
            
              
              
@@ -99,6 +101,8 @@ public class W5 {
                          DistrictCourt =rs.getString("DistrictCourt");
                          JuvenileCourt =rs.getString("JuvenileCourt");
                          MilitaryCourt=rs.getString("MilitaryCourt");
+                         LocationOfDrug =rs.getString("LocationOfDrug");
+                         CheckDrug =rs.getString("CheckDrug");
                       }
             String sqlDataPolice="SELECT * FROM Police";
                       Statement sp1 = conn.createStatement();
@@ -177,7 +181,8 @@ public class W5 {
                 bookmarkvalue.put("CTY",Checknull(s.getString("suspectStatusSuspect")));
                 
                 
-                bookmarkvalue.put("A2", Checknull(s.getString("ActionDetailCase")));
+                bookmarkvalue.put("A2", Checknull(s.getString("ActionCrimesCase")));
+                bookmarkvalue.put("A3", Checknull(s.getString("ActionDetailCase")));
                 bookmarkvalue.put("A5", Checknull(s.getString("AnswerSuspectCase")));
                 bookmarkvalue.put("A6", Checknull(s.getString("AnswerAccuserCase")));
                 bookmarkvalue.put("C34", Checknull(s.getString("AnswerSuspectCase")));
@@ -206,6 +211,8 @@ public class W5 {
                 if ((CourtSuspect).equals("ศาลทหาร")){
                     bookmarkvalue.put("S19",Checknull(MilitaryCourt));
                 }
+                bookmarkvalue.put("S22",Checknull(LocationOfDrug));
+                bookmarkvalue.put("S24",Checknull(CheckDrug));
                 bookmarkvalue.put("S34",Checknull(HeadRankFull));
                 bookmarkvalue.put("S36",Checknull(HeadWorkRankFull));
                 
@@ -233,6 +240,7 @@ public class W5 {
                    
                          
                         bookmarkvalue.put("B2", Checknull(s.getString("ChargeNameCase")));
+                        bookmarkvalue.put("B3", Checknull(s.getString("LawCase")));
                   
                             bookmarkvalue.put("C4",Checknull(ToDate(s.getString("OccuredDate"))));
                             bookmarkvalue.put("C441", ReplaceCollon(s.getString("OccuredTime")));
@@ -334,6 +342,7 @@ public static void nw5() {
                 bookmarkvalue.put("CTY","");
                 
                 bookmarkvalue.put("A2", "");
+                bookmarkvalue.put("A3", "");
                 bookmarkvalue.put("C34", "");
                 bookmarkvalue.put("C35", "");
                 
@@ -348,6 +357,8 @@ public static void nw5() {
                 bookmarkvalue.put("S15","");
                 bookmarkvalue.put("S16","");
                 bookmarkvalue.put("S19","");
+                bookmarkvalue.put("S22","");
+                bookmarkvalue.put("S24","");
                 bookmarkvalue.put("S34","");
                 bookmarkvalue.put("S35","");
                 bookmarkvalue.put("S36","");
@@ -382,6 +393,7 @@ public static void nw5() {
                             bookmarkvalue.put("C14","");
                                 
                                  bookmarkvalue.put("B2","");
+                                 bookmarkvalue.put("B3","");
                       
                         bookmarkvalue.put("P02", "");
                         bookmarkvalue.put("P03", "");

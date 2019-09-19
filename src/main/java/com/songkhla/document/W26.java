@@ -58,6 +58,7 @@ public class W26 {
              String FirstName ="";
              String LastName ="";
              String Position ="";
+             String THNumBook="";
              
              
             try {
@@ -70,6 +71,7 @@ public class W26 {
                          ProvincProsecutor=rs.getString("ProvincProsecutor");
                          LocationOfDrug=rs.getString("LocationOfDrug");
                          TelStation=rs.getString("TelStation");
+                         THNumBook  =rs.getString("THNumBook");
                       }
             
                     String sqlDataPolice="SELECT * FROM Police";
@@ -143,6 +145,7 @@ public class W26 {
                  bookmarkvalue.put("S10",Checknull(TelStation));
                  bookmarkvalue.put("S22",Checknull(LocationOfDrug));
                  bookmarkvalue.put("S27",Checknull(ProvincProsecutor));
+                 bookmarkvalue.put("S29",Checknull(THNumBook));
                  
                  
                    

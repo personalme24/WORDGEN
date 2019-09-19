@@ -102,7 +102,7 @@ public class W74 {
                    String sql="select crimecase.*,Person.*,ChargeCase.*,BailAsset.*,InvestInformation.*\n" +
                               "from crimecase \n" +
                               "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
-                              "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
+                              "left join ChargeCase on crimecase.caseid=ChargeCase.Chargecaseid\n" +
                               "left join BailAsset on Person.caseIdPerson = BailAsset.BailCaseId\n" +
                               "left join InvestInformation on crimecase.PoliceNameCase=InvestInformation.InvestId \n" +
                               "where crimecase.CaseId='"+cc+"' and Person.Related='นายประกัน'\n" +

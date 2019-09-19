@@ -92,7 +92,7 @@ public class W56 {
                   
                         String sql="select crimecase.*,ChargeCase.*,ActionsCaseData.*,InvestInformation.*\n" +
                               "from crimecase \n" +
-                              "left join ChargeCase on crimecase.ChargeCodeCase=ChargeCase.ChargeCodeCase\n" +
+                              "left join ChargeCase on crimecase.caseid=ChargeCase.Chargecaseid\n" +
                               "left join ActionsCaseData on crimecase.ActionCodeCase = ActionsCaseData.ActionCodeCase\n"+
                               "left join InvestInformation on crimecase.PoliceNameCase=InvestInformation.InvestId \n" +
                               "where crimecase.CaseId='"+cc+"'\n" +
