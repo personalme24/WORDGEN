@@ -765,6 +765,7 @@
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="TH SarabunPSK" size="22" style="1"/>
                             </Property>
+                            <Property name="lineWrap" type="boolean" value="true"/>
                             <Property name="rows" type="int" value="1"/>
                             <Property name="tabSize" type="int" value="1"/>
                           </Properties>

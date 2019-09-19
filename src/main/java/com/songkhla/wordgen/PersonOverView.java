@@ -279,7 +279,10 @@ public class PersonOverView extends javax.swing.JDialog {
         JFrame ps = (JFrame)(dialog.getParent());
         ps.removeAll();
                     PersonFrom pf =new PersonFrom(ps,data);
+                    pf.pack();
+                    pf.setLocationRelativeTo(null);
                     pf.setVisible(true);
+                    
                 }
 
                 rs.close();

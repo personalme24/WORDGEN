@@ -613,7 +613,22 @@ public class BailCrimesAdd extends javax.swing.JDialog {
 
     private void jButtonDelete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDelete1ActionPerformed
         // TODO add your handling code here:
-        
+         if(jTableBailSend.getSelectedRow()>=0){
+            try{
+//                String crimecaseno = txtCaseno.getText();
+                String DeliOrder= jTableBailSend.getModel().getValueAt(jTableBailSend.getSelectedRow(), 0)+"";
+//                String AssetId = jTableAsset.getModel().getValueAt(jTableAsset.getSelectedRow(), 4)+"";
+                String sql = "Delete from DeliverySuspect where DeliOrder='"+DeliOrder+"' and DeliPersonId='"+personId+"'";
+                Connection con = ConnectDatabase.connect();
+                Statement stmt = con.createStatement();
+                stmt.executeUpdate(sql);
+                System.out.println("SQL : "+sql);
+                stmt.close();
+            
+            }catch(Exception ex){
+                ex.printStackTrace();
+            }
+        }       
         refreshBailSendData();
     }//GEN-LAST:event_jButtonDelete1ActionPerformed
 

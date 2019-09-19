@@ -164,6 +164,8 @@ public class DeliverySuspect extends javax.swing.JDialog {
 
         jLabel2.setText("jLabel2");
 
+        jPanelDeliDate.setBackground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout jPanelDeliDateLayout = new javax.swing.GroupLayout(jPanelDeliDate);
         jPanelDeliDate.setLayout(jPanelDeliDateLayout);
         jPanelDeliDateLayout.setHorizontalGroup(

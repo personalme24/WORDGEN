@@ -181,7 +181,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 //            AutoCompleteDecorator.decorate(CrimeLocationDistrict);
 //            JScrollBar hbar=new JScrollBar(JScrollBar.HORIZONTAL, 30, 20, 0, 500);
 //            jScrollPane1.getVerticalScrollBar().setUI(new MyScrollBarUI());
-//            jScrollPane1.getHorizontalScrollBar().setUI(new CustomScrollBarUI());
+            jScrollPane6.getHorizontalScrollBar().setUI(new CustomScrollBarUI());
        ChangProvince(); 
          g=new ButtonGroup();
         g.add(jCheckDuringInvest);

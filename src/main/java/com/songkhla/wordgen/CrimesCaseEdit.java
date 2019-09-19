@@ -207,7 +207,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             jButtonDuplicate.setVisible(false);
 //            JScrollBar hbar=new JScrollBar(JScrollBar.HORIZONTAL, 30, 20, 0, 500);
 //            jScrollPane1.getVerticalScrollBar().setUI(new MyScrollBarUI());
-//            jScrollPane5.getVerticalScrollBar().setUI(new CustomScrollBarUI());
+            jScrollPane6.getHorizontalScrollBar().setUI(new CustomScrollBarUI());
          g=new ButtonGroup();
         g.add(jCheckDuringInvest);
         g.add(jCheckSue);
@@ -1017,6 +1017,7 @@ JTextPopupMenu.addTo(CourtResult);
         ChargeNameCase.setEditable(false);
         ChargeNameCase.setColumns(20);
         ChargeNameCase.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        ChargeNameCase.setLineWrap(true);
         ChargeNameCase.setRows(1);
         ChargeNameCase.setTabSize(1);
         jScrollPane6.setViewportView(ChargeNameCase);

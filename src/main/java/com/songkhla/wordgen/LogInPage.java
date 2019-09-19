@@ -86,8 +86,10 @@ import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseid;
 import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseno;
 import java.awt.Desktop;
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Image;
 import java.awt.Insets;
 import java.awt.Rectangle;
 import java.beans.PropertyChangeEvent;
@@ -102,11 +104,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Date;
 import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.SwingWorker;
 import org.apache.http.auth.UsernamePasswordCredentials;
@@ -187,8 +191,8 @@ private static void Login(){
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        jPanel1 = new BgPanel();
+        jPanel2 = new LoginPanel();
         jLabel1 = new javax.swing.JLabel();
         Username = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -219,22 +223,22 @@ private static void Login(){
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(32, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(Username, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
-                    .addComponent(Password)
+                    .addComponent(Username)
+                    .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addGap(25, 25, 25))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(26, 26, 26)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Username)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -244,7 +248,7 @@ private static void Login(){
                     .addComponent(Password, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addGap(19, 19, 19))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -252,16 +256,16 @@ private static void Login(){
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(485, Short.MAX_VALUE)
+                .addContainerGap(767, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(381, 381, 381))
+                .addGap(99, 99, 99))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(287, 287, 287)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(353, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(309, Short.MAX_VALUE))
+                .addGap(243, 243, 243))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -269,7 +273,7 @@ private static void Login(){
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
@@ -286,15 +290,16 @@ private static void Login(){
 //        MainMenuWord d =new MainMenuWord();
 //        d.setVisible(true);
           String  username=Username.getText();
-       String password=Password.getPassword()+"";
+       String password=new String(Password.getPassword());
          try { 
             
          String url=  "http://172.31.191.163:8383/wordgenauthen/?USER="+username+"&PASS="+password;
+             System.out.println("url:"+url);
                   String fff =sendGET(url);
                    JSONObject myResponse = new JSONObject(fff);
                    String statusconnect=myResponse.getString("statusconnect");
                   if(statusconnect.equals("0")){
-                    JOptionPane.showConfirmDialog(jPanel1, "Dont Use", "แจ้งเตือน",
+                    JOptionPane.showConfirmDialog(jPanel1, "ไม่พบข้อมูลผู้ใช้ของท่านในระบบ CRIMES กรุณาติดต่อ 1228 กด 2", "แจ้งเตือน",
                      JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);               
                   } 
                   else if(statusconnect.equals("5")){
@@ -406,7 +411,7 @@ public class BackgroundWorker extends SwingWorker<Void, Void> {
 							gbc.insets = new Insets(2, 2, 2, 2);
 							gbc.weightx = 1;
 							gbc.gridy = 0;
-							dialog.add(new JLabel("กำลังเชื่อมต่อข้อมูล..."), gbc);
+							dialog.add(new JLabel("กำลังเชื่อมต่อข้อมูลกรุณารอสักครู่..."), gbc);
 							pb = new JProgressBar();
 							pb.setStringPainted(true);
 //                                                        pb.setForeground(Color.blue);]
@@ -415,7 +420,7 @@ public class BackgroundWorker extends SwingWorker<Void, Void> {
                                                         pb.setMinimum(0);
                                                         
 							gbc.gridy = 1;
-							dialog.add(pb, gbc);
+//							dialog.add( gbc);
 							dialog.pack();
 							dialog.setLocationRelativeTo(null);
 							dialog.setModal(true);
@@ -430,70 +435,20 @@ public class BackgroundWorker extends SwingWorker<Void, Void> {
 		}
     @Override
     public Void doInBackground() {
-       String  username=Username.getText();
-       String password=Password.getPassword()+"";
-        Connection con=null;
-       PreparedStatement pst=null; 
-        String statusconnect,idcard,fullname,firstname,lastname,rank,rankcode,position,email,positioncode;
-        String stationname,orgcode,startdate,enddate,initialname,address,province,amphur,tambon,zipcode,bk,bh,birthday,age,mobilephone;
-        try { 
-             for (int i = 0; i < 20; i++) {
-                
-//                x = x - i;
-            setProgress((int)((i*100)/20)+1);
-            setProgress(i * (100 / 20));          
-                    con = ConnectDatabase.connect();
-             Statement stmt = con.createStatement();
-            String sql ="Select * from User";
-             ResultSet rs = stmt.executeQuery(sql);
-             if(rs.next()){
-            
-             }
-             else{
-             String url=  "http://172.31.191.163:8383/wordgenauthen/?USER="+username+"&PASS="+password;
-             String fff =sendGET(url);
-             JSONObject myResponse = new JSONObject(fff);
-//             String statusconnect=myResponse.getString("statusconnect"); 
-                con=ConnectDatabase.connect();
-     
-              String insertPolice="INSERT INTO Police (IdPolice,IdCardPolice,RankPolice,FirstName,LastName,"
-                      + "Birthday,Age,Tel,Position) "           
-                      + "VALUES (?,?,?,?,?,?,?,?,?,?)";
-//               String insertUser="INSERT INTO User (Username,Password,StatusLogin,DateLogin,FirstName,LastName)\n"        
-//                      + "VALUES (?,?,?,?,?,?,?,?,?,?)";
-//               String insertInvest="INSERT INTO InvestInformation (InvestCardID,InvestRankFull,InvestRank,DateLogin,FirstName,LastName)\n"        
-//                      + "VALUES (?,?,?,?,?,?,?,?,?,?)";
-               try {
-                             pst=con.prepareStatement(insertPolice);
-                              pst.setString(1,"1");
-                              pst.setString(2,myResponse.getString("idcard"));
-                              pst.setString(3,myResponse.getString("rank"));
-//                              pst.setString(4,myResponse.getString("rank"));
-                              pst.setString(4,myResponse.getString("firstname"));
-                              pst.setString(5,myResponse.getString("lastname"));
-                              pst.setString(6,myResponse.getString("birthday"));
-                              pst.setString(7,myResponse.getString("age"));
-                              pst.setString(8,myResponse.getString("mobilephone"));
-                              pst.setString(9,myResponse.getString("position"));                             
-                              pst.executeUpdate();                
-                              pst.close();
-                        
-        } catch (Exception e) {
-             JOptionPane.showMessageDialog(jPanel1, "Cannot Save",null, JOptionPane.INFORMATION_MESSAGE);
-             System.out.println("SQL : "+pst);
-        }
-          
-        
-      
-             }
-            setProgress(i);
-            Thread.sleep(10);
-            Thread.sleep(SLEEP_TIME);// imitate a long-running task
-             }
-        } catch (Exception e) {
-        }
-//        setProgress(100);
-        
+//        try{
+//          for (int i = 0; i < 100; i++) {
+//              setProgress(10);
+       
+                insertData();
+//           Thread.sleep(100);
+//          }
+//        }
+//       catch (InterruptedException e) {
+//
+//                e.printStackTrace();
+//
+//                }
+
         return null;
     }
 
@@ -510,7 +465,114 @@ public class BackgroundWorker extends SwingWorker<Void, Void> {
 //        Toolkit.getDefaultToolkit().beep();
     }
 }/**/
+public void insertData(){
+String  username=Username.getText();
+       String password=new String(Password.getPassword());
+     
+        Connection con=null;
+       PreparedStatement pst=null;
+       PreparedStatement pst2=null; 
+        PreparedStatement pst3=null; 
+        String statusconnect,idcard,fullname,firstname,lastname,rank,rankcode,position,email,positioncode;
+        String stationname,orgcode,startdate,enddate,initialname,address,province,amphur,tambon,zipcode,bk,bh,birthday,age,mobilephone;
+        try { 
+            
+                
+//                x = x - i;
+//            setProgress((int)((i*100)/1)+1);
+//            setProgress(i * (100 / 1));          
+                    con = ConnectDatabase.connect();
+             Statement stmt = con.createStatement();
+            String sql ="Select * from User";
+             ResultSet rs = stmt.executeQuery(sql);
+             if(rs.next()){
+            
+             }
+             else{
+             String url=  "http://172.31.191.163:8383/wordgenauthen/?USER="+username+"&PASS="+password;
+                System.out.println("url2:"+url);
+             String fff =sendGET(url);
+             JSONObject myResponse = new JSONObject(fff);
+//             String statusconnect=myResponse.getString("statusconnect"); 
+                System.out.println("url2:"+myResponse.getString("idcard"));
+                                System.out.println("url2:"+myResponse.getString("rank"));
+                                
+                con=ConnectDatabase.connect();
+     
+              String insertPolice="INSERT INTO Police (IdPolice,IdCardPolice,RankPolice,FirstName,LastName,"
+                      + "Birthday,Age,Tel,Position) "           
+                      + "VALUES (?,?,?,?,?,?,?,?,?)";
+               String insertInvest="INSERT INTO InvestInformation (InvestId,InvestCardID,InvestRankFull,InvestRank,InvestName,"
+                       + "InvestPosition,InvestBirthDay,InvestAge,InvestTel)\n"        
+                      + "VALUES (?,?,?,?,?,?,?,?,?)"; 
+               String insertUser="INSERT INTO User (iduser,Username,Password,StatusLogin,DateLogin)\n"        
+                      + "VALUES (?,?,?,?,?)";
+               try {
+                   Date d=new Date();
+                             pst=con.prepareStatement(insertPolice);
+                              pst.setString(1,"1");
+                              pst.setString(2,myResponse.getString("idcard"));
+                              pst.setString(3,myResponse.getString("rank"));
+//                              pst.setString(4,myResponse.getString("rank"));
+                              pst.setString(4,myResponse.getString("firstname"));
+                              pst.setString(5,myResponse.getString("lastname"));
+                              pst.setString(6,myResponse.getString("birthday"));
+                              pst.setString(7,myResponse.getString("age"));
+                              pst.setString(8,myResponse.getString("mobilephone"));
+                              pst.setString(9,myResponse.getString("position"));                         
+                              pst.executeUpdate();                
+                              pst.close();
+                               pst2=con.prepareStatement(insertInvest);    
+                              pst2.setString(1,"1");
+                              pst2.setString(2,myResponse.getString("idcard"));
+                              pst2.setString(3,myResponse.getString("rank"));
+//                              pst.setString(4,myResponse.getString("rank"));
+                              pst2.setString(4,myResponse.getString("firstname"));
+                              pst2.setString(5,myResponse.getString("lastname"));
+                              pst2.setString(6,myResponse.getString("birthday"));
+                              pst2.setString(7,myResponse.getString("age"));
+                              pst2.setString(8,myResponse.getString("mobilephone"));
+                              pst2.setString(9,myResponse.getString("position"));                             
+                              pst2.executeUpdate();                
+                              pst2.close();
+                              pst3=con.prepareStatement(insertUser);
+                              pst3.setString(1,"1");
+                              pst3.setString(2,username);
+                              pst3.setString(3,password);
+                              pst3.setString(4,"1");
+                              pst3.setString(5,d+"");                        
+                              pst3.executeUpdate();                
+                              pst3.close();
+                        
+        } catch (Exception e) {
+             JOptionPane.showMessageDialog(jPanel1, "Cannot Save",null, JOptionPane.INFORMATION_MESSAGE);
+             System.out.println("SQL : "+pst);
+        }
+        
+      
+             }
 
+             
+        } catch (Exception e) {
+        }
+//        setProgress(100);
+        
+      
+}
+class BgPanel extends JPanel {
+    Image bg = new ImageIcon("./Master/BG.png").getImage();
+    @Override
+    public void paintComponent(Graphics g) {
+        g.drawImage(bg, 0, 0, getWidth(), getHeight(), this);
+    }
+}
+class LoginPanel extends JPanel {
+    Image bg = new ImageIcon("./Master/LOgin.png").getImage();
+    @Override
+    public void paintComponent(Graphics g) {
+        g.drawImage(bg, 0, 0, getWidth(), getHeight(), this);
+    }
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField Password;
     private javax.swing.JTextField Username;
