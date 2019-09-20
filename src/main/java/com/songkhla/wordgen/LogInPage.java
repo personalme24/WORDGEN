@@ -104,6 +104,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
@@ -302,7 +304,7 @@ private static void Login(){
                     JOptionPane.showConfirmDialog(jPanel1, "ไม่พบข้อมูลผู้ใช้ของท่านในระบบ CRIMES กรุณาติดต่อ 1228 กด 2", "แจ้งเตือน",
                      JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);               
                   } 
-                  else if(statusconnect.equals("5")){
+                  else if(statusconnect.equals("1")){
                           yourAttemptActionPerformed();
                   }
                  
@@ -427,7 +429,7 @@ public class BackgroundWorker extends SwingWorker<Void, Void> {
 							JDialog.setDefaultLookAndFeelDecorated(true); 
 							dialog.setVisible(true);
 						}
-						pb.setValue(getProgress());
+//						pb.setValue(getProgress());
 					}
 				}
 
@@ -472,7 +474,9 @@ String  username=Username.getText();
         Connection con=null;
        PreparedStatement pst=null;
        PreparedStatement pst2=null; 
-        PreparedStatement pst3=null; 
+       PreparedStatement pst3=null; 
+       PreparedStatement pst4=null; 
+
         String statusconnect,idcard,fullname,firstname,lastname,rank,rankcode,position,email,positioncode;
         String stationname,orgcode,startdate,enddate,initialname,address,province,amphur,tambon,zipcode,bk,bh,birthday,age,mobilephone;
         try { 
@@ -500,13 +504,16 @@ String  username=Username.getText();
                 con=ConnectDatabase.connect();
      
               String insertPolice="INSERT INTO Police (IdPolice,IdCardPolice,RankPolice,FirstName,LastName,"
-                      + "Birthday,Age,Tel,Position) "           
-                      + "VALUES (?,?,?,?,?,?,?,?,?)";
-               String insertInvest="INSERT INTO InvestInformation (InvestId,InvestCardID,InvestRankFull,InvestRank,InvestName,"
-                       + "InvestPosition,InvestBirthDay,InvestAge,InvestTel)\n"        
+                      + "Birthday,Age,Tel,Position,RankPoliceFull) "           
+                      + "VALUES (?,?,?,?,?,?,?,?,?,?)";
+               String insertInvest="INSERT INTO InvestInformation (InvestId,InvestCardID,InvestRank,InvestName,"
+                       + "InvestPosition,InvestBirthDay,InvestAge,InvestTel,InvestRankFull)\n"        
                       + "VALUES (?,?,?,?,?,?,?,?,?)"; 
                String insertUser="INSERT INTO User (iduser,Username,Password,StatusLogin,DateLogin)\n"        
                       + "VALUES (?,?,?,?,?)";
+                 String insertStation="INSERT INTO PoliceStation (PoliceStartionId,PoliceStartionCode,PoliceStaionName,PoliceStaionShort,StationAddress,StationTambon,"
+                         + "StationAmphur,StationProvince,PostCode,BK,BH)\n"        
+                      + "VALUES (?,?,?,?,?,?,?,?,?,?,?)";
                try {
                    Date d=new Date();
                              pst=con.prepareStatement(insertPolice);
@@ -516,10 +523,12 @@ String  username=Username.getText();
 //                              pst.setString(4,myResponse.getString("rank"));
                               pst.setString(4,myResponse.getString("firstname"));
                               pst.setString(5,myResponse.getString("lastname"));
-                              pst.setString(6,myResponse.getString("birthday"));
+                              pst.setString(6,ChangDate(myResponse.getString("birthday")));
                               pst.setString(7,myResponse.getString("age"));
                               pst.setString(8,myResponse.getString("mobilephone"));
-                              pst.setString(9,myResponse.getString("position"));                         
+                              pst.setString(9,myResponse.getString("position"));  
+                              pst.setString(10,"");                         
+                              
                               pst.executeUpdate();                
                               pst.close();
                                pst2=con.prepareStatement(insertInvest);    
@@ -527,12 +536,12 @@ String  username=Username.getText();
                               pst2.setString(2,myResponse.getString("idcard"));
                               pst2.setString(3,myResponse.getString("rank"));
 //                              pst.setString(4,myResponse.getString("rank"));
-                              pst2.setString(4,myResponse.getString("firstname"));
-                              pst2.setString(5,myResponse.getString("lastname"));
-                              pst2.setString(6,myResponse.getString("birthday"));
+                              pst2.setString(4,myResponse.getString("firstname")+" "+myResponse.getString("lastname"));
+                              pst2.setString(5,myResponse.getString("position"));
+                              pst2.setString(6,ChangDate(myResponse.getString("birthday")));
                               pst2.setString(7,myResponse.getString("age"));
                               pst2.setString(8,myResponse.getString("mobilephone"));
-                              pst2.setString(9,myResponse.getString("position"));                             
+                              pst2.setString(9,"");                          
                               pst2.executeUpdate();                
                               pst2.close();
                               pst3=con.prepareStatement(insertUser);
@@ -543,6 +552,20 @@ String  username=Username.getText();
                               pst3.setString(5,d+"");                        
                               pst3.executeUpdate();                
                               pst3.close();
+                              pst4=con.prepareStatement(insertStation);
+                              pst4.setString(1,"1");
+                              pst4.setString(2,myResponse.getString("orgcode"));
+                              pst4.setString(3,myResponse.getString("stationname"));
+                              pst4.setString(4,myResponse.getString("initialname"));
+                              pst4.setString(5,myResponse.getString("address"));
+                              pst4.setString(6,myResponse.getString("tambon"));
+                              pst4.setString(7,myResponse.getString("amphur"));                        
+                             pst4.setString(8,myResponse.getString("province"));                        
+                             pst4.setString(9,myResponse.getString("zipcode"));                        
+                             pst4.setString(10,myResponse.getString("bk"));                        
+                             pst4.setString(11,myResponse.getString("bh"));                        
+                              pst4.executeUpdate();                
+                              pst4.close();
                         
         } catch (Exception e) {
              JOptionPane.showMessageDialog(jPanel1, "Cannot Save",null, JOptionPane.INFORMATION_MESSAGE);
@@ -572,6 +595,28 @@ class LoginPanel extends JPanel {
     public void paintComponent(Graphics g) {
         g.drawImage(bg, 0, 0, getWidth(), getHeight(), this);
     }
+}
+public static String ChangDate(String date){
+        String newFormatDate=null;
+       try{   Calendar cal;
+        SimpleDateFormat formatdate =new SimpleDateFormat("yyyyMMdd");  
+         if(date == null || date.equals("null")|| date.equals("0")){
+            newFormatDate="";
+        }
+         else{
+        Date b=formatdate.parse(date);
+         cal = Calendar.getInstance();
+          cal.setTime(b); 
+           SimpleDateFormat dateformat =new SimpleDateFormat("d/MM/yyyy");   
+         newFormatDate=dateformat.format(cal.getTime());
+         }
+         }
+         catch(Exception e){
+         e.printStackTrace();
+         }
+    return newFormatDate;
+    
+
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField Password;

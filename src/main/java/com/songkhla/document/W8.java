@@ -103,7 +103,7 @@ public class W8 {
                               "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
                               "left join ActionsCaseData on crimecase.ActionCodeCase = ActionsCaseData.ActionCodeCase\n"+
                                "left join InvestInformation on crimecase.PoliceNameCase=InvestInformation.InvestId \n" +
-                              "where crimecase.CaseId='"+cc+"'and Person.TypePerson='ผู้กล่าวหา' or Person.TypePerson='พยานและบุคคลอื่นๆ'\n" +
+                              "where crimecase.CaseId='"+cc+"'and (Person.TypePerson='ผู้กล่าวหา' or Person.TypePerson='พยานและบุคคลอื่นๆ')\n" +
                               "group by crimecase.CaseId,Person.NoPerson";
                    
 //                   pst=conn.prepareStatement(sql);

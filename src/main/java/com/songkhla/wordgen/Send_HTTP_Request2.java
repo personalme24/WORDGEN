@@ -124,8 +124,7 @@ private static String sendGET(String GET_URL) throws IOException {
      try(OutputStream os = con.getOutputStream()) {
     byte[] input = j.getBytes("utf-8");
     os.write(input, 0, input.length);       
-try(BufferedReader br = new BufferedReader(
-  new InputStreamReader(con.getInputStream(), "utf-8"))) {
+try(BufferedReader br = new BufferedReader( new InputStreamReader(con.getInputStream(), "utf-8"))) {
     StringBuilder response = new StringBuilder();
     String responseLine = null;
     while ((responseLine = br.readLine()) != null) {
