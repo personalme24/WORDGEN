@@ -163,7 +163,7 @@ public class W11 {
                     bookmarkvalue.put("PS7",Checknull(s.getString("SuspectandOther"))); 
                    
                          
-                    bookmarkvalue.put("B2",(s.getString("ChargeNameCase")));
+                    bookmarkvalue.put("B2",Checknull((s.getString("ChargeNameCase"))));
                      //ทรัพย์
                  /*
                     
@@ -207,18 +207,17 @@ public class W11 {
                   
                    
                     if ((Value) != null){
+                        if (Value.equals("")){
+                            Value="0";
+                        }
                     
                     SumValue = SumValue+Integer.parseInt(Value);
                     } 
                     bookmarkvalue.put("AS331",Checknull(Integer.toString(OrderAsset)));
                     bookmarkvalue.put("AS661",Checknull(regexCommafy(Integer.toString(SumValue))));
                     bookmarkvalue.put("AS1",Checknull(s.getString("EvidenceRecordNumber")));
-                    /*
-                       bookmarkvalue.put("P02", Checknull(RankPolice));
-                       bookmarkvalue.put("P03", Checknull(FirstName));
-                       bookmarkvalue.put("P04", Checknull(LastName));
-                       bookmarkvalue.put("P05", Checknull(Position));
-*/
+                   
+
                         bookmarkvalue.put("P02", Checknull(s.getString("InvestRank")));
                         bookmarkvalue.put("P03", Checknull(s.getString("InvestName")));
                         bookmarkvalue.put("P04", "");
@@ -260,7 +259,7 @@ public class W11 {
 
 		bookmarkvalue.put("TABLES", TABLES);
 		System.out.println(bookmarkvalue.toJSONString());
-
+                    
 		
 		try {
                   

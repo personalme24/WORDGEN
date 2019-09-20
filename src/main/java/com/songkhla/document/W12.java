@@ -143,7 +143,7 @@ public class W12 {
                     bookmarkvalue.put("PS7",Checknull(s.getString("SuspectandOther"))); 
                    
                          
-                    bookmarkvalue.put("B2",(s.getString("ChargeNameCase")));
+                    bookmarkvalue.put("B2",Checknull((s.getString("ChargeNameCase"))));
                      //ทรัพย์
                     
          
@@ -158,6 +158,9 @@ public class W12 {
                 System.out.println(">>>>>"+Value);
                    
                     if ((Value) != null){
+                        if (Value.equals("")){
+                            Value="0";
+                        }
                     
                     SumValue = SumValue+Integer.parseInt(Value);
                     } 

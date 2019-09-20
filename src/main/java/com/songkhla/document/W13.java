@@ -143,7 +143,7 @@ public class W13 {
                     bookmarkvalue.put("PS7",Checknull(s.getString("SuspectandOther"))); 
                    
                          
-                    bookmarkvalue.put("B2",(s.getString("ChargeNameCase")));
+                    bookmarkvalue.put("B2",Checknull((s.getString("ChargeNameCase"))));
                     /*
                      //ทรัพย์
                     VarAS1=VarAS1+"\n\r"+s.getString("EvidenceRecordNumber");
@@ -187,7 +187,9 @@ public class W13 {
                 System.out.println(">>>>>"+Value);
                    
                     if ((Value) != null){
-                    
+                        if (Value.equals("")){
+                            Value="0";
+                        }
                     SumValue = SumValue+Integer.parseInt(Value);
                     } 
                     bookmarkvalue.put("AS331",Checknull(Integer.toString(OrderAsset)));

@@ -132,27 +132,27 @@ public class W37 {
                  bookmarkvalue.put("S8", Checknull(BK));
                  
                 
-                 bookmarkvalue.put("P7",  Checknull(s.getString("FullNamePerson"))); 
-                 bookmarkvalue.put("P8",  Checknull(s.getString("FullNamePersonEn"))); 
-                 bookmarkvalue.put("P9",  Checknull(s.getString("OtherName")));
-                 bookmarkvalue.put("P10",  Checknull(s.getString("OtherSurname")));
-                 bookmarkvalue.put("P11",  Checknull(ToDate(s.getString("BirthDay"))));
-                 bookmarkvalue.put("P12",  Checknull(s.getString("FullNamePersonEn")));
-                 bookmarkvalue.put("P13",  Checknull(s.getString("Age")));
-                 bookmarkvalue.put("P14",  Checknull(s.getString("Race")));
-                 bookmarkvalue.put("P15",  Checknull(s.getString("Nationality")));
-                 bookmarkvalue.put("P17",Checknull(s.getString("Occupation")));
-                 bookmarkvalue.put("P18",Checknull(s.getString("Height")));
-                 bookmarkvalue.put("P19",Checknull(s.getString("Weight")));
-                 bookmarkvalue.put("P20",Checknull(s.getString("BloodGroup")));
-                 bookmarkvalue.put("P31",Checknull(s.getString("FatherFullName")));
-                 bookmarkvalue.put("P32",Checknull(s.getString("MotherFullName")));
-                 bookmarkvalue.put("P62",Checknull(s.getString("FatherAddress")));
-                 bookmarkvalue.put("P67",Checknull(s.getString("MotherAddress")));
-                 bookmarkvalue.put("P76",Checknull(s.getString("Office")));
-                 bookmarkvalue.put("P77",Checknull(s.getString("SpouseFullName")));
-                 bookmarkvalue.put("P79",Checknull(s.getString("FriendAddress")));
-                 bookmarkvalue.put("P80",Checknull(s.getString("FavouritePlace")));
+                 bookmarkvalue.put("PS7",  Checknull(s.getString("FullNamePerson"))); 
+                 bookmarkvalue.put("PS8",  Checknull(s.getString("FullNamePersonEn"))); 
+                 bookmarkvalue.put("PS9",  Checknull(s.getString("OtherName")));
+                 bookmarkvalue.put("PS10",  Checknull(s.getString("OtherSurname")));
+                 bookmarkvalue.put("PS11",  Checknull(ToDate(s.getString("BirthDay"))));
+                 bookmarkvalue.put("PS12",  Checknull(s.getString("FullNamePersonEn")));
+                 bookmarkvalue.put("PS13",  Checknull(s.getString("Age")));
+                 bookmarkvalue.put("PS14",  Checknull(s.getString("Race")));
+                 bookmarkvalue.put("PS15",  Checknull(s.getString("Nationality")));
+                 bookmarkvalue.put("PS17",Checknull(s.getString("Occupation")));
+                 bookmarkvalue.put("PS18",Checknull(s.getString("Height")));
+                 bookmarkvalue.put("PS19",Checknull(s.getString("Weight")));
+                 bookmarkvalue.put("PS20",Checknull(s.getString("BloodGroup")));
+                 bookmarkvalue.put("PS31",Checknull(s.getString("FatherFullName")));
+                 bookmarkvalue.put("PS32",Checknull(s.getString("MotherFullName")));
+                 bookmarkvalue.put("PS62",Checknull(s.getString("FatherAddress")));
+                 bookmarkvalue.put("PS67",Checknull(s.getString("MotherAddress")));
+                 bookmarkvalue.put("PS76",Checknull(s.getString("Office")));
+                 bookmarkvalue.put("PS77",Checknull(s.getString("SpouseFullName")));
+                 bookmarkvalue.put("PS79",Checknull(s.getString("FriendAddress")));
+                 bookmarkvalue.put("PS80",Checknull(s.getString("FavouritePlace")));
                   
                    
                       bookmarkvalue.put("A2", Checknull(s.getString("ActionCrimesCase")));  
@@ -250,27 +250,27 @@ public class W37 {
                  bookmarkvalue.put("S8","");
                  
                 
-                 bookmarkvalue.put("P7",""); 
-                 bookmarkvalue.put("P8",""); 
-                 bookmarkvalue.put("P9","");
-                 bookmarkvalue.put("P10","");
-                 bookmarkvalue.put("P11","");
-                 bookmarkvalue.put("P12","");
-                 bookmarkvalue.put("P13","");
-                 bookmarkvalue.put("P14","");
-                 bookmarkvalue.put("P15","");
-                 bookmarkvalue.put("P17","");
-                 bookmarkvalue.put("P18","");
-                 bookmarkvalue.put("P19","");
-                 bookmarkvalue.put("P20","");
-                 bookmarkvalue.put("P31","");
-                 bookmarkvalue.put("P32","");
-                 bookmarkvalue.put("P62","");
-                 bookmarkvalue.put("P67","");
-                 bookmarkvalue.put("P76","");
-                 bookmarkvalue.put("P77","");
-                 bookmarkvalue.put("P79","");
-                 bookmarkvalue.put("P80","");
+                 bookmarkvalue.put("PS7",""); 
+                 bookmarkvalue.put("PS8",""); 
+                 bookmarkvalue.put("PS9","");
+                 bookmarkvalue.put("PS10","");
+                 bookmarkvalue.put("PS11","");
+                 bookmarkvalue.put("PS12","");
+                 bookmarkvalue.put("PS13","");
+                 bookmarkvalue.put("PS14","");
+                 bookmarkvalue.put("PS15","");
+                 bookmarkvalue.put("PS17","");
+                 bookmarkvalue.put("PS18","");
+                 bookmarkvalue.put("PS19","");
+                 bookmarkvalue.put("PS20","");
+                 bookmarkvalue.put("PS31","");
+                 bookmarkvalue.put("PS32","");
+                 bookmarkvalue.put("PS62","");
+                 bookmarkvalue.put("PS67","");
+                 bookmarkvalue.put("PS76","");
+                 bookmarkvalue.put("PS77","");
+                 bookmarkvalue.put("PS79","");
+                 bookmarkvalue.put("PS80","");
                   
                    
                       bookmarkvalue.put("A2", "");  

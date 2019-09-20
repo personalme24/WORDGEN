@@ -144,7 +144,7 @@ public class W15 {
                     bookmarkvalue.put("PS7",Checknull(s.getString("SuspectandOther"))); 
                    
                          
-                    bookmarkvalue.put("B2",(s.getString("ChargeNameCase")));
+                    bookmarkvalue.put("B2",Checknull((s.getString("ChargeNameCase"))));
             
                     
               
@@ -155,9 +155,12 @@ public class W15 {
                 
                 String   Value = a.replace (",", "");
                 System.out.println(">>>>>"+Value);
+                
                    
                     if ((Value) != null){
-                    
+                        if (Value.equals("")){
+                            Value="0";
+                        }
                     SumValue = SumValue+Integer.parseInt(Value);
                     } 
                     bookmarkvalue.put("AS331",Checknull(Integer.toString(OrderAsset)));
