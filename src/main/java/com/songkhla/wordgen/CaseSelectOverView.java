@@ -16,7 +16,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Vector;
 import javax.swing.ImageIcon;
@@ -47,7 +49,7 @@ public class CaseSelectOverView extends javax.swing.JDialog {
      JFrame frame = new JFrame();
         JDialog dialog = new JDialog(frame);//frame is owner
         JFrame facc = (JFrame)(dialog.getParent());
-      JDatePickerImpl DateAcceptSearch,DateRequestSearch;
+      JDatePickerImpl DateAcceptStart,DateAcceptEnd,DateAcceptStartTC,DateAcceptEndTC;
 
     public CaseSelectOverView(JFrame parrent) {
                 super(parrent,true);
@@ -60,7 +62,57 @@ public class CaseSelectOverView extends javax.swing.JDialog {
         setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
     
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-      
+      UtilDateModel model = new UtilDateModel();
+            model.setValue(Calendar.getInstance().getTime());
+            Properties p = new Properties();        
+            p.put("text.today", "Today");
+            p.put("text.month", "Month");
+            p.put("text.year", "Year");
+        JDatePanelImpl datePanel = new JDatePanelImpl(model,p);
+         DateAcceptStart = new JDatePickerImpl(datePanel,new DateLabelFormatter());
+//           DateAcceptStart.setPreferredSize(new Dimension(220,32));
+//    DateAcceptStart.getComponent(0).setPreferredSize(new Dimension(190,32)); //JFormattedTextField
+//    DateAcceptStart.getComponent(1).setPreferredSize(new Dimension(30,32));//JButton
+        DateAcceptStart.setTextEditable(true);
+        DateAcceptStart.setBackground(Color.WHITE);
+        jPanelStAcc.setLayout(new FlowLayout());
+        jPanelStAcc.add(DateAcceptStart);
+        
+          UtilDateModel model2 = new UtilDateModel();
+            model2.setValue(Calendar.getInstance().getTime());
+        JDatePanelImpl datePane2 = new JDatePanelImpl(model2,p);
+         DateAcceptEnd = new JDatePickerImpl(datePane2,new DateLabelFormatter());
+//           DateAcceptEnd.setPreferredSize(new Dimension(220,30));
+//    DateAcceptEnd.getComponent(0).setPreferredSize(new Dimension(190,32)); //JFormattedTextField
+//    DateAcceptEnd.getComponent(1).setPreferredSize(new Dimension(30,32));//JButton
+        DateAcceptEnd.setTextEditable(true);
+        DateAcceptEnd.setBackground(Color.WHITE);
+        jPanelEnAcc.setLayout(new FlowLayout());
+        jPanelEnAcc.add(DateAcceptEnd);    
+        
+        UtilDateModel model3 = new UtilDateModel();
+            model3.setValue(Calendar.getInstance().getTime());
+        JDatePanelImpl datePane3 = new JDatePanelImpl(model3,p);
+         DateAcceptStartTC = new JDatePickerImpl(datePane3,new DateLabelFormatter());
+//           DateAcceptStart.setPreferredSize(new Dimension(220,30));
+//    DateAcceptStart.getComponent(0).setPreferredSize(new Dimension(190,32)); //JFormattedTextField
+//    DateAcceptStart.getComponent(1).setPreferredSize(new Dimension(30,32));//JButton
+        DateAcceptStartTC.setTextEditable(true);
+        DateAcceptStartTC.setBackground(Color.WHITE);
+        jPanel4.setLayout(new FlowLayout());
+        jPanel4.add(DateAcceptStartTC);    
+        
+        UtilDateModel model4 = new UtilDateModel();
+            model4.setValue(Calendar.getInstance().getTime());
+        JDatePanelImpl datePane4 = new JDatePanelImpl(model4,p);
+         DateAcceptEndTC = new JDatePickerImpl(datePane4,new DateLabelFormatter());
+//           DateAcceptStart.setPreferredSize(new Dimension(220,30));
+//    DateAcceptStart.getComponent(0).setPreferredSize(new Dimension(190,32)); //JFormattedTextField
+//    DateAcceptStart.getComponent(1).setPreferredSize(new Dimension(30,32));//JButton
+        DateAcceptEndTC.setTextEditable(true);
+        DateAcceptEndTC.setBackground(Color.WHITE);
+        jPanel5.setLayout(new FlowLayout());
+        jPanel5.add(DateAcceptEndTC);    
         
     }
  
@@ -78,22 +130,20 @@ public class CaseSelectOverView extends javax.swing.JDialog {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
-        caseno = new javax.swing.JTextField();
+        casenocc = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        caseyears = new javax.swing.JTextField();
+        caseyearscc = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        orgcode = new javax.swing.JTextField();
+        orgcodecc = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jPanel8 = new javax.swing.JPanel();
         jPanelStAcc = new javax.swing.JPanel();
-        jPanel9 = new javax.swing.JPanel();
         jPanelEnAcc = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jCheckBox1 = new javax.swing.JCheckBox();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jTableCrime = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -110,7 +160,8 @@ public class CaseSelectOverView extends javax.swing.JDialog {
         jButton2 = new javax.swing.JButton();
         jCheckBox2 = new javax.swing.JCheckBox();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableTraffic = new javax.swing.JTable();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -169,20 +220,7 @@ public class CaseSelectOverView extends javax.swing.JDialog {
         );
         jPanelStAccLayout.setVerticalGroup(
             jPanelStAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 31, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelStAcc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addComponent(jPanelStAcc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGap(0, 29, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanelEnAccLayout = new javax.swing.GroupLayout(jPanelEnAcc);
@@ -193,20 +231,7 @@ public class CaseSelectOverView extends javax.swing.JDialog {
         );
         jPanelEnAccLayout.setVerticalGroup(
             jPanelEnAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 31, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelEnAcc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addComponent(jPanelEnAcc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -217,21 +242,21 @@ public class CaseSelectOverView extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(caseno, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(casenocc, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(caseyears, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(caseyearscc, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(77, 77, 77)
-                .addComponent(orgcode, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(orgcodecc, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanelStAcc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanelEnAcc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(142, Short.MAX_VALUE))
             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel7Layout.createSequentialGroup()
@@ -244,22 +269,22 @@ public class CaseSelectOverView extends javax.swing.JDialog {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanelEnAcc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(caseno, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(caseyears, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(casenocc, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(caseyearscc, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(orgcode, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(orgcodecc, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jPanelStAcc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(2, 2, 2)))
                 .addContainerGap())
             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -280,7 +305,7 @@ public class CaseSelectOverView extends javax.swing.JDialog {
             }
         });
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jTableCrime.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -291,7 +316,7 @@ public class CaseSelectOverView extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(jTableCrime);
 
         jButton3.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         jButton3.setText("ตกลง");
@@ -312,7 +337,8 @@ public class CaseSelectOverView extends javax.swing.JDialog {
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
                             .addComponent(jCheckBox1)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jButton1))
+                            .addComponent(jButton1)
+                            .addGap(74, 74, 74))
                         .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING))
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -445,7 +471,7 @@ public class CaseSelectOverView extends javax.swing.JDialog {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableTraffic.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -456,7 +482,10 @@ public class CaseSelectOverView extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTableTraffic);
+
+        jButton4.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        jButton4.setText("ตกลง");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -464,13 +493,15 @@ public class CaseSelectOverView extends javax.swing.JDialog {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jCheckBox2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2))
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jCheckBox2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jButton2))
+                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1))
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -482,9 +513,11 @@ public class CaseSelectOverView extends javax.swing.JDialog {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCheckBox2)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(5, 5, 5)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton4)
+                .addGap(31, 31, 31))
         );
 
         jTabbedPane1.addTab("คดีจราจร", jPanel2);
@@ -520,9 +553,9 @@ public class CaseSelectOverView extends javax.swing.JDialog {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        String org=orgcode.getText();
-        String casno=caseno.getText();
-        String casyear=caseyears.getText();
+        String org=orgcodecc.getText();
+        String casno=casenocc.getText();
+        String casyear=caseyearscc.getText();
         
         
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -576,21 +609,21 @@ public class CaseSelectOverView extends javax.swing.JDialog {
         
     }
     
-//    public void RefreshData(){
-//        try{
-//         
-//        Connection con = ConnectDatabase.connect();
-//        Statement stmt = con.createStatement();
+    public void RefreshData(){
+        try{
+         
+        Connection con = ConnectDatabase.connect();
+        Statement stmt = con.createStatement();
 //        String sql = "select crimecase.*,chargecase.ChargeCodeCase ChargeCase,chargecase.ChargeNameCase ChargeNameCase from crimecase "
 //                + "left join chargecase on crimecase.CaseId=chargecase.ChargeCaseId "
 //                +"left join Person on Person.CaseIdPerson=crimecase.CaseId"
 //                + " where CaseType='คดีอาญา'"+getFilterCondition()+" group by crimecase.CaseId";
-//
-////                + "left join Person on Person.caseIdPerson = CrimeCase.CaseId "+getFilterCondition();
-//
+
+//                + "left join Person on Person.caseIdPerson = CrimeCase.CaseId "+getFilterCondition();
+
 //        ResultSet rs = stmt.executeQuery(sql);
-////            System.out.println("Sqll : "+sql);
-//        Vector<Vector> tabledata = new Vector<Vector>();
+//            System.out.println("Sqll : "+sql);
+        Vector<Vector> tabledata = new Vector<Vector>();
 //        while(rs.next()){
 //            Vector<String> row = new Vector<String>();
 //            row.add(rs.getString("CaseId"));
@@ -606,47 +639,69 @@ public class CaseSelectOverView extends javax.swing.JDialog {
 //            tabledata.add(row);
 //        }
 //        rs.close();
-//        stmt.close();
-//        Vector ColumnName = new Vector();
-//        ColumnName.add("ลำดับ");
-//        ColumnName.add("คดีที่");
-//        ColumnName.add("ผู้ร้องทุกข์");
-//        ColumnName.add("ผู้ต้องหา");
-//        ColumnName.add("ข้อหา");     
-//        ColumnName.add("วันที่รับคำร้องทุกข์");
-//        ColumnName.add("วันที่รับแจ้งเหตุ");
-//        ColumnName.add("ผลคดีชั้นพนักงานสอบสวน");
-////        ColumnName.add("สถานะผู้ต้องหา");
-//
-//        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-//            tabledata,
-//            ColumnName
-//        ) {
-//            Class[] types = new Class [] {
-//                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-//            };
-//
-//            public Class getColumnClass(int columnIndex) {
-//                return types [columnIndex];
-//            }
-//        });
-//        
-//        }catch(Exception ex){
-//            ex.printStackTrace();
-//        }
-//        jTable1.getColumnModel().getColumn(0).setWidth(0);
-//jTable1.getColumnModel().getColumn(0).setMinWidth(0);
-//jTable1.getColumnModel().getColumn(0).setMaxWidth(0); 
-//    }
+        stmt.close();
+        Vector ColumnName = new Vector();
+        ColumnName.add("ลำดับ");
+        ColumnName.add("คดีที่");
+        ColumnName.add("ผู้ร้องทุกข์");
+        ColumnName.add("ผู้ต้องหา");
+        ColumnName.add("ข้อหา");     
+        ColumnName.add("วันที่รับคำร้องทุกข์");
+        ColumnName.add("วันที่รับแจ้งเหตุ");
+        ColumnName.add("ผลคดีชั้นพนักงานสอบสวน");
+//        ColumnName.add("สถานะผู้ต้องหา");
+
+        jTableTraffic.setModel(new javax.swing.table.DefaultTableModel(
+            tabledata,
+            ColumnName
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        jTableTraffic.getColumnModel().getColumn(0).setWidth(0);
+jTableTraffic.getColumnModel().getColumn(0).setMinWidth(0);
+jTableTraffic.getColumnModel().getColumn(0).setMaxWidth(0); 
+    }
+    public static String ChangDate(String date){
+        String newFormatDate=null;
+       try{   Calendar cal;
+        SimpleDateFormat formatdate =new SimpleDateFormat("d/MM/yyyy");  
+         if(date == null || date.equals("null")|| date.equals("0")){
+            newFormatDate="";
+        }
+         else{
+        Date b=formatdate.parse(date);
+         cal = Calendar.getInstance();
+          cal.setTime(b); 
+           SimpleDateFormat dateformat =new SimpleDateFormat("yyyyMMdd");   
+         newFormatDate=dateformat.format(cal.getTime());
+         }
+         }
+         catch(Exception e){
+         e.printStackTrace();
+         }
+    return newFormatDate;
     
+
+}
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField caseno;
-    private javax.swing.JTextField caseyears;
+    private javax.swing.JTextField casenocc;
+    private javax.swing.JTextField caseyearscc;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JLabel jLabel1;
@@ -667,18 +722,16 @@ public class CaseSelectOverView extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JPanel jPanelEnAcc;
     private javax.swing.JPanel jPanelStAcc;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTableCrime;
+    private javax.swing.JTable jTableTraffic;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField orgcode;
+    private javax.swing.JTextField orgcodecc;
     // End of variables declaration//GEN-END:variables
 }

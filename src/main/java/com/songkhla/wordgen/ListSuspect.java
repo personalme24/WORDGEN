@@ -357,7 +357,7 @@ String typeC,cid;
             try{
 //                String crimecaseno = jTableSuspect.getModel().getValueAt(jTableSuspect.getSelectedRow(), 0)+"";
                 String Noperson = jTableSuspect.getModel().getValueAt(jTableSuspect.getSelectedRow(), 7)+"";
-                String sql = "Delete from person WHERE Noperson='"+Noperson+ "' and  caseIdPerson='"+aa+"' and TypePerson='ผู้ต้องหา';\n"+
+                String sql = "Delete from person WHERE Noperson='"+Noperson+ "' and  caseIdPerson='"+aa+"' and (TypePerson='ผู้ต้องหา' or TypePerson='ผู้ตาย');\n"+
                              "Delete from Deliverysuspect WHERE delipersonid='"+Noperson+"';\n"+
                              "Delete from BailAsset WHERE BailPersonId='"+Noperson+"';";
                 Connection con = ConnectDatabase.connect();

@@ -7,6 +7,7 @@ package com.songkhla.wordgen;
 
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -27,12 +28,14 @@ import java.awt.Window;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -53,7 +56,21 @@ public class MainMenuWord extends javax.swing.JFrame {
         ImageIcon img = new ImageIcon("./Master/WD.png");
         setIconImage(img.getImage());
         setTitle("ระบบสำนวนอิเล็กทรอนิกส์ (CRIMES)");
-      
+      jLabel13.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+       jPanel9.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+       jPanel12.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+       jPanel14.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+       jPanel10.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+       jPanel11.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+       jPanel15.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+       profilemenu.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+       policemenu.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+       personmenu.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+       formmenu.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+       howtomenu.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+       howtomenu1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+       
+
 //        CalculateDate();
         data();
 //        setIconImage(Toolkit.getDefaultToolkit().getImage(MainMenuWord.class.getResource("D://Master//user.png")));
@@ -515,6 +532,11 @@ public class MainMenuWord extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("ออกจากระบบ");
+        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel13MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -891,7 +913,7 @@ public class MainMenuWord extends javax.swing.JFrame {
                 .addGap(108, 108, 108)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(122, 122, 122)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1483,6 +1505,28 @@ public class MainMenuWord extends javax.swing.JFrame {
     private void howtomenu2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_howtomenu2MouseExited
         // TODO add your handling code here:
     }//GEN-LAST:event_howtomenu2MouseExited
+
+    private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
+            // TODO add your handling code here:
+          String sqlUpdate="UPDATE User set StatusLogin='0' where IdUser='1'";
+          try{ pst=con.prepareStatement(sqlUpdate);
+               int response = JOptionPane.showConfirmDialog(jPanel5, "ต้องการออกจากระบบ", "ยืนยัน",
+        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if (response == JOptionPane.YES_OPTION) {
+                     pst.execute();
+                     pst.close();
+                    LogInPage lp=new LogInPage();
+                     lp.setVisible(true);
+
+              } 
+         
+          
+          }
+          catch(SQLException ex){
+              System.out.println("Error:"+ex);
+          }
+
+    }//GEN-LAST:event_jLabel13MouseClicked
     public void setPanelBackground (JPanel jp){
         jp.setBackground(new Color(0,102,255));
     }

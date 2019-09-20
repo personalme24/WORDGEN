@@ -82,6 +82,7 @@ import com.songkhla.document.W8;
 import com.songkhla.document.W80;
 import com.songkhla.document.W9;
 import com.songkhla.document.W93;
+import static com.songkhla.wordgen.ActionPageInsert.ActionCrimes;
 import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseid;
 import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseno;
 import java.awt.Desktop;
@@ -103,6 +104,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -290,8 +292,33 @@ private static void Login(){
         // TODO add your handling code here:
 //        setVisible(false);
 //        MainMenuWord d =new MainMenuWord();
-//        d.setVisible(true);
-          String  username=Username.getText();
+//        d.setVisible(true); 
+Connection con=null;
+    PreparedStatement pst=null;   
+try{
+        con = ConnectDatabase.connect();
+             Statement stmt = con.createStatement();
+            String sql ="Select * from User";
+             ResultSet rs = stmt.executeQuery(sql);
+             if(rs.next()){
+          String sqlUpdate="UPDATE User set StatusLogin='1',DateLogin=?  where IdUser='1'";
+          try{ 
+              Date dd=new Date();
+              pst=con.prepareStatement(sqlUpdate);  
+              pst.setString(1,dd+"");
+                     pst.execute();
+                     pst.close();
+                    MainMenuWord mw=new MainMenuWord();
+                     mw.setVisible(true);
+          
+          }
+          catch(SQLException ex){
+              System.out.println("Error:"+ex);
+          }
+
+             }
+             else{
+              String  username=Username.getText();
        String password=new String(Password.getPassword());
          try { 
             
@@ -310,6 +337,12 @@ private static void Login(){
                  
         } catch (Exception e) {
         }
+             }
+            }
+    catch(Exception ex){
+            ex.printStackTrace();
+        }
+         
 
     }//GEN-LAST:event_jButton1ActionPerformed
 

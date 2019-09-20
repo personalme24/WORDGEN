@@ -45,43 +45,43 @@ public class StationForm extends javax.swing.JDialog {
        if(datain != null)
        {
                     closeText();
-                    PoliceStartionId.setText(datain.get("PoliceStartionId")+"");
-                            PoliceStationCode.setText(datain.get("PoliceStartionCode")+"");
-                            PoliceStationName.setText(datain.get("PoliceStaionName")+"");
-                            PoliceStationShort.setText(datain.get("PoliceStaionShort")+"");
-                            StationAddress.setText(datain.get("StationAddress")+"");
-                            StationAmphur.setText(datain.get("StationAmphur")+"");
-                            StationProvince.setText(datain.get("StationProvince")+"");
-                            BK.setText(datain.get("BK")+"");
-                            BH.setText(datain.get("BH")+"");
-                            Fax.setText(datain.get("Fax")+"");
-                            TelStation.setText(datain.get("TelStation")+"");
-                            PhonePolice.setText(datain.get("PhonePolice")+"");
-                            HeadName.setText(datain.get("HeadName")+"");
-                            HeadPosition.setText(datain.get("HeadPosition")+"");
-                            HeadWorkName.setText(datain.get("HeadWorkName")+"");
-                            HeadWorkPosition.setText(datain.get("HeadWorkPosition")+"");
-                            CriminalCourt.setText(datain.get("CriminalCourt")+"");
-                            JuvenileCourt.setText(datain.get("JuvenileCourt")+"");
-                            DistrictCourt.setText(datain.get("DistrictCourt")+"");
-                            MilitaryCourt.setText(datain.get("MilitaryCourt")+"");
-                            AssetCourt.setText(datain.get("AssetCourt")+"");
-                            LocationOfD.setText(datain.get("LocationOfDrug")+"");
-                            CheckGun.setText(datain.get("CheckGun")+"");
-                            CheckDrug.setText(datain.get("CheckDrug")+"");
-                            CheckOtherExhibit.setText(datain.get("CheckOtherExhibit")+"");
-                            CauseSerious.setText(datain.get("CauseSerious")+"");
-                            ProvincProsecutor.setText(datain.get("ProvincProsecutor")+"");
-                            ProvincProsecutorCh.setText(datain.get("ProvincProsecutorCh")+"");
-                            THNumBook.setText(datain.get("THNumBook")+"");
-                            ProtectChild.setText(datain.get("ProtectChild")+"");
-                            StationMoo.setText(datain.get("StationMoo")+"");
-                            StationTambon.setText(datain.get("StationTambon")+"");
-                            Postcode.setText(datain.get("Postcode")+"");
-                            HeadRankFull.setText(datain.get("HeadRankFull")+"");
-                            HeadRankShort.setText(datain.get("HeadRankShort")+"");
-                            HeadWorkRankFull.setText(datain.get("HeadWorkRankFull")+"");
-                            HeadWorkRankShort.setText(datain.get("HeadWorkRankShort")+"");
+                    PoliceStartionId.setText(Checknull(datain.get("PoliceStartionId"))+"");
+                            PoliceStationCode.setText(Checknull(datain.get("PoliceStartionCode"))+"");
+                            PoliceStationName.setText(Checknull(datain.get("PoliceStaionName"))+"");
+                            PoliceStationShort.setText(Checknull(datain.get("PoliceStaionShort"))+"");
+                            StationAddress.setText(Checknull(datain.get("StationAddress"))+"");
+                            StationAmphur.setText(Checknull(datain.get("StationAmphur"))+"");
+                            StationProvince.setText(Checknull(datain.get("StationProvince"))+"");
+                            BK.setText(Checknull(datain.get("BK"))+"");
+                            BH.setText(Checknull(datain.get("BH"))+"");
+                            Fax.setText(Checknull(datain.get("Fax"))+"");
+                            TelStation.setText(Checknull(datain.get("TelStation"))+"");
+                            PhonePolice.setText(Checknull(datain.get("PhonePolice"))+"");
+                            HeadName.setText(Checknull(datain.get("HeadName"))+"");
+                            HeadPosition.setText(Checknull(datain.get("HeadPosition"))+"");
+                            HeadWorkName.setText(Checknull(datain.get("HeadWorkName"))+"");
+                            HeadWorkPosition.setText(Checknull(datain.get("HeadWorkPosition"))+"");
+                            CriminalCourt.setText(Checknull(datain.get("CriminalCourt"))+"");
+                            JuvenileCourt.setText(Checknull(datain.get("JuvenileCourt"))+"");
+                            DistrictCourt.setText(Checknull(datain.get("DistrictCourt"))+"");
+                            MilitaryCourt.setText(Checknull(datain.get("MilitaryCourt"))+"");
+                            AssetCourt.setText(Checknull(datain.get("AssetCourt"))+"");
+                            LocationOfD.setText(Checknull(datain.get("LocationOfDrug"))+"");
+                            CheckGun.setText(Checknull(datain.get("CheckGun"))+"");
+                            CheckDrug.setText(Checknull(datain.get("CheckDrug"))+"");
+                            CheckOtherExhibit.setText(Checknull(datain.get("CheckOtherExhibit"))+"");
+                            CauseSerious.setText(Checknull(datain.get("CauseSerious"))+"");
+                            ProvincProsecutor.setText(Checknull(datain.get("ProvincProsecutor"))+"");
+                            ProvincProsecutorCh.setText(Checknull(datain.get("ProvincProsecutorCh"))+"");
+                            THNumBook.setText(Checknull(datain.get("THNumBook"))+"");
+                            ProtectChild.setText(Checknull(datain.get("ProtectChild"))+"");
+                            StationMoo.setText(Checknull(datain.get("StationMoo"))+"");
+                            StationTambon.setText(Checknull(datain.get("StationTambon"))+"");
+                            Postcode.setText(Checknull(datain.get("Postcode"))+"");
+                            HeadRankFull.setText(Checknull(datain.get("HeadRankFull"))+"");
+                            HeadRankShort.setText(Checknull(datain.get("HeadRankShort"))+"");
+                            HeadWorkRankFull.setText(Checknull(datain.get("HeadWorkRankFull"))+"");
+                            HeadWorkRankShort.setText(Checknull(datain.get("HeadWorkRankShort"))+"");
        }
        else{
        PoliceStartionId.setText(IdStation());
@@ -1268,6 +1268,10 @@ private void data()
 
     
     }
+      public static String Checknull(Object input){
+					if(input==null||input==""||input=="null") { return ""; }
+					return input+"";
+					}
      public static String IdStation(){
          Connection con=null;
          
