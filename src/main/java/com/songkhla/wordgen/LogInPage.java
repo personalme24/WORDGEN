@@ -145,56 +145,20 @@ public class LogInPage extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
         try{
+           con = ConnectDatabase.connect();
            Statement stmt = con.createStatement();
-            String sql2="Select * from User where serialnum='"+getMotherboardSerial()+"'";
+            String sql2="Select * from User";
                  ResultSet rs2 = stmt.executeQuery(sql2);
                  if(rs2.next()){
                  Username.setEditable(false);
                  Username.setText(rs2.getString("Username"));
                  }
+ 
         }
         catch(SQLException ex){
          ex.printStackTrace();
         }
-//        try{
-//  
-//
-//        
-//}
-//catch (IOException ioe) {
-//    ioe.printStackTrace();
-//}
 
-//try {
-//    // Connect to the web server endpoint
-//    URL serverUrl = new URL("http://httpbin.org/basic-auth/user/passwd");
-//    HttpURLConnection urlConnection = (HttpURLConnection) serverUrl.openConnection();
-// 
-//    // Set HTTP method as GET
-//    urlConnection.setRequestMethod("GET");
-// 
-//    // Include the HTTP Basic Authentication payload
-//    urlConnection.addRequestProperty("Authorization", basicAuthPayload);
-// 
-//    // Read response from web server, which will trigger HTTP Basic Authentication request to be sent.
-//    httpResponseReader =
-//            new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
-//    String lineRead;
-//    while((lineRead = httpResponseReader.readLine()) != null) {
-//        System.out.println(lineRead);
-//    }
-// 
-//} catch (IOException ioe) {
-//    ioe.printStackTrace();
-//} finally {
-// 
-//    if (httpResponseReader != null) {
-//        try {
-//            httpResponseReader.close();
-//        } catch (IOException ioe) {
-//            // Close quietly
-//        }
-//    }
 //}
     }
 

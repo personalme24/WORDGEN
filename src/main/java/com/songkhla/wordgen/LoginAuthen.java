@@ -39,8 +39,8 @@ public class LoginAuthen {
                  }
                  else{
 //                 LogInPage.Username.setText(rs.getString("username"));
-                 LogInPage lp=new LogInPage();
-                 lp.setVisible(true);
+                 LogInPage aa=new LogInPage();
+                 aa.setVisible(true);
                  
                  }
 //             String st=rs.getString("StatusLogin");
