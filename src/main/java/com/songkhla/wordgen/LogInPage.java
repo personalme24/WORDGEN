@@ -85,6 +85,7 @@ import com.songkhla.document.W93;
 import static com.songkhla.wordgen.ActionPageInsert.ActionCrimes;
 import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseid;
 import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseno;
+import static com.songkhla.wordgen.LoginAuthen.getMotherboardSerial;
 import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -125,7 +126,8 @@ import org.json.JSONObject;
  * @author Computer
  */
 public class LogInPage extends javax.swing.JFrame {
-
+     Connection con=null;
+    PreparedStatement pst=null;
     /**
      * Creates new form LogInPage
      */
@@ -138,11 +140,22 @@ public class LogInPage extends javax.swing.JFrame {
             setMaximumSize(new Dimension(1280, 760));
         setMinimumSize(new Dimension(1280, 760));
         setMaximizedBounds ( new Rectangle ( 1280, 760 ) );
+        setResizable(false);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         pack();
         setLocationRelativeTo(null);
-
-        
+        try{
+           Statement stmt = con.createStatement();
+            String sql2="Select * from User where serialnum='"+getMotherboardSerial()+"'";
+                 ResultSet rs2 = stmt.executeQuery(sql2);
+                 if(rs2.next()){
+                 Username.setEditable(false);
+                 Username.setText(rs2.getString("Username"));
+                 }
+        }
+        catch(SQLException ex){
+         ex.printStackTrace();
+        }
 //        try{
 //  
 //
