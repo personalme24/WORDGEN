@@ -90,13 +90,15 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" pref="52" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtSearchCase" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="jButtonSearch" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonDelete" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonEdit" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jButtonSearch1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtSearchCase" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                          <Component id="jButtonSearch" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonDelete" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonEdit" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonSearch1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>

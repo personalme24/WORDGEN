@@ -150,8 +150,14 @@ public class LogInPage extends javax.swing.JFrame {
             String sql2="Select * from User";
                  ResultSet rs2 = stmt.executeQuery(sql2);
                  if(rs2.next()){
+//                 PopupMessage pm=new PopupMessage(this);
+//                 pm.setVisible(true);
                  Username.setEditable(false);
-                 Username.setText(rs2.getString("Username"));
+                 Username.setText(rs2.getString("Username"));    
+//                 JOptionPane.showConfirmDialog(jPanel1, "***ท่านได้ทำการเข้าสู่ระบบไว้แล้ว ไม่สามารถทำการเปลี่ยนแปลงชื่อผู้ใช้ได้\nหากต้องการเข้าใช้งานด้วยชื่อผู้ใช้อื่นให้ท่านทำการดาวน์โหลดโปรแกรมใหม่***", "แจ้งเตือน",
+//                 JOptionPane.OK_OPTION); 
+                 PopupMessage pm=new PopupMessage(this);
+                 pm.setVisible(true);
                  }
  
         }

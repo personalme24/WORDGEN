@@ -60,7 +60,9 @@ public class CaseSelectOverView extends javax.swing.JDialog {
         ImageIcon img = new ImageIcon("./Master/WD.png");
         setIconImage(img.getImage());
         setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
-    
+        jPanel7.setVisible(false);
+        jPanel3.setVisible(false);
+//    RefreshDataCrime();
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
       UtilDateModel model = new UtilDateModel();
             model.setValue(Calendar.getInstance().getTime());
@@ -305,17 +307,29 @@ public class CaseSelectOverView extends javax.swing.JDialog {
             }
         });
 
+        jTableCrime.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         jTableCrime.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, "1/2562", "12/02/2562", "12/02/2562", null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "เลือก", "เลขคดี", "วันที่รับแจ้ง", "วันที่รับคำร้องทุกข์", "ข้อหา", "ชื่อผู้กล่าวหา"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jTableCrime.setRowHeight(25);
+        jTableCrime.getTableHeader().setFont(new Font("TH SarabunPSK", Font.BOLD, 20));
+        jTableCrime.getTableHeader().setOpaque(false);
         jScrollPane2.setViewportView(jTableCrime);
 
         jButton3.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
@@ -332,17 +346,20 @@ public class CaseSelectOverView extends javax.swing.JDialog {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
-                            .addComponent(jCheckBox1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jButton1)
-                            .addGap(74, 74, 74))
-                        .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING))
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(jCheckBox1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton1))
+                            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(56, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(56, 56, 56))))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -464,17 +481,28 @@ public class CaseSelectOverView extends javax.swing.JDialog {
             }
         });
 
+        jTableTraffic.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         jTableTraffic.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "เลขคดี", "วันที่รับแจ้ง", "วันที่รับคำร้องทุกข์", "ข้อหา", "ชื่อผู้กล่าวหา"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jTableTraffic.setRowHeight(25);
+        jTableTraffic.getTableHeader().setFont(new Font("TH SarabunPSK", Font.BOLD, 20));
+        jTableTraffic.getTableHeader().setOpaque(false);
         jScrollPane1.setViewportView(jTableTraffic);
 
         jButton4.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
@@ -486,16 +514,20 @@ public class CaseSelectOverView extends javax.swing.JDialog {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(jCheckBox2)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jButton2))
-                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1))
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jCheckBox2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton2))
+                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(37, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(37, 37, 37))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -521,7 +553,7 @@ public class CaseSelectOverView extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1280, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(49, 49, 49)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1182, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
@@ -618,38 +650,40 @@ public class CaseSelectOverView extends javax.swing.JDialog {
 //            System.out.println("Sqll : "+sql);
         Vector<Vector> tabledata = new Vector<Vector>();
 //        while(rs.next()){
-//            Vector<String> row = new Vector<String>();
-//            row.add(rs.getString("CaseId"));
-//            row.add(rs.getString("crimecasenoyear"));
-//            row.add(rs.getString("AccureandOther"));
-//            row.add(rs.getString("SuspectandOther"));
-//            row.add(rs.getString("ChargeNameCase"));
+            Vector<Vector> row = new Vector<Vector>();
+            Vector<String> row2 = new Vector<String>();
+
+      
+
 ////            row.add("-");
 //            row.add(rs.getString("CaseAcceptDate"));
 //            row.add(rs.getString("CaseRequestDate"));
 //            row.add(rs.getString("Investigator_Result"));
 ////            row.add(rs.getString("StatusSuspect"));
-//            tabledata.add(row);
+            tabledata.add(row);
+                        tabledata.add(row2);
+
 //        }
 //        rs.close();
         stmt.close();
         Vector ColumnName = new Vector();
-        ColumnName.add("ลำดับ");
-        ColumnName.add("คดีที่");
+        ColumnName.add("เลือก");
+        ColumnName.add("คดีที่/ปี");
+        ColumnName.add("วันที่รับคำร้องทุกข์");
+        ColumnName.add("วันที่รับแจ้งเหตุ");
         ColumnName.add("ผู้ร้องทุกข์");
         ColumnName.add("ผู้ต้องหา");
         ColumnName.add("ข้อหา");     
-        ColumnName.add("วันที่รับคำร้องทุกข์");
-        ColumnName.add("วันที่รับแจ้งเหตุ");
+        
         ColumnName.add("ผลคดีชั้นพนักงานสอบสวน");
 //        ColumnName.add("สถานะผู้ต้องหา");
 
-        jTableTraffic.setModel(new javax.swing.table.DefaultTableModel(
+        jTableCrime.setModel(new javax.swing.table.DefaultTableModel(
             tabledata,
             ColumnName
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Boolean.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -660,9 +694,9 @@ public class CaseSelectOverView extends javax.swing.JDialog {
         }catch(Exception ex){
             ex.printStackTrace();
         }
-        jTableTraffic.getColumnModel().getColumn(0).setWidth(0);
-jTableTraffic.getColumnModel().getColumn(0).setMinWidth(0);
-jTableTraffic.getColumnModel().getColumn(0).setMaxWidth(0); 
+//        jTableCrime.getColumnModel().getColumn(0).setWidth(0);
+//jTableCrime.getColumnModel().getColumn(0).setMinWidth(0);
+//jTableCrime.getColumnModel().getColumn(0).setMaxWidth(0); 
     }
     public static String ChangDate(String date){
         String newFormatDate=null;
