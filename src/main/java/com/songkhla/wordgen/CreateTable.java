@@ -29,6 +29,7 @@ public class CreateTable {
                                "   Username  VARCHAR(100)	,	\n"+
                                "   Password  VARCHAR(100)	,	\n"+
                                "   StatusLogin  VARCHAR(100)	,	\n"+
+                               "   SerialNum  VARCHAR(100)	,	\n"+
                                "   DateLogin DATE		\n"+                        
                                "	); ";
                 String sqlParameter = "CREATE TABLE IF NOT  EXISTS ParameterTable (\n"+
@@ -182,7 +183,7 @@ public class CreateTable {
                 "	NameSendInjuredOrDie	VARCHAR(100)	,	\n"+      
                 "	CauseSendInjuredOrDie	VARCHAR(100)	,	\n"+
                 "	WhereSendInjuredOrDie	VARCHAR(100)	,	\n"+   
-                        
+                "	DateRelease	VARCHAR(100)	,	\n"+ 
                 "	SueFirst	VARCHAR(100)	,	\n"+
                 "	SueFirstDate	DateTime	,	\n"+
                 "	SueFirstStart	DateTime	,	\n"+

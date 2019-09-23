@@ -214,6 +214,7 @@ public class PersonFrom extends javax.swing.JDialog {
         jLabel17.setText("ที่ทำงาน ตำแหน่ง มีหน้าที่");
 
         OccupationPosition.setColumns(20);
+        OccupationPosition.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         OccupationPosition.setLineWrap(true);
         OccupationPosition.setRows(1);
         OccupationPosition.setTabSize(1);

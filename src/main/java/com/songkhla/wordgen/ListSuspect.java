@@ -243,7 +243,7 @@ String typeC,cid;
                 String sql = "select NoPerson,TambomDie,AmphurDie,ProvinceDie,TambomFoundBody,AmphurFoundBody,ProvinceFoundBody,Identification,CurrentAddress,Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,Weight,HouseNumber,NoArrestWarrant,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
                         "PhonePerson,OrderPerson,StatusSuspect,StatusSuspectOther,BailDate,StatusBail,RatePrison,CourtSuspect,ArrestDateTimeEnd,Province,Race,Religion,Tambon,TypePerson,"
-                        + "ZipCode,caseIdPerson,ArrestDateTime,PlaceArrest,SusConfress,PlaceOfFoundBody,DeathLocation,StatusSueAndPutInJail,BodyFoundDate,BodyFoundTime,DateOfDie,TimeOfDie,"
+                        + "ZipCode,caseIdPerson,ArrestDateTime,PlaceArrest,SusConfress,PlaceOfFoundBody,DeathLocation,StatusSueAndPutInJail,BodyFoundDate,BodyFoundTime,DateOfDie,TimeOfDie,Road,Soi,"
                         + "AnswerPerson,PlaceArrestTambon,PlaceArrestAmphur,PlaceArrestProvince,OccupationPosition,CauseSendInjuredOrDie,WhereSendInjuredOrDie,DateSendInjuredOrDie,TimeSendInjuredOrDie,StatusInjuryOrDie\n"
                         + "from person where noperson='"+Noperson+ "' and caseIdPerson='"+crimecaseno+"'";
          
@@ -320,6 +320,9 @@ String typeC,cid;
                    data.put("CauseSendInjuredOrDie", rs.getString("CauseSendInjuredOrDie"));
                     data.put("WhereSendInjuredOrDie", rs.getString("WhereSendInjuredOrDie"));
                      data.put("StatusSuspectOther", rs.getString("StatusSuspectOther"));
+                   data.put("Road", rs.getString("Road"));
+                     data.put("Soi", rs.getString("Soi"));
+
                    
                    if(typeC.equals("Dead")){
                       Identity_DeadForm id=new Identity_DeadForm(f,data);

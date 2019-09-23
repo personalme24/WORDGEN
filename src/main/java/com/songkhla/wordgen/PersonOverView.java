@@ -68,6 +68,8 @@ public class PersonOverView extends javax.swing.JDialog {
         jButtonEdit = new javax.swing.JButton();
         txtSearchCase = new javax.swing.JTextField();
         jButtonDelete = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jButtonSearch1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -99,6 +101,7 @@ public class PersonOverView extends javax.swing.JDialog {
             }
         });
 
+        txtSearchCase.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         txtSearchCase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSearchCaseActionPerformed(evt);
@@ -114,6 +117,18 @@ public class PersonOverView extends javax.swing.JDialog {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("ชื่อ");
+
+        jButtonSearch1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jButtonSearch1.setText("ล้างข้อมูล");
+        jButtonSearch1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSearch1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -126,11 +141,15 @@ public class PersonOverView extends javax.swing.JDialog {
                         .addComponent(jButtonEdit)
                         .addGap(18, 18, 18)
                         .addComponent(jButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(69, 69, 69)
+                        .addGap(66, 66, 66)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtSearchCase, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(626, Short.MAX_VALUE))
+                        .addComponent(jButtonSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonSearch1)))
+                .addContainerGap(510, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,8 +161,10 @@ public class PersonOverView extends javax.swing.JDialog {
                     .addComponent(txtSearchCase, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonSearch)
                     .addComponent(jButtonDelete)
-                    .addComponent(jButtonEdit))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButtonEdit)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonSearch1))
+                .addContainerGap())
         );
 
         jTable1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -300,8 +321,15 @@ public class PersonOverView extends javax.swing.JDialog {
  
     private void jButtonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchActionPerformed
         // TODO add your handling code here:
+        
         RefreshData();
     }//GEN-LAST:event_jButtonSearchActionPerformed
+
+    private void jButtonSearch1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearch1ActionPerformed
+        // TODO add your handling code here:
+        txtSearchCase.setText("");
+         RefreshData();
+    }//GEN-LAST:event_jButtonSearch1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -410,7 +438,7 @@ public class PersonOverView extends javax.swing.JDialog {
     private String getFilterCondition(){
         HashMap<String,String> filter = new HashMap<String,String>();
         if(txtSearchCase.getText().trim().length()>0){
-            filter.put("crimecaseno", txtSearchCase.getText().trim());
+            filter.put("FullNamePerson", txtSearchCase.getText().trim());
 //            filter.put("AccureandOther", txtSearchCase.getText().trim());
         }
         
@@ -418,7 +446,7 @@ public class PersonOverView extends javax.swing.JDialog {
         String result="";
         for(int i=0;i<key.length;i++){
             if(i==0){
-                result=" or ";
+                result=" where ";
             }
             if(i==key.length-1){
                 result+= " "+key[i]+" LIKE '%"+filter.get(key[i])+"%'";
@@ -435,7 +463,9 @@ public class PersonOverView extends javax.swing.JDialog {
     private javax.swing.JButton jButtonDelete;
     private javax.swing.JButton jButtonEdit;
     private javax.swing.JButton jButtonSearch;
+    private javax.swing.JButton jButtonSearch1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

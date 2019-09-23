@@ -134,7 +134,7 @@ public class LogInPage extends javax.swing.JFrame {
         initComponents();
           ImageIcon img = new ImageIcon("./Master/WD.png");
             setIconImage(img.getImage());
-            setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
+            setTitle("ระบบสำนวนอิเล็กทรอนิกส์ (CRIMES)");
             setMaximumSize(new Dimension(1280, 760));
         setMinimumSize(new Dimension(1280, 760));
         setMaximizedBounds ( new Rectangle ( 1280, 760 ) );
@@ -184,6 +184,7 @@ public class LogInPage extends javax.swing.JFrame {
 //    }
 //}
     }
+
 private static void Login(){
 }
     /**
@@ -542,28 +543,27 @@ String  username=Username.getText();
                String insertInvest="INSERT INTO InvestInformation (InvestId,InvestCardID,InvestRank,InvestName,"
                        + "InvestPosition,InvestBirthDay,InvestAge,InvestTel,InvestRankFull)\n"        
                       + "VALUES (?,?,?,?,?,?,?,?,?)"; 
-               String insertUser="INSERT INTO User (iduser,Username,Password,StatusLogin,DateLogin)\n"        
-                      + "VALUES (?,?,?,?,?)";
+               String insertUser="INSERT INTO User (iduser,Username,Password,StatusLogin,DateLogin,SerialNum)\n"        
+                      + "VALUES (?,?,?,?,?,?)";
                  String insertStation="INSERT INTO PoliceStation (PoliceStartionId,PoliceStartionCode,PoliceStaionName,PoliceStaionShort,StationAddress,StationTambon,"
                          + "StationAmphur,StationProvince,PostCode,BK,BH)\n"        
                       + "VALUES (?,?,?,?,?,?,?,?,?,?,?)";
                try {
-                   Date d=new Date();
+                              Date d=new Date();
                              pst=con.prepareStatement(insertPolice);
                               pst.setString(1,"1");
                               pst.setString(2,myResponse.getString("idcard"));
                               pst.setString(3,myResponse.getString("rank"));
-//                              pst.setString(4,myResponse.getString("rank"));
                               pst.setString(4,myResponse.getString("firstname"));
                               pst.setString(5,myResponse.getString("lastname"));
                               pst.setString(6,ChangDate(myResponse.getString("birthday")));
                               pst.setString(7,myResponse.getString("age"));
                               pst.setString(8,myResponse.getString("mobilephone"));
                               pst.setString(9,myResponse.getString("position"));  
-                              pst.setString(10,"");                         
-                              
+                              pst.setString(10,"");                                                 
                               pst.executeUpdate();                
                               pst.close();
+                              
                                pst2=con.prepareStatement(insertInvest);    
                               pst2.setString(1,"1");
                               pst2.setString(2,myResponse.getString("idcard"));
@@ -577,14 +577,17 @@ String  username=Username.getText();
                               pst2.setString(9,"");                          
                               pst2.executeUpdate();                
                               pst2.close();
+                              
                               pst3=con.prepareStatement(insertUser);
                               pst3.setString(1,"1");
                               pst3.setString(2,username);
                               pst3.setString(3,password);
                               pst3.setString(4,"1");
-                              pst3.setString(5,d+"");                        
+                              pst3.setString(5,d+"");
+                              pst3.setString(6,getMotherboardSerial());                        
                               pst3.executeUpdate();                
                               pst3.close();
+                              
                               pst4=con.prepareStatement(insertStation);
                               pst4.setString(1,"1");
                               pst4.setString(2,myResponse.getString("orgcode"));
@@ -651,9 +654,29 @@ public static String ChangDate(String date){
     
 
 }
+   public static String getMotherboardSerial(){
+		try
+	    {
+	        String result = null;
+	        Process p = Runtime.getRuntime().exec("wmic baseboard get product,Manufacturer,version,serialnumber");
+	               BufferedReader input
+	                = new BufferedReader(new InputStreamReader(p.getInputStream()));
+	        String line;
+	        while ((line = input.readLine()) != null)
+	        {
+	        	result += line;
+	        }
+	        input.close();
+	        return result;
+	    } catch (IOException ex)
+	    {
+	        ex.printStackTrace();
+	        return null;
+	    }
+	}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField Password;
-    private javax.swing.JTextField Username;
+    public static javax.swing.JTextField Username;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
