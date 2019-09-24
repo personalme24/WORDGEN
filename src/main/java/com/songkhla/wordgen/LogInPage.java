@@ -277,12 +277,19 @@ private static void Login(){
 //        setVisible(false);
 //        MainMenuWord d =new MainMenuWord();
 //        d.setVisible(true); 
+if(Password.getPassword().equals("")){
+ JOptionPane.showConfirmDialog(jPanel1, "กรุณากรอกรหัสผ่าน", "แจ้งเตือน",
+                 JOptionPane.OK_OPTION); 
+
+}
 Connection con=null;
-    PreparedStatement pst=null;   
+    PreparedStatement pst=null;
+    String  username=Username.getText();
+       String password=new String(Password.getPassword());
 try{
         con = ConnectDatabase.connect();
              Statement stmt = con.createStatement();
-            String sql ="Select * from User";
+            String sql ="Select * from User Where username='"+username+"' and password='"+password+"'";
              ResultSet rs = stmt.executeQuery(sql);
              if(rs.next()){
           String sqlUpdate="UPDATE User set StatusLogin='1',DateLogin=?,serialnum=?  where IdUser='1'";
@@ -303,8 +310,7 @@ try{
 
              }
              else{
-              String  username=Username.getText();
-       String password=new String(Password.getPassword());
+             
          try { 
             
          String url=  "http://172.31.191.163:8383/wordgenauthen/?USER="+username+"&PASS="+password;
