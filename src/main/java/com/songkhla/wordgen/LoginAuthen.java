@@ -66,6 +66,7 @@ public class LoginAuthen {
              }
              else{
              LogInPage lp=new LogInPage();
+             SwingUtilities.updateComponentTreeUI(lp);
              lp.setVisible(true);
              }
             }

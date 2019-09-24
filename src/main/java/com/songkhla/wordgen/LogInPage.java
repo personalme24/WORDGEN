@@ -117,7 +117,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
+import javax.swing.SwingUtilities;
 import javax.swing.SwingWorker;
+import javax.swing.UIManager;
 import org.apache.http.auth.UsernamePasswordCredentials;
 import org.json.JSONObject;
 
@@ -300,7 +302,9 @@ try{
                pst.setString(2,getMotherboardSerial());
                      pst.execute();
                      pst.close();
+                      UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
                     MainMenuWord mwa=new MainMenuWord();
+                     SwingUtilities.updateComponentTreeUI(mwa);
                      mwa.setVisible(true);
           
           }
