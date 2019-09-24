@@ -154,10 +154,10 @@ public class LogInPage extends javax.swing.JFrame {
 //                 pm.setVisible(true);
                  Username.setEditable(false);
                  Username.setText(rs2.getString("Username"));    
-//                 JOptionPane.showConfirmDialog(jPanel1, "***ท่านได้ทำการเข้าสู่ระบบไว้แล้ว ไม่สามารถทำการเปลี่ยนแปลงชื่อผู้ใช้ได้\nหากต้องการเข้าใช้งานด้วยชื่อผู้ใช้อื่นให้ท่านทำการดาวน์โหลดโปรแกรมใหม่***", "แจ้งเตือน",
-//                 JOptionPane.OK_OPTION); 
-                 PopupMessage pm=new PopupMessage(this);
-                 pm.setVisible(true);
+                 JOptionPane.showConfirmDialog(jPanel1, "***ท่านได้ทำการเข้าสู่ระบบไว้แล้ว ไม่สามารถทำการเปลี่ยนแปลงชื่อผู้ใช้ได้\nหากต้องการเข้าใช้งานด้วยชื่อผู้ใช้อื่นให้ท่านทำการดาวน์โหลดโปรแกรมใหม่***", "แจ้งเตือน",
+                 JOptionPane.OK_OPTION); 
+//                 PopupMessage pm=new PopupMessage(this);
+//                 pm.setVisible(true);
                  }
  
         }
@@ -285,15 +285,16 @@ try{
             String sql ="Select * from User";
              ResultSet rs = stmt.executeQuery(sql);
              if(rs.next()){
-          String sqlUpdate="UPDATE User set StatusLogin='1',DateLogin=?  where IdUser='1'";
+          String sqlUpdate="UPDATE User set StatusLogin='1',DateLogin=?,serialnum=?  where IdUser='1'";
           try{ 
               Date dd=new Date();
               pst=con.prepareStatement(sqlUpdate);  
               pst.setString(1,dd+"");
+               pst.setString(2,getMotherboardSerial());
                      pst.execute();
                      pst.close();
-                    MainMenuWord mw=new MainMenuWord();
-                     mw.setVisible(true);
+                    MainMenuWord mwa=new MainMenuWord();
+                     mwa.setVisible(true);
           
           }
           catch(SQLException ex){
@@ -360,7 +361,7 @@ try{
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LogInPage().setVisible(true);
+//                new LogInPage().setVisible(true); 
             }
         });
     }
@@ -602,7 +603,7 @@ String  username=Username.getText();
       
 }
 class BgPanel extends JPanel {
-    Image bg = new ImageIcon("./Master/BG.png").getImage();
+    Image bg = new ImageIcon("./Master/BG01.png").getImage();
     @Override
     public void paintComponent(Graphics g) {
         g.drawImage(bg, 0, 0, getWidth(), getHeight(), this);

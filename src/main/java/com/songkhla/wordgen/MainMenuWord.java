@@ -36,6 +36,8 @@ import java.util.Locale;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
 
 /**
  *
@@ -1038,7 +1040,10 @@ public class MainMenuWord extends javax.swing.JFrame {
         JDialog dialog = new JDialog(frame);//frame is owner
         JFrame in = (JFrame)(dialog.getParent());
         in.removeAll();
-        CrimesCaseOverView ccv =new CrimesCaseOverView(this);
+//         UIManager.setLookAndFeel("Nimbus");
+ 
+        CrimesCaseOverView ccv =new CrimesCaseOverView(this); 
+//        SwingUtilities.updateComponentTreeUI(ccv);
         ccv.pack();
         ccv.setLocationRelativeTo(null);
         ccv.setVisible(true);
@@ -1561,9 +1566,10 @@ public class MainMenuWord extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Nimbus".equals(info.getName())) { 
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+                  
                 }
             }
         } catch (ClassNotFoundException ex) {

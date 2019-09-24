@@ -62,6 +62,7 @@ public class CaseSelectOverView extends javax.swing.JDialog {
         setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
         jPanel7.setVisible(false);
         jPanel3.setVisible(false);
+        jButton2.setVisible(false);
 //    RefreshDataCrime();
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
       UtilDateModel model = new UtilDateModel();
@@ -176,7 +177,7 @@ public class CaseSelectOverView extends javax.swing.JDialog {
 
         jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("ข้อมูลคดีระบบ CRIMES");
+        jLabel1.setText("ข้อมูลคดีระบบ CRIMES ในความรับผิดชอบ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -185,7 +186,7 @@ public class CaseSelectOverView extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(jLabel1)
-                .addContainerGap(1015, Short.MAX_VALUE))
+                .addContainerGap(823, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

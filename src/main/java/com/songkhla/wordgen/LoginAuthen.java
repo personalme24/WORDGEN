@@ -13,7 +13,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-
+import javax.swing.JLabel;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
 /**
  *
  * @author Computer
@@ -33,13 +35,21 @@ public class LoginAuthen {
                  String sql2="Select * from User where serialnum='"+getMotherboardSerial()+"'";
                  ResultSet rs2 = stmt2.executeQuery(sql2);
                  if(rs2.next()){
-                  MainMenuWord mw=new MainMenuWord();
+                     UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+                   
+                  MainMenuWord mw=new MainMenuWord(); 
+                  SwingUtilities.updateComponentTreeUI(mw);
+                    mw.pack();
+                  mw.setLocationRelativeTo(null);
                   mw.setVisible(true);
+                  
                  
                  }
                  else{
 //                 LogInPage.Username.setText(rs.getString("username"));
                  LogInPage aa=new LogInPage();
+                 SwingUtilities.updateComponentTreeUI(aa);
+                    aa.pack();
                  aa.setVisible(true);
                  
                  }

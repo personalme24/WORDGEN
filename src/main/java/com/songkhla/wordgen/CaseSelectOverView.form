@@ -64,7 +64,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="1015" max="32767" attributes="0"/>
+                  <EmptySpace pref="823" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -87,7 +87,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&#xe02;&#xe49;&#xe2d;&#xe21;&#xe39;&#xe25;&#xe04;&#xe14;&#xe35;&#xe23;&#xe30;&#xe1a;&#xe1a; CRIMES"/>
+            <Property name="text" type="java.lang.String" value="&#xe02;&#xe49;&#xe2d;&#xe21;&#xe39;&#xe25;&#xe04;&#xe14;&#xe35;&#xe23;&#xe30;&#xe1a;&#xe1a; CRIMES &#xe43;&#xe19;&#xe04;&#xe27;&#xe32;&#xe21;&#xe23;&#xe31;&#xe1a;&#xe1c;&#xe34;&#xe14;&#xe0a;&#xe2d;&#xe1a;"/>
           </Properties>
         </Component>
       </SubComponents>
