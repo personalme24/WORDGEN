@@ -279,15 +279,26 @@ private static void Login(){
 //        setVisible(false);
 //        MainMenuWord d =new MainMenuWord();
 //        d.setVisible(true); 
-if(Password.getPassword().equals("")){
- JOptionPane.showConfirmDialog(jPanel1, "กรุณากรอกรหัสผ่าน", "แจ้งเตือน",
-                 JOptionPane.OK_OPTION); 
 
-}
-Connection con=null;
+    Connection con=null;
     PreparedStatement pst=null;
     String  username=Username.getText();
        String password=new String(Password.getPassword());
+       if(password.equals("")){
+    JOptionPane.showMessageDialog(jPanel1, "กรุณากรอกรหัสผ่าน", "แจ้งเตือน",
+                 JOptionPane.OK_OPTION); 
+
+        }
+        if(username.equals("")){
+    JOptionPane.showMessageDialog(jPanel1, "กรุณากรอกชื่อผู้ใช้", "แจ้งเตือน",
+                 JOptionPane.OK_OPTION); 
+
+        }
+         if(username.equals("") && password.equals("")){
+ JOptionPane.showMessageDialog(jPanel1, "กรุณากรอกชื่อผู้ใช้และรหัสผ่าน", "แจ้งเตือน",
+                 JOptionPane.OK_OPTION); 
+
+        }
 try{
         con = ConnectDatabase.connect();
              Statement stmt = con.createStatement();
@@ -489,7 +500,9 @@ public class BackgroundWorker extends SwingWorker<Void, Void> {
 			}
   
                     setVisible(false);
+//                     UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");    
                     MainMenuWord f=new MainMenuWord();
+//                    SwingUtilities.updateComponentTreeUI(f);
                     f.setVisible(true);
 //          System.out.println(text + " is done");
 //        Toolkit.getDefaultToolkit().beep();

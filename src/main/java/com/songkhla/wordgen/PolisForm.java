@@ -51,6 +51,7 @@ public class PolisForm extends javax.swing.JDialog {
         setIconImage(img.getImage());
         setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
             idpolice.setVisible(false);
+            BlockUSer();
         if(datain!=null){
             try {
             closeEdit();
@@ -427,8 +428,8 @@ private void openEdit(){
         IdCardPolice.setEnabled(true);
         jButtonSave.setEnabled(true); 
         RankPolice.setEnabled(true);      
-        FirstName.setEnabled(true);
-        LastName.setEnabled(true);
+//        FirstName.setEnabled(true);
+//        LastName.setEnabled(true);
         Position.setEnabled(true);
         RankPoliceFull.setEnabled(true);
 }
@@ -511,6 +512,29 @@ private void openEdit(){
         
         } catch (Exception e) {
             return null;
+//            System.out.println(e);
+        } 
+    
+    }
+          public  void BlockUSer(){
+         Connection con=null;
+         
+         con=ConnectDatabase.connect();
+            String sqlId="Select * from user";
+
+        try {
+            Statement s=con.createStatement();
+            ResultSet rs=s.executeQuery(sqlId);
+            
+            if (rs.next()) {
+               FirstName.setEnabled(false);
+               LastName.setEnabled(false);
+//               IdCardPolice.setEnabled(false);
+            }
+
+        
+        } catch (Exception e) {
+
 //            System.out.println(e);
         } 
     
