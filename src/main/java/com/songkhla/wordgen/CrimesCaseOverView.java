@@ -126,6 +126,8 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
         jLabel10 = new javax.swing.JLabel();
         jButtonSearch = new javax.swing.JButton();
         jButtonClearSearch = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        InvestResult = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1280, 720));
@@ -437,6 +439,17 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
             }
         });
 
+        jLabel11.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel11.setText("สถานะคดี");
+
+        InvestResult.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        InvestResult.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "อยู่ระหว่างสอบสวน", "จำหน่าย" }));
+        InvestResult.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                InvestResultItemStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -452,17 +465,24 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jButtonSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonClearSearch)))
+                        .addComponent(jButtonClearSearch)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel11)
+                        .addGap(18, 18, 18)
+                        .addComponent(InvestResult, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(75, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addComponent(jPanelSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonSearch)
-                    .addComponent(jButtonClearSearch))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButtonSearch)
+                        .addComponent(jButtonClearSearch)
+                        .addComponent(jLabel11))
+                    .addComponent(InvestResult, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(181, 181, 181)
@@ -660,6 +680,11 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
         a=false;
     }//GEN-LAST:event_jTable1MouseClicked
 
+    private void InvestResultItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_InvestResultItemStateChanged
+        // TODO add your handling code here:
+        RefreshData();
+    }//GEN-LAST:event_InvestResultItemStateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -705,18 +730,26 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
     
     public void RefreshData(){
         try{
-         
+            String investRes="";
+             if(InvestResult.getSelectedItem().equals("อยู่ระหว่างสอบสวน")){
+
+                    investRes="crimecase.Investigator_Result='อยู่ระหว่างสอบสวน' ";
+              }
+           else if(InvestResult.getSelectedItem().equals("จำหน่าย")){
+
+                    investRes="crimecase.Investigator_Result IN ('งดการสอบสวน','สั่งฟ้อง','ไม่สั่งฟ้อง') ";
+              }
         Connection con = ConnectDatabase.connect();
         Statement stmt = con.createStatement();
         String sql = "select crimecase.*,chargecase.ChargeCodeCase ChargeCase,chargecase.ChargeNameCase ChargeNameCase from crimecase "
                 + "left join chargecase on crimecase.CaseId=chargecase.ChargeCaseId "
                 +"left join Person on Person.CaseIdPerson=crimecase.CaseId"
-                + " where CaseType='คดีอาญา'"+getFilterCondition()+" group by crimecase.CaseId";
+                + " where CaseType='คดีอาญา' and "+investRes+getFilterCondition()+" group by crimecase.CaseId";
 
 //                + "left join Person on Person.caseIdPerson = CrimeCase.CaseId "+getFilterCondition();
 
         ResultSet rs = stmt.executeQuery(sql);
-//            System.out.println("Sqll : "+sql);
+            System.out.println("Sqll : "+sql);
         Vector<Vector> tabledata = new Vector<Vector>();
         while(rs.next()){
             Vector<String> row = new Vector<String>();
@@ -728,8 +761,17 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
 //            row.add("-");
             row.add(rs.getString("CaseAcceptDate"));
             row.add(rs.getString("CaseRequestDate"));
-            row.add(rs.getString("Investigator_Result"));
-//            row.add(rs.getString("StatusSuspect"));
+            String invest=rs.getString("Investigator_Result");
+            if(invest.equals("อยู่ระหว่างสอบสวน")){
+                
+             row.add(rs.getString("Investigator_Result"));
+            }
+            else{ 
+                invest="จำหน่าย"; 
+             row.add(invest);
+            }
+           
+//            row.add(rs.getString("Investigator_Result"));
             tabledata.add(row);
         }
         rs.close();
@@ -750,7 +792,9 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
             ColumnName
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class,
+                java.lang.String.class, java.lang.String.class, java.lang.String.class,
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -804,6 +848,7 @@ jTable1.getColumnModel().getColumn(0).setMaxWidth(0);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> InvestResult;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonAdd;
     private javax.swing.JButton jButtonClearSearch;
@@ -812,6 +857,7 @@ jTable1.getColumnModel().getColumn(0).setMaxWidth(0);
     private javax.swing.JButton jButtonSearch;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

@@ -9,17 +9,28 @@ package com.songkhla.wordgen;
  *
  * @author Computer
  */
+import java.util.Arrays;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.Reader;
+import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL; 
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import org.json.JSONObject;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
 //import org.json.simple.JSONObject;
 //import org.json.JSONObject;
 public class Send_HTTP_Request2 {
@@ -105,69 +116,74 @@ private static String sendGET(String GET_URL) throws IOException {
                 
 	}
  public static void call_me2() throws Exception {
-     URL url = new URL ("http://172.17.4.163:8383/ws-doc/CrimeCaseService_Wordgen?wsdl");
+     URL url = new URL ("http://172.31.191.163:8383/ws/CrimeCaseService_Wordgen/");
      HttpURLConnection con = (HttpURLConnection)url.openConnection();
      con.setRequestMethod("POST");
      con.setRequestProperty("Content-Type", "application/json; utf-8");
-     con.setRequestProperty("Accept", "application/json");
+//     con.setRequestProperty("Accept", "application/json");
      con.setDoOutput(true);
      JSONObject jsonInput = new JSONObject();
-     jsonInput.put("orgcode", "myName");
-     jsonInput.put("caseno", "20");
-     jsonInput.put("caseyear", "20");
-     jsonInput.put("startaccept", "20");
-     jsonInput.put("endaccepr", "20");
-     jsonInput.put("personcard", "20");
+     jsonInput.put("PersonalityID", "1100700943266");
+//     jsonInput.put("caseno", "20");
+//     jsonInput.put("caseyear", "20");
+//     jsonInput.put("startaccept", "20");
+//     jsonInput.put("endaccepr", "20");
+//     jsonInput.put("personcard", "20");
      String j=jsonInput.toString();
      System.out.println(j);
 //     String jsonInputString = "{"name": "Upendra", "job": "Programmer"}";
      try(OutputStream os = con.getOutputStream()) {
     byte[] input = j.getBytes("utf-8");
     os.write(input, 0, input.length);       
-try(BufferedReader br = new BufferedReader( new InputStreamReader(con.getInputStream(), "utf-8"))) {
-    StringBuilder response = new StringBuilder();
-    String responseLine = null;
-    while ((responseLine = br.readLine()) != null) {
-        response.append(responseLine.trim());
-    }
-    System.out.println(response.toString());
-}    
-}
-//	    URL url = new URL("https://httpbin.org/post");
-//	    Map params = new LinkedHashMap<>();
-//	    params.put("name", "Jinu Jawad");
-//	    params.put("email", "helloworld@gmail.com");
-//	    params.put("CODE", 1111);
-//	    params.put("message", "Hello Post Test success");
-//	    StringBuilder postData = new StringBuilder();
-//	    for (Map.Entry param : params.entrySet()) {
-//	        if (postData.length() != 0) postData.append('&');
-//	        postData.append(URLEncoder.encode(param.getKey(), "UTF-8"));
-//	        postData.append('=');
-//	        postData.append(URLEncoder.encode(String.valueOf(param.getValue()), "UTF-8"));
-//	    }
-//	    byte[] postDataBytes = postData.toString().getBytes("UTF-8");
-//	    HttpURLConnection conn = (HttpURLConnection)url.openConnection();
-//	    conn.setRequestMethod("POST");
-//	    conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-//	    conn.setRequestProperty("Content-Length", String.valueOf(postDataBytes.length));
-//	    conn.setDoOutput(true);
-//	    conn.getOutputStream().write(postDataBytes);
-//	    Reader in = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
-//	    StringBuilder sb = new StringBuilder();
-//	    for (int c; (c = in.read()) >= 0;)
-//	        sb.append((char)c);
-//	    String response = sb.toString();
-//	    System.out.println(response);
-//	    JSONObject myResponse = new JSONObject(response.toString());
-//	    System.out.println("result after Reading JSON Response");
-//	    System.out.println("origin- "+myResponse.getString("origin"));
-//	    System.out.println("url- "+myResponse.getString("url"));
-//	    JSONObject form_data = myResponse.getJSONObject("form");
-//	    System.out.println("CODE- "+form_data.getString("CODE"));
-//	    System.out.println("email- "+form_data.getString("email"));
-//	    System.out.println("message- "+form_data.getString("message"));
-//	    System.out.println("name"+form_data.getString("name"));
+    try(BufferedReader in = new BufferedReader( new InputStreamReader(con.getInputStream(), "utf-8"))) {
+	 String inputLine;
+	 StringBuffer response = new StringBuffer();
+	 while ((inputLine = in.readLine()) != null) {
+	   response.append(inputLine);
+	 }
+         String str = response.toString();
+	in.close();
+        List<String> output = getFullNameFromXml(str, "isCapital");
+String[] strarray = new String[output.size()];
+output.toArray(strarray);
+System.out.print("Response Array is "+Arrays.toString(strarray));
+	//print in String
+	// System.out.println(response.toString());
+//        Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder()
+//         .parse(new InputSource(new StringReader(response.toString())));
+//	       NodeList errNodes = doc.getElementsByTagName("CrimeCases");
+//        if (errNodes.getLength() > 0) {
+//            Element err = (Element)errNodes.item(0);
+//          System.out.println("raw_offset -"+err.getElementsByTagName("isCapital").item(0).getTextContent());
+////	  System.out.println("dst_offset -"+err.getElementsByTagName("dst_offset").item(0).getTextContent());
+////          System.out.println("time_zone_id -"+err.getElementsByTagName("time_zone_id").item(0).getTextContent());
+////          System.out.println("time_zone_name -"+err.getElementsByTagName("time_zone_name").item(0).getTextContent());
+//	} else { 
+//		     // success
+//         }
+	} catch (Exception e) {
+	   System.out.println(e);
 	}
+     }
+ }
+ public static Document loadXMLString(String response) throws Exception
+{
+    DocumentBuilderFactory dbf =DocumentBuilderFactory.newInstance();
+    DocumentBuilder db = dbf.newDocumentBuilder();
+    InputSource is = new InputSource(new StringReader(response));
 
+    return db.parse(is);
+}
+
+public static List<String> getFullNameFromXml(String response, String tagName) throws Exception {
+    Document xmlDoc = loadXMLString(response);
+    NodeList nodeList = xmlDoc.getElementsByTagName(tagName);
+    List<String> ids = new ArrayList<String>(nodeList.getLength());
+    for(int i=0;i<nodeList.getLength(); i++) {
+        Node x = nodeList.item(i);
+        ids.add(x.getFirstChild().getNodeValue());             
+        System.out.println(nodeList.item(i).getFirstChild().getNodeValue());
+    }
+    return ids;
+}
 }

@@ -246,7 +246,7 @@ private static void Login(){
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(767, Short.MAX_VALUE)
+                .addContainerGap(757, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(99, 99, 99))
         );
@@ -262,9 +262,9 @@ private static void Login(){
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -284,21 +284,20 @@ private static void Login(){
     PreparedStatement pst=null;
     String  username=Username.getText();
        String password=new String(Password.getPassword());
-       if(password.equals("")){
-    JOptionPane.showMessageDialog(jPanel1, "กรุณากรอกรหัสผ่าน", "แจ้งเตือน",
+  
+        if(username.equals("") || password.equals("")){
+    JOptionPane.showMessageDialog(jPanel1, "กรุณากรอกข้อมูล", "แจ้งเตือน",
                  JOptionPane.OK_OPTION); 
 
         }
-        if(username.equals("")){
-    JOptionPane.showMessageDialog(jPanel1, "กรุณากรอกชื่อผู้ใช้", "แจ้งเตือน",
+       else  if(username.equals("") && password.equals("")){
+    JOptionPane.showMessageDialog(jPanel1, "กรุณากรอกชื่อผู้ใช้และรหัสผ่าน", "แจ้งเตือน",
                  JOptionPane.OK_OPTION); 
 
         }
-         if(username.equals("") && password.equals("")){
- JOptionPane.showMessageDialog(jPanel1, "กรุณากรอกชื่อผู้ใช้และรหัสผ่าน", "แจ้งเตือน",
-                 JOptionPane.OK_OPTION); 
-
-        }
+       
+       else{
+           
 try{
         con = ConnectDatabase.connect();
              Statement stmt = con.createStatement();
@@ -348,7 +347,7 @@ try{
     catch(Exception ex){
             ex.printStackTrace();
         }
-         
+       }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -498,12 +497,16 @@ public class BackgroundWorker extends SwingWorker<Void, Void> {
                     if (dialog != null) {
 				dialog.dispose();
 			}
-  
+  try{
                     setVisible(false);
-//                     UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");    
+                     UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");    
                     MainMenuWord f=new MainMenuWord();
-//                    SwingUtilities.updateComponentTreeUI(f);
+                    SwingUtilities.updateComponentTreeUI(f);
                     f.setVisible(true);
+  }
+  catch(Exception ex){
+  
+  }
 //          System.out.println(text + " is done");
 //        Toolkit.getDefaultToolkit().beep();
     }
