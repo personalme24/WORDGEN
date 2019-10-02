@@ -16,6 +16,7 @@ import static com.songkhla.wordgen.ChargePageInsert.Law;
 import static com.songkhla.wordgen.ChargePageInsert.Note;
 import static com.songkhla.wordgen.ChargePageInsert.RateOfPenalty;
 import static com.songkhla.wordgen.CrimesCaseEdit.ChargeNameCase;
+import static com.songkhla.wordgen.CrimesCaseEdit.Checknull;
 import static com.songkhla.wordgen.CrimesCaseEdit.jLabelChargeCode;
 import java.awt.Dimension;
 import java.awt.Rectangle;
@@ -60,11 +61,11 @@ public class ChargePage extends javax.swing.JDialog {
 //            caseid= "" + datain.get("CaseId"); 
             caseidch= datain.get("ChargeCaseId")+"";
             chargeNo=datain.get("ChargeCode")+"";
-            ChargeCode.setText(datain.get("ChargeCodeCase")+"");
-            ChargeName.setText(datain.get("ChargeNameCase")+"");
-             Law.setText(datain.get("LawCase")+"");
-              RateOfPenalty.setText(datain.get("RateOfPenaltyCase")+"");
-             Note.setText(datain.get("NoteCase")+"");
+            ChargeCode.setText(Checknull(datain.get("ChargeCodeCase"))+"");
+            ChargeName.setText(Checknull(datain.get("ChargeNameCase"))+"");
+             Law.setText(Checknull(datain.get("LawCase"))+"");
+              RateOfPenalty.setText(Checknull(datain.get("RateOfPenaltyCase"))+"");
+             Note.setText(Checknull(datain.get("NoteCase"))+"");
 
            
         }
@@ -537,7 +538,10 @@ public static void RefreshCharge(){
             }
         });
     }
-    
+      public static String Checknull(Object input){
+					if(input==null||input==""||input=="null") { return ""; }
+					return input+"";
+					}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JTextField ChargeCode;

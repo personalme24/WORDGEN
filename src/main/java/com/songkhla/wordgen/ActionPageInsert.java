@@ -5,6 +5,7 @@
  */
 package com.songkhla.wordgen;
 
+import static com.songkhla.wordgen.AccusedForm.Checknull;
 import static com.songkhla.wordgen.ActionPage.ActionCode;
 
 import static com.songkhla.wordgen.ChargePage.ChargeCode;
@@ -52,12 +53,12 @@ jLabel20.setVisible(false);
         if(datain!=null){
 //            caseid= "" + datain.get("CaseId"); 
 //            chargeNo=datain.get("ActionCode")+"";
-            ActionCode.setText(datain.get("ActionCode")+"");
-            ActionCrimes.setText(datain.get("ActionCrimes")+"");
-             ActionDetail.setText(datain.get("ActionDetail")+"");
-              ActionNote.setText(datain.get("ActionNote")+"");
-               AnswerAccuser.setText(datain.get("AnswerAccuser")+"");
-              AnswerSuspect.setText(datain.get("AnswerSuspect")+"");
+            ActionCode.setText(Checknull(datain.get("ActionCode"))+"");
+            ActionCrimes.setText(Checknull(datain.get("ActionCrimes"))+"");
+             ActionDetail.setText(Checknull(datain.get("ActionDetail"))+"");
+              ActionNote.setText(Checknull(datain.get("ActionNote"))+"");
+               AnswerAccuser.setText(Checknull(datain.get("AnswerAccuser"))+"");
+              AnswerSuspect.setText(Checknull(datain.get("AnswerSuspect"))+"");
              }
           else{
         isInsert=true;
@@ -412,6 +413,10 @@ jLabel20.setVisible(false);
         } 
     
     }
+   public static String Checknull(Object input){
+					if(input==null||input==""||input=="null") { return ""; }
+					return input+"";
+					}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ActionCode;
     public static javax.swing.JTextField ActionCrimes;

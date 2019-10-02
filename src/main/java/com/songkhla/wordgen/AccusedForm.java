@@ -6,6 +6,7 @@
 package com.songkhla.wordgen;
 
 import static com.songkhla.wordgen.CrimesCaseEdit.ChargeNameCase;
+import static com.songkhla.wordgen.CrimesCaseEdit.Checknull;
 import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseid;
 import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseno;
 import static com.songkhla.wordgen.CrimesCaseEdit.jLabelChargeCode;
@@ -145,37 +146,37 @@ UtilDateModel model5 = new UtilDateModel();
           if(datain!=null){
             isInsert=false;
             noPerson=datain.get("NoPerson")+"";
-            crimecaseno.setText(datain.get("crimecaseno")+"");
-            PeopleRegistrationID.setText(datain.get("PeopleRegistrationID")+"");
-            FullNamePerson.setText(datain.get("FullNamePerson")+"");
-            Age.setText(datain.get("Age")+"");
-            Amphur.setText(datain.get("Amphur")+"");
+            crimecaseno.setText(Checknull(datain.get("crimecaseno"))+"");
+            PeopleRegistrationID.setText(Checknull(datain.get("PeopleRegistrationID"))+"");
+            FullNamePerson.setText(Checknull(datain.get("FullNamePerson"))+"");
+            Age.setText(Checknull(datain.get("Age"))+"");
+            Amphur.setText(Checknull(datain.get("Amphur"))+"");
             BirthDay.getJFormattedTextField().setText(datain.get("BirthDay")+"");
-            BloodGroup.setSelectedItem(datain.get("BloodGroup")+"");
-            ExpiredDate.getJFormattedTextField().setText(datain.get("ExpiredDate")+"");
-            FatherFullName.setText(datain.get("FatherFullName")+"");
-            FullNamePersonEn.setText(datain.get("FullNamePersonEn")+"");
-            Height.setText(datain.get("Height")+"");
-            Weight.setText(datain.get("Weight")+"");
-            HouseNumber.setText(datain.get("HouseNumber")+"");
+            BloodGroup.setSelectedItem(Checknull(datain.get("BloodGroup"))+"");
+            ExpiredDate.getJFormattedTextField().setText(Checknull(datain.get("ExpiredDate"))+"");
+            FatherFullName.setText(Checknull(datain.get("FatherFullName"))+"");
+            FullNamePersonEn.setText(Checknull(datain.get("FullNamePersonEn"))+"");
+            Height.setText(Checknull(datain.get("Height"))+"");
+            Weight.setText(Checknull(datain.get("Weight"))+"");
+            HouseNumber.setText(Checknull(datain.get("HouseNumber"))+"");
             IssueDate.getJFormattedTextField().setText(datain.get("IssueDate")+"");
-            Moo.setText(datain.get("Moo")+"");
-            MotherFullName.setText(datain.get("MotherFullName")+"");
-            Nationality.setText(datain.get("Nationality")+"");
-            Occupation.setText(datain.get("Occupation")+"");
-            PassportNumber.setText(datain.get("PassportNumber")+"");
-            Province.setText(datain.get("Province")+"");
-            Race.setText(datain.get("Race")+"");
-            Religion.setText(datain.get("Religion")+"");
-            Tambon.setText(datain.get("Tambon")+"");
-             PhonePerson.setText(datain.get("PhonePerson")+"");  
-             Gender.setSelectedItem(datain.get("Gender"));
-            OrderPerson.setText(datain.get("OrderPerson")+"");             
-             ZipCode.setText(datain.get("ZipCode")+"");
-            OtherName.setText(datain.get("OtherName")+"");
-           OccupationPosition.setText(datain.get("OccupationPosition")+"");
-            AnswerPerson.setText(datain.get("AnswerPerson")+"");
-            RelatedAccused.setSelectedItem(datain.get("Related")+"");
+            Moo.setText(Checknull(datain.get("Moo"))+"");
+            MotherFullName.setText(Checknull(datain.get("MotherFullName"))+"");
+            Nationality.setText(Checknull(datain.get("Nationality"))+"");
+            Occupation.setText(Checknull(datain.get("Occupation"))+"");
+            PassportNumber.setText(Checknull(datain.get("PassportNumber"))+"");
+            Province.setText(Checknull(datain.get("Province"))+"");
+            Race.setText(Checknull(datain.get("Race"))+"");
+            Religion.setText(Checknull(datain.get("Religion"))+"");
+            Tambon.setText(Checknull(datain.get("Tambon"))+"");
+             PhonePerson.setText(Checknull(datain.get("PhonePerson"))+"");  
+             Gender.setSelectedItem(Checknull(datain.get("Gender")));
+            OrderPerson.setText(Checknull(datain.get("OrderPerson"))+"");             
+             ZipCode.setText(Checknull(datain.get("ZipCode"))+"");
+            OtherName.setText(Checknull(datain.get("OtherName"))+"");
+           OccupationPosition.setText(Checknull(datain.get("OccupationPosition"))+"");
+            AnswerPerson.setText(Checknull(datain.get("AnswerPerson"))+"");
+            RelatedAccused.setSelectedItem(Checknull(datain.get("Related"))+"");
            
             String statusInjure=datain.get("StatusInjuryOrDie")+"";
             if(statusInjure.equals("บาดเจ็บ")){
@@ -1766,6 +1767,11 @@ catch (Exception d) {  //System.out.println(d);
     return showingHint ? "" : super.getText();
   }
     }
+    
+  public static String Checknull(Object input){
+					if(input==null||input==""||input=="null") { return ""; }
+					return input+"";
+					}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Age;
     private javax.swing.JTextField Amphur;

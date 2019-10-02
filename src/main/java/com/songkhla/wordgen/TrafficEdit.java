@@ -85,6 +85,7 @@ import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseid;
 import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseno;
 import static com.songkhla.wordgen.ListAccused.jTableAccure;
 import static com.songkhla.wordgen.ListAccused.txtCaseNO;
+import static com.songkhla.wordgen.PolisForm.Checknull;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
@@ -300,50 +301,50 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 
                 isInsert=false;
                 caseid= "" + datain.get("CaseId");
-                crimecaseid.setText(datain.get("CaseId")+"");
+                crimecaseid.setText(Checknull(datain.get("CaseId"))+"");
                 caseyear=datain.get("crimecaseyears")+"";
                 caseno=datain.get("crimecaseno")+"";
                 casetype=datain.get("CaseType")+"";
 //          ID.setText(datain.get("CaseId")+"");
-            crimecaseno.setText(datain.get("crimecaseno")+"");
-            crimecaseyear.setText(datain.get("crimecaseyears")+"");
-            jLabelChargeCode.setText(datain.get("ChargeCodeCase")+"");
+            crimecaseno.setText(Checknull(datain.get("crimecaseno"))+"");
+            crimecaseyear.setText(Checknull(datain.get("crimecaseyears"))+"");
+            jLabelChargeCode.setText(Checknull(datain.get("ChargeCodeCase"))+"");
             String cn=datain.get("ChargeNameCase")+"";
             if(cn.equals("null")){
             ChargeNameCase.setText("");
             }
             else{
-            ChargeNameCase.setText(datain.get("ChargeNameCase")+"");}
+            ChargeNameCase.setText(Checknull(datain.get("ChargeNameCase"))+"");}
 //            CaseRequestDateTime.setText(datain.get("CaseRequestDate")+"");
-            jTextAccused.setText(datain.get("AccureandOther")+"");
+            jTextAccused.setText(Checknull(datain.get("AccureandOther"))+"");
             CourtType.setSelectedItem(datain.get("TypeCourt"));
-            CrimeLocation.setText(datain.get("CrimeLocation")+"");
-            CrimeLocationDistrict.setSelectedItem(datain.get("CrimeLocationDistrict")+"");
-            CrimeLocationAmphur.setSelectedItem(datain.get("CrimeLocationAmphur")+"");
-            CrimeLocationProvince.setSelectedItem(datain.get("CrimeLocationProvince")+"");
-            CrimeLocationMoo.setText(datain.get("CrimeLocationMoo")+"");
-            CrimeLocationRoad.setText(datain.get("CrimeLocationRoad")+"");
-            CrimeLocationSoi.setText(datain.get("CrimeLocationSoi")+"");            
+            CrimeLocation.setText(Checknull(datain.get("CrimeLocation"))+"");
+            CrimeLocationDistrict.setSelectedItem(Checknull(datain.get("CrimeLocationDistrict"))+"");
+            CrimeLocationAmphur.setSelectedItem(Checknull(datain.get("CrimeLocationAmphur"))+"");
+            CrimeLocationProvince.setSelectedItem(Checknull(datain.get("CrimeLocationProvince"))+"");
+            CrimeLocationMoo.setText(Checknull(datain.get("CrimeLocationMoo"))+"");
+            CrimeLocationRoad.setText(Checknull(datain.get("CrimeLocationRoad"))+"");
+            CrimeLocationSoi.setText(Checknull(datain.get("CrimeLocationSoi"))+"");            
               jComboPoliceName.getModel().setSelectedItem(new ComboItem(datain.get("PoliceNameCase")+"", datain.get("PoliceNameCaseId")+""));
             comboInvest();
-            jTextSuspect.setText(datain.get("SuspectandOther")+"");
-            jTextWitness.setText(datain.get("WitnessandOther")+"");
+            jTextSuspect.setText(Checknull(datain.get("SuspectandOther"))+"");
+            jTextWitness.setText(Checknull(datain.get("WitnessandOther"))+"");
             CaseRequestDateTime.getJFormattedTextField().setText(datain.get("CaseRequestDate")+"");
             CaseRequestTimee.setValue(timeReq);
             CaseAcceptDate.getJFormattedTextField().setText(datain.get("CaseAcceptDate")+"");
             CaseAcceptTimee.setValue(timeAcc);
-            DailyNumber.setText(datain.get("DailyNumber")+"");
+            DailyNumber.setText(Checknull(datain.get("DailyNumber"))+"");
             String investSta=datain.get("Investigator_Result")+"";
             OccuredDate.getJFormattedTextField().setText(datain.get("OccuredDate")+"");
             OccuredDateTime.setValue(timeOccu);
-            jLabelActionCode.setText(datain.get("ActionCode")+"");
-            Prosecutor_Result.setText(datain.get("Prosecutor_Result")+"");
-            jTextInvestSendtoDepartment.setText(datain.get("Invest_SendtoDepartment")+"");
-            Investigator_Number.setText(datain.get("Investigator_Number")+"");
+            jLabelActionCode.setText(Checknull(datain.get("ActionCode"))+"");
+            Prosecutor_Result.setText(Checknull(datain.get("Prosecutor_Result"))+"");
+            jTextInvestSendtoDepartment.setText(Checknull(datain.get("Invest_SendtoDepartment"))+"");
+            Investigator_Number.setText(Checknull(datain.get("Investigator_Number"))+"");
             Invest_SendCaseDate.getJFormattedTextField().setText(datain.get("Invest_SendCaseDate")+"");
-            CapitalCrimeCaseNumber.setText(datain.get("CapitalCrimeCaseNumber")+"");
-            RecordInvestCase.setText(datain.get("RecordInvestCase")+"");
-            CourtResult.setText(datain.get("CourtResult")+"");
+            CapitalCrimeCaseNumber.setText(Checknull(datain.get("CapitalCrimeCaseNumber"))+"");
+            RecordInvestCase.setText(Checknull(datain.get("RecordInvestCase"))+"");
+            CourtResult.setText(Checknull(datain.get("CourtResult"))+"");
             OccuredDateEnd.getJFormattedTextField().setText(datain.get("OccuredDateEnd")+"");
             OccuredDateTimeEnd.setValue(timeOccuEnd);
             if(investSta.equals("อยู่ระหว่างสอบสวน")){
@@ -370,11 +371,11 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             ActionCrimes.setText("");
             }
             else{
-            ActionCrimes.setText(datain.get("ActionCrimes")+"");}
+            ActionCrimes.setText(Checknull(datain.get("ActionCrimes"))+"");}
             
-            jLabelNumberAcc.setText(datain.get("TotalAcc")+"");
-            jLabelNumberSus.setText(datain.get("TotalSus")+"");
-            jLabelNumberWitness.setText(datain.get("TotalWitness")+"");
+            jLabelNumberAcc.setText(Checknull(datain.get("TotalAcc"))+"");
+            jLabelNumberSus.setText(Checknull(datain.get("TotalSus"))+"");
+            jLabelNumberWitness.setText(Checknull(datain.get("TotalWitness"))+"");
             
 
             } catch (ParseException ex) {
@@ -3704,6 +3705,10 @@ catch (Exception d) {  //System.out.println(d);
         }
     });      
     }
+      public static String Checknull(Object input){
+					if(input==null||input==""||input=="null") { return ""; }
+					return input+"";
+					}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JTextField ActionCrimes;
     private javax.swing.JTextArea CapitalCrimeCaseNumber;

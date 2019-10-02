@@ -345,14 +345,14 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             CrimeLocation.setText(Checknull(datain.get("CrimeLocation"))+"");
             CrimeLocationDistrict.setSelectedItem(Checknull(datain.get("CrimeLocationDistrict"))+"");
             CrimeLocationAmphur.setSelectedItem(Checknull(datain.get("CrimeLocationAmphur"))+"");
-            CrimeLocationProvince.setSelectedItem(datain.get("CrimeLocationProvince")+"");
-            CrimeLocationMoo.setText(datain.get("CrimeLocationMoo")+"");
-            CrimeLocationRoad.setText(datain.get("CrimeLocationRoad")+"");
-            CrimeLocationSoi.setText(datain.get("CrimeLocationSoi")+""); 
+            CrimeLocationProvince.setSelectedItem(Checknull(datain.get("CrimeLocationProvince"))+"");
+            CrimeLocationMoo.setText(Checknull(datain.get("CrimeLocationMoo"))+"");
+            CrimeLocationRoad.setText(Checknull(datain.get("CrimeLocationRoad"))+"");
+            CrimeLocationSoi.setText(Checknull(datain.get("CrimeLocationSoi"))+""); 
             jComboPoliceName.getModel().setSelectedItem(new ComboItem(datain.get("PoliceNameCase")+"", datain.get("PoliceNameCaseId")+""));
             comboInvest();
-            jTextSuspect.setText(datain.get("SuspectandOther")+"");
-            jTextWitness.setText(datain.get("WitnessandOther")+"");
+            jTextSuspect.setText(Checknull(datain.get("SuspectandOther"))+"");
+            jTextWitness.setText(Checknull(datain.get("WitnessandOther"))+"");
             CaseRequestDateTime.getJFormattedTextField().setText(datain.get("CaseRequestDate")+"");
             CaseRequestTimee.setValue(timeReq);
             CaseAcceptDate.getJFormattedTextField().setText(datain.get("CaseAcceptDate")+"");
@@ -363,14 +363,14 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             OccuredDate.getJFormattedTextField().setText(datain.get("OccuredDate")+"");
             OccuredDateEnd.getJFormattedTextField().setText(datain.get("OccuredDateEnd")+"");
              OccuredDateTimeEnd.setValue(timeOccuEnd);
-            jLabelActionCode.setText(datain.get("ActionCode")+"");
-            Prosecutor_Result.setText(datain.get("Prosecutor_Result")+"");
-            jTextInvestSendtoDepartment.setText(datain.get("Invest_SendtoDepartment")+"");
-            Investigator_Number.setText(datain.get("Investigator_Number")+"");
+            jLabelActionCode.setText(Checknull(datain.get("ActionCode"))+"");
+            Prosecutor_Result.setText(Checknull(datain.get("Prosecutor_Result"))+"");
+            jTextInvestSendtoDepartment.setText(Checknull(datain.get("Invest_SendtoDepartment"))+"");
+            Investigator_Number.setText(Checknull(datain.get("Investigator_Number"))+"");
             Invest_SendCaseDate.getJFormattedTextField().setText(datain.get("Invest_SendCaseDate")+"");
-            CapitalCrimeCaseNumber.setText(datain.get("CapitalCrimeCaseNumber")+"");
-            RecordInvestCase.setText(datain.get("RecordInvestCase")+"");
-            CourtResult.setText(datain.get("CourtResult")+"");
+            CapitalCrimeCaseNumber.setText(Checknull(datain.get("CapitalCrimeCaseNumber"))+"");
+            RecordInvestCase.setText(Checknull(datain.get("RecordInvestCase"))+"");
+            CourtResult.setText(Checknull(datain.get("CourtResult"))+"");
             
             if(investSta.equals("อยู่ระหว่างสอบสวน")){
                 jCheckDuringInvest.setSelected(true);
@@ -388,19 +388,19 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                 jCheckOtherInvest.setSelected(true);
             }
           
-            ListAsset.setText(datain.get("AssetList")+"");
-             EvidenceRecordCase.setText(datain.get("AssetCode")+"");
+            ListAsset.setText(Checknull(datain.get("AssetList"))+"");
+             EvidenceRecordCase.setText(Checknull(datain.get("AssetCode"))+"");
            
             String ac=datain.get("ActionCrimes")+"";
             if(ac.equals("null")){
             ActionCrimes.setText("");
             }
             else{
-            ActionCrimes.setText(datain.get("ActionCrimes")+"");}
+            ActionCrimes.setText(Checknull(datain.get("ActionCrimes"))+"");}
             
-            jLabelNumberAcc.setText(datain.get("TotalAcc")+"");
-            jLabelNumberSus.setText(datain.get("TotalSus")+"");
-            jLabelNumberWitness.setText(datain.get("TotalWitness")+"");
+            jLabelNumberAcc.setText(Checknull(datain.get("TotalAcc"))+"");
+            jLabelNumberSus.setText(Checknull(datain.get("TotalSus"))+"");
+            jLabelNumberWitness.setText(Checknull(datain.get("TotalWitness"))+"");
             
 
             } catch (ParseException ex) {
