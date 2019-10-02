@@ -5,6 +5,7 @@
  */
 package com.songkhla.wordgen;
 
+import static com.songkhla.wordgen.ChargePage.Checknull;
 import static com.songkhla.wordgen.CrimesCaseEdit.ActionCrimes;
 import static com.songkhla.wordgen.CrimesCaseEdit.ChargeNameCase;
 import static com.songkhla.wordgen.CrimesCaseEdit.ListAsset;
@@ -55,13 +56,13 @@ public class PolisForm extends javax.swing.JDialog {
         if(datain!=null){
             try {
             closeEdit();
-                         idpolice.setText(datain.get("IdPolice")+"");
-             IdCardPolice.setText(datain.get("IdCardPolice")+"");
-             RankPolice.setText(datain.get("RankPolice")+"");
-             FirstName.setText(datain.get("FirstName")+"");
-             LastName.setText(datain.get("LastName")+"");
-             RankPoliceFull.setText(datain.get("RankPoliceFull")+"");
-             Position.setText(datain.get("Position")+"");
+                         idpolice.setText(Checknull(datain.get("IdPolice"))+"");
+             IdCardPolice.setText(Checknull(datain.get("IdCardPolice"))+"");
+             RankPolice.setText(Checknull(datain.get("RankPolice"))+"");
+             FirstName.setText(Checknull(datain.get("FirstName"))+"");
+             LastName.setText(Checknull(datain.get("LastName"))+"");
+             RankPoliceFull.setText(Checknull(datain.get("RankPoliceFull"))+"");
+             Position.setText(Checknull(datain.get("Position"))+"");
               jButtonSave.setEnabled(false);         
             } catch (Exception ex) {
                 System.out.println(ex);
@@ -573,7 +574,10 @@ private void openEdit(){
             }
         });
     }
-
+public static String Checknull(Object input){
+					if(input==null||input==""||input=="null") { return ""; }
+					return input+"";
+					}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField FirstName;
     private javax.swing.JTextField IdCardPolice;
