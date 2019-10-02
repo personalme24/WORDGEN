@@ -27,7 +27,8 @@ public class CreateTable {
 	        String sqlLogin = "CREATE TABLE IF NOT EXISTS User (\n"+
                                "   IdUSer	INTEGER	Primary Key AUTOINCREMENT,	\n"+        
                                "   Username  VARCHAR(100)	,	\n"+
-                               "   Password  VARCHAR(100)	,	\n"+
+                               "   Password  VARCHAR(100)	,	\n"+ 
+                               "   PeopleCard  VARCHAR(100)	,	\n"+
                                "   StatusLogin  VARCHAR(100)	,	\n"+
                                "   SerialNum  VARCHAR(100)	,	\n"+
                                "   DateLogin DATE		\n"+                        

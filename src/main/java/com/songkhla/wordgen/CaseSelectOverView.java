@@ -5,12 +5,22 @@
  */
 package com.songkhla.wordgen;
 
+import static com.songkhla.wordgen.ActionPageInsert.ActionCrimes;
+import static com.songkhla.wordgen.ActionPageInsert.ActionDetail;
+import static com.songkhla.wordgen.ActionPageInsert.ActionNote;
+import static com.songkhla.wordgen.Send_HTTP_Request2.NewDate;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Rectangle;
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.File;
+import java.io.InputStreamReader;
+import java.io.StringReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,6 +30,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Vector;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
@@ -34,6 +45,12 @@ import org.json.simple.JSONObject;
 import java.util.Properties;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
+import javax.xml.parsers.DocumentBuilderFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
 /**
  *
  * @author Petpilin
@@ -45,7 +62,8 @@ public class CaseSelectOverView extends javax.swing.JDialog {
      */
  
 
-
+    Connection con=null;
+    PreparedStatement pst=null;
      JFrame frame = new JFrame();
         JDialog dialog = new JDialog(frame);//frame is owner
         JFrame facc = (JFrame)(dialog.getParent());
@@ -63,6 +81,8 @@ public class CaseSelectOverView extends javax.swing.JDialog {
         jPanel7.setVisible(false);
         jPanel3.setVisible(false);
         jButton2.setVisible(false);
+        jButton1.setVisible(false);
+        DataUser();
 //    RefreshDataCrime();
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
       UtilDateModel model = new UtilDateModel();
@@ -115,8 +135,8 @@ public class CaseSelectOverView extends javax.swing.JDialog {
         DateAcceptEndTC.setTextEditable(true);
         DateAcceptEndTC.setBackground(Color.WHITE);
         jPanel5.setLayout(new FlowLayout());
-        jPanel5.add(DateAcceptEndTC);    
-        
+        jPanel5.add(DateAcceptEndTC);  
+       
     }
  
     /**
@@ -165,6 +185,11 @@ public class CaseSelectOverView extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableTraffic = new javax.swing.JTable();
         jButton4 = new javax.swing.JButton();
+        usernamelabel = new javax.swing.JLabel();
+        idcardlabel = new javax.swing.JLabel();
+        jLabelorgcode = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
+        orgname = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -311,10 +336,7 @@ public class CaseSelectOverView extends javax.swing.JDialog {
         jTableCrime.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         jTableCrime.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, "1/2562", "12/02/2562", "12/02/2562", null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "เลือก", "เลขคดี", "วันที่รับแจ้ง", "วันที่รับคำร้องทุกข์", "ข้อหา", "ชื่อผู้กล่าวหา"
@@ -485,9 +507,7 @@ public class CaseSelectOverView extends javax.swing.JDialog {
         jTableTraffic.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         jTableTraffic.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "เลขคดี", "วันที่รับแจ้ง", "วันที่รับคำร้องทุกข์", "ข้อหา", "ชื่อผู้กล่าวหา"
@@ -548,22 +568,60 @@ public class CaseSelectOverView extends javax.swing.JDialog {
 
         jTabbedPane1.addTab("คดีจราจร", jPanel2);
 
+        usernamelabel.setText("jLabel12");
+
+        idcardlabel.setText("jLabel13");
+
+        jLabelorgcode.setText("jLabel12");
+
+        jButton5.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        jButton5.setText("เชื่อมต่อข้อมูล");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        orgname.setText("jLabel12");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1280, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(usernamelabel)
+                        .addGap(46, 46, 46)
+                        .addComponent(idcardlabel)
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabelorgcode)
+                        .addGap(27, 27, 27)
+                        .addComponent(orgname)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton5)
+                        .addGap(98, 98, 98))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 613, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(usernamelabel)
+                    .addComponent(idcardlabel)
+                    .addComponent(jLabelorgcode)
+                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(orgname))
+                .addGap(26, 26, 26)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 613, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -579,12 +637,39 @@ public class CaseSelectOverView extends javax.swing.JDialog {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        for (int i = 0; i < jTableCrime.getRowCount(); i++) {
+	Boolean chked = Boolean.valueOf(jTableCrime.getValueAt(i, 0)
+			.toString());
+	String casno = jTableCrime.getValueAt(i, 2).toString();
+        String casyear = jTableCrime.getValueAt(i, 3).toString();
+        
+	if (chked) {
+               JSONObject jsonInput = new JSONObject();
+         jsonInput.put("CrimeCaseNo",casno);
+         jsonInput.put("CrimeCaseYear",casyear);
+         jsonInput.put("ORG_CODE",jLabelorgcode.getText());
+         jsonInput.put("Usename",usernamelabel.getText());
+         jsonInput.put("Idcard",idcardlabel.getText());
+         jsonInput.put("OrgName",idcardlabel.getText());
+            insert_crime(jsonInput);
+//		JOptionPane.showMessageDialog(null, dataCol1);
+	}
+}
         String org=orgcodecc.getText();
         String casno=casenocc.getText();
         String casyear=caseyearscc.getText();
         
         
+        
+        
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+         JSONObject jsonInput = new JSONObject();
+         jsonInput.put("PersonalityID",idcardlabel.getText());
+        call_me2(jsonInput);
+    }//GEN-LAST:event_jButton5ActionPerformed
  
     /**
      * @param args the command line arguments
@@ -634,71 +719,38 @@ public class CaseSelectOverView extends javax.swing.JDialog {
         });
         
     }
+    public void DataUser(){
     
-    public void RefreshDataCrime(){
-        try{
-         
-        Connection con = ConnectDatabase.connect();
+     try{
+              
+         con = ConnectDatabase.connect();
         Statement stmt = con.createStatement();
-//        String sql = "select crimecase.*,chargecase.ChargeCodeCase ChargeCase,chargecase.ChargeNameCase ChargeNameCase from crimecase "
-//                + "left join chargecase on crimecase.CaseId=chargecase.ChargeCaseId "
-//                +"left join Person on Person.CaseIdPerson=crimecase.CaseId"
-//                + " where CaseType='คดีอาญา'"+getFilterCondition()+" group by crimecase.CaseId";
+        Statement stmt2 = con.createStatement();
 
-//                + "left join Person on Person.caseIdPerson = CrimeCase.CaseId "+getFilterCondition();
+        String sql = "select * from user";
+        String sqlOrg = "select PoliceStartionCode from PoliceStation";
 
-//        ResultSet rs = stmt.executeQuery(sql);
-//            System.out.println("Sqll : "+sql);
-        Vector<Vector> tabledata = new Vector<Vector>();
-//        while(rs.next()){
-            Vector<Vector> row = new Vector<Vector>();
-            Vector<String> row2 = new Vector<String>();
+        ResultSet rs = stmt.executeQuery(sql);
+        ResultSet rs2 = stmt2.executeQuery(sqlOrg);
+          System.out.println("SQL : "+sql);
 
+        if(rs.next()){
+            usernamelabel.setText(rs.getString("Username"));
+            idcardlabel.setText(rs.getString("PeopleCard"));
+        }  
       
-
-////            row.add("-");
-//            row.add(rs.getString("CaseAcceptDate"));
-//            row.add(rs.getString("CaseRequestDate"));
-//            row.add(rs.getString("Investigator_Result"));
-////            row.add(rs.getString("StatusSuspect"));
-            tabledata.add(row);
-                        tabledata.add(row2);
-
-//        }
-//        rs.close();
+        if(rs2.next()){
+          jLabelorgcode.setText(rs2.getString("PoliceStartionCode"));
+        } 
+        rs.close();
         stmt.close();
-        Vector ColumnName = new Vector();
-        ColumnName.add("เลือก");
-        ColumnName.add("คดีที่/ปี");
-        ColumnName.add("วันที่รับคำร้องทุกข์");
-        ColumnName.add("วันที่รับแจ้งเหตุ");
-        ColumnName.add("ผู้ร้องทุกข์");
-        ColumnName.add("ผู้ต้องหา");
-        ColumnName.add("ข้อหา");     
-        
-        ColumnName.add("ผลคดีชั้นพนักงานสอบสวน");
-//        ColumnName.add("สถานะผู้ต้องหา");
-
-        jTableCrime.setModel(new javax.swing.table.DefaultTableModel(
-            tabledata,
-            ColumnName
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Boolean.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        
+        rs2.close();
+        stmt2.close();
         }catch(Exception ex){
             ex.printStackTrace();
         }
-//        jTableCrime.getColumnModel().getColumn(0).setWidth(0);
-//jTableCrime.getColumnModel().getColumn(0).setMinWidth(0);
-//jTableCrime.getColumnModel().getColumn(0).setMaxWidth(0); 
     }
+    
     public static String ChangDate(String date){
         String newFormatDate=null;
        try{   Calendar cal;
@@ -721,15 +773,370 @@ public class CaseSelectOverView extends javax.swing.JDialog {
     
 
 }
-    
+    public void call_me2(JSONObject json){
+     try {
+                String url = "http://172.31.191.163:8383/ws/CrimeCaseService_Wordgen/";
+                URL obj = new URL(url);
+                HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+                con.setRequestMethod("POST");
+                con.setRequestProperty("Content-Type","application/soap+xml; charset=utf-8");
+                String xml = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:exam=\"http://www.example.com/\">\n" +
+                                "   <soapenv:Header>\n" +
+                                "      <exam:authentication>\n" +
+                                "         <username>rtp</username>\n" +
+                                "         <password>rtp</password>\n" +
+                                "      </exam:authentication>\n" +
+                                "   </soapenv:Header>\n" +
+                                "   <soapenv:Body>\n" +
+                                "      <exam:getlist_Crimescase>\n" +
+                                "         <INPUT>"+json+"</INPUT>\n" +
+                                "      </exam:getlist_Crimescase>\n" +
+                                "   </soapenv:Body>\n" +
+                                "</soapenv:Envelope>";
+                System.err.println("xml:"+xml);
+                con.setDoOutput(true);
+                        DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+                wr.writeBytes(xml);
+                wr.flush();
+                wr.close();
+                String responseStatus = con.getResponseMessage();
+                System.out.println(responseStatus);
+                BufferedReader in = new BufferedReader(new InputStreamReader(
+                con.getInputStream(),"UTF-8"));
+                String inputLine;
+                StringBuffer response = new StringBuffer();
+                while ((inputLine = in.readLine()) != null) {
+                response.append(inputLine);
+                }
+                in.close();
+//                System.out.println("response:" + response.toString());
+                	// System.out.println(response.toString());
+             Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder()
+              .parse(new InputSource(new StringReader(response.toString())));
+	       NodeList errNodes = doc.getElementsByTagName("CrimeCases"); 
+               Vector<Vector> tabledata = new Vector<Vector>();
+           for (int temp = 0; temp < errNodes.getLength(); temp++) {
+        Node nNode = errNodes.item(temp);
+//        System.out.println("\nCurrent Element :" + nNode.getNodeName());
 
+        if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+
+            Element eElement = (Element) nNode; 
+       
+//        while(rs.next()){
+            Vector row = new Vector();
+//       
+             row.add(false);
+               if(eElement.getElementsByTagName("CaseNo").item(0)==null){
+               row.add("");
+               }
+               else{
+                    row.add(eElement.getElementsByTagName("CaseNo").item(0).getTextContent());
+               }
+        if(eElement.getElementsByTagName("CrimeCaseNo").item(0)==null){
+               row.add("");
+               }
+               else{
+                    row.add(eElement.getElementsByTagName("CrimeCaseNo").item(0).getTextContent());
+               }
+            if(eElement.getElementsByTagName("CrimeCaseYear").item(0)==null){
+               row.add("");
+               }
+               else{
+                    row.add(eElement.getElementsByTagName("CrimeCaseYear").item(0).getTextContent());
+               }
+              if(eElement.getElementsByTagName("CaseRequestDate").item(0)==null){
+               row.add("");
+               }
+               else{
+                    row.add(NewDate(eElement.getElementsByTagName("CaseRequestDate").item(0).getTextContent()));
+               }
+               if(eElement.getElementsByTagName("DisplayCharge").item(0)==null){
+               row.add("");
+               }
+               else{
+                    row.add(eElement.getElementsByTagName("DisplayCharge").item(0).getTextContent());
+               }
+           
+             if(eElement.getElementsByTagName("DisplaySuspectName").item(0)==null){
+               row.add("");
+               }
+               else{
+                    row.add(eElement.getElementsByTagName("DisplaySuspectName").item(0).getTextContent());
+               }
+             if(eElement.getElementsByTagName("DisplayVictimsname").item(0)==null){
+               row.add("");
+               }
+               else{
+                    row.add(eElement.getElementsByTagName("DisplayVictimsname").item(0).getTextContent());
+               }
+                   if(eElement.getElementsByTagName("RecievePoliceOfficer").item(0)==null){
+               row.add("");
+               }
+               else{
+                    row.add(eElement.getElementsByTagName("RecievePoliceOfficer").item(0).getTextContent());
+               }
+                
+             tabledata.add(row);
+             
+//            System.out.println("First Name : " + eElement.getElementsByTagName("DisplaySuspectName").item(0).getTextContent());
+        }   
+           }
+              Vector ColumnName = new Vector();
+        ColumnName.add("เลือก");
+        ColumnName.add("คดีที่/ปี");
+        ColumnName.add("เลขคดี");
+        ColumnName.add("ปี");
+         ColumnName.add("วันที่รับคำร้องทุกข์");
+         ColumnName.add("ข้อหา");
+        ColumnName.add("ผู้ต้องหา");
+        ColumnName.add("ผู้กล่าวหา");
+         ColumnName.add("ผู้รับผิดชอบ");
+
+        
+
+
+           jTableCrime.setModel(new javax.swing.table.DefaultTableModel(
+            tabledata,
+            ColumnName
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Boolean.class, java.lang.String.class, java.lang.String.class, 
+                java.lang.String.class, java.lang.String.class, java.lang.String.class,
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+
+                } catch (Exception e) {
+                System.out.println(e);
+                }
+     
+                }
+
+    public static void insert_crime(JSONObject d){
+     try {
+             Connection conn=null;
+               conn=ConnectDatabase.connect();
+                String url = "http://172.31.191.163:8383/ws/CrimeCaseService_Wordgen_Import/";
+                URL obj = new URL(url);
+                HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+                con.setRequestMethod("POST");
+                con.setRequestProperty("Content-Type","application/soap+xml; charset=utf-8");
+                String xml = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:exam=\"http://www.example.com/\">\n" +
+               "   <soapenv:Header>\n" +
+               "      <exam:authentication>\n" +
+               "         <username>rtp</username>\n" +
+               "         <password>rtp</password>\n" +
+               "      </exam:authentication>\n" +
+               "   </soapenv:Header>\n" +
+               "   <soapenv:Body>\n" +
+               "      <exam:CrimesCaseDetail>\n" +
+               "         <INPUT>"+d+"</INPUT>\n" +
+               "      </exam:CrimesCaseDetail>\n" +
+               "   </soapenv:Body>\n" +
+               "</soapenv:Envelope>";
+                con.setDoOutput(true);
+                        DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+                wr.writeBytes(xml);
+                wr.flush();
+                wr.close();
+                String responseStatus = con.getResponseMessage();
+                System.out.println(responseStatus);
+                BufferedReader in = new BufferedReader(new InputStreamReader(
+                con.getInputStream(),"UTF-8"));
+                String inputLine;
+                StringBuffer response = new StringBuffer();
+                while ((inputLine = in.readLine()) != null) {
+                response.append(inputLine);
+                }
+                in.close();
+//                System.out.println("response:" + response.toString());
+                	// System.out.println(response.toString());
+        Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder()
+         .parse(new InputSource(new StringReader(response.toString())));
+	       NodeList errNodes = doc.getElementsByTagName("CrimeCase");       
+        if (errNodes.getLength() > 0) {
+            Element err = (Element)errNodes.item(0);
+            
+      String insertCrime="insert into CrimeCase(CaseId,CaseType,crimecaseno,crimecaseyears,crimecasenoyear,CaseAcceptDate,CaseAccepTime,"
+                       + "CaseRequestDate,CaseRequestTime,OccuredDate,OccuredTime,OccuredDateEnd,OccuredTimeEnd)"
+                       + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+      
+       try {
+                    
+                         PreparedStatement pst=null;
+                        
+                        pst=conn.prepareStatement(insertCrime);
+                        pst.setString(1, IdCase());
+                        pst.setString(2, "คดีอาญา");
+                        pst.setString(3, err.getElementsByTagName("CrimeCaseNo").item(0).getTextContent());
+                        pst.setString(4,  err.getElementsByTagName("CrimeCaseYear").item(0).getTextContent());
+                        pst.setString(5,  err.getElementsByTagName("CaseNo").item(0).getTextContent());
+                        pst.setString(6, NewDate( err.getElementsByTagName("CaseAcceptDate").item(0).getTextContent())); 
+                        pst.setString(7,  NewTime(err.getElementsByTagName("CaseAcceptDate").item(0).getTextContent())); 
+                        pst.setString(8,  NewDate( err.getElementsByTagName("CaseRequestDate").item(0).getTextContent())); 
+                        pst.setString(9,   NewTime(err.getElementsByTagName("CaseRequestDate").item(0).getTextContent())); 
+                        pst.setString(10,  NewDate( err.getElementsByTagName("OccuredDateTimeFrom").item(0).getTextContent())); 
+                        pst.setString(11,  NewTime(err.getElementsByTagName("OccuredDateTimeFrom").item(0).getTextContent())); 
+                        pst.setString(12,   NewDate( err.getElementsByTagName("OccuredDateTimeTo").item(0).getTextContent())); 
+                        pst.setString(13,  NewTime(err.getElementsByTagName("OccuredDateTimeTo").item(0).getTextContent())); 
+//                        pst.setString(6,  err.getElementsByTagName("Birthday").item(0).getTextContent()); 
+
+                     pst.execute();
+                     pst.close();   
+                     
+        } catch (SQLException e) {
+                System.out.println("ddddd: "+e);
+            
+        }
+	} else { 
+		     // success
+         }
+        
+        NodeList nodePer = doc.getElementsByTagName("Person");
+         for (int temp = 0; temp < nodePer.getLength(); temp++) {
+
+        Node nNode = nodePer.item(temp);
+
+        if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+
+            Element p = (Element) nNode;
+        String insertPerson="insert into Person(OrderPerson,PeopleRegistrationID,FullNamePerson,BirthDay,Gender,"
+                              + "Age,TypePerson,ArrestDateTime,CaseIdPerson)"
+                                + "VALUE (?,?,?,?,?,?,?,?,?)";  
+         try {
+                        int order=temp+1;
+                         PreparedStatement pst2=null;
+                        
+                        pst2=conn.prepareStatement(insertPerson);
+                        pst2.setString(1, order+"");
+                        pst2.setString(2,p.getElementsByTagName("PeopleRegistrationID").item(0).getTextContent());
+                        pst2.setString(3, p.getElementsByTagName("FullnameTH").item(0).getTextContent());
+                        pst2.setString(4,  NewDate(p.getElementsByTagName("Birthday").item(0).getTextContent()));
+                        pst2.setString(5, "");
+                        pst2.setString(6, p.getElementsByTagName("Age").item(0).getTextContent()); 
+                        pst2.setString(7,  ""); 
+                        pst2.setString(8,  ""); 
+                        pst2.setString(9,  IdCasePerson()); 
+
+                     pst2.execute();
+                     pst2.close();   
+                     
+        } catch (SQLException e) {
+                System.out.println("ddddd: "+e);
+            
+        }
+//         System.out.println("First Name : " +eElement.getElementsByTagName("PeopleRegistrationID").item(0).getTextContent());
+
+        }
+           }
+                
+     } catch (Exception e) {
+                System.out.println(e);
+                }
+     
+                }
+   public static String IdCase(){
+         Connection con=null;
+         
+         con=ConnectDatabase.connect();
+            String sqlId="Select max(CaseId) caseid from CrimeCase";
+        int id=0;
+        try {
+            Statement s=con.createStatement();
+            ResultSet rs=s.executeQuery(sqlId);
+            
+            if (rs.next()) {
+                id=rs.getInt("caseid"); 
+            }
+            
+            if(id==0){
+                id=1;
+            }
+            else{
+                id=id+1;
+            }
+             return String.valueOf(id);
+        
+        } catch (Exception e) {
+            return null;
+//            System.out.println(e);
+        } 
+    
+    }
+     public static String IdCasePerson(){
+         Connection con=null;
+         
+         con=ConnectDatabase.connect();
+            String sqlId="Select max(CaseId) caseid from CrimeCase";
+        int id=0;
+        try {
+            Statement s=con.createStatement();
+            ResultSet rs=s.executeQuery(sqlId);
+            
+            if (rs.next()) {
+                id=rs.getInt("caseid"); 
+            }
+            
+             return String.valueOf(id);
+        
+        } catch (Exception e) {
+            return null;
+//            System.out.println(e);
+        } 
+    
+    }
+   public static String NewDate(String dateold) throws Exception{
+         Locale lc = new Locale("th","TH");
+         SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+        SimpleDateFormat outputFormat = new SimpleDateFormat("d/MM/yyyy",lc);
+        Date date = inputFormat.parse(dateold);
+       
+        String formattedDate = outputFormat.format(date);
+              return   formattedDate;
+      }
+       public static String NewTime(String dateold) throws Exception{
+         Locale lc = new Locale("th","TH");
+         SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+        SimpleDateFormat outputFormat = new SimpleDateFormat("HH:mm",lc);
+        Date date = inputFormat.parse(dateold);
+       
+        String formattedDate = outputFormat.format(date);
+              return   formattedDate;
+      }
+           public static String NewTypePerson(String type){
+          String newType="";
+         if(type.equals("Victim")){  
+          newType="ผู้กล่าวหา";
+         }
+         if(type.equals("Suspect")){  
+          newType="ผู้ต้องหา";
+         }
+               return newType;
+      }
+      public static String NewGender(String gender){
+          String newGender="";
+         if(gender.equals("Male")){  
+          newGender="ชาย";
+         }
+          if(gender.equals("Female")){  
+          newGender="หญิง";
+         }
+               return newGender;
+      }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField casenocc;
     private javax.swing.JTextField caseyearscc;
+    private javax.swing.JLabel idcardlabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JLabel jLabel1;
@@ -743,6 +1150,7 @@ public class CaseSelectOverView extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelorgcode;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -761,5 +1169,7 @@ public class CaseSelectOverView extends javax.swing.JDialog {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField orgcodecc;
+    private javax.swing.JLabel orgname;
+    private javax.swing.JLabel usernamelabel;
     // End of variables declaration//GEN-END:variables
 }

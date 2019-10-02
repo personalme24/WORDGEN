@@ -24,10 +24,30 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" min="-2" pref="1280" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <Component id="jPanel1" min="-2" pref="1280" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-              <Component id="jTabbedPane1" min="-2" pref="1182" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="jTabbedPane1" min="-2" pref="1182" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="usernamelabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                      <Component id="idcardlabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <Component id="jLabelorgcode" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <Component id="orgname" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jButton5" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -35,9 +55,16 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Component id="jPanel1" min="-2" pref="69" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="usernamelabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="idcardlabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelorgcode" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton5" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="orgname" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Component id="jTabbedPane1" min="-2" pref="613" max="-2" attributes="0"/>
-              <EmptySpace pref="50" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -352,26 +379,11 @@
                       <Font name="TH SarabunPSK" size="22" style="0"/>
                     </Property>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="6" rowCount="4">
+                      <Table columnCount="6" rowCount="0">
                         <Column editable="true" title="&#xe40;&#xe25;&#xe37;&#xe2d;&#xe01;" type="java.lang.Boolean"/>
-                        <Column editable="true" title="&#xe40;&#xe25;&#xe02;&#xe04;&#xe14;&#xe35;" type="java.lang.Object">
-                          <Data value="1/2562"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                        </Column>
-                        <Column editable="true" title="&#xe27;&#xe31;&#xe19;&#xe17;&#xe35;&#xe48;&#xe23;&#xe31;&#xe1a;&#xe41;&#xe08;&#xe49;&#xe07;" type="java.lang.Object">
-                          <Data value="12/02/2562"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                        </Column>
-                        <Column editable="true" title="&#xe27;&#xe31;&#xe19;&#xe17;&#xe35;&#xe48;&#xe23;&#xe31;&#xe1a;&#xe04;&#xe33;&#xe23;&#xe49;&#xe2d;&#xe07;&#xe17;&#xe38;&#xe01;&#xe02;&#xe4c;" type="java.lang.Object">
-                          <Data value="12/02/2562"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                        </Column>
+                        <Column editable="true" title="&#xe40;&#xe25;&#xe02;&#xe04;&#xe14;&#xe35;" type="java.lang.Object"/>
+                        <Column editable="true" title="&#xe27;&#xe31;&#xe19;&#xe17;&#xe35;&#xe48;&#xe23;&#xe31;&#xe1a;&#xe41;&#xe08;&#xe49;&#xe07;" type="java.lang.Object"/>
+                        <Column editable="true" title="&#xe27;&#xe31;&#xe19;&#xe17;&#xe35;&#xe48;&#xe23;&#xe31;&#xe1a;&#xe04;&#xe33;&#xe23;&#xe49;&#xe2d;&#xe07;&#xe17;&#xe38;&#xe01;&#xe02;&#xe4c;" type="java.lang.Object"/>
                         <Column editable="true" title="&#xe02;&#xe49;&#xe2d;&#xe2b;&#xe32;" type="java.lang.Object"/>
                         <Column editable="true" title="&#xe0a;&#xe37;&#xe48;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe01;&#xe25;&#xe48;&#xe32;&#xe27;&#xe2b;&#xe32;" type="java.lang.Object"/>
                       </Table>
@@ -669,7 +681,7 @@
                       <Font name="TH SarabunPSK" size="22" style="0"/>
                     </Property>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="5" rowCount="3">
+                      <Table columnCount="5" rowCount="0">
                         <Column editable="true" title="&#xe40;&#xe25;&#xe02;&#xe04;&#xe14;&#xe35;" type="java.lang.Boolean"/>
                         <Column editable="true" title="&#xe27;&#xe31;&#xe19;&#xe17;&#xe35;&#xe48;&#xe23;&#xe31;&#xe1a;&#xe41;&#xe08;&#xe49;&#xe07;" type="java.lang.Object"/>
                         <Column editable="true" title="&#xe27;&#xe31;&#xe19;&#xe17;&#xe35;&#xe48;&#xe23;&#xe31;&#xe1a;&#xe04;&#xe33;&#xe23;&#xe49;&#xe2d;&#xe07;&#xe17;&#xe38;&#xe01;&#xe02;&#xe4c;" type="java.lang.Object"/>
@@ -726,5 +738,36 @@
         </Container>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JLabel" name="usernamelabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel12"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="idcardlabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel13"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelorgcode">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel12"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton5">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="TH SarabunPSK" size="22" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="&#xe40;&#xe0a;&#xe37;&#xe48;&#xe2d;&#xe21;&#xe15;&#xe48;&#xe2d;&#xe02;&#xe49;&#xe2d;&#xe21;&#xe39;&#xe25;"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="orgname">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel12"/>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>

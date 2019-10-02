@@ -122,6 +122,8 @@ public class TrafficOverView extends javax.swing.JDialog {
         jLabel10 = new javax.swing.JLabel();
         jButtonSearch = new javax.swing.JButton();
         jButtonClearSearch = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        InvestResult = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -434,6 +436,17 @@ public class TrafficOverView extends javax.swing.JDialog {
             }
         });
 
+        jLabel11.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel11.setText("สถานะคดี");
+
+        InvestResult.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        InvestResult.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "อยู่ระหว่างสอบสวน", "จำหน่าย" }));
+        InvestResult.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                InvestResultItemStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -453,7 +466,11 @@ public class TrafficOverView extends javax.swing.JDialog {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jButtonSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonClearSearch)))
+                        .addComponent(jButtonClearSearch)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(InvestResult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(75, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -463,7 +480,9 @@ public class TrafficOverView extends javax.swing.JDialog {
                 .addGap(17, 17, 17)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonSearch)
-                    .addComponent(jButtonClearSearch))
+                    .addComponent(jButtonClearSearch)
+                    .addComponent(jLabel11)
+                    .addComponent(InvestResult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52)
@@ -655,6 +674,11 @@ public class TrafficOverView extends javax.swing.JDialog {
         jPanelSearch.setVisible(false);
     }//GEN-LAST:event_jLabel10MouseClicked
 
+    private void InvestResultItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_InvestResultItemStateChanged
+        // TODO add your handling code here:
+        RefreshData();
+    }//GEN-LAST:event_InvestResultItemStateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -706,13 +730,21 @@ public class TrafficOverView extends javax.swing.JDialog {
     
     public void RefreshData(){
         try{
-         
+           String investRes="";
+             if(InvestResult.getSelectedItem().equals("อยู่ระหว่างสอบสวน")){
+
+                    investRes="crimecase.Investigator_Result='อยู่ระหว่างสอบสวน' ";
+              }
+           else if(InvestResult.getSelectedItem().equals("จำหน่าย")){
+
+                    investRes="crimecase.Investigator_Result IN ('งดการสอบสวน','สั่งฟ้อง','ไม่สั่งฟ้อง') ";
+              }
         Connection con = ConnectDatabase.connect();
         Statement stmt = con.createStatement();
           String sql = "select crimecase.*,chargecase.ChargeCodeCase ChargeCase,chargecase.ChargeNameCase ChargeNameCase from crimecase "
                 + "left join chargecase on crimecase.CaseId=chargecase.ChargeCaseId "
                 +"left join Person on Person.CaseIdPerson=crimecase.CaseId"
-                + " where CaseType='คดีจราจร'"+getFilterCondition()+" group by crimecase.CaseId";
+                + " where CaseType='คดีจราจร' and "+investRes+getFilterCondition()+" group by crimecase.CaseId";
 
 //                + "left join Person on Person.caseIdPerson = CrimeCase.CaseId "+getFilterCondition();
 
@@ -805,6 +837,7 @@ jTable1.getColumnModel().getColumn(0).setMaxWidth(0);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> InvestResult;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonAdd;
     private javax.swing.JButton jButtonClearSearch;
@@ -813,6 +846,7 @@ jTable1.getColumnModel().getColumn(0).setMaxWidth(0);
     private javax.swing.JButton jButtonSearch;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

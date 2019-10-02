@@ -200,6 +200,8 @@ public class CrimeBookOverview extends javax.swing.JDialog {
             row.add(rs.getString("ChargeNameCase"));
             row.add(rs.getString("ActionCrimesCase"));
             row.add(rs.getString("Investigator_Result"));
+            row.add(rs.getString("Prosecutor_Result"));
+            row.add(rs.getString("CourtResult"));
           
            
 //            row.add(rs.getString("Investigator_Result"));
@@ -231,6 +233,7 @@ public class CrimeBookOverview extends javax.swing.JDialog {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class,
                 java.lang.String.class, java.lang.String.class, java.lang.String.class,
                 java.lang.String.class, java.lang.String.class, java.lang.String.class,
+                java.lang.String.class, java.lang.String.class, java.lang.String.class,
                 java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
@@ -255,6 +258,8 @@ public class CrimeBookOverview extends javax.swing.JDialog {
         jTable1.getColumnModel().getColumn(8).setMinWidth(180); 
         jTable1.getColumnModel().getColumn(9).setMinWidth(180);
         jTable1.getColumnModel().getColumn(10).setMinWidth(140);
+         jTable1.getColumnModel().getColumn(11).setMinWidth(140);
+          jTable1.getColumnModel().getColumn(12).setMinWidth(140);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

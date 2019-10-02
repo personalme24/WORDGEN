@@ -6,6 +6,7 @@
 package com.songkhla.wordgen;
 
 import static com.songkhla.wordgen.SueCrimesOverview.ChangFormat;
+import java.awt.Component;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,7 +14,22 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Vector;
 import javax.swing.JButton;
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
+import javax.swing.DefaultCellEditor;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.UIManager;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
 /**
  *
  * @author Computer
@@ -27,6 +43,7 @@ public class SuspectBookOverview extends javax.swing.JDialog {
     public SuspectBookOverview() {
         initComponents();
         RefreshData();
+        
     }
 
     /**
@@ -51,7 +68,7 @@ public class SuspectBookOverview extends javax.swing.JDialog {
 
         jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("สมุดคุมคดีอาญา");
+        jLabel1.setText("สมุดคุมคดีผู้ต้องหา");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -165,29 +182,34 @@ public class SuspectBookOverview extends javax.swing.JDialog {
     public  void RefreshData(){
     try{
         JButton b1=new JButton();
-        JButton b2=new JButton();
+//        JButton b2=new JButton();
 
      Connection con = ConnectDatabase.connect();
         Statement stmt = con.createStatement();
 //        String a=txtCaseNO.getText();
         String sql;
                 sql=    "select CaseId,crimecasenoyear,CaseType,StatusSuspect,CaseIdPerson,SueFirstDate,SueSecDate,CourtSuspect,"
-                        + "SueThirdDate,SueFourthDate,SueFifthDate,SueSixthDate,SueSevenDate,"
+                        + "SueThirdDate,SueFourthDate,SueFifthDate,SueSixthDate,SueSevenDate,StatusBail,"
                         + "FullNamePerson,SueFirstEnd,SueSecEnd,SueThirdEnd,SueFourthEnd,SueFifthEnd,SueSixthEnd,SueSevenEnd\n"
                         + "from Person\n"+
                         "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId ";
                    ResultSet rs = stmt.executeQuery(sql);
           System.out.println("SQL : "+sql);
         Vector tabledata = new Vector();
+        String bail="";
         while(rs.next()){
-          
+          bail=rs.getString("StatusBail");
             Vector<Object> row = new Vector<>();
             row.add(rs.getString("CaseId"));
              row.add(rs.getString("CaseType"));
             row.add(rs.getString("crimecasenoyear"));
             row.add(rs.getString("FullNamePerson"));
-            row.add(rs.getString("CourtSuspect"));            
-            row.add(jButton1);
+            row.add(rs.getString("CourtSuspect"));  
+            if(rs.getString("StatusBail").equals("ประกัน")){
+            row.add("ประกัน");}
+            else{
+            row.add("");
+            }
             tabledata.add(row);
         }
         rs.close();
@@ -216,7 +238,7 @@ public class SuspectBookOverview extends javax.swing.JDialog {
         ) {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, 
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, 
+                java.lang.String.class, java.lang.String.class, java.lang.Object.class, 
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, 
                 java.lang.String.class, java.lang.String.class, java.lang.String.class,
                 java.lang.String.class
@@ -226,11 +248,15 @@ public class SuspectBookOverview extends javax.swing.JDialog {
                 return types [columnIndex];
             }
         });
-    }
+            if(bail.equals("ประกัน")){
+         jTableSuspectBook.getColumn("จัดการ").setCellRenderer(new ButtonRenderer());
+        jTableSuspectBook.getColumn("จัดการ").setCellEditor(new ButtonEditor(new JCheckBox()));}
+                 }
     catch(Exception ex){
     
     }
     }
+ 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -241,3 +267,57 @@ public class SuspectBookOverview extends javax.swing.JDialog {
     private javax.swing.JTable jTableSuspectBook;
     // End of variables declaration//GEN-END:variables
 }
+   class ButtonEditor extends DefaultCellEditor {
+  protected JButton button;
+
+  private String label;
+
+  private boolean isPushed;
+
+  public ButtonEditor(JCheckBox checkBox) {
+    super(checkBox);
+    button = new JButton();
+    button.setOpaque(true);
+    button.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        fireEditingStopped();
+      }
+    });
+  }
+
+  public Component getTableCellEditorComponent(JTable table, Object value,
+      boolean isSelected, int row, int column) {
+    if (isSelected) {
+      button.setForeground(table.getSelectionForeground());
+      button.setBackground(table.getSelectionBackground());
+    } else {
+      button.setForeground(table.getForeground());
+      button.setBackground(table.getBackground());
+    }
+    label = (value == null) ? "" : value.toString();
+    button.setText(label);
+    isPushed = true;
+    return button;
+  }
+
+  public Object getCellEditorValue() {
+    if (isPushed) {
+      // 
+      // 
+      BailCrimesAdd cc=new BailCrimesAdd(null,null);
+      cc.setVisible(true);
+      // System.out.println(label + ": Ouch!");
+    }
+    isPushed = false;
+    return new String(label);
+  }
+
+  public boolean stopCellEditing() {
+    isPushed = false;
+    return super.stopCellEditing();
+  }
+
+  protected void fireEditingStopped() {
+    super.fireEditingStopped();
+  }
+   }

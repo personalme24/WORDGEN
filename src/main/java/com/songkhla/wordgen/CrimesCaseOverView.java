@@ -733,7 +733,7 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
             String investRes="";
              if(InvestResult.getSelectedItem().equals("อยู่ระหว่างสอบสวน")){
 
-                    investRes="crimecase.Investigator_Result='อยู่ระหว่างสอบสวน' ";
+                    investRes="(crimecase.Investigator_Result ='อยู่ระหว่างสอบสวน' or crimecase.Investigator_Result is null) ";
               }
            else if(InvestResult.getSelectedItem().equals("จำหน่าย")){
 
@@ -762,13 +762,21 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
             row.add(rs.getString("CaseAcceptDate"));
             row.add(rs.getString("CaseRequestDate"));
             String invest=rs.getString("Investigator_Result");
+            System.out.println("wwww:"+rs.getString("Investigator_Result"));
+
+             if(invest==null  || invest.equals("null")){
+                
+             row.add("");
+            }
+            
+            else { 
             if(invest.equals("อยู่ระหว่างสอบสวน")){
                 
              row.add(rs.getString("Investigator_Result"));
             }
-            else{ 
+            else{
                 invest="จำหน่าย"; 
-             row.add(invest);
+             row.add(invest);}
             }
            
 //            row.add(rs.getString("Investigator_Result"));
@@ -846,7 +854,10 @@ jTable1.getColumnModel().getColumn(0).setMaxWidth(0);
         
         return result;
     }
-
+  public static String Checknull(Object input){
+					if(input==null||input==""||input=="null") { return ""; }
+					return input+"";
+					}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> InvestResult;
     private javax.swing.JButton jButton2;

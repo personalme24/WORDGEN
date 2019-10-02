@@ -183,7 +183,7 @@ import org.json.simple.JSONObject;
  */
 public class CrimesCaseEdit extends javax.swing.JDialog {
     Connection con=null;
-    PreparedStatement pst=null;;
+    PreparedStatement pst=null;
     boolean isInsert;
        String Province_name;
     String caseid,caseidLast,province;
@@ -332,19 +332,19 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 //          ID.setText(datain.get("CaseId")+"");
             crimecaseno.setText(datain.get("crimecaseno")+"");
             crimecaseyear.setText(datain.get("crimecaseyears")+"");
-            jLabelChargeCode.setText(datain.get("ChargeCodeCase")+"");
+            jLabelChargeCode.setText(Checknull(datain.get("ChargeCodeCase"))+"");
             String cn=datain.get("ChargeNameCase")+"";
             if(cn.equals("null")){
             ChargeNameCase.setText("");
             }
             else{
-            ChargeNameCase.setText(datain.get("ChargeNameCase")+"");}
+            ChargeNameCase.setText(Checknull(datain.get("ChargeNameCase"))+"");}
 //            CaseRequestDateTime.setText(datain.get("CaseRequestDate")+"");
-            jTextAccused.setText(datain.get("AccureandOther")+"");
-            CourtType.setSelectedItem(datain.get("TypeCourt"));
-            CrimeLocation.setText(datain.get("CrimeLocation")+"");
-            CrimeLocationDistrict.setSelectedItem(datain.get("CrimeLocationDistrict")+"");
-            CrimeLocationAmphur.setSelectedItem(datain.get("CrimeLocationAmphur")+"");
+            jTextAccused.setText(Checknull(datain.get("AccureandOther"))+"");
+            CourtType.setSelectedItem(Checknull(datain.get("TypeCourt")));
+            CrimeLocation.setText(Checknull(datain.get("CrimeLocation"))+"");
+            CrimeLocationDistrict.setSelectedItem(Checknull(datain.get("CrimeLocationDistrict"))+"");
+            CrimeLocationAmphur.setSelectedItem(Checknull(datain.get("CrimeLocationAmphur"))+"");
             CrimeLocationProvince.setSelectedItem(datain.get("CrimeLocationProvince")+"");
             CrimeLocationMoo.setText(datain.get("CrimeLocationMoo")+"");
             CrimeLocationRoad.setText(datain.get("CrimeLocationRoad")+"");
@@ -3992,6 +3992,10 @@ if(OccuredDate.getJFormattedTextField().getText().equals("23/8/2562")){
 //                      OccuredDate.getJFormattedTextField().setText(""); }
 //      }   
    }
+      public static String Checknull(Object input){
+					if(input==null||input==""||input=="null") { return ""; }
+					return input+"";
+					}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JTextField ActionCrimes;
     private javax.swing.JTextArea CapitalCrimeCaseNumber;

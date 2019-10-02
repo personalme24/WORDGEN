@@ -9,8 +9,11 @@ package com.songkhla.wordgen;
  *
  * @author Computer
  */
+import static com.songkhla.wordgen.CaseSelectOverView.NewDate;
+import static com.songkhla.wordgen.CaseSelectOverView.NewTime;
 import java.util.Arrays;
 import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -19,9 +22,18 @@ import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL; 
 import java.net.URLEncoder;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -30,6 +42,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import java.util.Date;
+
 import org.xml.sax.InputSource;
 //import org.json.simple.JSONObject;
 //import org.json.JSONObject;
@@ -40,7 +54,7 @@ public class Send_HTTP_Request2 {
 //           String url=  "http://172.31.191.163:8383/wordgenauthen/?USER=TNCTUK&PASS=12345678";
 //                  String fff =sendGET(url);
 //                  System.out.println(sendGET(url));
-                  call_me2();
+                 test();
         } catch (Exception e) {
          e.printStackTrace();
        }
@@ -115,7 +129,7 @@ private static String sendGET(String GET_URL) throws IOException {
 		}
                 
 	}
- public static void call_me2() throws Exception {
+ public static void call_me22() throws Exception {
      URL url = new URL ("http://172.31.191.163:8383/ws/CrimeCaseService_Wordgen/");
      HttpURLConnection con = (HttpURLConnection)url.openConnection();
      con.setRequestMethod("POST");
@@ -186,4 +200,502 @@ public static List<String> getFullNameFromXml(String response, String tagName) t
     }
     return ids;
 }
+public static void call_me2(){
+     try {
+                String url = "http://172.31.191.163:8383/ws/CrimeCaseService_Wordgen_Import/";
+                URL obj = new URL(url);
+                HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+                con.setRequestMethod("POST");
+                con.setRequestProperty("Content-Type","application/soap+xml; charset=utf-8");
+
+                String xml = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:exam=\"http://www.example.com/\">\n" +
+                            "   <soapenv:Header>\n" +
+                            "      <exam:authentication>\n" +
+                            "         <username>rtp</username>\n" +
+                            "         <password>rtp</password>\n" +
+                            "      </exam:authentication>\n" +
+                            "   </soapenv:Header>\n" +
+                            "   <soapenv:Body>\n" +
+                            "      <exam:CrimesCaseDetail>\n" +
+                            "         <INPUT>{CrimeCaseNo:\"100\",CrimeCaseYear:\"2562\",ORG_CODE:\"70317\",Usename:\"12TE06\",Idcard:\"3550900100443\",OrgName:\"สภ.จอหอ\"}</INPUT>\n" +
+                            "      </exam:CrimesCaseDetail>\n" +
+                            "   </soapenv:Body>\n" +
+                            "</soapenv:Envelope>";
+                System.out.println(xml);
+                con.setDoOutput(true);
+                        DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+                wr.writeBytes(xml);
+                wr.flush();
+                wr.close();
+                String responseStatus = con.getResponseMessage();
+                System.out.println(responseStatus);
+                BufferedReader in = new BufferedReader(new InputStreamReader(
+                con.getInputStream(),"UTF-8"));
+                String inputLine;
+                StringBuffer response = new StringBuffer();
+                while ((inputLine = in.readLine()) != null) {
+                response.append(inputLine);
+                }
+                in.close();
+//                System.out.println("response:" + response.toString());
+                	// System.out.println(response.toString());
+        Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder()
+         .parse(new InputSource(new StringReader(response.toString())));
+	       NodeList errNodes = doc.getElementsByTagName("Person");        
+ for (int temp = 0; temp < errNodes.getLength(); temp++) {
+
+        Node nNode = errNodes.item(temp);
+        
+           
+        System.out.println("\nCurrent Element :" + nNode.getNodeName());
+
+        if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+
+            Element eElement = (Element) nNode; 
+//            String insertCrime="insert into CrimeCase(CaseId,CaseType,crimecaseno,crimecaseyears,crimecasenoyear,CaseAcceptDate,CaseAccepTime,"
+//                              + "CaseRequestDate,CaseRequestTime,OccuredDate,OccuredTime,OccuredDateEnd,OccuredTimeEnd)";
+//            String insertPerson="insert into Person(OrderPerson,PeopleRegistrationID,FullNamePerson,BirthDay,Gender,"
+//                              + "Age,TypePerson,ArrestDateTime)";            
+//              String insertCharge="insert into CrimeCase(CaseId,CaseType,crimecaseno,crimecaseyears,crimecasenoyear,CaseAcceptDate,CaseAccepTime,"
+//                              + "CaseRequestDate,CaseRequestTime,OccuredDate,OccuredTime,OccuredDateEnd,OccuredTimeEnd)";
+//              String insertAction="insert into CrimeCase(CaseId,CaseType,crimecaseno,crimecaseyears,crimecasenoyear,CaseAcceptDate,CaseAccepTime,"
+//                              + "CaseRequestDate,CaseRequestTime,OccuredDate,OccuredTime,OccuredDateEnd,OccuredTimeEnd)";
+            System.out.println("Birthday : " + eElement.getElementsByTagName("Birthday").item(0).getTextContent());
+
+        }
+           }
+
+
+                } catch (Exception e) {
+                System.out.println(e);
+                }
+     
+                }
+ public static void test(){
+     try {
+        
+                String url = "http://172.31.191.163:8383/ws/CrimeCaseService_Wordgen_Import/";
+                URL obj = new URL(url);
+                HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+                con.setRequestMethod("POST");
+                con.setRequestProperty("Content-Type","application/soap+xml; charset=utf-8");
+                String xml = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:exam=\"http://www.example.com/\">\n" +
+                        "   <soapenv:Header>\n" +
+                        "      <exam:authentication>\n" +
+                        "         <username>rtp</username>\n" +
+                        "         <password>rtp</password>\n" +
+                        "      </exam:authentication>\n" +
+                        "   </soapenv:Header>\n" +
+                        "   <soapenv:Body>\n" +
+                        "      <exam:CrimesCaseDetail>\n" +
+                        "         <INPUT>{CrimeCaseNo:\"100\",CrimeCaseYear:\"2562\",ORG_CODE:\"70317\",Usename:\"12TE06\",Idcard:\"3550900100443\",OrgName:\"??.????\"}</INPUT>\n" +
+                        "      </exam:CrimesCaseDetail>\n" +
+                        "   </soapenv:Body>\n" +
+                        "</soapenv:Envelope>";
+                con.setDoOutput(true);
+                        DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+                wr.writeBytes(xml);
+                wr.flush();
+                wr.close();
+                String responseStatus = con.getResponseMessage();
+                System.out.println(responseStatus);
+                BufferedReader in = new BufferedReader(new InputStreamReader(
+                con.getInputStream(),"UTF-8"));
+                String inputLine;
+                StringBuffer response = new StringBuffer();
+                while ((inputLine = in.readLine()) != null) {
+                response.append(inputLine);
+                }
+                in.close();
+//                System.out.println("response:" + response.toString());
+                	// System.out.println(response.toString());
+        Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder()
+         .parse(new InputSource(new StringReader(response.toString())));
+	       NodeList errNodes = doc.getElementsByTagName("Person");
+               	       NodeList errNodes2 = doc.getElementsByTagName("CrimeCase");
+                        Connection conn=null;
+               conn=ConnectDatabase.connect();
+                       if (errNodes2.getLength() > 0) {
+            Element err = (Element)errNodes2.item(0);
+         String insertCrime="insert into CrimeCase(CaseId,CaseType,crimecaseno,crimecaseyears,crimecasenoyear,CaseAcceptDate,CaseAccepTime,"
+                       + "CaseRequestDate,CaseRequestTime,OccuredDate,OccuredTime,OccuredDateEnd,OccuredTimeEnd)\n"
+                       + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+      
+       try {
+                    
+                         PreparedStatement pst=null;
+                        
+                        pst=conn.prepareStatement(insertCrime);
+                        pst.setString(1, IdCase());
+                        pst.setString(2, "คดีอาญา");
+                        pst.setString(3, err.getElementsByTagName("CrimeCaseNo").item(0).getTextContent());
+                        pst.setString(4,  err.getElementsByTagName("CrimeCaseYear").item(0).getTextContent());
+                        pst.setString(5,  err.getElementsByTagName("CaseNo").item(0).getTextContent());
+                        pst.setString(6, NewDate( err.getElementsByTagName("CaseAcceptDate").item(0).getTextContent())); 
+                        pst.setString(7,  NewTime(err.getElementsByTagName("CaseAcceptDate").item(0).getTextContent())); 
+                        pst.setString(8,  NewDate( err.getElementsByTagName("CaseRequestDate").item(0).getTextContent())); 
+                        pst.setString(9,   NewTime(err.getElementsByTagName("CaseRequestDate").item(0).getTextContent())); 
+                        pst.setString(10,  NewDate( err.getElementsByTagName("OccuredDateTimeFrom").item(0).getTextContent())); 
+                        pst.setString(11,  NewTime(err.getElementsByTagName("OccuredDateTimeFrom").item(0).getTextContent())); 
+                        pst.setString(12,   NewDate( err.getElementsByTagName("OccuredDateTimeTo").item(0).getTextContent())); 
+                        pst.setString(13,  NewTime(err.getElementsByTagName("OccuredDateTimeTo").item(0).getTextContent())); 
+//                        pst.setString(6,  err.getElementsByTagName("Birthday").item(0).getTextContent()); 
+
+                     pst.execute();
+                     pst.close();   
+                       System.out.println("success");
+        } catch (SQLException e) {
+                System.out.println("ddddd: "+e);
+            
+        }
+	} else { 
+		     // success
+         }
+           for (int temp = 0; temp < errNodes.getLength(); temp++) {
+
+        Node nNode = errNodes.item(temp);
+
+        
+
+        if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+
+            Element p = (Element) nNode; 
+
+//    System.out.println("First Name : " +eElement.getElementsByTagName("PeopleRegistrationID").item(0).getTextContent());
+ String insertPerson="insert into Person(OrderPerson,PeopleRegistrationID,FullNamePerson,BirthDay,Gender,"
+                              + "Age,TypePerson,ArrestDateTime,CaseIdPerson)\n"
+                                + "VALUES (?,?,?,?,?,?,?,?,?)";  
+         try {
+                        int order=temp+1;
+                         PreparedStatement pst2=null;
+                        
+                        pst2=conn.prepareStatement(insertPerson);
+                        pst2.setString(1, order+"");
+                        pst2.setString(2,p.getElementsByTagName("PeopleRegistrationID").item(0).getTextContent());
+                        pst2.setString(3, p.getElementsByTagName("FullnameTH").item(0).getTextContent());
+                        pst2.setString(4,  NewDate(p.getElementsByTagName("Birthday").item(0).getTextContent()));
+                        pst2.setString(5, "");
+                        pst2.setString(6, p.getElementsByTagName("Age").item(0).getTextContent()); 
+                        pst2.setString(7,  ""); 
+                        pst2.setString(8,  ""); 
+                        pst2.setString(9,  IdCasePerson()); 
+
+                     pst2.execute();
+                     pst2.close();   
+                      System.out.println("success Person");
+        } catch (SQLException e) {
+                System.out.println("ddddd: "+e);
+            
+        }
+
+        }
+           }
+
+                } catch (Exception e) {
+                System.out.println(e);
+                }
+     
+                }
+public static void call_crime(){
+     try {
+                String url = "http://172.31.191.163:8383/ws/CrimeCaseService_Wordgen/";
+                URL obj = new URL(url);
+                HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+                con.setRequestMethod("POST");
+                con.setRequestProperty("Content-Type","application/soap+xml; charset=utf-8");
+
+                String xml = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:exam=\"http://www.example.com/\">\n" +
+                    "   <soapenv:Header>\n" +
+                    "      <exam:authentication>\n" +
+                    "         <username>rtp</username>\n" +
+                    "         <password>rtp</password>\n" +
+                    "      </exam:authentication>\n" +
+                    "   </soapenv:Header>\n" +
+                    "   <soapenv:Body>\n" +
+                    "      <exam:CrimesCaseDetail>\n" +
+                    "         <INPUT>{CrimeCaseNo:\"100\",CrimeCaseYear:\"2562\",ORG_CODE:\"70317\",Usename:\"12TE06\",Idcard:\"3550900100443\",OrgName:\"สภ.จอหอ\"}</INPUT>\n" +
+                    "      </exam:CrimesCaseDetail>\n" +
+                    "   </soapenv:Body>\n" +
+                    "</soapenv:Envelope>";
+                con.setDoOutput(true);
+                        DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+                wr.writeBytes(xml);
+                wr.flush();
+                wr.close();
+                String responseStatus = con.getResponseMessage();
+                System.out.println(responseStatus);
+                BufferedReader in = new BufferedReader(new InputStreamReader(
+                con.getInputStream(),"UTF-8"));
+                String inputLine;
+                StringBuffer response = new StringBuffer();
+                while ((inputLine = in.readLine()) != null) {
+                response.append(inputLine);
+                }
+                in.close();
+//                System.out.println("response:" + response.toString());
+                	// System.out.println(response.toString());
+        Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder()
+         .parse(new InputSource(new StringReader(response.toString())));
+	       NodeList errNodes = doc.getElementsByTagName("Person");
+           for (int temp = 0; temp < errNodes.getLength(); temp++) {
+
+        Node nNode = errNodes.item(temp);
+
+        
+
+        if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+
+            Element eElement = (Element) nNode; 
+//          if(eElement.getElementsByTagName("DisplaySuspectName")==null){
+//          
+//          
+//          }
+if(eElement.getElementsByTagName("DisplaySuspectName").item(0)==null){
+ System.out.println("First Name : " +eElement.getElementsByTagName("DisplaySuspectName").item(0));
+}
+else{
+    System.out.println("First Name : " +eElement.getElementsByTagName("DisplaySuspectName").item(0).getTextContent());
+}
+//            System.out.println("First Name : " +eElement.getElementsByTagName("DisplaySuspectName").item(0).getTextContent());
+//            System.out.println("Last Name : " + eElement.getElementsByTagName("lastname").item(0).getTextContent());
+//            System.out.println("Nick Name : " + eElement.getElementsByTagName("nickname").item(0).getTextContent());
+//            System.out.println("Salary : " + eElement.getElementsByTagName("salary").item(0).getTextContent());
+        }
+           }
+//        if (errNodes.getLength() > 0) {
+//            Element err = (Element)errNodes.item(0);
+//          System.out.println("raw_offset -"+err.getElementsByTagName("CrimeLocationRoad").item(0).getTextContent());
+////	  System.out.println("dst_offset -"+err.getElementsByTagName("dst_offset").item(0).getTextContent());
+////          System.out.println("time_zone_id -"+err.getElementsByTagName("time_zone_id").item(0).getTextContent());
+////          System.out.println("time_zone_name -"+err.getElementsByTagName("time_zone_name").item(0).getTextContent());
+//	} else { 
+//		     // success
+//         }
+//        NodeList errNodes2 = doc.getElementsByTagName("Person");
+//        if (errNodes2.getLength() > 0) {
+//            Element err = (Element)errNodes.item(0);
+//          System.out.println("Person -"+err.getElementsByTagName("Birthday").item(0).getTextContent());
+////	  System.out.println("dst_offset -"+err.getElementsByTagName("dst_offset").item(0).getTextContent());
+////          System.out.println("time_zone_id -"+err.getElementsByTagName("time_zone_id").item(0).getTextContent());
+////          System.out.println("time_zone_name -"+err.getElementsByTagName("time_zone_name").item(0).getTextContent());
+//        Element err2 = (Element)errNodes.item(1);
+//        System.out.println("Person -"+err2.getElementsByTagName("Birthday").item(1).getTextContent());
+//	} 
+                } catch (Exception e) {
+                System.out.println(e);
+                }
+     
+                }
+     public static String NewDate(String dateold) throws Exception{
+         Locale lc = new Locale("th","TH");
+         SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+        SimpleDateFormat outputFormat = new SimpleDateFormat("d/MM/yyyy",lc);
+        Date date = inputFormat.parse(dateold);
+       
+        String formattedDate = outputFormat.format(date);
+              return   formattedDate;
+      }
+        public static String NewTime(String dateold) throws Exception{
+         Locale lc = new Locale("th","TH");
+         SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+        SimpleDateFormat outputFormat = new SimpleDateFormat("HH:mm",lc);
+        Date date = inputFormat.parse(dateold);
+       
+        String formattedDate = outputFormat.format(date);
+              return   formattedDate;
+      }
+      public static String NewTypePerson(String type){
+          String newType="";
+         if(type.equals("Victim")){  
+          newType="ผู้กล่าวหา";
+         }
+         if(type.equals("Suspect")){  
+          newType="ผู้ต้องหา";
+         }
+               return newType;
+      }
+      public static String NewGender(String gender){
+          String newGender="";
+         if(gender.equals("Male")){  
+          newGender="ชาย";
+         }
+          if(gender.equals("Female")){  
+          newGender="หญิง";
+         }
+               return newGender;
+      }
+    
+     public static void insert_crime(){
+     try {
+             Connection conn=null;
+               conn=ConnectDatabase.connect();
+                String url = "http://172.31.191.163:8383/ws/CrimeCaseService_Wordgen_Import/";
+                URL obj = new URL(url);
+                HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+                con.setRequestMethod("POST");
+                con.setRequestProperty("Content-Type","application/soap+xml; charset=utf-8");
+                String xml = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:exam=\"http://www.example.com/\">\n" +
+               "   <soapenv:Header>\n" +
+               "      <exam:authentication>\n" +
+               "         <username>rtp</username>\n" +
+               "         <password>rtp</password>\n" +
+               "      </exam:authentication>\n" +
+               "   </soapenv:Header>\n" +
+               "   <soapenv:Body>\n" +
+               "      <exam:CrimesCaseDetail>\n" +
+               "         <INPUT>{CrimeCaseNo:\"100\",CrimeCaseYear:\"2562\",ORG_CODE:\"70317\",Usename:\"12TE06\",Idcard:\"3550900100443\",OrgName:\"สภ.จอหอ\"}</INPUT>\n" +
+               "      </exam:CrimesCaseDetail>\n" +
+               "   </soapenv:Body>\n" +
+               "</soapenv:Envelope>";
+                con.setDoOutput(true);
+                        DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+                wr.writeBytes(xml);
+                wr.flush();
+                wr.close();
+                String responseStatus = con.getResponseMessage();
+                System.out.println(responseStatus);
+                BufferedReader in = new BufferedReader(new InputStreamReader(
+                con.getInputStream(),"UTF-8"));
+                String inputLine;
+                StringBuffer response = new StringBuffer();
+                while ((inputLine = in.readLine()) != null) {
+                response.append(inputLine);
+                }
+                in.close();
+//                System.out.println("response:" + response.toString());
+                	// System.out.println(response.toString());
+        Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder()
+         .parse(new InputSource(new StringReader(response.toString())));
+	       NodeList errNodes = doc.getElementsByTagName("CrimeCase");       
+        if (errNodes.getLength() > 0) {
+            Element err = (Element)errNodes.item(0);
+                     System.out.println("CaseAcceptDate: " +err.getElementsByTagName("CaseAcceptDate").item(0).getTextContent());
+//      String insertCrime="insert into CrimeCase(CaseId,CaseType,crimecaseno,crimecaseyears,crimecasenoyear,CaseAcceptDate,CaseAccepTime,"
+//                       + "CaseRequestDate,CaseRequestTime,OccuredDate,OccuredTime,OccuredDateEnd,OccuredTimeEnd)"
+//                       + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+//      
+//       try {
+//                    
+//                         PreparedStatement pst=null;
+//                        
+//                        pst=conn.prepareStatement(insertCrime);
+//                        pst.setString(1, IdCase());
+//                        pst.setString(2, "คดีอาญา");
+//                        pst.setString(3, err.getElementsByTagName("CrimeCaseNo").item(0).getTextContent());
+//                        pst.setString(4,  err.getElementsByTagName("CrimeCaseYear").item(0).getTextContent());
+//                        pst.setString(5,  err.getElementsByTagName("CaseNo").item(0).getTextContent());
+//                        pst.setString(6, NewDate( err.getElementsByTagName("CaseAcceptDate").item(0).getTextContent())); 
+//                        pst.setString(7,  NewTime(err.getElementsByTagName("CaseAcceptDate").item(0).getTextContent())); 
+//                        pst.setString(8,  NewDate( err.getElementsByTagName("CaseRequestDate").item(0).getTextContent())); 
+//                        pst.setString(9,   NewTime(err.getElementsByTagName("CaseRequestDate").item(0).getTextContent())); 
+//                        pst.setString(10,  NewDate( err.getElementsByTagName("OccuredDateTimeFrom").item(0).getTextContent())); 
+//                        pst.setString(11,  NewTime(err.getElementsByTagName("OccuredDateTimeFrom").item(0).getTextContent())); 
+//                        pst.setString(12,   NewDate( err.getElementsByTagName("OccuredDateTimeTo").item(0).getTextContent())); 
+//                        pst.setString(13,  NewTime(err.getElementsByTagName("OccuredDateTimeTo").item(0).getTextContent())); 
+////                        pst.setString(6,  err.getElementsByTagName("Birthday").item(0).getTextContent()); 
+//
+//                     pst.execute();
+//                     pst.close();   
+//                         System.out.println("insertCrime");
+//        } catch (SQLException e) {
+//                System.out.println("ddddd: "+e);
+//            
+//        }
+	} else { 
+		     // success
+         }
+        
+//        NodeList nodePer = doc.getElementsByTagName("Person");
+//         for (int temp = 0; temp < nodePer.getLength(); temp++) {
+//
+//        Node nNode = nodePer.item(temp);
+//
+//        if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+//
+//            Element p = (Element) nNode;
+//        String insertPerson="insert into Person(OrderPerson,PeopleRegistrationID,FullNamePerson,BirthDay,Gender,"
+//                              + "Age,TypePerson,ArrestDateTime,CaseIdPerson)"
+//                                + "VALUE (?,?,?,?,?,?,?,?,?)";  
+//         try {
+//                        int order=temp+1;
+//                         PreparedStatement pst2=null;
+//                        
+//                        pst2=conn.prepareStatement(insertPerson);
+//                        pst2.setString(1, order+"");
+//                        pst2.setString(2,p.getElementsByTagName("PeopleRegistrationID").item(0).getTextContent());
+//                        pst2.setString(3, p.getElementsByTagName("FullnameTH").item(0).getTextContent());
+//                        pst2.setString(4,  NewDate(p.getElementsByTagName("Birthday").item(0).getTextContent()));
+//                        pst2.setString(5, "");
+//                        pst2.setString(6, p.getElementsByTagName("Age").item(0).getTextContent()); 
+//                        pst2.setString(7,  ""); 
+//                        pst2.setString(8,  ""); 
+//                        pst2.setString(9,  IdCasePerson()); 
+//                        
+//                     pst2.execute();
+//                     pst2.close();   
+//                     System.out.println("Success");
+//        } catch (SQLException e) {
+//                System.out.println("ddddd: "+e);
+//            
+//        }
+////         System.out.println("First Name : " +eElement.getElementsByTagName("PeopleRegistrationID").item(0).getTextContent());
+//
+//        }
+//           }
+                
+     } catch (Exception e) {
+                System.out.println(e);
+                }
+     
+                }
+   public static String IdCase(){
+         Connection con=null;
+         
+         con=ConnectDatabase.connect();
+            String sqlId="Select max(CaseId) caseid from CrimeCase";
+        int id=0;
+        try {
+            Statement s=con.createStatement();
+            ResultSet rs=s.executeQuery(sqlId);
+            
+            if (rs.next()) {
+                id=rs.getInt("caseid"); 
+            }
+            
+            if(id==0){
+                id=1;
+            }
+            else{
+                id=id+1;
+            }
+             return String.valueOf(id);
+        
+        } catch (Exception e) {
+            return null;
+//            System.out.println(e);
+        } 
+    
+    }
+     public static String IdCasePerson(){
+         Connection con=null;
+         
+         con=ConnectDatabase.connect();
+            String sqlId="Select max(CaseId) caseid from CrimeCase";
+        int id=0;
+        try {
+            Statement s=con.createStatement();
+            ResultSet rs=s.executeQuery(sqlId);
+            
+            if (rs.next()) {
+                id=rs.getInt("caseid"); 
+            }
+            
+             return String.valueOf(id);
+        
+        } catch (Exception e) {
+            return null;
+//            System.out.println(e);
+        } 
+    
+    }
 }
