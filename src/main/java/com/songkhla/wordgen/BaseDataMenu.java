@@ -220,6 +220,19 @@ public class BaseDataMenu extends javax.swing.JDialog {
         );
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jPanel3MouseMoved(evt);
+            }
+        });
+        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel3MouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel3MouseExited(evt);
+            }
+        });
 
         jLabel3.setIcon(new javax.swing.ImageIcon("./Master/Hodiday.png"));
 
@@ -406,6 +419,24 @@ public class BaseDataMenu extends javax.swing.JDialog {
         // TODO add your handling code here:
         resetPanel(jPanelActions);
     }//GEN-LAST:event_jPanelActionsMouseExited
+
+    private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
+        // TODO add your handling code here:
+        ReportView rv = new ReportView();
+        rv.pack();
+        rv.setLocationRelativeTo(null);
+        rv.setVisible(true);
+    }//GEN-LAST:event_jPanel3MouseClicked
+
+    private void jPanel3MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseMoved
+        // TODO add your handling code here:
+        setPanel(jPanel3);
+    }//GEN-LAST:event_jPanel3MouseMoved
+
+    private void jPanel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseExited
+        // TODO add your handling code here:
+         resetPanel(jPanel3);
+    }//GEN-LAST:event_jPanel3MouseExited
      public void setPanel (JPanel jp){
 
   jp.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(204, 204, 204), null, new java.awt.Color(204, 204, 204)));

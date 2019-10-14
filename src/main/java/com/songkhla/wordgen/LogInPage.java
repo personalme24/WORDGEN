@@ -605,7 +605,7 @@ String  username=Username.getText();
                               pst4=con.prepareStatement(insertStation);
                               pst4.setString(1,"1");
                               pst4.setString(2,myResponse.getString("orgcode"));
-                              pst4.setString(3,myResponse.getString("stationname"));
+                              pst4.setString(3,"สถานีตำรวจ"+myResponse.getString("stationname"));
                               pst4.setString(4,myResponse.getString("initialname"));
                               pst4.setString(5,myResponse.getString("address"));
                               pst4.setString(6,myResponse.getString("tambon"));

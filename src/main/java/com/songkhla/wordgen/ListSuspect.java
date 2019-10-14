@@ -244,7 +244,7 @@ String typeC,cid;
                         "Height,Weight,HouseNumber,NoArrestWarrant,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
                         "PhonePerson,OrderPerson,StatusSuspect,StatusSuspectOther,BailDate,StatusBail,RatePrison,CourtSuspect,ArrestDateTimeEnd,Province,Race,Religion,Tambon,TypePerson,"
                         + "ZipCode,caseIdPerson,ArrestDateTime,PlaceArrest,SusConfress,PlaceOfFoundBody,DeathLocation,StatusSueAndPutInJail,BodyFoundDate,BodyFoundTime,DateOfDie,TimeOfDie,Road,Soi,"
-                        + "AnswerPerson,PlaceArrestTambon,PlaceArrestAmphur,PlaceArrestProvince,OccupationPosition,CauseSendInjuredOrDie,WhereSendInjuredOrDie,DateSendInjuredOrDie,TimeSendInjuredOrDie,StatusInjuryOrDie\n"
+                        + "AnswerPerson,PlaceArrestTambon,PlaceArrestAmphur,PlaceArrestProvince,OccupationPosition,CauseSendInjuredOrDie,WhereSendInjuredOrDie,DateSendInjuredOrDie,TimeSendInjuredOrDie,StatusInjuryOrDie,StatusWarrant\n"
                         + "from person where noperson='"+Noperson+ "' and caseIdPerson='"+crimecaseno+"'";
          
                 Connection con = ConnectDatabase.connect();
@@ -322,6 +322,7 @@ String typeC,cid;
                      data.put("StatusSuspectOther", rs.getString("StatusSuspectOther"));
                    data.put("Road", rs.getString("Road"));
                      data.put("Soi", rs.getString("Soi"));
+                     data.put("StatusWarrant", rs.getString("StatusWarrant"));
 
                    
                    if(typeC.equals("Dead")){

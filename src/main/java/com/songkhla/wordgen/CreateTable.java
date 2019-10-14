@@ -196,6 +196,7 @@ public class CreateTable {
                 "	NameSendInjuredOrDie	VARCHAR(100)	,	\n"+      
                 "	CauseSendInjuredOrDie	VARCHAR(100)	,	\n"+
                 "	WhereSendInjuredOrDie	VARCHAR(100)	,	\n"+   
+                "	StatusWarrant	VARCHAR(100)	,	\n"+                        
                 "	DateRelease	VARCHAR(100)	,	\n"+ 
                 "	SueFirst	VARCHAR(100)	,	\n"+
                 "	SueFirstDate	DateTime	,	\n"+
