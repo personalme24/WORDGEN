@@ -731,8 +731,14 @@ public class CaseSelectOverView extends javax.swing.JDialog {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-         JSONObject jsonInput = new JSONObject();
-         jsonInput.put("PersonalityID",idcardlabel.getText());
+         JsonObject jsonInput = new JsonObject();
+          jsonInput.addProperty("CrimeCaseNo","");
+         jsonInput.addProperty("CrimeCaseYear","");
+         jsonInput.addProperty("ORG_CODE","");
+         jsonInput.addProperty("PersonalityID",idcardlabel.getText());
+         jsonInput.addProperty("CaseAcceptDate","");
+         jsonInput.addProperty("CaseAcceptDateTo",""); 
+         
         call_me2(jsonInput);
         TotalCase.setText(jTableCrime.getRowCount()+"");
     }//GEN-LAST:event_jButton5ActionPerformed
@@ -853,7 +859,7 @@ public class CaseSelectOverView extends javax.swing.JDialog {
     
 
 }
-    public void call_me2(JSONObject json){
+    public void call_me2(JsonObject json){
      try {
                 String url = "http://172.31.191.163:8383/ws/CrimeCaseService_Wordgen/";
                 URL obj = new URL(url);
@@ -875,10 +881,10 @@ public class CaseSelectOverView extends javax.swing.JDialog {
                                 "</soapenv:Envelope>";
                 System.out.println("xml:"+xml);
                 con.setDoOutput(true);
-                
-                        DataOutputStream wr = new DataOutputStream(con.getOutputStream());
-                wr.writeBytes(xml);
-//                   System.out.println( wr.writeBytes(xml));
+                     DataOutputStream writer = new DataOutputStream(con.getOutputStream());
+                BufferedWriter wr = new BufferedWriter(new OutputStreamWriter(writer, "UTF-8"));
+                        
+                wr.write(xml);
                 wr.flush();
                 wr.close();
                 String responseStatus = con.getResponseMessage();
