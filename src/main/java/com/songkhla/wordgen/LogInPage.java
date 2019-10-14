@@ -540,7 +540,7 @@ String  username=Username.getText();
              }
              else{
 //                 String neww=re
-             String url=  "http://172.31.191.163:8383/wordgenauthen/?USER="+username+"&PASS="+password+"&Serial=aaa";
+             String url=  "http://172.31.191.163:8383/wordgenauthen/?USER="+username+"&PASS="+password+"&Serial="+getMotherboardSerial();
                 System.out.println("url2:"+url);
              String fff =sendGET(url);
              JSONObject myResponse = new JSONObject(fff);
