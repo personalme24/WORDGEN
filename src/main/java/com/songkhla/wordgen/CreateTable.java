@@ -33,6 +33,18 @@ public class CreateTable {
                                "   SerialNum  VARCHAR(100)	,	\n"+
                                "   DateLogin DATE		\n"+                        
                                "	); ";
+                String sqlDataCharge = "CREATE TABLE IF NOT EXISTS DataCharge (\n"+
+                               "   IdCaseCharge	INTEGER	Primary Key AUTOINCREMENT,	\n"+        
+                               "   TypeCaseCharge  VARCHAR(100)	,	\n"+
+                               "   ChargeUse  VARCHAR(100)	,	\n"+ 
+                               "   DateToday DATE		\n"+                        
+                               "	); ";
+                String sqlDataForm = "CREATE TABLE IF NOT EXISTS DataForm (\n"+
+                                  "   IdReport	INTEGER	Primary Key AUTOINCREMENT,	\n"+        
+                               "   TypeCaseReport  VARCHAR(100)	,	\n"+
+                               "   NameReport  VARCHAR(100)	,	\n"+ 
+                               "   DateToday DATE		\n"+                         
+                               "	); ";
                 String sqlParameter = "CREATE TABLE IF NOT  EXISTS ParameterTable (\n"+
                                "   IdCaseForCrime	 VARCHAR(100)	,	\n"+        
                                "   CrimeNo  VARCHAR(100)	,	\n"+
@@ -236,6 +248,7 @@ public class CreateTable {
                 "	SueSevenCause	VARCHAR(100)	,	\n"+  
                 "	OrderPerson	INTEGER	,	\n"+                        
                 "	caseIdPerson	INTEGER	not null,	\n"+
+                  "	BailIdPerson	INTEGER	,	\n"+
                     " CONSTRAINT fk_CrimeCase            \n"+
                                 "FOREIGN KEY (caseIdPerson)            \n"+
                                 "REFERENCES CrimeCase(CaseId)  \n"+
@@ -369,7 +382,7 @@ public class CreateTable {
                           "	StatusKnowSuspect	VARCHAR(100)	,	\n"+ 
                         "	TotalAcc     	VARCHAR(100)	,	\n"+  
                          "	TotalSus	VARCHAR(100)	,	\n"+  
-                          "	TotalWitness	VARCHAR(100)	,	\n"+   
+                          "	TotalWitness	VARCHAR(100)	,	\n"+                           
                          "	CircumstancesOfDeath	VARCHAR(100)		\n"+
                          "	);";
           String sqlAsset ="CREATE TABLE IF NOT EXISTS Asset (\n"+                 
@@ -586,6 +599,8 @@ public class CreateTable {
                        stmt.execute(sqlLogin);
                        stmt.execute(sqlHolidays);  
                        stmt.execute(sqlParameter);  
+                       stmt.execute(sqlDataCharge);  
+                       stmt.execute(sqlDataForm);  
                        stmt.close();
                     System.out.println("Create Table Complete");
 	        } catch (SQLException e) {

@@ -85,7 +85,6 @@ import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseid;
 import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseno;
 import static com.songkhla.wordgen.ListAccused.jTableAccure;
 import static com.songkhla.wordgen.ListAccused.txtCaseNO;
-import static com.songkhla.wordgen.PolisForm.Checknull;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
@@ -3705,7 +3704,7 @@ catch (Exception d) {  //System.out.println(d);
         }
     });      
     }
-      public static String Checknull(Object input){
+         public static String Checknull(Object input){
 					if(input==null||input==""||input=="null") { return ""; }
 					return input+"";
 					}

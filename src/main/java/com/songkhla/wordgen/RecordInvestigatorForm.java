@@ -169,7 +169,6 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
         jScrollPane1.setViewportView(DetailRecord);
 
         NameInguiry.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        NameInguiry.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -311,7 +310,7 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
         	ResultSet res = st.executeQuery(c);
 	//Vector<Object> v=new Vector<Object>();
 	
-	if(res.next())
+	while(res.next())
 	{
 	NameInguiry.addItem(res.getString("InvestRank")+res.getString("InvestName"));	
 	}

@@ -126,6 +126,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Time;
 import java.text.ParseException;
@@ -232,7 +233,21 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         e.printStackTrace();
         
         }
-
+//            jRadioUnknowSuspect.addItemListener(new ItemListener() {
+//               @Override
+//               public void itemStateChanged(ItemEvent event) {
+//                   int state = event.getStateChange();
+//                   if (state == ItemEvent.SELECTED) 
+//                       // do something when the button is selected
+//
+//                   } 
+//                   else if (state == ItemEvent.DESELECTED) {
+//                       // do something else when the button is deselected
+//
+//                   }
+//               }
+//           });
+//           }
              
 //  ---------------------------------------------Date Filed----------------------------------------------
       UtilDateModel model = new UtilDateModel();
@@ -625,6 +640,7 @@ JTextPopupMenu.addTo(CourtResult);
         jLabel44 = new javax.swing.JLabel();
         jPanelInvestSend = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
+        jRadioUnknowSuspect = new javax.swing.JRadioButton();
         jPanel18 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         CourtResult = new javax.swing.JTextArea();
@@ -995,9 +1011,9 @@ JTextPopupMenu.addTo(CourtResult);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
                         .addComponent(jLabel5)
                         .addGap(81, 81, 81)
                         .addComponent(crimecaseno, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1010,53 +1026,59 @@ JTextPopupMenu.addTo(CourtResult);
                         .addGap(10, 10, 10)
                         .addComponent(CourtType, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(43, 43, 43)
-                        .addComponent(ActionCrimes, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(jButtonAction, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(86, 86, 86)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(jButtonCharge, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addGap(51, 51, 51)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel14)
-                        .addGap(39, 39, 39)
-                        .addComponent(OccuredDateTime, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51)
-                        .addComponent(jPanelOccuredDateEnd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
-                        .addComponent(OccuredDateTimeEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(54, 54, 54)
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel9)
-                        .addGap(51, 51, 51)
-                        .addComponent(CaseRequestTimee, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addGap(14, 14, 14)
-                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel12)
-                        .addGap(11, 11, 11)
-                        .addComponent(CaseAcceptTimee, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addGap(72, 72, 72)
-                        .addComponent(DailyNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap()
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addGap(51, 51, 51)
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel14)
+                                .addGap(39, 39, 39)
+                                .addComponent(OccuredDateTime, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(51, 51, 51)
+                                .addComponent(jPanelOccuredDateEnd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(39, 39, 39)
+                                .addComponent(OccuredDateTimeEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addGap(54, 54, 54)
+                                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel9)
+                                .addGap(51, 51, 51)
+                                .addComponent(CaseRequestTimee, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addGap(14, 14, 14)
+                                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel12)
+                                .addGap(11, 11, 11)
+                                .addComponent(CaseAcceptTimee, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel7))
+                                    .addComponent(jLabel10))
+                                .addGap(43, 43, 43)
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(DailyNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel8Layout.createSequentialGroup()
+                                            .addComponent(ActionCrimes, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(10, 10, 10)
+                                            .addComponent(jButtonAction, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(10, 10, 10)
+                                            .addComponent(jButtonCharge, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
+                .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1069,19 +1091,7 @@ JTextPopupMenu.addTo(CourtResult);
                     .addComponent(crimecaseyear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CourtType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(9, 9, 9)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ActionCrimes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonAction))
-                .addGap(16, 16, 16)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButtonCharge, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane6))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1105,10 +1115,29 @@ JTextPopupMenu.addTo(CourtResult);
                     .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CaseAcceptTimee, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DailyNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ActionCrimes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonAction))
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButtonCharge, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(120, 120, 120))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(DailyNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
@@ -1343,8 +1372,8 @@ JTextPopupMenu.addTo(CourtResult);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 581, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1468,6 +1497,14 @@ JTextPopupMenu.addTo(CourtResult);
         jLabel20.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel20.setText("จำนวน");
 
+        jRadioUnknowSuspect.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jRadioUnknowSuspect.setText("ไม่รู้ตัว");
+        jRadioUnknowSuspect.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jRadioUnknowSuspectItemStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
         jPanel15Layout.setHorizontalGroup(
@@ -1477,12 +1514,16 @@ JTextPopupMenu.addTo(CourtResult);
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel15Layout.createSequentialGroup()
                         .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel22))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextSuspect)
-                            .addComponent(jTextAccused, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel15Layout.createSequentialGroup()
+                                .addComponent(jLabel19)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextAccused))
+                            .addGroup(jPanel15Layout.createSequentialGroup()
+                                .addComponent(jRadioUnknowSuspect)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel22)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextSuspect)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel15Layout.createSequentialGroup()
@@ -1551,7 +1592,8 @@ JTextPopupMenu.addTo(CourtResult);
                         .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel21)
                         .addComponent(jLabel30)
-                        .addComponent(jLabelNumberSus))
+                        .addComponent(jLabelNumberSus)
+                        .addComponent(jRadioUnknowSuspect))
                     .addComponent(jButtonSuspect, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2561,8 +2603,8 @@ JTextPopupMenu.addTo(CourtResult);
             "CaseAcceptDate,CaseAccepTime,DailyNumber,OccuredDate,OccuredTime,CrimeLocation,CrimeLocationMoo,CrimeLocationSoi,CrimeLocationRoad,CrimeLocationDistrict,CrimeLocationAmphur,"+
             "CrimeLocationProvince,TypeCourt,AccureandOther,SuspectandOther,WitnessandOther,Investigator_Result,CourtResult,Invest_SendtoDepartment,"+
             "PoliceNameCase,AssetList,AssetCode,crimecasenoyear,RecordInvestCase,Investigator_Number,Invest_SendCaseDate,Prosecutor_Result,"
-          + "CapitalCrimeCaseNumber,TotalAcc,TotalSus,TotalWitness,OccuredTimeEnd,OccuredDateEnd)"+
-            "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+          + "CapitalCrimeCaseNumber,TotalAcc,TotalSus,TotalWitness,OccuredTimeEnd,OccuredDateEnd,StatusKnowSuspect)"+
+            "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
           
             System.out.println(sql);
             try {
@@ -2625,7 +2667,13 @@ JTextPopupMenu.addTo(CourtResult);
                 pst.setString(37,jLabelNumberSus.getText());
                 pst.setString(38,jLabelNumberWitness.getText());     
                 pst.setString(39,occuredTimeEnd);                
-                pst.setString(40,OccuredDateEnd.getJFormattedTextField().getText());                
+                pst.setString(40,OccuredDateEnd.getJFormattedTextField().getText()); 
+                if(jRadioUnknowSuspect.isSelected()){
+                pst.setString(41,jRadioUnknowSuspect.getText());                 
+                }
+                else{
+                pst.setString(41,"รู้ตัว");   
+                }
 //                pst.setString(37,OccuredDateEnd.getJFormattedTextField().getText());
 //                pst.setString(38,orcuredTimeEnd);                
                 
@@ -2643,6 +2691,7 @@ JTextPopupMenu.addTo(CourtResult);
          pst.executeUpdate(); 
          pst.close();
          System.out.println("SQL : "+sql);
+         insertChargeReport();
          jButtonSaveCase.setEnabled(false);
          jButtonEditCase.setEnabled(true);
          CloseTextBox();
@@ -2692,7 +2741,8 @@ JTextPopupMenu.addTo(CourtResult);
             +"TotalSus=?," 
             +"TotalWitness=?,"  
             +"OccuredDateEnd=?,"                     
-            +"OccuredTimeEnd=?"                     
+            +"OccuredTimeEnd=?,"                     
+            +"StatusKnowSuspect=?"                     
                     
             +" WHERE  CaseId = ?";
             System.out.println("SQL : "+sqlUpdate);
@@ -2753,8 +2803,13 @@ JTextPopupMenu.addTo(CourtResult);
                 pst.setString(37,jLabelNumberWitness.getText());
                 pst.setString(38,OccuredDateEnd.getJFormattedTextField().getText());                
                 pst.setString(39,occuredTimeEnd);                
-                
-                pst.setString(40,crimecaseid.getText());
+                 if(jRadioUnknowSuspect.isSelected()){
+                pst.setString(40,jRadioUnknowSuspect.getText());                 
+                }
+                else{
+                pst.setString(40,"รู้ตัว");   
+                }
+                pst.setString(41,crimecaseid.getText());
                 
                int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการแก้ไขข้อมูล", "ยืนยัน",
         JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
@@ -2801,6 +2856,7 @@ JTextPopupMenu.addTo(CourtResult);
             ex.printStackTrace();
         }
     }
+   
     private void jButtonAccuredActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccuredActionPerformed
         // TODO add your handling code here:
         String aa=crimecaseid.getText();
@@ -2948,7 +3004,7 @@ JTextPopupMenu.addTo(CourtResult);
 
     private void jButtonPrintDoc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrintDoc2ActionPerformed
         // TODO add your handling code here:
-            
+        insertRep();
         yourAttemptActionPerformed();
        
     }//GEN-LAST:event_jButtonPrintDoc2ActionPerformed
@@ -3200,6 +3256,20 @@ JTextPopupMenu.addTo(CourtResult);
                        evt.consume();  
          }
     }//GEN-LAST:event_crimecasenoKeyTyped
+
+    private void jRadioUnknowSuspectItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioUnknowSuspectItemStateChanged
+        // TODO add your handling code here:
+        if(jRadioUnknowSuspect.isSelected()){
+        jTextSuspect.setEnabled(false);
+//         jTextSuspect.setText("ไม่รู้ตัว");
+        jButtonSuspect.setEnabled(false);
+        }
+        else{
+         jTextSuspect.setEnabled(true);
+//           jTextSuspect.setText("");
+        jButtonSuspect.setEnabled(true);
+        }
+    }//GEN-LAST:event_jRadioUnknowSuspectItemStateChanged
      private void yourAttemptActionPerformed() {
 
 
@@ -3263,18 +3333,12 @@ JTextPopupMenu.addTo(CourtResult);
     @Override
     public Void doInBackground() {
             String no=crimecaseid.getText();
-            JCheckBox[] boxes = {jCheckW201,jCheckW202,jCheckW203,jCheckW204,jCheckW205,jCheckW206,jCheckW208,jCheckW209,jCheckW211,jCheckW212,jCheckW213,jCheckW214};
-        try { 
-
-            for (int i = 0; i < boxes.length; i++) {
-//                x = x - i;
-            setProgress((int)((i*100)/boxes.length)+1);
-//        setProgress(i * (100 / N));
-//				  setProgress(i);
-				Thread.sleep(10);
-//            Thread.sleep(SLEEP_TIME);// imitate a long-running task
-   
-            caseyear=crimecaseyear.getText();
+//            JCheckBox[] boxes = {jCheckW201,jCheckW202,jCheckW203,jCheckW204,jCheckW205,jCheckW206,jCheckW208,jCheckW209,jCheckW211,jCheckW212,jCheckW213,jCheckW214};
+//               JCheckBox[] boxes=  new JCheckBox[1];           
+//
+          int  cou= countChecked();
+//          System.out.println("c++++++++++++++++"+counter);
+             caseyear=crimecaseyear.getText();
            caseno=crimecaseno.getText();
            casetype=CaseType.getText();   
            
@@ -3283,28 +3347,45 @@ JTextPopupMenu.addTo(CourtResult);
         f3.mkdirs();
         System.out.print(f3);
         System.out.print("folder created");
+        try { 
+
+            for (int i = 0; i < cou; i++) {
+//                x = x - i;
+            setProgress((int)((i*100)/cou)+1);
+//        setProgress(i * (100 / N));
+//				  setProgress(i);
+				Thread.sleep(10);
+//            Thread.sleep(SLEEP_TIME);// imitate a long-running task
+   
+       
           if(jCheckW201.isSelected()){
             W1.w1(no);
+//            insertDataReport(jCheckW201.getText());
         }
-
-                if(jCheckW202.isSelected()){
+         if(jCheckW202.isSelected()){
             W2.w2(no);
-
+//            insertDataReport(jCheckW202.getText());
         }
         if(jCheckW203.isSelected()){
             W3.w3(no);
+//            insertDataReport(jCheckW203.getText());
         }
         if(jCheckW204.isSelected()){
             W4.w4(no);
+//            insertDataReport(jCheckW203.getText());
+            
         }
         if(jCheckW205.isSelected()){
             W5.w5(no);
+//            insertDataReport(jCheckW205.getText());   
         }
         if(jCheckW206.isSelected()){
-            W6.w6(no);
+            W6.w6(no);         
+           
         }
         if(jCheckW207.isSelected()){
-           W7.w7(no);
+           W7.w7(no);      
+          
         }
         if(jCheckW208.isSelected()){
             W8.w8(no);
@@ -3996,6 +4077,608 @@ if(OccuredDate.getJFormattedTextField().getText().equals("23/8/2562")){
 					if(input==null||input==""||input=="null") { return ""; }
 					return input+"";
 					}
+      public static void insertDataReport(String nameReport){
+      
+      try{
+          String datereport;
+          SimpleDateFormat newdate=new SimpleDateFormat("yyyy-MM-dd HH:mm");
+          Date d=new Date();
+          datereport=newdate.format(d);
+          Connection c=ConnectDatabase.connect();
+          String sqlinsert="insert into DataForm(TypeCaseReport,NameReport,DateToday) VALUES (?,?,?)";
+          PreparedStatement ps=c.prepareStatement(sqlinsert);
+             ps.setString(1, "คดีอาญา");
+           ps.setString(2, nameReport);
+           ps.setString(3, datereport);
+             ps.execute();
+              ps.close();
+
+      }
+      catch(Exception x){
+          System.out.println(""+x);
+      
+      }
+      
+      }
+     public static void insertChargeReport(){
+      
+      try{
+          String datereport;
+          SimpleDateFormat newdate=new SimpleDateFormat("yyyy-MM-dd HH:mm");
+          Date d=new Date();
+          datereport=newdate.format(d);
+          Connection c=ConnectDatabase.connect();
+          String sqlinsert="insert into DataCharge(TypeCaseCharge,ChargeUse,DateToday) VALUES (?,?,?)";
+          PreparedStatement ps=c.prepareStatement(sqlinsert);
+             ps.setString(1, "คดีอาญา");
+           ps.setString(2, jLabelChargeCode.getText());
+           ps.setString(3, datereport);
+             ps.execute();
+              ps.close();
+
+      }
+      catch(Exception x){
+          System.out.println(""+x);
+      
+      }
+      
+      }
+      public  int countChecked(){
+          int counter=0;
+         if(jCheckW201.isSelected()){
+            counter++;
+        }
+           if(jCheckW202.isSelected()){
+                        counter++;
+        }
+        if(jCheckW203.isSelected()){
+                       counter++;
+        }
+        if(jCheckW204.isSelected()){
+                       counter++;
+        }
+        if(jCheckW205.isSelected()){
+                       counter++;
+        }
+        if(jCheckW206.isSelected()){
+                       counter++;
+
+        }
+        if(jCheckW207.isSelected()){
+                       counter++;
+
+        }
+        if(jCheckW208.isSelected()){
+                       counter++;
+
+        }
+      
+        if(jCheckW209.isSelected()){
+                       counter++;
+
+        }
+        if(jCheckW211.isSelected()){
+                       counter++;
+
+        }
+        if(jCheckW212.isSelected()){
+                       counter++;
+
+          }
+        if(jCheckW213.isSelected()){
+                       counter++;
+
+            }
+         if(jCheckW214.isSelected()){
+                       counter++;
+
+             }
+                if(jCheckW215.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW216.isSelected()){
+                        counter++;
+
+                    }
+               if(jCheckW217.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW218.isSelected()){
+                       counter++;
+
+                     }
+               if(jCheckW219.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW220.isSelected()){
+                       counter++;
+
+                    }
+               
+               if(jCheckW221.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW222.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW223.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW224.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW225.isSelected()){
+                       counter++;
+                    }
+               
+               if(jCheckW226.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW227.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW228.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW229.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW230.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW231.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW232.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW233.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW234.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW235.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW236.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW237.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW238.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW239.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW240.isSelected()){
+                       counter++;
+
+                  }
+               if(jCheckW241.isSelected()){
+                       counter++;
+
+                    }
+              if(jCheckW242.isSelected()){
+                       counter++;
+
+                    }
+              if(jCheckW243.isSelected()){
+                       counter++;
+
+                    }
+              if(jCheckW244.isSelected()){
+                       counter++;
+
+                    }
+              if(jCheckW245.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW246.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW247.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW248.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW249.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW250.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW251.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW252.isSelected()){
+                         counter++;
+
+                    }
+               if(jCheckW253.isSelected()){
+                       counter++;
+
+                    }
+                if(jCheckW254.isSelected()){
+                       counter++;
+
+                    }
+                if(jCheckW255.isSelected()){
+                       counter++;
+
+                    }
+                if(jCheckW256.isSelected()){
+                       counter++;
+
+                    }
+                if(jCheckW257.isSelected()){
+                       counter++;
+
+                    }
+                if(jCheckW258.isSelected()){
+                       counter++;
+
+                    }
+                if(jCheckW259.isSelected()){
+                       counter++;
+
+                    }
+                if(jCheckW260.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW261.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW262.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW263.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW264.isSelected()){
+                       counter++;
+                    }
+               if(jCheckW265.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW266.isSelected()){
+                       counter++;
+
+                    }
+
+               if(jCheckW270.isSelected()){
+                       counter++;
+                    }
+               if(jCheckW271.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW272.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW273.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW274.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW275.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW276.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW277.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW278.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW279.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW280.isSelected()){
+                       counter++;
+
+                    }
+               if(jCheckW293.isSelected()){
+                       counter++;
+                    }
+               System.out.println("c+++++++++++"+counter);
+               return counter;
+      }
+      public void insertRep(){
+      
+       if(jCheckW201.isSelected()){
+            insertDataReport(jCheckW201.getText());
+        }
+         if(jCheckW202.isSelected()){
+            insertDataReport(jCheckW202.getText());
+        }
+        if(jCheckW203.isSelected()){
+            insertDataReport(jCheckW203.getText());
+        }
+        if(jCheckW204.isSelected()){
+            insertDataReport(jCheckW203.getText());
+            
+        }
+        if(jCheckW205.isSelected()){
+            insertDataReport(jCheckW205.getText());   
+        }
+        if(jCheckW206.isSelected()){
+             insertDataReport(jCheckW206.getText());          
+           
+        }
+        if(jCheckW207.isSelected()){
+           insertDataReport(jCheckW207.getText());   
+          
+        }
+        if(jCheckW208.isSelected()){
+           insertDataReport(jCheckW208.getText());   
+//            W812.w812(no);
+        }
+      
+        if(jCheckW209.isSelected()){
+          insertDataReport(jCheckW209.getText());  
+        }
+        if(jCheckW211.isSelected()){
+           insertDataReport(jCheckW211.getText()); 
+        }
+        if(jCheckW212.isSelected()){
+         insertDataReport(jCheckW212.getText()); 
+          }
+        if(jCheckW213.isSelected()){
+          insertDataReport(jCheckW213.getText()); 
+            }
+         if(jCheckW214.isSelected()){
+           insertDataReport(jCheckW214.getText());
+             }
+                if(jCheckW215.isSelected()){
+                   insertDataReport(jCheckW215.getText());
+                    }
+               if(jCheckW216.isSelected()){
+                   insertDataReport(jCheckW216.getText());
+                    }
+               if(jCheckW217.isSelected()){
+                    insertDataReport(jCheckW217.getText());
+                    }
+               if(jCheckW218.isSelected()){
+                   insertDataReport(jCheckW218.getText());
+                     }
+               if(jCheckW219.isSelected()){
+                   insertDataReport(jCheckW219.getText());
+                    }
+               if(jCheckW220.isSelected()){
+                   insertDataReport(jCheckW220.getText());
+                    }
+               
+               if(jCheckW221.isSelected()){
+                  insertDataReport(jCheckW221.getText());
+                    }
+               if(jCheckW222.isSelected()){
+                   insertDataReport(jCheckW221.getText());
+                    }
+               if(jCheckW223.isSelected()){
+                  insertDataReport(jCheckW223.getText());
+                    }
+               if(jCheckW224.isSelected()){
+                   insertDataReport(jCheckW224.getText());
+                    }
+               if(jCheckW225.isSelected()){
+                 insertDataReport(jCheckW225.getText());
+                    }
+               
+               if(jCheckW226.isSelected()){
+                  insertDataReport(jCheckW226.getText());
+                    }
+               if(jCheckW227.isSelected()){
+                 insertDataReport(jCheckW227.getText());
+                    }
+               if(jCheckW228.isSelected()){
+                 insertDataReport(jCheckW228.getText());
+                    }
+               if(jCheckW229.isSelected()){
+                  insertDataReport(jCheckW229.getText());
+                    }
+               if(jCheckW230.isSelected()){
+                 insertDataReport(jCheckW230.getText());
+                    }
+               if(jCheckW231.isSelected()){
+                  insertDataReport(jCheckW231.getText());
+                    }
+               if(jCheckW232.isSelected()){
+                   insertDataReport(jCheckW232.getText());
+                    }
+               if(jCheckW233.isSelected()){
+                     insertDataReport(jCheckW233.getText());
+                    }
+               if(jCheckW234.isSelected()){
+                      insertDataReport(jCheckW234.getText());
+                    }
+               if(jCheckW235.isSelected()){
+                    insertDataReport(jCheckW235.getText());
+                    }
+               if(jCheckW236.isSelected()){
+                      insertDataReport(jCheckW236.getText());
+                    }
+               if(jCheckW237.isSelected()){
+                      insertDataReport(jCheckW237.getText());
+                    }
+               if(jCheckW238.isSelected()){
+                       insertDataReport(jCheckW238.getText());
+                    }
+               if(jCheckW239.isSelected()){
+                      insertDataReport(jCheckW239.getText());
+                    }
+               if(jCheckW240.isSelected()){
+                       insertDataReport(jCheckW240.getText());
+                  }
+               if(jCheckW241.isSelected()){
+                       insertDataReport(jCheckW241.getText());
+                    }
+              if(jCheckW242.isSelected()){
+                     insertDataReport(jCheckW242.getText());
+                    }
+              if(jCheckW243.isSelected()){
+                       insertDataReport(jCheckW243.getText());
+                    }
+              if(jCheckW244.isSelected()){
+                     insertDataReport(jCheckW244.getText());
+                    }
+              if(jCheckW245.isSelected()){
+                     insertDataReport(jCheckW245.getText());
+                    }
+               if(jCheckW246.isSelected()){
+                   insertDataReport(jCheckW246.getText());
+                    }
+               if(jCheckW247.isSelected()){
+                       insertDataReport(jCheckW247.getText());
+                    }
+               if(jCheckW248.isSelected()){
+                      insertDataReport(jCheckW248.getText());
+                    }
+               if(jCheckW249.isSelected()){
+                     insertDataReport(jCheckW249.getText());
+                    }
+               if(jCheckW250.isSelected()){
+                        insertDataReport(jCheckW250.getText());
+                    }
+               if(jCheckW251.isSelected()){
+                       insertDataReport(jCheckW251.getText());
+                    }
+               if(jCheckW252.isSelected()){
+                         insertDataReport(jCheckW252.getText());
+                    }
+               if(jCheckW253.isSelected()){
+                       insertDataReport(jCheckW253.getText());
+                    }
+                if(jCheckW254.isSelected()){
+                      insertDataReport(jCheckW254.getText());
+                    }
+                if(jCheckW255.isSelected()){
+                    insertDataReport(jCheckW255.getText());
+                    }
+                if(jCheckW256.isSelected()){
+                      insertDataReport(jCheckW256.getText());
+                    }
+                if(jCheckW257.isSelected()){
+                     insertDataReport(jCheckW257.getText());
+                    }
+                if(jCheckW258.isSelected()){
+                    insertDataReport(jCheckW258.getText());
+                    }
+                if(jCheckW259.isSelected()){
+                  insertDataReport(jCheckW259.getText());
+                    }
+                if(jCheckW260.isSelected()){
+                   insertDataReport(jCheckW260.getText());
+                    }
+               if(jCheckW261.isSelected()){
+                   insertDataReport(jCheckW261.getText());
+                    }
+               if(jCheckW262.isSelected()){
+                  insertDataReport(jCheckW262.getText());
+                    }
+               if(jCheckW263.isSelected()){
+                  insertDataReport(jCheckW263.getText());
+                    }
+               if(jCheckW264.isSelected()){
+                 insertDataReport(jCheckW264.getText());
+                    }
+               if(jCheckW265.isSelected()){
+                 insertDataReport(jCheckW265.getText());
+                    }
+               if(jCheckW266.isSelected()){
+                 insertDataReport(jCheckW266.getText());
+                    }
+//               if(jCheckW267.isSelected()){
+////                        W67.w67(no);
+//                    }
+//     
+//               if(jCheckW269.isSelected()){
+//                        W69.w69(no);
+//                    }
+               if(jCheckW270.isSelected()){
+                  insertDataReport(jCheckW270.getText());
+                    }
+               if(jCheckW271.isSelected()){
+                   insertDataReport(jCheckW271.getText());
+                    }
+               if(jCheckW272.isSelected()){
+                  insertDataReport(jCheckW272.getText());
+                    }
+               if(jCheckW273.isSelected()){
+                   insertDataReport(jCheckW273.getText());
+                    }
+               if(jCheckW274.isSelected()){
+                    insertDataReport(jCheckW274.getText());
+                    }
+               if(jCheckW275.isSelected()){
+                     insertDataReport(jCheckW275.getText());
+                    }
+               if(jCheckW276.isSelected()){
+                    insertDataReport(jCheckW276.getText());
+                    }
+               if(jCheckW277.isSelected()){
+                    insertDataReport(jCheckW277.getText());
+                    }
+               if(jCheckW278.isSelected()){
+                   insertDataReport(jCheckW278.getText());
+                    }
+               if(jCheckW279.isSelected()){
+                    insertDataReport(jCheckW279.getText());
+                    }
+               if(jCheckW280.isSelected()){
+                   insertDataReport(jCheckW280.getText());
+                    }
+               if(jCheckW293.isSelected()){
+                   insertDataReport(jCheckW293.getText());
+                    }
+      }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JTextField ActionCrimes;
     private javax.swing.JTextArea CapitalCrimeCaseNumber;
@@ -4183,6 +4866,7 @@ if(OccuredDate.getJFormattedTextField().getText().equals("23/8/2562")){
     private javax.swing.JPanel jPanel9;
     private javax.swing.JPanel jPanelInvestSend;
     private javax.swing.JPanel jPanelOccuredDateEnd;
+    private javax.swing.JRadioButton jRadioUnknowSuspect;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

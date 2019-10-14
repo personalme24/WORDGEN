@@ -24,6 +24,7 @@ public class LoginAuthen {
     public static void main(String[] args) {
     Connection con=null;
     PreparedStatement pst=null;
+        System.out.println(getMotherboardSerial());
     try{
         con = ConnectDatabase.connect();
              Statement stmt = con.createStatement();
@@ -79,14 +80,18 @@ public class LoginAuthen {
 		try
 	    {
 	        String result = null;
+                 String nline = null;
+
 	        Process p = Runtime.getRuntime().exec("wmic baseboard get product,Manufacturer,version,serialnumber");
 	               BufferedReader input
-	                = new BufferedReader(new InputStreamReader(p.getInputStream()));
+	                = new BufferedReader(new InputStreamReader(p.getInputStream(),"UTF-8"));
 	        String line;
 	        while ((line = input.readLine()) != null)
 	        {
-	        	result += line;
+	        	nline += line;
 	        }
+                  result= nline.replace(" ","");
+        System.out.println("aa "+result);
 	        input.close();
 	        return result;
 	    } catch (IOException ex)

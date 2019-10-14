@@ -741,7 +741,7 @@ public class IdentityView extends javax.swing.JDialog {
         ColumnName.add("ลำดับ");
         ColumnName.add("คดีที่");
         ColumnName.add("ผู้ร้องทุกข์");
-        ColumnName.add("ผู้ต้องหา");
+        ColumnName.add("ผู้ตาย");
         ColumnName.add("ข้อหา");     
         ColumnName.add("วันที่รับคำร้องทุกข์");
         ColumnName.add("วันที่รับแจ้งเหตุ");

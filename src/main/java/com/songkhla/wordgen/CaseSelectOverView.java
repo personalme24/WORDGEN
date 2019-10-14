@@ -5,6 +5,7 @@
  */
 package com.songkhla.wordgen;
 
+import com.google.gson.JsonObject;
 import static com.songkhla.wordgen.ActionPageInsert.ActionCrimes;
 import static com.songkhla.wordgen.ActionPageInsert.ActionDetail;
 import static com.songkhla.wordgen.ActionPageInsert.ActionNote;
@@ -15,12 +16,16 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Rectangle;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -30,7 +35,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Vector;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
@@ -41,11 +48,12 @@ import javax.swing.table.JTableHeader;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
-import org.json.simple.JSONObject;
+
 import java.util.Properties;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import javax.xml.parsers.DocumentBuilderFactory;
+import org.json.JSONObject;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -82,6 +90,10 @@ public class CaseSelectOverView extends javax.swing.JDialog {
         jPanel3.setVisible(false);
         jButton2.setVisible(false);
         jButton1.setVisible(false);
+        jLabelorgcode.setVisible(false);
+        idcardlabel.setVisible(false);
+        usernamelabel.setVisible(false);
+        orgnamelabel.setVisible(false);
         DataUser();
 //    RefreshDataCrime();
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -136,6 +148,7 @@ public class CaseSelectOverView extends javax.swing.JDialog {
         DateAcceptEndTC.setBackground(Color.WHITE);
         jPanel5.setLayout(new FlowLayout());
         jPanel5.add(DateAcceptEndTC);  
+        
        
     }
  
@@ -168,6 +181,9 @@ public class CaseSelectOverView extends javax.swing.JDialog {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableCrime = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        TotalCase = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
@@ -189,7 +205,7 @@ public class CaseSelectOverView extends javax.swing.JDialog {
         idcardlabel = new javax.swing.JLabel();
         jLabelorgcode = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
-        orgname = new javax.swing.JLabel();
+        orgnamelabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -363,6 +379,15 @@ public class CaseSelectOverView extends javax.swing.JDialog {
             }
         });
 
+        jLabel12.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        jLabel12.setText("จำนวนคดีทั้งหมด");
+
+        jLabel13.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        jLabel13.setText("คดี");
+
+        TotalCase.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        TotalCase.setText("0");
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -381,7 +406,15 @@ public class CaseSelectOverView extends javax.swing.JDialog {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel12)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(TotalCase)
+                                .addGap(11, 11, 11)
+                                .addComponent(jLabel13)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(56, 56, 56))))
         );
         jPanel6Layout.setVerticalGroup(
@@ -396,7 +429,11 @@ public class CaseSelectOverView extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel13)
+                    .addComponent(TotalCase))
                 .addGap(26, 26, 26))
         );
 
@@ -498,6 +535,11 @@ public class CaseSelectOverView extends javax.swing.JDialog {
 
         jCheckBox2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jCheckBox2.setText("เลือกทั้งหมด");
+        jCheckBox2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckBox2ItemStateChanged(evt);
+            }
+        });
         jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox2ActionPerformed(evt);
@@ -582,7 +624,7 @@ public class CaseSelectOverView extends javax.swing.JDialog {
             }
         });
 
-        orgname.setText("jLabel12");
+        orgnamelabel.setText("jLabel12");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -598,13 +640,13 @@ public class CaseSelectOverView extends javax.swing.JDialog {
                         .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1182, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(usernamelabel)
-                        .addGap(46, 46, 46)
                         .addComponent(idcardlabel)
+                        .addGap(46, 46, 46)
+                        .addComponent(usernamelabel)
                         .addGap(31, 31, 31)
                         .addComponent(jLabelorgcode)
                         .addGap(27, 27, 27)
-                        .addComponent(orgname)
+                        .addComponent(orgnamelabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton5)
                         .addGap(98, 98, 98))))
@@ -615,13 +657,14 @@ public class CaseSelectOverView extends javax.swing.JDialog {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(usernamelabel)
                     .addComponent(idcardlabel)
                     .addComponent(jLabelorgcode)
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(orgname))
-                .addGap(26, 26, 26)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 613, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(orgnamelabel)
+                    .addComponent(usernamelabel))
+                .addGap(18, 18, 18)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 613, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
         );
 
         pack();
@@ -633,6 +676,7 @@ public class CaseSelectOverView extends javax.swing.JDialog {
 
     private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jCheckBox2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -642,16 +686,37 @@ public class CaseSelectOverView extends javax.swing.JDialog {
 			.toString());
 	String casno = jTableCrime.getValueAt(i, 2).toString();
         String casyear = jTableCrime.getValueAt(i, 3).toString();
-        
+        String orgcode=jLabelorgcode.getText();
+         String user=usernamelabel.getText();
+         String idcard=idcardlabel.getText();
+        String nameor=orgnamelabel.getText();
+//        String newnameor="";
+//        try{
+//         newnameor=URLEncoder.encode(nameor, "UTF-8");
+//        }
+//        catch(Exception e){
+//        
+//        }
+//            System.out.println("aa:"+nameor);
+
 	if (chked) {
-               JSONObject jsonInput = new JSONObject();
-         jsonInput.put("CrimeCaseNo",casno);
-         jsonInput.put("CrimeCaseYear",casyear);
-         jsonInput.put("ORG_CODE",jLabelorgcode.getText());
-         jsonInput.put("Usename",usernamelabel.getText());
-         jsonInput.put("Idcard",idcardlabel.getText());
-         jsonInput.put("OrgName",idcardlabel.getText());
-            insert_crime(jsonInput);
+        JsonObject jsonInput = new JsonObject();
+         jsonInput.addProperty("CrimeCaseNo",casno);
+         jsonInput.addProperty("CrimeCaseYear",casyear);
+         jsonInput.addProperty("ORG_CODE",jLabelorgcode.getText());
+         jsonInput.addProperty("Usename",usernamelabel.getText());
+         jsonInput.addProperty("Idcard",idcardlabel.getText());
+         jsonInput.addProperty("OrgName",orgnamelabel.getText()); 
+         String j=jsonInput.toString();
+//         String replaced = j.replace("\"", "\\\"");
+//String n="{\"CrimeCaseNo\":\""+casno+"\",\"CrimeCaseYear\":\""+casyear+"\",\"ORG_CODE\":\""+orgcode+"\",\"Usename\":\""+user+"\",\"Idcard\":\""+idcard+"\",\"OrgName\":\""+nameor+"\"}";
+//String n="{\"CrimeCaseNo\":\""+casno+"\",\"CrimeCaseYear\":\""+casyear+"\",\"ORG_CODE\":\""+jLabelorgcode.getText()+"\",\"Usename\":\""+usernamelabel.getText()+"\",\"Idcard\":\""+idcardlabel.getText()+"\",\"OrgName\":\""+orgname.getText()+"\"}";
+
+        insert_crime(jsonInput);
+//         String j=jsonInput.toString();
+     System.out.println(j);
+    
+           
 //		JOptionPane.showMessageDialog(null, dataCol1);
 	}
 }
@@ -669,7 +734,21 @@ public class CaseSelectOverView extends javax.swing.JDialog {
          JSONObject jsonInput = new JSONObject();
          jsonInput.put("PersonalityID",idcardlabel.getText());
         call_me2(jsonInput);
+        TotalCase.setText(jTableCrime.getRowCount()+"");
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jCheckBox2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox2ItemStateChanged
+        // TODO add your handling code here:
+           
+            if(jCheckBox2.isSelected()){
+              for(int i=0;i<jTableCrime.getRowCount();i++){
+             jTableCrime.setValueAt(true, 0, i);}
+            }
+            else{
+            
+            
+            }
+    }//GEN-LAST:event_jCheckBox2ItemStateChanged
  
     /**
      * @param args the command line arguments
@@ -728,7 +807,7 @@ public class CaseSelectOverView extends javax.swing.JDialog {
         Statement stmt2 = con.createStatement();
 
         String sql = "select * from user";
-        String sqlOrg = "select PoliceStartionCode from PoliceStation";
+        String sqlOrg = "select PoliceStartionCode,PoliceStaionShort from PoliceStation";
 
         ResultSet rs = stmt.executeQuery(sql);
         ResultSet rs2 = stmt2.executeQuery(sqlOrg);
@@ -741,6 +820,7 @@ public class CaseSelectOverView extends javax.swing.JDialog {
       
         if(rs2.next()){
           jLabelorgcode.setText(rs2.getString("PoliceStartionCode"));
+          orgnamelabel.setText(rs2.getString("PoliceStaionShort"));
         } 
         rs.close();
         stmt.close();
@@ -793,10 +873,12 @@ public class CaseSelectOverView extends javax.swing.JDialog {
                                 "      </exam:getlist_Crimescase>\n" +
                                 "   </soapenv:Body>\n" +
                                 "</soapenv:Envelope>";
-                System.err.println("xml:"+xml);
+                System.out.println("xml:"+xml);
                 con.setDoOutput(true);
+                
                         DataOutputStream wr = new DataOutputStream(con.getOutputStream());
                 wr.writeBytes(xml);
+//                   System.out.println( wr.writeBytes(xml));
                 wr.flush();
                 wr.close();
                 String responseStatus = con.getResponseMessage();
@@ -825,7 +907,8 @@ public class CaseSelectOverView extends javax.swing.JDialog {
        
 //        while(rs.next()){
             Vector row = new Vector();
-//       
+//          
+           
              row.add(false);
                if(eElement.getElementsByTagName("CaseNo").item(0)==null){
                row.add("");
@@ -917,31 +1000,33 @@ public class CaseSelectOverView extends javax.swing.JDialog {
      
                 }
 
-    public static void insert_crime(JSONObject d){
+    public static void insert_crime(JsonObject a){
      try {
-             Connection conn=null;
-               conn=ConnectDatabase.connect();
-                String url = "http://172.31.191.163:8383/ws/CrimeCaseService_Wordgen_Import/";
+             
+                
+                 String url = "http://172.31.191.163:8383/ws/CrimeCaseService_Wordgen_Import/";
                 URL obj = new URL(url);
                 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
                 con.setRequestMethod("POST");
-                con.setRequestProperty("Content-Type","application/soap+xml; charset=utf-8");
+                con.setRequestProperty("Content-Type","application/soap+xml;charset=UTF-8");
                 String xml = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:exam=\"http://www.example.com/\">\n" +
-               "   <soapenv:Header>\n" +
-               "      <exam:authentication>\n" +
-               "         <username>rtp</username>\n" +
-               "         <password>rtp</password>\n" +
-               "      </exam:authentication>\n" +
-               "   </soapenv:Header>\n" +
-               "   <soapenv:Body>\n" +
-               "      <exam:CrimesCaseDetail>\n" +
-               "         <INPUT>"+d+"</INPUT>\n" +
-               "      </exam:CrimesCaseDetail>\n" +
-               "   </soapenv:Body>\n" +
-               "</soapenv:Envelope>";
-                con.setDoOutput(true);
-                        DataOutputStream wr = new DataOutputStream(con.getOutputStream());
-                wr.writeBytes(xml);
+                "   <soapenv:Header>\n" +
+                "      <exam:authentication>\n" +
+                "         <username>rtp</username>\n" +
+                "         <password>rtp</password>\n" +
+                "      </exam:authentication>\n" +
+                "   </soapenv:Header>\n" +
+                "   <soapenv:Body>\n" +
+                "      <exam:CrimesCaseDetail>\n" +
+                "         <INPUT>"+a+"</INPUT>\n" +
+                "      </exam:CrimesCaseDetail>\n" +
+                "   </soapenv:Body>\n" +
+                "</soapenv:Envelope>";
+                System.out.println(xml);
+                    con.setDoOutput(true);
+                  DataOutputStream writer = new DataOutputStream(con.getOutputStream());
+                BufferedWriter wr = new BufferedWriter(new OutputStreamWriter(writer, "UTF-8"));
+                wr.write(xml);
                 wr.flush();
                 wr.close();
                 String responseStatus = con.getResponseMessage();
@@ -954,16 +1039,18 @@ public class CaseSelectOverView extends javax.swing.JDialog {
                 response.append(inputLine);
                 }
                 in.close();
-//                System.out.println("response:" + response.toString());
+                System.out.println("response:" + response.toString());
                 	// System.out.println(response.toString());
         Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder()
          .parse(new InputSource(new StringReader(response.toString())));
-	       NodeList errNodes = doc.getElementsByTagName("CrimeCase");       
-        if (errNodes.getLength() > 0) {
-            Element err = (Element)errNodes.item(0);
-            
-      String insertCrime="insert into CrimeCase(CaseId,CaseType,crimecaseno,crimecaseyears,crimecasenoyear,CaseAcceptDate,CaseAccepTime,"
-                       + "CaseRequestDate,CaseRequestTime,OccuredDate,OccuredTime,OccuredDateEnd,OccuredTimeEnd)"
+	       NodeList errNodes = doc.getElementsByTagName("Person");
+               	       NodeList errNodes2 = doc.getElementsByTagName("CrimeCase");
+                        Connection conn=null;
+               conn=ConnectDatabase.connect();
+                       if (errNodes2.getLength() > 0) {
+            Element err = (Element)errNodes2.item(0);
+         String insertCrime="insert into CrimeCase(CaseId,CaseType,crimecaseno,crimecaseyears,crimecasenoyear,CaseAcceptDate,CaseAccepTime,"
+                       + "CaseRequestDate,CaseRequestTime,OccuredDate,OccuredTime,OccuredDateEnd,OccuredTimeEnd)\n"
                        + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
       
        try {
@@ -988,7 +1075,7 @@ public class CaseSelectOverView extends javax.swing.JDialog {
 
                      pst.execute();
                      pst.close();   
-                     
+                       System.out.println("success");
         } catch (SQLException e) {
                 System.out.println("ddddd: "+e);
             
@@ -996,46 +1083,46 @@ public class CaseSelectOverView extends javax.swing.JDialog {
 	} else { 
 		     // success
          }
-        
-        NodeList nodePer = doc.getElementsByTagName("Person");
-         for (int temp = 0; temp < nodePer.getLength(); temp++) {
+           for (int temp = 0; temp < errNodes.getLength(); temp++) {
 
-        Node nNode = nodePer.item(temp);
+        Node nNode = errNodes.item(temp);
+
+        
 
         if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 
-            Element p = (Element) nNode;
-        String insertPerson="insert into Person(OrderPerson,PeopleRegistrationID,FullNamePerson,BirthDay,Gender,"
-                              + "Age,TypePerson,ArrestDateTime,CaseIdPerson)"
-                                + "VALUE (?,?,?,?,?,?,?,?,?)";  
+            Element p = (Element) nNode; 
+
+//    System.out.println("First Name : " +eElement.getElementsByTagName("PeopleRegistrationID").item(0).getTextContent());
+       String insertPerson="insert into Person(PeopleRegistrationID,FullNamePerson,BirthDay,Gender,"
+                              + "Age,TypePerson,ArrestDateTime,CaseIdPerson)\n"
+                                + "VALUES (?,?,?,?,?,?,?,?)";  
          try {
                         int order=temp+1;
                          PreparedStatement pst2=null;
                         
                         pst2=conn.prepareStatement(insertPerson);
-                        pst2.setString(1, order+"");
-                        pst2.setString(2,p.getElementsByTagName("PeopleRegistrationID").item(0).getTextContent());
-                        pst2.setString(3, p.getElementsByTagName("FullnameTH").item(0).getTextContent());
-                        pst2.setString(4,  NewDate(p.getElementsByTagName("Birthday").item(0).getTextContent()));
-                        pst2.setString(5, "");
-                        pst2.setString(6, p.getElementsByTagName("Age").item(0).getTextContent()); 
+                        pst2.setString(1,CheckNull(p.getElementsByTagName("PeopleRegistrationID").item(0)));
+                        pst2.setString(2, p.getElementsByTagName("FullnameTH").item(0).getTextContent());
+                        pst2.setString(3,  NewDate(p.getElementsByTagName("Birthday").item(0).getTextContent()));
+                        pst2.setString(4, "");
+                        pst2.setString(5, p.getElementsByTagName("Age").item(0).getTextContent()); 
+                        pst2.setString(6,  ""); 
                         pst2.setString(7,  ""); 
-                        pst2.setString(8,  ""); 
-                        pst2.setString(9,  IdCasePerson()); 
+                        pst2.setString(8,  IdCasePerson()); 
 
                      pst2.execute();
                      pst2.close();   
-                     
+                      System.out.println("success Person");
         } catch (SQLException e) {
                 System.out.println("ddddd: "+e);
             
         }
-//         System.out.println("First Name : " +eElement.getElementsByTagName("PeopleRegistrationID").item(0).getTextContent());
 
         }
            }
-                
-     } catch (Exception e) {
+
+                } catch (Exception e) {
                 System.out.println(e);
                 }
      
@@ -1090,7 +1177,7 @@ public class CaseSelectOverView extends javax.swing.JDialog {
         } 
     
     }
-   public static String NewDate(String dateold) throws Exception{
+     public static String NewDate(String dateold) throws Exception{
          Locale lc = new Locale("th","TH");
          SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
         SimpleDateFormat outputFormat = new SimpleDateFormat("d/MM/yyyy",lc);
@@ -1128,7 +1215,18 @@ public class CaseSelectOverView extends javax.swing.JDialog {
          }
                return newGender;
       }
+     public static String CheckNull(Object type){
+          String newType="";
+          String check=".getTextContent()";
+         if(type==null){  
+            return newType;
+         }
+         else{ return newType+check;}
+              
+      }
+      
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel TotalCase;
     private javax.swing.JTextField casenocc;
     private javax.swing.JTextField caseyearscc;
     private javax.swing.JLabel idcardlabel;
@@ -1142,6 +1240,8 @@ public class CaseSelectOverView extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1169,7 +1269,7 @@ public class CaseSelectOverView extends javax.swing.JDialog {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField orgcodecc;
-    private javax.swing.JLabel orgname;
+    private javax.swing.JLabel orgnamelabel;
     private javax.swing.JLabel usernamelabel;
     // End of variables declaration//GEN-END:variables
 }

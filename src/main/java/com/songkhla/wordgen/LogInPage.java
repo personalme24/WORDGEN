@@ -329,7 +329,7 @@ try{
              
          try { 
             
-         String url=  "http://172.31.191.163:8383/wordgenauthen/?USER="+username+"&PASS="+password;
+         String url=  "http://172.31.191.163:8383/wordgenauthen/?USER="+username+"&PASS="+password+"&Serial="+getMotherboardSerial();
              System.out.println("url:"+url);
                   String fff =sendGET(url);
                    JSONObject myResponse = new JSONObject(fff);
@@ -539,7 +539,8 @@ String  username=Username.getText();
             
              }
              else{
-             String url=  "http://172.31.191.163:8383/wordgenauthen/?USER="+username+"&PASS="+password;
+//                 String neww=re
+             String url=  "http://172.31.191.163:8383/wordgenauthen/?USER="+username+"&PASS="+password+"&Serial=aaa";
                 System.out.println("url2:"+url);
              String fff =sendGET(url);
              JSONObject myResponse = new JSONObject(fff);
@@ -667,18 +668,22 @@ public static String ChangDate(String date){
     
 
 }
-   public static String getMotherboardSerial(){
+     public static String getMotherboardSerial(){
 		try
 	    {
 	        String result = null;
+                 String nline = null;
+
 	        Process p = Runtime.getRuntime().exec("wmic baseboard get product,Manufacturer,version,serialnumber");
 	               BufferedReader input
-	                = new BufferedReader(new InputStreamReader(p.getInputStream()));
+	                = new BufferedReader(new InputStreamReader(p.getInputStream(),"UTF-8"));
 	        String line;
 	        while ((line = input.readLine()) != null)
 	        {
-	        	result += line;
+	        	nline += line;
 	        }
+                  result= nline.replace(" ","");
+        System.out.println("aa "+result);
 	        input.close();
 	        return result;
 	    } catch (IOException ex)
