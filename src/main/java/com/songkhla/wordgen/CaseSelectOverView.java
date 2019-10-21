@@ -718,12 +718,12 @@ public class CaseSelectOverView extends javax.swing.JDialog {
          String timeStart=format.format(AcceptStartTime.getValue());
           String timeEnd=format.format(AcceptStartTime.getValue());
          JsonObject jsonInput = new JsonObject();
-          jsonInput.addProperty("CrimeCaseNo",casenocc.getText());
+         jsonInput.addProperty("CrimeCaseNo",casenocc.getText());
          jsonInput.addProperty("CrimeCaseYear",caseyearscc.getText());
          jsonInput.addProperty("ORG_CODE",jLabelorgcode.getText());
          jsonInput.addProperty("PersonalityID",idcardlabel.getText());
-         jsonInput.addProperty("CaseAcceptDate",AcceptDate(DateAcceptStart.getJFormattedTextField().getText(),timeStart));
-         jsonInput.addProperty("CaseAcceptDateTo",AcceptDate(DateAcceptStart.getJFormattedTextField().getText(),timeEnd)); 
+         jsonInput.addProperty("CaseAcceptDate","");
+         jsonInput.addProperty("CaseAcceptDateTo",""); 
          
         call_me2(jsonInput);
         TotalCase.setText(jTableCrime.getRowCount()+"");
@@ -1108,13 +1108,21 @@ public class CaseSelectOverView extends javax.swing.JDialog {
                          PreparedStatement pst2=null;
                         
                         pst2=conn.prepareStatement(insertPerson);
-                        pst2.setString(1,CheckNull(p.getElementsByTagName("PeopleRegistrationID").item(0)));
-                        pst2.setString(2, p.getElementsByTagName("FullnameTH").item(0).getTextContent());
-                        pst2.setString(3,  NewDate(p.getElementsByTagName("Birthday").item(0).getTextContent()));
+//                         if(p.getElementsByTagName("PeopleRegistrationID").item(0)==null){
+//                            pst2.setString(1,"");
+//                            }
+//                            else{
+//                                    pst2.setString(1,p.getElementsByTagName("PeopleRegistrationID").item(0).getTextContent());
+//                            }
+//                          pst2.setString(1,"");
+
+                        pst2.setString(1,CheckNull(p,"PeopleRegistrationID"));
+                        pst2.setString(2,"");
+                        pst2.setString(3, "");
                         pst2.setString(4, "");
-                        pst2.setString(5, p.getElementsByTagName("Age").item(0).getTextContent()); 
+                        pst2.setString(5,""); 
                         pst2.setString(6,  ""); 
-                        pst2.setString(7,  ""); 
+                        pst2.setString(7, ""); 
                         pst2.setString(8,  IdCasePerson()); 
 
                      pst2.execute();
@@ -1187,19 +1195,32 @@ public class CaseSelectOverView extends javax.swing.JDialog {
          Locale lc = new Locale("th","TH");
          SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
         SimpleDateFormat outputFormat = new SimpleDateFormat("d/MM/yyyy",lc);
+          if(dateold.equals("")){
+              String a="";
+        return   a;
+        
+        }
+        else{
         Date date = inputFormat.parse(dateold);
        
         String formattedDate = outputFormat.format(date);
               return   formattedDate;
+        }
       }
        public static String NewTime(String dateold) throws Exception{
          Locale lc = new Locale("th","TH");
          SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
         SimpleDateFormat outputFormat = new SimpleDateFormat("HH:mm",lc);
+        if(dateold.equals("")){
+        return   "";
+        
+        }
+        else{
         Date date = inputFormat.parse(dateold);
        
         String formattedDate = outputFormat.format(date);
               return   formattedDate;
+        }
       }
            public static String NewTypePerson(String type){
           String newType="";
@@ -1213,22 +1234,41 @@ public class CaseSelectOverView extends javax.swing.JDialog {
       }
       public static String NewGender(String gender){
           String newGender="";
+          if(newGender.equals("")){
+          return newGender;
+          }
+          else{
          if(gender.equals("Male")){  
           newGender="ชาย";
          }
           if(gender.equals("Female")){  
           newGender="หญิง";
          }
-               return newGender;
+          return newGender;
+          }
+//               return newGender;
       }
-     public static String CheckNull(Object type){
+     public static String CheckNull(Node nd,String type){
           String newType="";
+           Element p = (Element) nd; 
+//           String newType2="";   
+String a=p+"getElementsByTagName(\""+type+"\").item(0)";
+System.out.println("sasa:"+a);
           String check=".getTextContent()";
-         if(type==null){  
-            return newType;
+         if(type != null){ 
+         
+           String newType2=check; 
+           System.out.println("asdasdasd:"+newType2); 
+            return newType2;
          }
-         else{ return newType+check;}
-              
+         else{ 
+             System.out.println("ssssssssss:"+newType);        
+            return newType;
+            
+          
+                 
+         }
+      
       }
       
     // Variables declaration - do not modify//GEN-BEGIN:variables

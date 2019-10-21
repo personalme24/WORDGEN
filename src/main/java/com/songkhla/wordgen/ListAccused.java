@@ -43,7 +43,7 @@ String typeC;
         txtCaseNO.setText(datain.get("CaseIdAcc")+"");
          typeC=datain.get("TypeCase")+"";
          System.out.println("saaaaaaaaa: "+typeC);
-         RefreshData();
+         RefreshDataAcc();
           
     
        
@@ -232,7 +232,7 @@ String typeC;
         
         
 //       }
-        RefreshData();
+        RefreshDataAcc();
        
     }//GEN-LAST:event_jButtonAddAccusedActionPerformed
 
@@ -305,7 +305,7 @@ String typeC;
                 
                 rs.close();
                 stmt.close();
-                RefreshData();
+                RefreshDataAcc();
             }catch(Exception ex){
                 ex.printStackTrace();
             }
@@ -333,7 +333,7 @@ String typeC;
 
                 System.out.println("SQL : "+sql);
                 stmt.close();
-                RefreshData();
+                RefreshDataAcc();
             }catch(Exception ex){
                 ex.printStackTrace();
             }
@@ -376,7 +376,7 @@ String typeC;
             }
         });
     }
-     public void RefreshData(){
+     public void RefreshDataAcc(){
         try{
               
         Connection con = ConnectDatabase.connect();

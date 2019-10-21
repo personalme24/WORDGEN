@@ -45,7 +45,7 @@ String noPerson;
 
         txtCaseNO.setText(datain.get("CaseIdWit")+"");
          typeC=datain.get("TypeCaseW")+"";
-         RefreshData();
+         RefreshDataWit();
       
        
     }
@@ -214,7 +214,7 @@ String noPerson;
         wf.setVisible(true);
 //       }
 
-        RefreshData();
+        RefreshDataWit();
        
     }//GEN-LAST:event_jButtonAddAccusedActionPerformed
 
@@ -287,7 +287,7 @@ String noPerson;
                 
                 rs.close();
                 stmt.close();
-                RefreshData();
+                RefreshDataWit();
             }catch(Exception ex){
                 ex.printStackTrace();
             }
@@ -315,7 +315,7 @@ String noPerson;
 
                 System.out.println("SQL : "+sql);
                 stmt.close();
-                RefreshData();
+                RefreshDataWit();
             }catch(Exception ex){
                 ex.printStackTrace();
             }
@@ -359,7 +359,7 @@ String noPerson;
             }
         });
     }
-     public void RefreshData(){
+     public void RefreshDataWit(){
         try{
               
         Connection con = ConnectDatabase.connect();

@@ -559,8 +559,8 @@ String  username=Username.getText();
                String insertUser="INSERT INTO User (iduser,Username,Password,StatusLogin,DateLogin,SerialNum,PeopleCard)\n"        
                       + "VALUES (?,?,?,?,?,?,?)";
                  String insertStation="INSERT INTO PoliceStation (PoliceStartionId,PoliceStartionCode,PoliceStaionName,PoliceStaionShort,StationAddress,StationTambon,"
-                         + "StationAmphur,StationProvince,PostCode,BK,BH)\n"        
-                      + "VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+                         + "StationAmphur,StationProvince,PostCode,BK,BH,PhonePolice,StationAddress,HeadRankFull,HeadRankShort,HeadName,HeadPosition)\n"        
+                      + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
                try {
                               Date d=new Date();
                              pst=con.prepareStatement(insertPolice);
@@ -573,7 +573,7 @@ String  username=Username.getText();
                               pst.setString(7,myResponse.getString("age"));
                               pst.setString(8,myResponse.getString("mobilephone"));
                               pst.setString(9,myResponse.getString("position"));  
-                              pst.setString(10,"");                                                 
+                              pst.setString(10,myResponse.getString("rankfull"));                                                 
                               pst.executeUpdate();                
                               pst.close();
                               
@@ -587,7 +587,7 @@ String  username=Username.getText();
                               pst2.setString(6,ChangDate(myResponse.getString("birthday")));
                               pst2.setString(7,myResponse.getString("age"));
                               pst2.setString(8,myResponse.getString("mobilephone"));
-                              pst2.setString(9,"");                          
+                              pst2.setString(9,myResponse.getString("rankfull"));                          
                               pst2.executeUpdate();                
                               pst2.close();
                               
@@ -613,7 +613,11 @@ String  username=Username.getText();
                              pst4.setString(8,myResponse.getString("province"));                        
                              pst4.setString(9,myResponse.getString("zipcode"));                        
                              pst4.setString(10,myResponse.getString("bk"));                        
-                             pst4.setString(11,myResponse.getString("bh"));                        
+                             pst4.setString(11,myResponse.getString("bh"));  
+                             pst4.setString(12,myResponse.getString("mobilephone"));                                pst4.setString(12,myResponse.getString("mobilephone"));                        
+                             pst4.setString(13,myResponse.getString("address"));                        
+                     
+
                               pst4.executeUpdate();                
                               pst4.close();
                         
