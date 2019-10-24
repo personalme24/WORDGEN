@@ -53,6 +53,7 @@ public class W4 {
              String ccYear;
              String casetype;
              String caseno;
+             String STATUS;
              String PoliceStationName="";
              String ProvincProsecutor="";
              String THNumBook ="";
@@ -117,6 +118,7 @@ public class W4 {
                     ccYear=s.getString("crimecaseyears");
                     casetype =s.getString("casetype");
                     caseno  =s.getString("crimecasenoyear");
+                    STATUS=s.getString("Investigator_Result");
                 String Date="";
                 String Month="";
                 String Year="";
@@ -153,6 +155,7 @@ public class W4 {
                 bookmarkvalue.put("S13",Checknull(HeadName));
                 bookmarkvalue.put("S14",Checknull(HeadPosition));
                 bookmarkvalue.put("S34",Checknull(HeadRankFull));
+                bookmarkvalue.put("STATUS",Checknull(STATUS));
                    
                   bookmarkvalue.put("PA7",Checknull(s.getString("AccureandOther")));
                   bookmarkvalue.put("PA13",Checknull(s.getString("AgeAccured")));
@@ -175,6 +178,7 @@ public class W4 {
                         bookmarkvalue.put("P03", Checknull(s.getString("InvestName")));
                         bookmarkvalue.put("P04", "");
                         bookmarkvalue.put("P05", Checknull(s.getString("InvestPosition")));
+                        bookmarkvalue.put("P010", Checknull(s.getString("InvestTel")));
                         bookmarkvalue.put("P012", Checknull(s.getString("InvestRankFull"))); //ยศเต็ม
                         bookmarkvalue.put("P013", Checknull(s.getString("InvestPosition"))); //ตำแหน่งเต็ม
                    
@@ -247,6 +251,7 @@ public class W4 {
                 bookmarkvalue.put("S13","");
                 bookmarkvalue.put("S14","");
                 bookmarkvalue.put("S34","");
+                 bookmarkvalue.put("STATUS","");
                  
                  bookmarkvalue.put("PA7","");
                   bookmarkvalue.put("PA13","");
@@ -264,6 +269,7 @@ public class W4 {
                        bookmarkvalue.put("P03","");
                        bookmarkvalue.put("P04","");
                        bookmarkvalue.put("P05","");
+                       bookmarkvalue.put("P010","");
                        bookmarkvalue.put("P012","");
                        bookmarkvalue.put("P013","");
                     

@@ -147,6 +147,7 @@ public class W5 {
                casetype =s.getString("casetype");
                caseno  =s.getString("crimecasenoyear");
                CourtSuspect= Checknull(s.getString("suspectCourtSuspect"));
+               STATUS=s.getString("Investigator_Result");
               String Date="";
                 String Month="";
                 String Year="";
@@ -176,6 +177,7 @@ public class W5 {
                 bookmarkvalue.put("C37",Checknull(s.getString("Invest_SendtoDepartment")));
                 bookmarkvalue.put("C38",Checknull(s.getString("Investigator_Number")));
                 bookmarkvalue.put("STATUS",Checknull(STATUS));
+                
                 String StatusInjuryOrDie= Checknull(s.getString("StatusInjuryOrDie"));
                
                 bookmarkvalue.put("CTY",Checknull(s.getString("suspectStatusSuspect")));
@@ -269,6 +271,7 @@ public class W5 {
                         bookmarkvalue.put("P03", Checknull(s.getString("InvestName")));
                         bookmarkvalue.put("P04", "");
                         bookmarkvalue.put("P05", Checknull(s.getString("InvestPosition")));
+                        bookmarkvalue.put("P010", Checknull(s.getString("InvestTel")));
                         bookmarkvalue.put("P012", Checknull(s.getString("InvestRankFull"))); //ยศเต็ม
                         bookmarkvalue.put("P013", Checknull(s.getString("InvestPosition"))); //ตำแหน่งเต็ม
     
@@ -399,6 +402,7 @@ public static void nw5() {
                         bookmarkvalue.put("P03", "");
                         bookmarkvalue.put("P04", "");
                         bookmarkvalue.put("P05", "");
+                        bookmarkvalue.put("P010", "");
                         bookmarkvalue.put("P012", "");
                         bookmarkvalue.put("P013", "");
                    

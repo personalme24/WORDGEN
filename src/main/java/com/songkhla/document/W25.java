@@ -147,7 +147,8 @@ public class W25 {
                   bookmarkvalue.put("PS13", Checknull(s.getString("suspectAge")));
                   bookmarkvalue.put("PS15", Checknull(s.getString("suspectNati")));
                    
-                      bookmarkvalue.put("A2", Checknull(s.getString("ActionCrimesCase")));  
+                      bookmarkvalue.put("A2", Checknull(s.getString("ActionCrimesCase")));
+                      bookmarkvalue.put("A3", Checknull(s.getString("ActionDetailCase")));
                       bookmarkvalue.put("B2", Checknull(s.getString("ChargeNameCase")));
                       bookmarkvalue.put("AS64", Checknull(s.getString("PlaceFoundExhibit")));
                       /*
@@ -255,7 +256,8 @@ public static void nw25() {
                   bookmarkvalue.put("PS13", "");
                   bookmarkvalue.put("PS15", "");
                    
-                      bookmarkvalue.put("A2", "");  
+                      bookmarkvalue.put("A2", ""); 
+                      bookmarkvalue.put("A3", "");
                       bookmarkvalue.put("B2", "");
                       bookmarkvalue.put("AS64","");
                       

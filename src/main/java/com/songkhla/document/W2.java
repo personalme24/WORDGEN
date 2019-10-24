@@ -177,6 +177,7 @@ public class W2 {
                         bookmarkvalue.put("P03", Checknull(s.getString("InvestName")));
                         bookmarkvalue.put("P04", "");
                         bookmarkvalue.put("P05", Checknull(s.getString("InvestPosition")));
+                        bookmarkvalue.put("P010", Checknull(s.getString("InvestTel")));
                         bookmarkvalue.put("P012", Checknull(s.getString("InvestRankFull"))); //ยศเต็ม
                         bookmarkvalue.put("P013", Checknull(s.getString("InvestPosition"))); //ตำแหน่งเต็ม
     
@@ -252,6 +253,7 @@ public class W2 {
                 bookmarkvalue.put("S14","");
                 bookmarkvalue.put("S34","");
                 bookmarkvalue.put("S10","");
+                bookmarkvalue.put("STATUS","");
                    
                    
                   bookmarkvalue.put("PA7","");
@@ -270,6 +272,7 @@ public class W2 {
                         bookmarkvalue.put("P03", "");
                         bookmarkvalue.put("P04", "");
                         bookmarkvalue.put("P05", "");
+                        bookmarkvalue.put("P010", "");
                         bookmarkvalue.put("P012", "");
                         bookmarkvalue.put("P013", "");
                    
