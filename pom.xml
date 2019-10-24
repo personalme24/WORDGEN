@@ -84,11 +84,7 @@
 		<artifactId>httpclient</artifactId>
 		<version>4.1.1</version>
 	</dependency>
-        <dependency>
-            <groupId>unknown.binary</groupId>
-            <artifactId>LGoodDatePicker-10.4.1</artifactId>
-            <version>SNAPSHOT</version>
-        </dependency>
+        
     </dependencies>
     
     <build>
