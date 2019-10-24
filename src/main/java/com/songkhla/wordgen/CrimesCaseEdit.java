@@ -240,7 +240,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 //               public void itemStateChanged(ItemEvent event) {
 //                   int state = event.getStateChange();
 //                   if (state == ItemEvent.SELECTED) 
-//                       // do something when the button is selected
+//                      jTextSuspect.set
 //
 //                   } 
 //                   else if (state == ItemEvent.DESELECTED) {
@@ -3601,6 +3601,7 @@ JTextPopupMenu.addTo(CourtResult);
         // TODO add your handling code here:
         JSONObject datacase=new JSONObject();
         datacase.put("TypeCase",typeC );
+        datacase.put("CaseId",crimecaseid.getText() );
         JFrame frame = new JFrame();
         JDialog dialog = new JDialog(frame);//frame is owner
         JFrame s = (JFrame)(dialog.getParent());
@@ -3625,6 +3626,7 @@ JTextPopupMenu.addTo(CourtResult);
 
     private void jRadioUnknowSuspectItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioUnknowSuspectItemStateChanged
         // TODO add your handling code here:
+       
     }//GEN-LAST:event_jRadioUnknowSuspectItemStateChanged
 
     private void jButtonDeleteAccured1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteAccured1ActionPerformed
@@ -5290,33 +5292,22 @@ if(OccuredDate.getJFormattedTextField().getText().equals("23/8/2562")){
       }
       public void RefreshData(){
         try{
-//         String type=null;
-//         if(typeC.equals("อาญา")){
-//            type="ผู้ต้องหา";
-////             type="ผู้ตาย";
-//            
-//         }
-//         else{
-//             type="ผู้ตาย";
-//            
-//         }
         Connection con = ConnectDatabase.connect();
         Statement stmt = con.createStatement();
         String a=crimecaseid.getText();
-        String type=null;
-        if(typeC.equals("Dead")){
-            type="ผู้ตาย";
-        }
-        else{
-            type="ผู้ต้องหา";
-        }
+//        if(typeC.equals("Dead")){
+//            type="ผู้ตาย";
+//        }
+//        else{
+//            type="ผู้ต้องหา";
+//        }
         String sql = "select NoPerson,Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                      "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                     "PhonePerson,OrderPerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,caseIdPerson from person where TypePerson='"+type+"'"
+                     "PhonePerson,OrderPerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,caseIdPerson from person where TypePerson='ผู้ต้องหา'"
                 + " and caseIdPerson='"+a+"' order by OrderPerson ASC";
       
         ResultSet rs = stmt.executeQuery(sql);
-          System.out.println("SQL : "+sql);
+          System.out.println("SQLSuspect : "+sql);
         Vector<Vector> tabledata = new Vector<Vector>();
         while(rs.next()){
             Vector<String> row = new Vector<String>();
@@ -5367,32 +5358,48 @@ if(OccuredDate.getJFormattedTextField().getText().equals("23/8/2562")){
 jTableSuspect.getColumnModel().getColumn(7).setMinWidth(0);
 jTableSuspect.getColumnModel().getColumn(7).setMaxWidth(0); 
                              System.out.println("SQL : "+sql);
+           if(jTableSuspect.getRowCount()<=0){
+//             int rows = jTableAccure.getRowCount();        
+           jTextSuspect.setText("");           
+            }
+        else if(jTableSuspect.getRowCount()==1){
+//             int rows = jTableAccure.getRowCount();
+                       
+            jTextSuspect.setText(jTableSuspect.getValueAt(0, 2).toString());           
+            }
+         else if(jTableSuspect.getRowCount()>1){
+                        
+           jTextSuspect.setText(jTableSuspect.getValueAt(0, 2).toString()+"และคนอื่นๆ"); 
         
+            }
+                    
+             int rows = jTableSuspect.getRowCount();
+            jLabelNumberSus.setText(rows+"");  
    
-    if(jTableSuspect.getRowCount()==1){
-//             int rows = jTableAccure.getRowCount();
-           
-                 int rows = jTableSuspect.getRowCount();
-             CrimesCaseEdit.jLabelNumberSus.setText(rows+"");
-            CrimesCaseEdit.jTextSuspect.setText(jTableSuspect.getValueAt(0, 2).toString()); 
-           
-            }
-     int rows = jTableSuspect.getRowCount();
-        rows = jTableSuspect.getRowCount();
-      if(jTableSuspect.getRowCount()<=0){
-//             int rows = jTableAccure.getRowCount();
-            CrimesCaseEdit.jLabelNumberSus.setText(rows+"");
-            CrimesCaseEdit.jTextSuspect.setText(""); 
-  
-            }
-            if(jTableSuspect.getRowCount()>1){
-            
-            
-            
-             CrimesCaseEdit.jLabelNumberSus.setText(rows+"");
-            CrimesCaseEdit.jTextSuspect.setText(jTableSuspect.getValueAt(0, 2).toString()+"และพวก"); 
-            
-            }
+//    if(jTableSuspect.getRowCount()==1){
+////             int rows = jTableAccure.getRowCount();
+//           
+//                 int rows = jTableSuspect.getRowCount();
+//             CrimesCaseEdit.jLabelNumberSus.setText(rows+"");
+//            CrimesCaseEdit.jTextSuspect.setText(jTableSuspect.getValueAt(0, 2).toString()); 
+//           
+//            }
+//     int rows = jTableSuspect.getRowCount();
+//        rows = jTableSuspect.getRowCount();
+//      if(jTableSuspect.getRowCount()<=0){
+////             int rows = jTableAccure.getRowCount();
+//            CrimesCaseEdit.jLabelNumberSus.setText(rows+"");
+//            CrimesCaseEdit.jTextSuspect.setText(""); 
+//  
+//            }
+//            if(jTableSuspect.getRowCount()>1){
+//            
+//            
+//            
+//             CrimesCaseEdit.jLabelNumberSus.setText(rows+"");
+//            CrimesCaseEdit.jTextSuspect.setText(jTableSuspect.getValueAt(0, 2).toString()+"และพวก"); 
+//            
+//            }
     
         }catch(Exception ex){
             ex.printStackTrace();

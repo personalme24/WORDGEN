@@ -85,7 +85,7 @@ public class SuspectForm extends javax.swing.JDialog {
             ImageIcon img = new ImageIcon("D://Master//WD.png");
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็กทรอนิกส์ (CRIMES)");
-     jLabel36.setVisible(false);
+     jLabel36.setVisible(true);
      jLabelNameArrest.setVisible(false);
      NameArrest.setVisible(false);
      AnswerPerson.setVisible(false);
