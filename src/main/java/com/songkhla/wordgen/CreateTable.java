@@ -31,6 +31,7 @@ public class CreateTable {
                                "   PeopleCard  VARCHAR(100)	,	\n"+
                                "   StatusLogin  VARCHAR(100)	,	\n"+
                                "   SerialNum  VARCHAR(100)	,	\n"+
+                               "   Token  VARCHAR(100)	,	\n"+
                                "   DateLogin DATE		\n"+                        
                                "	); ";
                 String sqlDataCharge = "CREATE TABLE IF NOT EXISTS DataCharge (\n"+
