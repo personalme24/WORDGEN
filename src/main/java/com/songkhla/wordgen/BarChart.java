@@ -43,8 +43,8 @@ public class BarChart {
         row = sheet.createRow(0);
         row.createCell(0);
         row.createCell(1).setCellValue("HEADER 1");
-        row.createCell(2).setCellValue("HEADER 2");
-        row.createCell(3).setCellValue("HEADER 3");
+//        row.createCell(2).setCellValue("HEADER 2");
+//        row.createCell(3).setCellValue("HEADER 3");
 
         for (int r = 1; r < 5; r++) {
             row = sheet.createRow(r);

@@ -598,15 +598,18 @@ String  username=Username.getText();
                               pst3.setString(4,"1");
                               pst3.setString(5,d+"");
                               pst3.setString(6,getMotherboardSerial());        
-                              pst3.setString(7,myResponse.getString("idcard"));  
-                              pst3.setString(8,myResponse.getString("passwordwordgen"));  
+                              pst3.setString(7,myResponse.getString("idcard")); 
+//                              pst3.setString(8,myResponse.getString("passwordwordgen"));  
+                              pst3.setString(8,"eZS5PPB/9zCElUbubieWKoD9pctqrANqhXqK49z1250=");  
 
                               pst3.executeUpdate();                
                               pst3.close();
                               
                               pst4=con.prepareStatement(insertStation);
                               pst4.setString(1,"1");
-                              pst4.setString(2,myResponse.getString("orgcode"));
+//                              pst4.setString(2,myResponse.getString("orgcode"));
+                              pst4.setString(2,"70028");
+
                               pst4.setString(3,"สถานีตำรวจ"+myResponse.getString("stationname"));
                               pst4.setString(4,myResponse.getString("initialname"));
                               pst4.setString(5,myResponse.getString("address"));

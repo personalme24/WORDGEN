@@ -3661,6 +3661,7 @@ public static String ChangeGender(String gender) throws Exception{
               return   "หญิง";
         }
      }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Age;
     private javax.swing.JTextField Amphur;

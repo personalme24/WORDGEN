@@ -366,7 +366,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             CrimeLocationMoo.setText(Checknull(datain.get("CrimeLocationMoo"))+"");
             CrimeLocationRoad.setText(Checknull(datain.get("CrimeLocationRoad"))+"");
             CrimeLocationSoi.setText(Checknull(datain.get("CrimeLocationSoi"))+""); 
-            jComboPoliceName.getModel().setSelectedItem(new ComboItem(datain.get("PoliceNameCase")+"", datain.get("PoliceNameCaseId")+""));
+            jComboPoliceName.getModel().setSelectedItem(new ComboItem(Checknull(datain.get("PoliceNameCase"))+"", Checknull(datain.get("PoliceNameCaseId"))+""));
             comboInvest();
             jTextSuspect.setText(Checknull(datain.get("SuspectandOther"))+"");
             jTextWitness.setText(Checknull(datain.get("WitnessandOther"))+"");
@@ -374,7 +374,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             CaseRequestTimee.setValue(timeReq);
             CaseAcceptDate.getJFormattedTextField().setText(datain.get("CaseAcceptDate")+"");
             CaseAcceptTimee.setValue(timeAcc);
-            DailyNumber.setText(datain.get("DailyNumber")+"");
+            DailyNumber.setText(Checknull(datain.get("DailyNumber"))+"");
             String investSta=datain.get("Investigator_Result")+"";   
             OccuredDateTime.setValue(timeOccu);
             OccuredDate.getJFormattedTextField().setText(datain.get("OccuredDate")+"");
