@@ -66,7 +66,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jButton2" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                       <Component id="jButton3" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
@@ -218,7 +218,7 @@
         <Component class="javax.swing.JButton" name="jButton2">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="TH SarabunPSK" size="20" style="1"/>
+              <Font name="TH SarabunPSK" size="22" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&#xe23;&#xe32;&#xe22;&#xe07;&#xe32;&#xe22;&#xe01;&#xe32;&#xe23;&#xe43;&#xe0a;&#xe49;&#xe02;&#xe49;&#xe2d;&#xe2b;&#xe32;&#xe41;&#xe22;&#xe01;&#xe15;&#xe32;&#xe21;&#xe1b;&#xe23;&#xe30;&#xe40;&#xe20;&#xe17;&#xe04;&#xe14;&#xe35;"/>
           </Properties>

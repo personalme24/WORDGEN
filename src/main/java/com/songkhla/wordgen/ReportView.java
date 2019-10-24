@@ -149,7 +149,7 @@ public class ReportView extends javax.swing.JFrame {
             .addGap(0, 56, Short.MAX_VALUE)
         );
 
-        jButton2.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jButton2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jButton2.setText("รายงายการใช้ข้อหาแยกตามประเภทคดี");
 
         jButton3.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -176,7 +176,7 @@ public class ReportView extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
+                .addGap(57, 57, 57)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
