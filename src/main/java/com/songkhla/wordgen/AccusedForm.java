@@ -28,6 +28,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Properties;
 import javax.swing.Action;
 import javax.swing.ActionMap;
@@ -80,7 +81,7 @@ public class AccusedForm extends javax.swing.JDialog {
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
       
 //     Occupation = new HintTextField("Another hint here");
-     crimecaseno.setVisible(false);
+     crimecaseno.setVisible(true);
      AnswerPerson.setVisible(false);
         jButtonInjuryOrDie.setVisible(false);
        CauseSendInjuredOrDie.setVisible(false);
@@ -209,7 +210,7 @@ UtilDateModel model5 = new UtilDateModel();
 //            Date datedd=new Date();
 //            String dateInjury=timeFormat.format(datedd);
 //           DateSendInjuredOrDie.setText(dateInjury);      
-           crimecaseno.setText(ListAccused.txtCaseNO.getText());
+           crimecaseno.setText(datacase.get("CaseId")+"");
             isInsert=true;
           
         }
@@ -258,7 +259,38 @@ UtilDateModel model5 = new UtilDateModel();
                            }
              }
              );
-        
+            Tambon.getDocument().addDocumentListener(new DocumentListener() {
+             public void changedUpdate(DocumentEvent e) {
+                  zp();
+             }
+             public void removeUpdate(DocumentEvent e) {
+
+             }
+             public void insertUpdate(DocumentEvent e) {
+                  zp();
+             }
+                    public void zp() {
+                        String provinceid="";
+                           String loTam="",amp="",zp="",loAmphur="",pro="";
+                          Connection con2 = ConnectDatabase.connect();
+                          try {
+                              Statement st2 = con2.createStatement();
+                              String a="select Tambon.DOPA_CODE DOPA_CODE,Tambon.ZIPCODE ZIPCODE from Tambon\n"+
+                              "where Tambon.NAMETAMBON='"+Tambon.getText()+"'";
+                              ResultSet res2 = st2.executeQuery(a);
+                              System.out.println("provinceid: "+a);
+                          if(res2.next()){
+                              zp=res2.getString("ZIPCODE");
+                          provinceid=res2.getString("DOPA_CODE");
+                         loTam= provinceid.substring(0, 4);
+                            ZipCode.setText(zp);
+                          }
+                          }
+                          catch(Exception ex){
+
+                          }
+                    }
+                 });   
        JTextPopupMenu.addTo(OrderPerson);
        JTextPopupMenu.addTo(PeopleRegistrationID);
        JTextPopupMenu.addTo(ExpiredDate.getJFormattedTextField());
@@ -381,6 +413,7 @@ UtilDateModel model5 = new UtilDateModel();
         jLabel9 = new javax.swing.JLabel();
         PassportNumber = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -441,7 +474,7 @@ UtilDateModel model5 = new UtilDateModel();
             }
         });
 
-        FullNamePerson.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        FullNamePerson.setFont(new java.awt.Font("TH SarabunPSK", 1, 18)); // NOI18N
 
         OtherName.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
@@ -750,6 +783,14 @@ UtilDateModel model5 = new UtilDateModel();
             }
         });
 
+        jButton2.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jButton2.setText("อ่านข้อมูลจากบัตร");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -880,7 +921,10 @@ UtilDateModel model5 = new UtilDateModel();
                                 .addComponent(RelatedAccused, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(11, 11, 11)
                                 .addComponent(AnswerPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(BtSaveAccused, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(BtSaveAccused, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton2))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -932,12 +976,10 @@ UtilDateModel model5 = new UtilDateModel();
                             .addComponent(jLabel28)
                             .addComponent(jLabel19)))
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(FullNamePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1019,8 +1061,14 @@ UtilDateModel model5 = new UtilDateModel();
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(RelatedAccused, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(AnswerPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
-                .addComponent(BtSaveAccused, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(BtSaveAccused, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
 
         PhonePerson.getAccessibleContext().setAccessibleName("");
@@ -1463,6 +1511,63 @@ UtilDateModel model5 = new UtilDateModel();
         // TODO add your handling code here:
     }//GEN-LAST:event_comboBoxActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        try {
+
+            if(true) {
+                ReadThaiCardService read = new ReadThaiCardService();
+                read.check_read();
+                read.read(0);
+                int st=read.getDataThaiCard().getStatus();
+                if(st==1){
+                    JOptionPane.showMessageDialog(null, "กรุณาเสียบบัตร");
+                }
+                else if(st==2){
+                    JOptionPane.showMessageDialog(null, "กรุณาเสียบบัตร");
+                }
+                else if(st==4){
+                    String str=read.getDataThaiCard().getThaiCardDetail().getThname();
+                    String[] name=str.split("##",2);
+                    String firstname=(name[0]+"").replace("#", "");
+                    String n=firstname+" "+name[1];
+                    //                                String name2=name.replace("##", " ");
+                    PeopleRegistrationID.setText(read.getDataThaiCard().getThaiCardDetail().getPid());
+                    FullNamePerson.setText(n);
+                    IssueDate.getJFormattedTextField().setText(DateCard(read.getDataThaiCard().getThaiCardDetail().getIssuedate()));
+                    ExpiredDate.getJFormattedTextField().setText(DateCard(read.getDataThaiCard().getThaiCardDetail().getExpiredate()));
+                    BirthDay.getJFormattedTextField().setText(DateCard(read.getDataThaiCard().getThaiCardDetail().getBirthdate()));
+                    HouseNumber.setText(read.getDataThaiCard().getThaiCardDetail().getAddrHS());
+                    Moo.setText(read.getDataThaiCard().getThaiCardDetail().getAddrMoo().replace("หมู่ที่ ", ""));
+
+                    //                                Road.setText(read.getDataThaiCard().getThaiCardDetail().getAdd);
+//                    Soi.setText(read.getDataThaiCard().getThaiCardDetail().getAddrSoi());
+                    Tambon.setText(read.getDataThaiCard().getThaiCardDetail().getAddrTmb().replace("ตำบล",""));
+                    Amphur.setText(read.getDataThaiCard().getThaiCardDetail().getAddrAmp().replace("อำเภอ",""));
+                    Province.setText(read.getDataThaiCard().getThaiCardDetail().getAddrPrv().replace("จังหวัด",""));
+                    Gender.setSelectedItem(ChangeGender(read.getDataThaiCard().getThaiCardDetail().getGender()));
+                    System.out.println(read.getDataThaiCard().getStatusMsg());
+                    System.out.println(ChangeGender(read.getDataThaiCard().getThaiCardDetail().getGender()));
+                    System.out.println(read.getDataThaiCard().getThaiCardDetail().getAddrTrk());
+                    System.out.println(read.getDataThaiCard().getThaiCardDetail().getEnname());
+
+                    System.out.println(read.getDataThaiCard().getThaiCardDetail().getAddrStr());
+
+                    System.out.println(read.getDataThaiCard().getThaiCardDetail().getThname().toString()+"hhh");
+                }
+
+                //				Thread.sleep(5000);
+            }
+            //                        else{
+                //                            System.out.println("ErrorCard:");
+                //                        }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1772,6 +1877,33 @@ catch (Exception d) {  //System.out.println(d);
 					if(input==null||input==""||input=="null") { return ""; }
 					return input+"";
 					}
+      public static String DateCard(String dateC) throws Exception{
+     
+     
+      Locale lc = new Locale("th","TH");
+         SimpleDateFormat inputFormat = new SimpleDateFormat("yyyyMMdd");
+        SimpleDateFormat outputFormat = new SimpleDateFormat("d/MM/yyyy");
+          if(dateC.equals("")){
+              String a="";
+        return   a;
+        
+        }
+        else{
+        Date date = inputFormat.parse(dateC);
+       
+        String formattedDate = outputFormat.format(date);
+              return   formattedDate;
+        }
+     }
+public static String ChangeGender(String gender) throws Exception{
+         
+        if(gender.equals("1")){       
+        return   "ชาย";
+        }
+        else{       
+              return   "หญิง";
+        }
+     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Age;
     private javax.swing.JTextField Amphur;
@@ -1807,6 +1939,7 @@ catch (Exception d) {  //System.out.println(d);
     private javax.swing.JComboBox<String> comboBox;
     private javax.swing.JLabel crimecaseno;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonInjuryOrDie;
     private javax.swing.JCheckBox jCheckDead;
     private javax.swing.JCheckBox jCheckInjured;

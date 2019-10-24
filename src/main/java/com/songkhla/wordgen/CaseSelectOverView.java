@@ -683,7 +683,34 @@ public class CaseSelectOverView extends javax.swing.JDialog {
 //            System.out.println("aa:"+nameor);
 
 	if (chked) {
-        JsonObject jsonInput = new JsonObject();
+            try{
+              Connection c=null;
+             c=ConnectDatabase.connect();
+            String sqlId="Select crimecaseno,crimecaseyears,crimecasenoyear from CrimeCase where crimecaseno='"+casno+"' and crimecaseyears='"+casyear+"' and crimecasenoyear='"+casno+"/"+casyear+"'";
+
+            Statement s=c.createStatement();
+            ResultSet rs=s.executeQuery(sqlId);
+            
+            if (rs.next()) {
+               int response = JOptionPane.showConfirmDialog(jPanel1, "คดีที่ "+casno+"/"+casyear+" มีข้อมูลแล้วต้องการบันทึกข้อมูลซ้ำหรือไม่", "ยืนยัน",
+        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (response == JOptionPane.YES_OPTION) {
+//             con=ConnectDatabase.connect();
+         JsonObject jsonInput = new JsonObject();
+         jsonInput.addProperty("CrimeCaseNo",casno);
+         jsonInput.addProperty("CrimeCaseYear",casyear);
+         jsonInput.addProperty("ORG_CODE",jLabelorgcode.getText());
+         jsonInput.addProperty("Usename",usernamelabel.getText());
+         jsonInput.addProperty("Idcard",idcardlabel.getText());
+         jsonInput.addProperty("OrgName",orgnamelabel.getText()); 
+         String j=jsonInput.toString();
+        insert_crime(jsonInput);
+     System.out.println(j);
+
+    } 
+            }
+            else{
+              JsonObject jsonInput = new JsonObject();
          jsonInput.addProperty("CrimeCaseNo",casno);
          jsonInput.addProperty("CrimeCaseYear",casyear);
          jsonInput.addProperty("ORG_CODE",jLabelorgcode.getText());
@@ -698,18 +725,20 @@ public class CaseSelectOverView extends javax.swing.JDialog {
         insert_crime(jsonInput);
 //         String j=jsonInput.toString();
      System.out.println(j);
+            
+            }
+            
+            }
+            catch(Exception ex){
+      
+            }
+       
     
            
 //		JOptionPane.showMessageDialog(null, dataCol1);
 	}
 }
-        String org=jLabelorgcode.getText();
-        String casno=casenocc.getText();
-        String casyear=caseyearscc.getText();
-        
-        
-        
-        
+  
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed

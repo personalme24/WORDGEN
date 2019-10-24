@@ -139,6 +139,38 @@ public class Identity_DeadForm extends javax.swing.JDialog {
                            }
              }
              );
+         Tambon.getDocument().addDocumentListener(new DocumentListener() {
+             public void changedUpdate(DocumentEvent e) {
+                  zp();
+             }
+             public void removeUpdate(DocumentEvent e) {
+
+             }
+             public void insertUpdate(DocumentEvent e) {
+                  zp();
+             }
+                    public void zp() {
+                        String provinceid="";
+                           String loTam="",amp="",zp="",loAmphur="",pro="";
+                          Connection con2 = ConnectDatabase.connect();
+                          try {
+                              Statement st2 = con2.createStatement();
+                              String a="select Tambon.DOPA_CODE DOPA_CODE,Tambon.ZIPCODE ZIPCODE from Tambon\n"+
+                              "where Tambon.NAMETAMBON='"+Tambon.getText()+"'";
+                              ResultSet res2 = st2.executeQuery(a);
+                              System.out.println("provinceid: "+a);
+                          if(res2.next()){
+                              zp=res2.getString("ZIPCODE");
+                          provinceid=res2.getString("DOPA_CODE");
+                         loTam= provinceid.substring(0, 4);
+                            ZipCode.setText(zp);
+                          }
+                          }
+                          catch(Exception ex){
+
+                          }
+                    }
+                 });   
           if(datain!=null){
               Date timeDie=null;
                   Date timeFoundBody=null;
@@ -206,7 +238,7 @@ public class Identity_DeadForm extends javax.swing.JDialog {
 //           crimecaseno.setText(ListSuspect.txtCaseNO.getText());
     
             isInsert=true;
-            crimecaseno.setText(ListSuspect.txtCaseNO.getText());
+            crimecaseno.setText(IdentityEdit.crimecaseid.getText());
             crimecaseno.setVisible(false);
     
         }
@@ -313,6 +345,7 @@ public class Identity_DeadForm extends javax.swing.JDialog {
         jLabel41 = new javax.swing.JLabel();
         BloodGroup = new javax.swing.JComboBox<>();
         BtSaveAccused = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -1046,6 +1079,9 @@ public class Identity_DeadForm extends javax.swing.JDialog {
             }
         });
 
+        jButton2.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jButton2.setText("อ่านข้อมูลจากบัตร");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -1054,7 +1090,10 @@ public class Identity_DeadForm extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BtSaveAccused, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(BtSaveAccused, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2))
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(103, Short.MAX_VALUE))
         );
@@ -1065,7 +1104,9 @@ public class Identity_DeadForm extends javax.swing.JDialog {
                 .addGap(26, 26, 26)
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(BtSaveAccused)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BtSaveAccused)
+                    .addComponent(jButton2))
                 .addGap(24, 24, 24))
         );
 
@@ -1887,6 +1928,33 @@ public class Identity_DeadForm extends javax.swing.JDialog {
       }
   
   }
+       public static String DateCard(String dateC) throws Exception{
+     
+     
+      Locale lc = new Locale("th","TH");
+         SimpleDateFormat inputFormat = new SimpleDateFormat("yyyyMMdd");
+        SimpleDateFormat outputFormat = new SimpleDateFormat("d/MM/yyyy");
+          if(dateC.equals("")){
+              String a="";
+        return   a;
+        
+        }
+        else{
+        Date date = inputFormat.parse(dateC);
+       
+        String formattedDate = outputFormat.format(date);
+              return   formattedDate;
+        }
+     }
+public static String ChangeGender(String gender) throws Exception{
+         
+        if(gender.equals("1")){       
+        return   "ชาย";
+        }
+        else{       
+              return   "หญิง";
+        }
+     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Age;
     private javax.swing.JTextField Amphur;
@@ -1923,6 +1991,7 @@ public class Identity_DeadForm extends javax.swing.JDialog {
     private javax.swing.JTextField Weight;
     private javax.swing.JTextField ZipCode;
     private javax.swing.JLabel crimecaseno;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

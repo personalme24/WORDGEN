@@ -28,6 +28,9 @@ import javax.smartcardio.CardTerminals.State;
 //import com.project.model.ThaiCard;
 //import com.project.model.ThaiCardDetail;
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 //import cdgs.moilib.MOIJni;
 
@@ -95,13 +98,35 @@ public class ReadThaiCardService {
 	public static void main(String[] args) {
 		try {
 			
-			while(true) {
+			if(true) {
 				ReadThaiCardService read = new ReadThaiCardService();
 				read.check_read();
 				read.read(0);
-				System.out.println(read.getDataThaiCard().getStatusMsg());
+                                int st=read.getDataThaiCard().getStatus();
+                                System.out.println(read.getDataThaiCard().getStatus());
+                                if(st==1){
+                                    System.out.println("Please Insert Card ");
+                                }
+                               else if(st==2){
+                                    System.out.println("Please Insert Card");
+                                }
+                                else if(st==4){
+                                 System.out.println(read.getDataThaiCard().getStatus());
+                                  String str=read.getDataThaiCard().getThaiCardDetail().getThname(); 
+                                String[] name=str.split("##",2);
+                                String firstname=(name[0]+"").replace("#", "");
+                                String n=firstname+" "+name[1];
+                                 System.out.println(n);
+				
+                                System.out.println(DateCard(read.getDataThaiCard().getThaiCardDetail().getIssuedate()));
+                                System.out.println(read.getDataThaiCard().getThaiCardDetail().getBirthdate());
+                                
+                                
+                                }
+                               
+
                                 System.out.println(read.getDataThaiCard().getThaiCardDetail().getPid());
-				Thread.sleep(5000);
+//				Thread.sleep(5000);
 			}
 			
 		} catch (Exception e) {
@@ -552,5 +577,23 @@ public class ReadThaiCardService {
 	    }
 
 	  }
+          public static String DateCard(String dateC) throws Exception{
+     
+     
+      Locale lc = new Locale("th","TH");
+         SimpleDateFormat inputFormat = new SimpleDateFormat("yyyyMMdd");
+        SimpleDateFormat outputFormat = new SimpleDateFormat("d/MM/yyyy");
+          if(dateC.equals("")){
+              String a="";
+        return   a;
+        
+        }
+        else{
+        Date date = inputFormat.parse(dateC);
+       
+        String formattedDate = outputFormat.format(date);
+              return   formattedDate;
+        }
+     }
 }
 

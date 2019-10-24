@@ -97,7 +97,7 @@ public static void w67(String cc,String stSuspect,String idperson) {
                               "from crimecase \n" +
                               "left join ChargeCase on crimecase.caseid=ChargeCase.Chargecaseid\n" +
                               "left join Person on crimecase.CaseId=Person.caseIdPerson\n" +
-                              "left join ActionsCaseData on crimecase.ActionCodeCase = ActionsCaseData.ActionCodeCase\n"+
+                              "left join ActionsCaseData on crimecase.caseid = ActionsCaseData.ActionCodeCaseid\n"+
                               "left join InvestInformation on crimecase.PoliceNameCase=InvestInformation.InvestId \n" +
                               "where crimecase.CaseId='"+cc+"'and Person.TypePerson='ผู้ต้องหา' and Person.StatusSuspect='"+stSuspect+"' and Person.NoPerson='"+idperson+"'\n" +
                               "group by crimecase.CaseId,Person.NoPerson";
