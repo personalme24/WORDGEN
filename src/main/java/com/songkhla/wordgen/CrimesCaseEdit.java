@@ -3626,7 +3626,19 @@ JTextPopupMenu.addTo(CourtResult);
 
     private void jRadioUnknowSuspectItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioUnknowSuspectItemStateChanged
         // TODO add your handling code here:
-       
+       if(jRadioUnknowSuspect.isSelected()){
+       jTextSuspect.setText("ไม่รู้ตัว");
+       jButtonAddAccused.setEnabled(false);
+       jButtonEditAccured.setEnabled(false);
+       jButtonDeleteAccured.setEnabled(false);
+
+       }
+       else{
+       jTextSuspect.setText("");
+       jButtonAddAccused.setEnabled(true);
+       jButtonEditAccured.setEnabled(true);
+       jButtonDeleteAccured.setEnabled(true);
+       }
     }//GEN-LAST:event_jRadioUnknowSuspectItemStateChanged
 
     private void jButtonDeleteAccured1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteAccured1ActionPerformed
@@ -4458,6 +4470,16 @@ catch (Exception d) {  //System.out.println(d);
        jCheckNoInvest.setEnabled(true);
        jCheckOtherInvest.setEnabled(true);
        OccuredDateTimeEnd.setEnabled(true);
+       jButtonAddAccused.setEnabled(true);
+       jButtonEditAccured.setEnabled(true);
+       jButtonDeleteAccured.setEnabled(true);
+       jButtonAddAccused1.setEnabled(true);
+       jButtonEditAccured1.setEnabled(true);
+       jButtonDeleteAccured1.setEnabled(true);
+       jButtonAddAccused2.setEnabled(true);
+       jButtonEditAccured2.setEnabled(true);
+       jButtonDeleteAccured2.setEnabled(true);
+       jRadioUnknowSuspect.setEnabled(true);
     }
    public void CloseTextBox(){
 //    RestoreDate.setVisible(false);  
@@ -4513,6 +4535,16 @@ catch (Exception d) {  //System.out.println(d);
        jCheckNotSue.setEnabled(false);
        jCheckNoInvest.setEnabled(false);
        jCheckOtherInvest.setEnabled(false);
+        jButtonAddAccused.setEnabled(false);
+       jButtonEditAccured.setEnabled(false);
+       jButtonDeleteAccured.setEnabled(false);
+       jButtonAddAccused1.setEnabled(false);
+       jButtonEditAccured1.setEnabled(false);
+       jButtonDeleteAccured1.setEnabled(false);
+       jButtonAddAccused2.setEnabled(false);
+       jButtonEditAccured2.setEnabled(false);
+       jButtonDeleteAccured2.setEnabled(false);
+       jRadioUnknowSuspect.setEnabled(false);
 
 
 //              g.setEnabled(false);

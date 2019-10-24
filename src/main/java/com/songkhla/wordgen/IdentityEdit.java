@@ -1443,8 +1443,9 @@ JTextPopupMenu.addTo(CourtResult);
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonDeleteAccured, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel20Layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
                         .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jTextSuspect, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel40)
@@ -4149,6 +4150,15 @@ catch (Exception d) {  //System.out.println(d);
        jCheckExtraordinary.setEnabled(true);
        jCheckAccident.setEnabled(true);
        jCheckUnknow.setEnabled(true);
+        jButtonAddAccused.setEnabled(true);
+       jButtonEditAccured.setEnabled(true);
+       jButtonDeleteAccured.setEnabled(true);
+       jButtonAddAccused1.setEnabled(true);
+       jButtonEditAccured1.setEnabled(true);
+       jButtonDeleteAccured1.setEnabled(true);
+       jButtonAddAccused2.setEnabled(true);
+       jButtonEditAccured2.setEnabled(true);
+       jButtonDeleteAccured2.setEnabled(true);
     }
    public void CloseTextBox(){
 //    RestoreDate.setVisible(false);  
@@ -4212,7 +4222,16 @@ catch (Exception d) {  //System.out.println(d);
        jCheckExtraordinary.setEnabled(false);
        jCheckAccident.setEnabled(false);
        jCheckUnknow.setEnabled(false);
-CircumstancesOfDeath.setEnabled(false);
+        CircumstancesOfDeath.setEnabled(false);
+         jButtonAddAccused.setEnabled(false);
+       jButtonEditAccured.setEnabled(false);
+       jButtonDeleteAccured.setEnabled(false);
+       jButtonAddAccused1.setEnabled(false);
+       jButtonEditAccured1.setEnabled(false);
+       jButtonDeleteAccured1.setEnabled(false);
+       jButtonAddAccused2.setEnabled(false);
+       jButtonEditAccured2.setEnabled(false);
+       jButtonDeleteAccured2.setEnabled(false);
 
 //              g.setEnabled(false);
 

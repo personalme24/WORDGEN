@@ -547,6 +547,7 @@ JTextPopupMenu.addTo(CourtResult);
         jLabelNumberSus = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
+        jRadioUnknowSuspect = new javax.swing.JRadioButton();
         jPanel21 = new javax.swing.JPanel();
         jPanel24 = new javax.swing.JPanel();
         jButtonEditAccured2 = new javax.swing.JButton();
@@ -1441,6 +1442,14 @@ JTextPopupMenu.addTo(CourtResult);
         jLabel39.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel39.setText("จำนวน");
 
+        jRadioUnknowSuspect.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jRadioUnknowSuspect.setText("ไม่รู้ตัว");
+        jRadioUnknowSuspect.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jRadioUnknowSuspectItemStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
         jPanel23.setLayout(jPanel23Layout);
         jPanel23Layout.setHorizontalGroup(
@@ -1448,7 +1457,17 @@ JTextPopupMenu.addTo(CourtResult);
             .addGroup(jPanel23Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 1092, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel23Layout.createSequentialGroup()
+                        .addComponent(jButtonAddAccused, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonEditAccured, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonDeleteAccured, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel23Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jRadioUnknowSuspect)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel31)
                         .addGap(26, 26, 26)
                         .addComponent(jTextSuspect, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1457,27 +1476,21 @@ JTextPopupMenu.addTo(CourtResult);
                         .addGap(18, 18, 18)
                         .addComponent(jLabelNumberSus)
                         .addGap(29, 29, 29)
-                        .addComponent(jLabel38))
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 1092, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel23Layout.createSequentialGroup()
-                        .addComponent(jButtonAddAccused, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonEditAccured, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonDeleteAccured, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel38)))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
         jPanel23Layout.setVerticalGroup(
             jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel23Layout.createSequentialGroup()
-                .addContainerGap(39, Short.MAX_VALUE)
+                .addContainerGap(42, Short.MAX_VALUE)
                 .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextSuspect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel39)
                     .addComponent(jLabel38)
-                    .addComponent(jLabelNumberSus))
-                .addGap(37, 37, 37)
+                    .addComponent(jLabelNumberSus)
+                    .addComponent(jRadioUnknowSuspect))
+                .addGap(32, 32, 32)
                 .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonAddAccused)
                     .addComponent(jButtonEditAccured)
@@ -2729,6 +2742,7 @@ ComboItem item = (ComboItem) jComboPoliceName.getSelectedItem();
          pst.executeUpdate(); 
          pst.close();
          System.out.println("SQL : "+sql);
+         insertChargeReport();
          jButtonSaveCase.setEnabled(false);
          jButtonEditCase.setEnabled(true);
          CloseTextBox();
@@ -3601,6 +3615,23 @@ ComboItem item = (ComboItem) jComboPoliceName.getSelectedItem();
             }
         }        // TODO add your handling code here:
     }//GEN-LAST:event_jButtonDeleteAccured2ActionPerformed
+
+    private void jRadioUnknowSuspectItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioUnknowSuspectItemStateChanged
+        // TODO add your handling code here:
+        if(jRadioUnknowSuspect.isSelected()){
+            jTextSuspect.setText("ไม่รู้ตัว");
+            jButtonAddAccused.setEnabled(false);
+            jButtonEditAccured.setEnabled(false);
+            jButtonDeleteAccured.setEnabled(false);
+
+        }
+        else{
+            jTextSuspect.setText("");
+            jButtonAddAccused.setEnabled(true);
+            jButtonEditAccured.setEnabled(true);
+            jButtonDeleteAccured.setEnabled(true);
+        }
+    }//GEN-LAST:event_jRadioUnknowSuspectItemStateChanged
      public static void closeAllDialogs()
 {
     Window[] windows = getWindows();
@@ -4138,6 +4169,16 @@ catch (Exception d) {  //System.out.println(d);
           OccuredDateEnd.getComponent(1).setEnabled(true);
        OccuredDateEnd.getJFormattedTextField().setEnabled(true);
        OccuredDateTimeEnd.setEnabled(true);
+       jButtonAddAccused.setEnabled(true);
+       jButtonEditAccured.setEnabled(true);
+       jButtonDeleteAccured.setEnabled(true);
+       jButtonAddAccused1.setEnabled(true);
+       jButtonEditAccured1.setEnabled(true);
+       jButtonDeleteAccured1.setEnabled(true);
+       jButtonAddAccused2.setEnabled(true);
+       jButtonEditAccured2.setEnabled(true);
+       jButtonDeleteAccured2.setEnabled(true);
+       jRadioUnknowSuspect.setEnabled(true);
     }
    public void CloseTextBox(){
 //    RestoreDate.setVisible(false);  
@@ -4195,7 +4236,16 @@ catch (Exception d) {  //System.out.println(d);
        OccuredDateEnd.getJFormattedTextField().setEnabled(false);
        OccuredDateTimeEnd.setEnabled(false);
 //              g.setEnabled(false);
-
+ jButtonAddAccused.setEnabled(false);
+       jButtonEditAccured.setEnabled(false);
+       jButtonDeleteAccured.setEnabled(false);
+       jButtonAddAccused1.setEnabled(false);
+       jButtonEditAccured1.setEnabled(false);
+       jButtonDeleteAccured1.setEnabled(false);
+       jButtonAddAccused2.setEnabled(false);
+       jButtonEditAccured2.setEnabled(false);
+       jButtonDeleteAccured2.setEnabled(false);
+       jRadioUnknowSuspect.setEnabled(false);
       
 
 
@@ -4617,6 +4667,29 @@ jTableWitness.getColumnModel().getColumn(7).setMaxWidth(0);
             ex.printStackTrace();
         }
     }
+              public static void insertChargeReport(){
+      
+      try{
+          String datereport;
+          SimpleDateFormat newdate=new SimpleDateFormat("yyyy-MM-dd HH:mm");
+          Date d=new Date();
+          datereport=newdate.format(d);
+          Connection c=ConnectDatabase.connect();
+          String sqlinsert="insert into DataCharge(TypeCaseCharge,ChargeUse,DateToday) VALUES (?,?,?)";
+          PreparedStatement ps=c.prepareStatement(sqlinsert);
+             ps.setString(1, "คดีจราจร");
+           ps.setString(2, jLabelChargeCode.getText());
+           ps.setString(3, datereport);
+             ps.execute();
+              ps.close();
+
+      }
+      catch(Exception x){
+          System.out.println(""+x);
+      
+      }
+      
+      }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JTextField ActionCrimes;
     private javax.swing.JTextArea CapitalCrimeCaseNumber;
@@ -4815,6 +4888,7 @@ jTableWitness.getColumnModel().getColumn(7).setMaxWidth(0);
     private javax.swing.JPanel jPanel9;
     private javax.swing.JPanel jPanelInvestSend;
     private javax.swing.JPanel jPanelOccuredDateEnd;
+    private javax.swing.JRadioButton jRadioUnknowSuspect;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
