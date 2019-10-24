@@ -10,6 +10,7 @@ import static com.songkhla.wordgen.AccusedForm.DateSendInjuredOrDie;
 import static com.songkhla.wordgen.AccusedForm.TimeSendInjuredOrDie;
 import static com.songkhla.wordgen.AccusedForm.WhereSendInjuredOrDie;
 import static com.songkhla.wordgen.CrimesCaseEdit.ChargeNameCase;
+import static com.songkhla.wordgen.CrimesCaseEdit.Checknull;
 import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseid;
 import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseno;
 import static com.songkhla.wordgen.CrimesCaseEdit.jLabelChargeCode;
@@ -233,52 +234,52 @@ public class SuspectForm extends javax.swing.JDialog {
             String statusSus,statusBail;
             statusSus=datain.get("StatusSuspect")+"";
              statusBail=datain.get("StatusBail")+"";
-            CourtSuspect.setSelectedItem(datain.get("CourtSuspect"));
-            Gender.setSelectedItem(datain.get("Gender"));               
-            RatePrison.setSelectedItem(datain.get("RatePrison"));            
+            CourtSuspect.setSelectedItem(Checknull(datain.get("CourtSuspect")));
+            Gender.setSelectedItem(Checknull(datain.get("Gender")));               
+            RatePrison.setSelectedItem(Checknull(datain.get("RatePrison")));            
             caseid=datain.get("caseIdPerson")+"";
             noPerson=datain.get("NoPerson")+"";
-            jLabel36.setText(datain.get("caseIdPerson")+"");
-            PeopleRegistrationID.setText(datain.get("PeopleRegistrationID")+"");
+            jLabel36.setText(Checknull(datain.get("caseIdPerson"))+"");
+            PeopleRegistrationID.setText(Checknull(datain.get("PeopleRegistrationID"))+"");
             String known=datain.get("FullNamePerson")+"";
-            Identification.setText(datain.get("Identification")+"");
-            FullNamePerson.setText(datain.get("FullNamePerson")+"");
-            OrderPerson.setText(datain.get("OrderPerson")+"");
-            Age.setText(datain.get("Age")+"");
-            Amphur.setText(datain.get("Amphur")+"");
-            BirthDay.getJFormattedTextField().setText(datain.get("BirthDay")+"");
-            BloodGroup.setSelectedItem(datain.get("BloodGroup")+"");
-            ExpiredDate.getJFormattedTextField().setText(datain.get("ExpiredDate")+"");
-            FatherFullName.setText(datain.get("FatherFullName")+"");
-            FullNamePersonEn.setText(datain.get("FullNamePersonEn")+"");
-            Height.setText(datain.get("Height")+"");
-            Weight.setText(datain.get("Weight")+"");
-            HouseNumber.setText(datain.get("HouseNumber")+"");
-            IssueDate.getJFormattedTextField().setText(datain.get("IssueDate")+"");
-            Moo.setText(datain.get("Moo")+"");
-            MotherFullName.setText(datain.get("MotherFullName")+"");
-            Nationality.setText(datain.get("Nationality")+"");
-            Occupation.setText(datain.get("Occupation")+"");
-            PassportNumber.setText(datain.get("PassportNumber")+"");
-            PhonePerson.setText(datain.get("PhonePerson")+"");
-            PlaceArrest.setText(datain.get("PlaceArrest")+"");
-            Province.setText(datain.get("Province")+"");
-             ZipCode.setText(datain.get("ZipCode")+""); 
-             Road.setText(datain.get("Road")+"");
-            Soi.setText(datain.get("StatusSuspectOther")+"");         
-             OtherName.setText(datain.get("OtherName")+"");
-            Race.setText(datain.get("Race")+"");
-            Religion.setText(datain.get("Religion")+"");
-            Tambon.setText(datain.get("Tambon")+"");
-            AnswerPerson.setText(datain.get("AnswerPerson")+"");
-            PlaceArrestTambon.setText(datain.get("PlaceArrestTambon")+"");
-            PlaceArrestAmphur.setText(datain.get("PlaceArrestAmphur")+"");
-            PlaceArrestProvince.setText(datain.get("PlaceArrestProvince")+"");
-            OccupationPosition.setText(datain.get("OccupationPosition")+"");
-            Religion.setText(datain.get("Religion")+"");
-            NoArrestWarrant.setText(datain.get("NoArrestWarrant")+"");
-            SusConfress.setSelectedItem(datain.get("SusConfress"));
-            StatusSuspectOther.setText(datain.get("StatusSuspectOther")+"");
+            Identification.setText(Checknull(datain.get("Identification"))+"");
+            FullNamePerson.setText(Checknull(datain.get("FullNamePerson"))+"");
+            OrderPerson.setText(Checknull(datain.get("OrderPerson"))+"");
+            Age.setText(Checknull(datain.get("Age"))+"");
+            Amphur.setText(Checknull(datain.get("Amphur"))+"");
+            BirthDay.getJFormattedTextField().setText(Checknull(datain.get("BirthDay"))+"");
+            BloodGroup.setSelectedItem(Checknull(datain.get("BloodGroup"))+"");
+            ExpiredDate.getJFormattedTextField().setText(Checknull(datain.get("ExpiredDate"))+"");
+            FatherFullName.setText(Checknull(datain.get("FatherFullName"))+"");
+            FullNamePersonEn.setText(Checknull(datain.get("FullNamePersonEn"))+"");
+            Height.setText(Checknull(datain.get("Height"))+"");
+            Weight.setText(Checknull(datain.get("Weight"))+"");
+            HouseNumber.setText(Checknull(datain.get("HouseNumber"))+"");
+            IssueDate.getJFormattedTextField().setText(Checknull(datain.get("IssueDate"))+"");
+            Moo.setText(Checknull(datain.get("Moo"))+"");
+            MotherFullName.setText(Checknull(datain.get("MotherFullName"))+"");
+            Nationality.setText(Checknull(datain.get("Nationality"))+"");
+            Occupation.setText(Checknull(datain.get("Occupation"))+"");
+            PassportNumber.setText(Checknull(datain.get("PassportNumber"))+"");
+            PhonePerson.setText(Checknull(datain.get("PhonePerson"))+"");
+            PlaceArrest.setText(Checknull(datain.get("PlaceArrest"))+"");
+            Province.setText(Checknull(datain.get("Province"))+"");
+             ZipCode.setText(Checknull(datain.get("ZipCode"))+""); 
+             Road.setText(Checknull(datain.get("Road"))+"");
+            Soi.setText(Checknull(datain.get("StatusSuspectOther"))+"");         
+             OtherName.setText(Checknull(datain.get("OtherName"))+"");
+            Race.setText(Checknull(datain.get("Race"))+"");
+            Religion.setText(Checknull(datain.get("Religion"))+"");
+            Tambon.setText(Checknull(datain.get("Tambon"))+"");
+            AnswerPerson.setText(Checknull(datain.get("AnswerPerson"))+"");
+            PlaceArrestTambon.setText(Checknull(datain.get("PlaceArrestTambon"))+"");
+            PlaceArrestAmphur.setText(Checknull(datain.get("PlaceArrestAmphur"))+"");
+            PlaceArrestProvince.setText(Checknull(datain.get("PlaceArrestProvince"))+"");
+            OccupationPosition.setText(Checknull(datain.get("OccupationPosition"))+"");
+            Religion.setText(Checknull(datain.get("Religion"))+"");
+            NoArrestWarrant.setText(Checknull(datain.get("NoArrestWarrant"))+"");
+            SusConfress.setSelectedItem(Checknull(datain.get("SusConfress")));
+            StatusSuspectOther.setText(Checknull(datain.get("StatusSuspectOther"))+"");
             
              String statusInjure=datain.get("Soi")+"";
             if(statusInjure.equals("บาดเจ็บ")){
@@ -287,9 +288,9 @@ public class SuspectForm extends javax.swing.JDialog {
            else if(statusInjure.equals("ตาย")){
             jCheckDead.setSelected(true);
             }
-             DateSendInjuredOrDie.setText(datain.get("DateSendInjuredOrDie")+"");   
-           CauseSendInjuredOrDie.setText(datain.get("CauseSendInjuredOrDie")+"");
-           WhereSendInjuredOrDie.setText(datain.get("WhereSendInjuredOrDie")+"");
+             DateSendInjuredOrDie.setText(Checknull(datain.get("DateSendInjuredOrDie"))+"");   
+           CauseSendInjuredOrDie.setText(Checknull(datain.get("CauseSendInjuredOrDie"))+"");
+           WhereSendInjuredOrDie.setText(Checknull(datain.get("WhereSendInjuredOrDie"))+"");
            try{
             String ote=datain.get("TimeSendInjuredOrDie")+"";
                 SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
@@ -303,8 +304,8 @@ public class SuspectForm extends javax.swing.JDialog {
             SimpleDateFormat format2=new SimpleDateFormat("d/M/yyyy HH:mm");
            SimpleDateFormat formattime=new SimpleDateFormat("HH:mm");
 
-            String DateArr=(datain.get("ArrestDateTime")+"");
-             String TimeArr=(datain.get("ArrestDateTime")+"");
+            String DateArr=(Checknull(datain.get("ArrestDateTime"))+"");
+             String TimeArr=(Checknull(datain.get("ArrestDateTime"))+"");
 
                System.out.println("dsssssss :"+DateArr+"aa");
                
@@ -2421,34 +2422,34 @@ public class SuspectForm extends javax.swing.JDialog {
             ResultSet rs=s.executeQuery(sqlId);
             
             if (rs.next()) {
-                  PeopleRegistrationID.setText(rs.getString("PeopleRegistrationID")); 
-                IssueDate.getJFormattedTextField().setText(rs.getString("PassportNumber"));                 
-                Age.setText(rs.getString("Age")); 
-                Amphur.setText(rs.getString("Amphur")); 
-                BloodGroup.setSelectedItem(rs.getString("BloodGroup")); 
-                BirthDay.getJFormattedTextField().setText(rs.getString("BirthDay")); 
-                FatherFullName.setText(rs.getString("FatherFullName")); 
-                FullNamePersonEn.setText(rs.getString("FullNamePersonEn")); 
-                Height.setText(rs.getString("Height")); 
-                Weight.setText(rs.getString("Weight")); 
-                Race.setText(rs.getString("Race")); 
-                Religion.setText(rs.getString("Religion")); 
-                Nationality.setText(rs.getString("Nationality")); 
-                MotherFullName.setText(rs.getString("MotherFullName")); 
-                Gender.setSelectedItem(rs.getString("Gender"));
-                Occupation.setText(rs.getString("Occupation"));
-                PhonePerson.setText(rs.getString("PhonePerson")); 
-                MotherFullName.setText(rs.getString("MotherFullName")); 
-                PassportNumber.setText(rs.getString("PassportNumber")); 
-               ExpiredDate.getJFormattedTextField().setText(rs.getString("ExpiredDate")+"");
-            HouseNumber.setText(rs.getString("HouseNumber")+"");
-            Moo.setText(rs.getString("Moo")+"");
-            Province.setText(rs.getString("Province"));
-            Tambon.setText(rs.getString("Tambon")+"");
-             ZipCode.setText(rs.getString("ZipCode")+"");
-            OtherName.setText(rs.getString("OtherName")+"");
-            Road.setText(rs.getString("Road")+"");
-            Soi.setText(rs.getString("Soi")+"");
+                  PeopleRegistrationID.setText(Checknull(rs.getString("PeopleRegistrationID"))); 
+                IssueDate.getJFormattedTextField().setText(Checknull(rs.getString("PassportNumber")));                 
+                Age.setText(Checknull(rs.getString("Age"))); 
+                Amphur.setText(Checknull(rs.getString("Amphur"))); 
+                BloodGroup.setSelectedItem(Checknull(rs.getString("BloodGroup"))); 
+                BirthDay.getJFormattedTextField().setText(Checknull(rs.getString("BirthDay"))); 
+                FatherFullName.setText(Checknull(rs.getString("FatherFullName"))); 
+                FullNamePersonEn.setText(Checknull(rs.getString("FullNamePersonEn"))); 
+                Height.setText(Checknull(rs.getString("Height"))); 
+                Weight.setText(Checknull(rs.getString("Weight"))); 
+                Race.setText(Checknull(rs.getString("Race"))); 
+                Religion.setText(Checknull(rs.getString("Religion"))); 
+                Nationality.setText(Checknull(rs.getString("Nationality"))); 
+                MotherFullName.setText(Checknull(rs.getString("MotherFullName"))); 
+                Gender.setSelectedItem(Checknull(rs.getString("Gender")));
+                Occupation.setText(Checknull(rs.getString("Occupation")));
+                PhonePerson.setText(Checknull(rs.getString("PhonePerson"))); 
+                MotherFullName.setText(Checknull(rs.getString("MotherFullName"))); 
+                PassportNumber.setText(Checknull(rs.getString("PassportNumber"))); 
+               ExpiredDate.getJFormattedTextField().setText(Checknull(rs.getString("ExpiredDate"))+"");
+            HouseNumber.setText(Checknull(rs.getString("HouseNumber"))+"");
+            Moo.setText(Checknull(rs.getString("Moo"))+"");
+            Province.setText(Checknull(rs.getString("Province")));
+            Tambon.setText(Checknull(rs.getString("Tambon"))+"");
+             ZipCode.setText(Checknull(rs.getString("ZipCode"))+"");
+            OtherName.setText(Checknull(rs.getString("OtherName"))+"");
+            Road.setText(Checknull(rs.getString("Road"))+"");
+            Soi.setText(Checknull(rs.getString("Soi"))+"");
 //
 //   
             }
@@ -3661,6 +3662,10 @@ public static String ChangeGender(String gender) throws Exception{
               return   "หญิง";
         }
      }
+      public static String Checknull(Object input){
+					if(input==null||input==""||input=="null") { return ""; }
+					return input+"";
+					}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Age;
