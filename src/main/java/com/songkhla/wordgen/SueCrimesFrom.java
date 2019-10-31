@@ -222,6 +222,19 @@ public class SueCrimesFrom extends javax.swing.JDialog {
              StatusBail=datain.get("StatusBail")+"";
              RatePrison=datain.get("RatePrison")+"";
              Block();
+                String sql="select crimecasenoyear,NoPerson,crimecaseno,Investigator_Result,TypePerson,ArrestDateTimeEnd,BailDate,CourtSuspect,"
+                        + "PeopleRegistrationID,PlaceArrest,ArrestDateTime,FullNamePerson,StatusSuspect,CaseId,CaseIdPerson,"
+                        + "CaseAcceptDate,chargecase.ChargeCodeCase ChargeCase,chargecase.ChargeNameCase ChargeNameCase\n" +
+                     "from Person\n" +
+                     "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId\n"+
+                     "left join chargecase on crimecase.CaseId=chargecase.ChargeCaseId " +                
+                     "where TypePerson='ผู้ต้องหา' and caseid='"+RatePrison+"' and noperson='"+RatePrison+"'";
+                try{
+                     Connection con = ConnectDatabase.connect();
+                Statement stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery(sql);
+                }catch(Exception ex)
+                {}               
                   caseyear=datain.get("crimecaseyears")+"";
                 caseno=datain.get("crimecaseno")+"";
                 casetype=datain.get("CaseType")+"";
