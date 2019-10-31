@@ -47,13 +47,13 @@ import java.util.Locale;
  *
  * @author Computer
  */
-public class WitnessForm extends javax.swing.JDialog {
+public class OwnerBailForm extends javax.swing.JDialog {
     Connection con=null;
     Connection con2=null;
      PreparedStatement pst=null;
      PreparedStatement pst2=null;
      boolean isInsert,isPerson;
-     String noPerson,typeCase;
+     String noPerson,typeCase,caseid;
           ArrayList<String> personname=new ArrayList<String>();
 
           JDatePickerImpl IssueDate,ExpiredDate,BirthDay;
@@ -61,19 +61,13 @@ public class WitnessForm extends javax.swing.JDialog {
     /**
      * Creates new form AccusedForm
      */
-    public WitnessForm(JFrame parrent,JSONObject datain,JSONObject datacase) {
+    public OwnerBailForm(JFrame parrent,JSONObject datain,JSONObject datacase) {
         super(parrent,true);
         initComponents();  
           ImageIcon img = new ImageIcon("./Master/WD.png");
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
             crimecaseno.setVisible(false);
-            AnswerPerson.setVisible(false);
-        jButtonInjuryOrDie.setVisible(false);
-       CauseSendInjuredOrDie.setVisible(false);
-       WhereSendInjuredOrDie.setVisible(false);
-       TimeSendInjuredOrDie.setVisible(false);
-       DateSendInjuredOrDie.setVisible(false);
       UtilDateModel model2 = new UtilDateModel();
 //            model2.setValue(Calendar.getInstance().getTime());
             Properties p = new Properties();
@@ -113,20 +107,10 @@ public class WitnessForm extends javax.swing.JDialog {
 //        
   FullNamePerson.addCaretListener(new TextFieldCaretListener());
      jComboBoxListName.addActionListener(new ComboBoxActionListener());
-        String[] ItemDead = {"","พยาน","บิดาผู้ตาย", "มารดาผู้ตาย", "บุตรผู้ตาย", "สามีผูตาย", "ภรรยาผู้ตาย", "ผู้ปกครองผู้ตาย", "พี่ร่วมบิดามารดาของผู้ตาย",
-                               "พี่ร่วมบิดาของผู้ตาย", "พี่ร่วมมารดาของผู้ตาย", "น้องร่วมบิดามารดาของผู้ตาย", "น้องร่วมบิดาของผู้ตาย", "น้องร่วมมารดาของผู้ตาย",
-                                "ลุงผู้ตาย","ป้าผู้ตาย","น้าผู้ตาย","อาผู้ตาย","ปู่ผู้ตาย","ย่าผู้ตาย","ตาผู้ตาย","ยายผู้ตาย","หลานผู้ตาย","เหลนผู้ตาย","ผู้มีส่วนได้เสียกับผู้ตาย","พนักงานสอบสวนในคดี"};
-           String[] ItemWitness = {"","ผู้ได้รับความเสียหายจากการกระทำของผู้ต้องหา","ผู้ร่วมจับกุมผู้ต้องหาและยึดของกลาง","ผู้พบการกระทำผิด", "พยาน", "ผู้แจ้ง", "ญาติ", "บิดาผู้ต้องหา", "มารดาผู้ต้องหา","ผู้ปกครองหรือผู้ดูแลผู้ต้องหา","เจ้าหน้าที่สืบสวน"
-                                   ,"พนักงานสอบสวนในคดี","ล่าม","ไม่ระบุ"};
-     typeCase=datacase.get("TypeCase")+"";
-  if(typeCase.equals("ชันสูตร")){
-     Related.setModel(new DefaultComboBoxModel<>(ItemDead));
-   
-     }
-     else{
+           String[] ItemWitness = {"นายประกัน"};
+
       Related.setModel(new DefaultComboBoxModel<>(ItemWitness));
-     
-     }
+
       BirthDay.getJFormattedTextField().getDocument().addDocumentListener(new DocumentListener() {
                            public void changedUpdate(DocumentEvent e) {
                                 Age.setText(CalculateData.calculateAge(BirthDay.getJFormattedTextField().getText()));
@@ -144,7 +128,8 @@ public class WitnessForm extends javax.swing.JDialog {
              );
           if(datain!=null){
             isInsert=false;
-            noPerson=datain.get("NoPerson")+"";
+            noPerson=datain.get("personid")+"";
+            caseid=datain.get("caseid")+"";
             crimecaseno.setText(datain.get("caseIdPerson")+"");
             PeopleRegistrationID.setText(datain.get("PeopleRegistrationID")+"");
             FullNamePerson.setText(datain.get("FullNamePerson")+"");
@@ -175,31 +160,16 @@ public class WitnessForm extends javax.swing.JDialog {
             OrderPerson.setText(datain.get("OrderPerson")+"");       
             OtherName.setText(datain.get("OtherName")+""); 
              OccupationPosition.setText(datain.get("OccupationPosition")+"");       
-            AnswerPerson.setText(datain.get("AnswerPerson")+"");
-//                    data.put("Gender", rs.getString("Gender"));
- String statusInjure=datain.get("StatusInjuryOrDie")+"";
-            if(statusInjure.equals("บาดเจ็บ")){
-            jCheckInjured.setSelected(true);
-            }
-           else if(statusInjure.equals("ตาย")){
-            jCheckDead.setSelected(true);
-            }
-            try{
-            String ote=datain.get("TimeSendInjuredOrDie")+"";
-                SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
-                Date timeSend = timeFormat.parse(ote);
-                TimeSendInjuredOrDie.setValue(timeSend);
-            }
-            catch(Exception ex){
-            
-            }
-            
-           DateSendInjuredOrDie.setText(datain.get("DateSendInjuredOrDie")+"");   
-           CauseSendInjuredOrDie.setText(datain.get("CauseSendInjuredOrDie")+"");
-           WhereSendInjuredOrDie.setText(datain.get("WhereSendInjuredOrDie")+"");        
 
-        }else{
-           crimecaseno.setText(datacase.get("CaseId")+"");
+//                    data.put("Gender", rs.getString("Gender"));
+    
+
+        }
+        else{
+       
+               noPerson=datacase.get("personid")+"";
+            caseid=datacase.get("caseid")+"";
+           crimecaseno.setText(datacase.get("caseid")+"");
             isInsert=true;
           
         }
@@ -295,7 +265,7 @@ public class WitnessForm extends javax.swing.JDialog {
        
     }
             
-    WitnessForm(ListAccused aThis, boolean b) {
+    OwnerBailForm(ListAccused aThis, boolean b) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -370,22 +340,10 @@ public class WitnessForm extends javax.swing.JDialog {
         jLabel28 = new javax.swing.JLabel();
         Occupation = new javax.swing.JTextField();
         BloodGroup = new javax.swing.JComboBox<>();
-        AnswerPerson = new javax.swing.JTextField();
-        WhereSendInjuredOrDie = new javax.swing.JTextField();
-        Date date3=new Date();
-
-        SpinnerDateModel sm3=new SpinnerDateModel(date3,null,null,Calendar.HOUR_OF_DAY);
-        TimeSendInjuredOrDie = new javax.swing.JSpinner(sm3);
-        jCheckInjured = new javax.swing.JCheckBox();
-        jCheckDead = new javax.swing.JCheckBox();
-        CauseSendInjuredOrDie = new javax.swing.JTextField();
-        DateSendInjuredOrDie = new javax.swing.JTextField();
-        jButtonInjuryOrDie = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         PeopleRegistrationID = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         PassportNumber = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -397,7 +355,7 @@ public class WitnessForm extends javax.swing.JDialog {
 
         jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 28)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("ข้อมูลพยานและบุคคลอื่นๆ");
+        jLabel3.setText("ข้อมูลนายประกัน");
 
         crimecaseno.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         crimecaseno.setText("เลขคดี");
@@ -585,7 +543,6 @@ public class WitnessForm extends javax.swing.JDialog {
 
         Province.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
-        Related.setEditable(true);
         Related.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
         jLabel19.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -653,44 +610,6 @@ public class WitnessForm extends javax.swing.JDialog {
         BloodGroup.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         BloodGroup.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "A", "B", "AB", "O", "A Rh-", "B Rh-", "AB Rh-", "O Rh-" }));
 
-        JSpinner.DateEditor timeEditor3 = new JSpinner.DateEditor(TimeSendInjuredOrDie, "HH:mm");
-        TimeSendInjuredOrDie.setEditor(timeEditor3);
-        //jSpinner1.setValue(new Date());
-        TimeSendInjuredOrDie.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                TimeSendInjuredOrDieKeyReleased(evt);
-            }
-        });
-
-        jCheckInjured.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckInjured.setText("บาดเจ็บ");
-        jCheckInjured.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jCheckInjuredItemStateChanged(evt);
-            }
-        });
-        jCheckInjured.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckInjuredActionPerformed(evt);
-            }
-        });
-
-        jCheckDead.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckDead.setText("ตาย");
-        jCheckDead.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jCheckDeadItemStateChanged(evt);
-            }
-        });
-
-        jButtonInjuryOrDie.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jButtonInjuryOrDie.setText("รายละเอียด");
-        jButtonInjuryOrDie.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonInjuryOrDieActionPerformed(evt);
-            }
-        });
-
         jLabel2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel2.setText("เลขบัตรประชาชน");
 
@@ -705,14 +624,6 @@ public class WitnessForm extends javax.swing.JDialog {
         jLabel9.setText("เลขหนังสือเดินทาง");
 
         PassportNumber.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-
-        jButton1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jButton1.setText("คำให้การ");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         jButton2.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jButton2.setText("อ่านข้อมูลจากบัตร");
@@ -732,21 +643,7 @@ public class WitnessForm extends javax.swing.JDialog {
                         .addGap(10, 10, 10)
                         .addComponent(jLabel4)
                         .addGap(10, 10, 10)
-                        .addComponent(OrderPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jCheckInjured)
-                        .addGap(0, 0, 0)
-                        .addComponent(jCheckDead)
-                        .addGap(2, 2, 2)
-                        .addComponent(jButtonInjuryOrDie)
-                        .addGap(6, 6, 6)
-                        .addComponent(WhereSendInjuredOrDie, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(DateSendInjuredOrDie, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(CauseSendInjuredOrDie, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(TimeSendInjuredOrDie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(OrderPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -839,9 +736,7 @@ public class WitnessForm extends javax.swing.JDialog {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel9)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(PassportNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1))))
+                                .addComponent(PassportNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -886,10 +781,8 @@ public class WitnessForm extends javax.swing.JDialog {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel19)
                                 .addGap(13, 13, 13)
-                                .addComponent(Related, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6)
-                                .addComponent(AnswerPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap())
+                                .addComponent(Related, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(69, 69, 69))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -900,28 +793,7 @@ public class WitnessForm extends javax.swing.JDialog {
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(14, 14, 14)
-                        .addComponent(OrderPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(jCheckInjured, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(jCheckDead, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(jButtonInjuryOrDie, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(WhereSendInjuredOrDie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(DateSendInjuredOrDie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(CauseSendInjuredOrDie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(TimeSendInjuredOrDie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(OrderPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -936,8 +808,7 @@ public class WitnessForm extends javax.swing.JDialog {
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(PeopleRegistrationID, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(PassportNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1))))
+                            .addComponent(PassportNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -1035,8 +906,7 @@ public class WitnessForm extends javax.swing.JDialog {
                 .addGap(8, 8, 8)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Related, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AnswerPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Related, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtSaveAccused)
@@ -1088,13 +958,13 @@ public class WitnessForm extends javax.swing.JDialog {
         // TODO add your handling code here:
                con=ConnectDatabase.connect();
                SimpleDateFormat format = new SimpleDateFormat("HH:mm");
-              String sendTime=format.format(TimeSendInjuredOrDie.getValue());
+       
         if(isInsert){    
         String sql="INSERT INTO Person (Age,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                         "Height,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
-                        "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,caseIdPerson,Related,OrderPerson,AnswerPerson,"
-                + "OccupationPosition,CauseSendInjuredOrDie,WhereSendInjuredOrDie,DateSendInjuredOrDie,TimeSendInjuredOrDie,StatusInjuryOrDie)\n"
-                + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                        "PhonePerson,Province,Race,Religion,Tambon,TypePerson,Weight,ZipCode,caseIdPerson,Related,OrderPerson,"
+                + "OccupationPosition,OwnerBail,CaseIdPerson)\n"
+                + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
          System.out.println("SQL : "+sql);
       try {
@@ -1129,20 +999,9 @@ public class WitnessForm extends javax.swing.JDialog {
                               pst.setString(28,crimecaseno.getText());
                               pst.setString(29,Related.getSelectedItem().toString());
                               pst.setString(30,OrderPerson.getText());
-                              pst.setString(31,AnswerPerson.getText());
-                              pst.setString(32,OccupationPosition.getText());
-                               pst.setString(33,CauseSendInjuredOrDie.getText());
-                              pst.setString(34,WhereSendInjuredOrDie.getText());
-                              pst.setString(35,DateSendInjuredOrDie.getText());
-                              pst.setString(36,sendTime);
-                              if(jCheckInjured.isSelected()){
-                               pst.setString(37,jCheckInjured.getText());
-                              }
-                              else if(jCheckDead.isSelected()){
-                              pst.setString(37,jCheckDead.getText());
-                              }
-                              
-                              
+                              pst.setString(31,OccupationPosition.getText());
+                              pst.setString(32,noPerson);
+                              pst.setString(33,caseid);                  
                                int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
             JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                             if (response == JOptionPane.YES_OPTION) {
@@ -1163,8 +1022,8 @@ public class WitnessForm extends javax.swing.JDialog {
                                     "BloodGroup=?,ExpiredDate=?,FatherFullName=?,FullNamePerson=?,FullNamePersonEn=?,\n" +
                                     "Gender=?,Height=?,HouseNumber=?,IssueDate=?,Moo=?,MotherFullName=?,Nationality=?,Occupation=?,\n" +
                                     "OtherName=?,PassportNumber=?,PeopleRegistrationID=?,PhonePerson=?,Province=?,Race=?,Religion=?,\n" +
-                                    "Tambon=?,TypePerson=?,Weight=?,ZipCode=? ,caseIdPerson=?,OrderPerson=?,Related=?,AnswerPerson=?,OccupationPosition=?,"
-                                     + "CauseSendInjuredOrDie=?,WhereSendInjuredOrDie=?,DateSendInjuredOrDie=?,TimeSendInjuredOrDie=?,StatusInjuryOrDie=? where NoPerson=? and TypePerson=?   ";
+                                    "Tambon=?,TypePerson=?,Weight=?,ZipCode=? ,caseIdPerson=?,OrderPerson=?,Related=?,OccupationPosition=?"
+                                     + " where NoPerson=? and TypePerson=?   ";
        
          try {
             pst=con.prepareStatement(sqlUpdate);
@@ -1198,20 +1057,11 @@ public class WitnessForm extends javax.swing.JDialog {
                               pst.setString(28,crimecaseno.getText());
                               pst.setString(29,OrderPerson.getText());
                               pst.setString(30,Related.getSelectedItem().toString());
-                              pst.setString(31,AnswerPerson.getText());
-                              pst.setString(32,OccupationPosition.getText());      
-                              pst.setString(33,CauseSendInjuredOrDie.getText());
-                              pst.setString(34,WhereSendInjuredOrDie.getText());
-                              pst.setString(35,DateSendInjuredOrDie.getText());
-                              pst.setString(36,sendTime);
-                              if(jCheckInjured.isSelected()){
-                               pst.setString(37,jCheckInjured.getText());
-                              }
-                              else if(jCheckDead.isSelected()){
-                              pst.setString(37,jCheckDead.getText());
-                              }
-                              pst.setString(38,noPerson);
-                              pst.setString(39,"พยานและบุคคลอื่นๆ");
+
+                              pst.setString(31,OccupationPosition.getText());      
+                          
+                              pst.setString(32,noPerson);
+                              pst.setString(33,"พยานและบุคคลอื่นๆ");
                            int response = JOptionPane.showConfirmDialog(jPanel1, "ต้องการบันทึกข้อมูล", "ยืนยัน",
             JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                             if (response == JOptionPane.YES_OPTION) {
@@ -1275,69 +1125,6 @@ public class WitnessForm extends javax.swing.JDialog {
     private void PhonePersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PhonePersonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_PhonePersonActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        JSONObject type=new JSONObject();
-        type.put("TypeCase", typeCase);
-        type.put("TypePerson", "พยานและบุคคลอื่น");
-        JFrame frame = new JFrame();
-        JDialog dialog = new JDialog(frame);//frame is owner
-        JFrame in = (JFrame)(dialog.getParent());
-        in.removeAll();
-    AnswerPersonForm rf =new AnswerPersonForm(in,type);
-        rf.pack();
-        rf.setLocationRelativeTo(null);
-        rf.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jCheckInjuredItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckInjuredItemStateChanged
-        // TODO add your handling code here:
-
-        if(jCheckInjured.isSelected()){
-            jButtonInjuryOrDie.setVisible(true);
-
-        }
-        else{
-            jButtonInjuryOrDie.setVisible(false);
-
-        }
-    }//GEN-LAST:event_jCheckInjuredItemStateChanged
-
-    private void jCheckInjuredActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckInjuredActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckInjuredActionPerformed
-
-    private void jCheckDeadItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckDeadItemStateChanged
-        // TODO add your handling code here:
-        if(jCheckDead.isSelected()){
-            jButtonInjuryOrDie.setVisible(true);
-
-        }
-        else{
-            jButtonInjuryOrDie.setVisible(false);
-
-        }
-    }//GEN-LAST:event_jCheckDeadItemStateChanged
-
-    private void jButtonInjuryOrDieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInjuryOrDieActionPerformed
-        // TODO add your handling code here:
-        JSONObject type=new JSONObject();
-        type.put("TypeCase", typeCase);
-        type.put("TypePerson", "พยานและบุคคลอื่น");
-        JFrame frame = new JFrame();
-        JDialog dialog = new JDialog(frame);//frame is owner
-        JFrame in = (JFrame)(dialog.getParent());
-        in.removeAll();
-        InjuryOrDie rf =new InjuryOrDie(in,type);
-        rf.pack();
-        rf.setLocationRelativeTo(null);
-        rf.setVisible(true);
-    }//GEN-LAST:event_jButtonInjuryOrDieActionPerformed
-
-    private void TimeSendInjuredOrDieKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TimeSendInjuredOrDieKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TimeSendInjuredOrDieKeyReleased
 
     private void TambonKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TambonKeyReleased
         // TODO add your handling code here:
@@ -1529,14 +1316,16 @@ public class WitnessForm extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(WitnessForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OwnerBailForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(WitnessForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OwnerBailForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(WitnessForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OwnerBailForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(WitnessForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OwnerBailForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
@@ -1800,11 +1589,8 @@ public static String ChangeGender(String gender) throws Exception{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Age;
     private javax.swing.JTextField Amphur;
-    public static javax.swing.JTextField AnswerPerson;
     private javax.swing.JComboBox<String> BloodGroup;
     private javax.swing.JButton BtSaveAccused;
-    public static javax.swing.JTextField CauseSendInjuredOrDie;
-    public static javax.swing.JTextField DateSendInjuredOrDie;
     private javax.swing.JTextField FatherFullName;
     private javax.swing.JTextField FullNamePerson;
     private javax.swing.JTextField FullNamePersonEn;
@@ -1826,16 +1612,10 @@ public static String ChangeGender(String gender) throws Exception{
     private javax.swing.JComboBox<String> Related;
     private javax.swing.JTextField Religion;
     private javax.swing.JTextField Tambon;
-    public static javax.swing.JSpinner TimeSendInjuredOrDie;
     private javax.swing.JTextField Weight;
-    public static javax.swing.JTextField WhereSendInjuredOrDie;
     private javax.swing.JTextField ZipCode;
     private javax.swing.JLabel crimecaseno;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButtonInjuryOrDie;
-    private javax.swing.JCheckBox jCheckDead;
-    private javax.swing.JCheckBox jCheckInjured;
     private javax.swing.JComboBox<String> jComboBoxListName;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

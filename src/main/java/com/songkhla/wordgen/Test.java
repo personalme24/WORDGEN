@@ -29,35 +29,8 @@ import javax.swing.SwingWorker;
 public class Test {
 
     public static void main(String args[]) {
-            getMotherboardSerial();
+        
     }
 
-     public static String getMotherboardSerial(){
-		try
-	    {
-	        String result = null;
-                 String nline = null;
 
-	        Process p = Runtime.getRuntime().exec("wmic baseboard get product,Manufacturer,version,serialnumber");
-	               BufferedReader input
-	                = new BufferedReader(new InputStreamReader(p.getInputStream(),"UTF-8"));
-	        String line;
-	        while ((line = input.readLine()) != null)
-	        {
-	        	nline += line;
-	        }
-                  result= nline.replace(" ","");
-//        for(String c : arrB)
-//        {
-//        	System.out.println("aa"+c);
-//        }
-        System.out.println("aa "+result);
-	        input.close();
-	        return result;
-	    } catch (IOException ex)
-	    {
-	        ex.printStackTrace();
-	        return null;
-	    }
-	}
 }

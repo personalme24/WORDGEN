@@ -19,6 +19,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.DataOutputStream;
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.StringReader;
@@ -76,7 +77,7 @@ public class CaseSelectOverView extends javax.swing.JDialog {
      JFrame frame = new JFrame();
         JDialog dialog = new JDialog(frame);//frame is owner
         JFrame facc = (JFrame)(dialog.getParent());
-      JDatePickerImpl DateAcceptStart,DateAcceptEnd,DateAcceptStartTC,DateAcceptEndTC;
+      JDatePickerImpl DateAcceptStart,DateAcceptEnd,DateReqStart,DateReqEnd,DateAcceptStartTC,DateAcceptEndTC;
 
     public CaseSelectOverView(JFrame parrent) {
                 super(parrent,true);
@@ -92,7 +93,9 @@ public class CaseSelectOverView extends javax.swing.JDialog {
 //        jButton2.setVisible(false);
 //        jButton1.setVisible(false);
 //        jLabelorgcode.setVisible(false);
-jlabeltoken.setVisible(false);
+jlabeltoken.setVisible(true);
+    DataCase tt=new DataCase();
+   jlabeltoken.setText(tt.getToken());
         idcardlabel.setVisible(false);
         usernamelabel.setVisible(false);
         orgnamelabel.setVisible(false);
@@ -151,6 +154,30 @@ jlabeltoken.setVisible(false);
         jPanel5.setLayout(new FlowLayout());
         jPanel5.add(DateAcceptEndTC);  
         
+          UtilDateModel model5 = new UtilDateModel();
+            model5.setValue(Calendar.getInstance().getTime());
+        JDatePanelImpl datePane5 = new JDatePanelImpl(model5,p);
+         DateReqStart= new JDatePickerImpl(datePane5,new DateLabelFormatter());
+//           DateAcceptStart.setPreferredSize(new Dimension(220,30));
+//    DateAcceptStart.getComponent(0).setPreferredSize(new Dimension(190,32)); //JFormattedTextField
+//    DateAcceptStart.getComponent(1).setPreferredSize(new Dimension(30,32));//JButton
+        DateReqStart.setTextEditable(true);
+        DateReqStart.setBackground(Color.WHITE);
+        jPanelReg.setLayout(new FlowLayout());
+        jPanelReg.add(DateReqStart);  
+        
+          UtilDateModel model6 = new UtilDateModel();
+            model6.setValue(Calendar.getInstance().getTime());
+        JDatePanelImpl datePane6 = new JDatePanelImpl(model6,p);
+         DateReqEnd = new JDatePickerImpl(datePane6,new DateLabelFormatter());
+//           DateAcceptStart.setPreferredSize(new Dimension(220,30));
+//    DateAcceptStart.getComponent(0).setPreferredSize(new Dimension(190,32)); //JFormattedTextField
+//    DateAcceptStart.getComponent(1).setPreferredSize(new Dimension(30,32));//JButton
+        DateReqEnd.setTextEditable(true);
+        DateReqEnd.setBackground(Color.WHITE);
+        jPanelReg2.setLayout(new FlowLayout());
+        jPanelReg2.add(DateReqEnd);  
+        
        
     }
  
@@ -165,35 +192,35 @@ jlabeltoken.setVisible(false);
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        idcardlabel = new javax.swing.JLabel();
+        usernamelabel = new javax.swing.JLabel();
+        orgnamelabel = new javax.swing.JLabel();
+        jlabeltoken = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel6 = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         casenocc = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        caseyearscc = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jPanelStAcc = new javax.swing.JPanel();
         jPanelEnAcc = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabelorgcode = new javax.swing.JLabel();
+        caseyearscc = new javax.swing.JTextField();
+        jPanelReg = new javax.swing.JPanel();
+        jPanelReg2 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        Date date4=new Date();
-
-        SpinnerDateModel sm4=new SpinnerDateModel(date4,null,null,Calendar.HOUR_OF_DAY);
-        AcceptStartTime = new javax.swing.JSpinner(sm4);
-        Date datee=new Date();
-
-        SpinnerDateModel sme=new SpinnerDateModel(datee,null,null,Calendar.HOUR_OF_DAY);
-        AcceptEndTime = new javax.swing.JSpinner(sme);
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableCrime = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
         TotalCase = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
@@ -209,12 +236,6 @@ jlabeltoken.setVisible(false);
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableTraffic = new javax.swing.JTable();
         jButton4 = new javax.swing.JButton();
-        usernamelabel = new javax.swing.JLabel();
-        idcardlabel = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
-        orgnamelabel = new javax.swing.JLabel();
-        jPanel8 = new javax.swing.JPanel();
-        jlabeltoken = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -229,6 +250,12 @@ jlabeltoken.setVisible(false);
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("ข้อมูลคดีระบบ CRIMES ในความรับผิดชอบ");
 
+        idcardlabel.setText("jLabel13");
+
+        usernamelabel.setText("jLabel12");
+
+        orgnamelabel.setText("jLabel12");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -236,13 +263,28 @@ jlabeltoken.setVisible(false);
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(jLabel1)
-                .addContainerGap(823, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(idcardlabel)
+                .addGap(32, 32, 32)
+                .addComponent(usernamelabel)
+                .addGap(156, 156, 156)
+                .addComponent(orgnamelabel)
+                .addGap(126, 126, 126)
+                .addComponent(jlabeltoken, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idcardlabel)
+                    .addComponent(usernamelabel)
+                    .addComponent(orgnamelabel)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jlabeltoken, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(9, 9, 9)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -262,6 +304,8 @@ jlabeltoken.setVisible(false);
         jLabel11.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel11.setText("ถึงวันที่");
 
+        jPanelStAcc.setBackground(new java.awt.Color(51, 153, 255));
+
         javax.swing.GroupLayout jPanelStAccLayout = new javax.swing.GroupLayout(jPanelStAcc);
         jPanelStAcc.setLayout(jPanelStAccLayout);
         jPanelStAccLayout.setHorizontalGroup(
@@ -272,6 +316,8 @@ jlabeltoken.setVisible(false);
             jPanelStAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 29, Short.MAX_VALUE)
         );
+
+        jPanelEnAcc.setBackground(new java.awt.Color(255, 255, 102));
 
         javax.swing.GroupLayout jPanelEnAccLayout = new javax.swing.GroupLayout(jPanelEnAcc);
         jPanelEnAcc.setLayout(jPanelEnAccLayout);
@@ -290,85 +336,104 @@ jlabeltoken.setVisible(false);
         jLabelorgcode.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabelorgcode.setText("jLabel12");
 
+        jPanelReg.setBackground(new java.awt.Color(102, 204, 255));
+
+        javax.swing.GroupLayout jPanelRegLayout = new javax.swing.GroupLayout(jPanelReg);
+        jPanelReg.setLayout(jPanelRegLayout);
+        jPanelRegLayout.setHorizontalGroup(
+            jPanelRegLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 175, Short.MAX_VALUE)
+        );
+        jPanelRegLayout.setVerticalGroup(
+            jPanelRegLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 29, Short.MAX_VALUE)
+        );
+
+        jPanelReg2.setBackground(new java.awt.Color(102, 204, 255));
+
+        javax.swing.GroupLayout jPanelReg2Layout = new javax.swing.GroupLayout(jPanelReg2);
+        jPanelReg2.setLayout(jPanelReg2Layout);
+        jPanelReg2Layout.setHorizontalGroup(
+            jPanelReg2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanelReg2Layout.setVerticalGroup(
+            jPanelReg2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 29, Short.MAX_VALUE)
+        );
+
         jLabel14.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel14.setText("เวลา");
+        jLabel14.setText("วันที่ร้องทุกข์");
 
         jLabel15.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel15.setText("เวลา");
-
-        JSpinner.DateEditor timeEditor4 = new JSpinner.DateEditor(AcceptStartTime, "HH:mm");
-        AcceptStartTime.setEditor(timeEditor4);
-        //jSpinner1.setValue(new Date());
-
-        JSpinner.DateEditor timeEditor5 = new JSpinner.DateEditor(AcceptEndTime, "HH:mm");
-        AcceptEndTime.setEditor(timeEditor5);
-        //jSpinner1.setValue(new Date());
+        jLabel15.setText("ถึงวันที่");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+            .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanelReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelorgcode, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(casenocc, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(caseyearscc, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanelStAcc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelorgcode, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel15))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(casenocc, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(caseyearscc, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelStAcc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(AcceptStartTime, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanelEnAcc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                .addComponent(jLabel15)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(AcceptEndTime, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanelReg2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelEnAcc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanelStAcc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel11)
-                                .addComponent(AcceptStartTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jPanelEnAcc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel15)
-                                .addComponent(AcceptEndTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(2, 2, 2))
+                        .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(caseyearscc, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelorgcode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(casenocc, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(caseyearscc, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabelorgcode))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jPanelEnAcc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPanelStAcc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(casenocc, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanelReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanelReg2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
 
         jTableCrime.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
@@ -401,51 +466,79 @@ jlabeltoken.setVisible(false);
             }
         });
 
-        jLabel12.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
-        jLabel12.setText("จำนวนคดีทั้งหมด");
+        TotalCase.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        TotalCase.setText("0");
 
         jLabel13.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         jLabel13.setText("คดี");
 
-        TotalCase.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
-        TotalCase.setText("0");
+        jLabel12.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        jLabel12.setText("จำนวนคดีทั้งหมด");
+
+        jButton5.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jButton5.setText("เชื่อมต่อข้อมูล");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 1, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                                .addComponent(jLabel12)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(TotalCase)
+                                .addGap(11, 11, 11)
+                                .addComponent(jLabel13)
+                                .addGap(101, 101, 101)
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap())
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel13)
+                    .addComponent(TotalCase)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(178, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(TotalCase)
-                        .addGap(11, 11, 11)
-                        .addComponent(jLabel13)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(56, 56, 56))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane2))
-                        .addContainerGap())))
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 13, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel13)
-                    .addComponent(TotalCase))
-                .addGap(26, 26, 26))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("คดีอาญา", jPanel6);
@@ -571,7 +664,7 @@ jlabeltoken.setVisible(false);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(1055, Short.MAX_VALUE)
+                .addContainerGap(1104, Short.MAX_VALUE)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37))
             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -579,7 +672,7 @@ jlabeltoken.setVisible(false);
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jScrollPane1)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -588,39 +681,12 @@ jlabeltoken.setVisible(false);
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
                 .addComponent(jButton4)
                 .addGap(31, 31, 31))
         );
 
         jTabbedPane1.addTab("คดีจราจร", jPanel2);
-
-        usernamelabel.setText("jLabel12");
-
-        idcardlabel.setText("jLabel13");
-
-        jButton5.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jButton5.setText("เชื่อมต่อข้อมูล");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-
-        orgnamelabel.setText("jLabel12");
-
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 218, Short.MAX_VALUE)
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 42, Short.MAX_VALUE)
-        );
-
-        jlabeltoken.setText("jLabel16");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -629,51 +695,25 @@ jlabeltoken.setVisible(false);
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1280, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(idcardlabel)
-                        .addGap(46, 46, 46)
-                        .addComponent(usernamelabel)
-                        .addGap(98, 98, 98)
-                        .addComponent(orgnamelabel)
-                        .addGap(18, 18, 18)
-                        .addComponent(jlabeltoken)
-                        .addGap(278, 278, 278)
-                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(247, 247, 247)
-                        .addComponent(jButton5))
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1182, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(idcardlabel)
-                                .addComponent(orgnamelabel)
-                                .addComponent(usernamelabel)
-                                .addComponent(jlabeltoken))
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(17, 17, 17))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 613, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addGap(18, 18, 18)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 724, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+    // TODO add your handling code here:
         for (int i = 0; i < jTableCrime.getRowCount(); i++) {
 	Boolean chked = Boolean.valueOf(jTableCrime.getValueAt(i, 0)
 			.toString());
@@ -696,13 +736,14 @@ jlabeltoken.setVisible(false);
             try{
               Connection c=null;
              c=ConnectDatabase.connect();
-            String sqlId="Select crimecaseno,crimecaseyears,crimecasenoyear from CrimeCase where crimecaseno='"+casno+"' and crimecaseyears='"+casyear+"' and crimecasenoyear='"+casno+"/"+casyear+"'";
+            String sqlId="Select caseid,crimecaseno,crimecaseyears,crimecasenoyear from CrimeCase where crimecaseno='"+casno+"' and crimecaseyears='"+casyear+"' and crimecasenoyear='"+casno+"/"+casyear+"'";
 
             Statement s=c.createStatement();
             ResultSet rs=s.executeQuery(sqlId);
             
             if (rs.next()) {
-               int response = JOptionPane.showConfirmDialog(jPanel6, "คดีที่ "+casno+"/"+casyear+" มีข้อมูลแล้วต้องการบันทึกข้อมูลซ้ำหรือไม่", "ยืนยัน",
+                String cid=rs.getString("caseid");
+               int response = JOptionPane.showConfirmDialog(jPanel6, "คดีที่ "+casno+"/"+casyear+" มีข้อมูลคดีนี้แล้วต้องการบันทึกข้อมูลซ้ำหรือไม่", "ยืนยัน",
         JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (response == JOptionPane.YES_OPTION) {
 //             con=ConnectDatabase.connect();
@@ -711,11 +752,11 @@ jlabeltoken.setVisible(false);
          jsonInput.addProperty("CrimeCaseYear",casyear);
          jsonInput.addProperty("ORG_CODE",jLabelorgcode.getText());
          jsonInput.addProperty("Usename","98UT01");
-         jsonInput.addProperty("PasswordWordgen","eZS5PPB/9zCElUbubieWKoD9pctqrANqhXqK49z1250=");
+         jsonInput.addProperty("PasswordWordgen","eZS5PPB/9zCElUbubieWKoD9pctqrANqhXqK49z");
          jsonInput.addProperty("OrgName",orgnamelabel.getText()); 
          jsonInput.addProperty("Serial","QL789456"); 
          String j=jsonInput.toString();
-//        insert_crime(jsonInput);
+        update_crime(jsonInput,cid);
      System.out.println(j);
 
     } 
@@ -726,7 +767,7 @@ jlabeltoken.setVisible(false);
          jsonInput.addProperty("CrimeCaseYear",casyear);
          jsonInput.addProperty("ORG_CODE",jLabelorgcode.getText());
          jsonInput.addProperty("Usename","98UT01");
-         jsonInput.addProperty("PasswordWordgen","eZS5PPB/9zCElUbubieWKoD9pctqrANqhXqK49z1250=");
+         jsonInput.addProperty("PasswordWordgen","eZS5PPB/9zCElUbubieWKoD9pctqrANqhXqK49z");
          jsonInput.addProperty("OrgName",orgnamelabel.getText()); 
          jsonInput.addProperty("Serial","QL789456"); 
          String j=jsonInput.toString();
@@ -744,30 +785,112 @@ jlabeltoken.setVisible(false);
             catch(Exception ex){
       
             }
-       		JOptionPane.showMessageDialog(null, "ดึงข้อมูลเรียบร้อยแล้ว");
+//       		JOptionPane.showMessageDialog(null, "ดึงข้อมูลเรียบร้อยแล้ว");
     
            
 //		JOptionPane.showMessageDialog(null, dataCol1);
 	}
 }
-  
+         		JOptionPane.showMessageDialog(null, "ดึงข้อมูลเรียบร้อยแล้ว");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-         SimpleDateFormat format = new SimpleDateFormat("HH:mm");
-         String timeStart=format.format(AcceptStartTime.getValue());
-          String timeEnd=format.format(AcceptStartTime.getValue());
+     
+            System.out.println("Token:"+MainMenuWord.tk);
+            String aa="";
+            aa=MainMenuWord.tk;
+        
+
+            if(aa == null){
+            System.out.println("empty:");
+             JFrame frame = new JFrame();
+                    JDialog dialog = new JDialog(frame);//frame is owner
+                    JFrame asv = (JFrame)(dialog.getParent());
+                    asv.removeAll();
+               LogInConfirm lc=new LogInConfirm(asv);
+                     lc.pack();
+                    lc.setLocationRelativeTo(null);
+                    lc.setVisible(true);   
+                    aa=MainMenuWord.tk;
+                System.out.println("new--------"+aa);  
+              
+          
+             jlabeltoken.setText(aa);
+                       String timeStart="00:00";
+         String timeEnd="23:59";
          JsonObject jsonInput = new JsonObject();
          jsonInput.addProperty("CrimeCaseNo",casenocc.getText());
          jsonInput.addProperty("CrimeCaseYear",caseyearscc.getText());
-         jsonInput.addProperty("ORG_CODE",jLabelorgcode.getText());
-         jsonInput.addProperty("PasswordWordgen",jlabeltoken.getText());
-         jsonInput.addProperty("CaseAcceptDate","");
-         jsonInput.addProperty("CaseAcceptDateTo",""); 
+//         jsonInput.addProperty("ORG_CODE",jLabelorgcode.getText());
+         jsonInput.addProperty("ORG_CODE","");
+         jsonInput.addProperty("PasswordWordgen",aa);         
+         jsonInput.addProperty("StatusMagenta","Magenta_inActive");
+         jsonInput.addProperty("CaseRequestDate","");
+         jsonInput.addProperty("CaseRequestDateTo",""); 
+         jsonInput.addProperty("CaseAcceptDate",AcceptDate(DateAcceptStart.getJFormattedTextField().getText(),timeStart));
+         jsonInput.addProperty("CaseAcceptDateTo",AcceptDate(DateAcceptEnd.getJFormattedTextField().getText(),timeEnd)); 
          
         call_me2(jsonInput);
         TotalCase.setText(jTableCrime.getRowCount()+"");
+        }
+   try { 
+            
+         String url=  "http://172.31.191.171:8989/wordgenchecktoken/?PASSWORDWORDGEN="+aa;
+             System.out.println("url:"+url);
+                  String fff =sendGET(url);
+                   JSONObject myResponse = new JSONObject(fff);
+                   String statuspasswordgen=myResponse.getString("statuspasswordgen");
+                  if(statuspasswordgen.equals("1")){
+                                            JFrame frame = new JFrame();
+                                          JDialog dialog = new JDialog(frame);//frame is owner
+                                          JFrame lcf = (JFrame)(dialog.getParent());
+                                          lcf.removeAll();
+                                        LogInConfirm lc=new LogInConfirm(lcf);
+                                         lc.pack();
+                                        lc.setLocationRelativeTo(null);
+                                        lc.setVisible(true);  
+                                        aa=MainMenuWord.tk;
+                  } 
+      else if(statuspasswordgen.equals("2")){
+          String timeStart="00:00";
+         String timeEnd="23:59";
+         JsonObject jsonInput = new JsonObject();
+         jsonInput.addProperty("CrimeCaseNo",casenocc.getText());
+         jsonInput.addProperty("CrimeCaseYear",caseyearscc.getText());
+//         jsonInput.addProperty("ORG_CODE",jLabelorgcode.getText());
+         jsonInput.addProperty("ORG_CODE","70028");
+         jsonInput.addProperty("PasswordWordgen",aa);         
+         jsonInput.addProperty("StatusMagenta","Magenta_inActive");
+         jsonInput.addProperty("CaseRequestDate","");
+         jsonInput.addProperty("CaseRequestDateTo",""); 
+         jsonInput.addProperty("CaseAcceptDate",AcceptDate(DateAcceptStart.getJFormattedTextField().getText(),timeStart));
+         jsonInput.addProperty("CaseAcceptDateTo",AcceptDate(DateAcceptEnd.getJFormattedTextField().getText(),timeEnd)); 
+         
+        call_me2(jsonInput);
+        TotalCase.setText(jTableCrime.getRowCount()+"");
+                  }
+                 
+        } catch (Exception e) {
+        }
+//         String timeStart="00:00";
+//         String timeEnd="23:59";
+//         JsonObject jsonInput = new JsonObject();
+//         jsonInput.addProperty("CrimeCaseNo",casenocc.getText());
+//         jsonInput.addProperty("CrimeCaseYear",caseyearscc.getText());
+////         jsonInput.addProperty("ORG_CODE",jLabelorgcode.getText());
+//         jsonInput.addProperty("ORG_CODE","70028");
+//
+////         jsonInput.addProperty("PasswordWordgen",jlabeltoken.getText());
+//         jsonInput.addProperty("PasswordWordgen","eZS5PPB/9zCElUbubieWKoD9pctqrANqhXqK49z");         
+//         jsonInput.addProperty("StatusMagenta","Magenta_inActive");
+//         jsonInput.addProperty("CaseRequestDate","");
+//         jsonInput.addProperty("CaseRequestDateTo",""); 
+//         jsonInput.addProperty("CaseAcceptDate",AcceptDate(DateAcceptStart.getJFormattedTextField().getText(),timeStart));
+//         jsonInput.addProperty("CaseAcceptDateTo",AcceptDate(DateAcceptEnd.getJFormattedTextField().getText(),timeEnd)); 
+//         
+//        call_me2(jsonInput);
+//        TotalCase.setText(jTableCrime.getRowCount()+"");
     }//GEN-LAST:event_jButton5ActionPerformed
  
     /**
@@ -1103,8 +1226,8 @@ jlabeltoken.setVisible(false);
                        if (errNodes2.getLength() > 0) {
             Element err = (Element)errNodes2.item(0);
          String insertCrime="insert into CrimeCase(CaseId,CaseType,crimecaseno,crimecaseyears,crimecasenoyear,CaseAcceptDate,CaseAccepTime,"
-                       + "CaseRequestDate,CaseRequestTime,OccuredDate,OccuredTime,OccuredDateEnd,OccuredTimeEnd,ActionCodeCase)\n"
-                       + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; 
+                       + "CaseRequestDate,CaseRequestTime,OccuredDate,OccuredTime,OccuredDateEnd,OccuredTimeEnd,ActionCodeCase,ChargeCodeCase)\n"
+                       + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; 
          String insertCharge="insert into Charge(ChargeCode,ChargeName,Law,RateOfPenalty,Note)\n"
                        + "VALUES (?,?,?,?,?)";
           String insertChargeCase="insert into ChargeCase(ChargeCodeCase,ChargeNameCase,LawCase,RateOfPenaltyCase,NoteCase,ChargeCaseId)\n"
@@ -1138,6 +1261,7 @@ jlabeltoken.setVisible(false);
                         pst.setString(12,   NewDate( err.getElementsByTagName("OccuredDateTimeTo").item(0).getTextContent())); 
                         pst.setString(13,  NewTime(err.getElementsByTagName("OccuredDateTimeTo").item(0).getTextContent())); 
                          pst.setString(14,  idAction()); 
+                          pst.setString(15,  idCharge()); 
 //                        pst.setString(6,  err.getElementsByTagName("Birthday").item(0).getTextContent()); 
                      pst.execute();
                      pst.close(); 
@@ -1180,6 +1304,218 @@ jlabeltoken.setVisible(false);
 
                         pst4.execute();
                      pst4.close(); 
+                     
+                       System.out.println("success");
+        } catch (SQLException e) {
+                System.out.println("ddddd: "+e);
+            
+        }
+	} else { 
+		     // success
+         }
+           for (int temp = 0; temp < errNodes.getLength(); temp++) {
+
+        Node nNode = errNodes.item(temp);
+
+        
+
+        if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+
+            Element p = (Element) nNode; 
+
+//    System.out.println("First Name : " +eElement.getElementsByTagName("PeopleRegistrationID").item(0).getTextContent());
+       String insertPerson="insert into Person(PeopleRegistrationID,FullNamePerson,BirthDay,Gender,"
+                              + "Age,TypePerson,FatherFullName,MotherFullName,Race,Religion,Nationality,Occupation,ArrestDateTime,CaseIdPerson)\n"
+                                + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";  
+         try {
+                        int order=temp+1;
+                         PreparedStatement pst2=null;
+                        
+                        pst2=conn.prepareStatement(insertPerson);
+//               if(p.getElementsByTagName("PeopleRegistrationID").item(0)==null){
+//               pst2.setString(1,"");
+//               }
+//               else{
+//                    pst2.setString(1,p.getElementsByTagName("PeopleRegistrationID").item(0).getTextContent());
+//               }
+                pst2.setString(1,CheckNull(p, "PeopleRegistrationID"));
+                 pst2.setString(2,CheckNull(p, "FullNamePerson"));
+                 if(p.getElementsByTagName("Birthday").item(0)==null){
+               pst2.setString(3,"");
+               }
+               else{
+                    pst2.setString(3,NewDate(p.getElementsByTagName("Birthday").item(0).getTextContent()));
+               }
+
+                if(p.getElementsByTagName("Gender").item(0)==null){
+               pst2.setString(4,"");
+               }
+               else{
+                    pst2.setString(4,NewGender(p.getElementsByTagName("Gender").item(0).getTextContent()));
+               }
+              pst2.setString(5,CheckNull(p, "Age"));
+              pst2.setString(6,NewTypePerson(CheckNull(p, "StatusVictimOrSuspect")));
+              pst2.setString(7,CheckNull(p, "FatherName"));
+              pst2.setString(8,CheckNull(p, "MotherName"));
+              pst2.setString(9,CheckNull(p, "Race"));
+              pst2.setString(10,CheckNull(p, "Religion"));
+              pst2.setString(11,CheckNull(p, "Nationality"));
+              pst2.setString(12,NewOccupation(CheckNull(p, "Occupation")));
+               if(p.getElementsByTagName("ArrestedDate").item(0)==null){
+               pst2.setString(13,"");
+               }
+               else{
+                    pst2.setString(13,NewDateTime(p.getElementsByTagName("ArrestedDate").item(0).getTextContent()));
+               }  
+               pst2.setString(14,  IdCasePerson()); 
+
+                     pst2.execute();
+                     pst2.close();   
+                      System.out.println("success Person");
+        } catch (SQLException e) {
+                System.out.println("ddddd: "+e);
+            
+        }
+
+        }
+           }
+
+                } catch (Exception e) {
+                System.out.println(e);
+                }
+     
+                }
+    public static void update_crime(JsonObject a,String caseid){
+     try {
+             
+                
+                 String url = "http://172.31.191.171:8989/ws/CrimeCaseService_Wordgen_Import/";
+                URL obj = new URL(url);
+                HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+                con.setRequestMethod("POST");
+                con.setRequestProperty("Content-Type","application/soap+xml;charset=UTF-8");
+                String xml = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:exam=\"http://www.example.com/\">\n" +
+                "   <soapenv:Header>\n" +
+                "      <exam:authentication>\n" +
+                "         <username>rtp</username>\n" +
+                "         <password>rtp</password>\n" +
+                "      </exam:authentication>\n" +
+                "   </soapenv:Header>\n" +
+                "   <soapenv:Body>\n" +
+                "      <exam:CrimesCaseDetail>\n" +
+                "         <INPUT>"+a+"</INPUT>\n" +
+                "      </exam:CrimesCaseDetail>\n" +
+                "   </soapenv:Body>\n" +
+                "</soapenv:Envelope>";
+                System.out.println(xml);
+                    con.setDoOutput(true);
+                  DataOutputStream writer = new DataOutputStream(con.getOutputStream());
+                BufferedWriter wr = new BufferedWriter(new OutputStreamWriter(writer, "UTF-8"));
+                wr.write(xml);
+                wr.flush();
+                wr.close();
+                String responseStatus = con.getResponseMessage();
+                System.out.println(responseStatus);
+                BufferedReader in = new BufferedReader(new InputStreamReader(
+                con.getInputStream(),"UTF-8"));
+                String inputLine;
+                StringBuffer response = new StringBuffer();
+                while ((inputLine = in.readLine()) != null) {
+                response.append(inputLine);
+                }
+                in.close();
+                System.out.println("response:" + response.toString());
+                	// System.out.println(response.toString());
+        Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder()
+         .parse(new InputSource(new StringReader(response.toString())));
+	       NodeList errNodes = doc.getElementsByTagName("Person");
+               	       NodeList errNodes2 = doc.getElementsByTagName("CrimeCase");
+                        Connection conn=null;
+                                                Connection conn2=null;
+
+               conn=ConnectDatabase.connect();
+                              conn2=ConnectDatabase.connect();
+
+                       if (errNodes2.getLength() > 0) {
+            Element err = (Element)errNodes2.item(0);
+            String sql = "DELETE FROM CrimeCase WHERE CrimeCase.CaseId='"+caseid+"';\n"+
+                             "DELETE FROM RecordInquiry WHERE caseidrecord='"+caseid+"';\n"+
+                             "DELETE FROM Person WHERE caseidperson='"+caseid+"';\n"+
+                             "DELETE FROM ChargeCase WHERE ChargeCaseId='"+caseid+"';\n"+
+                             "DELETE FROM RecordInquiry WHERE CaseIdRecord='"+caseid+"';\n"+
+                             "DELETE FROM ActionsCaseData WHERE ActionCaseId='"+caseid+"';";
+
+       try {               
+           Connection cond = ConnectDatabase.connect();
+//                System.out.println("Delete:"+sql);
+                Statement  stmt = cond.createStatement();
+                      stmt.executeUpdate(sql);
+                    stmt.close();
+                    
+                         PreparedStatement pst=null;
+                         PreparedStatement pst1=null;
+                         PreparedStatement pst2=null;
+                          PreparedStatement pst3=null;
+                         PreparedStatement pst4=null;
+
+
+//                        pst=conn.prepareStatement(insertActionsCase);
+//                        pst.setString(1, "คดีอาญา");
+//                        pst.setString(2, err.getElementsByTagName("CrimeCaseNo").item(0).getTextContent());
+//                        pst.setString(3,  err.getElementsByTagName("CrimeCaseYear").item(0).getTextContent());
+//                        pst.setString(4,  err.getElementsByTagName("CaseNo").item(0).getTextContent());
+//                        pst.setString(5, NewDate( err.getElementsByTagName("CaseAcceptDate").item(0).getTextContent())); 
+//                        pst.setString(6,  NewTime(err.getElementsByTagName("CaseAcceptDate").item(0).getTextContent())); 
+//                        pst.setString(7,  NewDate( err.getElementsByTagName("CaseRequestDate").item(0).getTextContent())); 
+//                        pst.setString(8,   NewTime(err.getElementsByTagName("CaseRequestDate").item(0).getTextContent())); 
+//                        pst.setString(9,  NewDate( err.getElementsByTagName("OccuredDateTimeFrom").item(0).getTextContent())); 
+//                        pst.setString(10,  NewTime(err.getElementsByTagName("OccuredDateTimeFrom").item(0).getTextContent())); 
+//                        pst.setString(11,   NewDate( err.getElementsByTagName("OccuredDateTimeTo").item(0).getTextContent())); 
+//                        pst.setString(12,  NewTime(err.getElementsByTagName("OccuredDateTimeTo").item(0).getTextContent())); 
+//                         pst.setString(13,  idAction()); 
+//                         pst.setString(14,  idCharge()); 
+//                        pst.setString(6,  err.getElementsByTagName("Birthday").item(0).getTextContent()); 
+//                     pst.execute();
+//                     pst.close(); 
+                     
+//                        pst1=conn2.prepareStatement(insertActionsCase);
+//                        pst1.setString(1, idAction());
+//                        pst1.setString(2, err.getElementsByTagName("BehaviorOfCrimeCase").item(0).getTextContent());
+//                        pst1.setString(3, err.getElementsByTagName("BehaviorOfCrimeCase").item(0).getTextContent());
+//                        pst1.setString(4, "");     
+//                                      System.out.println("addddddddddddd:"+idAction());  
+//
+//                        pst1.execute();
+//                     pst1.close(); 
+//                     
+//                     pst2=conn.prepareStatement(insertActionsCaseData);
+//                        pst2.setString(1, idActionCase());
+//                        pst2.setString(2, err.getElementsByTagName("BehaviorOfCrimeCase").item(0).getTextContent());
+//                        pst2.setString(3, err.getElementsByTagName("BehaviorOfCrimeCase").item(0).getTextContent());
+//                        pst2.setString(4, "");
+//                         pst2.setString(5, IdCasePerson());  
+//                        pst2.execute();
+//                     pst2.close(); 
+//                     
+//                      pst3=conn.prepareStatement(insertCharge);
+//                        pst3.setString(1, idCharge());
+//                        pst3.setString(2, err.getElementsByTagName("DisplayCharge").item(0).getTextContent().replace("1) ", ""));
+//                        pst3.setString(3, "");
+//                        pst3.setString(4, "");
+//                         pst3.setString(5, "");  
+//                        pst3.execute();
+//                     pst3.close(); 
+//                     
+//                     pst4=conn.prepareStatement(insertChargeCase);
+//                        pst4.setString(1, idChargeCase());
+//                        pst4.setString(2, err.getElementsByTagName("DisplayCharge").item(0).getTextContent().replace("1) ", ""));
+//                        pst4.setString(3, "");
+//                        pst4.setString(4, "");
+//                         pst4.setString(5, ""); 
+//                        pst4.setString(6, IdCasePerson());  
+//
+//                        pst4.execute();
+//                     pst4.close(); 
                      
                        System.out.println("success");
         } catch (SQLException e) {
@@ -1503,6 +1839,21 @@ jlabeltoken.setVisible(false);
               return   formattedDate;
         }
       }
+         public static String DateSend(String dateacc) throws Exception{
+         Locale lc = new Locale("th","TH");
+         SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+        SimpleDateFormat outputFormat = new SimpleDateFormat("HH:mm",lc);
+        if(dateacc.equals("")){
+        return   "";
+        
+        }
+        else{
+        Date date = inputFormat.parse(dateacc);
+       
+        String formattedDate = outputFormat.format(date);
+              return   formattedDate;
+        }
+      }
            public static String NewTypePerson(String type){
           String newType="";
          if(type.equals("Victim")){  
@@ -1537,18 +1888,19 @@ jlabeltoken.setVisible(false);
           }
 //               return newGender;
       }
- public static String CheckNull(Node nd,String type){
+ public static String CheckNull(Element nd,String type){
           String newType="";
-           Element p = (Element) nd; 
+//           Element p = (Element) nd; 
+           System.out.println(type);
 //           String newType2="";   
-Object a=p+".getElementsByTagName(\""+type+"\").item(0)";
+Object a=nd.getElementsByTagName(type).item(0);
 System.out.println("sasa:"+a);
           String check=".getTextContent()";
          if(a != null){ 
          
            String newType2=a+check; 
-           System.out.println("asdasdasd:"+newType2); 
-            return newType2;
+           System.out.println("asdasdasd:"+nd.getElementsByTagName(type).item(0).getTextContent()); 
+            return nd.getElementsByTagName(type).item(0).getTextContent();
          }
          else{ 
              System.out.println("ssssssssss:"+newType);        
@@ -1559,10 +1911,36 @@ System.out.println("sasa:"+a);
          }
       
       }
-      
+    private static String sendGET(String GET_URL) throws IOException {
+                String a="";
+		URL serverUrl = new URL(GET_URL);
+		HttpURLConnection con = (HttpURLConnection) serverUrl.openConnection();
+		con.setRequestMethod("GET");
+		con.setRequestProperty("User-Agent", "Mozilla/5.0");
+                con.setRequestProperty("Accept-Charset", "UTF-8");
+		int responseCode = con.getResponseCode();
+		System.out.println("GET Response Code :: " + responseCode);
+		if (responseCode == HttpURLConnection.HTTP_OK) { // success
+			BufferedReader in = new BufferedReader(new InputStreamReader(
+					con.getInputStream(),"UTF-8"));
+			String inputLine;
+			StringBuffer response = new StringBuffer();
+
+			while ((inputLine = in.readLine()) != null) {
+				response.append(inputLine);
+			}
+			in.close();
+
+			// print result
+//			System.out.println(response.toString());
+                        return response.toString();
+		} else {
+			System.out.println("GET request not worked");
+                        return null;
+		}
+                
+	}  
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JSpinner AcceptEndTime;
-    private javax.swing.JSpinner AcceptStartTime;
     private javax.swing.JLabel TotalCase;
     private javax.swing.JTextField casenocc;
     private javax.swing.JTextField caseyearscc;
@@ -1593,8 +1971,10 @@ System.out.println("sasa:"+a);
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JPanel jPanelEnAcc;
+    private javax.swing.JPanel jPanelReg;
+    private javax.swing.JPanel jPanelReg2;
     private javax.swing.JPanel jPanelStAcc;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -1604,7 +1984,7 @@ System.out.println("sasa:"+a);
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JLabel jlabeltoken;
+    public static javax.swing.JLabel jlabeltoken;
     private javax.swing.JLabel orgnamelabel;
     private javax.swing.JLabel usernamelabel;
     // End of variables declaration//GEN-END:variables

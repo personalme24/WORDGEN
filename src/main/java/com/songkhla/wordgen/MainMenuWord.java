@@ -50,10 +50,11 @@ public class MainMenuWord extends javax.swing.JFrame {
      */
     Connection con=null;
         PreparedStatement pst=null;
-
+        public static String tk;
     JPanel [] panel1;
     public MainMenuWord() {
-        initComponents(); 
+        initComponents();
+        System.out.println("-------------------------------"+tk);
 //        checkdata();
         ImageIcon img = new ImageIcon("./Master/WD.png");
         setIconImage(img.getImage());
@@ -76,7 +77,8 @@ public class MainMenuWord extends javax.swing.JFrame {
        jPanel17.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));       
        jPanel18.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));       
       
-       
+//        DataCase tt=new DataCase();
+//        tt.setToken("f");
 
 //        CalculateDate();
         data();
@@ -88,7 +90,7 @@ public class MainMenuWord extends javax.swing.JFrame {
         setMinimumSize(new Dimension(1280, 720));
         setMaximizedBounds ( new Rectangle ( 1280, 720 ) );
         setResizable(false);
-         jLabel13.setVisible(false);
+         jLabel13.setVisible(true);
         con=ConnectDatabase.connect();
         CreateTable.createNewTable();      
         CreateTable.InsertBaseData();

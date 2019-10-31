@@ -96,7 +96,7 @@ public static void w70(String cc,String noperson) {
                                 "from Person\n" +
                                 "inner join( \n" +
                                 "SELECT Person.*\n" +
-                                "FROM Person where Person.Related='นายประกัน' and Person.caseIdPerson='"+cc+"')P2 \n" +
+                                "FROM Person where Person.Related='นายประกัน' and Person.caseIdPerson='"+cc+"' and Person.ownerbail='"+noperson+"')P2 \n" +
                                 "left join CrimeCase on Person.caseidperson=CrimeCase.caseid\n" +
                                 "left join ChargeCase on crimecase.Caseid=ChargeCase.ChargeCaseid\n" +
                                 "left join BailAsset on Person.noperson = BailAsset.BailpersonId\n" +

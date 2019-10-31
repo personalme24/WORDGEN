@@ -130,6 +130,7 @@ import org.json.JSONObject;
 public class LogInPage extends javax.swing.JFrame {
      Connection con=null;
     PreparedStatement pst=null;
+    public static String tk;
     /**
      * Creates new form LogInPage
      */
@@ -556,8 +557,8 @@ String  username=Username.getText();
                String insertInvest="INSERT INTO InvestInformation (InvestId,InvestCardID,InvestRank,InvestName,"
                        + "InvestPosition,InvestBirthDay,InvestAge,InvestTel,InvestRankFull)\n"        
                       + "VALUES (?,?,?,?,?,?,?,?,?)"; 
-               String insertUser="INSERT INTO User (iduser,Username,Password,StatusLogin,DateLogin,SerialNum,PeopleCard,Token)\n"        
-                      + "VALUES (?,?,?,?,?,?,?,?)";
+               String insertUser="INSERT INTO User (iduser,Username,Password,StatusLogin,DateLogin,SerialNum,PeopleCard)\n"        
+                      + "VALUES (?,?,?,?,?,?,?)";
                  String insertStation="INSERT INTO PoliceStation (PoliceStartionId,PoliceStartionCode,PoliceStaionName,PoliceStaionShort,StationAddress,StationTambon,"
                          + "StationAmphur,StationProvince,PostCode,BK,BH,PhonePolice,StationAddress,HeadRankFull,HeadRankShort,HeadName,HeadPosition)\n"        
                       + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -600,8 +601,8 @@ String  username=Username.getText();
                               pst3.setString(6,getMotherboardSerial());        
                               pst3.setString(7,myResponse.getString("idcard")); 
 //                              pst3.setString(8,myResponse.getString("passwordwordgen"));  
-                              pst3.setString(8,"eZS5PPB/9zCElUbubieWKoD9pctqrANqhXqK49z1250=");  
-
+//                              pst3.setString(8,"eZS5PPB/9zCElUbubieWKoD9pctqrANqhXqK49z1250=");  
+                             MainMenuWord.tk=myResponse.getString("passwordwordgen");
                               pst3.executeUpdate();                
                               pst3.close();
                               

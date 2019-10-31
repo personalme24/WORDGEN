@@ -42,14 +42,46 @@ public class BailCrimesAdd extends javax.swing.JDialog {
         refreshBailSendData();
         caseId=datain.get("CaseId")+"";
         personId=datain.get("NoPerson")+"";
+        jLabel8.setText(personId);
         if(datain !=null){
-            crimecaseno.setText(datain.get("crimecasenoyear")+"");
-            SuspectFullName.setText(datain.get("FullNamePerson")+"");
-            ChargeName.setText(datain.get("ChargeName")+"");
-            PlaceArrest.setText(datain.get("PlaceArrest")+"");
-            DateArrest.setText(datain.get("ArrestDateTime")+"");
-             DateArrestEnd.setText(datain.get("ArrestDateTimeEnd")+"");
-              DateBail.setText(datain.get("BailDate")+"");
+                String sql="select crimecasenoyear,NoPerson,crimecaseno,Investigator_Result,TypePerson,ArrestDateTimeEnd,BailDate,CourtSuspect,"
+                        + "PeopleRegistrationID,PlaceArrest,ArrestDateTime,FullNamePerson,StatusSuspect,CaseId,CaseIdPerson,"
+                        + "CaseAcceptDate,chargecase.ChargeCodeCase ChargeCase,chargecase.ChargeNameCase ChargeNameCase\n" +
+                     "from Person\n" +
+                     "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId\n"+
+                     "left join chargecase on crimecase.CaseId=chargecase.ChargeCaseId " +                
+                     "where TypePerson='ผู้ต้องหา' and caseid='"+caseId+"' and noperson='"+personId+"'";
+                try{
+                     Connection con = ConnectDatabase.connect();
+                Statement stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery(sql);
+                 if(rs.next()){
+             crimecaseno.setText(rs.getString("crimecasenoyear"));
+            SuspectFullName.setText(rs.getString("FullNamePerson"));
+            ChargeName.setText(rs.getString("ChargeNameCase"));
+            PlaceArrest.setText(rs.getString("PlaceArrest"));
+            DateArrest.setText(rs.getString("ArrestDateTime"));
+             DateArrestEnd.setText(rs.getString("ArrestDateTimeEnd"));
+              DateBail.setText(rs.getString("BailDate"));
+
+                        }
+                 else{
+                    crimecaseno.setText("");
+            SuspectFullName.setText("");
+            ChargeName.setText("");
+            PlaceArrest.setText("");
+            DateArrest.setText("");
+             DateArrestEnd.setText("");
+              DateBail.setText("");
+                 
+                 
+                 
+                 
+                 }
+                }catch(Exception ex){
+                
+                }
+
      
         }
         refreshBailSendData();
@@ -69,6 +101,7 @@ public class BailCrimesAdd extends javax.swing.JDialog {
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         crimecaseno = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -101,6 +134,7 @@ public class BailCrimesAdd extends javax.swing.JDialog {
         DateArrestEnd = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         DateBail = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -124,6 +158,8 @@ public class BailCrimesAdd extends javax.swing.JDialog {
             }
         });
 
+        jLabel8.setText("jLabel8");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -131,6 +167,8 @@ public class BailCrimesAdd extends javax.swing.JDialog {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addContainerGap())
@@ -139,7 +177,8 @@ public class BailCrimesAdd extends javax.swing.JDialog {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
-                .addComponent(jButton2))
+                .addComponent(jButton2)
+                .addComponent(jLabel8))
         );
 
         jLabel30.setBackground(java.awt.SystemColor.activeCaptionBorder);
@@ -420,7 +459,7 @@ public class BailCrimesAdd extends javax.swing.JDialog {
         DateArrest.setBorder(null);
 
         jButton1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jButton1.setText("พิมพ์เอกสาร");
+        jButton1.setText("สร้างเอกสาร");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -445,21 +484,19 @@ public class BailCrimesAdd extends javax.swing.JDialog {
         DateBail.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         DateBail.setBorder(null);
 
+        jButton3.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jButton3.setText("นายประกัน");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(1136, 1136, 1136)
-                .addComponent(jButton1)
-                .addGap(0, 10, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -491,7 +528,20 @@ public class BailCrimesAdd extends javax.swing.JDialog {
                         .addComponent(jLabel2)
                         .addGap(4, 4, 4)
                         .addComponent(PlaceArrest, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -523,7 +573,9 @@ public class BailCrimesAdd extends javax.swing.JDialog {
                     .addComponent(jLabel2)
                     .addComponent(PlaceArrest, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton3))
                 .addGap(6, 6, 6)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -737,6 +789,87 @@ public class BailCrimesAdd extends javax.swing.JDialog {
         // TODO add your handling code here:
         MainMenuWord.closeAllDialogs();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+          try{
+             
+                String sql="select * from Person where typeperson='พยานและบุคคลอื่นๆ' and Related='นายประกัน' and OwnerBail='"+personId+"'";
+                Connection con = ConnectDatabase.connect();
+                Statement stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery(sql);
+                System.out.println("ExSql : "+sql);
+                if(rs.next()){
+                    JSONObject data = new JSONObject();
+                   data.put("NoPerson", rs.getString("NoPerson"));
+                    data.put("PeopleRegistrationID", rs.getString("PeopleRegistrationID"));
+                    data.put("caseIdPerson", rs.getString("caseIdPerson"));
+                    data.put("Age", rs.getString("Age"));
+                    data.put("Amphur", rs.getString("Amphur"));
+                    data.put("BirthDay", rs.getString("BirthDay"));
+                    data.put("BloodGroup", rs.getString("BloodGroup"));
+                    data.put("ExpiredDate", rs.getString("ExpiredDate"));
+                    data.put("FatherFullName", rs.getString("FatherFullName"));
+                    data.put("FullNamePerson", rs.getString("FullNamePerson"));
+                    data.put("FullNamePersonEn", rs.getString("FullNamePersonEn"));
+                    data.put("Gender", rs.getString("Gender"));
+                    data.put("Height", rs.getString("Height"));
+                    data.put("Weight", rs.getString("Weight"));
+                    data.put("HouseNumber", rs.getString("HouseNumber"));
+                    data.put("IssueDate", rs.getString("IssueDate"));
+                    data.put("Moo", rs.getString("Moo"));
+                    data.put("MotherFullName", rs.getString("MotherFullName"));
+                    data.put("Nationality", rs.getString("Nationality"));
+                    data.put("Occupation", rs.getString("Occupation"));
+                    data.put("PassportNumber", rs.getString("PassportNumber"));
+                    data.put("PhonePerson", rs.getString("PhonePerson"));
+                    data.put("Province", rs.getString("Province"));
+                    data.put("Race", rs.getString("Race"));
+                    data.put("Religion", rs.getString("Religion"));
+                    data.put("Tambon", rs.getString("Tambon"));
+                    data.put("ZipCode", rs.getString("ZipCode"));
+                    data.put("OrderPerson", rs.getString("OrderPerson"));
+                    data.put("Related", rs.getString("Related"));
+                    data.put("OtherName", rs.getString("OtherName"));
+                    data.put("OccupationPosition", rs.getString("OccupationPosition"));
+                     data.put("OwnerBail", rs.getString("OwnerBail"));    
+                   
+                        data.put("caseid",caseId );
+                        data.put("personid",personId );
+                        JFrame frame = new JFrame();
+                        JDialog dialog = new JDialog(frame);//frame is owner
+                        JFrame fwit = (JFrame)(dialog.getParent());
+                        fwit.removeAll();
+                        OwnerBailForm baa=new OwnerBailForm(fwit,data,null);
+                        baa.pack();
+                        baa.setLocationRelativeTo(null);
+                        baa.setVisible(true);
+                }
+                else{
+                      JSONObject c=new JSONObject();
+                        c.put("caseid",caseId );
+                        c.put("personid",personId );
+                //        data.put("BailPersonId",personId );
+                        JFrame frame = new JFrame();
+                        JDialog dialog = new JDialog(frame);//frame is owner
+                        JFrame ow = (JFrame)(dialog.getParent());
+                        ow.removeAll();
+                        OwnerBailForm baa=new OwnerBailForm(ow,null,c);
+                        baa.pack();
+                        baa.setLocationRelativeTo(null);
+                        baa.setVisible(true);
+
+                }
+
+                rs.close();
+                stmt.close();
+  
+            }catch(Exception ex){
+                ex.printStackTrace();
+
+            }
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
     public void refreshAssetData(){
             try{
               
@@ -912,6 +1045,7 @@ jTableBailAsset.getColumnModel().getColumn(6).setMaxWidth(0);
     private javax.swing.JTextField crimecaseno;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButtonAddSue;
     private javax.swing.JButton jButtonAddSue1;
     private javax.swing.JButton jButtonDelete1;
@@ -929,6 +1063,7 @@ jTableBailAsset.getColumnModel().getColumn(6).setMaxWidth(0);
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

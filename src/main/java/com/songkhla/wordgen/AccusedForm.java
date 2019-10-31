@@ -1531,9 +1531,15 @@ UtilDateModel model5 = new UtilDateModel();
                     String[] name=str.split("##",2);
                     String firstname=(name[0]+"").replace("#", "");
                     String n=firstname+" "+name[1];
+                    String stren=read.getDataThaiCard().getThaiCardDetail().getEnname(); 
+                                String[] nameen=stren.split("##",2);
+                                String firstnameen=(nameen[0]+"").replace("#", "");
+                                String nen=firstnameen+" "+nameen[1];
                     //                                String name2=name.replace("##", " ");
                     PeopleRegistrationID.setText(read.getDataThaiCard().getThaiCardDetail().getPid());
                     FullNamePerson.setText(n);
+                    FullNamePersonEn.setText(nen);
+
                     IssueDate.getJFormattedTextField().setText(DateCard(read.getDataThaiCard().getThaiCardDetail().getIssuedate()));
                     ExpiredDate.getJFormattedTextField().setText(DateCard(read.getDataThaiCard().getThaiCardDetail().getExpiredate()));
                     BirthDay.getJFormattedTextField().setText(DateCard(read.getDataThaiCard().getThaiCardDetail().getBirthdate()));

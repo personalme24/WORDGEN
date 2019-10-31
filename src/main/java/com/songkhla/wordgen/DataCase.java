@@ -11,6 +11,16 @@ package com.songkhla.wordgen;
  */
 public class DataCase {
     public static String caseno;
+    public static String token="eZS5PPB/9zCElUbubieWKoD9pctqrANqhXqK49z";
+//    token="eZS5PPB/9zCElUbubieWKoD9pctqrANqhXqK49z";
+    public static String getToken() {
+        return token;
+    }
+
+    public static void setToken(String token) {
+        DataCase.token = token;
+    }
+
 
     public static String getCaseno() {
         return caseno;
@@ -19,6 +29,7 @@ public class DataCase {
     public static void setCaseno(String caseno) {
         DataCase.caseno = caseno;
     }
+    
     
     
 }

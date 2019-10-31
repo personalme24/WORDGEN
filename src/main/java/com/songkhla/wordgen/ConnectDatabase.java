@@ -23,9 +23,12 @@ public class ConnectDatabase {
             //Connection conn = null;
             try {
                  Class.forName("org.sqlite.JDBC");
-                String url = "jdbc:sqlite:./WordGen.db";
+                String url = "jdbc:sqlite:./WordGen.bat";
                 // connection database
                 conn = DriverManager.getConnection(url);
+//               SQLiteConnection conns = new SQLiteConnection("Data Source=MyDatabase.sqlite;Version=3;");
+//conn.SetPassword("password");
+//conn.Open();
                  System.out.println("Create Database has been Complete.");
                 System.out.println("Connection to Database has been Complete.");
 

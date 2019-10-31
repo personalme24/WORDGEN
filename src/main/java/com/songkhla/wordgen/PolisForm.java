@@ -426,7 +426,7 @@ private void closeEdit(){
 RankPoliceFull.setEnabled(false);
 }
 private void openEdit(){
-        IdCardPolice.setEnabled(true);
+//        IdCardPolice.setEnabled(true);
         jButtonSave.setEnabled(true); 
         RankPolice.setEnabled(true);      
 //        FirstName.setEnabled(true);

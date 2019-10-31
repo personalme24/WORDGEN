@@ -199,6 +199,7 @@ public class CreateTable {
                 "	WhereSendInjuredOrDie	VARCHAR(100)	,	\n"+   
                 "	StatusWarrant	VARCHAR(100)	,	\n"+                        
                 "	DateRelease	VARCHAR(100)	,	\n"+ 
+                 "	OwnerBail	INTEGER,	\n"+                        
                 "	SueFirst	VARCHAR(100)	,	\n"+
                 "	SueFirstDate	DateTime	,	\n"+
                 "	SueFirstStart	DateTime	,	\n"+
@@ -760,7 +761,7 @@ String [] insertCharge={
 	     */
 	    public static void main(String[] args) {
 	        createNewTable();
-                InsertBaseData();
+//                InsertBaseData();
 	    }
     
 }

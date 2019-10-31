@@ -321,7 +321,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 //        jTextPoliceName.setText(Data.getPolicName());
         jLabelActionCode.setVisible(false);
         jLabelChargeCode.setVisible(false);
-        crimecaseid.setVisible(true);
+        crimecaseid.setVisible(false);
  
             
             comboProvince();
@@ -566,7 +566,6 @@ JTextPopupMenu.addTo(CourtResult);
         jLabel6 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        ActionCrimes = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         Date date=new Date();
 
@@ -592,6 +591,8 @@ JTextPopupMenu.addTo(CourtResult);
         jLabel34 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
         ChargeNameCase = new javax.swing.JTextArea();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        ActionCrimes = new javax.swing.JTextArea();
         jPanel10 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         CrimeLocation = new javax.swing.JTextField();
@@ -906,9 +907,6 @@ JTextPopupMenu.addTo(CourtResult);
         jLabel13.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel13.setText("วันที่เกิดเหตุ");
 
-        ActionCrimes.setEditable(false);
-        ActionCrimes.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-
         jLabel9.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel9.setText("เวลารับแจ้ง");
 
@@ -1030,6 +1028,16 @@ JTextPopupMenu.addTo(CourtResult);
         ChargeNameCase.setPreferredSize(new java.awt.Dimension(284, 31));
         jScrollPane6.setViewportView(ChargeNameCase);
 
+        ActionCrimes.setEditable(false);
+        ActionCrimes.setColumns(20);
+        ActionCrimes.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        ActionCrimes.setLineWrap(true);
+        ActionCrimes.setRows(1);
+        ActionCrimes.setTabSize(1);
+        ActionCrimes.setMinimumSize(new java.awt.Dimension(104, 31));
+        ActionCrimes.setPreferredSize(new java.awt.Dimension(284, 31));
+        jScrollPane10.setViewportView(ActionCrimes);
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
@@ -1095,8 +1103,8 @@ JTextPopupMenu.addTo(CourtResult);
                                     .addComponent(DailyNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel8Layout.createSequentialGroup()
-                                            .addComponent(ActionCrimes, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(10, 10, 10)
+                                            .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                             .addComponent(jButtonAction, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                                             .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1142,8 +1150,8 @@ JTextPopupMenu.addTo(CourtResult);
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ActionCrimes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonAction))
+                    .addComponent(jButtonAction)
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGap(16, 16, 16)
@@ -1155,7 +1163,7 @@ JTextPopupMenu.addTo(CourtResult);
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(120, 120, 120))
                     .addGroup(jPanel8Layout.createSequentialGroup()
@@ -5632,7 +5640,7 @@ jTableWitness.getColumnModel().getColumn(7).setMaxWidth(0);
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JTextField ActionCrimes;
+    public static javax.swing.JTextArea ActionCrimes;
     private javax.swing.JTextArea CapitalCrimeCaseNumber;
     private javax.swing.JSpinner CaseAcceptTimee;
     private javax.swing.JSpinner CaseRequestTimee;
@@ -5832,6 +5840,7 @@ jTableWitness.getColumnModel().getColumn(7).setMaxWidth(0);
     private javax.swing.JPanel jPanelOccuredDateEnd;
     private javax.swing.JRadioButton jRadioUnknowSuspect;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
