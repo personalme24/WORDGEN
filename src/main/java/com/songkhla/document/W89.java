@@ -54,7 +54,7 @@ public static void nw89() {
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("./TEMPLATE/89.docx"));
+					.load(new java.io.File("./TEMPLATE/w89.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			
 			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/สมุดเก็บสำนวนชันสูตรพลิกศพ.doc"));

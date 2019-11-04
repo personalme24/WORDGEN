@@ -57,7 +57,7 @@ public static void nw82() {
 					.load(new java.io.File("./TEMPLATE/w82.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			
-			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/สมุดสารบบการดำเนินคดีจราจรทางบกdoc"));
+			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/สมุดสารบบการดำเนินคดีจราจรทางบก.doc"));
 		}catch( Exception ex) {
 			ex.printStackTrace();
 		}

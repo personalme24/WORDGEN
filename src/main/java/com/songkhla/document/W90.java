@@ -54,7 +54,7 @@ public static void nw90() {
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("./TEMPLATE/90.docx"));
+					.load(new java.io.File("./TEMPLATE/w90.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			
 			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/บัญชีคุมพยานสำหรับพนักงานสอบสวน.doc"));

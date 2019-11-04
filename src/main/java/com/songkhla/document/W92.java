@@ -54,7 +54,7 @@ public static void nw92() {
 		try {
                   
 			WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
-					.load(new java.io.File("./TEMPLATE/92.docx"));
+					.load(new java.io.File("./TEMPLATE/w92.docx"));
 			processVariable(bookmarkvalue,wordMLPackage);
 			
 			wordMLPackage.save(new java.io.File("./สำนวนอิเล็กทรอนิกส์/แบบฟอร์มสำนวน/สมุดเก็บสำนวนการสอบสวนที่มีการอายัดตัวผู้ต้องหา.doc"));
