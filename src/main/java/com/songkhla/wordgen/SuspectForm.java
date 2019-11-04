@@ -88,7 +88,9 @@ public class SuspectForm extends javax.swing.JDialog {
             setTitle("ระบบสำนวนอิเล็กทรอนิกส์ (CRIMES)");
                        jButtonBail.setVisible(false);
            jButtonSue.setVisible(false);
-     jLabel36.setVisible(true);
+     jLabel36.setVisible(false);
+          jLabel37.setVisible(false);
+
      jLabelNameArrest.setVisible(false);
      NameArrest.setVisible(false);
      AnswerPerson.setVisible(false);
@@ -342,7 +344,7 @@ public class SuspectForm extends javax.swing.JDialog {
             }
 
             ArrestDateTimeEnd.setText(datain.get("ArrestDateTimeEnd")+"");
-            BailDate.getJFormattedTextField().setText(datain.get("BailDate")+"");
+            BailDate.getJFormattedTextField().setText(Checknull(datain.get("BailDate"))+"");
             PlaceArrest.setText(Checknull(datain.get("PlaceArrest"))+"");
             String statuswar=datain.get("StatusWarrant")+"";
              if(statuswar.equals("รอคำสั่งศาล")){
@@ -3252,6 +3254,17 @@ public class SuspectForm extends javax.swing.JDialog {
 
     private void jButtonSueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSueActionPerformed
    // TODO add your handling code here:
+       JSONObject js =new JSONObject();
+           js.put("caseIdPerson",jLabel36.getText() );
+        js.put("NoPerson",jLabel37.getText() );
+        JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame fr = (JFrame)(dialog.getParent());
+        fr.removeAll();
+        SueCrimesFrom su=new SueCrimesFrom(fr,js);
+        su.pack();
+        su.setLocationRelativeTo(null);
+        su.setVisible(true);
     }//GEN-LAST:event_jButtonSueActionPerformed
 
     private void jButtonBailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBailActionPerformed

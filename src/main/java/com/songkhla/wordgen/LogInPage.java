@@ -120,7 +120,7 @@ import javax.swing.JProgressBar;
 import javax.swing.SwingUtilities;
 import javax.swing.SwingWorker;
 import javax.swing.UIManager;
-import org.apache.http.auth.UsernamePasswordCredentials;
+//import org.apache.http.auth.UsernamePasswordCredentials;
 import org.json.JSONObject;
 
 /**
@@ -333,6 +333,11 @@ try{
          String url=  "http://172.31.191.163:8383/wordgenauthen/?USER="+username+"&PASS="+password+"&Serial="+getMotherboardSerial();
              System.out.println("url:"+url);
                   String fff =sendGET(url);
+                  if(fff.equals("0")){
+                     JOptionPane.showMessageDialog(jPanel1, "ไม่พบการเชื่อมต่อ", "แจ้งเตือน",
+                 JOptionPane.OK_OPTION); 
+                  }
+                  else{
                    JSONObject myResponse = new JSONObject(fff);
                    String statusconnect=myResponse.getString("statusconnect");
                   if(statusconnect.equals("0")){
@@ -342,6 +347,8 @@ try{
                   else if(statusconnect.equals("1")){
                           yourAttemptActionPerformed();
                   }
+                  }
+      
                  
         } catch (Exception e) {
         }
@@ -388,13 +395,16 @@ try{
             }
         });
     }
-private static String sendGET(String GET_URL) throws IOException {
-                String a="";
+private static String sendGET(String GET_URL) {
+    String a="";
+                try{
 		URL serverUrl = new URL(GET_URL);
-		HttpURLConnection con = (HttpURLConnection) serverUrl.openConnection();
+		HttpURLConnection con = (HttpURLConnection) serverUrl.openConnection();      
+                con.setConnectTimeout(1000);
 		con.setRequestMethod("GET");
 		con.setRequestProperty("User-Agent", "Mozilla/5.0");
                 con.setRequestProperty("Accept-Charset", "UTF-8");
+                System.out.println("ssss"+con.getResponseCode());
 		int responseCode = con.getResponseCode();
 		System.out.println("GET Response Code :: " + responseCode);
 		if (responseCode == HttpURLConnection.HTTP_OK) { // success
@@ -415,7 +425,11 @@ private static String sendGET(String GET_URL) throws IOException {
 			System.out.println("GET request not worked");
                         return null;
 		}
-                
+                }
+                catch(IOException ie){
+                System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAA"+ie);
+                return "0";
+                }
 	}
      private void yourAttemptActionPerformed() {
 
@@ -608,10 +622,9 @@ String  username=Username.getText();
                               
                               pst4=con.prepareStatement(insertStation);
                               pst4.setString(1,"1");
-//                              pst4.setString(2,myResponse.getString("orgcode"));
-                              pst4.setString(2,"70028");
-
-                              pst4.setString(3,"สถานีตำรวจ"+myResponse.getString("stationname"));
+                              pst4.setString(2,myResponse.getString("orgcode"));
+//                              pst4.setString(2,"70028");
+                              pst4.setString(3,myResponse.getString("stationname"));
                               pst4.setString(4,myResponse.getString("initialname"));
                               pst4.setString(5,myResponse.getString("address"));
                               pst4.setString(6,myResponse.getString("tambon"));

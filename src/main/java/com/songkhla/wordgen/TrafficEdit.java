@@ -182,7 +182,6 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
 //            JScrollBar hbar=new JScrollBar(JScrollBar.HORIZONTAL, 30, 20, 0, 500);
 //            jScrollPane1.getVerticalScrollBar().setUI(new MyScrollBarUI());
             jScrollPane6.getHorizontalScrollBar().setUI(new CustomScrollBarUI());
-       ChangProvince(); 
          g=new ButtonGroup();
         g.add(jCheckDuringInvest);
         g.add(jCheckSue);
@@ -282,7 +281,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         crimecaseid.setVisible(false);
  
            
- comboProvince();
+ 
  
         if(datain!=null){
             try {
@@ -320,9 +319,9 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             jTextAccused.setText(Checknull(datain.get("AccureandOther"))+"");
             CourtType.setSelectedItem(datain.get("TypeCourt"));
             CrimeLocation.setText(Checknull(datain.get("CrimeLocation"))+"");
-            CrimeLocationDistrict.setSelectedItem(Checknull(datain.get("CrimeLocationDistrict"))+"");
-            CrimeLocationAmphur.setSelectedItem(Checknull(datain.get("CrimeLocationAmphur"))+"");
-            CrimeLocationProvince.setSelectedItem(Checknull(datain.get("CrimeLocationProvince"))+"");
+            CrimeLocationDistrict.setText(Checknull(datain.get("CrimeLocationDistrict"))+"");
+            CrimeLocationAmphur.setText(Checknull(datain.get("CrimeLocationAmphur"))+"");
+            CrimeLocationProvince.setText(Checknull(datain.get("CrimeLocationProvince"))+"");
             CrimeLocationMoo.setText(Checknull(datain.get("CrimeLocationMoo"))+"");
             CrimeLocationRoad.setText(Checknull(datain.get("CrimeLocationRoad"))+"");
             CrimeLocationSoi.setText(Checknull(datain.get("CrimeLocationSoi"))+"");            
@@ -402,7 +401,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         }
         String da=CaseAcceptDate.getJFormattedTextField().getText();
         String od=OccuredDate.getJFormattedTextField().getText();
-AutoCompleteDecorator.decorate(CrimeLocationProvince); 
+//AutoCompleteDecorator.decorate(CrimeLocationProvince); 
 RefreshData();
         RefreshDataAcc();
         RefreshDataWit();
@@ -504,9 +503,6 @@ JTextPopupMenu.addTo(CourtResult);
         jButtonAddAsset = new javax.swing.JButton();
         jLabel28 = new javax.swing.JLabel();
         EvidenceRecordCase = new javax.swing.JTextField();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
         jButtonAddInvest = new javax.swing.JButton();
         jLabel46 = new javax.swing.JLabel();
@@ -517,12 +513,15 @@ JTextPopupMenu.addTo(CourtResult);
         CrimeLocationMoo = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
         CrimeLocationSoi = new javax.swing.JTextField();
-        CrimeLocationProvince = new javax.swing.JComboBox<>();
-        CrimeLocationAmphur = new javax.swing.JComboBox<>();
-        CrimeLocationDistrict = new javax.swing.JComboBox<>();
         jLabel23 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         ListAsset = new javax.swing.JTextArea();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        CrimeLocationDistrict = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        CrimeLocationProvince = new javax.swing.JTextField();
+        CrimeLocationAmphur = new javax.swing.JTextField();
         jPanel19 = new javax.swing.JPanel();
         jPanel22 = new javax.swing.JPanel();
         jLabel35 = new javax.swing.JLabel();
@@ -1060,15 +1059,6 @@ JTextPopupMenu.addTo(CourtResult);
         EvidenceRecordCase.setEditable(false);
         EvidenceRecordCase.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
-        jLabel16.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel16.setText("ตำบล");
-
-        jLabel17.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel17.setText("อำเภอ");
-
-        jLabel18.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel18.setText("จังหวัด");
-
         jLabel45.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel45.setText("พนักงานสอบสวน");
 
@@ -1106,28 +1096,6 @@ JTextPopupMenu.addTo(CourtResult);
 
         CrimeLocationSoi.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
-        CrimeLocationProvince.setEditable(true);
-        CrimeLocationProvince.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        CrimeLocationProvince.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
-        CrimeLocationProvince.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CrimeLocationProvinceActionPerformed(evt);
-            }
-        });
-
-        CrimeLocationAmphur.setEditable(true);
-        CrimeLocationAmphur.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        CrimeLocationAmphur.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
-        CrimeLocationAmphur.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                CrimeLocationAmphurItemStateChanged(evt);
-            }
-        });
-
-        CrimeLocationDistrict.setEditable(true);
-        CrimeLocationDistrict.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        CrimeLocationDistrict.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
-
         jLabel23.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel23.setText("หมู่ที่");
 
@@ -1137,6 +1105,31 @@ JTextPopupMenu.addTo(CourtResult);
         ListAsset.setRows(1);
         ListAsset.setTabSize(1);
         jScrollPane1.setViewportView(ListAsset);
+
+        jLabel16.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel16.setText("แขวง/ตำบล");
+
+        jLabel17.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel17.setText("เขต/อำเภอ");
+
+        CrimeLocationDistrict.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        CrimeLocationDistrict.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                CrimeLocationDistrictKeyReleased(evt);
+            }
+        });
+
+        jLabel18.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel18.setText("จังหวัด");
+
+        CrimeLocationProvince.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+
+        CrimeLocationAmphur.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        CrimeLocationAmphur.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                CrimeLocationAmphurKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -1155,40 +1148,6 @@ JTextPopupMenu.addTo(CourtResult);
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonAddAsset, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0)
-                                .addComponent(CrimeLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addComponent(jLabel16)
-                                .addGap(57, 57, 57)
-                                .addComponent(CrimeLocationDistrict, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel23)
-                                    .addComponent(jLabel18))
-                                .addGap(49, 49, 49)
-                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel10Layout.createSequentialGroup()
-                                        .addComponent(CrimeLocationProvince, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(10, 10, 10)
-                                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(10, 10, 10)
-                                        .addComponent(CrimeLocationAmphur, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel10Layout.createSequentialGroup()
-                                        .addComponent(CrimeLocationMoo, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(9, 9, 9)
-                                        .addComponent(jLabel24)
-                                        .addGap(6, 6, 6)
-                                        .addComponent(CrimeLocationSoi, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(2, 2, 2)
-                                        .addComponent(jLabel2)
-                                        .addGap(3, 3, 3)
-                                        .addComponent(CrimeLocationRoad, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(3, 3, 3))
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel10Layout.createSequentialGroup()
@@ -1201,7 +1160,42 @@ JTextPopupMenu.addTo(CourtResult);
                                 .addComponent(RecordInvestCase, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(12, 12, 12)
                                 .addComponent(jButtonAddInvest, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel10Layout.createSequentialGroup()
+                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel16)
+                                    .addComponent(jLabel18))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(CrimeLocationDistrict)
+                                    .addComponent(CrimeLocationProvince, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(CrimeLocationAmphur, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel10Layout.createSequentialGroup()
+                                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, 0)
+                                        .addComponent(CrimeLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel10Layout.createSequentialGroup()
+                                        .addGap(14, 14, 14)
+                                        .addComponent(jLabel23)
+                                        .addGap(49, 49, 49)
+                                        .addComponent(CrimeLocationMoo, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(9, 9, 9)
+                                        .addComponent(jLabel24)
+                                        .addGap(6, 6, 6)
+                                        .addComponent(CrimeLocationSoi, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(2, 2, 2)
+                                        .addComponent(jLabel2)
+                                        .addGap(3, 3, 3)
+                                        .addComponent(CrimeLocationRoad, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(3, 3, 3)))
                 .addContainerGap())
         );
         jPanel10Layout.setVerticalGroup(
@@ -1220,16 +1214,17 @@ JTextPopupMenu.addTo(CourtResult);
                     .addComponent(CrimeLocationSoi, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(CrimeLocationRoad, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(15, 15, 15)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(CrimeLocationAmphur, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(CrimeLocationDistrict, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CrimeLocationProvince, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CrimeLocationAmphur, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CrimeLocationDistrict, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CrimeLocationProvince, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2687,9 +2682,9 @@ ComboItem item = (ComboItem) jComboPoliceName.getSelectedItem();
                 pst.setString(14,CrimeLocationMoo.getText());
                 pst.setString(15,CrimeLocationSoi.getText());
                 pst.setString(16,CrimeLocationRoad.getText());
-                pst.setString(17,CrimeLocationDistrict.getSelectedItem().toString());
-                pst.setString(18,CrimeLocationAmphur.getSelectedItem().toString());
-                pst.setString(19,CrimeLocationProvince.getSelectedItem().toString());
+                pst.setString(17,CrimeLocationDistrict.getText());
+                pst.setString(18,CrimeLocationAmphur.getText());
+                pst.setString(19,CrimeLocationProvince.getText());
                 
                 pst.setString(20,CourtType.getSelectedItem().toString());
                 pst.setString(21,jTextAccused.getText());
@@ -2820,9 +2815,9 @@ ComboItem item = (ComboItem) jComboPoliceName.getSelectedItem();
                 pst.setString(10,OccuredDate.getJFormattedTextField().getText());
                 pst.setString(11,orcuredTime);
                 pst.setString(12,CrimeLocation.getText());
-                pst.setString(13,CrimeLocationDistrict.getSelectedItem().toString());
-                pst.setString(14,CrimeLocationAmphur.getSelectedItem().toString());
-                pst.setString(15,CrimeLocationProvince.getSelectedItem().toString());
+                pst.setString(13,CrimeLocationDistrict.getText());
+                pst.setString(14,CrimeLocationAmphur.getText());
+                pst.setString(15,CrimeLocationProvince.getText());
                 pst.setString(16,jTextAccused.getText());
                 pst.setString(17,jTextSuspect.getText());
                 pst.setString(18,jTextWitness.getText());
@@ -3013,10 +3008,6 @@ ComboItem item = (ComboItem) jComboPoliceName.getSelectedItem();
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckW202ActionPerformed
 
-    private void CrimeLocationProvinceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrimeLocationProvinceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CrimeLocationProvinceActionPerformed
-
     private void CrimeLocationMooActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrimeLocationMooActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CrimeLocationMooActionPerformed
@@ -3170,11 +3161,6 @@ ComboItem item = (ComboItem) jComboPoliceName.getSelectedItem();
 
         }
     }//GEN-LAST:event_jButtonChargeActionPerformed
-
-    private void CrimeLocationAmphurItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CrimeLocationAmphurItemStateChanged
-        // TODO add your handling code here:
-         
-    }//GEN-LAST:event_CrimeLocationAmphurItemStateChanged
 
     private void jCheckW279ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW279ActionPerformed
         // TODO add your handling code here:
@@ -3632,6 +3618,113 @@ ComboItem item = (ComboItem) jComboPoliceName.getSelectedItem();
             jButtonDeleteAccured.setEnabled(true);
         }
     }//GEN-LAST:event_jRadioUnknowSuspectItemStateChanged
+
+    private void CrimeLocationDistrictKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CrimeLocationDistrictKeyReleased
+        // TODO add your handling code here:
+        String provinceid="";
+        String loTam="",amp="",zp="",loAmphur="",pro="";
+        Connection con2 = ConnectDatabase.connect();
+        try {
+            Statement st2 = con2.createStatement();
+            String a="select Tambon.DOPA_CODE DOPA_CODE,Tambon.ZIPCODE ZIPCODE from Tambon\n"+
+            "where Tambon.NAMETAMBON='"+CrimeLocationDistrict.getText()+"'";
+            ResultSet res2 = st2.executeQuery(a);
+            //            System.out.println("provinceid: "+CrimeLocationProvince.getSelectedItem());
+            if(res2.next()){
+                zp=res2.getString("ZIPCODE");
+                provinceid=res2.getString("DOPA_CODE");
+                loTam= provinceid.substring(0, 4);
+                //          ZipCode.setText(zp);
+            }
+            Statement st = con2.createStatement();
+            String c = "select Amphur.DOPA_CODE DOPA_CODE,NameAmphur\n" +
+            "from Amphur\n" +
+            "where Amphur.DOPA_CODE like '"+loTam+"%';";
+            System.out.println("sddddddddd:"+c);
+
+            ResultSet res = st.executeQuery(c);
+            //Vector<Object> v=new Vector<Object>();
+            //	           System.out.println("provinceid: "+provinceid);
+            if(res.next())
+            {
+
+                amp=res.getString("NameAmphur");
+                String ffa=res.getString("DOPA_CODE");
+                loAmphur=ffa.substring(0, 2);
+                CrimeLocationAmphur.setText(amp);
+
+            }
+            Statement st3 = con2.createStatement();
+            String c3 = "select nameprovince\n" +
+            "from province\n" +
+            "where provinceid = '"+loAmphur+"';";
+            System.out.println("sddddddddd:"+c3);
+            ResultSet res3 = st3.executeQuery(c3);
+            if(res3.next())
+            {
+
+                pro=res3.getString("nameprovince");
+                CrimeLocationProvince.setText(pro);
+
+            }
+
+        }
+        catch (Exception d) {  //System.out.println(d);
+        }
+
+    }//GEN-LAST:event_CrimeLocationDistrictKeyReleased
+
+    private void CrimeLocationAmphurKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CrimeLocationAmphurKeyReleased
+        // TODO add your handling code here:
+        String provinceid="";
+        String loPro="",amp="",zp="",loAmphur="",pro="";
+        Connection con2 = ConnectDatabase.connect();
+        try {
+
+            Statement st = con2.createStatement();
+            String c = "select Amphur.DOPA_CODE DOPA_CODE,NameAmphur\n" +
+            "from Amphur\n" +
+            "where Amphur.NameAmphur = '"+CrimeLocationAmphur.getText()+"';";
+            System.out.println("sddddddddd:"+c);
+
+            ResultSet res = st.executeQuery(c);
+            //Vector<Object> v=new Vector<Object>();
+            //	           System.out.println("provinceid: "+provinceid);
+            if(res.next())
+            {
+
+                String ffa=res.getString("DOPA_CODE");
+                loAmphur=ffa.substring(0, 4);
+                loPro=ffa.substring(0, 2);
+
+            }
+
+            Statement st2 = con2.createStatement();
+            String a="select Tambon.DOPA_CODE DOPA_CODE,Tambon.ZIPCODE ZIPCODE from Tambon\n"+
+            "where Tambon.DOPA_CODE like '"+loAmphur+"%'";
+            ResultSet res2 = st2.executeQuery(a);
+            Statement st3 = con2.createStatement();
+            if(res2.next()){
+                zp=res2.getString("ZIPCODE");
+                //          ZipCode.setText(zp);
+            }
+            String c3 = "select nameprovince\n" +
+            "from province\n" +
+            "where provinceid = '"+loPro+"';";
+            System.out.println("sddddddddd:"+c3);
+            ResultSet res3 = st3.executeQuery(c3);
+            if(res3.next())
+            {
+
+                pro=res3.getString("nameprovince");
+                CrimeLocationProvince.setText(pro);
+
+            }
+
+        }
+        catch (Exception d) {  //System.out.println(d);
+        }
+    }//GEN-LAST:event_CrimeLocationAmphurKeyReleased
      public static void closeAllDialogs()
 {
     Window[] windows = getWindows();
@@ -4027,32 +4120,7 @@ catch (Exception d) {  //System.out.println(d);
 }
     }
     
-      public void comboProvince(){
     
-     try {
-
-         Connection con2 = ConnectDatabase.connect();
-	Statement st = con2.createStatement();
-        	String c = "Select nameprovince,PROVINCEID from province";
-        	ResultSet res = st.executeQuery(c);
-	//Vector<Object> v=new Vector<Object>();
-	
-	while(res.next())
-	{
-             int Province_id = Integer.parseInt(res.getString("PROVINCEID"));
-              Province_name = res.getString("nameprovince"); 
-	CrimeLocationProvince.addItem(res.getString("nameprovince"));
-        
-
-	
-	}
-        
-//        else{jComboPoliceName.addItem("");}
-	
-}
-catch (Exception d) {  //System.out.println(d);  
-}
-    }
     public static JComponent makeExamplePane() {
      JPanel text = new JPanel();
     JScrollPane scroll = new JScrollPane(text);
@@ -4278,87 +4346,7 @@ catch (Exception d) {  //System.out.println(d);
           return diffDays;               
     
     }
-      public void ChangProvince(){
-        CrimeLocationProvince.addItemListener(new ItemListener() {
-        public void itemStateChanged(ItemEvent arg0) {
-            //Do Something
-            
-             String provinceid="";
-        Connection con2 = ConnectDatabase.connect();
-        try {
-            Statement st2 = con2.createStatement();
-            String a="select Province.DOPA_CODE DOPA_CODE,Province.PROVINCEID PROVINCEID from Province\n"+
-            "where Province.NAMEPROVINCE='"+CrimeLocationProvince.getSelectedItem()+"'";
-                    	ResultSet res2 = st2.executeQuery(a);
-            System.out.println("provinceid: "+CrimeLocationProvince.getSelectedItem());
-        if(res2.next()){
-        provinceid=res2.getString("PROVINCEID");
-        }
-	Statement st = con2.createStatement();
-        	String c = "select Amphur.NameAmphur NameAmphur\n" +
-                            "from Amphur\n" +
-                            "where Amphur.DOPA_CODE like '"+provinceid+"%';";
-        	ResultSet res = st.executeQuery(c);
-	//Vector<Object> v=new Vector<Object>();
-//	           System.out.println("provinceid: "+provinceid);
-        CrimeLocationAmphur.removeAllItems();
-	while(res.next())
-	{
-	CrimeLocationAmphur.addItem(res.getString("NameAmphur"));
-
-	
-	}
-        }
-        catch (Exception d) {  //System.out.println(d);  
-}
-      
-        }
-    });
-      CrimeLocationAmphur.addItemListener(new ItemListener() {
-        public void itemStateChanged(ItemEvent arg0) {
-            //Do Something
-            String provinceid="";
-                  String amphurid="";
-
-        Connection con2 = ConnectDatabase.connect();
-        try {
-            Statement st2 = con2.createStatement();
-            Statement st3 = con2.createStatement();
-
-            String a="select Province.DOPA_CODE DOPA_CODE,Province.PROVINCEID PROVINCEID from Province\n"+
-            "where Province.NAMEPROVINCE='"+CrimeLocationProvince.getSelectedItem()+"'";
-             String b="select Amphur.LOC_CODE LOC_CODE from Amphur\n"+
-            "where Amphur.NAMEAMPHUR='"+CrimeLocationAmphur.getSelectedItem()+"'";
-                    	ResultSet res2 = st2.executeQuery(a);
-                        ResultSet res3 = st3.executeQuery(b);
-        if(res2.next()){
-        provinceid=res2.getString("PROVINCEID");
-        
-        }
-//        System.out.println("provinceid: "+provinceid);
-        if(res3.next()){
-        amphurid=res3.getString("LOC_CODE");
-        }
-	Statement st = con2.createStatement();
-        	String c = "select Tambon.NAMETAMBON NAMETAMBON\n" +
-                            "from Tambon\n" +
-                            "where Tambon.DOPA_CODE like '"+provinceid+amphurid+"%';";
-        	ResultSet res = st.executeQuery(c);
-	//Vector<Object> v=new Vector<Object>();
-//	           System.out.println("provinceid: "+c);
-         CrimeLocationDistrict.removeAllItems();
-	while(res.next())
-	{
-	CrimeLocationDistrict.addItem(res.getString("NAMETAMBON"));
-
-	
-	}
-        }
-        catch (Exception d) {  //System.out.println(d);  
-}
-        }
-    });      
-    }
+   
          public static String Checknull(Object input){
 					if(input==null||input==""||input=="null") { return ""; }
 					return input+"";
@@ -4641,13 +4629,13 @@ jTableWitness.getColumnModel().getColumn(7).setMaxWidth(0);
         if(jTableWitness.getRowCount()>1){
             
             if(typeC.equals("อาญา")){
-            CrimesCaseEdit.jTextWitness.setText(jTableWitness.getValueAt(0, 2).toString()+"และพวก"); 
+            CrimesCaseEdit.jTextWitness.setText(jTableWitness.getValueAt(0, 2).toString()+"และคนอื่นๆ"); 
             }
             if(typeC.equals("จราจร")){
-            TrafficEdit.jTextWitness.setText(jTableWitness.getValueAt(0, 2).toString()+"และพวก"); 
+            TrafficEdit.jTextWitness.setText(jTableWitness.getValueAt(0, 2).toString()+"และคนอื่นๆ"); 
             }
               if(typeC.equals("ชันสูตร")){
-            IdentityEdit.jTextWitness.setText(jTableWitness.getValueAt(0, 2).toString()+"และพวก"); 
+            IdentityEdit.jTextWitness.setText(jTableWitness.getValueAt(0, 2).toString()+"และคนอื่นๆ"); 
             }
             }
          if(typeC.equals("อาญา")){
@@ -4700,10 +4688,10 @@ jTableWitness.getColumnModel().getColumn(7).setMaxWidth(0);
     private javax.swing.JTextArea CourtResult;
     private javax.swing.JComboBox<String> CourtType;
     private javax.swing.JTextField CrimeLocation;
-    private javax.swing.JComboBox<String> CrimeLocationAmphur;
-    private javax.swing.JComboBox<String> CrimeLocationDistrict;
+    private javax.swing.JTextField CrimeLocationAmphur;
+    private javax.swing.JTextField CrimeLocationDistrict;
     private javax.swing.JTextField CrimeLocationMoo;
-    private javax.swing.JComboBox<String> CrimeLocationProvince;
+    private javax.swing.JTextField CrimeLocationProvince;
     private javax.swing.JTextField CrimeLocationRoad;
     private javax.swing.JTextField CrimeLocationSoi;
     private javax.swing.JTextField DailyNumber;

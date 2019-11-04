@@ -157,10 +157,7 @@ public class W71 {
                                 "left join ChargeCase on crimecase.caseid=ChargeCase.ChargeCaseid\n" +
                                 "left join BailAsset on Person.noperson = BailAsset.BailpersonId\n" +
                                 "where Person.StatusBail='ประกัน' and CrimeCase.caseid='"+cc+"' and Person.Noperson='"+noperson+"'" ;
-       
-                   
-            
-            
+     
             Statement st = conn.createStatement();
             ResultSet s=st.executeQuery(sql); 
             System.out.println(sql);

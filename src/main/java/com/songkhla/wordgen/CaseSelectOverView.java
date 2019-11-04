@@ -54,6 +54,7 @@ import javax.swing.JSpinner;
 import java.util.Properties;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
+import javax.swing.JFormattedTextField;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.json.JSONObject;
 import org.w3c.dom.Document;
@@ -178,7 +179,7 @@ jlabeltoken.setVisible(true);
         jPanelReg2.setLayout(new FlowLayout());
         jPanelReg2.add(DateReqEnd);  
         
-       
+       DateAcceptEnd.getJFormattedTextField().setText("");
     }
  
     /**
@@ -214,13 +215,13 @@ jlabeltoken.setVisible(true);
         jPanelReg2 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableCrime = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
         TotalCase = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
@@ -277,34 +278,33 @@ jlabeltoken.setVisible(true);
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(idcardlabel)
-                    .addComponent(usernamelabel)
-                    .addComponent(orgnamelabel)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jlabeltoken, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(9, 9, 9)))
+                        .addGap(9, 9, 9))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(idcardlabel)
+                        .addComponent(usernamelabel)
+                        .addComponent(orgnamelabel)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
-        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ข้อมูลคดีที่ต้องการจากระบบ CRIMES ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("TH SarabunPSK", 1, 22))); // NOI18N
 
-        jLabel7.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel7.setText("เลขคดี");
 
-        jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel8.setText("ปี");
 
-        jLabel9.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel9.setText("วันที่รับคดี");
 
-        jLabel11.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel11.setText("ถึงวันที่");
-
-        jPanelStAcc.setBackground(new java.awt.Color(51, 153, 255));
 
         javax.swing.GroupLayout jPanelStAccLayout = new javax.swing.GroupLayout(jPanelStAcc);
         jPanelStAcc.setLayout(jPanelStAccLayout);
@@ -314,10 +314,8 @@ jlabeltoken.setVisible(true);
         );
         jPanelStAccLayout.setVerticalGroup(
             jPanelStAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 29, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
-
-        jPanelEnAcc.setBackground(new java.awt.Color(255, 255, 102));
 
         javax.swing.GroupLayout jPanelEnAccLayout = new javax.swing.GroupLayout(jPanelEnAcc);
         jPanelEnAcc.setLayout(jPanelEnAccLayout);
@@ -330,13 +328,10 @@ jlabeltoken.setVisible(true);
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jLabel10.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel10.setText("รหัสสถานี");
 
         jLabelorgcode.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jLabelorgcode.setText("jLabel12");
-
-        jPanelReg.setBackground(new java.awt.Color(102, 204, 255));
 
         javax.swing.GroupLayout jPanelRegLayout = new javax.swing.GroupLayout(jPanelReg);
         jPanelReg.setLayout(jPanelRegLayout);
@@ -349,24 +344,30 @@ jlabeltoken.setVisible(true);
             .addGap(0, 29, Short.MAX_VALUE)
         );
 
-        jPanelReg2.setBackground(new java.awt.Color(102, 204, 255));
-
         javax.swing.GroupLayout jPanelReg2Layout = new javax.swing.GroupLayout(jPanelReg2);
         jPanelReg2.setLayout(jPanelReg2Layout);
         jPanelReg2Layout.setHorizontalGroup(
             jPanelReg2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 208, Short.MAX_VALUE)
         );
         jPanelReg2Layout.setVerticalGroup(
             jPanelReg2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 29, Short.MAX_VALUE)
         );
 
-        jLabel14.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel14.setText("วันที่ร้องทุกข์");
+        jLabel14.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel14.setText("วันที่รับแจ้ง");
 
-        jLabel15.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel15.setText("ถึงวันที่");
+
+        jButton5.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jButton5.setText("เชื่อมต่อข้อมูล");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -375,11 +376,23 @@ jlabeltoken.setVisible(true);
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jLabel14)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanelReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jPanelStAcc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanelEnAcc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanelReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanelReg2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()
                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabelorgcode, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -390,50 +403,39 @@ jlabeltoken.setVisible(true);
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(caseyearscc, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanelStAcc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel15))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanelReg2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanelEnAcc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addComponent(caseyearscc, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton5))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(caseyearscc, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabelorgcode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jPanelEnAcc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanelStAcc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(casenocc, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
+                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(caseyearscc, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabelorgcode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(casenocc, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanelStAcc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                            .addComponent(jPanelEnAcc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanelReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanelReg2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanelReg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanelReg2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
         );
 
         jTableCrime.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
@@ -442,11 +444,11 @@ jlabeltoken.setVisible(true);
 
             },
             new String [] {
-                "เลือก", "เลขคดี", "วันที่รับแจ้ง", "วันที่รับคำร้องทุกข์", "ข้อหา", "ชื่อผู้กล่าวหา"
+                "เลือก", "คดีที่/ปี", "เลขคดี", "ปี", "วันที่รับคำร้องทุกข์", "ข้อหา", "ผู้ต้องหา", "ผู้กล่าวหา", "ผู้รับผิดชอบ"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -457,6 +459,9 @@ jlabeltoken.setVisible(true);
         jTableCrime.getTableHeader().setFont(new Font("TH SarabunPSK", Font.BOLD, 20));
         jTableCrime.getTableHeader().setOpaque(false);
         jScrollPane2.setViewportView(jTableCrime);
+        if (jTableCrime.getColumnModel().getColumnCount() > 0) {
+            jTableCrime.getColumnModel().getColumn(5).setResizable(false);
+        }
 
         jButton3.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         jButton3.setText("ตกลง");
@@ -475,55 +480,40 @@ jlabeltoken.setVisible(true);
         jLabel12.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         jLabel12.setText("จำนวนคดีทั้งหมด");
 
-        jButton5.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jButton5.setText("เชื่อมต่อข้อมูล");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 1, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                                .addComponent(jLabel12)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(TotalCase)
-                                .addGap(11, 11, 11)
-                                .addComponent(jLabel13)
-                                .addGap(101, 101, 101)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap())
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(TotalCase)
+                        .addGap(11, 11, 11)
+                        .addComponent(jLabel13)
+                        .addGap(101, 101, 101)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1192, Short.MAX_VALUE)))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(jLabel13)
                     .addComponent(TotalCase)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(178, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -532,13 +522,13 @@ jlabeltoken.setVisible(true);
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 13, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 84, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("คดีอาญา", jPanel6);
@@ -681,7 +671,7 @@ jlabeltoken.setVisible(true);
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
                 .addComponent(jButton4)
                 .addGap(31, 31, 31))
         );
@@ -705,8 +695,8 @@ jlabeltoken.setVisible(true);
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 724, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
@@ -714,6 +704,9 @@ jlabeltoken.setVisible(true);
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
     // TODO add your handling code here:
+          String aa="";
+            aa=MainMenuWord.tk;
+         System.out.println("Token-List:"+aa);
         for (int i = 0; i < jTableCrime.getRowCount(); i++) {
 	Boolean chked = Boolean.valueOf(jTableCrime.getValueAt(i, 0)
 			.toString());
@@ -731,7 +724,7 @@ jlabeltoken.setVisible(true);
 //        
 //        }
 //            System.out.println("aa:"+nameor);
-
+        
 	if (chked) {
             try{
               Connection c=null;
@@ -748,13 +741,13 @@ jlabeltoken.setVisible(true);
         if (response == JOptionPane.YES_OPTION) {
 //             con=ConnectDatabase.connect();
          JsonObject jsonInput = new JsonObject();
-         jsonInput.addProperty("CrimeCaseNo",casno);
+          jsonInput.addProperty("CrimeCaseNo",casno);
          jsonInput.addProperty("CrimeCaseYear",casyear);
          jsonInput.addProperty("ORG_CODE",jLabelorgcode.getText());
-         jsonInput.addProperty("Usename","98UT01");
-         jsonInput.addProperty("PasswordWordgen","eZS5PPB/9zCElUbubieWKoD9pctqrANqhXqK49z");
+         jsonInput.addProperty("Usename",usernamelabel.getText());
+         jsonInput.addProperty("PasswordWordgen",aa);
          jsonInput.addProperty("OrgName",orgnamelabel.getText()); 
-         jsonInput.addProperty("Serial","QL789456"); 
+         jsonInput.addProperty("Serial",getMotherboardSerial()); 
          String j=jsonInput.toString();
         update_crime(jsonInput,cid);
      System.out.println(j);
@@ -766,10 +759,10 @@ jlabeltoken.setVisible(true);
          jsonInput.addProperty("CrimeCaseNo",casno);
          jsonInput.addProperty("CrimeCaseYear",casyear);
          jsonInput.addProperty("ORG_CODE",jLabelorgcode.getText());
-         jsonInput.addProperty("Usename","98UT01");
-         jsonInput.addProperty("PasswordWordgen","eZS5PPB/9zCElUbubieWKoD9pctqrANqhXqK49z");
+         jsonInput.addProperty("Usename",usernamelabel.getText());
+         jsonInput.addProperty("PasswordWordgen",aa);
          jsonInput.addProperty("OrgName",orgnamelabel.getText()); 
-         jsonInput.addProperty("Serial","QL789456"); 
+         jsonInput.addProperty("Serial",getMotherboardSerial()); 
          String j=jsonInput.toString();
 //         String replaced = j.replace("\"", "\\\"");
 //String n="{\"CrimeCaseNo\":\""+casno+"\",\"CrimeCaseYear\":\""+casyear+"\",\"ORG_CODE\":\""+orgcode+"\",\"Usename\":\""+user+"\",\"Idcard\":\""+idcard+"\",\"OrgName\":\""+nameor+"\"}";
@@ -797,10 +790,10 @@ jlabeltoken.setVisible(true);
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
      
-            System.out.println("Token:"+MainMenuWord.tk);
+           
             String aa="";
             aa=MainMenuWord.tk;
-        
+         System.out.println("Token:"+aa);
 
             if(aa == null){
             System.out.println("empty:");
@@ -814,35 +807,22 @@ jlabeltoken.setVisible(true);
                     lc.setVisible(true);   
                     aa=MainMenuWord.tk;
                 System.out.println("new--------"+aa);  
-              
-          
-             jlabeltoken.setText(aa);
-                       String timeStart="00:00";
-         String timeEnd="23:59";
-         JsonObject jsonInput = new JsonObject();
-         jsonInput.addProperty("CrimeCaseNo",casenocc.getText());
-         jsonInput.addProperty("CrimeCaseYear",caseyearscc.getText());
-//         jsonInput.addProperty("ORG_CODE",jLabelorgcode.getText());
-         jsonInput.addProperty("ORG_CODE","");
-         jsonInput.addProperty("PasswordWordgen",aa);         
-         jsonInput.addProperty("StatusMagenta","Magenta_inActive");
-         jsonInput.addProperty("CaseRequestDate","");
-         jsonInput.addProperty("CaseRequestDateTo",""); 
-         jsonInput.addProperty("CaseAcceptDate",AcceptDate(DateAcceptStart.getJFormattedTextField().getText(),timeStart));
-         jsonInput.addProperty("CaseAcceptDateTo",AcceptDate(DateAcceptEnd.getJFormattedTextField().getText(),timeEnd)); 
-         
-        call_me2(jsonInput);
-        TotalCase.setText(jTableCrime.getRowCount()+"");
-        }
+            }
+
+            else{
    try { 
             
-         String url=  "http://172.31.191.171:8989/wordgenchecktoken/?PASSWORDWORDGEN="+aa;
+         String url=  "http://172.31.191.163:8383/wordgenchecktoken/?PASSWORDWORDGEN="+aa;
              System.out.println("url:"+url);
                   String fff =sendGET(url);
                    JSONObject myResponse = new JSONObject(fff);
                    String statuspasswordgen=myResponse.getString("statuspasswordgen");
                   if(statuspasswordgen.equals("1")){
-                                            JFrame frame = new JFrame();
+                    
+                                      
+                  } 
+                else if(statuspasswordgen.equals("2")){
+              JFrame frame = new JFrame();
                                           JDialog dialog = new JDialog(frame);//frame is owner
                                           JFrame lcf = (JFrame)(dialog.getParent());
                                           lcf.removeAll();
@@ -851,46 +831,33 @@ jlabeltoken.setVisible(true);
                                         lc.setLocationRelativeTo(null);
                                         lc.setVisible(true);  
                                         aa=MainMenuWord.tk;
-                  } 
-      else if(statuspasswordgen.equals("2")){
-          String timeStart="00:00";
+                  }
+                   
+                 
+        } catch (Exception e) {
+        }  
+            }
+   String timeStart="00:00";
          String timeEnd="23:59";
          JsonObject jsonInput = new JsonObject();
          jsonInput.addProperty("CrimeCaseNo",casenocc.getText());
          jsonInput.addProperty("CrimeCaseYear",caseyearscc.getText());
-//         jsonInput.addProperty("ORG_CODE",jLabelorgcode.getText());
-         jsonInput.addProperty("ORG_CODE","70028");
+         jsonInput.addProperty("ORG_CODE",jLabelorgcode.getText());
+//         jsonInput.addProperty("ORG_CODE","70028");
          jsonInput.addProperty("PasswordWordgen",aa);         
          jsonInput.addProperty("StatusMagenta","Magenta_inActive");
-         jsonInput.addProperty("CaseRequestDate","");
-         jsonInput.addProperty("CaseRequestDateTo",""); 
+         jsonInput.addProperty("CaseRequestDate",AcceptDate(DateReqStart.getJFormattedTextField().getText(),timeStart));
+         jsonInput.addProperty("CaseRequestDateTo",AcceptDate(DateReqEnd.getJFormattedTextField().getText(),timeEnd)); 
          jsonInput.addProperty("CaseAcceptDate",AcceptDate(DateAcceptStart.getJFormattedTextField().getText(),timeStart));
          jsonInput.addProperty("CaseAcceptDateTo",AcceptDate(DateAcceptEnd.getJFormattedTextField().getText(),timeEnd)); 
          
         call_me2(jsonInput);
         TotalCase.setText(jTableCrime.getRowCount()+"");
-                  }
-                 
-        } catch (Exception e) {
+        int rowcase=jTableCrime.getRowCount();
+        if(rowcase ==0){
+        JOptionPane.showMessageDialog(null, "ไม่พบข้อมูลคดีในระบบ crimes");
         }
-//         String timeStart="00:00";
-//         String timeEnd="23:59";
-//         JsonObject jsonInput = new JsonObject();
-//         jsonInput.addProperty("CrimeCaseNo",casenocc.getText());
-//         jsonInput.addProperty("CrimeCaseYear",caseyearscc.getText());
-////         jsonInput.addProperty("ORG_CODE",jLabelorgcode.getText());
-//         jsonInput.addProperty("ORG_CODE","70028");
-//
-////         jsonInput.addProperty("PasswordWordgen",jlabeltoken.getText());
-//         jsonInput.addProperty("PasswordWordgen","eZS5PPB/9zCElUbubieWKoD9pctqrANqhXqK49z");         
-//         jsonInput.addProperty("StatusMagenta","Magenta_inActive");
-//         jsonInput.addProperty("CaseRequestDate","");
-//         jsonInput.addProperty("CaseRequestDateTo",""); 
-//         jsonInput.addProperty("CaseAcceptDate",AcceptDate(DateAcceptStart.getJFormattedTextField().getText(),timeStart));
-//         jsonInput.addProperty("CaseAcceptDateTo",AcceptDate(DateAcceptEnd.getJFormattedTextField().getText(),timeEnd)); 
-//         
-//        call_me2(jsonInput);
-//        TotalCase.setText(jTableCrime.getRowCount()+"");
+        
     }//GEN-LAST:event_jButton5ActionPerformed
  
     /**
@@ -1027,7 +994,7 @@ jlabeltoken.setVisible(true);
 }
     public void call_me2(JsonObject json){
      try {
-                String url = "http://172.31.191.171:8989/ws/CrimeCaseService_Wordgen/";
+                String url = "http://172.31.191.163:8383/ws/CrimeCaseService_Wordgen/";
                 URL obj = new URL(url);
                 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
                 con.setRequestMethod("POST");
@@ -1176,7 +1143,7 @@ jlabeltoken.setVisible(true);
      try {
              
                 
-                 String url = "http://172.31.191.171:8989/ws/CrimeCaseService_Wordgen_Import/";
+                 String url = "http://172.31.191.163:8383/ws/CrimeCaseService_Wordgen_Import/";
                 URL obj = new URL(url);
                 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
                 con.setRequestMethod("POST");
@@ -1202,6 +1169,8 @@ jlabeltoken.setVisible(true);
                 wr.flush();
                 wr.close();
                 String responseStatus = con.getResponseMessage();
+                int responseCode = con.getResponseCode();
+		System.out.println("GET Response Code :: " + responseCode);
                 System.out.println(responseStatus);
                 BufferedReader in = new BufferedReader(new InputStreamReader(
                 con.getInputStream(),"UTF-8"));
@@ -1216,18 +1185,23 @@ jlabeltoken.setVisible(true);
         Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder()
          .parse(new InputSource(new StringReader(response.toString())));
 	       NodeList errNodes = doc.getElementsByTagName("Person");
-               	       NodeList errNodes2 = doc.getElementsByTagName("CrimeCase");
-                        Connection conn=null;
-                                                Connection conn2=null;
+               NodeList errNodes2 = doc.getElementsByTagName("CrimeCase");       
+               NodeList errNodes3 = doc.getElementsByTagName("ReportDailry");
+               NodeList errNodes4 = doc.getElementsByTagName("Charge");
+                 NodeList errNodes5 = doc.getElementsByTagName("LawCategory");               
+               
+              Connection conn=null;
+               Connection conn2=null;
 
                conn=ConnectDatabase.connect();
                               conn2=ConnectDatabase.connect();
 
-                       if (errNodes2.getLength() > 0) {
+         if (errNodes2.getLength() > 0) {
             Element err = (Element)errNodes2.item(0);
          String insertCrime="insert into CrimeCase(CaseId,CaseType,crimecaseno,crimecaseyears,crimecasenoyear,CaseAcceptDate,CaseAccepTime,"
-                       + "CaseRequestDate,CaseRequestTime,OccuredDate,OccuredTime,OccuredDateEnd,OccuredTimeEnd,ActionCodeCase,ChargeCodeCase)\n"
-                       + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; 
+                       + "CaseRequestDate,CaseRequestTime,OccuredDate,OccuredTime,OccuredDateEnd,OccuredTimeEnd,ActionCodeCase,ChargeCodeCase,"
+                      + "DailyNumber,Investigator_Result)\n"
+                       + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; 
          String insertCharge="insert into Charge(ChargeCode,ChargeName,Law,RateOfPenalty,Note)\n"
                        + "VALUES (?,?,?,?,?)";
           String insertChargeCase="insert into ChargeCase(ChargeCodeCase,ChargeNameCase,LawCase,RateOfPenaltyCase,NoteCase,ChargeCaseId)\n"
@@ -1252,31 +1226,38 @@ jlabeltoken.setVisible(true);
                         pst.setString(3, err.getElementsByTagName("CrimeCaseNo").item(0).getTextContent());
                         pst.setString(4,  err.getElementsByTagName("CrimeCaseYear").item(0).getTextContent());
                         pst.setString(5,  err.getElementsByTagName("CaseNo").item(0).getTextContent());
-                        pst.setString(6, NewDate( err.getElementsByTagName("CaseAcceptDate").item(0).getTextContent())); 
-                        pst.setString(7,  NewTime(err.getElementsByTagName("CaseAcceptDate").item(0).getTextContent())); 
-                        pst.setString(8,  NewDate( err.getElementsByTagName("CaseRequestDate").item(0).getTextContent())); 
-                        pst.setString(9,   NewTime(err.getElementsByTagName("CaseRequestDate").item(0).getTextContent())); 
+                        pst.setString(6,  NewDate( err.getElementsByTagName("CaseRequestDate").item(0).getTextContent())); 
+                        pst.setString(7,   NewTime(err.getElementsByTagName("CaseRequestDate").item(0).getTextContent()));         
+                        pst.setString(8, NewDate( err.getElementsByTagName("CaseAcceptDate").item(0).getTextContent())); 
+                        pst.setString(9,  NewTime(err.getElementsByTagName("CaseAcceptDate").item(0).getTextContent())); 
                         pst.setString(10,  NewDate( err.getElementsByTagName("OccuredDateTimeFrom").item(0).getTextContent())); 
                         pst.setString(11,  NewTime(err.getElementsByTagName("OccuredDateTimeFrom").item(0).getTextContent())); 
                         pst.setString(12,   NewDate( err.getElementsByTagName("OccuredDateTimeTo").item(0).getTextContent())); 
                         pst.setString(13,  NewTime(err.getElementsByTagName("OccuredDateTimeTo").item(0).getTextContent())); 
                          pst.setString(14,  idAction()); 
                           pst.setString(15,  idCharge()); 
-//                        pst.setString(6,  err.getElementsByTagName("Birthday").item(0).getTextContent()); 
+                          if (errNodes3.getLength() > 0) {
+                            Element err3 = (Element)errNodes3.item(0);
+                         pst.setString(16, err3.getElementsByTagName("DailyNumber").item(0).getTextContent());      
+                          }
+                          else{
+                           pst.setString(16, "");   
+                          }
+                            pst.setString(17, "อยู่ระหว่างสอบสวน");   
+//                      pst.setString(13,  NewTime(err.getElementsByTagName("OccuredDateTimeTo").item(0).getTextContent())); 
                      pst.execute();
                      pst.close(); 
-                     
-                        pst1=conn2.prepareStatement(insertActionsCase);
+                        if(err.getElementsByTagName("BehaviorOfCrimeCase").item(0)!=null){
+                           pst1=conn2.prepareStatement(insertActionsCase);
                         pst1.setString(1, idAction());
                         pst1.setString(2, err.getElementsByTagName("BehaviorOfCrimeCase").item(0).getTextContent());
                         pst1.setString(3, err.getElementsByTagName("BehaviorOfCrimeCase").item(0).getTextContent());
                         pst1.setString(4, "");     
                                       System.out.println("addddddddddddd:"+idAction());  
-
                         pst1.execute();
                      pst1.close(); 
                      
-                     pst2=conn.prepareStatement(insertActionsCaseData);
+                            pst2=conn.prepareStatement(insertActionsCaseData);
                         pst2.setString(1, idActionCase());
                         pst2.setString(2, err.getElementsByTagName("BehaviorOfCrimeCase").item(0).getTextContent());
                         pst2.setString(3, err.getElementsByTagName("BehaviorOfCrimeCase").item(0).getTextContent());
@@ -1284,27 +1265,63 @@ jlabeltoken.setVisible(true);
                          pst2.setString(5, IdCasePerson());  
                         pst2.execute();
                      pst2.close(); 
-                     
-                      pst3=conn.prepareStatement(insertCharge);
+                        }
+                     if (errNodes4.getLength() > 0) {
+                            Element err4 = (Element)errNodes4.item(0);    
+                        pst3=conn.prepareStatement(insertCharge);
                         pst3.setString(1, idCharge());
-                        pst3.setString(2, err.getElementsByTagName("DisplayCharge").item(0).getTextContent().replace("1) ", ""));
-                        pst3.setString(3, "");
-                        pst3.setString(4, "");
+                        pst3.setString(2,err4.getElementsByTagName("ChargeNameTH").item(0).getTextContent());
+                       if (errNodes5.getLength() > 0) {
+                            Element err5 = (Element)errNodes5.item(0);
+                         pst3.setString(3, err5.getElementsByTagName("NameTH").item(0).getTextContent());      
+                          }
+                          else{
+                           pst3.setString(3, "");   
+                          }
+                        pst3.setString(4,err4.getElementsByTagName("PenaltyNameTH").item(0).getTextContent());
                          pst3.setString(5, "");  
                         pst3.execute();
                      pst3.close(); 
                      
-                     pst4=conn.prepareStatement(insertChargeCase);
+                       pst4=conn.prepareStatement(insertChargeCase);
                         pst4.setString(1, idChargeCase());
-                        pst4.setString(2, err.getElementsByTagName("DisplayCharge").item(0).getTextContent().replace("1) ", ""));
-                        pst4.setString(3, "");
-                        pst4.setString(4, "");
+                        pst4.setString(2, err4.getElementsByTagName("ChargeNameTH").item(0).getTextContent());
+                        if (errNodes5.getLength() > 0) {
+                            Element err5 = (Element)errNodes5.item(0);
+                         pst4.setString(3, err5.getElementsByTagName("NameTH").item(0).getTextContent());      
+                          }
+                          else{
+                           pst4.setString(3, "");   
+                          }
+                        pst4.setString(4, err4.getElementsByTagName("PenaltyNameTH").item(0).getTextContent());
                          pst4.setString(5, ""); 
                         pst4.setString(6, IdCasePerson());  
 
                         pst4.execute();
-                     pst4.close(); 
+                     pst4.close();
+                          }
                      
+//                      if(err.getElementsByTagName("DisplayCharge").item(0)!=null){
+//                      pst3=conn.prepareStatement(insertCharge);
+//                        pst3.setString(1, idCharge());
+//                        pst3.setString(2, err.getElementsByTagName("DisplayCharge").item(0).getTextContent().replace("1) ", ""));
+//                        pst3.setString(3, "");
+//                        pst3.setString(4, "");
+//                         pst3.setString(5, "");  
+//                        pst3.execute();
+//                     pst3.close(); 
+//                     
+//                     pst4=conn.prepareStatement(insertChargeCase);
+//                        pst4.setString(1, idChargeCase());
+//                        pst4.setString(2, err.getElementsByTagName("DisplayCharge").item(0).getTextContent().replace("1) ", ""));
+//                        pst4.setString(3, "");
+//                        pst4.setString(4, "");
+//                         pst4.setString(5, ""); 
+//                        pst4.setString(6, IdCasePerson());  
+//
+//                        pst4.execute();
+//                     pst4.close(); 
+//                      }
                        System.out.println("success");
         } catch (SQLException e) {
                 System.out.println("ddddd: "+e);
@@ -1387,9 +1404,32 @@ jlabeltoken.setVisible(true);
                 }
     public static void update_crime(JsonObject a,String caseid){
      try {
-             
+                 String sql = "DELETE FROM DeliverySuspect\n" +
+                            "WHERE delipersonid IN (\n" +
+                            "  SELECT delipersonid FROM DeliverySuspect a\n" +
+                            "  INNER JOIN Person b\n" +
+                            "    ON a.delipersonid=b.noperson \n" +
+                             "  WHERE b.caseidperson ='"+caseid+"');\n"+
+                          "DELETE FROM CrimeCase WHERE CrimeCase.CaseId='"+caseid+"';\n"+
+                             "DELETE FROM RecordInquiry WHERE caseidrecord='"+caseid+"';\n"+
+                             "DELETE FROM Person WHERE caseidperson='"+caseid+"';\n"+
+                             "DELETE FROM ChargeCase WHERE ChargeCaseId='"+caseid+"';\n"+
+                             "DELETE FROM RecordInquiry WHERE CaseIdRecord='"+caseid+"';\n"+
+                             "DELETE FROM ActionsCaseData WHERE ActionCaseId='"+caseid+"';\n"+
+                             "DELETE FROM BailAsset WHERE BailCaseId='"+caseid+"';\n"+                  
+                                "DELETE FROM Asset WHERE caseidasset='"+caseid+"';";
+         try {               
+           Connection cond = ConnectDatabase.connect();
+                System.out.println("Delete:"+sql);
+                Statement  stmt = cond.createStatement();
+                      stmt.executeUpdate(sql);
+                    stmt.close();
+         }
+         catch(SQLException ex){
+             System.out.println(ex);
+         }
                 
-                 String url = "http://172.31.191.171:8989/ws/CrimeCaseService_Wordgen_Import/";
+                 String url = "http://172.31.191.163:8383/ws/CrimeCaseService_Wordgen_Import/";
                 URL obj = new URL(url);
                 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
                 con.setRequestMethod("POST");
@@ -1428,29 +1468,33 @@ jlabeltoken.setVisible(true);
                 	// System.out.println(response.toString());
         Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder()
          .parse(new InputSource(new StringReader(response.toString())));
-	       NodeList errNodes = doc.getElementsByTagName("Person");
-               	       NodeList errNodes2 = doc.getElementsByTagName("CrimeCase");
-                        Connection conn=null;
-                                                Connection conn2=null;
-
-               conn=ConnectDatabase.connect();
-                              conn2=ConnectDatabase.connect();
-
-                       if (errNodes2.getLength() > 0) {
+	
+   
+               NodeList errNodes = doc.getElementsByTagName("Person");
+               NodeList errNodes2 = doc.getElementsByTagName("CrimeCase");    
+               NodeList errNodes3 = doc.getElementsByTagName("ReportDailry");
+               NodeList errNodes4 = doc.getElementsByTagName("Charge");
+                 NodeList errNodes5 = doc.getElementsByTagName("LawCategory");                       
+                Connection conn=null;
+               Connection conn2=null;
+              conn=ConnectDatabase.connect();
+                conn2=ConnectDatabase.connect();
+             if (errNodes2.getLength() > 0) {
             Element err = (Element)errNodes2.item(0);
-            String sql = "DELETE FROM CrimeCase WHERE CrimeCase.CaseId='"+caseid+"';\n"+
-                             "DELETE FROM RecordInquiry WHERE caseidrecord='"+caseid+"';\n"+
-                             "DELETE FROM Person WHERE caseidperson='"+caseid+"';\n"+
-                             "DELETE FROM ChargeCase WHERE ChargeCaseId='"+caseid+"';\n"+
-                             "DELETE FROM RecordInquiry WHERE CaseIdRecord='"+caseid+"';\n"+
-                             "DELETE FROM ActionsCaseData WHERE ActionCaseId='"+caseid+"';";
-
-       try {               
-           Connection cond = ConnectDatabase.connect();
-//                System.out.println("Delete:"+sql);
-                Statement  stmt = cond.createStatement();
-                      stmt.executeUpdate(sql);
-                    stmt.close();
+         String insertCrime="insert into CrimeCase(CaseId,CaseType,crimecaseno,crimecaseyears,crimecasenoyear,CaseAcceptDate,CaseAccepTime,"
+                       + "CaseRequestDate,CaseRequestTime,OccuredDate,OccuredTime,OccuredDateEnd,OccuredTimeEnd,ActionCodeCase,ChargeCodeCase,"
+                        + "DailyNumber,Investigator_Result)\n"
+                       + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; 
+         String insertCharge="insert into Charge(ChargeCode,ChargeName,Law,RateOfPenalty,Note)\n"
+                       + "VALUES (?,?,?,?,?)";
+          String insertChargeCase="insert into ChargeCase(ChargeCodeCase,ChargeNameCase,LawCase,RateOfPenaltyCase,NoteCase,ChargeCaseId)\n"
+                       + "VALUES (?,?,?,?,?,?)";
+        
+      String insertActionsCase="insert into ActionsCase(ActionCode,ActionCrimes,ActionDetail,ActionNote)\n"
+                       + "VALUES (?,?,?,?)";
+          String insertActionsCaseData="insert into ActionsCaseData(ActionCodeCase,ActionCrimesCase,ActionDetailCase,ActionNoteCase,ActionCaseId)\n"
+                       + "VALUES (?,?,?,?,?)";
+       try {
                     
                          PreparedStatement pst=null;
                          PreparedStatement pst1=null;
@@ -1459,44 +1503,89 @@ jlabeltoken.setVisible(true);
                          PreparedStatement pst4=null;
 
 
-//                        pst=conn.prepareStatement(insertActionsCase);
-//                        pst.setString(1, "คดีอาญา");
-//                        pst.setString(2, err.getElementsByTagName("CrimeCaseNo").item(0).getTextContent());
-//                        pst.setString(3,  err.getElementsByTagName("CrimeCaseYear").item(0).getTextContent());
-//                        pst.setString(4,  err.getElementsByTagName("CaseNo").item(0).getTextContent());
-//                        pst.setString(5, NewDate( err.getElementsByTagName("CaseAcceptDate").item(0).getTextContent())); 
-//                        pst.setString(6,  NewTime(err.getElementsByTagName("CaseAcceptDate").item(0).getTextContent())); 
-//                        pst.setString(7,  NewDate( err.getElementsByTagName("CaseRequestDate").item(0).getTextContent())); 
-//                        pst.setString(8,   NewTime(err.getElementsByTagName("CaseRequestDate").item(0).getTextContent())); 
-//                        pst.setString(9,  NewDate( err.getElementsByTagName("OccuredDateTimeFrom").item(0).getTextContent())); 
-//                        pst.setString(10,  NewTime(err.getElementsByTagName("OccuredDateTimeFrom").item(0).getTextContent())); 
-//                        pst.setString(11,   NewDate( err.getElementsByTagName("OccuredDateTimeTo").item(0).getTextContent())); 
-//                        pst.setString(12,  NewTime(err.getElementsByTagName("OccuredDateTimeTo").item(0).getTextContent())); 
-//                         pst.setString(13,  idAction()); 
-//                         pst.setString(14,  idCharge()); 
-//                        pst.setString(6,  err.getElementsByTagName("Birthday").item(0).getTextContent()); 
-//                     pst.execute();
-//                     pst.close(); 
+                        pst=conn.prepareStatement(insertCrime);
+                        pst.setString(1, IdCase());
+                        pst.setString(2, "คดีอาญา");
+                        pst.setString(3, err.getElementsByTagName("CrimeCaseNo").item(0).getTextContent());
+                        pst.setString(4,  err.getElementsByTagName("CrimeCaseYear").item(0).getTextContent());
+                        pst.setString(5,  err.getElementsByTagName("CaseNo").item(0).getTextContent());
+                         pst.setString(6,  NewDate( err.getElementsByTagName("CaseRequestDate").item(0).getTextContent())); 
+                        pst.setString(7,   NewTime(err.getElementsByTagName("CaseRequestDate").item(0).getTextContent()));         
+                        pst.setString(8, NewDate( err.getElementsByTagName("CaseAcceptDate").item(0).getTextContent())); 
+                        pst.setString(9,  NewTime(err.getElementsByTagName("CaseAcceptDate").item(0).getTextContent())); 
+                        pst.setString(10,  NewDate( err.getElementsByTagName("OccuredDateTimeFrom").item(0).getTextContent())); 
+                        pst.setString(11,  NewTime(err.getElementsByTagName("OccuredDateTimeFrom").item(0).getTextContent())); 
+                        pst.setString(12,   NewDate( err.getElementsByTagName("OccuredDateTimeTo").item(0).getTextContent())); 
+                        pst.setString(13,  NewTime(err.getElementsByTagName("OccuredDateTimeTo").item(0).getTextContent())); 
+                         pst.setString(14,  idAction()); 
+                          pst.setString(15,  idCharge()); 
+                          if (errNodes3.getLength() > 0) {
+                            Element err3 = (Element)errNodes3.item(0);
+                         pst.setString(16, err3.getElementsByTagName("DailyNumber").item(0).getTextContent());      
+                          }
+                          else{
+                           pst.setString(16, "");   
+                          }
+                         pst.setString(17, "อยู่ระหว่างสอบสวน");   
+
+//                      pst.setString(13,  NewTime(err.getElementsByTagName("OccuredDateTimeTo").item(0).getTextContent())); 
+                     pst.execute();
+                     pst.close(); 
+                        if(err.getElementsByTagName("BehaviorOfCrimeCase").item(0)!=null){
+                           pst1=conn2.prepareStatement(insertActionsCase);
+                        pst1.setString(1, idAction());
+                        pst1.setString(2, err.getElementsByTagName("BehaviorOfCrimeCase").item(0).getTextContent());
+                        pst1.setString(3, err.getElementsByTagName("BehaviorOfCrimeCase").item(0).getTextContent());
+                        pst1.setString(4, "");     
+                                      System.out.println("addddddddddddd:"+idAction());  
+                        pst1.execute();
+                     pst1.close(); 
                      
-//                        pst1=conn2.prepareStatement(insertActionsCase);
-//                        pst1.setString(1, idAction());
-//                        pst1.setString(2, err.getElementsByTagName("BehaviorOfCrimeCase").item(0).getTextContent());
-//                        pst1.setString(3, err.getElementsByTagName("BehaviorOfCrimeCase").item(0).getTextContent());
-//                        pst1.setString(4, "");     
-//                                      System.out.println("addddddddddddd:"+idAction());  
-//
-//                        pst1.execute();
-//                     pst1.close(); 
-//                     
-//                     pst2=conn.prepareStatement(insertActionsCaseData);
-//                        pst2.setString(1, idActionCase());
-//                        pst2.setString(2, err.getElementsByTagName("BehaviorOfCrimeCase").item(0).getTextContent());
-//                        pst2.setString(3, err.getElementsByTagName("BehaviorOfCrimeCase").item(0).getTextContent());
-//                        pst2.setString(4, "");
-//                         pst2.setString(5, IdCasePerson());  
-//                        pst2.execute();
-//                     pst2.close(); 
-//                     
+                            pst2=conn.prepareStatement(insertActionsCaseData);
+                        pst2.setString(1, idActionCase());
+                        pst2.setString(2, err.getElementsByTagName("BehaviorOfCrimeCase").item(0).getTextContent());
+                        pst2.setString(3, err.getElementsByTagName("BehaviorOfCrimeCase").item(0).getTextContent());
+                        pst2.setString(4, "");
+                         pst2.setString(5, IdCasePerson());  
+                        pst2.execute();
+                     pst2.close(); 
+                        }
+                     if (errNodes4.getLength() > 0) {
+                            Element err4 = (Element)errNodes4.item(0);    
+                        pst3=conn.prepareStatement(insertCharge);
+                        pst3.setString(1, idCharge());
+                        pst3.setString(2,err4.getElementsByTagName("ChargeNameTH").item(0).getTextContent());
+                       if (errNodes5.getLength() > 0) {
+                            Element err5 = (Element)errNodes5.item(0);
+                         pst3.setString(3, err5.getElementsByTagName("NameTH").item(0).getTextContent());      
+                          }
+                          else{
+                           pst3.setString(3, "");   
+                          }
+                        pst3.setString(4,err4.getElementsByTagName("PenaltyNameTH").item(0).getTextContent());
+                         pst3.setString(5, "");  
+                        pst3.execute();
+                     pst3.close(); 
+                     
+                       pst4=conn.prepareStatement(insertChargeCase);
+                        pst4.setString(1, idChargeCase());
+                        pst4.setString(2, err4.getElementsByTagName("ChargeNameTH").item(0).getTextContent());
+                        if (errNodes5.getLength() > 0) {
+                            Element err5 = (Element)errNodes5.item(0);
+                         pst4.setString(3, err5.getElementsByTagName("NameTH").item(0).getTextContent());      
+                          }
+                          else{
+                           pst4.setString(3, "");   
+                          }
+                        pst4.setString(4, err4.getElementsByTagName("PenaltyNameTH").item(0).getTextContent());
+                         pst4.setString(5, ""); 
+                        pst4.setString(6, IdCasePerson());  
+
+                        pst4.execute();
+                     pst4.close();
+                          }
+                     
+//                      if(err.getElementsByTagName("DisplayCharge").item(0)!=null){
 //                      pst3=conn.prepareStatement(insertCharge);
 //                        pst3.setString(1, idCharge());
 //                        pst3.setString(2, err.getElementsByTagName("DisplayCharge").item(0).getTextContent().replace("1) ", ""));
@@ -1516,7 +1605,7 @@ jlabeltoken.setVisible(true);
 //
 //                        pst4.execute();
 //                     pst4.close(); 
-                     
+//                      }
                        System.out.println("success");
         } catch (SQLException e) {
                 System.out.println("ddddd: "+e);
@@ -1544,85 +1633,42 @@ jlabeltoken.setVisible(true);
                          PreparedStatement pst2=null;
                         
                         pst2=conn.prepareStatement(insertPerson);
-               if(p.getElementsByTagName("PeopleRegistrationID").item(0)==null){
-               pst2.setString(1,"");
-               }
-               else{
-                    pst2.setString(1,p.getElementsByTagName("PeopleRegistrationID").item(0).getTextContent());
-               }
-               if(p.getElementsByTagName("FullNamePerson").item(0)==null){
-               pst2.setString(2,"");
-               }
-               else{
-                    pst2.setString(2,p.getElementsByTagName("FullNamePerson").item(0).getTextContent());
-               }
-               if(p.getElementsByTagName("Birthday").item(0)==null){
+//               if(p.getElementsByTagName("PeopleRegistrationID").item(0)==null){
+//               pst2.setString(1,"");
+//               }
+//               else{
+//                    pst2.setString(1,p.getElementsByTagName("PeopleRegistrationID").item(0).getTextContent());
+//               }
+                pst2.setString(1,CheckNull(p, "PeopleRegistrationID"));
+                 pst2.setString(2,CheckNull(p, "FullNamePerson"));
+                 if(p.getElementsByTagName("Birthday").item(0)==null){
                pst2.setString(3,"");
                }
                else{
                     pst2.setString(3,NewDate(p.getElementsByTagName("Birthday").item(0).getTextContent()));
                }
+
                 if(p.getElementsByTagName("Gender").item(0)==null){
                pst2.setString(4,"");
                }
                else{
                     pst2.setString(4,NewGender(p.getElementsByTagName("Gender").item(0).getTextContent()));
                }
-                 if(p.getElementsByTagName("Age").item(0)==null){
-               pst2.setString(5,"");
-               }
-               else{
-                    pst2.setString(5,p.getElementsByTagName("Age").item(0).getTextContent());
-               }
-                 if(p.getElementsByTagName("StatusVictimOrSuspect").item(0)==null){
-               pst2.setString(6,"");
-               }
-               else{
-                    pst2.setString(6,NewTypePerson(p.getElementsByTagName("StatusVictimOrSuspect").item(0).getTextContent()));
-               }   
-                   if(p.getElementsByTagName("FatherName").item(0)==null){
-               pst2.setString(7,"");
-               }
-               else{
-                    pst2.setString(7,p.getElementsByTagName("FatherName").item(0).getTextContent());
-               }  
-                    if(p.getElementsByTagName("MotherName").item(0)==null){
-               pst2.setString(8,"");
-               }
-               else{
-                    pst2.setString(8,p.getElementsByTagName("MotherName").item(0).getTextContent());
-               }      
-                    if(p.getElementsByTagName("Race").item(0)==null){
-               pst2.setString(9,"");
-               }
-               else{
-                    pst2.setString(9,p.getElementsByTagName("Race").item(0).getTextContent());
-               } 
-                     if(p.getElementsByTagName("Religion").item(0)==null){
-               pst2.setString(10,"");
-               }
-               else{
-                    pst2.setString(10,p.getElementsByTagName("Religion").item(0).getTextContent());
-               }  
-               if(p.getElementsByTagName("Nationality").item(0)==null){
-               pst2.setString(11,"");
-               }
-               else{
-                    pst2.setString(11,p.getElementsByTagName("Nationality").item(0).getTextContent());
-               }  
-               if(p.getElementsByTagName("Occupation").item(0)==null){
-               pst2.setString(12,"");
-               }
-               else{
-                    pst2.setString(12,NewOccupation(p.getElementsByTagName("Occupation").item(0).getTextContent()));
-               }  
+              pst2.setString(5,CheckNull(p, "Age"));
+              pst2.setString(6,NewTypePerson(CheckNull(p, "StatusVictimOrSuspect")));
+              pst2.setString(7,CheckNull(p, "FatherName"));
+              pst2.setString(8,CheckNull(p, "MotherName"));
+              pst2.setString(9,CheckNull(p, "Race"));
+              pst2.setString(10,CheckNull(p, "Religion"));
+              pst2.setString(11,CheckNull(p, "Nationality"));
+              pst2.setString(12,NewOccupation(CheckNull(p, "Occupation")));
                if(p.getElementsByTagName("ArrestedDate").item(0)==null){
                pst2.setString(13,"");
                }
                else{
-                    pst2.setString(14,NewDateTime(p.getElementsByTagName("ArrestedDate").item(0).getTextContent()));
+                    pst2.setString(13,NewDateTime(p.getElementsByTagName("ArrestedDate").item(0).getTextContent()));
                }  
-                        pst2.setString(14,  IdCasePerson()); 
+               pst2.setString(14,  IdCasePerson()); 
 
                      pst2.execute();
                      pst2.close();   
@@ -1905,12 +1951,14 @@ System.out.println("sasa:"+a);
          else{ 
              System.out.println("ssssssssss:"+newType);        
             return newType;
-            
-          
-                 
+
          }
       
       }
+//  public static String CheckDate(String nd,String type) {
+//
+//      
+//      }
     private static String sendGET(String GET_URL) throws IOException {
                 String a="";
 		URL serverUrl = new URL(GET_URL);
@@ -1940,6 +1988,30 @@ System.out.println("sasa:"+a);
 		}
                 
 	}  
+    public static String getMotherboardSerial(){
+		try
+	    {
+	        String result = null;
+                 String nline = null;
+
+	        Process p = Runtime.getRuntime().exec("wmic baseboard get product,Manufacturer,version,serialnumber");
+	               BufferedReader input
+	                = new BufferedReader(new InputStreamReader(p.getInputStream(),"UTF-8"));
+	        String line;
+	        while ((line = input.readLine()) != null)
+	        {
+	        	nline += line;
+	        }
+                  result= nline.replace(" ","");
+        System.out.println("aa "+result);
+	        input.close();
+	        return result;
+	    } catch (IOException ex)
+	    {
+	        ex.printStackTrace();
+	        return null;
+	    }
+	}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel TotalCase;
     private javax.swing.JTextField casenocc;
