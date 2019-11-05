@@ -185,7 +185,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="TH SarabunPSK" size="20" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&#xe41;&#xe01;&#xe49;&#xe44;&#xe02;"/>
+            <Property name="text" type="java.lang.String" value="&#xe14;&#xe39;&#xe02;&#xe49;&#xe2d;&#xe21;&#xe39;&#xe25;/&#xe41;&#xe01;&#xe49;&#xe44;&#xe02;"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>

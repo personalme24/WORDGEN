@@ -987,17 +987,7 @@ JTextPopupMenu.addTo(CourtResult);
                     .addComponent(crimecaseyear, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CourtType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ActionCrimes, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonAction))
-                .addGap(17, 17, 17)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane6)
-                    .addComponent(jButtonCharge, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(20, 20, 20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1029,10 +1019,20 @@ JTextPopupMenu.addTo(CourtResult);
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DailyNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(61, 61, 61))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ActionCrimes, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonAction))
+                .addGap(17, 17, 17)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane6)
+                    .addComponent(jButtonCharge, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, 390));
+        jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, 450));
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1307,7 +1307,7 @@ JTextPopupMenu.addTo(CourtResult);
         });
 
         jButtonEditAccured1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jButtonEditAccured1.setText("แก้ไข");
+        jButtonEditAccured1.setText("ดูข้อมูล/แก้ไข");
         jButtonEditAccured1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonEditAccured1ActionPerformed(evt);
@@ -1332,8 +1332,8 @@ JTextPopupMenu.addTo(CourtResult);
                     .addGroup(jPanel22Layout.createSequentialGroup()
                         .addComponent(jButtonAddAccused1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonEditAccured1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonEditAccured1)
+                        .addGap(3, 3, 3)
                         .addComponent(jButtonDeleteAccured1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 1077, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel22Layout.createSequentialGroup()
@@ -1391,7 +1391,7 @@ JTextPopupMenu.addTo(CourtResult);
         });
 
         jButtonEditAccured.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jButtonEditAccured.setText("แก้ไข");
+        jButtonEditAccured.setText("ดูข้อมูล/แก้ไข");
         jButtonEditAccured.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonEditAccuredActionPerformed(evt);
@@ -1456,7 +1456,7 @@ JTextPopupMenu.addTo(CourtResult);
                     .addGroup(jPanel23Layout.createSequentialGroup()
                         .addComponent(jButtonAddAccused, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonEditAccured, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonEditAccured, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonDeleteAccured, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel23Layout.createSequentialGroup()
@@ -1509,7 +1509,7 @@ JTextPopupMenu.addTo(CourtResult);
         jTabbedPane2.addTab("ผู้ต้องหา", jPanel20);
 
         jButtonEditAccured2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jButtonEditAccured2.setText("แก้ไข");
+        jButtonEditAccured2.setText("ดูข้อมูล/แก้ไข");
         jButtonEditAccured2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonEditAccured2ActionPerformed(evt);
@@ -1581,7 +1581,7 @@ JTextPopupMenu.addTo(CourtResult);
                     .addGroup(jPanel24Layout.createSequentialGroup()
                         .addComponent(jButtonAddAccused2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonEditAccured2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonEditAccured2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonDeleteAccured2, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 1080, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -4404,7 +4404,7 @@ catch (Exception d) {  //System.out.println(d);
          else{
          ColumnName.add("ลำดับผู้ต้องหา");}
          ColumnName.add("เลขบัตรประชาชน");
-        ColumnName.add("ชื่อ-นามสุกล");
+        ColumnName.add("ชื่อ-นามสกุล");
         ColumnName.add("อายุ");
         ColumnName.add("เชื้อชาติ");
         ColumnName.add("สัญชาติ");
@@ -4494,7 +4494,7 @@ catch (Exception d) {  //System.out.println(d);
         Vector ColumnName = new Vector();
          ColumnName.add("ลำดับผู้กล่าวหา");
          ColumnName.add("เลขบัตรประชาชน");
-        ColumnName.add("ชื่อ-นามสุกล");
+        ColumnName.add("ชื่อ-นามสกุล");
         ColumnName.add("อายุ");
         ColumnName.add("เชื้อชาติ");
         ColumnName.add("สัญชาติ");
@@ -4575,7 +4575,7 @@ jTableAccure.getColumnModel().getColumn(8).setMaxWidth(0);
         Vector ColumnName = new Vector();
          ColumnName.add("ลำดับพยาน");
          ColumnName.add("เลขบัตรประชาชน");
-        ColumnName.add("ชื่อ-นามสุกล");
+        ColumnName.add("ชื่อ-นามสกุล");
         ColumnName.add("อายุ");
         ColumnName.add("เชื้อชาติ");
         ColumnName.add("สัญชาติ");

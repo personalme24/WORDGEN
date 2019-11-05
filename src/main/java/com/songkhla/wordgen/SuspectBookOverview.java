@@ -21,6 +21,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 import javax.swing.DefaultCellEditor;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
@@ -42,6 +43,9 @@ public class SuspectBookOverview extends javax.swing.JDialog {
      */
     public SuspectBookOverview() {
         initComponents();
+           ImageIcon img = new ImageIcon("D://Master//WD.png");
+            setIconImage(img.getImage());
+            setTitle("ระบบสำนวนอิเล็กทรอนิกส์ (CRIMES)");
         RefreshData();
         
     }

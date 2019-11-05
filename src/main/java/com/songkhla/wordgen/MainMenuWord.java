@@ -1426,7 +1426,7 @@ public class MainMenuWord extends javax.swing.JFrame {
 
     private void jPanel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel15MouseClicked
         // TODO add your handling code here:
-        ReportAllForm bcf=new ReportAllForm(this,null);
+        SuspectBookOverview bcf=new SuspectBookOverview();
          bcf.pack();
             bcf.setLocationRelativeTo(null);
         bcf.setVisible(true);
@@ -1526,9 +1526,11 @@ public class MainMenuWord extends javax.swing.JFrame {
         JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (response == JOptionPane.YES_OPTION) {
                      pst.execute();
-                     pst.close();
+                     pst.close(); 
+                     setVisible(false);
                     LogInPage lp=new LogInPage();
                      lp.setVisible(true);
+                    
 
               } 
          

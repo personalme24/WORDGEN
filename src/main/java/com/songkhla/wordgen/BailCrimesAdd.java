@@ -43,6 +43,7 @@ public class BailCrimesAdd extends javax.swing.JDialog {
         caseId=datain.get("CaseId")+"";
         personId=datain.get("NoPerson")+"";
         jLabel8.setText(personId);
+        jLabel8.setVisible(false);
         if(datain !=null){
                 String sql="select crimecasenoyear,NoPerson,crimecaseno,Investigator_Result,TypePerson,ArrestDateTimeEnd,BailDate,CourtSuspect,"
                         + "PeopleRegistrationID,PlaceArrest,ArrestDateTime,FullNamePerson,StatusSuspect,CaseId,CaseIdPerson,"
@@ -277,7 +278,7 @@ public class BailCrimesAdd extends javax.swing.JDialog {
         });
 
         jButtonEditSue.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButtonEditSue.setText("แก้ไข");
+        jButtonEditSue.setText("ดูข้อมูล/แก้ไข");
         jButtonEditSue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonEditSueActionPerformed(evt);
@@ -307,7 +308,7 @@ public class BailCrimesAdd extends javax.swing.JDialog {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jButtonAddSue)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonEditSue, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButtonEditSue, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonDeleteBailAsset)))
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -393,7 +394,7 @@ public class BailCrimesAdd extends javax.swing.JDialog {
         });
 
         jButtonEditSue1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButtonEditSue1.setText("แก้ไข");
+        jButtonEditSue1.setText("ดูข้อมูล/แก้ไข");
         jButtonEditSue1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonEditSue1ActionPerformed(evt);
@@ -416,11 +417,11 @@ public class BailCrimesAdd extends javax.swing.JDialog {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 582, Short.MAX_VALUE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jButtonAddSue1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonEditSue1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonEditSue1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonDelete1)
                         .addGap(0, 0, Short.MAX_VALUE)))

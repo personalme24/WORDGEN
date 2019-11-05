@@ -422,7 +422,12 @@ public class BaseDataMenu extends javax.swing.JDialog {
 
     private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
         // TODO add your handling code here:
-        ReportView rv = new ReportView();
+          // TODO add your handling code here:
+        JFrame frame = new JFrame();
+        JDialog dialog = new JDialog(frame);//frame is owner
+        JFrame rr = (JFrame)(dialog.getParent());
+        rr.removeAll();
+        ReportView rv = new ReportView(rr);
         rv.pack();
         rv.setLocationRelativeTo(null);
         rv.setVisible(true);

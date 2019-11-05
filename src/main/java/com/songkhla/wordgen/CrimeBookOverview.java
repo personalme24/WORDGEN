@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Vector;
+import javax.swing.ImageIcon;
 import javax.swing.JTable;
 
 /**
@@ -25,6 +26,11 @@ public class CrimeBookOverview extends javax.swing.JDialog {
      */
     public CrimeBookOverview() {
         initComponents();
+           ImageIcon img = new ImageIcon("D://Master//WD.png");
+            setIconImage(img.getImage());
+            setTitle("ระบบสำนวนอิเล็กทรอนิกส์ (CRIMES)");
+            pack();
+            setLocationRelativeTo(null);
         jTable1.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         jTable1.setPreferredScrollableViewportSize(Toolkit.getDefaultToolkit().getScreenSize());
         RefreshData();

@@ -15,6 +15,8 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Rectangle;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.DataOutputStream;
@@ -55,6 +57,9 @@ import java.util.Properties;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import javax.swing.JFormattedTextField;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.text.DateFormatter;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.json.JSONObject;
 import org.w3c.dom.Document;
@@ -84,13 +89,11 @@ public class CaseSelectOverView extends javax.swing.JDialog {
                 super(parrent,true);
 
         initComponents();
-        pack();
-        setLocationRelativeTo(null); 
         ImageIcon img = new ImageIcon("./Master/WD.png");
         setIconImage(img.getImage());
         setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
         jPanel7.setVisible(true);
-        jPanel3.setVisible(false);
+
 //        jButton2.setVisible(false);
 //        jButton1.setVisible(false);
 //        jLabelorgcode.setVisible(false);
@@ -104,7 +107,9 @@ jlabeltoken.setVisible(true);
 //    RefreshDataCrime();
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
       UtilDateModel model = new UtilDateModel();
-            model.setValue(Calendar.getInstance().getTime());
+           Calendar c = Calendar.getInstance();   // this takes current date
+           c.set(Calendar.DAY_OF_MONTH, 1);
+            model.setValue(c.getTime());
             Properties p = new Properties();        
             p.put("text.today", "Today");
             p.put("text.month", "Month");
@@ -179,9 +184,61 @@ jlabeltoken.setVisible(true);
         jPanelReg2.setLayout(new FlowLayout());
         jPanelReg2.add(DateReqEnd);  
         
-       DateAcceptEnd.getJFormattedTextField().setText("");
+         DateAcceptEnd.getJFormattedTextField().setText("");
+         DateAcceptEnd.addFocusListener(new FocusAdapter() {
+                @Override
+                public void focusGained(FocusEvent e) {
+                    System.out.println("You have foucs");
+                }
+            });
+
+//            DateAcceptEnd.getJFormattedTextField().getDocument().addDocumentListener(new DocumentListener() {
+//
+//                    public void changedUpdate(DocumentEvent e) {
+//                        JFormattedTextField f = new JFormattedTextField(new SimpleDateFormat("yyyy-M-d"));
+//    f.setValue(new Date());
+//
+//     DateFormatter fmt = (DateFormatter) f.getFormatter();
+//    fmt.setFormat(new SimpleDateFormat("d/M/yyyy"));
+//
+//                        SimpleDateFormat dateFormat = new SimpleDateFormat("d/M/yyyy");
+//                        Date date = new Date();
+//                        dateFormat.format(date);
+//                        String text_tmp = dateFormat.format(Calendar.getInstance().getTime());
+//                         if(DateAcceptEnd.getJFormattedTextField().getText().equals("6/11/2562")){ 
+//                     JOptionPane.showMessageDialog(null, "กรุณากรอกวันที่ในรูปแบบ วว/ดด/ปปปป");             
+//                    DateAcceptEnd.getJFormattedTextField().setText(text_tmp);
+//
+//                         }
+//                 
+//           
+//
+//
+//              }
+//              public void removeUpdate(DocumentEvent e) {
+//
+//              }
+//              public void insertUpdate(DocumentEvent e) {
+//                  JFormattedTextField f = new JFormattedTextField(new SimpleDateFormat("yyyy-M-d"));
+//    f.setValue(new Date());
+//
+//     DateFormatter fmt = (DateFormatter) f.getFormatter();
+//    fmt.setFormat(new SimpleDateFormat("d-M-yyyy"));
+//               SimpleDateFormat dateFormat = new SimpleDateFormat("d/M/yyyy");
+//                        Date date = new Date();
+//                        dateFormat.format(date);
+//                        String text_tmp = dateFormat.format(Calendar.getInstance().getTime());
+//                         if(DateAcceptEnd.getJFormattedTextField().getText().equals("6/11/2562")){ 
+//                            JOptionPane.showMessageDialog(null, "กรุณากรอกวันที่ในรูปแบบ วว/ดด/ปปปป"); 
+////                             System.out.println("d"+text_tmp);
+//                    DateAcceptEnd.getJFormattedTextField().setText(text_tmp);
+//              }
+//              }
+//
+//
+//                   }); 
     }
- 
+// 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -216,6 +273,7 @@ jlabeltoken.setVisible(true);
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
+        jLabel25 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableCrime = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
@@ -223,20 +281,30 @@ jlabeltoken.setVisible(true);
         jLabel13 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        jPanel10 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        casenocc1 = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTableTraffic = new javax.swing.JTable();
-        jButton4 = new javax.swing.JButton();
+        jLabel20 = new javax.swing.JLabel();
+        jLabelorgcode1 = new javax.swing.JLabel();
+        caseyearscc1 = new javax.swing.JTextField();
+        jPanelReg1 = new javax.swing.JPanel();
+        jPanelReg3 = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jButton6 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTableCrime1 = new javax.swing.JTable();
+        jButton7 = new javax.swing.JButton();
+        TotalCase1 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -292,7 +360,8 @@ jlabeltoken.setVisible(true);
 
         jTabbedPane1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
-        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ข้อมูลคดีที่ต้องการจากระบบ CRIMES ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("TH SarabunPSK", 1, 22))); // NOI18N
+        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ข้อมูลคดีที่ต้องการจากระบบ CRIMES ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("TH SarabunPSK", 1, 20))); // NOI18N
+        jPanel7.setPreferredSize(new java.awt.Dimension(1000, 132));
 
         jLabel7.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel7.setText("เลขคดี");
@@ -341,7 +410,7 @@ jlabeltoken.setVisible(true);
         );
         jPanelRegLayout.setVerticalGroup(
             jPanelRegLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 29, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanelReg2Layout = new javax.swing.GroupLayout(jPanelReg2);
@@ -352,7 +421,7 @@ jlabeltoken.setVisible(true);
         );
         jPanelReg2Layout.setVerticalGroup(
             jPanelReg2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 29, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         jLabel14.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
@@ -369,14 +438,32 @@ jlabeltoken.setVisible(true);
             }
         });
 
+        jLabel25.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel25.setText("สถานะคดีอยู่ในระหว่างสอบสวน");
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelorgcode, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel25)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(casenocc, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(caseyearscc, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanelStAcc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -386,56 +473,47 @@ jlabeltoken.setVisible(true);
                         .addComponent(jPanelEnAcc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanelReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanelReg2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabelorgcode, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(casenocc, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(caseyearscc, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton5))
+                        .addComponent(jPanelReg2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(47, 47, 47)
+                        .addComponent(jButton5)
+                        .addContainerGap())))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addGap(6, 6, 6)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(caseyearscc, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabelorgcode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(casenocc, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanelStAcc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
-                            .addComponent(jPanelEnAcc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(caseyearscc, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                        .addComponent(casenocc, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabelorgcode, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanelStAcc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelEnAcc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelReg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanelReg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanelReg2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap())
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(jButton5)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jPanelReg2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(10, 10, 10))
         );
 
         jTableCrime.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
@@ -484,36 +562,36 @@ jlabeltoken.setVisible(true);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1203, Short.MAX_VALUE)
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addComponent(jLabel12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(TotalCase)
                         .addGap(11, 11, 11)
                         .addComponent(jLabel13)
-                        .addGap(101, 101, 101)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1192, Short.MAX_VALUE)))
-                .addContainerGap(24, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(76, 76, 76)))
+                .addContainerGap())
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addContainerGap()
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(jLabel13)
                     .addComponent(TotalCase)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -521,44 +599,44 @@ jlabeltoken.setVisible(true);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 1216, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 84, Short.MAX_VALUE))
+                .addGap(0, 11, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("คดีอาญา", jPanel6);
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jButton4.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        jButton4.setText("ตกลง");
 
-        jLabel2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel2.setText("เลขคดี");
+        jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ข้อมูลคดีที่ต้องการจากระบบ CRIMES ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("TH SarabunPSK", 1, 22))); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel3.setText("ปี");
+        jLabel16.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel16.setText("เลขคดี");
 
-        jLabel4.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel4.setText("วันที่รับคดี");
+        jLabel17.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel17.setText("ปี");
 
-        jLabel5.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel5.setText("รหัสสถานี");
+        jLabel18.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel18.setText("วันที่รับคดี");
 
-        jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jLabel6.setText("ถึง");
+        jLabel19.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel19.setText("ถึงวันที่");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 208, Short.MAX_VALUE)
+            .addGap(0, 175, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 29, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -569,85 +647,195 @@ jlabeltoken.setVisible(true);
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jLabel20.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel20.setText("รหัสสถานี");
+
+        jLabelorgcode1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+
+        javax.swing.GroupLayout jPanelReg1Layout = new javax.swing.GroupLayout(jPanelReg1);
+        jPanelReg1.setLayout(jPanelReg1Layout);
+        jPanelReg1Layout.setHorizontalGroup(
+            jPanelReg1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 175, Short.MAX_VALUE)
+        );
+        jPanelReg1Layout.setVerticalGroup(
+            jPanelReg1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 29, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel5)
-                .addGap(8, 8, 8)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(161, Short.MAX_VALUE))
+        javax.swing.GroupLayout jPanelReg3Layout = new javax.swing.GroupLayout(jPanelReg3);
+        jPanelReg3.setLayout(jPanelReg3Layout);
+        jPanelReg3Layout.setHorizontalGroup(
+            jPanelReg3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 208, Short.MAX_VALUE)
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        jPanelReg3Layout.setVerticalGroup(
+            jPanelReg3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 29, Short.MAX_VALUE)
+        );
+
+        jLabel21.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel21.setText("วันที่รับแจ้ง");
+
+        jLabel22.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jLabel22.setText("ถึงวันที่");
+
+        jButton6.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jButton6.setText("เชื่อมต่อข้อมูล");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(2, 2, 2))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
+                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel19)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel21)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanelReg1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel22)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanelReg3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
+                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelorgcode1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel16)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(casenocc1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(caseyearscc1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton6))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(caseyearscc1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabelorgcode1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(casenocc1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel21, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanelReg1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel22, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanelReg3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
 
-        jTableTraffic.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
-        jTableTraffic.setModel(new javax.swing.table.DefaultTableModel(
+        jTableCrime1.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        jTableCrime1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "เลขคดี", "วันที่รับแจ้ง", "วันที่รับคำร้องทุกข์", "ข้อหา", "ชื่อผู้กล่าวหา"
+                "เลือก", "คดีที่/ปี", "เลขคดี", "ปี", "วันที่รับคำร้องทุกข์", "ข้อหา", "ผู้ต้องหา", "ผู้กล่าวหา", "ผู้รับผิดชอบ"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jTableTraffic.setRowHeight(25);
-        jTableTraffic.getTableHeader().setFont(new Font("TH SarabunPSK", Font.BOLD, 20));
-        jTableTraffic.getTableHeader().setOpaque(false);
-        jScrollPane1.setViewportView(jTableTraffic);
+        jTableCrime1.setRowHeight(25);
+        jScrollPane3.setViewportView(jTableCrime1);
+        if (jTableCrime1.getColumnModel().getColumnCount() > 0) {
+            jTableCrime1.getColumnModel().getColumn(5).setResizable(false);
+        }
 
-        jButton4.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
-        jButton4.setText("ตกลง");
+        jButton7.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        jButton7.setText("ตกลง");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
+        TotalCase1.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        TotalCase1.setText("0");
+
+        jLabel23.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        jLabel23.setText("คดี");
+
+        jLabel24.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        jLabel24.setText("จำนวนคดีทั้งหมด");
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addComponent(jLabel24)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(TotalCase1)
+                        .addGap(11, 11, 11)
+                        .addComponent(jLabel23)
+                        .addGap(101, 101, 101)
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane3))
+                        .addGap(34, 34, 34))))
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel24)
+                    .addComponent(jLabel23)
+                    .addComponent(TotalCase1)
+                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -658,20 +846,14 @@ jlabeltoken.setVisible(true);
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addComponent(jButton4)
                 .addGap(31, 31, 31))
         );
@@ -685,180 +867,184 @@ jlabeltoken.setVisible(true);
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1280, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(22, 22, 22)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addGap(28, 28, 28))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-    // TODO add your handling code here:
-          String aa="";
-            aa=MainMenuWord.tk;
-         System.out.println("Token-List:"+aa);
+        // TODO add your handling code here:
+        String aa="";
+        aa=MainMenuWord.tk;
+        System.out.println("Token-List:"+aa);
         for (int i = 0; i < jTableCrime.getRowCount(); i++) {
-	Boolean chked = Boolean.valueOf(jTableCrime.getValueAt(i, 0)
-			.toString());
-	String casno = jTableCrime.getValueAt(i, 2).toString();
-        String casyear = jTableCrime.getValueAt(i, 3).toString();
-        String orgcode=jLabelorgcode.getText();
-         String user=usernamelabel.getText();
-         String idcard=idcardlabel.getText();
-        String nameor=orgnamelabel.getText();
-//        String newnameor="";
-//        try{
-//         newnameor=URLEncoder.encode(nameor, "UTF-8");
-//        }
-//        catch(Exception e){
-//        
-//        }
-//            System.out.println("aa:"+nameor);
-        
-	if (chked) {
-            try{
-              Connection c=null;
-             c=ConnectDatabase.connect();
-            String sqlId="Select caseid,crimecaseno,crimecaseyears,crimecasenoyear from CrimeCase where crimecaseno='"+casno+"' and crimecaseyears='"+casyear+"' and crimecasenoyear='"+casno+"/"+casyear+"'";
+            Boolean chked = Boolean.valueOf(jTableCrime.getValueAt(i, 0)
+                .toString());
+            String casno = jTableCrime.getValueAt(i, 2).toString();
+            String casyear = jTableCrime.getValueAt(i, 3).toString();
+            String orgcode=jLabelorgcode.getText();
+            String user=usernamelabel.getText();
+            String idcard=idcardlabel.getText();
+            String nameor=orgnamelabel.getText();
+            //        String newnameor="";
+            //        try{
+                //         newnameor=URLEncoder.encode(nameor, "UTF-8");
+                //        }
+            //        catch(Exception e){
+                //
+                //        }
+            //            System.out.println("aa:"+nameor);
 
-            Statement s=c.createStatement();
-            ResultSet rs=s.executeQuery(sqlId);
-            
-            if (rs.next()) {
-                String cid=rs.getString("caseid");
-               int response = JOptionPane.showConfirmDialog(jPanel6, "คดีที่ "+casno+"/"+casyear+" มีข้อมูลคดีนี้แล้วต้องการบันทึกข้อมูลซ้ำหรือไม่", "ยืนยัน",
-        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        if (response == JOptionPane.YES_OPTION) {
-//             con=ConnectDatabase.connect();
-         JsonObject jsonInput = new JsonObject();
-          jsonInput.addProperty("CrimeCaseNo",casno);
-         jsonInput.addProperty("CrimeCaseYear",casyear);
-         jsonInput.addProperty("ORG_CODE",jLabelorgcode.getText());
-         jsonInput.addProperty("Usename",usernamelabel.getText());
-         jsonInput.addProperty("PasswordWordgen",aa);
-         jsonInput.addProperty("OrgName",orgnamelabel.getText()); 
-         jsonInput.addProperty("Serial",getMotherboardSerial()); 
-         String j=jsonInput.toString();
-        update_crime(jsonInput,cid);
-     System.out.println(j);
+            if (chked) {
+                try{
+                    Connection c=null;
+                    c=ConnectDatabase.connect();
+                    String sqlId="Select caseid,crimecaseno,crimecaseyears,crimecasenoyear from CrimeCase where crimecaseno='"+casno+"' and crimecaseyears='"+casyear+"' and crimecasenoyear='"+casno+"/"+casyear+"'";
 
-    } 
-            }
-            else{
-              JsonObject jsonInput = new JsonObject();
-         jsonInput.addProperty("CrimeCaseNo",casno);
-         jsonInput.addProperty("CrimeCaseYear",casyear);
-         jsonInput.addProperty("ORG_CODE",jLabelorgcode.getText());
-         jsonInput.addProperty("Usename",usernamelabel.getText());
-         jsonInput.addProperty("PasswordWordgen",aa);
-         jsonInput.addProperty("OrgName",orgnamelabel.getText()); 
-         jsonInput.addProperty("Serial",getMotherboardSerial()); 
-         String j=jsonInput.toString();
-//         String replaced = j.replace("\"", "\\\"");
-//String n="{\"CrimeCaseNo\":\""+casno+"\",\"CrimeCaseYear\":\""+casyear+"\",\"ORG_CODE\":\""+orgcode+"\",\"Usename\":\""+user+"\",\"Idcard\":\""+idcard+"\",\"OrgName\":\""+nameor+"\"}";
-//String n="{\"CrimeCaseNo\":\""+casno+"\",\"CrimeCaseYear\":\""+casyear+"\",\"ORG_CODE\":\""+jLabelorgcode.getText()+"\",\"Usename\":\""+usernamelabel.getText()+"\",\"Idcard\":\""+idcardlabel.getText()+"\",\"OrgName\":\""+orgname.getText()+"\"}";
+                    Statement s=c.createStatement();
+                    ResultSet rs=s.executeQuery(sqlId);
 
-        insert_crime(jsonInput);
-//         String j=jsonInput.toString();
-     System.out.println(j);
-            
+                    if (rs.next()) {
+                        String cid=rs.getString("caseid");
+                        int response = JOptionPane.showConfirmDialog(jPanel6, "คดีที่ "+casno+"/"+casyear+" มีข้อมูลคดีนี้แล้วต้องการบันทึกข้อมูลซ้ำหรือไม่", "ยืนยัน",
+                            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                        if (response == JOptionPane.YES_OPTION) {
+                            //             con=ConnectDatabase.connect();
+                            JsonObject jsonInput = new JsonObject();
+                            jsonInput.addProperty("CrimeCaseNo",casno);
+                            jsonInput.addProperty("CrimeCaseYear",casyear);
+                            jsonInput.addProperty("ORG_CODE",jLabelorgcode.getText());
+                            jsonInput.addProperty("Usename",usernamelabel.getText());
+                            jsonInput.addProperty("PasswordWordgen",aa);
+                            jsonInput.addProperty("OrgName",orgnamelabel.getText());
+                            jsonInput.addProperty("Serial",getMotherboardSerial());
+                            String j=jsonInput.toString();
+                            update_crime(jsonInput,cid);
+                            System.out.println(j);
+
+                        }
+                    }
+                    else{
+                        JsonObject jsonInput = new JsonObject();
+                        jsonInput.addProperty("CrimeCaseNo",casno);
+                        jsonInput.addProperty("CrimeCaseYear",casyear);
+                        jsonInput.addProperty("ORG_CODE",jLabelorgcode.getText());
+                        jsonInput.addProperty("Usename",usernamelabel.getText());
+                        jsonInput.addProperty("PasswordWordgen",aa);
+                        jsonInput.addProperty("OrgName",orgnamelabel.getText());
+                        jsonInput.addProperty("Serial",getMotherboardSerial());
+                        String j=jsonInput.toString();
+                        //         String replaced = j.replace("\"", "\\\"");
+                        //String n="{\"CrimeCaseNo\":\""+casno+"\",\"CrimeCaseYear\":\""+casyear+"\",\"ORG_CODE\":\""+orgcode+"\",\"Usename\":\""+user+"\",\"Idcard\":\""+idcard+"\",\"OrgName\":\""+nameor+"\"}";
+                        //String n="{\"CrimeCaseNo\":\""+casno+"\",\"CrimeCaseYear\":\""+casyear+"\",\"ORG_CODE\":\""+jLabelorgcode.getText()+"\",\"Usename\":\""+usernamelabel.getText()+"\",\"Idcard\":\""+idcardlabel.getText()+"\",\"OrgName\":\""+orgname.getText()+"\"}";
+
+                        insert_crime(jsonInput);
+                        //         String j=jsonInput.toString();
+                        System.out.println(j);
+
+                    }
+
+                }
+                catch(Exception ex){
+
+                }
+                //       		JOptionPane.showMessageDialog(null, "ดึงข้อมูลเรียบร้อยแล้ว");
+
+                //		JOptionPane.showMessageDialog(null, dataCol1);
             }
-            
-            }
-            catch(Exception ex){
-      
-            }
-//       		JOptionPane.showMessageDialog(null, "ดึงข้อมูลเรียบร้อยแล้ว");
-    
-           
-//		JOptionPane.showMessageDialog(null, dataCol1);
-	}
-}
-         		JOptionPane.showMessageDialog(null, "ดึงข้อมูลเรียบร้อยแล้ว");
+        }
+        JOptionPane.showMessageDialog(null, "ดึงข้อมูลเรียบร้อยแล้ว");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-     
-           
-            String aa="";
-            aa=MainMenuWord.tk;
-         System.out.println("Token:"+aa);
 
-            if(aa == null){
+        String aa="";
+        aa=MainMenuWord.tk;
+        System.out.println("Token:"+aa);
+
+        if(aa == null){
             System.out.println("empty:");
-             JFrame frame = new JFrame();
-                    JDialog dialog = new JDialog(frame);//frame is owner
-                    JFrame asv = (JFrame)(dialog.getParent());
-                    asv.removeAll();
-               LogInConfirm lc=new LogInConfirm(asv);
-                     lc.pack();
-                    lc.setLocationRelativeTo(null);
-                    lc.setVisible(true);   
-                    aa=MainMenuWord.tk;
-                System.out.println("new--------"+aa);  
-            }
+            JFrame frame = new JFrame();
+            JDialog dialog = new JDialog(frame);//frame is owner
+            JFrame asv = (JFrame)(dialog.getParent());
+            asv.removeAll();
+            LogInConfirm lc=new LogInConfirm(asv);
+            lc.pack();
+            lc.setLocationRelativeTo(null);
+            lc.setVisible(true);
+            aa=MainMenuWord.tk;
+            System.out.println("new--------"+aa);
+        }
 
-            else{
-   try { 
-            
-         String url=  "http://172.31.191.163:8383/wordgenchecktoken/?PASSWORDWORDGEN="+aa;
-             System.out.println("url:"+url);
-                  String fff =sendGET(url);
-                   JSONObject myResponse = new JSONObject(fff);
-                   String statuspasswordgen=myResponse.getString("statuspasswordgen");
-                  if(statuspasswordgen.equals("1")){
-                    
-                                      
-                  } 
+        else{
+            try {
+
+                String url=  "http://172.31.191.163:8383/wordgenchecktoken/?PASSWORDWORDGEN="+aa;
+                System.out.println("url:"+url);
+                String fff =sendGET(url);
+                JSONObject myResponse = new JSONObject(fff);
+                String statuspasswordgen=myResponse.getString("statuspasswordgen");
+                if(statuspasswordgen.equals("1")){
+
+                }
                 else if(statuspasswordgen.equals("2")){
-              JFrame frame = new JFrame();
-                                          JDialog dialog = new JDialog(frame);//frame is owner
-                                          JFrame lcf = (JFrame)(dialog.getParent());
-                                          lcf.removeAll();
-                                        LogInConfirm lc=new LogInConfirm(lcf);
-                                         lc.pack();
-                                        lc.setLocationRelativeTo(null);
-                                        lc.setVisible(true);  
-                                        aa=MainMenuWord.tk;
-                  }
-                   
-                 
-        } catch (Exception e) {
-        }  
+                    JFrame frame = new JFrame();
+                    JDialog dialog = new JDialog(frame);//frame is owner
+                    JFrame lcf = (JFrame)(dialog.getParent());
+                    lcf.removeAll();
+                    LogInConfirm lc=new LogInConfirm(lcf);
+                    lc.pack();
+                    lc.setLocationRelativeTo(null);
+                    lc.setVisible(true);
+                    aa=MainMenuWord.tk;
+                }
+
+            } catch (Exception e) {
             }
-   String timeStart="00:00";
-         String timeEnd="23:59";
-         JsonObject jsonInput = new JsonObject();
-         jsonInput.addProperty("CrimeCaseNo",casenocc.getText());
-         jsonInput.addProperty("CrimeCaseYear",caseyearscc.getText());
-         jsonInput.addProperty("ORG_CODE",jLabelorgcode.getText());
-//         jsonInput.addProperty("ORG_CODE","70028");
-         jsonInput.addProperty("PasswordWordgen",aa);         
-         jsonInput.addProperty("StatusMagenta","Magenta_inActive");
-         jsonInput.addProperty("CaseRequestDate",AcceptDate(DateReqStart.getJFormattedTextField().getText(),timeStart));
-         jsonInput.addProperty("CaseRequestDateTo",AcceptDate(DateReqEnd.getJFormattedTextField().getText(),timeEnd)); 
-         jsonInput.addProperty("CaseAcceptDate",AcceptDate(DateAcceptStart.getJFormattedTextField().getText(),timeStart));
-         jsonInput.addProperty("CaseAcceptDateTo",AcceptDate(DateAcceptEnd.getJFormattedTextField().getText(),timeEnd)); 
-         
+        }
+        String timeStart="00:00";
+        String timeEnd="23:59";
+        JsonObject jsonInput = new JsonObject();
+        jsonInput.addProperty("CrimeCaseNo",casenocc.getText());
+        jsonInput.addProperty("CrimeCaseYear",caseyearscc.getText());
+        jsonInput.addProperty("ORG_CODE",jLabelorgcode.getText());
+        //         jsonInput.addProperty("ORG_CODE","70028");
+        jsonInput.addProperty("PasswordWordgen",aa);
+        jsonInput.addProperty("StatusMagenta","Magenta_inActive");
+        jsonInput.addProperty("CaseRequestDate",AcceptDate(DateReqStart.getJFormattedTextField().getText(),timeStart));
+        jsonInput.addProperty("CaseRequestDateTo",AcceptDate(DateReqEnd.getJFormattedTextField().getText(),timeEnd));
+        jsonInput.addProperty("CaseAcceptDate",AcceptDate(DateAcceptStart.getJFormattedTextField().getText(),timeStart));
+        jsonInput.addProperty("CaseAcceptDateTo",AcceptDate(DateAcceptEnd.getJFormattedTextField().getText(),timeEnd));
+
         call_me2(jsonInput);
         TotalCase.setText(jTableCrime.getRowCount()+"");
         int rowcase=jTableCrime.getRowCount();
         if(rowcase ==0){
-        JOptionPane.showMessageDialog(null, "ไม่พบข้อมูลคดีในระบบ crimes");
+            JOptionPane.showMessageDialog(null, "ไม่พบข้อมูลคดีในระบบ crimes");
         }
-        
+
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
  
     /**
      * @param args the command line arguments
@@ -2014,12 +2200,17 @@ System.out.println("sasa:"+a);
 	}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel TotalCase;
+    private javax.swing.JLabel TotalCase1;
     private javax.swing.JTextField casenocc;
+    private javax.swing.JTextField casenocc1;
     private javax.swing.JTextField caseyearscc;
+    private javax.swing.JTextField caseyearscc1;
     private javax.swing.JLabel idcardlabel;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2027,35 +2218,41 @@ System.out.println("sasa:"+a);
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelorgcode;
+    private javax.swing.JLabel jLabelorgcode1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JPanel jPanelEnAcc;
     private javax.swing.JPanel jPanelReg;
+    private javax.swing.JPanel jPanelReg1;
     private javax.swing.JPanel jPanelReg2;
+    private javax.swing.JPanel jPanelReg3;
     private javax.swing.JPanel jPanelStAcc;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTableCrime;
-    private javax.swing.JTable jTableTraffic;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTable jTableCrime1;
     public static javax.swing.JLabel jlabeltoken;
     private javax.swing.JLabel orgnamelabel;
     private javax.swing.JLabel usernamelabel;

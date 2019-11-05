@@ -33,10 +33,18 @@ public class LoginAuthen {
             String sql ="Select * from User";
              ResultSet rs = stmt.executeQuery(sql);
              if(rs.next()){
-                 String sql2="Select * from User where serialnum='"+getMotherboardSerial()+"'";
+                 if(rs.getString("StatusLogin").equals("0")){
+                  LogInPage aa=new LogInPage();
+                 SwingUtilities.updateComponentTreeUI(aa);
+                    aa.pack();
+                 aa.setVisible(true);
+                 
+                 }
+                 else{
+                 String sql2="Select * from User where serialnum='"+getMotherboardSerial()+"' and statuslogin='1'";
                  ResultSet rs2 = stmt2.executeQuery(sql2);
                  if(rs2.next()){
-                     UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+                 UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
                    
                   MainMenuWord mw=new MainMenuWord(); 
                   SwingUtilities.updateComponentTreeUI(mw);
@@ -53,6 +61,7 @@ public class LoginAuthen {
                     aa.pack();
                  aa.setVisible(true);
                  
+                 }
                  }
 //             String st=rs.getString("StatusLogin");
 //             if(st.equals("0")){

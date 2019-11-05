@@ -128,7 +128,7 @@ public class AssetOverView extends javax.swing.JDialog {
         });
 
         jButton3.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
-        jButton3.setText("แก้ไข");
+        jButton3.setText("ดูข้อมูล/แก้ไข");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);

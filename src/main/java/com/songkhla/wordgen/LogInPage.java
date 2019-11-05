@@ -150,17 +150,24 @@ public class LogInPage extends javax.swing.JFrame {
         try{
            con = ConnectDatabase.connect();
            Statement stmt = con.createStatement();
-            String sql2="Select * from User";
+            String sql2="Select * from User where serialnum='"+getMotherboardSerial()+"'";
                  ResultSet rs2 = stmt.executeQuery(sql2);
                  if(rs2.next()){
 //                 PopupMessage pm=new PopupMessage(this);
 //                 pm.setVisible(true);
                  Username.setEditable(false);
                  Username.setText(rs2.getString("Username"));    
-                 JOptionPane.showConfirmDialog(jPanel1, "***ท่านได้ทำการเข้าสู่ระบบไว้แล้ว ไม่สามารถทำการเปลี่ยนแปลงชื่อผู้ใช้ได้\nหากต้องการเข้าใช้งานด้วยชื่อผู้ใช้อื่นให้ท่านทำการดาวน์โหลดโปรแกรมใหม่***", "แจ้งเตือน",
-                 JOptionPane.OK_OPTION); 
+//                 JOptionPane.showConfirmDialog(jPanel1, "***ท่านได้ทำการเข้าสู่ระบบไว้แล้ว ไม่สามารถทำการเปลี่ยนแปลงชื่อผู้ใช้ได้\nหากต้องการเข้าใช้งานด้วยชื่อผู้ใช้อื่นให้ท่านทำการดาวน์โหลดโปรแกรมใหม่***", "แจ้งเตือน",
+//                 JOptionPane.OK_OPTION); 
 //                 PopupMessage pm=new PopupMessage(this);
 //                 pm.setVisible(true);
+                 }
+                 else{
+                 
+                 Username.setEditable(false);
+                 Username.setText(rs2.getString("Username"));    
+                 JOptionPane.showConfirmDialog(jPanel1, "***ท่านได้ทำการเข้าสู่ระบบไว้แล้ว ไม่สามารถทำการเปลี่ยนแปลงชื่อผู้ใช้ได้\nหากต้องการเข้าใช้งานด้วยชื่อผู้ใช้อื่นให้ท่านทำการดาวน์โหลดโปรแกรมใหม่***", "แจ้งเตือน",
+                 JOptionPane.OK_OPTION); 
                  }
  
         }
@@ -304,7 +311,7 @@ private static void Login(){
 try{
         con = ConnectDatabase.connect();
              Statement stmt = con.createStatement();
-            String sql ="Select * from User Where username='"+username+"' and password='"+password+"'";
+            String sql ="Select * from User Where username='"+username+"' and password='"+password+"' and serialnum='"+getMotherboardSerial()+"'";
              ResultSet rs = stmt.executeQuery(sql);
              if(rs.next()){
           String sqlUpdate="UPDATE User set StatusLogin='1',DateLogin=?,serialnum=?  where IdUser='1'";
@@ -319,7 +326,7 @@ try{
                     MainMenuWord mwa=new MainMenuWord();
                      SwingUtilities.updateComponentTreeUI(mwa);
                      mwa.setVisible(true);
-          
+                     setVisible(false);
           }
           catch(SQLException ex){
               System.out.println("Error:"+ex);

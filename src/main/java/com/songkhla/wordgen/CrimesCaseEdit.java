@@ -1428,7 +1428,7 @@ JTextPopupMenu.addTo(CourtResult);
         });
 
         jButtonEditAccured1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jButtonEditAccured1.setText("เปิด/แก้ไข");
+        jButtonEditAccured1.setText("ดูข้อมูล/แก้ไข");
         jButtonEditAccured1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonEditAccured1ActionPerformed(evt);
@@ -1499,8 +1499,8 @@ JTextPopupMenu.addTo(CourtResult);
                             .addGroup(jPanel23Layout.createSequentialGroup()
                                 .addComponent(jButtonAddAccused1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonEditAccured1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButtonEditAccured1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonDeleteAccured1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 1077, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -5453,7 +5453,7 @@ jTableSuspect.getColumnModel().getColumn(7).setMaxWidth(0);
         Vector ColumnName = new Vector();
          ColumnName.add("ลำดับผู้กล่าวหา");
          ColumnName.add("เลขบัตรประชาชน");
-        ColumnName.add("ชื่อ-นามสุกล");
+        ColumnName.add("ชื่อ-นามสกุล");
         ColumnName.add("อายุ");
         ColumnName.add("เชื้อชาติ");
         ColumnName.add("สัญชาติ");
@@ -5534,7 +5534,7 @@ jTableAccure.getColumnModel().getColumn(8).setMaxWidth(0);
         Vector ColumnName = new Vector();
          ColumnName.add("ลำดับพยาน");
          ColumnName.add("เลขบัตรประชาชน");
-        ColumnName.add("ชื่อ-นามสุกล");
+        ColumnName.add("ชื่อ-นามสกุล");
         ColumnName.add("อายุ");
         ColumnName.add("เชื้อชาติ");
         ColumnName.add("สัญชาติ");

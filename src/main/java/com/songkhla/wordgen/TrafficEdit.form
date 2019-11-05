@@ -241,7 +241,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="0" y="60" width="-1" height="390"/>
+                      <AbsoluteConstraints x="0" y="60" width="-1" height="450"/>
                     </Constraint>
                   </Constraints>
 
@@ -351,19 +351,7 @@
                                   <Component id="jLabel3" min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="CourtType" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="8" pref="8" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel7" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="ActionCrimes" min="-2" pref="32" max="-2" attributes="0"/>
-                                  <Component id="jButtonAction" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="17" pref="17" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jLabel6" max="32767" attributes="0"/>
-                                  <Component id="jScrollPane6" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jButtonCharge" alignment="0" pref="0" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel13" min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
@@ -371,7 +359,7 @@
                                   <Component id="OccuredDateTime" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel32" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
@@ -403,7 +391,19 @@
                                   <Component id="jLabel10" min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="DailyNumber" min="-2" pref="32" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel7" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="ActionCrimes" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="jButtonAction" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="17" pref="17" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jLabel6" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane6" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jButtonCharge" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="127" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1167,8 +1167,8 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jButtonAddAccused1" min="-2" pref="80" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButtonEditAccured1" min="-2" pref="74" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jButtonEditAccured1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                                       <Component id="jButtonDeleteAccured1" min="-2" pref="82" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jScrollPane8" alignment="0" min="-2" pref="1077" max="-2" attributes="0"/>
@@ -1312,7 +1312,7 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="TH SarabunPSK" size="22" style="1"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="&#xe41;&#xe01;&#xe49;&#xe44;&#xe02;"/>
+                        <Property name="text" type="java.lang.String" value="&#xe14;&#xe39;&#xe02;&#xe49;&#xe2d;&#xe21;&#xe39;&#xe25;/&#xe41;&#xe01;&#xe49;&#xe44;&#xe02;"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonEditAccured1ActionPerformed"/>
@@ -1367,7 +1367,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jButtonAddAccused" min="-2" pref="80" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButtonEditAccured" min="-2" pref="74" max="-2" attributes="0"/>
+                                      <Component id="jButtonEditAccured" min="-2" pref="116" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jButtonDeleteAccured" min="-2" pref="82" max="-2" attributes="0"/>
                                   </Group>
@@ -1432,7 +1432,7 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="TH SarabunPSK" size="22" style="1"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="&#xe41;&#xe01;&#xe49;&#xe44;&#xe02;"/>
+                        <Property name="text" type="java.lang.String" value="&#xe14;&#xe39;&#xe02;&#xe49;&#xe2d;&#xe21;&#xe39;&#xe25;/&#xe41;&#xe01;&#xe49;&#xe44;&#xe02;"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonEditAccuredActionPerformed"/>
@@ -1588,7 +1588,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jButtonAddAccused2" min="-2" pref="80" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButtonEditAccured2" min="-2" pref="74" max="-2" attributes="0"/>
+                                      <Component id="jButtonEditAccured2" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jButtonDeleteAccured2" min="-2" pref="82" max="-2" attributes="0"/>
                                   </Group>
@@ -1628,7 +1628,7 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="TH SarabunPSK" size="22" style="1"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="&#xe41;&#xe01;&#xe49;&#xe44;&#xe02;"/>
+                        <Property name="text" type="java.lang.String" value="&#xe14;&#xe39;&#xe02;&#xe49;&#xe2d;&#xe21;&#xe39;&#xe25;/&#xe41;&#xe01;&#xe49;&#xe44;&#xe02;"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonEditAccured2ActionPerformed"/>

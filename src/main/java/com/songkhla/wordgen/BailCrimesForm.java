@@ -303,7 +303,7 @@ jTableBail.setPreferredScrollableViewportSize(Toolkit.getDefaultToolkit().getScr
 
         AddEditBail.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         AddEditBail.setIcon(new javax.swing.ImageIcon("./Master/edit (1).png"));
-        AddEditBail.setText("แก้ไข");
+        AddEditBail.setText("ดูข้อมูล/แก้ไข");
         AddEditBail.setPreferredSize(new java.awt.Dimension(79, 30));
         AddEditBail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -322,8 +322,8 @@ jTableBail.setPreferredScrollableViewportSize(Toolkit.getDefaultToolkit().getScr
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(AddEditBail, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(935, 935, 935)
+                        .addComponent(AddEditBail, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(904, 904, 904)
                         .addComponent(jCheckOnly)))
                 .addGap(41, 41, 41))
         );
