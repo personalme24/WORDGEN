@@ -34,7 +34,7 @@ import org.openxmlformats.schemas.drawingml.x2006.chart.STOrientation;
 import org.openxmlformats.schemas.drawingml.x2006.chart.STLegendPos;
 import org.openxmlformats.schemas.drawingml.x2006.chart.STTickLblPos;
 
-public class BarChart {
+public class BarChartCaseReport {
 
     public static void main(String[] args) throws Exception {
         Workbook wb = new XSSFWorkbook();

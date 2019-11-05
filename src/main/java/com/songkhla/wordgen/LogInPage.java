@@ -150,7 +150,12 @@ public class LogInPage extends javax.swing.JFrame {
         try{
            con = ConnectDatabase.connect();
            Statement stmt = con.createStatement();
-            String sql2="Select * from User where serialnum='"+getMotherboardSerial()+"'";
+                      Statement stmt2 = con.createStatement();
+
+            String sql3="Select * from User";
+             ResultSet rs3 = stmt2.executeQuery(sql3);
+             if(rs3.next()){
+                 String sql2="Select * from User where serialnum='"+getMotherboardSerial()+"'";
                  ResultSet rs2 = stmt.executeQuery(sql2);
                  if(rs2.next()){
 //                 PopupMessage pm=new PopupMessage(this);
@@ -169,6 +174,12 @@ public class LogInPage extends javax.swing.JFrame {
                  JOptionPane.showConfirmDialog(jPanel1, "***ท่านได้ทำการเข้าสู่ระบบไว้แล้ว ไม่สามารถทำการเปลี่ยนแปลงชื่อผู้ใช้ได้\nหากต้องการเข้าใช้งานด้วยชื่อผู้ใช้อื่นให้ท่านทำการดาวน์โหลดโปรแกรมใหม่***", "แจ้งเตือน",
                  JOptionPane.OK_OPTION); 
                  }
+             }
+//             else{
+//             
+//             
+//             }
+        
  
         }
         catch(SQLException ex){
