@@ -151,7 +151,7 @@ public class LogInPage extends javax.swing.JFrame {
            con = ConnectDatabase.connect();
            Statement stmt = con.createStatement();
                       Statement stmt2 = con.createStatement();
-
+             
             String sql3="Select * from User";
              ResultSet rs3 = stmt2.executeQuery(sql3);
              if(rs3.next()){
@@ -160,20 +160,24 @@ public class LogInPage extends javax.swing.JFrame {
                  if(rs2.next()){
 //                 PopupMessage pm=new PopupMessage(this);
 //                 pm.setVisible(true);
+                    Username.setText(rs2.getString("Username")); 
                  Username.setEditable(false);
-                 Username.setText(rs2.getString("Username"));    
+                    
 //                 JOptionPane.showConfirmDialog(jPanel1, "***ท่านได้ทำการเข้าสู่ระบบไว้แล้ว ไม่สามารถทำการเปลี่ยนแปลงชื่อผู้ใช้ได้\nหากต้องการเข้าใช้งานด้วยชื่อผู้ใช้อื่นให้ท่านทำการดาวน์โหลดโปรแกรมใหม่***", "แจ้งเตือน",
 //                 JOptionPane.OK_OPTION); 
 //                 PopupMessage pm=new PopupMessage(this);
 //                 pm.setVisible(true);
                  }
-                 else{
                  
+                 else{
+                  
                  Username.setEditable(false);
-                 Username.setText(rs2.getString("Username"));    
-                 JOptionPane.showConfirmDialog(jPanel1, "***ท่านได้ทำการเข้าสู่ระบบไว้แล้ว ไม่สามารถทำการเปลี่ยนแปลงชื่อผู้ใช้ได้\nหากต้องการเข้าใช้งานด้วยชื่อผู้ใช้อื่นให้ท่านทำการดาวน์โหลดโปรแกรมใหม่***", "แจ้งเตือน",
+                 Username.setText(rs3.getString("Username"));    
+                  JOptionPane.showConfirmDialog(jPanel1, "***ท่านได้ทำการเข้าสู่ระบบไว้แล้ว ไม่สามารถทำการเปลี่ยนแปลงชื่อผู้ใช้ได้\nหากต้องการเข้าใช้งานด้วยชื่อผู้ใช้อื่นให้ท่านทำการดาวน์โหลดโปรแกรมใหม่***", "แจ้งเตือน",
                  JOptionPane.OK_OPTION); 
+                 
                  }
+                 
              }
 //             else{
 //             
@@ -322,7 +326,7 @@ private static void Login(){
 try{
         con = ConnectDatabase.connect();
              Statement stmt = con.createStatement();
-            String sql ="Select * from User Where username='"+username+"' and password='"+password+"' and serialnum='"+getMotherboardSerial()+"'";
+            String sql ="Select * from User Where username='"+username+"' and password='"+password+"'";
              ResultSet rs = stmt.executeQuery(sql);
              if(rs.next()){
           String sqlUpdate="UPDATE User set StatusLogin='1',DateLogin=?,serialnum=?  where IdUser='1'";

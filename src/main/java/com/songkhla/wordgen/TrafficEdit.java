@@ -788,7 +788,7 @@ JTextPopupMenu.addTo(CourtResult);
         jLabel13.setText("วันที่เกิดเหตุ");
 
         ActionCrimes.setEditable(false);
-        ActionCrimes.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        ActionCrimes.setFont(new java.awt.Font("TH SarabunPSK", 0, 20)); // NOI18N
 
         jLabel9.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel9.setText("เวลารับแจ้ง");

@@ -319,25 +319,25 @@ public class BarChartCaseReport {
             
              System.out.println(sqlDataPoliceStation3);
            Statement stmt3 = con3.createStatement();
-            ResultSet rs3 = stmt3.executeQuery(rowCo3); 
+            ResultSet dr1 = stmt3.executeQuery(rowCo3); 
              Statement stmt4 = con3.createStatement();
-            ResultSet rs4 = stmt4.executeQuery(sqlDataPoliceStation3); 
+            ResultSet dr2 = stmt4.executeQuery(sqlDataPoliceStation3); 
             int r3=1;
             
             
-           if(rs3.next()){
-            int rw2=rs3.getInt("row");
+           if(dr1.next()){
+            int rw2=dr1.getInt("row");
                 System.out.println("sa2"+a2);
                a3=rw2+2;
            }
            
-            while (rs4.next()) {
+            while (dr2.next()) {
           
             row3 = sheet3.createRow(r3);
             cel3 = row3.createCell(0);
-            cel3.setCellValue(rs4.getString("ChargeName"));
+            cel3.setCellValue(dr2.getString("ChargeName"));
             cel3 = row3.createCell(1);
-             cel3.setCellValue(Integer.parseInt(rs4.getString("countCh")));
+             cel3.setCellValue(Integer.parseInt(dr2.getString("countCh")));
 //            cell = row.createCell(2);
 //            cell.setCellValue(new java.util.Random().nextDouble());
 //            cell = row.createCell(3);
@@ -410,7 +410,7 @@ public class BarChartCaseReport {
         //val axis
         CTValAx ctValAx3 = ctPlotArea3.addNewValAx(); 
         ctValAx3.addNewAxId().setVal(123457); //id of the val axis
-        ctScaling3 = ctValAx2.addNewScaling();
+        ctScaling3 = ctValAx3.addNewScaling();
         ctScaling3.addNewOrientation().setVal(STOrientation.MIN_MAX);
         ctValAx3.addNewDelete().setVal(false);
         ctValAx3.addNewAxPos().setVal(STAxPos.L);

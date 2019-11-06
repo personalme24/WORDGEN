@@ -5,17 +5,36 @@
  */
 package com.songkhla.wordgen;
 
+import static com.songkhla.wordgen.ChargeOverView.jTable1;
+import java.awt.Font;
+import java.awt.Toolkit;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Vector;
+import javax.swing.ImageIcon;
+import javax.swing.JTable;
+
 /**
  *
  * @author Computer
  */
-public class DeadBookOverview extends javax.swing.JFrame {
+public class DeadBookOverview extends javax.swing.JDialog {
 
     /**
-     * Creates new form DeadBookOverview
+     * Creates new form CrimeBookOverview
      */
     public DeadBookOverview() {
         initComponents();
+           ImageIcon img = new ImageIcon("D://Master//WD.png");
+            setIconImage(img.getImage());
+            setTitle("ระบบสำนวนอิเล็กทรอนิกส์ (CRIMES)");
+            pack();
+            setLocationRelativeTo(null);
+        jTable1.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        jTable1.setPreferredScrollableViewportSize(Toolkit.getDefaultToolkit().getScreenSize());
+        RefreshData();
+        
     }
 
     /**
@@ -27,17 +46,82 @@ public class DeadBookOverview extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        jPanel2.setBackground(new java.awt.Color(4, 93, 179));
+
+        jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("สมุดคุมคดีชันสูตร");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addComponent(jLabel1)
+                .addContainerGap(1034, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jTable1.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTable1.setRowHeight(25);
+        jTable1.getTableHeader().setFont(new Font("TH SarabunPSK", Font.BOLD, 20));
+        jTable1.getTableHeader().setOpaque(false);
+        jScrollPane1.setViewportView(jTable1);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 519, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 105, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -69,6 +153,7 @@ public class DeadBookOverview extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(DeadBookOverview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -77,7 +162,117 @@ public class DeadBookOverview extends javax.swing.JFrame {
             }
         });
     }
+ public void RefreshData(){
+        try{
+            
+        Connection con = ConnectDatabase.connect();
+        Statement stmt = con.createStatement();
+        String sql = "Select noperson,\n" +
+                        "       GROUP_CONCAT(distinct CASE WHEN typeperson = 'ผู้กล่าวหา' THEN fullnameperson ELSE NULL END \n" +
+                        "                     ) AS Accure,\n" +
+                        "       GROUP_CONCAT(distinct CASE WHEN typeperson = 'ผู้ตาย' THEN fullnameperson ELSE NULL END\n" +
+                        "                    ) AS Suspect, \n" +
+                        "	   GROUP_CONCAT(distinct CASE WHEN typeperson = 'พยานและบุคคลอื่นๆ' THEN fullnameperson ELSE NULL END \n" +
+                        "                    ) AS Witness,CrimeCase.*,ChargeCase.*,ActionsCaseData.*\n" +
+                        "from CrimeCase \n" +
+                        "left outer join Person on CrimeCase.caseid=Person.caseidperson\n" +
+                        "left join ChargeCase on CrimeCase.caseid=ChargeCase.ChargeCaseId\n" +
+                        "left join ActionsCaseData on CrimeCase.caseid=ActionsCaseData.ActionCaseId\n" +  
+                        "where CrimeCase.CaseType='คดีชันสูตร'\n"+
+                        "GROUP BY caseidperson";
 
+//                + "left join Person on Person.caseIdPerson = CrimeCase.CaseId "+getFilterCondition();
+
+        ResultSet rs = stmt.executeQuery(sql);
+            System.out.println("Sqll : "+sql);
+        Vector<Vector> tabledata = new Vector<Vector>();
+        while(rs.next()){
+            Vector<String> row = new Vector<String>();
+            row.add(rs.getString("CaseId"));
+            row.add(rs.getString("crimecasenoyear")); 
+            String invest=rs.getString("Investigator_Result");
+            if(invest.equals("อยู่ระหว่างสอบสวน")){
+                
+             row.add(rs.getString("Investigator_Result"));
+            }
+            else{ 
+                invest="จำหน่าย"; 
+             row.add(invest);
+            } 
+            row.add(rs.getString("CaseAcceptDate"));
+            row.add(rs.getString("CaseRequestDate"));            
+            row.add(rs.getString("Accure"));
+            row.add(rs.getString("Suspect"));
+            row.add(rs.getString("Witness"));
+            row.add(rs.getString("ChargeNameCase"));
+            row.add(rs.getString("ActionCrimesCase"));
+            row.add(rs.getString("Investigator_Result"));
+            row.add(rs.getString("Prosecutor_Result"));
+            row.add(rs.getString("CourtResult"));
+          
+           
+//            row.add(rs.getString("Investigator_Result"));
+            tabledata.add(row);
+        }
+        rs.close();
+        stmt.close();
+        Vector ColumnName = new Vector();
+        ColumnName.add("ลำดับ");
+        ColumnName.add("เลขคดี/ปี"); 
+        ColumnName.add("สถานะคดี");
+        ColumnName.add("วันที่รับคำร้องทุกข์");
+        ColumnName.add("วันที่รับแจ้งเหตุ");
+        ColumnName.add("ผู้ต้องหา");
+        ColumnName.add("ผู้กล่าวหา");
+        ColumnName.add("พยานและบุคคลอื่นๆ");
+        ColumnName.add("ข้อหา");     
+        ColumnName.add("พฤติการณ์");
+        ColumnName.add("ผลการสอบสวน");
+        ColumnName.add("ผลคดีชั้นอัยการ");
+        ColumnName.add("ผลคดีชั้นศาล");
+  
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            tabledata,
+            ColumnName
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class,
+                java.lang.String.class, java.lang.String.class, java.lang.String.class,
+                java.lang.String.class, java.lang.String.class, java.lang.String.class,
+                java.lang.String.class, java.lang.String.class, java.lang.String.class,
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        jTable1.getColumnModel().getColumn(0).setWidth(0);
+        jTable1.getColumnModel().getColumn(0).setMinWidth(0);
+        jTable1.getColumnModel().getColumn(0).setMaxWidth(0);                
+        jTable1.getColumnModel().getColumn(1).setMinWidth(50);
+        jTable1.getColumnModel().getColumn(2).setMinWidth(125);
+        jTable1.getColumnModel().getColumn(3).setMinWidth(125);
+        jTable1.getColumnModel().getColumn(4).setMinWidth(95);
+         jTable1.getColumnModel().getColumn(5).setMinWidth(180);
+        jTable1.getColumnModel().getColumn(6).setMinWidth(180);
+        jTable1.getColumnModel().getColumn(7).setMinWidth(180);
+        jTable1.getColumnModel().getColumn(8).setMinWidth(180); 
+        jTable1.getColumnModel().getColumn(9).setMinWidth(180);
+        jTable1.getColumnModel().getColumn(10).setMinWidth(140);
+         jTable1.getColumnModel().getColumn(11).setMinWidth(140);
+          jTable1.getColumnModel().getColumn(12).setMinWidth(140);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

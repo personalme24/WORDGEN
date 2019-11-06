@@ -81,7 +81,7 @@ public class AccusedForm extends javax.swing.JDialog {
             setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
       
 //     Occupation = new HintTextField("Another hint here");
-     crimecaseno.setVisible(true);
+     crimecaseno.setVisible(false);
      AnswerPerson.setVisible(false);
         jButtonInjuryOrDie.setVisible(false);
        CauseSendInjuredOrDie.setVisible(false);
@@ -474,7 +474,7 @@ UtilDateModel model5 = new UtilDateModel();
             }
         });
 
-        FullNamePerson.setFont(new java.awt.Font("TH SarabunPSK", 1, 18)); // NOI18N
+        FullNamePerson.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 
         OtherName.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
 

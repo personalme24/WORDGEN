@@ -509,7 +509,7 @@
                       <Properties>
                         <Property name="editable" type="boolean" value="false"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="TH SarabunPSK" size="22" style="1"/>
+                          <Font name="TH SarabunPSK" size="20" style="0"/>
                         </Property>
                       </Properties>
                       <AuxValues>

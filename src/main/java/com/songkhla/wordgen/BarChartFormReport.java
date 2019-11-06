@@ -407,7 +407,7 @@ public class BarChartFormReport {
         //val axis
         CTValAx ctValAx3 = ctPlotArea3.addNewValAx(); 
         ctValAx3.addNewAxId().setVal(123457); //id of the val axis
-        ctScaling3 = ctValAx2.addNewScaling();
+        ctScaling3 = ctValAx3.addNewScaling();
         ctScaling3.addNewOrientation().setVal(STOrientation.MIN_MAX);
         ctValAx3.addNewDelete().setVal(false);
         ctValAx3.addNewAxPos().setVal(STAxPos.L);

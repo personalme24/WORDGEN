@@ -1461,6 +1461,8 @@ public class MainMenuWord extends javax.swing.JFrame {
 
     private void jPanel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel17MouseClicked
         // TODO add your handling code here:
+        TrafficBookOverview tr=new TrafficBookOverview();
+        tr.setVisible(true);
     }//GEN-LAST:event_jPanel17MouseClicked
 
     private void jPanel17MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel17MouseExited
@@ -1475,6 +1477,8 @@ public class MainMenuWord extends javax.swing.JFrame {
 
     private void jPanel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel18MouseClicked
         // TODO add your handling code here:
+          DeadBookOverview db=new DeadBookOverview();
+        db.setVisible(true);
     }//GEN-LAST:event_jPanel18MouseClicked
 
     private void jPanel18MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel18MouseExited
