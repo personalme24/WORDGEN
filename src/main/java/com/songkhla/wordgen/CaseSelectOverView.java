@@ -1070,7 +1070,8 @@ jlabeltoken.setVisible(true);
         System.out.println("Token:"+aa);
         String date1=DateAcceptStart.getJFormattedTextField().getText();
         String date2=DateAcceptEnd.getJFormattedTextField().getText();
-        
+        String dateR1=DateReqStart.getJFormattedTextField().getText();
+        String dateR2=DateReqEnd.getJFormattedTextField().getText();
         if(jRadioDate1.isSelected()&& jRadioDate.isSelected()){
             if(casenocc.getText().equals("")||caseyearscc.getText().equals("")){
               JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดีหรือปีคดี");
@@ -1143,7 +1144,7 @@ jlabeltoken.setVisible(true);
             }
         
         }
-         else if(calculateDate(date1, date2)==0||calculateDate(date1, date2)==0){
+         else if(calculateDate(date1, date2)==0||calculateDate(dateR1, dateR2)==0){
              JOptionPane.showMessageDialog(null, "กรุณากรอกช่วงวันที่ไม่เกิน 3 เดือน");           
             }
         else{
