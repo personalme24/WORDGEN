@@ -192,6 +192,11 @@ public class ReportView extends javax.swing.JDialog {
 
         jButton3.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jButton3.setText("รายงายการใช้แบบฟอร์มแยกตามประเภทคดี");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jComboBox1.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
 
@@ -282,6 +287,22 @@ public class ReportView extends javax.swing.JDialog {
         
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+          String Year=jComboBox1.getSelectedItem().toString();
+        String month=jComboBox2.getSelectedIndex()+"";
+        int m=Integer.parseInt(month)+1;
+        String YearDate=Year+m;
+        try{
+            System.out.println("MMM"+YearDate);
+        BarChartFormReport.ReportCase(YearDate);
+        
+        }
+        catch(Exception ex){
+        
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

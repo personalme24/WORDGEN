@@ -274,6 +274,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="&#xe23;&#xe32;&#xe22;&#xe07;&#xe32;&#xe22;&#xe01;&#xe32;&#xe23;&#xe43;&#xe0a;&#xe49;&#xe41;&#xe1a;&#xe1a;&#xe1f;&#xe2d;&#xe23;&#xe4c;&#xe21;&#xe41;&#xe22;&#xe01;&#xe15;&#xe32;&#xe21;&#xe1b;&#xe23;&#xe30;&#xe40;&#xe20;&#xe17;&#xe04;&#xe14;&#xe35;"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JComboBox" name="jComboBox1">
           <Properties>

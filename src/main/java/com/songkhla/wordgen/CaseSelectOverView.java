@@ -15,6 +15,7 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Rectangle;
+import java.awt.Toolkit;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.io.BufferedReader;
@@ -57,6 +58,9 @@ import java.util.Properties;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import javax.swing.JFormattedTextField;
+import javax.swing.JTable;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.DateFormatter;
@@ -93,7 +97,17 @@ public class CaseSelectOverView extends javax.swing.JDialog {
         setIconImage(img.getImage());
         setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
         jPanel7.setVisible(true);
-
+        jTableCrime.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        jTableCrime.setPreferredScrollableViewportSize(Toolkit.getDefaultToolkit().getScreenSize());
+                jTableCrime.getColumnModel().getColumn(0).setMinWidth(15);
+                  jTableCrime.getColumnModel().getColumn(1).setMinWidth(75);
+         jTableCrime.getColumnModel().getColumn(2).setMinWidth(75);
+         jTableCrime.getColumnModel().getColumn(3).setMinWidth(40);
+         jTableCrime.getColumnModel().getColumn(4).setMinWidth(100);
+         jTableCrime.getColumnModel().getColumn(5).setMinWidth(250);
+         jTableCrime.getColumnModel().getColumn(6).setMinWidth(250);
+                  jTableCrime.getColumnModel().getColumn(7).setMinWidth(250);
+         jTableCrime.getColumnModel().getColumn(8).setMinWidth(250);
 //        jButton2.setVisible(false);
 //        jButton1.setVisible(false);
 //        jLabelorgcode.setVisible(false);
@@ -107,9 +121,9 @@ jlabeltoken.setVisible(true);
 //    RefreshDataCrime();
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
       UtilDateModel model = new UtilDateModel();
-           Calendar c = Calendar.getInstance();   // this takes current date
-           c.set(Calendar.DAY_OF_MONTH, 1);
-            model.setValue(c.getTime());
+//           Calendar c = Calendar.getInstance();   // this takes current date
+//           c.set(Calendar.DAY_OF_MONTH, 1);
+            model.setValue(Calendar.getInstance().getTime());
             Properties p = new Properties();        
             p.put("text.today", "Today");
             p.put("text.month", "Month");
@@ -126,6 +140,7 @@ jlabeltoken.setVisible(true);
         
           UtilDateModel model2 = new UtilDateModel();
             model2.setValue(Calendar.getInstance().getTime());
+   
         JDatePanelImpl datePane2 = new JDatePanelImpl(model2,p);
          DateAcceptEnd = new JDatePickerImpl(datePane2,new DateLabelFormatter());
 //           DateAcceptEnd.setPreferredSize(new Dimension(220,30));
@@ -184,13 +199,22 @@ jlabeltoken.setVisible(true);
         jPanelReg2.setLayout(new FlowLayout());
         jPanelReg2.add(DateReqEnd);  
         
-         DateAcceptEnd.getJFormattedTextField().setText("");
-         DateAcceptEnd.addFocusListener(new FocusAdapter() {
-                @Override
-                public void focusGained(FocusEvent e) {
-                    System.out.println("You have foucs");
-                }
-            });
+//         DateAcceptEnd.getJFormattedTextField().setText("");
+//                DateAcceptEnd.getModel().addChangeListener(new ChangeListener() {
+//        public void stateChanged(ChangeEvent e) {
+//               SimpleDateFormat dateFormat = new SimpleDateFormat("d/M/yyyy");
+//                        Date date = new Date();
+////                        dateFormat.format(date);
+//                        String text_tmp = dateFormat.format(Calendar.getInstance().getTime());
+//            if(calculateDate(DateAcceptStart.getJFormattedTextField().getText(), DateAcceptEnd.getJFormattedTextField().getText())==0){
+//                 JOptionPane.showMessageDialog(null, "วันที่ในการค้นหาต้องไม่เกิน 3 เดือน"); 
+//                DateAcceptEnd.getModel().setDate(6,11,2019);
+//                DateAcceptEnd.getModel().setSelected(true);
+//           }
+//        }
+//    });
+//     
+
 
 //            DateAcceptEnd.getJFormattedTextField().getDocument().addDocumentListener(new DocumentListener() {
 //
@@ -274,6 +298,8 @@ jlabeltoken.setVisible(true);
         jLabel15 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
+        jRadioDate = new javax.swing.JRadioButton();
+        jRadioDate1 = new javax.swing.JRadioButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableCrime = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
@@ -448,6 +474,32 @@ jlabeltoken.setVisible(true);
         jLabel25.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel25.setText("สถานะคดีอยู่ในระหว่างสอบสวน");
 
+        jRadioDate.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jRadioDate.setText("ไม่เลือกวันที่รับคดี");
+        jRadioDate.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jRadioDateItemStateChanged(evt);
+            }
+        });
+        jRadioDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioDateActionPerformed(evt);
+            }
+        });
+
+        jRadioDate1.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
+        jRadioDate1.setText("ไม่เลือกวันที่รับแจ้ง");
+        jRadioDate1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jRadioDate1ItemStateChanged(evt);
+            }
+        });
+        jRadioDate1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioDate1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -468,7 +520,11 @@ jlabeltoken.setVisible(true);
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(caseyearscc, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(caseyearscc, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jRadioDate)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioDate1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -487,7 +543,7 @@ jlabeltoken.setVisible(true);
                         .addComponent(jPanelReg2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton5)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -501,7 +557,9 @@ jlabeltoken.setVisible(true);
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(caseyearscc, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(caseyearscc, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jRadioDate)
+                                .addComponent(jRadioDate1))
                             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
                                 .addComponent(casenocc, javax.swing.GroupLayout.Alignment.LEADING))
@@ -511,14 +569,14 @@ jlabeltoken.setVisible(true);
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanelStAcc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                            .addComponent(jPanelEnAcc, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+                            .addComponent(jPanelEnAcc, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
                             .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanelReg, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                            .addComponent(jPanelReg2, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                            .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(10, 10, 10))
+                            .addComponent(jPanelReg, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanelReg2, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE))))
+                .addGap(15, 15, 15))
         );
 
         jTableCrime.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
@@ -589,8 +647,8 @@ jlabeltoken.setVisible(true);
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -613,7 +671,7 @@ jlabeltoken.setVisible(true);
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 9, Short.MAX_VALUE))
+                .addGap(0, 11, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("คดีอาญา", jPanel6);
@@ -890,7 +948,96 @@ jlabeltoken.setVisible(true);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+ private int getYear(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);    
+        int year = calendar.get(Calendar.YEAR);
+        return year;
+    }
 
+    private int getMonth(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        int month = calendar.get(Calendar.MONTH);
+        return month;
+    }
+
+    private int getDay(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        return day;
+    }
+      public static int calculateDate(String DateSt,String DateEn)
+   {
+      int st = 0;
+      String age="";
+
+       try{
+
+   Locale lc = new Locale("th","TH");
+   SimpleDateFormat ch = new SimpleDateFormat("dd/M/yyyy",lc);
+   Date a = ch.parse(DateSt);
+   Date b = ch.parse(DateEn);
+   
+//    Calendar cal = Calendar.getInstance();
+//          cal.setTime(a); 
+  SimpleDateFormat sdf = new SimpleDateFormat("yyyy",lc);
+   SimpleDateFormat formonth = new SimpleDateFormat("M",lc);
+   SimpleDateFormat fordate= new SimpleDateFormat("dd",lc);
+  String cc = sdf.format(a);
+  String mBd=formonth.format(a);
+    String dBd=fordate.format(a);
+ System.out.println("d1"+dBd);
+  int  yearBd=Integer.valueOf(cc);
+  int  dateBd=Integer.valueOf(dBd);
+
+           System.out.println("ss"+cc);
+           String y2Day=sdf.format(b);
+           String mEn=formonth.format(b);
+           String d2Day=fordate.format(new Date());
+ System.out.println("d2"+d2Day);
+
+            System.out.println("toyear"+y2Day);
+             int  thisyear=Integer.valueOf(y2Day);
+                int  monthEnd=Integer.valueOf(mEn);
+                System.out.println("monthEnd"+monthEnd);
+                 int  monthStar=Integer.valueOf(mBd);
+                System.out.println("monthStar"+monthStar);
+
+                int  thisday=Integer.valueOf(d2Day);
+                int calM=monthEnd-monthStar;
+                 int agenew=thisyear-yearBd;
+                int calY=thisday-dateBd;
+                   System.out.println("fffffffff"+calM); 
+                   if(calY ==0){
+                     if(calM >= 0 && calM <=3){
+                          st=1;
+                     
+                     
+                            }
+                     
+                     
+                        else{
+                         st=0;
+
+                        }
+                   
+                   }
+                   else{
+                     st=0;
+                   }
+              
+                       
+           
+       }catch(Exception e){
+              
+//           e.printStackTrace();
+       
+       }
+            return st;
+
+   }
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         String aa="";
@@ -972,7 +1119,7 @@ jlabeltoken.setVisible(true);
                 //		JOptionPane.showMessageDialog(null, dataCol1);
             }
         }
-        JOptionPane.showMessageDialog(null, "ดึงข้อมูลเรียบร้อยแล้ว");
+        JOptionPane.showMessageDialog(null, "การทำรายการเสร็จสิ้น");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -981,7 +1128,85 @@ jlabeltoken.setVisible(true);
         String aa="";
         aa=MainMenuWord.tk;
         System.out.println("Token:"+aa);
+        String date1=DateAcceptStart.getJFormattedTextField().getText();
+        String date2=DateAcceptEnd.getJFormattedTextField().getText();
+        
+        if(jRadioDate1.isSelected()&& jRadioDate.isSelected()){
+            if(casenocc.getText().equals("")||caseyearscc.getText().equals("")){
+              JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดีหรือปีคดี");
+            }
+            else{
+            if(aa == null){
+            System.out.println("empty:");
+            JFrame frame = new JFrame();
+            JDialog dialog = new JDialog(frame);//frame is owner
+            JFrame asv = (JFrame)(dialog.getParent());
+            asv.removeAll();
+            LogInConfirm lc=new LogInConfirm(asv);
+            lc.pack();
+            lc.setLocationRelativeTo(null);
+            lc.setVisible(true);
+            aa=MainMenuWord.tk;
+            System.out.println("new--------"+aa);
+        }
+            
+           
 
+        else{
+            try {
+
+                String url=  "http://172.31.191.163:8383/wordgenchecktoken/?PASSWORDWORDGEN="+aa;
+                System.out.println("url:"+url);
+                String fff =sendGET(url);
+                JSONObject myResponse = new JSONObject(fff);
+                String statuspasswordgen=myResponse.getString("statuspasswordgen");
+                if(statuspasswordgen.equals("1")){
+
+                }
+                else if(statuspasswordgen.equals("2")){
+                    JFrame frame = new JFrame();
+                    JDialog dialog = new JDialog(frame);//frame is owner
+                    JFrame lcf = (JFrame)(dialog.getParent());
+                    lcf.removeAll();
+                    LogInConfirm lc=new LogInConfirm(lcf);
+                    lc.pack();
+                    lc.setLocationRelativeTo(null);
+                    lc.setVisible(true);
+                    aa=MainMenuWord.tk;
+                }
+
+            } catch (Exception e) {
+            }
+            
+        }
+            String timeStart="00:00";
+        String timeEnd="23:59";
+        JsonObject jsonInput = new JsonObject();
+        jsonInput.addProperty("CrimeCaseNo",casenocc.getText());
+        jsonInput.addProperty("CrimeCaseYear",caseyearscc.getText());
+        jsonInput.addProperty("ORG_CODE",jLabelorgcode.getText());
+        //         jsonInput.addProperty("ORG_CODE","70028");
+        jsonInput.addProperty("PasswordWordgen",aa);
+        jsonInput.addProperty("StatusMagenta","Magenta_inActive");
+        
+        jsonInput.addProperty("CaseRequestDate",AcceptDate(DateReqStart.getJFormattedTextField().getText(),timeStart));
+        jsonInput.addProperty("CaseRequestDateTo",AcceptDate(DateReqEnd.getJFormattedTextField().getText(),timeEnd));
+        jsonInput.addProperty("CaseAcceptDate",AcceptDate(DateAcceptStart.getJFormattedTextField().getText(),timeStart));
+        jsonInput.addProperty("CaseAcceptDateTo",AcceptDate(DateAcceptEnd.getJFormattedTextField().getText(),timeEnd));
+
+        call_me2(jsonInput);
+        TotalCase.setText(jTableCrime.getRowCount()+"");
+        int rowcase=jTableCrime.getRowCount();
+        if(rowcase ==0){
+            JOptionPane.showMessageDialog(null, "ไม่พบข้อมูลคดีในระบบ crimes");
+        }
+            }
+        
+        }
+         else if(calculateDate(date1, date2)==0||calculateDate(date1, date2)==0){
+             JOptionPane.showMessageDialog(null, "กรุณากรอกช่วงวันที่ไม่เกิน 3 เดือน");           
+            }
+        else{
         if(aa == null){
             System.out.println("empty:");
             JFrame frame = new JFrame();
@@ -1031,6 +1256,7 @@ jlabeltoken.setVisible(true);
         //         jsonInput.addProperty("ORG_CODE","70028");
         jsonInput.addProperty("PasswordWordgen",aa);
         jsonInput.addProperty("StatusMagenta","Magenta_inActive");
+        
         jsonInput.addProperty("CaseRequestDate",AcceptDate(DateReqStart.getJFormattedTextField().getText(),timeStart));
         jsonInput.addProperty("CaseRequestDateTo",AcceptDate(DateReqEnd.getJFormattedTextField().getText(),timeEnd));
         jsonInput.addProperty("CaseAcceptDate",AcceptDate(DateAcceptStart.getJFormattedTextField().getText(),timeStart));
@@ -1042,7 +1268,9 @@ jlabeltoken.setVisible(true);
         if(rowcase ==0){
             JOptionPane.showMessageDialog(null, "ไม่พบข้อมูลคดีในระบบ crimes");
         }
-
+              }
+        
+       
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -1052,6 +1280,48 @@ jlabeltoken.setVisible(true);
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jRadioDateItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioDateItemStateChanged
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jRadioDateItemStateChanged
+
+    private void jRadioDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioDateActionPerformed
+        // TODO add your handling code here:
+                   
+                       SimpleDateFormat dateFormat = new SimpleDateFormat("d/M/yyyy",new Locale("th", "TH"));
+                        Date date = new Date();
+                        dateFormat.format(date);
+                        String text_tmp = dateFormat.format(Calendar.getInstance().getTime());
+        if(jRadioDate.isSelected()){
+        DateAcceptEnd.getJFormattedTextField().setText("");
+         DateAcceptStart.getJFormattedTextField().setText("");
+        }
+        else{
+         DateAcceptEnd.getJFormattedTextField().setText(text_tmp);
+         DateAcceptStart.getJFormattedTextField().setText(text_tmp);
+        }
+    }//GEN-LAST:event_jRadioDateActionPerformed
+
+    private void jRadioDate1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioDate1ItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioDate1ItemStateChanged
+
+    private void jRadioDate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioDate1ActionPerformed
+        // TODO add your handling code here:
+                      SimpleDateFormat dateFormat = new SimpleDateFormat("d/M/yyyy",new Locale("th", "TH"));
+                        Date date = new Date();
+                        dateFormat.format(date);
+                        String text_tmp = dateFormat.format(Calendar.getInstance().getTime());
+        if(jRadioDate1.isSelected()){
+        DateReqStart.getJFormattedTextField().setText("");
+         DateReqEnd.getJFormattedTextField().setText("");
+        }
+        else{
+         DateReqStart.getJFormattedTextField().setText(text_tmp);
+         DateReqEnd.getJFormattedTextField().setText(text_tmp);
+        }
+    }//GEN-LAST:event_jRadioDate1ActionPerformed
  
     /**
      * @param args the command line arguments
@@ -1136,7 +1406,7 @@ jlabeltoken.setVisible(true);
         }
     }
     public static String AcceptDate(String acdate,String actime){
-    String formattedDate=null;
+    String formattedDate="";
      try{
         String dateAccept=acdate+" "+actime;  
         SimpleDateFormat inputFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
@@ -1329,7 +1599,10 @@ jlabeltoken.setVisible(true);
                 } catch (Exception e) {
                 System.out.println(e);
                 }
-     
+ 
+
+
+               
                 }
 
     public static void insert_crime(JsonObject a){
@@ -2205,6 +2478,7 @@ System.out.println("sasa:"+a);
 	        return null;
 	    }
 	}
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel TotalCase;
     private javax.swing.JLabel TotalCase1;
@@ -2255,6 +2529,8 @@ System.out.println("sasa:"+a);
     private javax.swing.JPanel jPanelReg2;
     private javax.swing.JPanel jPanelReg3;
     private javax.swing.JPanel jPanelStAcc;
+    private javax.swing.JRadioButton jRadioDate;
+    private javax.swing.JRadioButton jRadioDate1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;

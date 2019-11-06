@@ -26,6 +26,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
@@ -319,11 +320,14 @@ public class W5 {
                         
 		}catch( Exception ex) {
 			ex.printStackTrace();
+                         JOptionPane.showMessageDialog(null, "ไม่สามารถสร้างไฟล์ได้เนื่องจากไฟล์ถูกเปิดอยู่");
 		}
                 
             }
             } catch (Exception e) {
                 e.printStackTrace();
+               
+                JOptionPane.showMessageDialog(null, "");
             }
         
               

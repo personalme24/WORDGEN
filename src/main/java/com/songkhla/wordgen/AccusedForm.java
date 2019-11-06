@@ -135,7 +135,7 @@ UtilDateModel model5 = new UtilDateModel();
                String[] ItemDead = {"","พยาน","บิดาผู้ตาย", "มารดาผู้ตาย", "บุตรผู้ตาย", "สามีผูตาย", "ภริยาผู้ตาย", "ผู้ปกครองผู้ตาย", "พี่ร่วมบิดามารดาของผู้ตาย",
                                "พี่ร่วมบิดาของผู้ตาย", "พี่ร่วมมารดาของผู้ตาย", "น้องร่วมบิดามารดาของผู้ตาย", "น้องร่วมบิดาของผู้ตาย", "น้องร่วมมารดาของผู้ตาย",
                                 "ลุงผู้ตาย","ป้าผู้ตาย","น้าผู้ตาย","อาผู้ตาย","ปู่ผู้ตาย","ย่าผู้ตาย","ตาผู้ตาย","ยายผู้ตาย","หลานผู้ตาย","เหลนผู้ตาย","ผู้มีส่วนได้เสียกับผู้ตาย","พนักงานสอบสวนในคดี"};
-       String[] ItemCrimes= {"","ผู้จับกุมผู้ต้องหาและยึดของกลาง", "ผู้จับกุมผู้ต้องหา", "ผู้พบการกระทำผิดและยึดของกลาง", "ผู้พบการกระทำผิด", "ผู้เสียหาย", "ผู้จัดการแทนผู้เสียหาย", "ผู้รับมอบอำนาจจากผู้เสียหาย","พนักงานสอบสวนในคดี"};
+       String[] ItemCrimes= {"","ผู้กล่าวหา","ผู้จับกุมผู้ต้องหาและยึดของกลาง", "ผู้จับกุมผู้ต้องหา", "ผู้พบการกระทำผิดและยึดของกลาง", "ผู้พบการกระทำผิด", "ผู้เสียหาย", "ผู้จัดการแทนผู้เสียหาย", "ผู้รับมอบอำนาจจากผู้เสียหาย","พนักงานสอบสวนในคดี"};
        if(typeCase.equals("ชันสูตร")){
            RelatedAccused.setModel(new DefaultComboBoxModel<>(ItemDead));
 
@@ -160,7 +160,7 @@ UtilDateModel model5 = new UtilDateModel();
             Height.setText(Checknull(datain.get("Height"))+"");
             Weight.setText(Checknull(datain.get("Weight"))+"");
             HouseNumber.setText(Checknull(datain.get("HouseNumber"))+"");
-            IssueDate.getJFormattedTextField().setText(datain.get("IssueDate")+"");
+            IssueDate.getJFormattedTextField().setText(Checknull(datain.get("IssueDate"))+"");
             Moo.setText(Checknull(datain.get("Moo"))+"");
             MotherFullName.setText(Checknull(datain.get("MotherFullName"))+"");
             Nationality.setText(Checknull(datain.get("Nationality"))+"");

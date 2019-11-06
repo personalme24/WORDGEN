@@ -219,19 +219,29 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 //              stSuspect=datain.get("StatusSuspect")+"";
 //             StatusSuspect.setText(datain.get("StatusSuspect")+"");
 //             Court=datain.get("CourtSuspect")+"";
-           
-            
-//           
-//                String sql="select CaseId,crimecasenoyear,AccureandOther,chargecase.ChargeCodeCase ChargeCase,chargecase.ChargeNameCase ChargeNameCase,crimecaseyears,crimecaseno,CaseType,Person.* from Person\n"+
-//                           "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId\n"+
-//                            "left join chargecase on crimecase.CaseId=chargecase.ChargeCaseId\n" +
-//                          " Where CaseId='"+caseid+"' and noperson='"+person+"'";
-                    String sql="select Person.* from Person\n"+
-                          " Where noperson='"+person+"'";
+           String sql;
+            String sqlCase="Select caseid from crimecase where caseid='"+caseid+"'";
+           Connection conc = ConnectDatabase.connect();
+                Statement stmtc = conc.createStatement();
+                ResultSet rsc = stmtc.executeQuery(sqlCase);
+                if(rsc.next()){
+                
+                 sql="select CaseId,crimecasenoyear,AccureandOther,chargecase.ChargeCodeCase ChargeCase,chargecase.ChargeNameCase ChargeNameCase,crimecaseyears,crimecaseno,CaseType,Person.* from Person\n"+
+                           "left join CrimeCase on Person.CaseIdPerson=CrimeCase.CaseId\n"+
+                            "left join chargecase on crimecase.CaseId=chargecase.ChargeCaseId\n" +
+                          " Where CaseId='"+caseid+"' and noperson='"+person+"'";
+                }
+                else{
+                 sql="select Person.* from Person\n"+
+                          " Where noperson='"+person+"'";  
+                
+                }
+               
+                    
                 try{
-                    System.out.println("ssssssssssss"+sql);
-                     Connection con = ConnectDatabase.connect();
+             Connection con = ConnectDatabase.connect();
                 Statement stmt = con.createStatement();
+                    System.out.println(sql);
                 ResultSet rs = stmt.executeQuery(sql);
                 if(rs.next()){
                     
@@ -259,12 +269,16 @@ public class SueCrimesFrom extends javax.swing.JDialog {
             CourtSuspect.setText(rs.getString("CourtSuspect"));
             String firstsue=rs.getString("SueFirst");
             String sf=rs.getString("SueFirstDate");
-             System.out.println("ddddddddddddddddd:"+firstsue+":gggggggg");
-             
-             if(firstsue.equals(null)||firstsue.equals("null")||firstsue.equals("")||sf.equals("null")||sf.equals(null)||sf.equals(""))
+//             System.out.println("ddddddddddddddddd:"+firstsue+":gggggggg");
+//            System.out.println("ddddddddddddddddd:"+stSuspect+":gggggggg");
+            if(firstsue==null){
+            System.out.println("Status:LoopEE");
+            }
+     if(firstsue==null||firstsue.equals("null")||firstsue.equals("")||sf.equals("null")||sf==null||sf.equals(""))
             {
-                
+            System.out.println("Status:Loop");
                 if(Court.equals("ศาลแขวง")&&(stSuspect.equals("ผัดฟ้องฝากขัง")||stSuspect.equals("ผัดฟ้อง"))){
+                    System.out.println("Status:Loop1");
             SueFirst.setText("1");
             SueFirstDate.setText(arrestDate);
             SueFirstTotal.setText("6");
@@ -382,11 +396,11 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 //            
 //         }
         
-             }
+             
                     SueFirst.setText(Checknull(rs.getString("SueFirst")));
-            SueFirstDate.setText(Checknull(rs.getString("SueFirstDate")));        
+            SueFirstDate.setText(ChangFormatSQL(Checknull(rs.getString("SueFirstDate"))));        
 //            SueFirstEnd.setText(Checknull(datain.get("SueFirstEnd")));
-            SueFirstEnd.setText(Checknull(rs.getString("SueFirstEnd")));
+            SueFirstEnd.setText(ChangFormatSQL(Checknull(rs.getString("SueFirstEnd"))));
 
           
           
@@ -394,44 +408,53 @@ public class SueCrimesFrom extends javax.swing.JDialog {
            SueFirstRequest.setSelectedItem(Checknull(rs.getString("SueFirstRequest")));
            SueFirstCause.setSelectedItem(Checknull(rs.getString("SueFirstCause")));
             SueSecond.setText(Checknull(rs.getString("SueSecond")));
-            SueSecDateT.setText(Checknull(rs.getString("SueSecDate")));        
-            SueSecEnd.setText(Checknull(rs.getString("SueSecEnd")));
+            SueSecDateT.setText(ChangFormatSQL(Checknull(rs.getString("SueSecDate"))));        
+            SueSecEnd.setText(ChangFormatSQL(Checknull(rs.getString("SueSecEnd"))));
             SueSecTotal.setText(Checknull(rs.getString("SueSecTotal")));
            SueSecRequest.setSelectedItem(Checknull(rs.getString("SueSecRequest")));
            SueSecCause.setSelectedItem(Checknull(rs.getString("SueSecCause")));
              SueThird.setText(Checknull(rs.getString("SueThird")));
-            ThirdDate.setText(Checknull(rs.getString("SueThirdDate")));        
-            SueThirdEnd.setText(Checknull(rs.getString("SueThirdEnd")));
+            ThirdDate.setText(ChangFormatSQL(Checknull(rs.getString("SueThirdDate"))));        
+            SueThirdEnd.setText(ChangFormatSQL(Checknull(rs.getString("SueThirdEnd"))));
             SueThirdTotal.setText(Checknull(rs.getString("SueThirdTotal")));
            SueThirdRequest.setSelectedItem(Checknull(rs.getString("SueThirdRequest")));
            SueThirdCause.setSelectedItem(Checknull(rs.getString("SueThirdCause")));
              SueForth.setText(Checknull(rs.getString("SueFourth")));
-            FourthDate.setText(Checknull(rs.getString("SueFourthDate")));        
-            SueFourthEnd.setText(Checknull(rs.getString("SueFourthEnd")));
+            FourthDate.setText(ChangFormatSQL(Checknull(rs.getString("SueFourthDate"))));        
+            SueFourthEnd.setText(ChangFormatSQL(Checknull(rs.getString("SueFourthEnd"))));
             SueFourthTotal.setText(Checknull(rs.getString("SueFourthtotal")));
            SueFourthRequest.setSelectedItem(Checknull(rs.getString("SueFourthRequest")));
            SueFourthCause.setSelectedItem(Checknull(rs.getString("SueFourthCause")));
              SueFifth.setText(Checknull(rs.getString("SueFifth")));
-            FifthDate.setText(Checknull(rs.getString("SueFifthDate")));        
-            SueFifthEnd.setText(Checknull(rs.getString("SueFifthEnd")));
+            FifthDate.setText(ChangFormatSQL(Checknull(rs.getString("SueFifthDate"))));        
+            SueFifthEnd.setText(ChangFormatSQL(Checknull(rs.getString("SueFifthEnd"))));
             SueFifthTotal.setText(Checknull(rs.getString("SueFifthTotal")));
            SueFifthRequest.setSelectedItem(Checknull(rs.getString("SueFifthRequest")));
            SueFifthCause.setSelectedItem(Checknull(rs.getString("SueFifthCause")));
               SueSixth.setText(Checknull(rs.getString("SueSixth")));
-            SixthDate.setText(Checknull(rs.getString("SueSixthDate")));        
-            SueSixthEnd.setText(Checknull(rs.getString("SueSixthEnd")));
+            SixthDate.setText(ChangFormatSQL(Checknull(rs.getString("SueSixthDate"))));        
+            SueSixthEnd.setText(ChangFormatSQL(Checknull(rs.getString("SueSixthEnd"))));
             SueSixthTotal.setText(Checknull(rs.getString("SueSixthTotal")));
            SueSixthRequest.setSelectedItem(Checknull(rs.getString("SueSixthRequest")));
            SueSixthCause.setSelectedItem(Checknull(rs.getString("SueSixthCause")));       
                SueSeventh.setText(Checknull(rs.getString("SueSeven")));
-            SevDate.setText(Checknull(rs.getString("SueSevenDate")));        
-            SueSevenEnd.setText(Checknull(rs.getString("SueSevenEnd")));
+            SevDate.setText(ChangFormatSQL(Checknull(rs.getString("SueSevenDate"))));        
+            SueSevenEnd.setText(ChangFormatSQL(Checknull(rs.getString("SueSevenEnd"))));
             SueSevenTotal.setText(Checknull(rs.getString("SueSevenTotal")));
            SueSevRequest.setSelectedItem(Checknull(rs.getString("SueSevenRequest")));
            SueSevCause.setSelectedItem(Checknull(rs.getString("SueSevenCause")));        
-                     PeopleRegistrationID.setText(rs.getString("PeopleRegistrationID")+"");            
-                     FullNamePerson.setText(rs.getString("FullNamePerson")+"");
+                        
+                     
+             }     
+                PeopleRegistrationID.setText(rs.getString("PeopleRegistrationID")+"");  
+                FullNamePerson.setText(rs.getString("FullNamePerson")+"");
+                 AccureandOther.setText(Checknull(rs.getString("AccureandOther"))+"");
+
+            ChargeName.setText(Checknull(rs.getString("ChargeNameCase")));
+//            SueFirst.setText(datain.get("SueFirst")+"");
+//            SueFirstDate.setText(datain.get("SueFirstDate")+"");   
                 }
+
                 }catch(Exception ex)
                 {}               
 //                  caseyear=datain.get("crimecaseyears")+"";
@@ -3235,7 +3258,7 @@ catch (Exception d) {  //System.out.println(d);
     return newFormatDate;
     
     }
-     
+
   public String CalculateDateNextTimes(String DateEnd) {
 
     String DateNextTime="";

@@ -36,7 +36,7 @@ import org.openxmlformats.schemas.drawingml.x2006.chart.STOrientation;
 import org.openxmlformats.schemas.drawingml.x2006.chart.STLegendPos;
 import org.openxmlformats.schemas.drawingml.x2006.chart.STTickLblPos;
 
-public class BarChartCaseReport {
+public class BarChartFormReport {
     public static void ReportCase(String YearDate) throws Exception {
     
     Workbook wb = new XSSFWorkbook();
@@ -52,12 +52,11 @@ public class BarChartCaseReport {
     int a=0;
    try{
             Connection con=ConnectDatabase.connect();  
-            String rowCo="SELECT COUNT(DISTINCT ChargeUse) row,strftime('%Y%m', DateToday) daterep from DataCharge\n" +
-                         "where TypeCaseCharge='คดีอาญา' and daterep='"+YearDate+"'";
-             String sqlDataPoliceStation="select ChargeUse,count(ChargeUse) countCh,ChargeName,strftime('%Y%m', DateToday) daterep from DataCharge\n" +
-                                            "left join Charge on DataCharge.ChargeUse=Charge.ChargeCode\n" +
-                                            "where TypeCaseCharge='คดีอาญา' and daterep='"+YearDate+"'\n" +
-                                            "group by ChargeUse";
+            String rowCo="SELECT COUNT(DISTINCT NameReport) row,strftime('%Y%m', DateToday) daterep from DataForm\n" +
+                         "where TypeCaseReport='คดีอาญา' and daterep='"+YearDate+"'";
+             String sqlDataPoliceStation="select NameReport,count(NameReport) countReport,strftime('%Y%m', DateToday) daterep from DataForm\n" +
+                                            "where TypeCaseReport='คดีอาญา' and daterep='"+YearDate+"'\n" +
+                                            "group by NameReport";
             
              System.out.println(sqlDataPoliceStation);
            Statement stmt1 = con.createStatement();
@@ -77,9 +76,9 @@ public class BarChartCaseReport {
           
             row = sheet.createRow(r);
             cell = row.createCell(0);
-            cell.setCellValue(rs.getString("ChargeName"));
+            cell.setCellValue(rs.getString("NameReport"));
             cell = row.createCell(1);
-             cell.setCellValue(Integer.parseInt(rs.getString("countCh")));
+             cell.setCellValue(Integer.parseInt(rs.getString("countReport")));
 //            cell = row.createCell(2);
 //            cell.setCellValue(new java.util.Random().nextDouble());
 //            cell = row.createCell(3);
@@ -183,12 +182,11 @@ public class BarChartCaseReport {
     int a2=0;
    try{
             Connection con2=ConnectDatabase.connect();  
-            String rowCo2="SELECT COUNT(DISTINCT ChargeUse) row,strftime('%Y%m', DateToday) daterep from DataCharge\n" +
-                         "where TypeCaseCharge='คดีจราจร' and daterep='"+YearDate+"'";
-             String sqlDataPoliceStation2="select ChargeUse,count(ChargeUse) countCh,ChargeName,strftime('%Y%m', DateToday) daterep from DataCharge\n" +
-                                            "left join Charge on DataCharge.ChargeUse=Charge.ChargeCode\n" +
-                                            "where TypeCaseCharge='คดีจราจร' and daterep='"+YearDate+"'\n" +
-                                            "group by ChargeUse";
+             String rowCo2="SELECT COUNT(DISTINCT NameReport) row,strftime('%Y%m', DateToday) daterep from DataForm\n" +
+                         "where TypeCaseReport='คดีจราจร' and daterep='"+YearDate+"'";
+             String sqlDataPoliceStation2="select NameReport,count(NameReport) countReport,strftime('%Y%m', DateToday) daterep from DataForm\n" +
+                                            "where TypeCaseReport='คดีจราจร' and daterep='"+YearDate+"'\n" +
+                                            "group by NameReport";
             
              System.out.println(sqlDataPoliceStation2);
            Statement stmt2 = con2.createStatement();
@@ -208,9 +206,9 @@ public class BarChartCaseReport {
           
             row2 = sheet2.createRow(r2);
             cel2 = row2.createCell(0);
-            cel2.setCellValue(rs3.getString("ChargeName"));
+            cel2.setCellValue(rs3.getString("NameReport"));
             cel2 = row2.createCell(1);
-             cel2.setCellValue(Integer.parseInt(rs3.getString("countCh")));
+             cel2.setCellValue(Integer.parseInt(rs3.getString("countReport")));
 //            cell = row.createCell(2);
 //            cell.setCellValue(new java.util.Random().nextDouble());
 //            cell = row.createCell(3);
@@ -310,12 +308,11 @@ public class BarChartCaseReport {
     int a3=0;
    try{
             Connection con3=ConnectDatabase.connect();  
-            String rowCo3="SELECT COUNT(DISTINCT ChargeUse) row,strftime('%Y%m', DateToday) daterep from DataCharge\n" +
-                         "where TypeCaseCharge='คดีชันสูตร' and daterep='"+YearDate+"'";
-             String sqlDataPoliceStation3="select ChargeUse,count(ChargeUse) countCh,ChargeName,strftime('%Y%m', DateToday) daterep from DataCharge\n" +
-                                            "left join Charge on DataCharge.ChargeUse=Charge.ChargeCode\n" +
-                                            "where TypeCaseCharge='คดีชันสูตร' and daterep='"+YearDate+"'\n" +
-                                            "group by ChargeUse";
+            String rowCo3="SELECT COUNT(DISTINCT NameReport) row,strftime('%Y%m', DateToday) daterep from DataForm\n" +
+                         "where TypeCaseReport='คดีชันสูตร' and daterep='"+YearDate+"'";
+             String sqlDataPoliceStation3="select NameReport,count(NameReport) countReport,strftime('%Y%m', DateToday) daterep from DataForm\n" +
+                                            "where TypeCaseReport='คดีชันสูตร' and daterep='"+YearDate+"'\n" +
+                                            "group by NameReport";
             
              System.out.println(sqlDataPoliceStation3);
            Statement stmt3 = con3.createStatement();
@@ -335,9 +332,9 @@ public class BarChartCaseReport {
           
             row3 = sheet3.createRow(r3);
             cel3 = row3.createCell(0);
-            cel3.setCellValue(rs4.getString("ChargeName"));
+            cel3.setCellValue(rs4.getString("NameReport"));
             cel3 = row3.createCell(1);
-             cel3.setCellValue(Integer.parseInt(rs4.getString("countCh")));
+             cel3.setCellValue(Integer.parseInt(rs4.getString("countReport")));
 //            cell = row.createCell(2);
 //            cell.setCellValue(new java.util.Random().nextDouble());
 //            cell = row.createCell(3);
@@ -428,7 +425,7 @@ public class BarChartCaseReport {
 
          File f3=new File("./รายงานสถิติ");
         f3.mkdirs();
-        FileOutputStream fileOut = new FileOutputStream("./รายงานสถิติ/รายงายการใช้ข้อหาแยกตามประเภทคดี-"+YearDate+".xlsx");
+        FileOutputStream fileOut = new FileOutputStream("./รายงานสถิติ/รายงายการใช้แบบฟอร์มแยกตามประเภทคดี-"+YearDate+".xlsx");
         wb.write(fileOut);
         fileOut.close();
        Desktop desktop = Desktop.getDesktop();

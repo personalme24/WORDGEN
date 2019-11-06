@@ -545,7 +545,7 @@
                               <Component id="BtSaveAccused" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jButton2" alignment="3" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="322" max="32767" attributes="0"/>
+                          <EmptySpace pref="323" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -578,7 +578,7 @@
                 <Component class="javax.swing.JButton" name="BtSaveAccused">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="TH SarabunPSK" size="22" style="1"/>
+                      <Font name="TH SarabunPSK" size="20" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;"/>
                   </Properties>

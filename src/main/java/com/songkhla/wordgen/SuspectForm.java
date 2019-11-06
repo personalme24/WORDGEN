@@ -407,7 +407,7 @@ public class SuspectForm extends javax.swing.JDialog {
              if(statusBail.equals("ประกัน")){            
              jCheckBail.setSelected(true);
              }      
-             StatusSueAndPutInJail.setText(datain.get("StatusSueAndPutInJail")+"");
+             StatusSueAndPutInJail.setText(Checknull(datain.get("StatusSueAndPutInJail"))+"");
              String court=datain.get("CourtSuspect")+"";
                if(court.equals("ศาลอาญา/ศาลจังหวัด")){
 

@@ -1510,6 +1510,8 @@ public class MainMenuWord extends javax.swing.JFrame {
     private void howtomenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_howtomenu2MouseClicked
         // TODO add your handling code here:
         CaseSelectOverView cs=new CaseSelectOverView(this);
+        cs.pack();
+        cs.setLocationRelativeTo(null);
         cs.setVisible(true);
     }//GEN-LAST:event_howtomenu2MouseClicked
 
