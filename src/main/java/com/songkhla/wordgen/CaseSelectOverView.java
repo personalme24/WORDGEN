@@ -103,7 +103,7 @@ public class CaseSelectOverView extends javax.swing.JDialog {
                   jTableCrime.getColumnModel().getColumn(1).setMinWidth(75);
          jTableCrime.getColumnModel().getColumn(2).setMinWidth(75);
          jTableCrime.getColumnModel().getColumn(3).setMinWidth(40);
-         jTableCrime.getColumnModel().getColumn(4).setMinWidth(100);
+         jTableCrime.getColumnModel().getColumn(4).setMinWidth(150);
          jTableCrime.getColumnModel().getColumn(5).setMinWidth(250);
          jTableCrime.getColumnModel().getColumn(6).setMinWidth(250);
                   jTableCrime.getColumnModel().getColumn(7).setMinWidth(250);
@@ -199,68 +199,7 @@ jlabeltoken.setVisible(true);
         jPanelReg2.setLayout(new FlowLayout());
         jPanelReg2.add(DateReqEnd);  
         
-//         DateAcceptEnd.getJFormattedTextField().setText("");
-//                DateAcceptEnd.getModel().addChangeListener(new ChangeListener() {
-//        public void stateChanged(ChangeEvent e) {
-//               SimpleDateFormat dateFormat = new SimpleDateFormat("d/M/yyyy");
-//                        Date date = new Date();
-////                        dateFormat.format(date);
-//                        String text_tmp = dateFormat.format(Calendar.getInstance().getTime());
-//            if(calculateDate(DateAcceptStart.getJFormattedTextField().getText(), DateAcceptEnd.getJFormattedTextField().getText())==0){
-//                 JOptionPane.showMessageDialog(null, "วันที่ในการค้นหาต้องไม่เกิน 3 เดือน"); 
-//                DateAcceptEnd.getModel().setDate(6,11,2019);
-//                DateAcceptEnd.getModel().setSelected(true);
-//           }
-//        }
-//    });
-//     
 
-
-//            DateAcceptEnd.getJFormattedTextField().getDocument().addDocumentListener(new DocumentListener() {
-//
-//                    public void changedUpdate(DocumentEvent e) {
-//                        JFormattedTextField f = new JFormattedTextField(new SimpleDateFormat("yyyy-M-d"));
-//    f.setValue(new Date());
-//
-//     DateFormatter fmt = (DateFormatter) f.getFormatter();
-//    fmt.setFormat(new SimpleDateFormat("d/M/yyyy"));
-//
-//                        SimpleDateFormat dateFormat = new SimpleDateFormat("d/M/yyyy");
-//                        Date date = new Date();
-//                        dateFormat.format(date);
-//                        String text_tmp = dateFormat.format(Calendar.getInstance().getTime());
-//                         if(DateAcceptEnd.getJFormattedTextField().getText().equals("6/11/2562")){ 
-//                     JOptionPane.showMessageDialog(null, "กรุณากรอกวันที่ในรูปแบบ วว/ดด/ปปปป");             
-//                    DateAcceptEnd.getJFormattedTextField().setText(text_tmp);
-//
-//                         }
-//                 
-//           
-//
-//
-//              }
-//              public void removeUpdate(DocumentEvent e) {
-//
-//              }
-//              public void insertUpdate(DocumentEvent e) {
-//                  JFormattedTextField f = new JFormattedTextField(new SimpleDateFormat("yyyy-M-d"));
-//    f.setValue(new Date());
-//
-//     DateFormatter fmt = (DateFormatter) f.getFormatter();
-//    fmt.setFormat(new SimpleDateFormat("d-M-yyyy"));
-//               SimpleDateFormat dateFormat = new SimpleDateFormat("d/M/yyyy");
-//                        Date date = new Date();
-//                        dateFormat.format(date);
-//                        String text_tmp = dateFormat.format(Calendar.getInstance().getTime());
-//                         if(DateAcceptEnd.getJFormattedTextField().getText().equals("6/11/2562")){ 
-//                            JOptionPane.showMessageDialog(null, "กรุณากรอกวันที่ในรูปแบบ วว/ดด/ปปปป"); 
-////                             System.out.println("d"+text_tmp);
-//                    DateAcceptEnd.getJFormattedTextField().setText(text_tmp);
-//              }
-//              }
-//
-//
-//                   }); 
     }
 // 
     /**
@@ -625,9 +564,14 @@ jlabeltoken.setVisible(true);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+            .addGroup(jPanel9Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1203, Short.MAX_VALUE)
+                            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 1203, Short.MAX_VALUE))
+                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
                         .addComponent(jLabel12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -636,12 +580,7 @@ jlabeltoken.setVisible(true);
                         .addComponent(jLabel13)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(88, 88, 88))
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1203, Short.MAX_VALUE)
-                            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 1203, Short.MAX_VALUE))
-                        .addContainerGap())))
+                        .addGap(18, 18, 18))))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -650,13 +589,13 @@ jlabeltoken.setVisible(true);
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(jLabel13)
                     .addComponent(TotalCase)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -670,8 +609,9 @@ jlabeltoken.setVisible(true);
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("คดีอาญา", jPanel6);
@@ -1029,7 +969,7 @@ jlabeltoken.setVisible(true);
                    }
               
                        
-           
+           System.out.println("status:"+st);
        }catch(Exception e){
               
 //           e.printStackTrace();
@@ -1599,7 +1539,15 @@ jlabeltoken.setVisible(true);
                 } catch (Exception e) {
                 System.out.println(e);
                 }
- 
+                 jTableCrime.getColumnModel().getColumn(0).setMinWidth(15);
+                  jTableCrime.getColumnModel().getColumn(1).setMinWidth(75);
+         jTableCrime.getColumnModel().getColumn(2).setMinWidth(75);
+         jTableCrime.getColumnModel().getColumn(3).setMinWidth(40);
+         jTableCrime.getColumnModel().getColumn(4).setMinWidth(150);
+         jTableCrime.getColumnModel().getColumn(5).setMinWidth(250);
+         jTableCrime.getColumnModel().getColumn(6).setMinWidth(250);
+                  jTableCrime.getColumnModel().getColumn(7).setMinWidth(250);
+         jTableCrime.getColumnModel().getColumn(8).setMinWidth(250);
 
 
                

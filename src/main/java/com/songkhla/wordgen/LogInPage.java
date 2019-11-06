@@ -651,8 +651,12 @@ String  username=Username.getText();
                              pst4.setString(9,myResponse.getString("zipcode"));                        
                              pst4.setString(10,myResponse.getString("bk"));                        
                              pst4.setString(11,myResponse.getString("bh"));  
-                             pst4.setString(12,myResponse.getString("mobilephone"));                                pst4.setString(12,myResponse.getString("mobilephone"));                        
+                             pst4.setString(12,myResponse.getString("mobilephone"));                                                     
                              pst4.setString(13,myResponse.getString("address"));                        
+                             pst4.setString(14,myResponse.getString("headrankfull"));                        
+                             pst4.setString(15,myResponse.getString("headpolicerank"));                        
+                             pst4.setString(16,myResponse.getString("headpolicename")+" "+myResponse.getString("headpolicesurname"));                        
+                             pst4.setString(17,myResponse.getString("headpositionfull"));                        
                      
 
                               pst4.executeUpdate();                
