@@ -1403,6 +1403,8 @@ JTextPopupMenu.addTo(CourtResult);
             }
         ));
         jTableSuspect.setGridColor(new java.awt.Color(255, 255, 255));
+        jTableSuspect.getTableHeader().setFont(new Font("TH SarabunPSK", Font.BOLD, 20));
+        jTableSuspect.getTableHeader().setOpaque(false);
         jTableSuspect.setRowHeight(25);
         jTableSuspect.setRowMargin(2);
         jScrollPane9.setViewportView(jTableSuspect);
@@ -1508,6 +1510,8 @@ JTextPopupMenu.addTo(CourtResult);
             }
         ));
         jTableWitness.setGridColor(new java.awt.Color(255, 255, 255));
+        jTableWitness.getTableHeader().setFont(new Font("TH SarabunPSK", Font.BOLD, 20));
+        jTableWitness.getTableHeader().setOpaque(false);
         jTableWitness.setRowHeight(25);
         jTableWitness.setRowMargin(2);
         jScrollPane10.setViewportView(jTableWitness);
@@ -1657,7 +1661,7 @@ JTextPopupMenu.addTo(CourtResult);
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jCheckDuringInvest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jCheckNoInvest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jCheckSue)
                     .addComponent(jCheckOtherInvest))
@@ -1716,40 +1720,43 @@ JTextPopupMenu.addTo(CourtResult);
                             .addComponent(jTextInvestSendtoDepartment, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(62, 62, 62)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(54, 54, 54)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 523, Short.MAX_VALUE)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addGap(43, 43, 43))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(51, 51, 51))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextInvestSendtoDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanelInvestSend, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(Investigator_Number, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jPanelInvestSend, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(Investigator_Number, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("ข้อมูลผลคดี", jPanel5);
@@ -3164,7 +3171,7 @@ JTextPopupMenu.addTo(CourtResult);
         JFrame facc = (JFrame)(dialog.getParent());
         facc.removeAll();
         JSONObject datacase=new JSONObject();
-        datacase.put("TypeCase",typeC );
+        datacase.put("TypeCase","ชันสูตร" );
         datacase.put("CaseId",crimecaseid.getText());
         //       if(typeC.equals("ชันสูตร")){
             //       Identity_AccusedForm ida=new Identity_AccusedForm(facc,null);
@@ -3192,7 +3199,7 @@ JTextPopupMenu.addTo(CourtResult);
 
             try{
                 JSONObject datacase=new JSONObject();
-                datacase.put("TypeCase",typeC );
+                datacase.put("TypeCase","ชันสูตร" );
                 String Noperson = jTableAccure.getModel().getValueAt(jTableAccure.getSelectedRow(), 8)+"";
                 String sql = "select NoPerson,Age,AnswerPerson,OccupationPosition,Amphur,BirthDay,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                 "Height,Weight,HouseNumber,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
@@ -3459,7 +3466,7 @@ JTextPopupMenu.addTo(CourtResult);
         JFrame s = (JFrame)(dialog.getParent());
         s.removeAll();
         JSONObject datacase=new JSONObject();
-        datacase.put("TypeCase",typeC );
+        datacase.put("TypeCase", "ชันสูตร");
         datacase.put("CaseId",crimecaseid.getText() );
         //       if(typeC.equals("ชันสูตร")){
             //       Identity_witnessForm idw=new Identity_witnessForm(s,null);
@@ -3507,7 +3514,7 @@ JTextPopupMenu.addTo(CourtResult);
 
             try{
                 JSONObject datacase=new JSONObject();
-                datacase.put("TypeCase",typeC );
+                datacase.put("TypeCase","ชันสูตร" );
                 String NoPerson = jTableWitness.getModel().getValueAt(jTableWitness.getSelectedRow(), 7)+"";
                 String sql = "select NoPerson,Age,Amphur,BirthDay,AnswerPerson,OccupationPosition,BloodGroup,ExpiredDate,FatherFullName,FullNamePerson,FullNamePersonEn,Gender,\n" +
                 "Height,Weight,HouseNumber,Related,IssueDate,Moo,MotherFullName,Nationality,Occupation,OtherName,PassportNumber,PeopleRegistrationID,\n" +
@@ -4520,24 +4527,24 @@ catch (Exception d) {  //System.out.println(d);
 //             int rows = jTableAccure.getRowCount();
            
                  int rows = jTableSuspect.getRowCount();
-             TrafficEdit.jLabelNumberSus.setText(rows+"");
-            TrafficEdit.jTextSuspect.setText(jTableSuspect.getValueAt(0, 2).toString()); 
+             IdentityEdit.jLabelNumberSus.setText(rows+"");
+            IdentityEdit.jTextSuspect.setText(jTableSuspect.getValueAt(0, 2).toString()); 
            
             }
      int rows = jTableSuspect.getRowCount();
         rows = jTableSuspect.getRowCount();
       if(jTableSuspect.getRowCount()<=0){
 //             int rows = jTableAccure.getRowCount();
-            TrafficEdit.jLabelNumberSus.setText(rows+"");
-            TrafficEdit.jTextSuspect.setText(""); 
+            IdentityEdit.jLabelNumberSus.setText(rows+"");
+            IdentityEdit.jTextSuspect.setText(""); 
   
             }
             if(jTableSuspect.getRowCount()>1){
             
             
             
-             TrafficEdit.jLabelNumberSus.setText(rows+"");
-            TrafficEdit.jTextSuspect.setText(jTableSuspect.getValueAt(0, 2).toString()+"และพวก"); 
+             IdentityEdit.jLabelNumberSus.setText(rows+"");
+            IdentityEdit.jTextSuspect.setText(jTableSuspect.getValueAt(0, 2).toString()+"และพวก"); 
             
             }
     
@@ -4605,21 +4612,21 @@ jTableAccure.getColumnModel().getColumn(8).setMinWidth(0);
 jTableAccure.getColumnModel().getColumn(8).setMaxWidth(0); 
          if(jTableAccure.getRowCount()<=0){
 //             int rows = jTableAccure.getRowCount();        
-            CrimesCaseEdit.jTextAccused.setText("");           
+            IdentityEdit.jTextAccused.setText("");           
             }
         else if(jTableAccure.getRowCount()==1){
 //             int rows = jTableAccure.getRowCount();
                        
-            CrimesCaseEdit.jTextAccused.setText(jTableAccure.getValueAt(0, 2).toString());           
+            IdentityEdit.jTextAccused.setText(jTableAccure.getValueAt(0, 2).toString());           
             }
          else if(jTableAccure.getRowCount()>1){
                         
-            CrimesCaseEdit.jTextAccused.setText(jTableAccure.getValueAt(0, 2).toString()+"และคนอื่นๆ"); 
+            IdentityEdit.jTextAccused.setText(jTableAccure.getValueAt(0, 2).toString()+"และคนอื่นๆ"); 
         
             }
                     
              int rows = jTableAccure.getRowCount();
-             CrimesCaseEdit.jLabelNumberAcc.setText(rows+"");  
+             IdentityEdit.jLabelNumberAcc.setText(rows+"");  
    
         }catch(Exception ex){
             ex.printStackTrace();
@@ -4687,53 +4694,30 @@ jTableWitness.getColumnModel().getColumn(7).setMinWidth(0);
 jTableWitness.getColumnModel().getColumn(7).setMaxWidth(0); 
            if(jTableWitness.getRowCount()<=0){
 //             int rows = jTableAccure.getRowCount();
-            if(typeC.equals("อาญา")){
-            CrimesCaseEdit.jTextWitness.setText(""); 
-            }
-            if(typeC.equals("จราจร")){
-            TrafficEdit.jTextWitness.setText(""); 
-            }
-              if(typeC.equals("ชันสูตร")){
+            
+         
             IdentityEdit.jTextWitness.setText(""); 
-            }
+            
             }
     
         if(jTableWitness.getRowCount()==1){
 //             int rows = jTableAccure.getRowCount();
-            if(typeC.equals("อาญา")){
-            CrimesCaseEdit.jTextWitness.setText(jTableWitness.getValueAt(0, 2).toString()); 
-            }
-            if(typeC.equals("จราจร")){
-            TrafficEdit.jTextWitness.setText(jTableWitness.getValueAt(0, 2).toString()); 
-            }
-              if(typeC.equals("ชันสูตร")){
+           
+        
             IdentityEdit.jTextWitness.setText(jTableWitness.getValueAt(0, 2).toString()); 
-            }
+            
             }
         if(jTableWitness.getRowCount()>1){
             
-            if(typeC.equals("อาญา")){
-            CrimesCaseEdit.jTextWitness.setText(jTableWitness.getValueAt(0, 2).toString()+"และพวก"); 
-            }
-            if(typeC.equals("จราจร")){
-            TrafficEdit.jTextWitness.setText(jTableWitness.getValueAt(0, 2).toString()+"และพวก"); 
-            }
-              if(typeC.equals("ชันสูตร")){
+            
+             
             IdentityEdit.jTextWitness.setText(jTableWitness.getValueAt(0, 2).toString()+"และพวก"); 
+            
             }
-            }
-         if(typeC.equals("อาญา")){
-           int rows = jTableWitness.getRowCount();
-                       CrimesCaseEdit.jLabelNumberWitness.setText(rows+"");
-            }
-            if(typeC.equals("จราจร")){
-            int rows = jTableWitness.getRowCount();
-                       TrafficEdit.jLabelNumberWitness.setText(rows+"");
-            }
-              if(typeC.equals("ชันสูตร")){
+   
             int rows = jTableWitness.getRowCount();
                        IdentityEdit.jLabelNumberWitness.setText(rows+"");
-            }
+            
           
         }catch(Exception ex){
             ex.printStackTrace();

@@ -19,12 +19,12 @@ import javax.swing.JTable;
  *
  * @author Computer
  */
-public class SuspectBookOverview extends javax.swing.JDialog {
+public class TrafficBookOverview extends javax.swing.JDialog {
 
     /**
      * Creates new form CrimeBookOverview
      */
-    public SuspectBookOverview() {
+    public TrafficBookOverview() {
         initComponents();
            ImageIcon img = new ImageIcon("D://Master//WD.png");
             setIconImage(img.getImage());
@@ -58,7 +58,7 @@ public class SuspectBookOverview extends javax.swing.JDialog {
 
         jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("สมุดคุมคดีผู้ต้องหา");
+        jLabel1.setText("สมุดคุมคดีจราจร");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -67,7 +67,7 @@ public class SuspectBookOverview extends javax.swing.JDialog {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(67, 67, 67)
                 .addComponent(jLabel1)
-                .addContainerGap(1023, Short.MAX_VALUE))
+                .addContainerGap(1042, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,23 +144,21 @@ public class SuspectBookOverview extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SuspectBookOverview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TrafficBookOverview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SuspectBookOverview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TrafficBookOverview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SuspectBookOverview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TrafficBookOverview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SuspectBookOverview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TrafficBookOverview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SuspectBookOverview().setVisible(true);
+                new TrafficBookOverview().setVisible(true);
             }
         });
     }
@@ -169,28 +167,45 @@ public class SuspectBookOverview extends javax.swing.JDialog {
             
         Connection con = ConnectDatabase.connect();
         Statement stmt = con.createStatement();
-        String sql = "Select Person.*,crimecase.*,chargecase.ChargeCodeCase ChargeCase,chargecase.ChargeNameCase ChargeNameCase  from person\n"
-                     + "left join crimecase on crimecase.caseid=person.caseidperson\n"
-                     + "left join chargecase on crimecase.CaseId=chargecase.ChargeCaseId\n"
-                     + "where person.typePerson='ผู้ต้องหา'";
+        String sql = "Select noperson,\n" +
+                        "       GROUP_CONCAT(distinct CASE WHEN typeperson = 'ผู้กล่าวหา' THEN fullnameperson ELSE NULL END \n" +
+                        "                     ) AS Accure,\n" +
+                        "       GROUP_CONCAT(distinct CASE WHEN typeperson = 'ผู้ต้องหา' THEN fullnameperson ELSE NULL END\n" +
+                        "                    ) AS Suspect, \n" +
+                        "	   GROUP_CONCAT(distinct CASE WHEN typeperson = 'พยานและบุคคลอื่นๆ' THEN fullnameperson ELSE NULL END \n" +
+                        "                    ) AS Witness,CrimeCase.*,ChargeCase.*,ActionsCaseData.*\n" +
+                        "from CrimeCase \n" +
+                        "left outer join Person on CrimeCase.caseid=Person.caseidperson\n" +
+                        "left join ChargeCase on CrimeCase.caseid=ChargeCase.ChargeCaseId\n" +
+                        "left join ActionsCaseData on CrimeCase.caseid=ActionsCaseData.ActionCaseId\n" +  
+                        "where CrimeCase.CaseType='คดีจราจร'\n"+
+                        "GROUP BY caseidperson ";
 
 //                + "left join Person on Person.caseIdPerson = CrimeCase.CaseId "+getFilterCondition();
-    System.out.println("Sqll : "+sql);
+
         ResultSet rs = stmt.executeQuery(sql);
-            
+            System.out.println("Sqll : "+sql);
         Vector<Vector> tabledata = new Vector<Vector>();
         while(rs.next()){
             Vector<String> row = new Vector<String>();
-            row.add(rs.getString("NoPerson"));
-            row.add(rs.getString("PeopleRegistrationID"));            
-            row.add(rs.getString("FullNamePerson"));
-            row.add(rs.getString("crimecasenoyear"));     
-            row.add(rs.getString("CourtSuspect"));           
+            row.add(rs.getString("CaseId"));
+            row.add(rs.getString("crimecasenoyear")); 
+            String invest=rs.getString("Investigator_Result");
+            if(invest.equals("อยู่ระหว่างสอบสวน")){
+                
+             row.add(rs.getString("Investigator_Result"));
+            }
+            else{ 
+                invest="จำหน่าย"; 
+             row.add(invest);
+            } 
+            row.add(rs.getString("CaseAcceptDate"));
+            row.add(rs.getString("CaseRequestDate"));            
+            row.add(rs.getString("Accure"));
+            row.add(rs.getString("Suspect"));
+            row.add(rs.getString("Witness"));
             row.add(rs.getString("ChargeNameCase"));
-            row.add(rs.getString("StatusSuspect"));
-            row.add(rs.getString("StatusBail"));
-            row.add(rs.getString("BailDate"));
-            row.add(rs.getString("ArrestDateTime"));
+            row.add(rs.getString("ActionCrimesCase"));
             row.add(rs.getString("Investigator_Result"));
             row.add(rs.getString("Prosecutor_Result"));
             row.add(rs.getString("CourtResult"));
@@ -203,15 +218,15 @@ public class SuspectBookOverview extends javax.swing.JDialog {
         stmt.close();
         Vector ColumnName = new Vector();
         ColumnName.add("ลำดับ");
-        ColumnName.add("เลขบัตรประจำตัวประชาชน"); 
-        ColumnName.add("ชื่อผู้ต้องหา"); 
-        ColumnName.add("เลขคดี/ปี");
-        ColumnName.add("ศาล"); 
-        ColumnName.add("ข้อหา");
-        ColumnName.add("สถานะ");
-        ColumnName.add("สถานะประกัน"); 
-        ColumnName.add("วันที่ประกัน");
-        ColumnName.add("วันที่ถูกจับกุม");    
+        ColumnName.add("เลขคดี/ปี"); 
+        ColumnName.add("สถานะคดี");
+        ColumnName.add("วันที่รับคำร้องทุกข์");
+        ColumnName.add("วันที่รับแจ้งเหตุ");
+        ColumnName.add("ผู้ต้องหา");
+        ColumnName.add("ผู้กล่าวหา");
+        ColumnName.add("พยานและบุคคลอื่นๆ");
+        ColumnName.add("ข้อหา");     
+        ColumnName.add("พฤติการณ์");
         ColumnName.add("ผลการสอบสวน");
         ColumnName.add("ผลคดีชั้นอัยการ");
         ColumnName.add("ผลคดีชั้นศาล");

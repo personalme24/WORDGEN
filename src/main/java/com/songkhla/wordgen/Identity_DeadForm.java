@@ -1641,7 +1641,7 @@ public class Identity_DeadForm extends javax.swing.JDialog {
 	{
          
 	 pro=res3.getString("nameprovince");
-      Province.setText(pro);
+      ProvinceDie.setText(pro);
 	
 	}  
       

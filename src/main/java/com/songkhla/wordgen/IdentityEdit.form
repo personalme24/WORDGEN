@@ -1581,7 +1581,7 @@
                                 <Column editable="true" title="&#xe40;&#xe25;&#xe02;&#xe04;&#xe14;&#xe35;" type="java.lang.Object"/>
                               </Table>
                             </Property>
-                            <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                            <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor" postCode="jTableSuspect.getTableHeader().setFont(new Font(&quot;TH SarabunPSK&quot;, Font.BOLD, 20));&#xa;            jTableSuspect.getTableHeader().setOpaque(false);">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                             <Property name="rowHeight" type="int" value="25"/>
@@ -1766,7 +1766,7 @@
                                 <Column editable="true" title="&#xe40;&#xe25;&#xe02;&#xe1a;&#xe31;&#xe15;&#xe23;&#xe1b;&#xe23;&#xe30;&#xe0a;&#xe19;" type="java.lang.Object"/>
                               </Table>
                             </Property>
-                            <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                            <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor" postCode="jTableWitness.getTableHeader().setFont(new Font(&quot;TH SarabunPSK&quot;, Font.BOLD, 20));&#xa;            jTableWitness.getTableHeader().setOpaque(false);">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                             <Property name="rowHeight" type="int" value="25"/>
@@ -1859,50 +1859,55 @@
                                   <Component id="jScrollPane3" min="-2" pref="524" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
+                              <Component id="jPanel9" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jPanel9" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jScrollPane4" alignment="0" pref="523" max="32767" attributes="0"/>
-                                  <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="jScrollPane4" min="-2" pref="523" max="-2" attributes="0"/>
+                              <Component id="jScrollPane2" min="-2" pref="523" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                          <Component id="jPanel9" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="jScrollPane4" min="-2" pref="144" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jScrollPane2" min="-2" pref="143" max="-2" attributes="0"/>
-                              </Group>
                               <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                                  <Component id="jPanel9" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel43" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                                       <Component id="jTextInvestSendtoDepartment" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="jPanelInvestSend" min="-2" max="-2" attributes="0"/>
-                                      <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                                          <Component id="Investigator_Number" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                                          <Component id="jLabel41" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                          <Component id="jLabel44" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="jPanelInvestSend" min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                                                  <Component id="Investigator_Number" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                                                  <Component id="jLabel41" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                                  <Component id="jLabel44" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="jScrollPane3" min="-2" pref="151" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                          <Component id="jScrollPane2" min="-2" pref="143" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane3" min="-2" pref="151" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                                  <Component id="jScrollPane4" min="-2" pref="144" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="115" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2015,7 +2020,7 @@
                                   <Component id="jCheckDuringInvest" max="32767" attributes="0"/>
                                   <Component id="jCheckNoInvest" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="78" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jCheckSue" min="-2" max="-2" attributes="0"/>
                                   <Component id="jCheckOtherInvest" min="-2" max="-2" attributes="0"/>

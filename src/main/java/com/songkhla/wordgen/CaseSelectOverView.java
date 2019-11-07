@@ -1732,8 +1732,8 @@ jlabeltoken.setVisible(true);
             Element err = (Element)errNodes2.item(0);
          String insertCrime="insert into CrimeCase(CaseId,CaseType,crimecaseno,crimecaseyears,crimecasenoyear,CaseAcceptDate,CaseAccepTime,"
                        + "CaseRequestDate,CaseRequestTime,OccuredDate,OccuredTime,OccuredDateEnd,OccuredTimeEnd,ActionCodeCase,ChargeCodeCase,"
-                      + "DailyNumber,Investigator_Result,SuspectandOther,AccureandOther)\n"
-                       + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; 
+                      + "DailyNumber,Investigator_Result,SuspectandOther,AccureandOther,PoliceNameCase)\n"
+                       + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; 
          String insertCharge="insert into Charge(ChargeCode,ChargeName,Law,RateOfPenalty,Note)\n"
                        + "VALUES (?,?,?,?,?)";
           String insertChargeCase="insert into ChargeCase(ChargeCodeCase,ChargeNameCase,LawCase,RateOfPenaltyCase,NoteCase,ChargeCaseId)\n"
@@ -1779,7 +1779,8 @@ jlabeltoken.setVisible(true);
                             pst.setString(17, "อยู่ระหว่างสอบสวน");  
                             pst.setString(18, err.getElementsByTagName("DisplaySuspectName").item(0).getTextContent().replace("1) ", ""));
                              pst.setString(19, err.getElementsByTagName("DisplayVictimsname").item(0).getTextContent().replace("1) ", ""));   
-                           
+                            pst.setString(20,"1");   
+
                             
 //                      pst.setString(13,  NewTime(err.getElementsByTagName("OccuredDateTimeTo").item(0).getTextContent())); 
                      pst.execute();
@@ -2020,8 +2021,8 @@ jlabeltoken.setVisible(true);
             Element err = (Element)errNodes2.item(0);
           String insertCrime="insert into CrimeCase(CaseId,CaseType,crimecaseno,crimecaseyears,crimecasenoyear,CaseAcceptDate,CaseAccepTime,"
                        + "CaseRequestDate,CaseRequestTime,OccuredDate,OccuredTime,OccuredDateEnd,OccuredTimeEnd,ActionCodeCase,ChargeCodeCase,"
-                      + "DailyNumber,Investigator_Result,SuspectandOther,AccureandOther)\n"
-                       + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; 
+                      + "DailyNumber,Investigator_Result,SuspectandOther,AccureandOther,PoliceNameCase)\n"
+                       + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; 
          String insertCharge="insert into Charge(ChargeCode,ChargeName,Law,RateOfPenalty,Note)\n"
                        + "VALUES (?,?,?,?,?)";
           String insertChargeCase="insert into ChargeCase(ChargeCodeCase,ChargeNameCase,LawCase,RateOfPenaltyCase,NoteCase,ChargeCaseId)\n"
@@ -2065,7 +2066,9 @@ jlabeltoken.setVisible(true);
                           }
                          pst.setString(17, "อยู่ระหว่างสอบสวน");   
                             pst.setString(18, err.getElementsByTagName("DisplaySuspectName").item(0).getTextContent().replace("1) ", ""));
-                             pst.setString(19, err.getElementsByTagName("DisplayVictimsname").item(0).getTextContent().replace("1) ", "")); 
+                             pst.setString(19, err.getElementsByTagName("DisplayVictimsname").item(0).getTextContent().replace("1) ", ""));
+                          pst.setString(20,"1"); 
+
 //                      pst.setString(13,  NewTime(err.getElementsByTagName("OccuredDateTimeTo").item(0).getTextContent())); 
                      pst.execute();
                      pst.close(); 
