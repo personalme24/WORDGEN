@@ -196,7 +196,7 @@ public class LogInConfirm extends javax.swing.JDialog{
                       String token=myResponse.getString("passwordwordgen");
                       System.out.println("");
                       MainMenuWord.tk=token;
-                      CaseSelectOverView.jlabeltoken.setText(token);
+                      CaseSelectOverView.jLabel2.setText("1");
                       setVisible(false);
                   }
                  
