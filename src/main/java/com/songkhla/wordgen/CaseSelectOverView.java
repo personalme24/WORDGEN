@@ -370,6 +370,7 @@ jlabeltoken.setVisible(true);
         TotalCase1 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -699,7 +700,7 @@ jlabeltoken.setVisible(true);
                             .addComponent(jPanelReg, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
                             .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanelReg2, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE))
-                        .addContainerGap(15, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         jTableCrime.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
@@ -753,9 +754,9 @@ jlabeltoken.setVisible(true);
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 1210, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(7, 7, 7))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel12)
                 .addGap(10, 10, 10)
                 .addComponent(TotalCase)
@@ -769,7 +770,7 @@ jlabeltoken.setVisible(true);
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
+                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(9, 9, 9)
@@ -785,11 +786,15 @@ jlabeltoken.setVisible(true);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 1224, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 3, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("คดีอาญา", jPanel6);
@@ -1113,6 +1118,8 @@ jlabeltoken.setVisible(true);
         jLabel42.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         jLabel42.setText("จำนวนคดีทั้งหมด");
 
+        jLabel3.setText("**กรณีที่ท่านเลือกคดีท");
+
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
@@ -1122,9 +1129,11 @@ jlabeltoken.setVisible(true);
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 1210, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(7, 10, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel42)
                 .addGap(10, 10, 10)
                 .addComponent(TotalCase1)
@@ -1146,7 +1155,8 @@ jlabeltoken.setVisible(true);
                     .addComponent(jLabel42)
                     .addComponent(TotalCase1)
                     .addComponent(jLabel41)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
                 .addContainerGap())
         );
 
@@ -1409,9 +1419,237 @@ jlabeltoken.setVisible(true);
         String dateR1=DateReqStart.getJFormattedTextField().getText();
         String dateR2=DateReqEnd.getJFormattedTextField().getText();
      
-        if(jCheckCase.isSelected()){
+//        if(jCheckCase.isSelected()){
+//          case1=casenocc.getText();
+//          case2=casenocc.getText();
+//          yearcase=caseyearscc.getText();
+//        }
+//        else if(jCheckCaseTwo.isSelected()){
+//        case1=casenocc1.getText();
+//          case2=casenocc3.getText();
+//          yearcase=caseyearscc1.getText();
+//        }
+        if(jCheckCase.isSelected()||jCheckCaseTwo.isSelected()||jCheckAccept.isSelected()||jCheckDateReg.isSelected()){
+                
+
+
+          if(jCheckCase.isSelected()&&jCheckDateReg.isSelected()&&jCheckAccept.isSelected()){
+                      System.out.println("L1");
+                         if(caseyearscc.getText().equals("")&&casenocc.getText().equals("")){
+                              JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดีและปีคดี");  
+                       }
+                        else if(casenocc.getText().equals("")){
+                           JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดี");  
+                           }
+                       else if(caseyearscc.getText().equals("")){
+                              JOptionPane.showMessageDialog(null, "กรุณากรอกปีคดี");  
+                       }
+                        else  if(DateReqStart.getJFormattedTextField().getText().equals("")||DateReqEnd.getJFormattedTextField().getText().equals("")){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกวันที่รับแจ้ง");  
+                             }
+                        else   if(DateAcceptStart.getJFormattedTextField().getText().equals("")||DateAcceptEnd.getJFormattedTextField().getText().equals("")){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกวันที่รับคดี");  
+                             }
+                        else if(calculateDate(dateR1, dateR2)==0||calculateDate(date1, date2)==0){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกช่วงวันที่ไม่เกิน 3 เดือน");           
+                               } 
+                          else{connect_crime();}
+                         }
+          
+              else if(jCheckCaseTwo.isSelected()&&jCheckDateReg.isSelected()&&jCheckAccept.isSelected()){
+                System.out.println("L2");
+                        if(caseyearscc1.getText().equals("")&&casenocc3.getText().equals("")&&casenocc1.getText().equals("")){
+                                 JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดีและปีคดี");  
+                                }
+
+                          else   if(casenocc1.getText().equals("")||casenocc3.getText().equals("")){
+                              JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดี");  
+                              }
+                          else if(caseyearscc1.getText().equals("")){
+                                 JOptionPane.showMessageDialog(null, "กรุณากรอกปีคดี");  
+                          }
+                           else  if(DateReqStart.getJFormattedTextField().getText().equals("")||DateReqEnd.getJFormattedTextField().getText().equals("")){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกวันที่รับแจ้ง");  
+                             }
+                        else   if(DateAcceptStart.getJFormattedTextField().getText().equals("")||DateAcceptEnd.getJFormattedTextField().getText().equals("")){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกวันที่รับคดี");  
+                             }
+                        else if(calculateDate(dateR1, dateR2)==0||calculateDate(date1, date2)==0){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกช่วงวันที่ไม่เกิน 3 เดือน");           
+                               } 
+                          else{connect_crime();}
+            }
+              
+             else if(jCheckCase.isSelected()&&jCheckAccept.isSelected()){
+                System.out.println("L3");
+                 if(caseyearscc.getText().equals("")&&casenocc.getText().equals("")){
+                              JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดีและปีคดี");  
+                       }
+                        else if(casenocc.getText().equals("")){
+                           JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดี");  
+                           }
+                       else if(caseyearscc.getText().equals("")){
+                              JOptionPane.showMessageDialog(null, "กรุณากรอกปีคดี");  
+                       }
+ 
+                        else if(DateAcceptStart.getJFormattedTextField().getText().equals("")||DateAcceptEnd.getJFormattedTextField().getText().equals("")){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกวันที่รับคดี");  
+                             }
+                        else if(calculateDate(date1, date2)==0){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกช่วงวันที่ไม่เกิน 3 เดือน");           
+                               } 
+                          else{connect_crime();}
+            }
+             
+            else   if(jCheckCase.isSelected()&&jCheckDateReg.isSelected()){
+                System.out.println("L4");
+                 if(caseyearscc.getText().equals("")&&casenocc.getText().equals("")){
+                              JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดีและปีคดี");  
+                       }
+                        else if(casenocc.getText().equals("")){
+                           JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดี");  
+                           }
+                       else if(caseyearscc.getText().equals("")){
+                              JOptionPane.showMessageDialog(null, "กรุณากรอกปีคดี");  
+                       }
+               else  if(DateReqStart.getJFormattedTextField().getText().equals("")||DateReqEnd.getJFormattedTextField().getText().equals("")){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกวันที่รับแจ้ง");  
+                             }
+                        else if(calculateDate(dateR1, dateR2)==0){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกช่วงวันที่ไม่เกิน 3 เดือน");           
+                               } 
+                          else{connect_crime();}
+            }
+            
+              else if(jCheckCaseTwo.isSelected()&&jCheckAccept.isSelected()){
+                        System.out.println("L5");
+                        if(caseyearscc1.getText().equals("")&&casenocc3.getText().equals("")&&casenocc1.getText().equals("")){
+                                 JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดีและปีคดี");  
+                                }
+
+                          else   if(casenocc1.getText().equals("")||casenocc3.getText().equals("")){
+                              JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดี");  
+                              }
+                          else if(caseyearscc1.getText().equals("")){
+                                 JOptionPane.showMessageDialog(null, "กรุณากรอกปีคดี");  
+                          }
+                        else if(DateAcceptStart.getJFormattedTextField().getText().equals("")||DateAcceptEnd.getJFormattedTextField().getText().equals("")){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกวันที่รับคดี");  
+                             }
+                        else if(calculateDate(date1, date2)==0){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกช่วงวันที่ไม่เกิน 3 เดือน");           
+                               } 
+                          else{connect_crime();}
+            }
+              
+               else   if(jCheckCaseTwo.isSelected()&&jCheckDateReg.isSelected()){
+                System.out.println("L6");
+                if(caseyearscc1.getText().equals("")&&casenocc3.getText().equals("")&&casenocc1.getText().equals("")){
+                                 JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดีและปีคดี");  
+                                }
+
+                          else   if(casenocc1.getText().equals("")||casenocc3.getText().equals("")){
+                              JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดี");  
+                              }
+                          else if(caseyearscc1.getText().equals("")){
+                                 JOptionPane.showMessageDialog(null, "กรุณากรอกปีคดี");  
+                          }
+               else  if(DateReqStart.getJFormattedTextField().getText().equals("")||DateReqEnd.getJFormattedTextField().getText().equals("")){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกวันที่รับแจ้ง");  
+                             }
+                        else if(calculateDate(dateR1, dateR2)==0){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกช่วงวันที่ไม่เกิน 3 เดือน");           
+                               } 
+                          else{connect_crime();}
+            }
+               
+           else if(jCheckDateReg.isSelected()&&jCheckAccept.isSelected()){
+                System.out.println("L7");
+                 if(DateReqStart.getJFormattedTextField().getText().equals("")||DateReqEnd.getJFormattedTextField().getText().equals("")){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกวันที่รับแจ้ง");  
+                             }
+                        else   if(DateAcceptStart.getJFormattedTextField().getText().equals("")||DateAcceptEnd.getJFormattedTextField().getText().equals("")){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกวันที่รับคดี");  
+                             }
+                        else if(calculateDate(dateR1, dateR2)==0||calculateDate(date1, date2)==0){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกช่วงวันที่ไม่เกิน 3 เดือน");           
+                               } 
+                          else{connect_crime();}
+            }
+           else if(jCheckCase.isSelected()){
+               System.out.println("L8");
+                        if(caseyearscc.getText().equals("")&&casenocc.getText().equals("")){
+                              JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดีและปีคดี");  
+                       }
+                        else if(casenocc.getText().equals("")){
+                           JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดี");  
+                           }
+                       else if(caseyearscc.getText().equals("")){
+                              JOptionPane.showMessageDialog(null, "กรุณากรอกปีคดี");  
+                       }
+                        else{connect_crime();}
+           }
+           else if(jCheckCaseTwo.isSelected()){
+               System.out.println("L9");
+                         if(caseyearscc1.getText().equals("")&&casenocc3.getText().equals("")&&casenocc1.getText().equals("")){
+                                 JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดีและปีคดี");  
+                                }
+
+                          else   if(casenocc1.getText().equals("")||casenocc3.getText().equals("")){
+                              JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดี");  
+                              }
+                          else if(caseyearscc1.getText().equals("")){
+                                 JOptionPane.showMessageDialog(null, "กรุณากรอกปีคดี");  
+                          }
+                        else{connect_crime();}
+           }
+         else if(jCheckAccept.isSelected()){
+               System.out.println("L10");
+                          if(DateAcceptStart.getJFormattedTextField().getText().equals("")||DateAcceptEnd.getJFormattedTextField().getText().equals("")){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกวันที่รับคดี");  
+                             }
+                        else if(calculateDate(date1, date2)==0){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกช่วงวันที่ไม่เกิน 3 เดือน");           
+                               } 
+                          else{connect_crime();}
+           }
+           else if(jCheckDateReg.isSelected()){
+               System.out.println("L11");
+                           if(DateReqStart.getJFormattedTextField().getText().equals("")||DateReqEnd.getJFormattedTextField().getText().equals("")){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกวันที่รับแจ้ง");  
+                             }
+                        else if(calculateDate(dateR1, dateR2)==0){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกช่วงวันที่ไม่เกิน 3 เดือน");           
+                               } 
+                          else{connect_crime();}
+           }
+            
+        }
+        else{
+         JOptionPane.showMessageDialog(null, "กรุณาเลือกกรอกข้อมูลคดีที่ต้องการจากระบบ CRIMES");   
+        }
+        
+   
+         
+        
+        
+        
+       
+       
+    }//GEN-LAST:event_jButtonConCrimeActionPerformed
+    private  void connect_crime(){
+            String aa="";
+        aa=MainMenuWord.tk;
+        System.out.println("Token:"+aa); 
+        String case1="",case2="",yearcase="";
+        String date1=DateAcceptStart.getJFormattedTextField().getText();
+        String date2=DateAcceptEnd.getJFormattedTextField().getText();
+        String dateR1=DateReqStart.getJFormattedTextField().getText();
+        String dateR2=DateReqEnd.getJFormattedTextField().getText();
+        System.out.println("dsdfsffffffffff");
+           if(jCheckCase.isSelected()){
           case1=casenocc.getText();
-          case2="";
+          case2=casenocc.getText();
           yearcase=caseyearscc.getText();
         }
         else if(jCheckCaseTwo.isSelected()){
@@ -1419,36 +1657,6 @@ jlabeltoken.setVisible(true);
           case2=casenocc3.getText();
           yearcase=caseyearscc1.getText();
         }
-        if(jCheckCase.isSelected()||jCheckCaseTwo.isSelected()||jCheckAccept.isSelected()||jCheckDateReg.isSelected()){
-           
-                  if(caseyearscc.getText().equals("")&&casenocc.getText().equals("")){
-                        JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดีและปีคดี");  
-                 }
-                  else if(casenocc.getText().equals("")){
-                     JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดี");  
-                     }
-                 else if(caseyearscc.getText().equals("")){
-                        JOptionPane.showMessageDialog(null, "กรุณากรอกปีคดี");  
-                 }
-                 
-//              else if(caseyearscc1.getText().equals("")&&casenocc3.getText().equals("")&&casenocc1.getText().equals("")){
-//                        JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดีและปีคดี");  
-//                       }
-//
-//                 else   if(casenocc1.getText().equals("")||casenocc3.getText().equals("")){
-//                     JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดี");  
-//                     }
-//                 else if(caseyearscc1.getText().equals("")){
-//                        JOptionPane.showMessageDialog(null, "กรุณากรอกปีคดี");  
-//                 }
-//                 else if(DateAcceptStart.getJFormattedTextField().getText().equals("")||DateAcceptEnd.getJFormattedTextField().getText().equals("")){
-//                        JOptionPane.showMessageDialog(null, "กรุณากรอกวันที่รับคดี");  
-//                     }
-//                 else if(DateReqStart.getJFormattedTextField().getText().equals("")||DateReqEnd.getJFormattedTextField().getText().equals("")){
-//                        JOptionPane.showMessageDialog(null, "กรุณากรอกวันที่รับแจ้ง");  
-//                     }
-            else{
-                System.out.println("dsdfsffffffffff");
             if(aa == null){
             System.out.println("empty:");
             JFrame frame = new JFrame();
@@ -1462,9 +1670,7 @@ jlabeltoken.setVisible(true);
             aa=MainMenuWord.tk;
             System.out.println("new--------"+aa);
         }
-           else if(calculateDate(date1, date2)==0||calculateDate(dateR1, dateR2)==0){
-             JOptionPane.showMessageDialog(null, "กรุณากรอกช่วงวันที่ไม่เกิน 3 เดือน");           
-            }
+    
            else if((jLabel2.getText().equals("1")&& aa != null)||(jLabel2.getText().equals("0")&& aa != null)){
            
          try {
@@ -1520,21 +1726,8 @@ jlabeltoken.setVisible(true);
     
               }
             
-            }
-        }
-        else{
-         JOptionPane.showMessageDialog(null, "กรุณาเลือก");   
-        }
-        
-   
-         
-        
-        
-        
-       
-       
-    }//GEN-LAST:event_jButtonConCrimeActionPerformed
-
+          
+    }
     private void casenoccKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_casenoccKeyTyped
         // TODO add your handling code here:
              char vChar = evt.getKeyChar();
@@ -1556,14 +1749,29 @@ jlabeltoken.setVisible(true);
 
     private void caseyearscc1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caseyearscc1KeyTyped
         // TODO add your handling code here:
+           char vChar = evt.getKeyChar();
+         if(!(Character.isDigit(vChar) || (vChar==KeyEvent.VK_BACK_SPACE)||(vChar==KeyEvent.VK_DELETE)))
+         {
+             evt.consume();
+         }
     }//GEN-LAST:event_caseyearscc1KeyTyped
 
     private void casenocc1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_casenocc1KeyTyped
         // TODO add your handling code here:
+           char vChar = evt.getKeyChar();
+         if(!(Character.isDigit(vChar) || (vChar==KeyEvent.VK_BACK_SPACE)||(vChar==KeyEvent.VK_DELETE)))
+         {
+             evt.consume();
+         }
     }//GEN-LAST:event_casenocc1KeyTyped
 
     private void casenocc3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_casenocc3KeyTyped
         // TODO add your handling code here:
+           char vChar = evt.getKeyChar();
+         if(!(Character.isDigit(vChar) || (vChar==KeyEvent.VK_BACK_SPACE)||(vChar==KeyEvent.VK_DELETE)))
+         {
+             evt.consume();
+         }
     }//GEN-LAST:event_casenocc3KeyTyped
 
     private void jCheckAcceptItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckAcceptItemStateChanged
@@ -1684,9 +1892,222 @@ jlabeltoken.setVisible(true);
         String date2=DateAcceptEndTC.getJFormattedTextField().getText();
         String dateR1=DateReqStartTC.getJFormattedTextField().getText();
         String dateR2=DateReqEndTC.getJFormattedTextField().getText();
-        if(jCheckCaseT.isSelected()){
+       
+        if(jCheckCaseT.isSelected()||jCheckCaseTwo1.isSelected()||jCheckAccept1.isSelected()||jCheckDateReg1.isSelected()){
+                
+
+
+          if(jCheckCaseT.isSelected()&&jCheckDateReg1.isSelected()&&jCheckAccept1.isSelected()){
+                      System.out.println("L1");
+                         if(caseyearscc3.getText().equals("")&&casenocc4.getText().equals("")){
+                              JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดีและปีคดี");  
+                       }
+                        else if(casenocc4.getText().equals("")){
+                           JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดี");  
+                           }
+                       else if(caseyearscc3.getText().equals("")){
+                              JOptionPane.showMessageDialog(null, "กรุณากรอกปีคดี");  
+                       }
+                        else  if(DateReqStartTC.getJFormattedTextField().getText().equals("")||DateReqEndTC.getJFormattedTextField().getText().equals("")){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกวันที่รับแจ้ง");  
+                             }
+                        else   if(DateAcceptStartTC.getJFormattedTextField().getText().equals("")||DateAcceptEndTC.getJFormattedTextField().getText().equals("")){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกวันที่รับคดี");  
+                             }
+                        else if(calculateDate(dateR1, dateR2)==0||calculateDate(date1, date2)==0){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกช่วงวันที่ไม่เกิน 3 เดือน");           
+                               } 
+                          else{connect_traffic();}
+                         }
+          
+              else if(jCheckCaseTwo1.isSelected()&&jCheckDateReg1.isSelected()&&jCheckAccept1.isSelected()){
+                System.out.println("L2");
+                        if(caseyearscc4.getText().equals("")&&casenocc5.getText().equals("")&&casenocc6.getText().equals("")){
+                                 JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดีและปีคดี");  
+                                }
+
+                          else   if(casenocc5.getText().equals("")||casenocc6.getText().equals("")){
+                              JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดี");  
+                              }
+                          else if(caseyearscc4.getText().equals("")){
+                                 JOptionPane.showMessageDialog(null, "กรุณากรอกปีคดี");  
+                          }
+                           else  if(DateReqStartTC.getJFormattedTextField().getText().equals("")||DateReqEndTC.getJFormattedTextField().getText().equals("")){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกวันที่รับแจ้ง");  
+                             }
+                        else   if(DateAcceptStartTC.getJFormattedTextField().getText().equals("")||DateAcceptEndTC.getJFormattedTextField().getText().equals("")){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกวันที่รับคดี");  
+                             }
+                        else if(calculateDate(dateR1, dateR2)==0||calculateDate(date1, date2)==0){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกช่วงวันที่ไม่เกิน 3 เดือน");           
+                               } 
+                          else{connect_traffic();}
+            }
+              
+             else if(jCheckCaseT.isSelected()&&jCheckAccept1.isSelected()){
+                System.out.println("L3");
+                 if(caseyearscc3.getText().equals("")&&casenocc4.getText().equals("")){
+                              JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดีและปีคดี");  
+                       }
+                        else if(casenocc4.getText().equals("")){
+                           JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดี");  
+                           }
+                       else if(caseyearscc3.getText().equals("")){
+                              JOptionPane.showMessageDialog(null, "กรุณากรอกปีคดี");  
+                       }
+ 
+                        else if(DateAcceptStartTC.getJFormattedTextField().getText().equals("")||DateAcceptEndTC.getJFormattedTextField().getText().equals("")){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกวันที่รับคดี");  
+                             }
+                        else if(calculateDate(date1, date2)==0){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกช่วงวันที่ไม่เกิน 3 เดือน");           
+                               } 
+                          else{connect_traffic();}
+            }
+             
+            else   if(jCheckCaseT.isSelected()&&jCheckDateReg1.isSelected()){
+                System.out.println("L4");
+                 if(caseyearscc4.getText().equals("")&&casenocc3.getText().equals("")){
+                              JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดีและปีคดี");  
+                       }
+                        else if(casenocc3.getText().equals("")){
+                           JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดี");  
+                           }
+                       else if(caseyearscc4.getText().equals("")){
+                              JOptionPane.showMessageDialog(null, "กรุณากรอกปีคดี");  
+                       }
+               else  if(DateReqStartTC.getJFormattedTextField().getText().equals("")||DateReqEndTC.getJFormattedTextField().getText().equals("")){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกวันที่รับแจ้ง");  
+                             }
+                        else if(calculateDate(dateR1, dateR2)==0){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกช่วงวันที่ไม่เกิน 3 เดือน");           
+                               } 
+                          else{connect_traffic();}
+            }
+            
+              else if(jCheckCaseTwo1.isSelected()&&jCheckAccept1.isSelected()){
+                        System.out.println("L5");
+                        if(caseyearscc4.getText().equals("")&&casenocc5.getText().equals("")&&casenocc6.getText().equals("")){
+                                 JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดีและปีคดี");  
+                                }
+
+                          else   if(casenocc5.getText().equals("")||casenocc6.getText().equals("")){
+                              JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดี");  
+                              }
+                          else if(caseyearscc4.getText().equals("")){
+                                 JOptionPane.showMessageDialog(null, "กรุณากรอกปีคดี");  
+                          }
+                        else if(DateAcceptStartTC.getJFormattedTextField().getText().equals("")||DateAcceptEndTC.getJFormattedTextField().getText().equals("")){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกวันที่รับคดี");  
+                             }
+                        else if(calculateDate(date1, date2)==0){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกช่วงวันที่ไม่เกิน 3 เดือน");           
+                               } 
+                          else{connect_traffic();}
+            }
+              
+               else   if(jCheckCaseTwo1.isSelected()&&jCheckDateReg1.isSelected()){
+                System.out.println("L6");
+                if(caseyearscc4.getText().equals("")&&casenocc5.getText().equals("")&&casenocc6.getText().equals("")){
+                                 JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดีและปีคดี");  
+                                }
+
+                          else   if(casenocc5.getText().equals("")||casenocc6.getText().equals("")){
+                              JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดี");  
+                              }
+                          else if(caseyearscc4.getText().equals("")){
+                                 JOptionPane.showMessageDialog(null, "กรุณากรอกปีคดี");  
+                          }
+               else  if(DateReqStartTC.getJFormattedTextField().getText().equals("")||DateReqEndTC.getJFormattedTextField().getText().equals("")){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกวันที่รับแจ้ง");  
+                             }
+                        else if(calculateDate(dateR1, dateR2)==0){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกช่วงวันที่ไม่เกิน 3 เดือน");           
+                               } 
+                          else{connect_traffic();}
+            }
+               
+           else if(jCheckDateReg1.isSelected()&&jCheckAccept1.isSelected()){
+                System.out.println("L7");
+                 if(DateReqStartTC.getJFormattedTextField().getText().equals("")||DateReqEndTC.getJFormattedTextField().getText().equals("")){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกวันที่รับแจ้ง");  
+                             }
+                        else   if(DateAcceptStartTC.getJFormattedTextField().getText().equals("")||DateAcceptEndTC.getJFormattedTextField().getText().equals("")){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกวันที่รับคดี");  
+                             }
+                        else if(calculateDate(dateR1, dateR2)==0||calculateDate(date1, date2)==0){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกช่วงวันที่ไม่เกิน 3 เดือน");           
+                               } 
+                          else{connect_traffic();}
+            }
+           else if(jCheckCaseT.isSelected()){
+               System.out.println("L8");
+                        if(caseyearscc3.getText().equals("")&&casenocc4.getText().equals("")){
+                              JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดีและปีคดี");  
+                       }
+                        else if(casenocc4.getText().equals("")){
+                           JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดี");  
+                           }
+                       else if(caseyearscc3.getText().equals("")){
+                              JOptionPane.showMessageDialog(null, "กรุณากรอกปีคดี");  
+                       }
+                        else{connect_traffic();}
+           }
+           else if(jCheckCaseTwo1.isSelected()){
+               System.out.println("L9");
+                         if(caseyearscc4.getText().equals("")&&casenocc5.getText().equals("")&&casenocc6.getText().equals("")){
+                                 JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดีและปีคดี");  
+                                }
+
+                          else   if(casenocc6.getText().equals("")||casenocc5.getText().equals("")){
+                              JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดี");  
+                              }
+                          else if(caseyearscc4.getText().equals("")){
+                                 JOptionPane.showMessageDialog(null, "กรุณากรอกปีคดี");  
+                          }
+                        else{connect_traffic();}
+           }
+         else if(jCheckAccept1.isSelected()){
+               System.out.println("L10");
+                          if(DateAcceptStartTC.getJFormattedTextField().getText().equals("")||DateAcceptEndTC.getJFormattedTextField().getText().equals("")){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกวันที่รับคดี");  
+                             }
+                        else if(calculateDate(date1, date2)==0){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกช่วงวันที่ไม่เกิน 3 เดือน");           
+                               } 
+                          else{connect_traffic();}
+           }
+           else if(jCheckDateReg1.isSelected()){
+               System.out.println("L11");
+                           if(DateReqStartTC.getJFormattedTextField().getText().equals("")||DateReqEndTC.getJFormattedTextField().getText().equals("")){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกวันที่รับแจ้ง");  
+                             }
+                        else if(calculateDate(dateR1, dateR2)==0){
+                                JOptionPane.showMessageDialog(null, "กรุณากรอกช่วงวันที่ไม่เกิน 3 เดือน");           
+                               } 
+                          else{connect_traffic();}
+           }
+            
+        }
+        else{
+         JOptionPane.showMessageDialog(null, "กรุณาเลือกกรอกข้อมูลคดีที่ต้องการจากระบบ CRIMES");   
+        }
+   
+         
+        
+    }//GEN-LAST:event_jButtonConTrafficActionPerformed
+    private void connect_traffic(){
+        String aa="";
+        aa=MainMenuWord.tk;
+        System.out.println("Token:"+aa); 
+        String case1="",case2="",yearcase="";
+        String date1=DateAcceptStartTC.getJFormattedTextField().getText();
+        String date2=DateAcceptEndTC.getJFormattedTextField().getText();
+        String dateR1=DateReqStartTC.getJFormattedTextField().getText();
+        String dateR2=DateReqEndTC.getJFormattedTextField().getText();
+         if(jCheckCaseT.isSelected()){
           case1=casenocc4.getText();
-          case2="";
+          case2=casenocc4.getText();
           yearcase=caseyearscc3.getText();
         }
         else if(jCheckCaseTwo1.isSelected()){
@@ -1694,9 +2115,7 @@ jlabeltoken.setVisible(true);
           case2=casenocc6.getText();
           yearcase=caseyearscc4.getText();
         }
-       
-   
-         if(aa == null){
+    if(aa == null){
             System.out.println("empty:");
             JFrame frame = new JFrame();
             JDialog dialog = new JDialog(frame);//frame is owner
@@ -1766,9 +2185,7 @@ jlabeltoken.setVisible(true);
        
     
               }
-        
-    }//GEN-LAST:event_jButtonConTrafficActionPerformed
-
+    }
     private void caseyearscc4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caseyearscc4KeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_caseyearscc4KeyTyped
@@ -1900,7 +2317,7 @@ jlabeltoken.setVisible(true);
                 try{
                     Connection c=null;
                     c=ConnectDatabase.connect();
-                    String sqlId="Select caseid,crimecaseno,crimecaseyears,crimecasenoyear from CrimeCase where crimecaseno='"+casno+"' and crimecaseyears='"+casyear+"' and crimecasenoyear='"+casno+"/"+casyear+"'";
+                    String sqlId="Select caseid,crimecaseno,crimecaseyears,crimecasenoyear from CrimeCase where crimecaseno='"+casno+"' and crimecaseyears='"+casyear+"' and crimecasenoyear='"+casno+"/"+casyear+"' and casetype='คดีจราจร'";
                     
                     Statement s=c.createStatement();
                     ResultSet rs=s.executeQuery(sqlId);
@@ -1978,7 +2395,7 @@ jlabeltoken.setVisible(true);
                             jsonInput.addProperty("OrgName",orgnamelabel1.getText());
                             jsonInput.addProperty("Serial",getMotherboardSerial());
                             String j=jsonInput.toString();
-                            update_crime(jsonInput,caseidList.get(i));
+                            update_traffic(jsonInput,caseidList.get(i));
                             System.out.println(j);
                             }            
         }
@@ -2767,8 +3184,8 @@ jlabeltoken.setVisible(true);
             Element err = (Element)errNodes2.item(0);
          String insertCrime="insert into CrimeCase(CaseId,CaseType,crimecaseno,crimecaseyears,crimecasenoyear,CaseAcceptDate,CaseAccepTime,"
                        + "CaseRequestDate,CaseRequestTime,OccuredDate,OccuredTime,OccuredDateEnd,OccuredTimeEnd,ActionCodeCase,ChargeCodeCase,"
-                      + "DailyNumber,Investigator_Result,SuspectandOther,AccureandOther,PoliceNameCase)\n"
-                       + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; 
+                      + "DailyNumber,Investigator_Result,SuspectandOther,AccureandOther,PoliceNameCase,CrimeLocation)\n"
+                       + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; 
          String insertCharge="insert into Charge(ChargeCode,ChargeName,Law,RateOfPenalty,Note)\n"
                        + "VALUES (?,?,?,?,?)";
           String insertChargeCase="insert into ChargeCase(ChargeCodeCase,ChargeNameCase,LawCase,RateOfPenaltyCase,NoteCase,ChargeCaseId)\n"
@@ -2809,7 +3226,9 @@ jlabeltoken.setVisible(true);
                             pst.setString(17, "อยู่ระหว่างสอบสวน");  
                             pst.setString(18, "");
                              pst.setString(19, "");   
-                            pst.setString(20,"1");   
+                            pst.setString(20,"1");
+                           pst.setString(21,CheckNull(err, "Road"));   
+
 
                             
 //                      pst.setString(13,  NewTime(err.getElementsByTagName("OccuredDateTimeTo").item(0).getTextContent())); 
@@ -2834,62 +3253,41 @@ jlabeltoken.setVisible(true);
 //                        pst2.execute();
 //                     pst2.close(); 
 //                        }
-//                     if (errNodes4.getLength() > 0) {
-//                            Element err4 = (Element)errNodes4.item(0);    
-//                        pst3=conn.prepareStatement(insertCharge);
-//                        pst3.setString(1, idCharge());
-//                        pst3.setString(2,err4.getElementsByTagName("ChargeNameTH").item(0).getTextContent());
+                 
+                        
+                        pst3=conn.prepareStatement(insertCharge);
+                        pst3.setString(1, idCharge());
+                        pst3.setString(2,CheckNull(err, "DisplayCharge").replace("1)", ""));
 //                       if (errNodes5.getLength() > 0) {
 //                            Element err5 = (Element)errNodes5.item(0);
 //                         pst3.setString(3, err5.getElementsByTagName("NameTH").item(0).getTextContent());      
 //                          }
 //                          else{
-//                           pst3.setString(3, "");   
+                           pst3.setString(3, "");   
 //                          }
-//                        pst3.setString(4,err4.getElementsByTagName("PenaltyNameTH").item(0).getTextContent());
-//                         pst3.setString(5, "");  
-//                        pst3.execute();
-//                     pst3.close(); 
+                        pst3.setString(4,"");
+                         pst3.setString(5, "");  
+                        pst3.execute();
+                     pst3.close(); 
                      
-//                       pst4=conn.prepareStatement(insertChargeCase);
-//                        pst4.setString(1, idChargeCase());
-//                        pst4.setString(2, err4.getElementsByTagName("ChargeNameTH").item(0).getTextContent());
+                       pst4=conn.prepareStatement(insertChargeCase);
+                        pst4.setString(1, idChargeCase());
+                        pst4.setString(2, CheckNull(err, "DisplayCharge").replace("1)", ""));
 //                        if (errNodes5.getLength() > 0) {
 //                            Element err5 = (Element)errNodes5.item(0);
 //                         pst4.setString(3, err5.getElementsByTagName("NameTH").item(0).getTextContent());      
 //                          }
 //                          else{
-//                           pst4.setString(3, "");   
+                           pst4.setString(3, "");   
 //                          }
-//                        pst4.setString(4, err4.getElementsByTagName("PenaltyNameTH").item(0).getTextContent());
-//                         pst4.setString(5, ""); 
-//                        pst4.setString(6, IdCasePerson());  
+                        pst4.setString(4, "");
+                         pst4.setString(5, ""); 
+                        pst4.setString(6, IdCasePerson());  
 
-//                        pst4.execute();
-//                     pst4.close();
+                        pst4.execute();
+                     pst4.close();
 //                          }
-                     
-//                      if(err.getElementsByTagName("DisplayCharge").item(0)!=null){
-//                      pst3=conn.prepareStatement(insertCharge);
-//                        pst3.setString(1, idCharge());
-//                        pst3.setString(2, err.getElementsByTagName("DisplayCharge").item(0).getTextContent().replace("1) ", ""));
-//                        pst3.setString(3, "");
-//                        pst3.setString(4, "");
-//                         pst3.setString(5, "");  
-//                        pst3.execute();
-//                     pst3.close(); 
-//                     
-//                     pst4=conn.prepareStatement(insertChargeCase);
-//                        pst4.setString(1, idChargeCase());
-//                        pst4.setString(2, err.getElementsByTagName("DisplayCharge").item(0).getTextContent().replace("1) ", ""));
-//                        pst4.setString(3, "");
-//                        pst4.setString(4, "");
-//                         pst4.setString(5, ""); 
-//                        pst4.setString(6, IdCasePerson());  
-//
-//                        pst4.execute();
-//                     pst4.close(); 
-//                      }
+
                        System.out.println("success");
         } catch (SQLException e) {
                 System.out.println("ddddd: "+e);
@@ -3256,6 +3654,273 @@ jlabeltoken.setVisible(true);
                 System.out.println(e);
                 }
      
+                }
+      public static void update_traffic(JsonObject a,String caseid){
+     try {
+                 String sql = "DELETE FROM DeliverySuspect\n" +
+                            "WHERE delipersonid IN (\n" +
+                            "  SELECT delipersonid FROM DeliverySuspect a\n" +
+                            "  INNER JOIN Person b\n" +
+                            "    ON a.delipersonid=b.noperson \n" +
+                             "  WHERE b.caseidperson ='"+caseid+"');\n"+
+                          "DELETE FROM CrimeCase WHERE CrimeCase.CaseId='"+caseid+"';\n"+
+                             "DELETE FROM RecordInquiry WHERE caseidrecord='"+caseid+"';\n"+
+                             "DELETE FROM Person WHERE caseidperson='"+caseid+"';\n"+
+                             "DELETE FROM ChargeCase WHERE ChargeCaseId='"+caseid+"';\n"+
+                             "DELETE FROM RecordInquiry WHERE CaseIdRecord='"+caseid+"';\n"+
+                             "DELETE FROM ActionsCaseData WHERE ActionCaseId='"+caseid+"';\n"+
+                             "DELETE FROM BailAsset WHERE BailCaseId='"+caseid+"';\n"+                  
+                                "DELETE FROM Asset WHERE caseidasset='"+caseid+"';";
+         try {               
+           Connection cond = ConnectDatabase.connect();
+                System.out.println("Delete:"+sql);
+                Statement  stmt = cond.createStatement();
+                      stmt.executeUpdate(sql);
+                    stmt.close();
+         }
+         catch(SQLException ex){
+             System.out.println(ex);
+         }
+                
+                String url = "http://172.31.191.163:8383/ws/TrafficCaseService_Wordgen_Import/";
+                URL obj = new URL(url);
+                HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+                con.setRequestMethod("POST");
+                con.setRequestProperty("Content-Type","application/soap+xml;charset=UTF-8");
+                String xml = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:exam=\"http://www.example.com/\">\n" +
+                    "   <soapenv:Header>\n" +
+                    "      <exam:authentication>\n" +
+                    "         <username>rtp</username>\n" +
+                    "         <password>rtp</password>\n" +
+                    "      </exam:authentication>\n" +
+                    "   </soapenv:Header>\n" +
+                    "   <soapenv:Body>\n" +
+                    "      <exam:TrafficCaseDetail>\n" +
+                    "         <INPUT>"+a+"</INPUT>\n" +
+                    "      </exam:TrafficCaseDetail>\n" +
+                    "   </soapenv:Body>\n" +
+                    "</soapenv:Envelope>";
+                System.out.println(xml);
+                    con.setDoOutput(true);
+                  DataOutputStream writer = new DataOutputStream(con.getOutputStream());
+                BufferedWriter wr = new BufferedWriter(new OutputStreamWriter(writer, "UTF-8"));
+                wr.write(xml);
+                wr.flush();
+                wr.close();
+                String responseStatus = con.getResponseMessage();
+                int responseCode = con.getResponseCode();
+		System.out.println("GET Response Code :: " + responseCode);
+                System.out.println(responseStatus);
+                BufferedReader in = new BufferedReader(new InputStreamReader(
+                con.getInputStream(),"UTF-8"));
+                String inputLine;
+                StringBuffer response = new StringBuffer();
+                while ((inputLine = in.readLine()) != null) {
+                response.append(inputLine);
+                }
+                in.close();
+                System.out.println("response:" + response.toString());
+                	// System.out.println(response.toString());
+        Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder()
+         .parse(new InputSource(new StringReader(response.toString())));
+	       NodeList errNodes = doc.getElementsByTagName("Person");
+               NodeList errNodes2 = doc.getElementsByTagName("TrafficCase");       
+//               NodeList errNodes3 = doc.getElementsByTagName("ReportDailry");
+//               NodeList errNodes4 = doc.getElementsByTagName("Charge");
+//                 NodeList errNodes5 = doc.getElementsByTagName("LawCategory");               
+               
+              Connection conn=null;
+               Connection conn2=null;
+
+               conn=ConnectDatabase.connect();
+                              conn2=ConnectDatabase.connect();
+
+         if (errNodes2.getLength() > 0) {
+            Element err = (Element)errNodes2.item(0);
+         String insertCrime="insert into CrimeCase(CaseId,CaseType,crimecaseno,crimecaseyears,crimecasenoyear,CaseAcceptDate,CaseAccepTime,"
+                       + "CaseRequestDate,CaseRequestTime,OccuredDate,OccuredTime,OccuredDateEnd,OccuredTimeEnd,ActionCodeCase,ChargeCodeCase,"
+                      + "DailyNumber,Investigator_Result,SuspectandOther,AccureandOther,PoliceNameCase,CrimeLocation)\n"
+                       + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; 
+         String insertCharge="insert into Charge(ChargeCode,ChargeName,Law,RateOfPenalty,Note)\n"
+                       + "VALUES (?,?,?,?,?)";
+          String insertChargeCase="insert into ChargeCase(ChargeCodeCase,ChargeNameCase,LawCase,RateOfPenaltyCase,NoteCase,ChargeCaseId)\n"
+                       + "VALUES (?,?,?,?,?,?)";
+        
+      String insertActionsCase="insert into ActionsCase(ActionCode,ActionCrimes,ActionDetail,ActionNote)\n"
+                       + "VALUES (?,?,?,?)";
+          String insertActionsCaseData="insert into ActionsCaseData(ActionCodeCase,ActionCrimesCase,ActionDetailCase,ActionNoteCase,ActionCaseId)\n"
+                       + "VALUES (?,?,?,?,?)";
+       try {
+                    
+                         PreparedStatement pst=null;
+                         PreparedStatement pst1=null;
+                         PreparedStatement pst2=null;
+                          PreparedStatement pst3=null;
+                         PreparedStatement pst4=null;
+                            
+//                         String[] nameSus=err.getElementsByTagName("DailyNumber").item(0).getTextContent().split("2) ",1);
+//                         System.out.println("nameeeeeeeeee:"+nameSus[0]);
+                        pst=conn.prepareStatement(insertCrime);
+                        pst.setString(1, IdCase());
+                        pst.setString(2, "คดีจราจร");
+                        pst.setString(3, err.getElementsByTagName("CrimeCaseNo").item(0).getTextContent());
+                        pst.setString(4,  err.getElementsByTagName("CrimeCaseYear").item(0).getTextContent());
+                        pst.setString(5,  err.getElementsByTagName("CaseNo").item(0).getTextContent());
+                        pst.setString(6,  NewDate( err.getElementsByTagName("CaseRequestDate").item(0).getTextContent())); 
+                        pst.setString(7,   NewTime(err.getElementsByTagName("CaseRequestDate").item(0).getTextContent()));         
+                        pst.setString(8, NewDate( err.getElementsByTagName("CaseAcceptDate").item(0).getTextContent())); 
+                        pst.setString(9,  NewTime(err.getElementsByTagName("CaseAcceptDate").item(0).getTextContent())); 
+                        pst.setString(10,  NewDate( err.getElementsByTagName("EventStartDate").item(0).getTextContent())); 
+                        pst.setString(11,  NewTime(err.getElementsByTagName("EventStartDate").item(0).getTextContent())); 
+                        pst.setString(12,   NewDate( err.getElementsByTagName("EventEndDate").item(0).getTextContent())); 
+                        pst.setString(13,  NewTime(err.getElementsByTagName("EventEndDate").item(0).getTextContent())); 
+                         pst.setString(14,  idAction()); 
+                          pst.setString(15,  idCharge()); 
+                            pst.setString(16, "");  
+                        
+                            pst.setString(17, "อยู่ระหว่างสอบสวน");  
+                            pst.setString(18, "");
+                             pst.setString(19, "");   
+                            pst.setString(20,"1");
+                           pst.setString(21,CheckNull(err, "Locations"));   
+
+
+                            
+//                      pst.setString(13,  NewTime(err.getElementsByTagName("OccuredDateTimeTo").item(0).getTextContent())); 
+                     pst.execute();
+                     pst.close(); 
+//                        if(err.getElementsByTagName("BehaviorOfCrimeCase").item(0)!=null){
+//                           pst1=conn2.prepareStatement(insertActionsCase);
+//                        pst1.setString(1, idAction());
+//                        pst1.setString(2, err.getElementsByTagName("BehaviorOfCrimeCase").item(0).getTextContent());
+//                        pst1.setString(3, err.getElementsByTagName("BehaviorOfCrimeCase").item(0).getTextContent());
+//                        pst1.setString(4, "");     
+//                                      System.out.println("addddddddddddd:"+idAction());  
+//                        pst1.execute();
+//                     pst1.close(); 
+                     
+//                            pst2=conn.prepareStatement(insertActionsCaseData);
+//                        pst2.setString(1, idActionCase());
+//                        pst2.setString(2, err.getElementsByTagName("BehaviorOfCrimeCase").item(0).getTextContent());
+//                        pst2.setString(3, err.getElementsByTagName("BehaviorOfCrimeCase").item(0).getTextContent());
+//                        pst2.setString(4, "");
+//                         pst2.setString(5, IdCasePerson());  
+//                        pst2.execute();
+//                     pst2.close(); 
+//                        }
+                 
+                        
+                        pst3=conn.prepareStatement(insertCharge);
+                        pst3.setString(1, idCharge());
+                        pst3.setString(2,CheckNull(err, "DisplayCharge").replace("1)", ""));
+//                       if (errNodes5.getLength() > 0) {
+//                            Element err5 = (Element)errNodes5.item(0);
+//                         pst3.setString(3, err5.getElementsByTagName("NameTH").item(0).getTextContent());      
+//                          }
+//                          else{
+                           pst3.setString(3, "");   
+//                          }
+                        pst3.setString(4,"");
+                         pst3.setString(5, "");  
+                        pst3.execute();
+                     pst3.close(); 
+                     
+                       pst4=conn.prepareStatement(insertChargeCase);
+                        pst4.setString(1, idChargeCase());
+                        pst4.setString(2, CheckNull(err, "DisplayCharge").replace("1)", ""));
+//                        if (errNodes5.getLength() > 0) {
+//                            Element err5 = (Element)errNodes5.item(0);
+//                         pst4.setString(3, err5.getElementsByTagName("NameTH").item(0).getTextContent());      
+//                          }
+//                          else{
+                           pst4.setString(3, "");   
+//                          }
+                        pst4.setString(4, "");
+                         pst4.setString(5, ""); 
+                        pst4.setString(6, IdCasePerson());  
+
+                        pst4.execute();
+                     pst4.close();
+//                          }
+
+                       System.out.println("success");
+        } catch (SQLException e) {
+                System.out.println("ddddd: "+e);
+            
+        }
+	} else { 
+		     // success
+         }
+           for (int temp = 0; temp < errNodes.getLength(); temp++) {
+
+        Node nNode = errNodes.item(temp);
+
+        
+
+        if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+
+            Element p = (Element) nNode; 
+
+//    System.out.println("First Name : " +eElement.getElementsByTagName("PeopleRegistrationID").item(0).getTextContent());
+       String insertPerson="insert into Person(PeopleRegistrationID,FullNamePerson,BirthDay,Gender,"
+                              + "Age,TypePerson,FatherFullName,MotherFullName,Race,Religion,Nationality,Occupation,ArrestDateTime,CaseIdPerson)\n"
+                                + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";  
+         try {
+                        int order=temp+1;
+                         PreparedStatement pst2=null;
+                        
+                        pst2=conn.prepareStatement(insertPerson);
+//               if(p.getElementsByTagName("PeopleRegistrationID").item(0)==null){
+//               pst2.setString(1,"");
+//               }
+//               else{
+//                    pst2.setString(1,p.getElementsByTagName("PeopleRegistrationID").item(0).getTextContent());
+//               }
+                pst2.setString(1,CheckNull(p, "PeopleRegistrationID"));
+                 pst2.setString(2,CheckNull(p, "FullNamePerson"));
+                 if(p.getElementsByTagName("Birthday").item(0)==null){
+               pst2.setString(3,"");
+               }
+               else{
+                    pst2.setString(3,NewDate(p.getElementsByTagName("Birthday").item(0).getTextContent()));
+               }
+
+                if(p.getElementsByTagName("Gender").item(0)==null){
+               pst2.setString(4,"");
+               }
+               else{
+                    pst2.setString(4,NewGender(p.getElementsByTagName("Gender").item(0).getTextContent()));
+               }
+              pst2.setString(5,CheckNull(p, "Age"));
+              pst2.setString(6,NewTypePerson(CheckNull(p, "StatusVictimOrSuspect")));
+              pst2.setString(7,CheckNull(p, "FatherName"));
+              pst2.setString(8,CheckNull(p, "MotherName"));
+              pst2.setString(9,CheckNull(p, "Race"));
+              pst2.setString(10,CheckNull(p, "Religion"));
+              pst2.setString(11,CheckNull(p, "Nationality"));
+              pst2.setString(12,NewOccupation(CheckNull(p, "Occupation")));
+               if(p.getElementsByTagName("ArrestedDate").item(0)==null){
+               pst2.setString(13,"");
+               }
+               else{
+                    pst2.setString(13,NewDateTime(p.getElementsByTagName("ArrestedDate").item(0).getTextContent()));
+               }  
+               pst2.setString(14,  IdCasePerson()); 
+
+                     pst2.execute();
+                     pst2.close();   
+                      System.out.println("success Person");
+        } catch (SQLException e) {
+                System.out.println("ddddd: "+e);
+            
+        }
+
+        }
+           }
+
+                } catch (Exception e) {
+                System.out.println(e);
+                }
                 }
    public static String IdCase(){
          Connection con=null;
@@ -3631,6 +4296,7 @@ System.out.println("sasa:"+a);
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;

@@ -197,6 +197,7 @@ public class LogInConfirm extends javax.swing.JDialog{
                       System.out.println("");
                       MainMenuWord.tk=token;
                       CaseSelectOverView.jLabel2.setText("1");
+                        JOptionPane.showMessageDialog(null, "เข้าสู่ระบบเรียบร้อยแล้วกรุณากดปุ่ม 'เชื่อมต่อข้อมูล' อีกครั้ง"); 
                       setVisible(false);
                   }
                  

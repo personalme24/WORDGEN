@@ -363,8 +363,8 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
                 jCheckOtherInvest.setSelected(true);
             }
           
-            ListAsset.setText(datain.get("AssetList")+"");
-             EvidenceRecordCase.setText(datain.get("AssetCode")+"");
+            ListAsset.setText(Checknull(datain.get("AssetList"))+"");
+             EvidenceRecordCase.setText(Checknull(datain.get("AssetCode"))+"");
            
             String ac=datain.get("ActionCrimes")+"";
             if(ac.equals("null")){
@@ -4528,16 +4528,16 @@ jTableAccure.getColumnModel().getColumn(8).setMaxWidth(0);
         else if(jTableAccure.getRowCount()==1){
 //             int rows = jTableAccure.getRowCount();
                        
-            CrimesCaseEdit.jTextAccused.setText(jTableAccure.getValueAt(0, 2).toString());           
+            jTextAccused.setText(jTableAccure.getValueAt(0, 2).toString());           
             }
          else if(jTableAccure.getRowCount()>1){
                         
-            CrimesCaseEdit.jTextAccused.setText(jTableAccure.getValueAt(0, 2).toString()+"และคนอื่นๆ"); 
+            jTextAccused.setText(jTableAccure.getValueAt(0, 2).toString()+"และคนอื่นๆ"); 
         
             }
                     
              int rows = jTableAccure.getRowCount();
-             CrimesCaseEdit.jLabelNumberAcc.setText(rows+"");  
+             jLabelNumberAcc.setText(rows+"");  
    
         }catch(Exception ex){
             ex.printStackTrace();
