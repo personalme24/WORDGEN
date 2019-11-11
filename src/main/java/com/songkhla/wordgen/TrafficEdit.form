@@ -1653,7 +1653,7 @@
                                 <Column editable="true" title="&#xe40;&#xe25;&#xe02;&#xe1a;&#xe31;&#xe15;&#xe23;&#xe1b;&#xe23;&#xe30;&#xe0a;&#xe19;" type="java.lang.Object"/>
                               </Table>
                             </Property>
-                            <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                            <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor" postCode="jTableWitness.getTableHeader().setFont(new Font(&quot;TH SarabunPSK&quot;, Font.BOLD, 20));&#xa;            jTableWitness.getTableHeader().setOpaque(false);">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                             <Property name="rowHeight" type="int" value="25"/>

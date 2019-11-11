@@ -98,6 +98,7 @@ public class CaseSelectOverView extends javax.swing.JDialog {
         ImageIcon img = new ImageIcon("./Master/WD.png");
         setIconImage(img.getImage());
         setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
+        jLabel2.setVisible(false);
         jPanel7.setVisible(true);
         jTableCrime.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         jTableCrime.setPreferredScrollableViewportSize(Toolkit.getDefaultToolkit().getScreenSize());
@@ -1407,6 +1408,7 @@ jlabeltoken.setVisible(true);
         String date2=DateAcceptEnd.getJFormattedTextField().getText();
         String dateR1=DateReqStart.getJFormattedTextField().getText();
         String dateR2=DateReqEnd.getJFormattedTextField().getText();
+     
         if(jCheckCase.isSelected()){
           case1=casenocc.getText();
           case2="";
@@ -1417,9 +1419,37 @@ jlabeltoken.setVisible(true);
           case2=casenocc3.getText();
           yearcase=caseyearscc1.getText();
         }
-       
-   
-         if(aa == null){
+        if(jCheckCase.isSelected()||jCheckCaseTwo.isSelected()||jCheckAccept.isSelected()||jCheckDateReg.isSelected()){
+           
+                  if(caseyearscc.getText().equals("")&&casenocc.getText().equals("")){
+                        JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดีและปีคดี");  
+                 }
+                  else if(casenocc.getText().equals("")){
+                     JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดี");  
+                     }
+                 else if(caseyearscc.getText().equals("")){
+                        JOptionPane.showMessageDialog(null, "กรุณากรอกปีคดี");  
+                 }
+                 
+//              else if(caseyearscc1.getText().equals("")&&casenocc3.getText().equals("")&&casenocc1.getText().equals("")){
+//                        JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดีและปีคดี");  
+//                       }
+//
+//                 else   if(casenocc1.getText().equals("")||casenocc3.getText().equals("")){
+//                     JOptionPane.showMessageDialog(null, "กรุณากรอกเลขคดี");  
+//                     }
+//                 else if(caseyearscc1.getText().equals("")){
+//                        JOptionPane.showMessageDialog(null, "กรุณากรอกปีคดี");  
+//                 }
+//                 else if(DateAcceptStart.getJFormattedTextField().getText().equals("")||DateAcceptEnd.getJFormattedTextField().getText().equals("")){
+//                        JOptionPane.showMessageDialog(null, "กรุณากรอกวันที่รับคดี");  
+//                     }
+//                 else if(DateReqStart.getJFormattedTextField().getText().equals("")||DateReqEnd.getJFormattedTextField().getText().equals("")){
+//                        JOptionPane.showMessageDialog(null, "กรุณากรอกวันที่รับแจ้ง");  
+//                     }
+            else{
+                System.out.println("dsdfsffffffffff");
+            if(aa == null){
             System.out.println("empty:");
             JFrame frame = new JFrame();
             JDialog dialog = new JDialog(frame);//frame is owner
@@ -1480,7 +1510,7 @@ jlabeltoken.setVisible(true);
         jsonInput.addProperty("CaseAcceptDate",AcceptDate(DateAcceptStart.getJFormattedTextField().getText(),timeStart));
         jsonInput.addProperty("CaseAcceptDateTo",AcceptDate(DateAcceptEnd.getJFormattedTextField().getText(),timeEnd));
 
-        call_me2(jsonInput);
+        call_crimes(jsonInput);
         TotalCase.setText(jTableCrime.getRowCount()+"");
         int rowcase=jTableCrime.getRowCount();
         if(rowcase ==0){
@@ -1489,6 +1519,15 @@ jlabeltoken.setVisible(true);
        
     
               }
+            
+            }
+        }
+        else{
+         JOptionPane.showMessageDialog(null, "กรุณาเลือก");   
+        }
+        
+   
+         
         
         
         
@@ -1718,7 +1757,7 @@ jlabeltoken.setVisible(true);
         jsonInput.addProperty("CaseAcceptDate",AcceptDate(DateAcceptStartTC.getJFormattedTextField().getText(),timeStart));
         jsonInput.addProperty("CaseAcceptDateTo",AcceptDate(DateAcceptEndTC.getJFormattedTextField().getText(),timeEnd));
 
-        call_meTraf(jsonInput);
+        call_traffic(jsonInput);
         TotalCase1.setText(jTableTraffic.getRowCount()+"");
         int rowcase=jTableTraffic.getRowCount();
         if(rowcase ==0){
@@ -2084,7 +2123,7 @@ jlabeltoken.setVisible(true);
     
 
 }
-    public void call_me2(JsonObject json){
+    public void call_crimes(JsonObject json){
      try {
                 String url = "http://172.31.191.163:8383/ws/CrimeCaseService_Wordgen/";
                 URL obj = new URL(url);
@@ -2241,7 +2280,7 @@ jlabeltoken.setVisible(true);
 
                
                 }
- public void call_meTraf(JsonObject json){
+ public void call_traffic(JsonObject json){
      try {
                 String url = "http://172.31.191.163:8383/ws/TrafficCaseService_Wordgen/";
                 URL obj = new URL(url);
@@ -2677,18 +2716,18 @@ jlabeltoken.setVisible(true);
                 con.setRequestMethod("POST");
                 con.setRequestProperty("Content-Type","application/soap+xml;charset=UTF-8");
                 String xml = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:exam=\"http://www.example.com/\">\n" +
-                            "   <soapenv:Header>\n" +
-                            "      <exam:authentication>\n" +
-                            "         <username>rtp</username>\n" +
-                            "         <password>rtp</password>\n" +
-                            "      </exam:authentication>\n" +
-                            "   </soapenv:Header>\n" +
-                            "   <soapenv:Body>\n" +
-                            "      <exam:TrafficCaseDetail>\n" +
-                            "         <INPUT>"+a+"</INPUT>\n" +
-                            "      </exam:TrafficCaseDetail>\n" +
-                            "   </soapenv:Body>\n" +
-                            "</soapenv:Envelope>";
+                    "   <soapenv:Header>\n" +
+                    "      <exam:authentication>\n" +
+                    "         <username>rtp</username>\n" +
+                    "         <password>rtp</password>\n" +
+                    "      </exam:authentication>\n" +
+                    "   </soapenv:Header>\n" +
+                    "   <soapenv:Body>\n" +
+                    "      <exam:TrafficCaseDetail>\n" +
+                    "         <INPUT>"+a+"</INPUT>\n" +
+                    "      </exam:TrafficCaseDetail>\n" +
+                    "   </soapenv:Body>\n" +
+                    "</soapenv:Envelope>";
                 System.out.println(xml);
                     con.setDoOutput(true);
                   DataOutputStream writer = new DataOutputStream(con.getOutputStream());
@@ -2714,9 +2753,9 @@ jlabeltoken.setVisible(true);
          .parse(new InputSource(new StringReader(response.toString())));
 	       NodeList errNodes = doc.getElementsByTagName("Person");
                NodeList errNodes2 = doc.getElementsByTagName("TrafficCase");       
-               NodeList errNodes3 = doc.getElementsByTagName("ReportDailry");
-               NodeList errNodes4 = doc.getElementsByTagName("Charge");
-                 NodeList errNodes5 = doc.getElementsByTagName("LawCategory");               
+//               NodeList errNodes3 = doc.getElementsByTagName("ReportDailry");
+//               NodeList errNodes4 = doc.getElementsByTagName("Charge");
+//                 NodeList errNodes5 = doc.getElementsByTagName("LawCategory");               
                
               Connection conn=null;
                Connection conn2=null;
@@ -2765,70 +2804,70 @@ jlabeltoken.setVisible(true);
                         pst.setString(13,  NewTime(err.getElementsByTagName("EventEndDate").item(0).getTextContent())); 
                          pst.setString(14,  idAction()); 
                           pst.setString(15,  idCharge()); 
-                            pst.setString(16, err.getElementsByTagName("DailyRecordNo").item(0).getTextContent());  
+                            pst.setString(16, "");  
                         
                             pst.setString(17, "อยู่ระหว่างสอบสวน");  
-                            pst.setString(18, err.getElementsByTagName("DisplaySuspectName").item(0).getTextContent().replace("1) ", ""));
-                             pst.setString(19, err.getElementsByTagName("DisplayVictimsname").item(0).getTextContent().replace("1) ", ""));   
+                            pst.setString(18, "");
+                             pst.setString(19, "");   
                             pst.setString(20,"1");   
 
                             
 //                      pst.setString(13,  NewTime(err.getElementsByTagName("OccuredDateTimeTo").item(0).getTextContent())); 
                      pst.execute();
                      pst.close(); 
-                        if(err.getElementsByTagName("BehaviorOfCrimeCase").item(0)!=null){
-                           pst1=conn2.prepareStatement(insertActionsCase);
-                        pst1.setString(1, idAction());
-                        pst1.setString(2, err.getElementsByTagName("BehaviorOfCrimeCase").item(0).getTextContent());
-                        pst1.setString(3, err.getElementsByTagName("BehaviorOfCrimeCase").item(0).getTextContent());
-                        pst1.setString(4, "");     
-                                      System.out.println("addddddddddddd:"+idAction());  
-                        pst1.execute();
-                     pst1.close(); 
+//                        if(err.getElementsByTagName("BehaviorOfCrimeCase").item(0)!=null){
+//                           pst1=conn2.prepareStatement(insertActionsCase);
+//                        pst1.setString(1, idAction());
+//                        pst1.setString(2, err.getElementsByTagName("BehaviorOfCrimeCase").item(0).getTextContent());
+//                        pst1.setString(3, err.getElementsByTagName("BehaviorOfCrimeCase").item(0).getTextContent());
+//                        pst1.setString(4, "");     
+//                                      System.out.println("addddddddddddd:"+idAction());  
+//                        pst1.execute();
+//                     pst1.close(); 
                      
-                            pst2=conn.prepareStatement(insertActionsCaseData);
-                        pst2.setString(1, idActionCase());
-                        pst2.setString(2, err.getElementsByTagName("BehaviorOfCrimeCase").item(0).getTextContent());
-                        pst2.setString(3, err.getElementsByTagName("BehaviorOfCrimeCase").item(0).getTextContent());
-                        pst2.setString(4, "");
-                         pst2.setString(5, IdCasePerson());  
-                        pst2.execute();
-                     pst2.close(); 
-                        }
-                     if (errNodes4.getLength() > 0) {
-                            Element err4 = (Element)errNodes4.item(0);    
-                        pst3=conn.prepareStatement(insertCharge);
-                        pst3.setString(1, idCharge());
-                        pst3.setString(2,err4.getElementsByTagName("ChargeNameTH").item(0).getTextContent());
-                       if (errNodes5.getLength() > 0) {
-                            Element err5 = (Element)errNodes5.item(0);
-                         pst3.setString(3, err5.getElementsByTagName("NameTH").item(0).getTextContent());      
-                          }
-                          else{
-                           pst3.setString(3, "");   
-                          }
-                        pst3.setString(4,err4.getElementsByTagName("PenaltyNameTH").item(0).getTextContent());
-                         pst3.setString(5, "");  
-                        pst3.execute();
-                     pst3.close(); 
+//                            pst2=conn.prepareStatement(insertActionsCaseData);
+//                        pst2.setString(1, idActionCase());
+//                        pst2.setString(2, err.getElementsByTagName("BehaviorOfCrimeCase").item(0).getTextContent());
+//                        pst2.setString(3, err.getElementsByTagName("BehaviorOfCrimeCase").item(0).getTextContent());
+//                        pst2.setString(4, "");
+//                         pst2.setString(5, IdCasePerson());  
+//                        pst2.execute();
+//                     pst2.close(); 
+//                        }
+//                     if (errNodes4.getLength() > 0) {
+//                            Element err4 = (Element)errNodes4.item(0);    
+//                        pst3=conn.prepareStatement(insertCharge);
+//                        pst3.setString(1, idCharge());
+//                        pst3.setString(2,err4.getElementsByTagName("ChargeNameTH").item(0).getTextContent());
+//                       if (errNodes5.getLength() > 0) {
+//                            Element err5 = (Element)errNodes5.item(0);
+//                         pst3.setString(3, err5.getElementsByTagName("NameTH").item(0).getTextContent());      
+//                          }
+//                          else{
+//                           pst3.setString(3, "");   
+//                          }
+//                        pst3.setString(4,err4.getElementsByTagName("PenaltyNameTH").item(0).getTextContent());
+//                         pst3.setString(5, "");  
+//                        pst3.execute();
+//                     pst3.close(); 
                      
-                       pst4=conn.prepareStatement(insertChargeCase);
-                        pst4.setString(1, idChargeCase());
-                        pst4.setString(2, err4.getElementsByTagName("ChargeNameTH").item(0).getTextContent());
-                        if (errNodes5.getLength() > 0) {
-                            Element err5 = (Element)errNodes5.item(0);
-                         pst4.setString(3, err5.getElementsByTagName("NameTH").item(0).getTextContent());      
-                          }
-                          else{
-                           pst4.setString(3, "");   
-                          }
-                        pst4.setString(4, err4.getElementsByTagName("PenaltyNameTH").item(0).getTextContent());
-                         pst4.setString(5, ""); 
-                        pst4.setString(6, IdCasePerson());  
+//                       pst4=conn.prepareStatement(insertChargeCase);
+//                        pst4.setString(1, idChargeCase());
+//                        pst4.setString(2, err4.getElementsByTagName("ChargeNameTH").item(0).getTextContent());
+//                        if (errNodes5.getLength() > 0) {
+//                            Element err5 = (Element)errNodes5.item(0);
+//                         pst4.setString(3, err5.getElementsByTagName("NameTH").item(0).getTextContent());      
+//                          }
+//                          else{
+//                           pst4.setString(3, "");   
+//                          }
+//                        pst4.setString(4, err4.getElementsByTagName("PenaltyNameTH").item(0).getTextContent());
+//                         pst4.setString(5, ""); 
+//                        pst4.setString(6, IdCasePerson());  
 
-                        pst4.execute();
-                     pst4.close();
-                          }
+//                        pst4.execute();
+//                     pst4.close();
+//                          }
                      
 //                      if(err.getElementsByTagName("DisplayCharge").item(0)!=null){
 //                      pst3=conn.prepareStatement(insertCharge);
