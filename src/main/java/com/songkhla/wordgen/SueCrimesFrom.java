@@ -143,7 +143,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
     String person;
     String caseid,stSuspect,arrestDate;
     String dateF,dateTot,Court,StatusBail,RatePrison;
-         String caseyear,casetype,caseno,PoliceStaionName;
+         String caseyear,casetype,caseno="",PoliceStaionName;
 
 //    JDatePickerImpl SueSecDate,SueThirdDate,SueFourthDate,SueFifthDate,SueSixthDate,SueSevDate;
     /**
@@ -449,8 +449,11 @@ public class SueCrimesFrom extends javax.swing.JDialog {
                 PeopleRegistrationID.setText(rs.getString("PeopleRegistrationID")+"");  
                 FullNamePerson.setText(rs.getString("FullNamePerson")+"");
                  AccureandOther.setText(Checknull(rs.getString("AccureandOther"))+"");
-
-            ChargeName.setText(Checknull(rs.getString("ChargeNameCase")));
+             crimecaseno.setText(Checknull(rs.getString("crimecasenoyear")));
+              ChargeName.setText(Checknull(rs.getString("ChargeNameCase")));
+                 caseyear=rs.getString("crimecaseyears");
+                caseno=rs.getString("crimecaseno");
+                casetype=rs.getString("CaseType");
 //            SueFirst.setText(datain.get("SueFirst")+"");
 //            SueFirstDate.setText(datain.get("SueFirstDate")+"");   
                 }
@@ -460,7 +463,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 //                  caseyear=datain.get("crimecaseyears")+"";
 //                caseno=datain.get("crimecaseno")+"";
 //                casetype=datain.get("CaseType")+"";
-//            crimecaseno.setText(datain.get("crimecasenoyear")+"");
+           
 
 //            AccureandOther.setText(datain.get("AccureandOther")+"");
 
@@ -1673,9 +1676,11 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 
     private void Print1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Print1ActionPerformed
         // TODO add your handling code here:
-
-        if(SueFirst.getText().equals("")){
-            JOptionPane.showMessageDialog(jPanel1,"แจ้งเตือน", "กรุณากรอกข้อมูล", JOptionPane.INFORMATION_MESSAGE);
+        if(caseno.equals("")||caseno==null){
+        JOptionPane.showMessageDialog(jPanel1,"กรุณาบันทึกข้อมูลคดี","แจ้งเตือน",  JOptionPane.INFORMATION_MESSAGE);
+        }
+       else if(SueFirst.getText().equals("")){
+            JOptionPane.showMessageDialog(jPanel1,"กรุณากรอกข้อมูล","แจ้งเตือน" , JOptionPane.INFORMATION_MESSAGE);
         }
         else{
             yourAttemptActionPerformed();
@@ -2360,7 +2365,7 @@ SueFirstCause.setEnabled(true);
         String newFormatDate=null;
        try{   Calendar cal;
         SimpleDateFormat formatdate =new SimpleDateFormat("d/MM/yyyy");  
-         if(DateSue == null || DateSue.equals("null")|| DateSue.equals("0")){
+         if(DateSue == null || DateSue.equals("null")|| DateSue.equals("0")|| DateSue.equals("")){
             newFormatDate="";
         }
          else{

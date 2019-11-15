@@ -14,11 +14,16 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.event.KeyEvent;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.DataOutputStream;
@@ -60,7 +65,10 @@ import java.util.Properties;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
+import javax.swing.JProgressBar;
 import javax.swing.JTable;
+import javax.swing.SwingWorker;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.DocumentEvent;
@@ -104,8 +112,12 @@ public class CaseSelectOverView extends javax.swing.JDialog {
         jTableCrime.setPreferredScrollableViewportSize(Toolkit.getDefaultToolkit().getScreenSize());
                 jTableCrime.getColumnModel().getColumn(0).setMinWidth(15);
                   jTableCrime.getColumnModel().getColumn(1).setMinWidth(75);
-         jTableCrime.getColumnModel().getColumn(2).setMinWidth(75);
-         jTableCrime.getColumnModel().getColumn(3).setMinWidth(40);
+              jTableCrime.getColumnModel().getColumn(2).setWidth(0);
+                jTableCrime.getColumnModel().getColumn(2).setMinWidth(0);
+                jTableCrime.getColumnModel().getColumn(2).setMaxWidth(0); 
+                 jTableCrime.getColumnModel().getColumn(3).setWidth(0);
+                jTableCrime.getColumnModel().getColumn(3).setMinWidth(0);
+                jTableCrime.getColumnModel().getColumn(3).setMaxWidth(0);
          jTableCrime.getColumnModel().getColumn(4).setMinWidth(150);
          jTableCrime.getColumnModel().getColumn(5).setMinWidth(250);
          jTableCrime.getColumnModel().getColumn(6).setMinWidth(250);
@@ -115,8 +127,12 @@ public class CaseSelectOverView extends javax.swing.JDialog {
         jTableTraffic.setPreferredScrollableViewportSize(Toolkit.getDefaultToolkit().getScreenSize());
                 jTableTraffic.getColumnModel().getColumn(0).setMinWidth(15);
                   jTableTraffic.getColumnModel().getColumn(1).setMinWidth(75);
-         jTableTraffic.getColumnModel().getColumn(2).setMinWidth(75);
-         jTableTraffic.getColumnModel().getColumn(3).setMinWidth(40);
+               jTableTraffic.getColumnModel().getColumn(2).setWidth(0);
+                jTableTraffic.getColumnModel().getColumn(2).setMinWidth(0);
+                jTableTraffic.getColumnModel().getColumn(2).setMaxWidth(0); 
+                 jTableTraffic.getColumnModel().getColumn(3).setWidth(0);
+                jTableTraffic.getColumnModel().getColumn(3).setMinWidth(0);
+                jTableTraffic.getColumnModel().getColumn(3).setMaxWidth(0);
          jTableTraffic.getColumnModel().getColumn(4).setMinWidth(150);
          jTableTraffic.getColumnModel().getColumn(5).setMinWidth(250);
          jTableTraffic.getColumnModel().getColumn(6).setMinWidth(250);
@@ -333,6 +349,8 @@ jlabeltoken.setVisible(true);
         TotalCase = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
@@ -370,6 +388,7 @@ jlabeltoken.setVisible(true);
         TotalCase1 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -700,7 +719,7 @@ jlabeltoken.setVisible(true);
                             .addComponent(jPanelReg, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
                             .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanelReg2, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(28, Short.MAX_VALUE))))
         );
 
         jTableCrime.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
@@ -745,40 +764,62 @@ jlabeltoken.setVisible(true);
         jLabel12.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         jLabel12.setText("จำนวนคดีทั้งหมด");
 
+        jLabel4.setFont(new java.awt.Font("TH SarabunPSK", 1, 18)); // NOI18N
+        jLabel4.setText("**กรณีที่มีการเลือกคดีจากระบบ CRIMES ซ้ำกับคดีที่มีอยู่ในโปรแกรม หากทำการยืนยันการดึงข้อมูลคดี ");
+
+        jLabel5.setFont(new java.awt.Font("TH SarabunPSK", 1, 18)); // NOI18N
+        jLabel5.setText("ข้อมูลคดีจากระบบ CRIMES จะแทนที่ข้อมูลเดิมทั้งหมดของคดีที่ได้ทำการเลือก");
+
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 1210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 1210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addGroup(jPanel9Layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel12)
+                                .addGap(10, 10, 10)
+                                .addComponent(TotalCase)
+                                .addGap(12, 12, 12)
+                                .addComponent(jLabel13)
+                                .addGap(22, 22, 22)
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1210, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel12)
-                .addGap(10, 10, 10)
-                .addComponent(TotalCase)
-                .addGap(12, 12, 12)
-                .addComponent(jLabel13)
-                .addGap(22, 22, 22)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(9, 9, 9)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12)
-                    .addComponent(TotalCase)
-                    .addComponent(jLabel13)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel12)
+                                .addComponent(jLabel5))
+                            .addComponent(TotalCase)
+                            .addComponent(jLabel13)
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4)))
                 .addContainerGap())
         );
 
@@ -792,9 +833,7 @@ jlabeltoken.setVisible(true);
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 3, Short.MAX_VALUE))
+            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("คดีอาญา", jPanel6);
@@ -1024,9 +1063,8 @@ jlabeltoken.setVisible(true);
                         .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabelorgcode1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 364, Short.MAX_VALUE)
-                .addComponent(jButtonConTraffic)
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonConTraffic))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1073,7 +1111,7 @@ jlabeltoken.setVisible(true);
                             .addComponent(jPanelRegTCS, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
                             .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanelRegTCE, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE))
-                        .addContainerGap(22, Short.MAX_VALUE))))
+                        .addContainerGap(31, Short.MAX_VALUE))))
         );
 
         jTableTraffic.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
@@ -1118,59 +1156,71 @@ jlabeltoken.setVisible(true);
         jLabel42.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
         jLabel42.setText("จำนวนคดีทั้งหมด");
 
-        jLabel3.setText("**กรณีที่ท่านเลือกคดีท");
+        jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 18)); // NOI18N
+        jLabel6.setText("**กรณีที่มีการเลือกคดีจากระบบ CRIMES ซ้ำกับคดีที่มีในโปรแกรม หากทำการยืนยันการดึงข้อมูลคดี ");
+
+        jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 18)); // NOI18N
+        jLabel3.setText("ข้อมูลคดีจากระบบ CRIMES จะแทนที่ข้อมูลเดิมทั้งหมดของคดีที่ได้ทำการเลือก");
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 1210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel42)
-                .addGap(10, 10, 10)
-                .addComponent(TotalCase1)
-                .addGap(12, 12, 12)
-                .addComponent(jLabel41)
-                .addGap(22, 22, 22)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel3)))
+                        .addGap(457, 457, 457)
+                        .addComponent(jLabel42)
+                        .addGap(10, 10, 10)
+                        .addComponent(TotalCase1)
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel41)
+                        .addGap(22, 22, 22)
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1209, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(9, 9, 9)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel42)
-                    .addComponent(TotalCase1)
-                    .addComponent(jLabel41)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(1, 1, 1)
+                        .addComponent(jLabel3))
+                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel42)
+                        .addComponent(TotalCase1)
+                        .addComponent(jLabel41)
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("คดีจราจร", jPanel2);
@@ -1184,16 +1234,16 @@ jlabeltoken.setVisible(true);
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 647, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
         );
 
         pack();
@@ -1293,119 +1343,7 @@ jlabeltoken.setVisible(true);
    }
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        String aa="";
-        aa=MainMenuWord.tk;
-        System.out.println("Token-List:"+aa);
-       ArrayList<String> caseList = new ArrayList<String>();
-      ArrayList<String> caseidList = new ArrayList<String>();
-        ArrayList<String> casenoList = new ArrayList<String>();
-    ArrayList<String> caseyearList = new ArrayList<String>();
-        for (int i = 0; i < jTableCrime.getRowCount(); i++) {
-            Boolean chked = Boolean.valueOf(jTableCrime.getValueAt(i, 0).toString());
-            String casno = jTableCrime.getValueAt(i, 2).toString();
-            String casyear = jTableCrime.getValueAt(i, 3).toString();
-            String orgcode=jLabelorgcode.getText();
-            String user=usernamelabel.getText();
-            String idcard=idcardlabel.getText();
-            String nameor=orgnamelabel.getText();
-            //        String newnameor="";
-            //        try{
-                //         newnameor=URLEncoder.encode(nameor, "UTF-8");
-                //        }
-            //        catch(Exception e){
-                //
-                //        }
-            //            System.out.println("aa:"+nameor);
-
-            if (chked) {
-                try{
-                    Connection c=null;
-                    c=ConnectDatabase.connect();
-                    String sqlId="Select caseid,crimecaseno,crimecaseyears,crimecasenoyear from CrimeCase where crimecaseno='"+casno+"' and crimecaseyears='"+casyear+"' and crimecasenoyear='"+casno+"/"+casyear+"'";
-                    
-                    Statement s=c.createStatement();
-                    ResultSet rs=s.executeQuery(sqlId);
- 
-                    if (rs.next()) {
-                        System.out.println("id"+i+"c"+casno+"/"+casyear);
-                        String cid=rs.getString("caseid");
-                        caseList.add(casno+"/"+casyear);
-                        caseidList.add(cid);
-                       casenoList.add(casno);
-                       caseyearList.add(casyear);
-                       
-//                        int response = JOptionPane.showConfirmDialog(jPanel6, "คดีที่ "+casno+"/"+casyear+" มีข้อมูลคดีนี้แล้วต้องการบันทึกข้อมูลซ้ำหรือไม่", "ยืนยัน",
-//                            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-//                        if (response == JOptionPane.YES_OPTION) {
-//                            //             con=ConnectDatabase.connect();
-//                            JsonObject jsonInput = new JsonObject();
-//                            jsonInput.addProperty("CrimeCaseNo",casno);
-//                            jsonInput.addProperty("CrimeCaseYear",casyear);
-//                            jsonInput.addProperty("ORG_CODE",jLabelorgcode.getText());
-//                            jsonInput.addProperty("Usename",usernamelabel.getText());
-//                            jsonInput.addProperty("PasswordWordgen",aa);
-//                            jsonInput.addProperty("OrgName",orgnamelabel.getText());
-//                            jsonInput.addProperty("Serial",getMotherboardSerial());
-//                            String j=jsonInput.toString();
-//                            update_crime(jsonInput,cid);
-//                            System.out.println(j);
-//
-//                        }
-                    }
-                    else{
-                        JsonObject jsonInput = new JsonObject();
-                        jsonInput.addProperty("CrimeCaseNo",casno);
-                        jsonInput.addProperty("CrimeCaseYear",casyear);
-                        jsonInput.addProperty("ORG_CODE",jLabelorgcode.getText());
-                        jsonInput.addProperty("Usename",usernamelabel.getText());
-                        jsonInput.addProperty("PasswordWordgen",aa);
-                        jsonInput.addProperty("OrgName",orgnamelabel.getText());
-                        jsonInput.addProperty("Serial",getMotherboardSerial());
-                        String j=jsonInput.toString();
-                        //         String replaced = j.replace("\"", "\\\"");
-                        //String n="{\"CrimeCaseNo\":\""+casno+"\",\"CrimeCaseYear\":\""+casyear+"\",\"ORG_CODE\":\""+orgcode+"\",\"Usename\":\""+user+"\",\"Idcard\":\""+idcard+"\",\"OrgName\":\""+nameor+"\"}";
-                        //String n="{\"CrimeCaseNo\":\""+casno+"\",\"CrimeCaseYear\":\""+casyear+"\",\"ORG_CODE\":\""+jLabelorgcode.getText()+"\",\"Usename\":\""+usernamelabel.getText()+"\",\"Idcard\":\""+idcardlabel.getText()+"\",\"OrgName\":\""+orgname.getText()+"\"}";
-
-                        insert_crime(jsonInput);
-                        //         String j=jsonInput.toString();
-                        System.out.println(j);
-
-                    }
-
-                }
-                catch(Exception ex){
-
-                }
-                //       		JOptionPane.showMessageDialog(null, "ดึงข้อมูลเรียบร้อยแล้ว");
-
-                //		JOptionPane.showMessageDialog(null, dataCol1);
-            }
-        }
-        if(caseList.size()>0){
-            String ar=caseList.toString().replace("[", "");
-            String ae=ar.replace("]", "");
-           
-         int response = JOptionPane.showConfirmDialog(jPanel6, "คดีที่ "+ae+"\nมีข้อมูลคดีนี้แล้วต้องการบันทึกข้อมูลแทนที่ของเดิมหรือไม่ ", "ยืนยัน",
-                            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-                                 if (response == JOptionPane.YES_OPTION) {
-                            //             con=ConnectDatabase.connect();
-                            for(int i=0;i<caseidList.size() && i<casenoList.size() && i<caseyearList.size();i++){
-                            JsonObject jsonInput = new JsonObject();
-                            jsonInput.addProperty("CrimeCaseNo",casenoList.get(i));
-                            jsonInput.addProperty("CrimeCaseYear",caseyearList.get(i));
-                            jsonInput.addProperty("ORG_CODE",jLabelorgcode.getText());
-                            jsonInput.addProperty("Usename",usernamelabel.getText());
-                            jsonInput.addProperty("PasswordWordgen",aa);
-                            jsonInput.addProperty("OrgName",orgnamelabel.getText());
-                            jsonInput.addProperty("Serial",getMotherboardSerial());
-                            String j=jsonInput.toString();
-                            update_crime(jsonInput,caseidList.get(i));
-                            System.out.println(j);
-                            }            
-        }
-    }
-//        System.out.println("ddd"+caseList.toString());
-        JOptionPane.showMessageDialog(null, "การทำรายการเสร็จสิ้น");
+       new BackgroundWorkerInsert().execute();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButtonConCrimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConCrimeActionPerformed
@@ -1601,7 +1539,7 @@ jlabeltoken.setVisible(true);
                           else if(caseyearscc1.getText().equals("")){
                                  JOptionPane.showMessageDialog(null, "กรุณากรอกปีคดี");  
                           }
-                        else{connect_crime();}
+                        else{ connect_crime();}
            }
          else if(jCheckAccept.isSelected()){
                System.out.println("L10");
@@ -1626,7 +1564,7 @@ jlabeltoken.setVisible(true);
             
         }
         else{
-         JOptionPane.showMessageDialog(null, "กรุณาเลือกกรอกข้อมูลคดีที่ต้องการจากระบบ CRIMES");   
+         JOptionPane.showMessageDialog(null, "กรุณากรอกข้อมูลคดีที่ต้องการจากระบบ CRIMES");   
         }
         
    
@@ -1647,16 +1585,16 @@ jlabeltoken.setVisible(true);
         String dateR1=DateReqStart.getJFormattedTextField().getText();
         String dateR2=DateReqEnd.getJFormattedTextField().getText();
         System.out.println("dsdfsffffffffff");
-           if(jCheckCase.isSelected()){
-          case1=casenocc.getText();
-          case2=casenocc.getText();
-          yearcase=caseyearscc.getText();
-        }
-        else if(jCheckCaseTwo.isSelected()){
-        case1=casenocc1.getText();
-          case2=casenocc3.getText();
-          yearcase=caseyearscc1.getText();
-        }
+//           if(jCheckCase.isSelected()){
+//          case1=casenocc.getText();
+//          case2=casenocc.getText();
+//          yearcase=caseyearscc.getText();
+//        }
+//        else if(jCheckCaseTwo.isSelected()){
+//        case1=casenocc1.getText();
+//          case2=casenocc3.getText();
+//          yearcase=caseyearscc1.getText();
+//        }
             if(aa == null){
             System.out.println("empty:");
             JFrame frame = new JFrame();
@@ -1697,31 +1635,31 @@ jlabeltoken.setVisible(true);
 
             } catch (Exception e) {
             }
-  
-            String timeStart="00:00";
-        String timeEnd="23:59";
-        JsonObject jsonInput = new JsonObject();
-        
-        jsonInput.addProperty("CrimeCaseNo",case1);
-         jsonInput.addProperty("CrimeCaseNoTo",case2);
-        jsonInput.addProperty("CrimeCaseYear",yearcase);
-        jsonInput.addProperty("CrimeCaseYearTo",yearcase);
-        jsonInput.addProperty("ORG_CODE",jLabelorgcode.getText());
-        //         jsonInput.addProperty("ORG_CODE","70028");
-        jsonInput.addProperty("PasswordWordgen",aa);
-        jsonInput.addProperty("StatusMagenta","Magenta_inActive");
-        
-        jsonInput.addProperty("CaseRequestDate",AcceptDate(DateReqStart.getJFormattedTextField().getText(),timeStart));
-        jsonInput.addProperty("CaseRequestDateTo",AcceptDate(DateReqEnd.getJFormattedTextField().getText(),timeEnd));
-        jsonInput.addProperty("CaseAcceptDate",AcceptDate(DateAcceptStart.getJFormattedTextField().getText(),timeStart));
-        jsonInput.addProperty("CaseAcceptDateTo",AcceptDate(DateAcceptEnd.getJFormattedTextField().getText(),timeEnd));
-
-        call_crimes(jsonInput);
-        TotalCase.setText(jTableCrime.getRowCount()+"");
-        int rowcase=jTableCrime.getRowCount();
-        if(rowcase ==0){
-            JOptionPane.showMessageDialog(null, "ไม่พบข้อมูลคดีในระบบ crimes");
-        }
+           new BackgroundWorker().execute();
+//            String timeStart="00:00";
+//        String timeEnd="23:59";
+//        JsonObject jsonInput = new JsonObject();
+//        
+//        jsonInput.addProperty("CrimeCaseNo",case1);
+//         jsonInput.addProperty("CrimeCaseNoTo",case2);
+//        jsonInput.addProperty("CrimeCaseYear",yearcase);
+//        jsonInput.addProperty("CrimeCaseYearTo",yearcase);
+//        jsonInput.addProperty("ORG_CODE",jLabelorgcode.getText());
+//        //         jsonInput.addProperty("ORG_CODE","70028");
+//        jsonInput.addProperty("PasswordWordgen",aa);
+//        jsonInput.addProperty("StatusMagenta","Magenta_inActive");
+//        
+//        jsonInput.addProperty("CaseRequestDate",AcceptDate(DateReqStart.getJFormattedTextField().getText(),timeStart));
+//        jsonInput.addProperty("CaseRequestDateTo",AcceptDate(DateReqEnd.getJFormattedTextField().getText(),timeEnd));
+//        jsonInput.addProperty("CaseAcceptDate",AcceptDate(DateAcceptStart.getJFormattedTextField().getText(),timeStart));
+//        jsonInput.addProperty("CaseAcceptDateTo",AcceptDate(DateAcceptEnd.getJFormattedTextField().getText(),timeEnd));
+//
+//        call_crimes(jsonInput);
+//        TotalCase.setText(jTableCrime.getRowCount()+"");
+//        int rowcase=jTableCrime.getRowCount();
+//        if(rowcase ==0){
+//            JOptionPane.showMessageDialog(null, "ไม่พบข้อมูลคดีในระบบ crimes");
+//        }
        
     
               }
@@ -2090,7 +2028,7 @@ jlabeltoken.setVisible(true);
             
         }
         else{
-         JOptionPane.showMessageDialog(null, "กรุณาเลือกกรอกข้อมูลคดีที่ต้องการจากระบบ CRIMES");   
+         JOptionPane.showMessageDialog(null, "กรุณากรอกข้อมูลคดีที่ต้องการจากระบบ CRIMES");   
         }
    
          
@@ -2157,32 +2095,7 @@ jlabeltoken.setVisible(true);
 
             } catch (Exception e) {
             }
-  
-            String timeStart="00:00";
-        String timeEnd="23:59";
-        JsonObject jsonInput = new JsonObject();
-        
-        jsonInput.addProperty("CrimeCaseNo",case1);
-         jsonInput.addProperty("CrimeCaseNoTo",case2);
-        jsonInput.addProperty("CrimeCaseYear",yearcase);
-        jsonInput.addProperty("CrimeCaseYearTo",yearcase);
-        jsonInput.addProperty("ORG_CODE",jLabelorgcode.getText());
-        //         jsonInput.addProperty("ORG_CODE","70028");
-        jsonInput.addProperty("PasswordWordgen",aa);
-        jsonInput.addProperty("StatusMagenta","Magenta_inActive");
-        
-        jsonInput.addProperty("CaseRequestDate",AcceptDate(DateReqStartTC.getJFormattedTextField().getText(),timeStart));
-        jsonInput.addProperty("CaseRequestDateTo",AcceptDate(DateReqEndTC.getJFormattedTextField().getText(),timeEnd));
-        jsonInput.addProperty("CaseAcceptDate",AcceptDate(DateAcceptStartTC.getJFormattedTextField().getText(),timeStart));
-        jsonInput.addProperty("CaseAcceptDateTo",AcceptDate(DateAcceptEndTC.getJFormattedTextField().getText(),timeEnd));
-
-        call_traffic(jsonInput);
-        TotalCase1.setText(jTableTraffic.getRowCount()+"");
-        int rowcase=jTableTraffic.getRowCount();
-        if(rowcase ==0){
-            JOptionPane.showMessageDialog(null, "ไม่พบข้อมูลคดีในระบบ crimes");
-        }
-       
+            new BackgroundWorkerTraff().execute();
     
               }
     }
@@ -2299,109 +2212,7 @@ jlabeltoken.setVisible(true);
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-         String aa="";
-        aa=MainMenuWord.tk;
-        System.out.println("Token-List:"+aa);
-       ArrayList<String> caseList = new ArrayList<String>();
-      ArrayList<String> caseidList = new ArrayList<String>();
-        ArrayList<String> casenoList = new ArrayList<String>();
-    ArrayList<String> caseyearList = new ArrayList<String>();
-        for (int i = 0; i < jTableTraffic.getRowCount(); i++) {
-            Boolean chked = Boolean.valueOf(jTableTraffic.getValueAt(i, 0).toString());
-            String casno = jTableTraffic.getValueAt(i, 2).toString();
-            String casyear = jTableTraffic.getValueAt(i, 3).toString();
-       
-
-
-            if (chked) {
-                try{
-                    Connection c=null;
-                    c=ConnectDatabase.connect();
-                    String sqlId="Select caseid,crimecaseno,crimecaseyears,crimecasenoyear from CrimeCase where crimecaseno='"+casno+"' and crimecaseyears='"+casyear+"' and crimecasenoyear='"+casno+"/"+casyear+"' and casetype='คดีจราจร'";
-                    
-                    Statement s=c.createStatement();
-                    ResultSet rs=s.executeQuery(sqlId);
- 
-                    if (rs.next()) {
-                        System.out.println("id"+i+"c"+casno+"/"+casyear);
-                        String cid=rs.getString("caseid");
-                        caseList.add(casno+"/"+casyear);
-                        caseidList.add(cid);
-                       casenoList.add(casno);
-                       caseyearList.add(casyear);
-                       
-//                        int response = JOptionPane.showConfirmDialog(jPanel6, "คดีที่ "+casno+"/"+casyear+" มีข้อมูลคดีนี้แล้วต้องการบันทึกข้อมูลซ้ำหรือไม่", "ยืนยัน",
-//                            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-//                        if (response == JOptionPane.YES_OPTION) {
-//                            //             con=ConnectDatabase.connect();
-//                            JsonObject jsonInput = new JsonObject();
-//                            jsonInput.addProperty("CrimeCaseNo",casno);
-//                            jsonInput.addProperty("CrimeCaseYear",casyear);
-//                            jsonInput.addProperty("ORG_CODE",jLabelorgcode.getText());
-//                            jsonInput.addProperty("Usename",usernamelabel.getText());
-//                            jsonInput.addProperty("PasswordWordgen",aa);
-//                            jsonInput.addProperty("OrgName",orgnamelabel.getText());
-//                            jsonInput.addProperty("Serial",getMotherboardSerial());
-//                            String j=jsonInput.toString();
-//                            update_crime(jsonInput,cid);
-//                            System.out.println(j);
-//
-//                        }
-                    }
-                    else{
-                        JsonObject jsonInput = new JsonObject();
-                        jsonInput.addProperty("CrimeCaseNo",casno);
-                        jsonInput.addProperty("CrimeCaseYear",casyear);
-                        jsonInput.addProperty("ORG_CODE",jLabelorgcode1.getText());
-                        jsonInput.addProperty("Usename",usernamelabel.getText());
-                        jsonInput.addProperty("PasswordWordgen",aa);
-                        jsonInput.addProperty("OrgName",orgnamelabel1.getText());
-                        jsonInput.addProperty("Serial",getMotherboardSerial());
-                        String j=jsonInput.toString();
-                        //         String replaced = j.replace("\"", "\\\"");
-                        //String n="{\"CrimeCaseNo\":\""+casno+"\",\"CrimeCaseYear\":\""+casyear+"\",\"ORG_CODE\":\""+orgcode+"\",\"Usename\":\""+user+"\",\"Idcard\":\""+idcard+"\",\"OrgName\":\""+nameor+"\"}";
-                        //String n="{\"CrimeCaseNo\":\""+casno+"\",\"CrimeCaseYear\":\""+casyear+"\",\"ORG_CODE\":\""+jLabelorgcode.getText()+"\",\"Usename\":\""+usernamelabel.getText()+"\",\"Idcard\":\""+idcardlabel.getText()+"\",\"OrgName\":\""+orgname.getText()+"\"}";
-
-                        insert_traffic(jsonInput);
-                        //         String j=jsonInput.toString();
-                        System.out.println(j);
-
-                    }
-
-                }
-                catch(Exception ex){
-
-                }
-                //       		JOptionPane.showMessageDialog(null, "ดึงข้อมูลเรียบร้อยแล้ว");
-
-                //		JOptionPane.showMessageDialog(null, dataCol1);
-            }
-        }
-        if(caseList.size()>0){
-            String ar=caseList.toString().replace("[", "");
-            String ae=ar.replace("]", "");
-           
-         int response = JOptionPane.showConfirmDialog(jPanel6, "คดีที่ "+ae+"\nมีข้อมูลคดีนี้แล้วต้องการบันทึกข้อมูลแทนที่ของเดิมหรือไม่ ", "ยืนยัน",
-                            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-                                 if (response == JOptionPane.YES_OPTION) {
-                            //             con=ConnectDatabase.connect();
-                            for(int i=0;i<caseidList.size() && i<casenoList.size() && i<caseyearList.size();i++){
-                            JsonObject jsonInput = new JsonObject();
-                            jsonInput.addProperty("CrimeCaseNo",casenoList.get(i));
-                            jsonInput.addProperty("CrimeCaseYear",caseyearList.get(i));
-                            jsonInput.addProperty("ORG_CODE",jLabelorgcode1.getText());
-                            jsonInput.addProperty("Usename",usernamelabel.getText());
-                            jsonInput.addProperty("PasswordWordgen",aa);
-                            jsonInput.addProperty("OrgName",orgnamelabel1.getText());
-                            jsonInput.addProperty("Serial",getMotherboardSerial());
-                            String j=jsonInput.toString();
-                            update_traffic(jsonInput,caseidList.get(i));
-                            System.out.println(j);
-                            }            
-        }
-    }
-//        System.out.println("ddd"+caseList.toString());
-        JOptionPane.showMessageDialog(null, "การทำรายการเสร็จสิ้น");
+        new BackgroundWorkerInsertTraff().execute();
     }//GEN-LAST:event_jButton7ActionPerformed
  
     /**
@@ -2619,7 +2430,7 @@ jlabeltoken.setVisible(true);
                row.add("");
                }
                else{
-                    row.add(NewDate(eElement.getElementsByTagName("CaseRequestDate").item(0).getTextContent()));
+                    row.add(NewDate(eElement.getElementsByTagName("CaseRequestDate").item(0).getTextContent().replace("1)", "")));
                }
                if(eElement.getElementsByTagName("DisplayCharge").item(0)==null){
                row.add("");
@@ -2686,8 +2497,12 @@ jlabeltoken.setVisible(true);
                 }
                  jTableCrime.getColumnModel().getColumn(0).setMinWidth(15);
                   jTableCrime.getColumnModel().getColumn(1).setMinWidth(75);
-         jTableCrime.getColumnModel().getColumn(2).setMinWidth(75);
-         jTableCrime.getColumnModel().getColumn(3).setMinWidth(40);
+                jTableCrime.getColumnModel().getColumn(2).setWidth(0);
+                jTableCrime.getColumnModel().getColumn(2).setMinWidth(0);
+                jTableCrime.getColumnModel().getColumn(2).setMaxWidth(0); 
+                 jTableCrime.getColumnModel().getColumn(3).setWidth(0);
+                jTableCrime.getColumnModel().getColumn(3).setMinWidth(0);
+                jTableCrime.getColumnModel().getColumn(3).setMaxWidth(0);
          jTableCrime.getColumnModel().getColumn(4).setMinWidth(150);
          jTableCrime.getColumnModel().getColumn(5).setMinWidth(250);
          jTableCrime.getColumnModel().getColumn(6).setMinWidth(250);
@@ -2843,8 +2658,12 @@ jlabeltoken.setVisible(true);
                 }
                  jTableTraffic.getColumnModel().getColumn(0).setMinWidth(15);
                   jTableTraffic.getColumnModel().getColumn(1).setMinWidth(75);
-         jTableTraffic.getColumnModel().getColumn(2).setMinWidth(75);
-         jTableTraffic.getColumnModel().getColumn(3).setMinWidth(40);
+                jTableTraffic.getColumnModel().getColumn(2).setWidth(0);
+                jTableTraffic.getColumnModel().getColumn(2).setMinWidth(0);
+                jTableTraffic.getColumnModel().getColumn(2).setMaxWidth(0); 
+                 jTableTraffic.getColumnModel().getColumn(3).setWidth(0);
+                jTableTraffic.getColumnModel().getColumn(3).setMinWidth(0);
+                jTableTraffic.getColumnModel().getColumn(3).setMaxWidth(0);
          jTableTraffic.getColumnModel().getColumn(4).setMinWidth(150);
          jTableTraffic.getColumnModel().getColumn(5).setMinWidth(250);
          jTableTraffic.getColumnModel().getColumn(6).setMinWidth(250);
@@ -2895,7 +2714,7 @@ jlabeltoken.setVisible(true);
                 response.append(inputLine);
                 }
                 in.close();
-                System.out.println("response:" + response.toString());
+//                System.out.println("response:" + response.toString());
                 	// System.out.println(response.toString());
         Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder()
          .parse(new InputSource(new StringReader(response.toString())));
@@ -2904,7 +2723,12 @@ jlabeltoken.setVisible(true);
                NodeList errNodes3 = doc.getElementsByTagName("ReportDailry");
                NodeList errNodes4 = doc.getElementsByTagName("Charge");
                  NodeList errNodes5 = doc.getElementsByTagName("LawCategory");               
-               
+             NodeList errNodes6 = doc.getElementsByTagName("IsExhibit_CrimeCase");               
+            NodeList errNodes7 = doc.getElementsByTagName("IsExhibit"); 
+            NodeList errNodes8 = doc.getElementsByTagName("Drug_SubDrugType"); 
+             NodeList errNodes61 = doc.getElementsByTagName("IsRegain_CrimeCase");               
+            NodeList errNodes71 = doc.getElementsByTagName("IsRegain"); 
+
               Connection conn=null;
                Connection conn2=null;
 
@@ -2915,8 +2739,8 @@ jlabeltoken.setVisible(true);
             Element err = (Element)errNodes2.item(0);
          String insertCrime="insert into CrimeCase(CaseId,CaseType,crimecaseno,crimecaseyears,crimecasenoyear,CaseAcceptDate,CaseAccepTime,"
                        + "CaseRequestDate,CaseRequestTime,OccuredDate,OccuredTime,OccuredDateEnd,OccuredTimeEnd,ActionCodeCase,ChargeCodeCase,"
-                      + "DailyNumber,Investigator_Result,SuspectandOther,AccureandOther,PoliceNameCase)\n"
-                       + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; 
+                      + "DailyNumber,Investigator_Result,SuspectandOther,AccureandOther,PoliceNameCase,AssetCode)\n"
+                       + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; 
          String insertCharge="insert into Charge(ChargeCode,ChargeName,Law,RateOfPenalty,Note)\n"
                        + "VALUES (?,?,?,?,?)";
           String insertChargeCase="insert into ChargeCase(ChargeCodeCase,ChargeNameCase,LawCase,RateOfPenaltyCase,NoteCase,ChargeCaseId)\n"
@@ -2926,6 +2750,8 @@ jlabeltoken.setVisible(true);
                        + "VALUES (?,?,?,?)";
           String insertActionsCaseData="insert into ActionsCaseData(ActionCodeCase,ActionCrimesCase,ActionDetailCase,ActionNoteCase,ActionCaseId)\n"
                        + "VALUES (?,?,?,?,?)";
+          String insertAsset="insert into Asset(EvidenceRecordNumber,Name,Amount,Value,StatusAsset,SumValue,caseIdAsset)\n"
+                       + "VALUES (?,?,?,?,?,?,?)";
        try {
                     
                          PreparedStatement pst=null;
@@ -2933,7 +2759,7 @@ jlabeltoken.setVisible(true);
                          PreparedStatement pst2=null;
                           PreparedStatement pst3=null;
                          PreparedStatement pst4=null;
-                            
+                           PreparedStatement pst5=null; 
 //                         String[] nameSus=err.getElementsByTagName("DailyNumber").item(0).getTextContent().split("2) ",1);
 //                         System.out.println("nameeeeeeeeee:"+nameSus[0]);
                         pst=conn.prepareStatement(insertCrime);
@@ -2963,7 +2789,7 @@ jlabeltoken.setVisible(true);
                             pst.setString(18, err.getElementsByTagName("DisplaySuspectName").item(0).getTextContent().replace("1) ", ""));
                              pst.setString(19, err.getElementsByTagName("DisplayVictimsname").item(0).getTextContent().replace("1) ", ""));   
                             pst.setString(20,"1");   
-
+                             pst.setString(21,CheckNull(err, "EvidenceRecordNumber")); 
                             
 //                      pst.setString(13,  NewTime(err.getElementsByTagName("OccuredDateTimeTo").item(0).getTextContent())); 
                      pst.execute();
@@ -2999,7 +2825,7 @@ jlabeltoken.setVisible(true);
                           else{
                            pst3.setString(3, "");   
                           }
-                        pst3.setString(4,err4.getElementsByTagName("PenaltyNameTH").item(0).getTextContent());
+                        pst3.setString(4, CheckNull(err4, "PenaltyNameTH"));
                          pst3.setString(5, "");  
                         pst3.execute();
                      pst3.close(); 
@@ -3014,35 +2840,53 @@ jlabeltoken.setVisible(true);
                           else{
                            pst4.setString(3, "");   
                           }
-                        pst4.setString(4, err4.getElementsByTagName("PenaltyNameTH").item(0).getTextContent());
+                        pst4.setString(4, CheckNull(err4, "PenaltyNameTH"));
                          pst4.setString(5, ""); 
                         pst4.setString(6, IdCasePerson());  
 
                         pst4.execute();
                      pst4.close();
                           }
-                     
-//                      if(err.getElementsByTagName("DisplayCharge").item(0)!=null){
-//                      pst3=conn.prepareStatement(insertCharge);
-//                        pst3.setString(1, idCharge());
-//                        pst3.setString(2, err.getElementsByTagName("DisplayCharge").item(0).getTextContent().replace("1) ", ""));
-//                        pst3.setString(3, "");
-//                        pst3.setString(4, "");
-//                         pst3.setString(5, "");  
-//                        pst3.execute();
-//                     pst3.close(); 
-//                     
-//                     pst4=conn.prepareStatement(insertChargeCase);
-//                        pst4.setString(1, idChargeCase());
-//                        pst4.setString(2, err.getElementsByTagName("DisplayCharge").item(0).getTextContent().replace("1) ", ""));
-//                        pst4.setString(3, "");
-//                        pst4.setString(4, "");
-//                         pst4.setString(5, ""); 
-//                        pst4.setString(6, IdCasePerson());  
-//
-//                        pst4.execute();
-//                     pst4.close(); 
-//                      }
+                     if (errNodes6.getLength() > 0) {
+                          for (int temp = 0; temp < errNodes7.getLength(); temp++) {
+                                Node nNode = errNodes7.item(temp);
+                                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                                    Element p = (Element) nNode; 
+                                     Element err7 = (Element)errNodes8.item(0);  
+                                              pst5=conn.prepareStatement(insertAsset);
+                                              pst5.setString(1, CheckNull(err,"EvidenceRecordNumber"));
+                                              pst5.setString(2, CheckNull(err7,"NameTH"));
+                                              pst5.setString(3, CheckNull(p,"Amount1"));
+                                              pst5.setString(4, CheckNull(p,"Value"));
+                                              pst5.setString(5, "ของกลาง");
+                                              pst5.setString(6, "");
+                                              pst5.setString(7,IdCasePerson());
+
+                                             pst5.execute();
+                                             pst5.close();
+                                           }
+                                                  }
+                     }
+                     if (errNodes61.getLength() > 0) {
+                          for (int temp = 0; temp < errNodes71.getLength(); temp++) {
+                                Node nNode = errNodes71.item(temp);
+                                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                                    Element p = (Element) nNode; 
+//                                     Element err7 = (Element)errNodes8.item(0);  
+                                              pst5=conn.prepareStatement(insertAsset);
+                                              pst5.setString(1, CheckNull(err,"EvidenceRecordNumber").replace("null", ""));
+                                              pst5.setString(2, CheckNull(p,"DisplayAsset"));
+                                              pst5.setString(3, CheckNull(p,"Amount1"));
+                                              pst5.setString(4, CheckNull(p,"Value"));
+                                              pst5.setString(5, "ได้คืน");
+                                              pst5.setString(6, "");
+                                              pst5.setString(7,IdCasePerson());
+
+                                             pst5.execute();
+                                             pst5.close();
+                                           }
+                                                  }
+                     }
                        System.out.println("success");
         } catch (SQLException e) {
                 System.out.println("ddddd: "+e);
@@ -3170,7 +3014,9 @@ jlabeltoken.setVisible(true);
          .parse(new InputSource(new StringReader(response.toString())));
 	       NodeList errNodes = doc.getElementsByTagName("Person");
                NodeList errNodes2 = doc.getElementsByTagName("TrafficCase");       
-//               NodeList errNodes3 = doc.getElementsByTagName("ReportDailry");
+               NodeList errNodes3 = doc.getElementsByTagName("InvolvedVehicle_TrafficCase");
+               NodeList errNodes4 = doc.getElementsByTagName("InvolvedVehicle");
+
 //               NodeList errNodes4 = doc.getElementsByTagName("Charge");
 //                 NodeList errNodes5 = doc.getElementsByTagName("LawCategory");               
                
@@ -3195,6 +3041,8 @@ jlabeltoken.setVisible(true);
                        + "VALUES (?,?,?,?)";
           String insertActionsCaseData="insert into ActionsCaseData(ActionCodeCase,ActionCrimesCase,ActionDetailCase,ActionNoteCase,ActionCaseId)\n"
                        + "VALUES (?,?,?,?,?)";
+           String insertAsset="insert into Asset(EvidenceRecordNumber,Name,Amount,Value,StatusAsset,SumValue,caseIdAsset)\n"
+                       + "VALUES (?,?,?,?,?,?,?)";
        try {
                     
                          PreparedStatement pst=null;
@@ -3202,7 +3050,8 @@ jlabeltoken.setVisible(true);
                          PreparedStatement pst2=null;
                           PreparedStatement pst3=null;
                          PreparedStatement pst4=null;
-                            
+                          PreparedStatement pst5=null;
+
 //                         String[] nameSus=err.getElementsByTagName("DailyNumber").item(0).getTextContent().split("2) ",1);
 //                         System.out.println("nameeeeeeeeee:"+nameSus[0]);
                         pst=conn.prepareStatement(insertCrime);
@@ -3221,11 +3070,11 @@ jlabeltoken.setVisible(true);
                         pst.setString(13,  NewTime(err.getElementsByTagName("EventEndDate").item(0).getTextContent())); 
                          pst.setString(14,  idAction()); 
                           pst.setString(15,  idCharge()); 
-                            pst.setString(16, "");  
-                        
+                            pst.setString(16, CheckNull(err, "DailyRecordNo"));  
+                   
                             pst.setString(17, "อยู่ระหว่างสอบสวน");  
-                            pst.setString(18, "");
-                             pst.setString(19, "");   
+                            pst.setString(18, CheckNull(err, "DisplaySuspectsName").replace("1) ", ""));
+                             pst.setString(19, CheckNull(err, "DisplayVictimsName").replace("1) ", ""));   
                             pst.setString(20,"1");
                            pst.setString(21,CheckNull(err, "Road"));   
 
@@ -3287,7 +3136,26 @@ jlabeltoken.setVisible(true);
                         pst4.execute();
                      pst4.close();
 //                          }
+                     if (errNodes3.getLength() > 0) {
+                          for (int temp = 0; temp < errNodes4.getLength(); temp++) {
+                                Node nNode = errNodes4.item(temp);
+                                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                                    Element t = (Element) nNode; 
+//                                     Element err7 = (Element)errNodes8.item(0);  
+                                              pst5=conn.prepareStatement(insertAsset);
+                                              pst5.setString(1, CheckNull(err,"EvidenceRecordNumber"));
+                                              pst5.setString(2, CheckNull(t,"ModelString")+CheckNull(t,"FullNoPlate"));
+                                              pst5.setString(3, CheckNull(t,"Amount1"));
+                                              pst5.setString(4, CheckNull(t,"Value"));
+                                              pst5.setString(5, "");
+                                              pst5.setString(6, "");
+                                              pst5.setString(7,IdCasePerson());
 
+                                             pst5.execute();
+                                             pst5.close();
+                                           }
+                                                  }
+                     }
                        System.out.println("success");
         } catch (SQLException e) {
                 System.out.println("ddddd: "+e);
@@ -3308,8 +3176,9 @@ jlabeltoken.setVisible(true);
 
 //    System.out.println("First Name : " +eElement.getElementsByTagName("PeopleRegistrationID").item(0).getTextContent());
        String insertPerson="insert into Person(PeopleRegistrationID,FullNamePerson,BirthDay,Gender,"
-                              + "Age,TypePerson,FatherFullName,MotherFullName,Race,Religion,Nationality,Occupation,ArrestDateTime,CaseIdPerson)\n"
-                                + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";  
+                              + "Age,TypePerson,FatherFullName,MotherFullName,Race,Religion,Nationality,Occupation,"
+                              + "ArrestDateTime,CaseIdPerson,HouseNumber,Moo)\n"
+                                + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";  
          try {
                         int order=temp+1;
                          PreparedStatement pst2=null;
@@ -3351,7 +3220,8 @@ jlabeltoken.setVisible(true);
                     pst2.setString(13,NewDateTime(p.getElementsByTagName("ArrestedDate").item(0).getTextContent()));
                }  
                pst2.setString(14,  IdCasePerson()); 
-
+                 pst2.setString(15,  CheckNull(p, "HouseNo")); 
+                 pst2.setString(16,  CheckNull(p, "Moo"));
                      pst2.execute();
                      pst2.close();   
                       System.out.println("success Person");
@@ -3440,7 +3310,10 @@ jlabeltoken.setVisible(true);
                NodeList errNodes2 = doc.getElementsByTagName("CrimeCase");    
                NodeList errNodes3 = doc.getElementsByTagName("ReportDailry");
                NodeList errNodes4 = doc.getElementsByTagName("Charge");
-                 NodeList errNodes5 = doc.getElementsByTagName("LawCategory");                       
+                 NodeList errNodes5 = doc.getElementsByTagName("LawCategory");       
+                  NodeList errNodes6 = doc.getElementsByTagName("IsExhibit_CrimeCase");               
+            NodeList errNodes7 = doc.getElementsByTagName("IsExhibit"); 
+            NodeList errNodes8 = doc.getElementsByTagName("Drug_SubDrugType"); 
                 Connection conn=null;
                Connection conn2=null;
               conn=ConnectDatabase.connect();
@@ -3460,6 +3333,8 @@ jlabeltoken.setVisible(true);
                        + "VALUES (?,?,?,?)";
           String insertActionsCaseData="insert into ActionsCaseData(ActionCodeCase,ActionCrimesCase,ActionDetailCase,ActionNoteCase,ActionCaseId)\n"
                        + "VALUES (?,?,?,?,?)";
+            String insertAsset="insert into Asset(EvidenceRecordNumber,Name,Amount,Value,StatusAsset,SumValue,caseIdAsset)\n"
+                       + "VALUES (?,?,?,?,?,?,?)";
        try {
                     
                          PreparedStatement pst=null;
@@ -3467,6 +3342,7 @@ jlabeltoken.setVisible(true);
                          PreparedStatement pst2=null;
                           PreparedStatement pst3=null;
                          PreparedStatement pst4=null;
+                         PreparedStatement pst5=null;
 
 
                         pst=conn.prepareStatement(insertCrime);
@@ -3531,7 +3407,7 @@ jlabeltoken.setVisible(true);
                           else{
                            pst3.setString(3, "");   
                           }
-                        pst3.setString(4,err4.getElementsByTagName("PenaltyNameTH").item(0).getTextContent());
+                        pst3.setString(4,CheckNull(err4, "PenaltyNameTH"));
                          pst3.setString(5, "");  
                         pst3.execute();
                      pst3.close(); 
@@ -3546,35 +3422,34 @@ jlabeltoken.setVisible(true);
                           else{
                            pst4.setString(3, "");   
                           }
-                        pst4.setString(4, err4.getElementsByTagName("PenaltyNameTH").item(0).getTextContent());
+                        pst4.setString(4, CheckNull(err4, "PenaltyNameTH"));
                          pst4.setString(5, ""); 
                         pst4.setString(6, IdCasePerson());  
 
                         pst4.execute();
                      pst4.close();
                           }
-                     
-//                      if(err.getElementsByTagName("DisplayCharge").item(0)!=null){
-//                      pst3=conn.prepareStatement(insertCharge);
-//                        pst3.setString(1, idCharge());
-//                        pst3.setString(2, err.getElementsByTagName("DisplayCharge").item(0).getTextContent().replace("1) ", ""));
-//                        pst3.setString(3, "");
-//                        pst3.setString(4, "");
-//                         pst3.setString(5, "");  
-//                        pst3.execute();
-//                     pst3.close(); 
-//                     
-//                     pst4=conn.prepareStatement(insertChargeCase);
-//                        pst4.setString(1, idChargeCase());
-//                        pst4.setString(2, err.getElementsByTagName("DisplayCharge").item(0).getTextContent().replace("1) ", ""));
-//                        pst4.setString(3, "");
-//                        pst4.setString(4, "");
-//                         pst4.setString(5, ""); 
-//                        pst4.setString(6, IdCasePerson());  
-//
-//                        pst4.execute();
-//                     pst4.close(); 
-//                      }
+                           if (errNodes6.getLength() > 0) {
+                          for (int temp = 0; temp < errNodes7.getLength(); temp++) {
+                                Node nNode = errNodes7.item(temp);
+                                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                                    Element p = (Element) nNode; 
+                                     Element err7 = (Element)errNodes8.item(0);  
+                                              pst5=conn.prepareStatement(insertAsset);
+                                              pst5.setString(1, CheckNull(err,"EvidenceRecordNumber"));
+                                              pst5.setString(2, CheckNull(err7,"NameTH"));
+                                              pst5.setString(3, CheckNull(p,"Amount1"));
+                                              pst5.setString(4, CheckNull(p,"Value"));
+                                              pst5.setString(5, "ของกลาง");
+                                              pst5.setString(6, "");
+                                              pst5.setString(7,IdCasePerson());
+
+                                             pst5.execute();
+                                             pst5.close();
+                                           }
+                                                  }
+                     }
+                           
                        System.out.println("success");
         } catch (SQLException e) {
                 System.out.println("ddddd: "+e);
@@ -3724,7 +3599,9 @@ jlabeltoken.setVisible(true);
         Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder()
          .parse(new InputSource(new StringReader(response.toString())));
 	       NodeList errNodes = doc.getElementsByTagName("Person");
-               NodeList errNodes2 = doc.getElementsByTagName("TrafficCase");       
+               NodeList errNodes2 = doc.getElementsByTagName("TrafficCase");     
+                NodeList errNodes3 = doc.getElementsByTagName("InvolvedVehicle_TrafficCase");
+               NodeList errNodes4 = doc.getElementsByTagName("InvolvedVehicle");
 //               NodeList errNodes3 = doc.getElementsByTagName("ReportDailry");
 //               NodeList errNodes4 = doc.getElementsByTagName("Charge");
 //                 NodeList errNodes5 = doc.getElementsByTagName("LawCategory");               
@@ -3750,6 +3627,8 @@ jlabeltoken.setVisible(true);
                        + "VALUES (?,?,?,?)";
           String insertActionsCaseData="insert into ActionsCaseData(ActionCodeCase,ActionCrimesCase,ActionDetailCase,ActionNoteCase,ActionCaseId)\n"
                        + "VALUES (?,?,?,?,?)";
+             String insertAsset="insert into Asset(EvidenceRecordNumber,Name,Amount,Value,StatusAsset,SumValue,caseIdAsset)\n"
+                       + "VALUES (?,?,?,?,?,?,?)";
        try {
                     
                          PreparedStatement pst=null;
@@ -3757,6 +3636,7 @@ jlabeltoken.setVisible(true);
                          PreparedStatement pst2=null;
                           PreparedStatement pst3=null;
                          PreparedStatement pst4=null;
+                         PreparedStatement pst5=null;
                             
 //                         String[] nameSus=err.getElementsByTagName("DailyNumber").item(0).getTextContent().split("2) ",1);
 //                         System.out.println("nameeeeeeeeee:"+nameSus[0]);
@@ -3842,7 +3722,26 @@ jlabeltoken.setVisible(true);
                         pst4.execute();
                      pst4.close();
 //                          }
+                     if (errNodes3.getLength() > 0) {
+                          for (int temp = 0; temp < errNodes4.getLength(); temp++) {
+                                Node nNode = errNodes4.item(temp);
+                                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                                    Element t = (Element) nNode; 
+//                                     Element err7 = (Element)errNodes8.item(0);  
+                                              pst5=conn.prepareStatement(insertAsset);
+                                              pst5.setString(1, CheckNull(err,"EvidenceRecordNumber"));
+                                              pst5.setString(2, CheckNull(t,"ModelString")+CheckNull(t,"FullNoPlate"));
+                                              pst5.setString(3, CheckNull(t,"Amount1"));
+                                              pst5.setString(4, CheckNull(t,"Value"));
+                                              pst5.setString(5, "");
+                                              pst5.setString(6, "");
+                                              pst5.setString(7,IdCasePerson());
 
+                                             pst5.execute();
+                                             pst5.close();
+                                           }
+                                                  }
+                     }
                        System.out.println("success");
         } catch (SQLException e) {
                 System.out.println("ddddd: "+e);
@@ -3863,8 +3762,9 @@ jlabeltoken.setVisible(true);
 
 //    System.out.println("First Name : " +eElement.getElementsByTagName("PeopleRegistrationID").item(0).getTextContent());
        String insertPerson="insert into Person(PeopleRegistrationID,FullNamePerson,BirthDay,Gender,"
-                              + "Age,TypePerson,FatherFullName,MotherFullName,Race,Religion,Nationality,Occupation,ArrestDateTime,CaseIdPerson)\n"
-                                + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";  
+                              + "Age,TypePerson,FatherFullName,MotherFullName,Race,Religion,Nationality,Occupation"
+                             + ",ArrestDateTime,CaseIdPerson,HouseNumber,Moo)\n"
+                                + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";  
          try {
                         int order=temp+1;
                          PreparedStatement pst2=null;
@@ -3906,7 +3806,8 @@ jlabeltoken.setVisible(true);
                     pst2.setString(13,NewDateTime(p.getElementsByTagName("ArrestedDate").item(0).getTextContent()));
                }  
                pst2.setString(14,  IdCasePerson()); 
-
+                pst2.setString(15,  CheckNull(p, "HouseNo")); 
+                pst2.setString(16,   CheckNull(p, "Moo")); 
                      pst2.execute();
                      pst2.close();   
                       System.out.println("success Person");
@@ -4248,7 +4149,645 @@ System.out.println("sasa:"+a);
 	        return null;
 	    }
 	}
+ public class BackgroundWorker extends SwingWorker<Void, Void> {
 
+    private static final long SLEEP_TIME =10;
+    private String text;
+        private JProgressBar pb;
+        private JLabel ab;
+		private JDialog dialog;
+//   public void Task() {
+//       
+//    }
+//       public ProgressWorker(JProgressBar progress) {
+//            this.progress = progress;
+//        
+            public BackgroundWorker() {
+           
+			addPropertyChangeListener(new PropertyChangeListener() {
+				@Override
+				public void propertyChange(PropertyChangeEvent evt) {
+//					if ("progress".equalsIgnoreCase(evt.getPropertyName())) {
+						 if (dialog == null) {
+								dialog = new JDialog();
+                                                        ImageIcon img = new ImageIcon("./Master/WD.png");
+                                                           dialog.setIconImage(img.getImage());
+							dialog.setTitle("Processing");
+                                                        
+							dialog.setLayout(new GridBagLayout());
+							dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+							GridBagConstraints gbc = new GridBagConstraints();
+                                                        gbc.gridheight=20;
+                                                        gbc.gridwidth = 10;
+                                                         gbc.gridx = 10;
+                                                            gbc.gridy = 20;
+							gbc.insets = new Insets(20, 20, 20, 20);
+							gbc.weightx = 1;
+                                                        
+							gbc.gridy = 0; 
+                                                        ab=new JLabel("กำลังทำการเรียกดูคดีจากระบบ CRIMES.....");
+                                                        ab.setFont(new java.awt.Font("TH SarabunPSK", 1, 20));
+							dialog.add(ab, gbc);
+							pb = new JProgressBar();
+                                                      
+//							pb.setStringPainted(true);
+//                                                        pb.setForeground(Color.blue);]
+                                               
+//                                                        pb.setMaximum(100);
+//                                                        pb.setMinimum(0);
+                                                        
+							gbc.gridy = 1;
+							dialog.add(ab, gbc);
+							dialog.pack();
+							dialog.setLocationRelativeTo(null);
+							dialog.setModal(true);
+							JDialog.setDefaultLookAndFeelDecorated(true); 
+							dialog.setVisible(true);
+						}
+//						pb.setValue(getProgress());
+//					}
+				}
+
+			});
+		}
+    @Override
+    public Void doInBackground() {
+
+        try { 
+
+            for (int i = 1; i < 2; i++) {
+//                x = x - i;
+            setProgress((int)((i*100)/2)+1);
+//        setProgress(i * (100 / N));
+//				  setProgress(i);
+            Thread.sleep(10);
+//            Thread.sleep(SLEEP_TIME);// imitate a long-running task
+        String aa="";
+        aa=MainMenuWord.tk;
+        System.out.println("Token:"+aa); 
+        String case1="",case2="",yearcase="";
+    
+        System.out.println("dsdfsffffffffff");
+           if(jCheckCase.isSelected()){
+          case1=casenocc.getText();
+          case2=casenocc.getText();
+          yearcase=caseyearscc.getText();
+        }
+        else if(jCheckCaseTwo.isSelected()){
+        case1=casenocc1.getText();
+          case2=casenocc3.getText();
+          yearcase=caseyearscc1.getText();
+        }
+
+            String timeStart="00:00";
+        String timeEnd="23:59";
+        JsonObject jsonInput = new JsonObject();
+        
+        jsonInput.addProperty("CrimeCaseNo",case1);
+         jsonInput.addProperty("CrimeCaseNoTo",case2);
+        jsonInput.addProperty("CrimeCaseYear",yearcase);
+        jsonInput.addProperty("CrimeCaseYearTo",yearcase);
+        jsonInput.addProperty("ORG_CODE",jLabelorgcode.getText());
+        //         jsonInput.addProperty("ORG_CODE","70028");
+        jsonInput.addProperty("PasswordWordgen",aa);
+        jsonInput.addProperty("StatusMagenta","Magenta_inActive");
+        
+        jsonInput.addProperty("CaseRequestDate",AcceptDate(DateReqStart.getJFormattedTextField().getText(),timeStart));
+        jsonInput.addProperty("CaseRequestDateTo",AcceptDate(DateReqEnd.getJFormattedTextField().getText(),timeEnd));
+        jsonInput.addProperty("CaseAcceptDate",AcceptDate(DateAcceptStart.getJFormattedTextField().getText(),timeStart));
+        jsonInput.addProperty("CaseAcceptDateTo",AcceptDate(DateAcceptEnd.getJFormattedTextField().getText(),timeEnd));
+
+        call_crimes(jsonInput);
+        TotalCase.setText(jTableCrime.getRowCount()+"");
+     
+            }
+        } catch (InterruptedException e) {
+        }
+//        setProgress(100);
+        
+        return null;
+    }
+
+    @Override
+    public void done() {
+                    if (dialog != null) {
+				dialog.dispose();
+			}
+            int rowcase=jTableCrime.getRowCount();
+                            if(rowcase ==0){
+            JOptionPane.showMessageDialog(null, "ไม่พบข้อมูลคดีในระบบ crimes");
+        }
+
+    }
+}/**/
+ public class BackgroundWorkerTraff extends SwingWorker<Void, Void> {
+
+    private static final long SLEEP_TIME =10;
+    private String text;
+        private JProgressBar pb;
+        private JLabel ab;
+		private JDialog dialog;
+//   public void Task() {
+//       
+//    }
+//       public ProgressWorker(JProgressBar progress) {
+//            this.progress = progress;
+//        
+            public BackgroundWorkerTraff() {
+           
+			addPropertyChangeListener(new PropertyChangeListener() {
+				@Override
+				public void propertyChange(PropertyChangeEvent evt) {
+//					if ("progress".equalsIgnoreCase(evt.getPropertyName())) {
+						 if (dialog == null) {
+								dialog = new JDialog();
+                                                        ImageIcon img = new ImageIcon("./Master/WD.png");
+                                                           dialog.setIconImage(img.getImage());
+							dialog.setTitle("Processing");
+                                                        dialog.setSize(new Dimension(100, 500));
+                                                        dialog.setResizable(false);
+							dialog.setLayout(new GridBagLayout());
+							dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+							GridBagConstraints gbc = new GridBagConstraints();
+							 gbc.gridheight=20;
+                                                        gbc.gridwidth = 10;
+                                                         gbc.gridx = 10;
+                                                            gbc.gridy = 20;
+							gbc.insets = new Insets(20, 20, 20, 20);
+							gbc.weightx = 1;
+                                                        
+							gbc.gridy = 0; 
+                                                        ab=new JLabel("กำลังทำการเรียกดูคดีจากระบบ CRIMES.....");
+                                                        ab.setFont(new java.awt.Font("TH SarabunPSK", 1, 20));
+							dialog.add(ab, gbc);
+							pb = new JProgressBar();
+                                                      
+//							pb.setStringPainted(true);
+//                                                        pb.setForeground(Color.blue);]
+                                               
+//                                                        pb.setMaximum(100);
+//                                                        pb.setMinimum(0);
+                                                        
+							gbc.gridy = 1;
+							dialog.add(ab, gbc);
+							dialog.pack();
+							dialog.setLocationRelativeTo(null);
+							dialog.setModal(true);
+							JDialog.setDefaultLookAndFeelDecorated(true); 
+							dialog.setVisible(true);
+						}
+//						pb.setValue(getProgress());
+//					}
+				}
+
+			});
+		}
+    @Override
+    public Void doInBackground() {
+
+        try { 
+
+            for (int i = 1; i < 2; i++) {
+//                x = x - i;
+            setProgress((int)((i*100)/2)+1);
+//        setProgress(i * (100 / N));
+//				  setProgress(i);
+            Thread.sleep(10);
+//            Thread.sleep(SLEEP_TIME);// imitate a long-running task
+            String aa="";
+        aa=MainMenuWord.tk;
+        System.out.println("Token:"+aa); 
+        String case1="",case2="",yearcase="";
+         if(jCheckCaseT.isSelected()){
+          case1=casenocc4.getText();
+          case2=casenocc4.getText();
+          yearcase=caseyearscc3.getText();
+        }
+        else if(jCheckCaseTwo1.isSelected()){
+        case1=casenocc5.getText();
+          case2=casenocc6.getText();
+          yearcase=caseyearscc4.getText();
+        }
+        
+            String timeStart="00:00";
+        String timeEnd="23:59";
+        JsonObject jsonInput = new JsonObject();
+        
+        jsonInput.addProperty("CrimeCaseNo",case1);
+         jsonInput.addProperty("CrimeCaseNoTo",case2);
+        jsonInput.addProperty("CrimeCaseYear",yearcase);
+        jsonInput.addProperty("CrimeCaseYearTo",yearcase);
+        jsonInput.addProperty("ORG_CODE",jLabelorgcode.getText());
+        //         jsonInput.addProperty("ORG_CODE","70028");
+        jsonInput.addProperty("PasswordWordgen",aa);
+        jsonInput.addProperty("StatusMagenta","Magenta_inActive");
+        
+        jsonInput.addProperty("CaseRequestDate",AcceptDate(DateReqStartTC.getJFormattedTextField().getText(),timeStart));
+        jsonInput.addProperty("CaseRequestDateTo",AcceptDate(DateReqEndTC.getJFormattedTextField().getText(),timeEnd));
+        jsonInput.addProperty("CaseAcceptDate",AcceptDate(DateAcceptStartTC.getJFormattedTextField().getText(),timeStart));
+        jsonInput.addProperty("CaseAcceptDateTo",AcceptDate(DateAcceptEndTC.getJFormattedTextField().getText(),timeEnd));
+
+        call_traffic(jsonInput);
+        TotalCase1.setText(jTableTraffic.getRowCount()+"");
+       
+       
+     
+            }
+        } catch (InterruptedException e) {
+        }
+//        setProgress(100);
+        
+        return null;
+    }
+
+    @Override
+    public void done() {
+                    if (dialog != null) {
+				dialog.dispose();
+			}
+            int rowcase=jTableTraffic.getRowCount();
+        if(rowcase ==0){
+            JOptionPane.showMessageDialog(null, "ไม่พบข้อมูลคดีในระบบ crimes");
+        }
+
+    }
+}/**/
+  public class BackgroundWorkerInsert extends SwingWorker<Void, Void> {
+
+    private static final long SLEEP_TIME =10;
+    private String text;
+        private JProgressBar pb;
+        private JLabel ab;
+		private JDialog dialog;
+//   public void Task() {
+//       
+//    }
+//       public ProgressWorker(JProgressBar progress) {
+//            this.progress = progress;
+//        
+            public BackgroundWorkerInsert() {
+           
+			addPropertyChangeListener(new PropertyChangeListener() {
+				@Override
+				public void propertyChange(PropertyChangeEvent evt) {
+					if ("progress".equalsIgnoreCase(evt.getPropertyName())) {
+						 if (dialog == null) {
+								dialog = new JDialog();
+                                                        ImageIcon img = new ImageIcon("./Master/WD.png");
+                                                           dialog.setIconImage(img.getImage());
+							dialog.setTitle("Processing");
+							dialog.setLayout(new GridBagLayout());
+							dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+							GridBagConstraints gbc = new GridBagConstraints();
+							 gbc.gridheight=20;
+                                                        gbc.gridwidth = 10;
+                                                         gbc.gridx = 10;
+                                                            gbc.gridy = 20;
+							gbc.insets = new Insets(20, 20, 20, 20);
+							gbc.weightx = 1;
+                                                        
+							gbc.gridy = 0; 
+                                                        ab=new JLabel("กำลังทำการดึงข้อมูลคดีจากระบบ CRIMES.....");
+                                                        ab.setFont(new java.awt.Font("TH SarabunPSK", 1, 20));
+							dialog.add(ab, gbc);
+							pb = new JProgressBar();
+                                                      
+//							pb.setStringPainted(true);
+//                                                        pb.setForeground(Color.blue);]
+                                               
+//                                                        pb.setMaximum(100);
+//                                                        pb.setMinimum(0);
+                                                        
+							gbc.gridy = 1;
+							dialog.add(ab, gbc);
+							dialog.pack();
+							dialog.setLocationRelativeTo(null);
+							dialog.setModal(true);
+							JDialog.setDefaultLookAndFeelDecorated(true); 
+							dialog.setVisible(true);
+						}
+						pb.setValue(getProgress());
+					}
+				}
+
+			});
+		}
+    @Override
+    public Void doInBackground() {
+
+        try { 
+
+            for (int b = 1; b < 2; b++) {
+//                x = x - i;
+            setProgress((int)((b*100)/2)+1);
+
+//        setProgress(i * (100 / N));
+//				  setProgress(i);
+				Thread.sleep(1000);
+//            Thread.sleep(SLEEP_TIME);// imitate a long-running task
+      String aa="";
+        aa=MainMenuWord.tk;
+        System.out.println("Token-List:"+aa);
+       ArrayList<String> caseList = new ArrayList<String>();
+      ArrayList<String> caseidList = new ArrayList<String>();
+        ArrayList<String> casenoList = new ArrayList<String>();
+    ArrayList<String> caseyearList = new ArrayList<String>();
+        for (int i = 0; i < jTableCrime.getRowCount(); i++) {
+            Boolean chked = Boolean.valueOf(jTableCrime.getValueAt(i, 0).toString());
+            String casno = jTableCrime.getValueAt(i, 2).toString();
+            String casyear = jTableCrime.getValueAt(i, 3).toString();
+            String orgcode=jLabelorgcode.getText();
+            String user=usernamelabel.getText();
+            String idcard=idcardlabel.getText();
+            String nameor=orgnamelabel.getText();
+            //        String newnameor="";
+            //        try{
+                //         newnameor=URLEncoder.encode(nameor, "UTF-8");
+                //        }
+            //        catch(Exception e){
+                //
+                //        }
+            //            System.out.println("aa:"+nameor);
+
+            if (chked) {
+                try{
+                    Connection c=null;
+                    c=ConnectDatabase.connect();
+                    String sqlId="Select caseid,crimecaseno,crimecaseyears,crimecasenoyear from CrimeCase where crimecaseno='"+casno+"' and crimecaseyears='"+casyear+"' and crimecasenoyear='"+casno+"/"+casyear+"'";
+                    
+                    Statement s=c.createStatement();
+                    ResultSet rs=s.executeQuery(sqlId);
+ 
+                    if (rs.next()) {
+                        System.out.println("id"+i+"c"+casno+"/"+casyear);
+                        String cid=rs.getString("caseid");
+                        caseList.add(casno+"/"+casyear);
+                        caseidList.add(cid);
+                       casenoList.add(casno);
+                       caseyearList.add(casyear);
+                       
+                    }
+                    else{
+                        JsonObject jsonInput = new JsonObject();
+                        jsonInput.addProperty("CrimeCaseNo",casno);
+                        jsonInput.addProperty("CrimeCaseYear",casyear);
+                        jsonInput.addProperty("ORG_CODE",jLabelorgcode.getText());
+                        jsonInput.addProperty("Usename",usernamelabel.getText());
+                        jsonInput.addProperty("PasswordWordgen",aa);
+                        jsonInput.addProperty("OrgName",orgnamelabel.getText());
+                        jsonInput.addProperty("Serial",getMotherboardSerial());
+                        String j=jsonInput.toString();
+                        //         String replaced = j.replace("\"", "\\\"");
+                        //String n="{\"CrimeCaseNo\":\""+casno+"\",\"CrimeCaseYear\":\""+casyear+"\",\"ORG_CODE\":\""+orgcode+"\",\"Usename\":\""+user+"\",\"Idcard\":\""+idcard+"\",\"OrgName\":\""+nameor+"\"}";
+                        //String n="{\"CrimeCaseNo\":\""+casno+"\",\"CrimeCaseYear\":\""+casyear+"\",\"ORG_CODE\":\""+jLabelorgcode.getText()+"\",\"Usename\":\""+usernamelabel.getText()+"\",\"Idcard\":\""+idcardlabel.getText()+"\",\"OrgName\":\""+orgname.getText()+"\"}";
+
+                        insert_crime(jsonInput);
+                        //         String j=jsonInput.toString();
+                        System.out.println(j);
+
+                    }
+
+                }
+                catch(Exception ex){
+
+                }
+                //       		JOptionPane.showMessageDialog(null, "ดึงข้อมูลเรียบร้อยแล้ว");
+
+                //		JOptionPane.showMessageDialog(null, dataCol1);
+            }
+        }
+        if(caseList.size()>0){
+            String ar=caseList.toString().replace("[", "");
+            String ae=ar.replace("]", "");
+           
+         int response = JOptionPane.showConfirmDialog(jPanel6, "คดีที่ "+ae+"\nมีข้อมูลคดีนี้แล้วต้องการบันทึกข้อมูลแทนที่ของเดิมหรือไม่ ", "ยืนยัน",
+                            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                                 if (response == JOptionPane.YES_OPTION) {
+                            //             con=ConnectDatabase.connect();
+                            for(int i=0;i<caseidList.size() && i<casenoList.size() && i<caseyearList.size();i++){
+                            JsonObject jsonInput = new JsonObject();
+                            jsonInput.addProperty("CrimeCaseNo",casenoList.get(i));
+                            jsonInput.addProperty("CrimeCaseYear",caseyearList.get(i));
+                            jsonInput.addProperty("ORG_CODE",jLabelorgcode.getText());
+                            jsonInput.addProperty("Usename",usernamelabel.getText());
+                            jsonInput.addProperty("PasswordWordgen",aa);
+                            jsonInput.addProperty("OrgName",orgnamelabel.getText());
+                            jsonInput.addProperty("Serial",getMotherboardSerial());
+                            String j=jsonInput.toString();
+                            update_crime(jsonInput,caseidList.get(i));
+                            System.out.println(j);
+                            }            
+        }
+    }
+//        System.out.println("ddd"+caseList.toString());
+      
+   
+            }
+        } catch (InterruptedException e) {
+        }
+//        setProgress(100);
+        
+        return null;
+    }
+
+    @Override
+    public void done() {
+                    if (dialog != null) {
+				dialog.dispose();
+			}
+            JOptionPane.showMessageDialog(null, "การทำรายการเสร็จสิ้น");
+        
+
+    }
+}/**/
+   public class BackgroundWorkerInsertTraff extends SwingWorker<Void, Void> {
+
+    private static final long SLEEP_TIME =10;
+    private String text;
+        private JProgressBar pb;
+        private JLabel ab;
+		private JDialog dialog;
+//   public void Task() {
+//       
+//    }
+//       public ProgressWorker(JProgressBar progress) {
+//            this.progress = progress;
+//        
+            public BackgroundWorkerInsertTraff() {
+           
+			addPropertyChangeListener(new PropertyChangeListener() {
+				@Override
+				public void propertyChange(PropertyChangeEvent evt) {
+					if ("progress".equalsIgnoreCase(evt.getPropertyName())) {
+						 if (dialog == null) {
+								dialog = new JDialog();
+                                                        ImageIcon img = new ImageIcon("./Master/WD.png");
+                                                           dialog.setIconImage(img.getImage());
+							dialog.setTitle("Processing");
+							dialog.setLayout(new GridBagLayout());
+							dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+							GridBagConstraints gbc = new GridBagConstraints();
+                                                         gbc.gridheight=20;
+                                                        gbc.gridwidth = 10;
+                                                         gbc.gridx = 10;
+                                                            gbc.gridy = 20;
+							gbc.insets = new Insets(20, 20, 20, 20);
+							gbc.weightx = 1;
+                                                        
+							gbc.gridy = 0; 
+                                                        ab=new JLabel("กำลังทำการดึงข้อมูลคดีจากระบบ CRIMES.....");
+                                                        ab.setFont(new java.awt.Font("TH SarabunPSK", 1, 20));
+							dialog.add(ab, gbc);
+							
+							dialog.pack();
+							dialog.setLocationRelativeTo(null);
+							dialog.setModal(true);
+							JDialog.setDefaultLookAndFeelDecorated(true); 
+							dialog.setVisible(true);
+						}
+						pb.setValue(getProgress());
+					}
+				}
+
+			});
+		}
+    @Override
+    public Void doInBackground() {
+
+        try { 
+
+            for (int b = 1; b < 2; b++) {
+//                x = x - i;
+            setProgress((int)((b*100)/2)+1);
+
+//        setProgress(i * (100 / N));
+//				  setProgress(i);
+				Thread.sleep(1000);
+//            Thread.sleep(SLEEP_TIME);// imitate a long-running task
+       String aa="";
+        aa=MainMenuWord.tk;
+        System.out.println("Token-List:"+aa);
+       ArrayList<String> caseList = new ArrayList<String>();
+      ArrayList<String> caseidList = new ArrayList<String>();
+        ArrayList<String> casenoList = new ArrayList<String>();
+    ArrayList<String> caseyearList = new ArrayList<String>();
+        for (int i = 0; i < jTableTraffic.getRowCount(); i++) {
+            Boolean chked = Boolean.valueOf(jTableTraffic.getValueAt(i, 0).toString());
+            String casno = jTableTraffic.getValueAt(i, 2).toString();
+            String casyear = jTableTraffic.getValueAt(i, 3).toString();
+       
+
+
+            if (chked) {
+                try{
+                    Connection c=null;
+                    c=ConnectDatabase.connect();
+                    String sqlId="Select caseid,crimecaseno,crimecaseyears,crimecasenoyear from CrimeCase where crimecaseno='"+casno+"' and crimecaseyears='"+casyear+"' and crimecasenoyear='"+casno+"/"+casyear+"' and casetype='คดีจราจร'";
+                    
+                    Statement s=c.createStatement();
+                    ResultSet rs=s.executeQuery(sqlId);
+ 
+                    if (rs.next()) {
+                        System.out.println("id"+i+"c"+casno+"/"+casyear);
+                        String cid=rs.getString("caseid");
+                        caseList.add(casno+"/"+casyear);
+                        caseidList.add(cid);
+                       casenoList.add(casno);
+                       caseyearList.add(casyear);
+                       
+//                        int response = JOptionPane.showConfirmDialog(jPanel6, "คดีที่ "+casno+"/"+casyear+" มีข้อมูลคดีนี้แล้วต้องการบันทึกข้อมูลซ้ำหรือไม่", "ยืนยัน",
+//                            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+//                        if (response == JOptionPane.YES_OPTION) {
+//                            //             con=ConnectDatabase.connect();
+//                            JsonObject jsonInput = new JsonObject();
+//                            jsonInput.addProperty("CrimeCaseNo",casno);
+//                            jsonInput.addProperty("CrimeCaseYear",casyear);
+//                            jsonInput.addProperty("ORG_CODE",jLabelorgcode.getText());
+//                            jsonInput.addProperty("Usename",usernamelabel.getText());
+//                            jsonInput.addProperty("PasswordWordgen",aa);
+//                            jsonInput.addProperty("OrgName",orgnamelabel.getText());
+//                            jsonInput.addProperty("Serial",getMotherboardSerial());
+//                            String j=jsonInput.toString();
+//                            update_crime(jsonInput,cid);
+//                            System.out.println(j);
+//
+//                        }
+                    }
+                    else{
+                        JsonObject jsonInput = new JsonObject();
+                        jsonInput.addProperty("CrimeCaseNo",casno);
+                        jsonInput.addProperty("CrimeCaseYear",casyear);
+                        jsonInput.addProperty("ORG_CODE",jLabelorgcode1.getText());
+                        jsonInput.addProperty("Usename",usernamelabel.getText());
+                        jsonInput.addProperty("PasswordWordgen",aa);
+                        jsonInput.addProperty("OrgName",orgnamelabel1.getText());
+                        jsonInput.addProperty("Serial",getMotherboardSerial());
+                        String j=jsonInput.toString();
+                        //         String replaced = j.replace("\"", "\\\"");
+                        //String n="{\"CrimeCaseNo\":\""+casno+"\",\"CrimeCaseYear\":\""+casyear+"\",\"ORG_CODE\":\""+orgcode+"\",\"Usename\":\""+user+"\",\"Idcard\":\""+idcard+"\",\"OrgName\":\""+nameor+"\"}";
+                        //String n="{\"CrimeCaseNo\":\""+casno+"\",\"CrimeCaseYear\":\""+casyear+"\",\"ORG_CODE\":\""+jLabelorgcode.getText()+"\",\"Usename\":\""+usernamelabel.getText()+"\",\"Idcard\":\""+idcardlabel.getText()+"\",\"OrgName\":\""+orgname.getText()+"\"}";
+
+                        insert_traffic(jsonInput);
+                        //         String j=jsonInput.toString();
+                        System.out.println(j);
+
+                    }
+
+                }
+                catch(Exception ex){
+
+                }
+                //       		JOptionPane.showMessageDialog(null, "ดึงข้อมูลเรียบร้อยแล้ว");
+
+                //		JOptionPane.showMessageDialog(null, dataCol1);
+            }
+        }
+        if(caseList.size()>0){
+            String ar=caseList.toString().replace("[", "");
+            String ae=ar.replace("]", "");
+           
+         int response = JOptionPane.showConfirmDialog(jPanel6, "คดีที่ "+ae+"\nมีข้อมูลคดีนี้แล้วต้องการบันทึกข้อมูลแทนที่ของเดิมหรือไม่ ", "ยืนยัน",
+                            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                                 if (response == JOptionPane.YES_OPTION) {
+                            //             con=ConnectDatabase.connect();
+                            for(int i=0;i<caseidList.size() && i<casenoList.size() && i<caseyearList.size();i++){
+                            JsonObject jsonInput = new JsonObject();
+                            jsonInput.addProperty("CrimeCaseNo",casenoList.get(i));
+                            jsonInput.addProperty("CrimeCaseYear",caseyearList.get(i));
+                            jsonInput.addProperty("ORG_CODE",jLabelorgcode1.getText());
+                            jsonInput.addProperty("Usename",usernamelabel.getText());
+                            jsonInput.addProperty("PasswordWordgen",aa);
+                            jsonInput.addProperty("OrgName",orgnamelabel1.getText());
+                            jsonInput.addProperty("Serial",getMotherboardSerial());
+                            String j=jsonInput.toString();
+                            update_traffic(jsonInput,caseidList.get(i));
+                            System.out.println(j);
+                            }            
+        }
+    }
+//        System.out.println("ddd"+caseList.toString());
+    
+//        System.out.println("ddd"+caseList.toString());
+      
+   
+            }
+        } catch (InterruptedException e) {
+        }
+//        setProgress(100);
+        
+        return null;
+    }
+
+    @Override
+    public void done() {
+                    if (dialog != null) {
+				dialog.dispose();
+			}
+            JOptionPane.showMessageDialog(null, "การทำรายการเสร็จสิ้น");
+        
+
+    }
+}/**/
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel TotalCase;
     private javax.swing.JLabel TotalCase1;
@@ -4300,9 +4839,12 @@ System.out.println("sasa:"+a);
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;

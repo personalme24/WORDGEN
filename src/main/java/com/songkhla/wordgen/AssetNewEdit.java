@@ -77,18 +77,18 @@ public class AssetNewEdit extends javax.swing.JDialog {
         jPanelDateAsset.add(DateSequester);    
         if(datain!=null){
             noasset=datain.get("NoAsset")+"";
-            crimecaseno.setText(datain.get("crimecaseno")+"");
-            EvidenceRecordNumber1.setText(datain.get("EvidenceRecordNumber")+"");
-            OrderAsset.setText(datain.get("OrderAsset")+"");
-            Name.setText(datain.get("Name")+"");
-            OccupantName.setText(datain.get("OccupantName")+"");
-            Amount.setText(datain.get("Amount")+"");
-            DateSequester.getJFormattedTextField().setText(datain.get("DateSequester")+"");
-            DefectMark.setText(datain.get("DefectMark")+"");
-            Value.setText(datain.get("Value")+"");
-            PlaceFoundExhibit.setText(datain.get("PlaceFoundExhibit")+"");
-            PointFoundCheck.setText(datain.get("PointFoundCheck")+"");
-             StatusAsset.setSelectedItem(datain.get("StatusAsset"));
+            crimecaseno.setText(Checknull(datain.get("crimecaseno"))+"");
+            EvidenceRecordNumber1.setText(Checknull(datain.get("EvidenceRecordNumber"))+"");
+            OrderAsset.setText(Checknull(datain.get("OrderAsset"))+"");
+            Name.setText(Checknull(datain.get("Name"))+"");
+            OccupantName.setText(Checknull(datain.get("OccupantName"))+"");
+            Amount.setText(Checknull(datain.get("Amount"))+"");
+            DateSequester.getJFormattedTextField().setText(Checknull(datain.get("DateSequester"))+"");
+            DefectMark.setText(Checknull(datain.get("DefectMark"))+"");
+            Value.setText(Checknull(datain.get("Value"))+"");
+            PlaceFoundExhibit.setText(Checknull(datain.get("PlaceFoundExhibit"))+"");
+            PointFoundCheck.setText(Checknull(datain.get("PointFoundCheck"))+"");
+             StatusAsset.setSelectedItem(Checknull(datain.get("StatusAsset")));
 
             isInsert=false;
            
@@ -572,7 +572,10 @@ public  String NoAsset(){
             }
         });
     }
-
+     public static String Checknull(Object input){
+					if(input==null||input==""||input=="null") { return ""; }
+					return input+"";
+					}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Amount;
     private javax.swing.JTextField DefectMark;

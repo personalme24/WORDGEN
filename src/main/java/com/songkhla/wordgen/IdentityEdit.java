@@ -3140,7 +3140,7 @@ JTextPopupMenu.addTo(CourtResult);
 
     private void jButtonPrintDoc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrintDoc2ActionPerformed
         // TODO add your handling code here:
-
+        insertRep();
         yourAttemptActionPerformed();
     }//GEN-LAST:event_jButtonPrintDoc2ActionPerformed
 
@@ -4723,6 +4723,289 @@ jTableWitness.getColumnModel().getColumn(7).setMaxWidth(0);
             ex.printStackTrace();
         }
     }
+                    public static void insertChargeReport(){
+      
+      try{
+          String datereport;
+          SimpleDateFormat newdate=new SimpleDateFormat("yyyy-MM-dd HH:mm");
+          Date d=new Date();
+          datereport=newdate.format(d);
+          Connection c=ConnectDatabase.connect();
+          String sqlinsert="insert into DataCharge(TypeCaseCharge,ChargeUse,DateToday) VALUES (?,?,?)";
+          PreparedStatement ps=c.prepareStatement(sqlinsert);
+             ps.setString(1, "คดีชันสูตร");
+           ps.setString(2, jLabelChargeCode.getText());
+           ps.setString(3, datereport);
+             ps.execute();
+              ps.close();
+
+      }
+      catch(Exception x){
+          System.out.println(""+x);
+      
+      }
+      
+      }
+  public static void insertDataReport(String nameReport){
+      
+      try{
+          String datereport;
+          SimpleDateFormat newdate=new SimpleDateFormat("yyyy-MM-dd HH:mm");
+          Date d=new Date();
+          datereport=newdate.format(d);
+          Connection c=ConnectDatabase.connect();
+          String sqlinsert="insert into DataForm(TypeCaseReport,NameReport,DateToday) VALUES (?,?,?)";
+          PreparedStatement ps=c.prepareStatement(sqlinsert);
+             ps.setString(1, "คดีชันสูตร");
+           ps.setString(2, nameReport);
+           ps.setString(3, datereport);
+             ps.execute();
+              ps.close();
+
+      }
+      catch(Exception x){
+          System.out.println(""+x);
+      
+      }
+      
+      }
+  public void insertRep(){
+      
+       if(jCheckW201.isSelected()){
+            insertDataReport(jCheckW201.getText());
+        }
+         if(jCheckW202.isSelected()){
+            insertDataReport(jCheckW202.getText());
+        }
+   
+        if(jCheckW206.isSelected()){
+             insertDataReport(jCheckW206.getText());          
+           
+        }
+        if(jCheckW207.isSelected()){
+           insertDataReport(jCheckW207.getText());   
+          
+        }
+        if(jCheckW208.isSelected()){
+           insertDataReport(jCheckW208.getText());   
+//            W812.w812(no);
+        }
+      
+      
+        if(jCheckW211.isSelected()){
+           insertDataReport(jCheckW211.getText()); 
+        }
+        if(jCheckW212.isSelected()){
+         insertDataReport(jCheckW212.getText()); 
+          }
+        if(jCheckW213.isSelected()){
+          insertDataReport(jCheckW213.getText()); 
+            }
+         if(jCheckW214.isSelected()){
+           insertDataReport(jCheckW214.getText());
+             }
+                if(jCheckW215.isSelected()){
+                   insertDataReport(jCheckW215.getText());
+                    }
+               if(jCheckW216.isSelected()){
+                   insertDataReport(jCheckW216.getText());
+                    }
+               if(jCheckW217.isSelected()){
+                    insertDataReport(jCheckW217.getText());
+                    }
+               if(jCheckW218.isSelected()){
+                   insertDataReport(jCheckW218.getText());
+                     }
+               if(jCheckW219.isSelected()){
+                   insertDataReport(jCheckW219.getText());
+                    }
+               if(jCheckW220.isSelected()){
+                   insertDataReport(jCheckW220.getText());
+                    }
+               
+               if(jCheckW221.isSelected()){
+                  insertDataReport(jCheckW221.getText());
+                    }
+               if(jCheckW222.isSelected()){
+                   insertDataReport(jCheckW221.getText());
+                    }
+               if(jCheckW223.isSelected()){
+                  insertDataReport(jCheckW223.getText());
+                    }
+               if(jCheckW224.isSelected()){
+                   insertDataReport(jCheckW224.getText());
+                    }
+               if(jCheckW225.isSelected()){
+                 insertDataReport(jCheckW225.getText());
+                    }
+               
+               if(jCheckW226.isSelected()){
+                  insertDataReport(jCheckW226.getText());
+                    }
+               if(jCheckW227.isSelected()){
+                 insertDataReport(jCheckW227.getText());
+                    }
+               if(jCheckW228.isSelected()){
+                 insertDataReport(jCheckW228.getText());
+                    }
+               if(jCheckW229.isSelected()){
+                  insertDataReport(jCheckW229.getText());
+                    }
+               if(jCheckW230.isSelected()){
+                 insertDataReport(jCheckW230.getText());
+                    }
+               if(jCheckW231.isSelected()){
+                  insertDataReport(jCheckW231.getText());
+                    }
+               if(jCheckW232.isSelected()){
+                   insertDataReport(jCheckW232.getText());
+                    }
+               if(jCheckW233.isSelected()){
+                     insertDataReport(jCheckW233.getText());
+                    }
+               if(jCheckW234.isSelected()){
+                      insertDataReport(jCheckW234.getText());
+                    }
+               if(jCheckW235.isSelected()){
+                    insertDataReport(jCheckW235.getText());
+                    }
+               if(jCheckW236.isSelected()){
+                      insertDataReport(jCheckW236.getText());
+                    }
+               if(jCheckW237.isSelected()){
+                      insertDataReport(jCheckW237.getText());
+                    }
+               if(jCheckW238.isSelected()){
+                       insertDataReport(jCheckW238.getText());
+                    }
+               if(jCheckW239.isSelected()){
+                      insertDataReport(jCheckW239.getText());
+                    }
+               if(jCheckW240.isSelected()){
+                       insertDataReport(jCheckW240.getText());
+                  }
+               if(jCheckW241.isSelected()){
+                       insertDataReport(jCheckW241.getText());
+                    }
+              if(jCheckW242.isSelected()){
+                     insertDataReport(jCheckW242.getText());
+                    }
+              if(jCheckW243.isSelected()){
+                       insertDataReport(jCheckW243.getText());
+                    }
+              if(jCheckW244.isSelected()){
+                     insertDataReport(jCheckW244.getText());
+                    }
+              if(jCheckW245.isSelected()){
+                     insertDataReport(jCheckW245.getText());
+                    }
+               if(jCheckW246.isSelected()){
+                   insertDataReport(jCheckW246.getText());
+                    }
+               if(jCheckW247.isSelected()){
+                       insertDataReport(jCheckW247.getText());
+                    }
+               if(jCheckW248.isSelected()){
+                      insertDataReport(jCheckW248.getText());
+                    }
+               if(jCheckW249.isSelected()){
+                     insertDataReport(jCheckW249.getText());
+                    }
+               if(jCheckW250.isSelected()){
+                        insertDataReport(jCheckW250.getText());
+                    }
+               if(jCheckW251.isSelected()){
+                       insertDataReport(jCheckW251.getText());
+                    }
+               if(jCheckW252.isSelected()){
+                         insertDataReport(jCheckW252.getText());
+                    }
+               if(jCheckW253.isSelected()){
+                       insertDataReport(jCheckW253.getText());
+                    }
+                if(jCheckW254.isSelected()){
+                      insertDataReport(jCheckW254.getText());
+                    }
+                if(jCheckW255.isSelected()){
+                    insertDataReport(jCheckW255.getText());
+                    }
+                if(jCheckW256.isSelected()){
+                      insertDataReport(jCheckW256.getText());
+                    }
+                if(jCheckW257.isSelected()){
+                     insertDataReport(jCheckW257.getText());
+                    }
+                if(jCheckW258.isSelected()){
+                    insertDataReport(jCheckW258.getText());
+                    }
+                if(jCheckW259.isSelected()){
+                  insertDataReport(jCheckW259.getText());
+                    }
+                if(jCheckW260.isSelected()){
+                   insertDataReport(jCheckW260.getText());
+                    }
+               if(jCheckW261.isSelected()){
+                   insertDataReport(jCheckW261.getText());
+                    }
+               if(jCheckW262.isSelected()){
+                  insertDataReport(jCheckW262.getText());
+                    }
+               if(jCheckW263.isSelected()){
+                  insertDataReport(jCheckW263.getText());
+                    }
+               if(jCheckW264.isSelected()){
+                 insertDataReport(jCheckW264.getText());
+                    }
+               if(jCheckW265.isSelected()){
+                 insertDataReport(jCheckW265.getText());
+                    }
+               if(jCheckW266.isSelected()){
+                 insertDataReport(jCheckW266.getText());
+                    }
+//               if(jCheckW267.isSelected()){
+////                        W67.w67(no);
+//                    }
+//     
+//               if(jCheckW269.isSelected()){
+//                        W69.w69(no);
+//                    }
+               if(jCheckW270.isSelected()){
+                  insertDataReport(jCheckW270.getText());
+                    }
+               if(jCheckW271.isSelected()){
+                   insertDataReport(jCheckW271.getText());
+                    }
+               if(jCheckW272.isSelected()){
+                  insertDataReport(jCheckW272.getText());
+                    }
+               if(jCheckW273.isSelected()){
+                   insertDataReport(jCheckW273.getText());
+                    }
+               if(jCheckW274.isSelected()){
+                    insertDataReport(jCheckW274.getText());
+                    }
+               if(jCheckW275.isSelected()){
+                     insertDataReport(jCheckW275.getText());
+                    }
+               if(jCheckW276.isSelected()){
+                    insertDataReport(jCheckW276.getText());
+                    }
+               if(jCheckW277.isSelected()){
+                    insertDataReport(jCheckW277.getText());
+                    }
+               if(jCheckW278.isSelected()){
+                   insertDataReport(jCheckW278.getText());
+                    }
+               if(jCheckW279.isSelected()){
+                    insertDataReport(jCheckW279.getText());
+                    }
+               if(jCheckW280.isSelected()){
+                   insertDataReport(jCheckW280.getText());
+                    }
+               if(jCheckW293.isSelected()){
+                   insertDataReport(jCheckW293.getText());
+                    }
+      }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JTextField ActionCrimes;
     private javax.swing.JTextArea CapitalCrimeCaseNumber;

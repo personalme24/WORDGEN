@@ -1533,6 +1533,7 @@ public class MainMenuWord extends javax.swing.JFrame {
             if (response == JOptionPane.YES_OPTION) {
                      pst.execute();
                      pst.close(); 
+                     con.close();
                      setVisible(false);
                     LogInPage lp=new LogInPage();
                      lp.setVisible(true);

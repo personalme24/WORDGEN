@@ -1882,7 +1882,6 @@
                                       <Component id="jLabel43" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                                       <Component id="jTextInvestSendtoDepartment" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="1" attributes="0">

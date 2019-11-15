@@ -44,11 +44,12 @@ public class BarChartCaseReport {
 
         Row row;
         Cell cell;  
-        row = sheet.createRow(0);
+           row = sheet.createRow(0);
         row.createCell(0);
         row.createCell(1).setCellValue("คดีอาญา");
-//        row.creatseCell(2).setCellValue("HEADER 2");
-//        row.createCell(3).setCellValue("HEADER 3");
+          row = sheet.createRow(1);
+        row.createCell(0).setCellValue("ข้อหา");
+        row.createCell(1).setCellValue("จำนวน");
     int a=0;
    try{
             Connection con=ConnectDatabase.connect();  
@@ -64,13 +65,13 @@ public class BarChartCaseReport {
             ResultSet rs = stmt1.executeQuery(sqlDataPoliceStation); 
              Statement stmt2 = con.createStatement();
             ResultSet rs2 = stmt2.executeQuery(rowCo); 
-            int r=1;
+            int r=2;
             
             
            if(rs2.next()){
             int rw=rs2.getInt("row");
                 System.out.println("sa"+a);
-               a=rw+2;
+               a=rw+3;
            }
            
             while (rs.next()) {
@@ -117,7 +118,7 @@ public class BarChartCaseReport {
         ctBoolean.setVal(true);
         ctBarChart.addNewBarDir().setVal(STBarDir.COL);
         System.out.println("ggg"+a);
-        for (int r = 2; r < a; r++) {
+        for (int r = 3; r < a; r++) {
            CTBarSer ctBarSer = ctBarChart.addNewSer();
            CTSerTx ctSerTx = ctBarSer.addNewTx();
            CTStrRef ctStrRef = ctSerTx.addNewStrRef();
@@ -175,9 +176,12 @@ public class BarChartCaseReport {
 
         Row row2;
         Cell cel2;  
-        row2 = sheet2.createRow(0);
+           row2 = sheet2.createRow(0);
         row2.createCell(0);
-        row2.createCell(1).setCellValue("คดีจราจร");
+        row2.createCell(1).setCellValue("จราจร");
+          row2 = sheet2.createRow(1);
+        row2.createCell(0).setCellValue("ข้อหา");
+        row2.createCell(1).setCellValue("จำนวน");
 //        row.creatseCell(2).setCellValue("HEADER 2");
 //        row.createCell(3).setCellValue("HEADER 3");
     int a2=0;
@@ -195,13 +199,13 @@ public class BarChartCaseReport {
             ResultSet rst = stmt2.executeQuery(rowCo2); 
              Statement stmt3 = con2.createStatement();
             ResultSet rs3 = stmt3.executeQuery(sqlDataPoliceStation2); 
-            int r2=1;
+            int r2=2;
             
             
            if(rst.next()){
             int rw2=rst.getInt("row");
                 System.out.println("sa2"+rw2);
-               a2=rw2+2;
+               a2=rw2+3;
            }
            
             while (rs3.next()) {
@@ -248,7 +252,7 @@ public class BarChartCaseReport {
         ctBoolean2.setVal(true);
         ctBarChart2.addNewBarDir().setVal(STBarDir.COL);
         System.out.println("ggg"+a2);
-        for (int r = 2; r < a2; r++) {
+        for (int r = 3; r < a2; r++) {
            CTBarSer ctBarSer2 = ctBarChart2.addNewSer();
            CTSerTx ctSerTx2 = ctBarSer2.addNewTx();
            CTStrRef ctStrRef2 = ctSerTx2.addNewStrRef();
@@ -302,9 +306,12 @@ public class BarChartCaseReport {
 
         Row row3;
         Cell cel3;  
-        row3 = sheet3.createRow(0);
+           row3 = sheet3.createRow(0);
         row3.createCell(0);
         row3.createCell(1).setCellValue("คดีชันสูตร");
+          row3= sheet3.createRow(1);
+        row3.createCell(0).setCellValue("ข้อหา");
+        row3.createCell(1).setCellValue("จำนวน");
 //        row.creatseCell(2).setCellValue("HEADER 2");
 //        row.createCell(3).setCellValue("HEADER 3");
     int a3=0;
@@ -322,13 +329,13 @@ public class BarChartCaseReport {
             ResultSet dr1 = stmt3.executeQuery(rowCo3); 
              Statement stmt4 = con3.createStatement();
             ResultSet dr2 = stmt4.executeQuery(sqlDataPoliceStation3); 
-            int r3=1;
+            int r3=2;
             
             
            if(dr1.next()){
             int rw2=dr1.getInt("row");
                 System.out.println("sa2"+a2);
-               a3=rw2+2;
+               a3=rw2+3;
            }
            
             while (dr2.next()) {
@@ -375,7 +382,7 @@ public class BarChartCaseReport {
         ctBoolean3.setVal(true);
         ctBarChart3.addNewBarDir().setVal(STBarDir.COL);
         System.out.println("ggg"+a3);
-        for (int r = 2; r < a3; r++) {
+        for (int r = 3; r < a3; r++) {
            CTBarSer ctBarSer3 = ctBarChart3.addNewSer();
            CTSerTx ctSerTx3 = ctBarSer3.addNewTx();
            CTStrRef ctStrRef3 = ctSerTx3.addNewStrRef();

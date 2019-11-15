@@ -2208,7 +2208,7 @@ JTextPopupMenu.addTo(CourtResult);
 
         jCheckW293.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW293.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW293.setText("หมายจับ");
+        jCheckW293.setText("คำร้องขอหมายจับ");
         jPanel14.add(jCheckW293, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 314, -1));
 
         jCheckW227.setBackground(new java.awt.Color(255, 255, 255));
@@ -5069,7 +5069,7 @@ if(OccuredDate.getJFormattedTextField().getText().equals("23/8/2562")){
             insertDataReport(jCheckW203.getText());
         }
         if(jCheckW204.isSelected()){
-            insertDataReport(jCheckW203.getText());
+            insertDataReport(jCheckW204.getText());
             
         }
         if(jCheckW205.isSelected()){

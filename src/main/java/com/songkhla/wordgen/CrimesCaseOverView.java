@@ -652,7 +652,8 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
                              "DELETE FROM ChargeCase WHERE ChargeCaseId='"+crimecaseId+"';\n"+
                              "DELETE FROM RecordInquiry WHERE CaseIdRecord='"+crimecaseId+"';\n"+
                              "DELETE FROM BailAsset WHERE BailCaseId='"+crimecaseId+"';\n"+
-                             "DELETE FROM ActionsCaseData WHERE ActionCaseId='"+crimecaseId+"';";
+                             "DELETE FROM ActionsCaseData WHERE ActionCaseId='"+crimecaseId+"';\n"+
+                              "DELETE FROM Asset WHERE caseidasset='"+crimecaseId+"';";
                 Connection con = ConnectDatabase.connect();
 //                System.out.println("Delete:"+sql);
                 Statement  stmt = con.createStatement();

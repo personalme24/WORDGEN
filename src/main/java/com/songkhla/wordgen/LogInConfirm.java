@@ -43,6 +43,23 @@ public class LogInConfirm extends javax.swing.JDialog{
       ImageIcon img = new ImageIcon("./Master/WD.png");
             setIconImage(img.getImage());
             setTitle("ระบบสำนวนอิเล็กทรอนิกส์ (CRIMES)");
+            Username.setEnabled(false);
+             Connection con=null;
+             con = ConnectDatabase.connect();
+             try{
+           Statement stmt = con.createStatement();
+             
+            String sql3="Select * from User";
+             ResultSet rs = stmt.executeQuery(sql3);
+             if(rs.next()){
+                 System.out.println("sadasd"+rs.getString("Username"));
+                 Username.setText(rs.getString("Username"));
+               
+                 }
+             }
+             catch(SQLException sq){
+             
+             }
     }
 
     /**
@@ -74,6 +91,7 @@ public class LogInConfirm extends javax.swing.JDialog{
             }
         });
 
+        Username.setEditable(false);
         Username.setFont(new java.awt.Font("TH SarabunPSK", 0, 22)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -95,19 +113,16 @@ public class LogInConfirm extends javax.swing.JDialog{
                 .addGap(51, 51, 51)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton1)
+                    .addComponent(jLabel3)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(Username, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
-                                    .addComponent(Password))))
-                        .addGap(54, 54, 54)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Username, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
+                            .addComponent(Password))))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,9 +137,9 @@ public class LogInConfirm extends javax.swing.JDialog{
                     .addComponent(Password))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -160,11 +175,10 @@ public class LogInConfirm extends javax.swing.JDialog{
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-         Connection con=null;
-    PreparedStatement pst=null;
-    String  username=Username.getText();
+        
+
        String password=new String(Password.getPassword());
-  
+       String username=Username.getText();
         if(username.equals("") || password.equals("")){
     JOptionPane.showMessageDialog(jPanel1, "กรุณากรอกข้อมูล", "แจ้งเตือน",
                  JOptionPane.OK_OPTION); 
@@ -189,7 +203,7 @@ public class LogInConfirm extends javax.swing.JDialog{
                    JSONObject myResponse = new JSONObject(fff);
                    String statusconnect=myResponse.getString("statusconnect");
                   if(statusconnect.equals("0")){
-                    JOptionPane.showConfirmDialog(jPanel1, "ไม่พบข้อมูลผู้ใช้ของท่านในระบบ CRIMES กรุณาติดต่อ 1228 กด 2", "แจ้งเตือน",
+                    JOptionPane.showConfirmDialog(jPanel1, "รหัสผ่านไม่ถูกต้อง", "แจ้งเตือน",
                      JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);               
                   } 
                   else if(statusconnect.equals("1")){

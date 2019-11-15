@@ -234,7 +234,7 @@ public class BaseDataMenu extends javax.swing.JDialog {
             }
         });
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("./Master/Hodiday.png"));
+        jLabel3.setIcon(new javax.swing.ImageIcon("./Master/diagram.png"));
 
         jLabel4.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel4.setText("รายงาน");

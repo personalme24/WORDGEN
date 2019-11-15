@@ -98,7 +98,7 @@
             </descriptorRefs>
             <archive>
             <manifest>
-            <mainClass>com.songkhla.wordgen.MainMenuWord</mainClass>
+            <mainClass>com.songkhla.wordgen.LoginAuthen</mainClass>
             </manifest>
             </archive>
             </configuration>

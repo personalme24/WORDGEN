@@ -62,7 +62,7 @@ public class CreateTable {
                                "	); ";
                 String sqlAnswer= "CREATE TABLE IF NOT EXISTS Answer (\n"+
                                "   IdAnswer	INTEGER	Primary Key AUTOINCREMENT,	\n"+        
-                               "   AnswerDetail  VARCHAR(100)	,	\n"+
+                               "   AnswerDetail  VARCHAR(500)	,	\n"+
                                "   AnswerTypePerson  VARCHAR(100)	,	\n"+
                                "   AnswerTypeCase VARCHAR(100)		\n"+                        
                                "	); ";

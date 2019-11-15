@@ -5,83 +5,7 @@
  */
 package com.songkhla.wordgen;
 
-import com.songkhla.document.W1;
-import com.songkhla.document.W11;
-import com.songkhla.document.W12;
-import com.songkhla.document.W13;
-import com.songkhla.document.W14;
-import com.songkhla.document.W15;
-import com.songkhla.document.W16;
-import com.songkhla.document.W17;
-import com.songkhla.document.W18;
-import com.songkhla.document.W19;
-import com.songkhla.document.W2;
-import com.songkhla.document.W20;
-import com.songkhla.document.W21;
-import com.songkhla.document.W22;
-import com.songkhla.document.W23;
-import com.songkhla.document.W24;
-import com.songkhla.document.W25;
-import com.songkhla.document.W26;
-import com.songkhla.document.W27;
-import com.songkhla.document.W28;
-import com.songkhla.document.W29;
-import com.songkhla.document.W3;
-import com.songkhla.document.W30;
-import com.songkhla.document.W31;
-import com.songkhla.document.W32;
-import com.songkhla.document.W33;
-import com.songkhla.document.W34;
-import com.songkhla.document.W35;
-import com.songkhla.document.W36;
-import com.songkhla.document.W37;
-import com.songkhla.document.W38;
-import com.songkhla.document.W39;
-import com.songkhla.document.W4;
-import com.songkhla.document.W40;
-import com.songkhla.document.W41;
-import com.songkhla.document.W42;
-import com.songkhla.document.W43;
-import com.songkhla.document.W44;
-import com.songkhla.document.W45;
-import com.songkhla.document.W46;
-import com.songkhla.document.W47;
-import com.songkhla.document.W48;
-import com.songkhla.document.W49;
-import com.songkhla.document.W5;
-import com.songkhla.document.W50;
-import com.songkhla.document.W51;
-import com.songkhla.document.W52;
-import com.songkhla.document.W53;
-import com.songkhla.document.W54;
-import com.songkhla.document.W55;
-import com.songkhla.document.W56;
-import com.songkhla.document.W57;
-import com.songkhla.document.W58;
-import com.songkhla.document.W59;
-import com.songkhla.document.W6;
-import com.songkhla.document.W60;
-import com.songkhla.document.W61;
-import com.songkhla.document.W62;
-import com.songkhla.document.W63;
-import com.songkhla.document.W64;
-import com.songkhla.document.W65;
-import com.songkhla.document.W66;
-import com.songkhla.document.W7;
-import com.songkhla.document.W70;
-import com.songkhla.document.W71;
-import com.songkhla.document.W72;
-import com.songkhla.document.W73;
-import com.songkhla.document.W74;
-import com.songkhla.document.W75;
-import com.songkhla.document.W76;
-import com.songkhla.document.W77;
-import com.songkhla.document.W78;
-import com.songkhla.document.W79;
-import com.songkhla.document.W8;
-import com.songkhla.document.W80;
-import com.songkhla.document.W9;
-import com.songkhla.document.W93;
+
 import static com.songkhla.wordgen.ActionPageInsert.ActionCrimes;
 import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseid;
 import static com.songkhla.wordgen.CrimesCaseEdit.crimecaseno;
@@ -193,8 +117,6 @@ public class LogInPage extends javax.swing.JFrame {
 //}
     }
 
-private static void Login(){
-}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -328,30 +250,20 @@ try{
              Statement stmt = con.createStatement();
             String sql ="Select * from User Where username='"+username+"' and password='"+password+"'";
              ResultSet rs = stmt.executeQuery(sql);
-             if(rs.next()){
-          String sqlUpdate="UPDATE User set StatusLogin='1',DateLogin=?,serialnum=?  where IdUser='1'";
-          try{ 
-              Date dd=new Date();
-              pst=con.prepareStatement(sqlUpdate);  
-              pst.setString(1,dd+"");
-               pst.setString(2,getMotherboardSerial());
-                     pst.execute();
-                     pst.close();
-                      UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
-                    MainMenuWord mwa=new MainMenuWord();
-                     SwingUtilities.updateComponentTreeUI(mwa);
-                     mwa.setVisible(true);
-                     setVisible(false);
-          }
-          catch(SQLException ex){
-              System.out.println("Error:"+ex);
-          }
-
+             if(rs.next()){  
+                 System.out.println("Logouttttttttttt");
+               yourAttemptActionPerformed();
+//               
+//                      UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+//                    MainMenuWord mwa=new MainMenuWord();
+//                     SwingUtilities.updateComponentTreeUI(mwa);
+//                     mwa.setVisible(true);
+//                     setVisible(false);
              }
              else{
              
          try { 
-            
+             System.out.println("FirstTimeeeeeeeeee");
          String url=  "http://172.31.191.163:8383/wordgenauthen/?USER="+username+"&PASS="+password+"&Serial="+getMotherboardSerial();
              System.out.println("url:"+url);
                   String fff =sendGET(url);
@@ -363,8 +275,11 @@ try{
                    JSONObject myResponse = new JSONObject(fff);
                    String statusconnect=myResponse.getString("statusconnect");
                   if(statusconnect.equals("0")){
-                    JOptionPane.showConfirmDialog(jPanel1, "ไม่พบข้อมูลผู้ใช้ของท่านในระบบ CRIMES กรุณาติดต่อ 1228 กด 2", "แจ้งเตือน",
-                     JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);               
+                   
+                    JOptionPane.showMessageDialog(null, "ไม่พบข้อมูลผู้ใช้ของท่านในระบบ CRIMES กรุณาติดต่อ 1228 กด 2");  
+                  } 
+                 else if(statusconnect.equals("6")){
+                   JOptionPane.showMessageDialog(null, "ชื่อผู้ใช้ของท่านยังไม่ได้รับสิทธิ์พนักงานสอบสวนหรือหัวหน้างานสอบสวน กรุณาติดต่อ 1228 กด 2");            
                   } 
                   else if(statusconnect.equals("1")){
                           yourAttemptActionPerformed();
@@ -563,7 +478,10 @@ String  username=Username.getText();
         String statusconnect,idcard,fullname,firstname,lastname,rank,rankcode,position,email,positioncode;
         String stationname,orgcode,startdate,enddate,initialname,address,province,amphur,tambon,zipcode,bk,bh,birthday,age,mobilephone;
         try { 
-            
+              String url=  "http://172.31.191.163:8383/wordgenauthen/?USER="+username+"&PASS="+password+"&Serial="+getMotherboardSerial();
+                System.out.println("url2:"+url);
+             String fff =sendGET(url);
+             JSONObject myResponse = new JSONObject(fff);
                 
 //                x = x - i;
 //            setProgress((int)((i*100)/1)+1);
@@ -573,14 +491,81 @@ String  username=Username.getText();
             String sql ="Select * from User";
              ResultSet rs = stmt.executeQuery(sql);
              if(rs.next()){
-            
+               String updatePolice="UPDATE Police SET IdCardPolice=?,RankPolice=?,FirstName=?,LastName=?,"
+                                 + "Birthday=?,Age=?,Tel=?,Position=?,RankPoliceFull=? where IdPolice='1'";
+               String updateInvest="UPDATE InvestInformation SET InvestCardID=?,InvestRank=?,InvestName=?,"
+                       + "InvestPosition=?,InvestBirthDay=?,InvestAge=?,InvestTel=?,InvestRankFull=?\n"        
+                      + "where InvestId='1'"; 
+               String updateUser="UPDATE User SET Username=?,Password=?,StatusLogin=?,DateLogin=?,SerialNum=?,PeopleCard=?\n"        
+                      + "where iduser='1'";
+                 String updateStation="UPDATE PoliceStation SET PoliceStartionCode=?,PoliceStaionName=?,PoliceStaionShort=?,StationAddress=?,StationTambon=?,"
+                         + "StationAmphur=?,StationProvince=?,PostCode=?,BK=?,BH=?,PhonePolice=?,StationAddress=?,HeadRankFull=?,HeadRankShort=?,HeadName=?,HeadPosition=?\n"        
+                         + "where PoliceStartionId='1'";
+                  Date d=new Date();
+                             pst=con.prepareStatement(updatePolice);    
+                              pst.setString(1,myResponse.getString("idcard"));
+                              pst.setString(2,myResponse.getString("rank"));
+                              pst.setString(3,myResponse.getString("firstname"));
+                              pst.setString(4,myResponse.getString("lastname"));
+                              pst.setString(5,ChangDate(myResponse.getString("birthday")));
+                              pst.setString(6,myResponse.getString("age"));
+                              pst.setString(7,myResponse.getString("mobilephone"));
+                              pst.setString(8,myResponse.getString("position"));  
+                              pst.setString(9,myResponse.getString("rankfull"));                                                 
+                              pst.executeUpdate();                
+                              pst.close();
+                              
+                              pst2=con.prepareStatement(updateInvest);    
+                              pst2.setString(1,myResponse.getString("idcard"));
+                              pst2.setString(2,myResponse.getString("rank"));
+//                              pst.setString(4,myResponse.getString("rank"));
+                              pst2.setString(3,myResponse.getString("firstname")+" "+myResponse.getString("lastname"));
+                              pst2.setString(4,myResponse.getString("position"));
+                              pst2.setString(5,ChangDate(myResponse.getString("birthday")));
+                              pst2.setString(6,myResponse.getString("age"));
+                              pst2.setString(7,myResponse.getString("mobilephone"));
+                              pst2.setString(8,myResponse.getString("rankfull"));                          
+                              pst2.executeUpdate();                
+                              pst2.close();
+                              
+                              pst3=con.prepareStatement(updateUser);
+                              pst3.setString(1,username);
+                              pst3.setString(2,password);
+                              pst3.setString(3,"1");
+                              pst3.setString(4,d+"");
+                              pst3.setString(5,getMotherboardSerial());        
+                              pst3.setString(6,myResponse.getString("idcard")); 
+//                              pst3.setString(8,myResponse.getString("passwordwordgen"));  
+//                              pst3.setString(8,"eZS5PPB/9zCElUbubieWKoD9pctqrANqhXqK49z1250=");  
+                             MainMenuWord.tk=myResponse.getString("passwordwordgen");
+                              pst3.executeUpdate();                
+                              pst3.close();
+                              
+                              pst4=con.prepareStatement(updateStation); 
+                              pst4.setString(1,myResponse.getString("orgcode"));
+//                              pst4.setString(2,"70028");
+                              pst4.setString(2,myResponse.getString("stationname"));
+                              pst4.setString(3,myResponse.getString("initialname"));
+                              pst4.setString(4,myResponse.getString("address"));
+                              pst4.setString(5,myResponse.getString("tambon"));
+                              pst4.setString(6,myResponse.getString("amphur"));                        
+                             pst4.setString(7,myResponse.getString("province"));                        
+                             pst4.setString(8,myResponse.getString("zipcode"));                        
+                             pst4.setString(9,myResponse.getString("bk"));                        
+                             pst4.setString(10,myResponse.getString("bh"));  
+                             pst4.setString(11,myResponse.getString("mobilephone"));                                                     
+                             pst4.setString(12,myResponse.getString("address"));                        
+                             pst4.setString(13,myResponse.getString("headrankfull"));                        
+                             pst4.setString(14,myResponse.getString("headpolicerank"));                        
+                             pst4.setString(15,myResponse.getString("headpolicename")+" "+myResponse.getString("headpolicesurname"));                        
+                             pst4.setString(16,myResponse.getString("headpositionfull"));                        
+                    
+                              pst4.executeUpdate();                
+                              pst4.close();
              }
              else{
 //                 String neww=re
-             String url=  "http://172.31.191.163:8383/wordgenauthen/?USER="+username+"&PASS="+password+"&Serial="+getMotherboardSerial();
-                System.out.println("url2:"+url);
-             String fff =sendGET(url);
-             JSONObject myResponse = new JSONObject(fff);
+           
 //             String statusconnect=myResponse.getString("statusconnect"); 
                 System.out.println("url2:"+myResponse.getString("idcard"));
                                 System.out.println("url2:"+myResponse.getString("rank"));

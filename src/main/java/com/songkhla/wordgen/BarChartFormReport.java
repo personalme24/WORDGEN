@@ -47,6 +47,9 @@ public class BarChartFormReport {
         row = sheet.createRow(0);
         row.createCell(0);
         row.createCell(1).setCellValue("คดีอาญา");
+          row = sheet.createRow(1);
+        row.createCell(0).setCellValue("ชื่อแบบฟอร์ม");
+        row.createCell(1).setCellValue("จำนวน");
 //        row.creatseCell(2).setCellValue("HEADER 2");
 //        row.createCell(3).setCellValue("HEADER 3");
     int a=0;
@@ -63,13 +66,13 @@ public class BarChartFormReport {
             ResultSet rs = stmt1.executeQuery(sqlDataPoliceStation); 
              Statement stmt2 = con.createStatement();
             ResultSet rs2 = stmt2.executeQuery(rowCo); 
-            int r=1;
+            int r=2;
             
             
            if(rs2.next()){
             int rw=rs2.getInt("row");
                 System.out.println("sa"+a);
-               a=rw+2;
+               a=rw+3;
            }
            
             while (rs.next()) {
@@ -116,7 +119,7 @@ public class BarChartFormReport {
         ctBoolean.setVal(true);
         ctBarChart.addNewBarDir().setVal(STBarDir.COL);
         System.out.println("ggg"+a);
-        for (int r = 2; r < a; r++) {
+        for (int r = 3; r < a; r++) {
            CTBarSer ctBarSer = ctBarChart.addNewSer();
            CTSerTx ctSerTx = ctBarSer.addNewTx();
            CTStrRef ctStrRef = ctSerTx.addNewStrRef();
@@ -174,9 +177,12 @@ public class BarChartFormReport {
 
         Row row2;
         Cell cel2;  
-        row2 = sheet2.createRow(0);
+           row2 = sheet2.createRow(0);
         row2.createCell(0);
         row2.createCell(1).setCellValue("คดีจราจร");
+          row2 = sheet2.createRow(1);
+        row2.createCell(0).setCellValue("ชื่อแบบฟอร์ม");
+        row2.createCell(1).setCellValue("จำนวน");
 //        row.creatseCell(2).setCellValue("HEADER 2");
 //        row.createCell(3).setCellValue("HEADER 3");
     int a2=0;
@@ -193,13 +199,13 @@ public class BarChartFormReport {
             ResultSet rst = stmt2.executeQuery(rowCo2); 
              Statement stmt3 = con2.createStatement();
             ResultSet rs3 = stmt3.executeQuery(sqlDataPoliceStation2); 
-            int r2=1;
+            int r2=2;
             
             
            if(rst.next()){
             int rw2=rst.getInt("row");
                 System.out.println("sa2"+rw2);
-               a2=rw2+2;
+               a2=rw2+3;
            }
            
             while (rs3.next()) {
@@ -246,7 +252,7 @@ public class BarChartFormReport {
         ctBoolean2.setVal(true);
         ctBarChart2.addNewBarDir().setVal(STBarDir.COL);
         System.out.println("ggg"+a2);
-        for (int r = 2; r < a2; r++) {
+        for (int r = 3; r < a2; r++) {
            CTBarSer ctBarSer2 = ctBarChart2.addNewSer();
            CTSerTx ctSerTx2 = ctBarSer2.addNewTx();
            CTStrRef ctStrRef2 = ctSerTx2.addNewStrRef();
@@ -300,9 +306,12 @@ public class BarChartFormReport {
 
         Row row3;
         Cell cel3;  
-        row3 = sheet3.createRow(0);
+           row3 = sheet3.createRow(0);
         row3.createCell(0);
         row3.createCell(1).setCellValue("คดีชันสูตร");
+          row3 = sheet3.createRow(1);
+        row3.createCell(0).setCellValue("ชื่อแบบฟอร์ม");
+        row3.createCell(1).setCellValue("จำนวน");
 //        row.creatseCell(2).setCellValue("HEADER 2");
 //        row.createCell(3).setCellValue("HEADER 3");
     int a3=0;
@@ -319,13 +328,13 @@ public class BarChartFormReport {
             ResultSet rs3 = stmt3.executeQuery(rowCo3); 
              Statement stmt4 = con3.createStatement();
             ResultSet rs4 = stmt4.executeQuery(sqlDataPoliceStation3); 
-            int r3=1;
+            int r3=2;
             
             
            if(rs3.next()){
             int rw2=rs3.getInt("row");
                 System.out.println("sa2"+a2);
-               a3=rw2+2;
+               a3=rw2+3;
            }
            
             while (rs4.next()) {
@@ -372,7 +381,7 @@ public class BarChartFormReport {
         ctBoolean3.setVal(true);
         ctBarChart3.addNewBarDir().setVal(STBarDir.COL);
         System.out.println("ggg"+a3);
-        for (int r = 2; r < a3; r++) {
+        for (int r = 3; r < a3; r++) {
            CTBarSer ctBarSer3 = ctBarChart3.addNewSer();
            CTSerTx ctSerTx3 = ctBarSer3.addNewTx();
            CTStrRef ctStrRef3 = ctSerTx3.addNewStrRef();

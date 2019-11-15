@@ -109,7 +109,7 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
     /**
      * Creates new form ReportforCrimesCase
      */
-    String caseid,caseyear,casetype,caseno,PoliceStaionName,noperson;
+    String caseid,caseyear,casetype,caseno,PoliceStaionName,noperson,pageBail;
     Connection con=null;
     PreparedStatement pst=null;;
     public ReportforCrimesCase(JFrame parrent,JSONObject datain) {
@@ -123,12 +123,25 @@ public class ReportforCrimesCase extends javax.swing.JDialog  {
          //jCheckW5.setSelected(true);
          //jCheckW6.setSelected(true);
 //        crimecaseno.setVisible(false);
-
+        
         if(datain != null){
         caseid=datain.get("caseid")+"";
         noperson=datain.get("personid")+"";
-                caseidreport.setText(caseid);
+        caseidreport.setText(caseid);
+      
+        pageBail=datain.get("pageBail")+"";
+        if(pageBail.equals("Bail")){
+        jCheckW270.setSelected(true);
+       jCheckW271.setSelected(true);
 
+        
+        }
+        else{
+        jCheckW270.setSelected(false);
+       jCheckW271.setSelected(false);
+        
+        }
+        
         con=ConnectDatabase.connect();
 
         try{
