@@ -38,15 +38,23 @@ import org.openxmlformats.schemas.drawingml.x2006.chart.STTickLblPos;
 
 public class BarChartCaseReport {
     public static void ReportCase(String YearDate) throws Exception {
-    
+     String namePolice="";
+        
+        Connection conn=ConnectDatabase.connect();  
+         String sql="SELECT * From Police";
+           Statement st = conn.createStatement();
+            ResultSet rsp = st.executeQuery(sql);       
+             if(rsp.next()){
+                namePolice=rsp.getString("RankPolice")+rsp.getString("FirstName")+" "+rsp.getString("LastName");
+             }
     Workbook wb = new XSSFWorkbook();
-        Sheet sheet = wb.createSheet("Sheet1");
-
+        Sheet sheet = wb.createSheet("คดีอาญา");
+        
         Row row;
         Cell cell;  
            row = sheet.createRow(0);
-        row.createCell(0);
-        row.createCell(1).setCellValue("คดีอาญา");
+        row.createCell(0).setCellValue("รายงายการใช้ข้อหาแยกตามประเภทคดีอาญา ของ "+namePolice);
+        row.createCell(1);
           row = sheet.createRow(1);
         row.createCell(0).setCellValue("ข้อหา");
         row.createCell(1).setCellValue("จำนวน");
@@ -122,17 +130,17 @@ public class BarChartCaseReport {
            CTBarSer ctBarSer = ctBarChart.addNewSer();
            CTSerTx ctSerTx = ctBarSer.addNewTx();
            CTStrRef ctStrRef = ctSerTx.addNewStrRef();
-           ctStrRef.setF("Sheet1!$A$" + r);
+           ctStrRef.setF("คดีอาญา!$A$" + r);
            ctBarSer.addNewIdx().setVal(r-2);  
            CTAxDataSource cttAxDataSource = ctBarSer.addNewCat();
            ctStrRef = cttAxDataSource.addNewStrRef();
 //           ctStrRef.setF("Sheet1!$B$1:$D$1"); 
-                      ctStrRef.setF("Sheet1!$B$1"); 
+                      ctStrRef.setF("คดีอาญา!$B$1"); 
 
            CTNumDataSource ctNumDataSource = ctBarSer.addNewVal();
            CTNumRef ctNumRef = ctNumDataSource.addNewNumRef();
 //           ctNumRef.setF("Sheet1!$B$" + r + ":$D$" + r);
-           ctNumRef.setF("Sheet1!$B$" + r );
+           ctNumRef.setF("คดีอาญา!$B$" + r );
            
 
            //at least the border lines in Libreoffice Calc ;-)
@@ -172,13 +180,13 @@ public class BarChartCaseReport {
         System.out.println(ctChart);
         
 //       ---------------------------------------------------------คดีจราจร-------------------------------------------------------
-            Sheet sheet2 = wb.createSheet("Sheet2");
+            Sheet sheet2 = wb.createSheet("คดีจราจร");
 
         Row row2;
         Cell cel2;  
            row2 = sheet2.createRow(0);
-        row2.createCell(0);
-        row2.createCell(1).setCellValue("จราจร");
+        row2.createCell(0).setCellValue("รายงายการใช้ข้อหาแยกตามประเภทคดีจราจร ของ "+namePolice);
+        row2.createCell(1);
           row2 = sheet2.createRow(1);
         row2.createCell(0).setCellValue("ข้อหา");
         row2.createCell(1).setCellValue("จำนวน");
@@ -256,14 +264,14 @@ public class BarChartCaseReport {
            CTBarSer ctBarSer2 = ctBarChart2.addNewSer();
            CTSerTx ctSerTx2 = ctBarSer2.addNewTx();
            CTStrRef ctStrRef2 = ctSerTx2.addNewStrRef();
-           ctStrRef2.setF("Sheet2!$A$" + r);
+           ctStrRef2.setF("คดีจราจร!$A$" + r);
            ctBarSer2.addNewIdx().setVal(r-2);  
            CTAxDataSource cttAxDataSource2 = ctBarSer2.addNewCat();
            ctStrRef2 = cttAxDataSource2.addNewStrRef();
-           ctStrRef2.setF("Sheet2!$B$1"); 
+           ctStrRef2.setF("คดีจราจร!$B$1"); 
            CTNumDataSource ctNumDataSource2 = ctBarSer2.addNewVal();
            CTNumRef ctNumRef2 = ctNumDataSource2.addNewNumRef();
-           ctNumRef2.setF("Sheet2!$B$" + r);
+           ctNumRef2.setF("คดีจราจร!$B$" + r);
 
            //at least the border lines in Libreoffice Calc ;-)
            ctBarSer2.addNewSpPr().addNewLn().addNewSolidFill().addNewSrgbClr().setVal(new byte[] {0,0,0});   
@@ -302,13 +310,13 @@ public class BarChartCaseReport {
         System.out.println(ctChart2);
 
 //       ---------------------------------------------------------คดีชันสูตร-------------------------------------------------------
-            Sheet sheet3 = wb.createSheet("Sheet3");
+            Sheet sheet3 = wb.createSheet("คดีชันสูตร");
 
         Row row3;
         Cell cel3;  
            row3 = sheet3.createRow(0);
-        row3.createCell(0);
-        row3.createCell(1).setCellValue("คดีชันสูตร");
+        row3.createCell(0).setCellValue("รายงายการใช้ข้อหาแยกตามประเภทคดีชันสูตรของ "+namePolice);
+        row3.createCell(1);
           row3= sheet3.createRow(1);
         row3.createCell(0).setCellValue("ข้อหา");
         row3.createCell(1).setCellValue("จำนวน");
@@ -386,14 +394,14 @@ public class BarChartCaseReport {
            CTBarSer ctBarSer3 = ctBarChart3.addNewSer();
            CTSerTx ctSerTx3 = ctBarSer3.addNewTx();
            CTStrRef ctStrRef3 = ctSerTx3.addNewStrRef();
-           ctStrRef3.setF("Sheet3!$A$" + r);
+           ctStrRef3.setF("คดีชันสูตร!$A$" + r);
            ctBarSer3.addNewIdx().setVal(r-2);  
            CTAxDataSource cttAxDataSource3 = ctBarSer3.addNewCat();
            ctStrRef3 = cttAxDataSource3.addNewStrRef();
-           ctStrRef3.setF("Sheet3!$B$1"); 
+           ctStrRef3.setF("คดีชันสูตร!$B$1"); 
            CTNumDataSource ctNumDataSource3 = ctBarSer3.addNewVal();
            CTNumRef ctNumRef3 = ctNumDataSource3.addNewNumRef();
-           ctNumRef3.setF("Sheet3!$B$" + r);
+           ctNumRef3.setF("คดีชันสูตร!$B$" + r);
 
            //at least the border lines in Libreoffice Calc ;-)
            ctBarSer3.addNewSpPr().addNewLn().addNewSolidFill().addNewSrgbClr().setVal(new byte[] {0,0,0});   

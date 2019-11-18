@@ -183,7 +183,7 @@ public class ReportView extends javax.swing.JDialog {
         );
 
         jButton2.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jButton2.setText("รายงายการใช้ข้อหาแยกตามประเภทคดี");
+        jButton2.setText("รายงานการใช้ข้อหาแยกตามประเภทคดี");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -191,7 +191,7 @@ public class ReportView extends javax.swing.JDialog {
         });
 
         jButton3.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jButton3.setText("รายงายการใช้แบบฟอร์มแยกตามประเภทคดี");
+        jButton3.setText("รายงานการใช้แบบฟอร์มแยกตามประเภทคดี");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);

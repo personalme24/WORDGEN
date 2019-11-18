@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package com.songkhla.wordgen;
+import java.awt.Desktop;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Cell;
 
@@ -39,7 +40,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  */
 public class WriteExcelDemo1
 {
-    public static void main(String[] args)
+    public static  void crimebook()
     {   Connection conn=null;
             conn=ConnectDatabase.connect();
             PreparedStatement pst=null;
@@ -118,11 +119,23 @@ public class WriteExcelDemo1
         }
 
     
-        FileOutputStream out =  new FileOutputStream(new File("รายงายการใช้ข้อหาแยกตามประเภทคดี.xlsx"));
-        workbook.write(out);
-        out.close();
+//        FileOutputStream out =  new FileOutputStream(new File("รายงายการใช้ข้อหาแยกตามประเภทคดี.xlsx"));
+//        workbook.write(out);
+//        out.close();
         System.out.println("Excel with foumula cells written successfully");
-          
+             File f3=new File("./สมุดคุมคดี");
+        f3.mkdirs();
+        FileOutputStream fileOut = new FileOutputStream("./สมุดคุมคดี/สมุดคุมคดีอาญา.xlsx");
+        workbook.write(fileOut);
+        fileOut.close();
+       Desktop desktop = Desktop.getDesktop();
+        File dirToOpen = null;
+        try {
+            dirToOpen = new File("./สมุดคุมคดี");
+            desktop.open(dirToOpen);
+        } catch (Exception iae) {
+            System.out.println("File Not Found :"+iae);
+        }
     } catch (FileNotFoundException e) {
         e.printStackTrace();
     } catch (IOException e) {

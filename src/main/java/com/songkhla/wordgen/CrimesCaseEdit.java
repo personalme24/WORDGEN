@@ -356,7 +356,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             ChargeNameCase.setText(Checknull(datain.get("ChargeNameCase"))+"");}
 //            CaseRequestDateTime.setText(datain.get("CaseRequestDate")+"");
             jTextAccused.setText(Checknull(datain.get("AccureandOther"))+"");
-            CourtType.setSelectedItem(Checknull(datain.get("TypeCourt")));
+            CourtType.setSelectedItem(datain.get("TypeCourt"));
             CrimeLocation.setText(Checknull(datain.get("CrimeLocation"))+"");
             CrimeLocationDistrict.setText(Checknull(datain.get("CrimeLocationDistrict"))+"");
             CrimeLocationAmphur.setText(Checknull(datain.get("CrimeLocationAmphur"))+"");
@@ -3057,6 +3057,7 @@ JTextPopupMenu.addTo(CourtResult);
   if (response == JOptionPane.YES_OPTION) {
          pst.executeUpdate(); 
          pst.close();
+          insertChargeReport();
          jButtonSaveCase.setEnabled(false);
          jButtonEditCase.setEnabled(true);
          CloseTextBox();

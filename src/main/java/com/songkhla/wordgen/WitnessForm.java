@@ -1472,7 +1472,7 @@ public class WitnessForm extends javax.swing.JDialog {
                     String n=firstname+" "+name[1];
                      String stren=read.getDataThaiCard().getThaiCardDetail().getEnname(); 
                                 String[] nameen=stren.split("##",2);
-                                String firstnameen=(nameen[0]+"").replace("#", "");
+                                String firstnameen=(nameen[0]+"").replace("#", " ");
                                 String nen=firstnameen+" "+nameen[1];
                     //                                String name2=name.replace("##", " ");
                     PeopleRegistrationID.setText(read.getDataThaiCard().getThaiCardDetail().getPid());

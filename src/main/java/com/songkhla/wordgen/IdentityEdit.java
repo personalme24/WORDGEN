@@ -1739,7 +1739,6 @@ JTextPopupMenu.addTo(CourtResult);
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextInvestSendtoDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1978,7 +1977,7 @@ JTextPopupMenu.addTo(CourtResult);
 
         jCheckW293.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW293.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW293.setText("หมายจับ");
+        jCheckW293.setText("คำร้องขอหมายจับ");
         jPanel14.add(jCheckW293, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 314, -1));
 
         jCheckW227.setBackground(new java.awt.Color(255, 255, 255));
@@ -2068,7 +2067,7 @@ JTextPopupMenu.addTo(CourtResult);
 
         jCheckW217.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW217.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW217.setText("บันทึกการตรวจสอบสถานที่เกิดเหตุคดีอาญา");
+        jCheckW217.setText("บันทึกการตรวจสอบสถานที่เกิดเหตุคดี");
         jPanel14.add(jCheckW217, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 160, 330, -1));
 
         jCheckW237.setBackground(new java.awt.Color(255, 255, 255));
@@ -2678,7 +2677,7 @@ JTextPopupMenu.addTo(CourtResult);
                     pst.setString(39,jCheckUnknow.getText());
                 }     
                     pst.setString(40,CircumstancesOfDeath.getText());
-          pst.setString(41,occuredTimeEnd);                
+                    pst.setString(41,occuredTimeEnd);                
                 pst.setString(42,OccuredDateEnd.getJFormattedTextField().getText());
                
 //       JOptionPane.showMessageDialog(jPanel1,null, "Data Save", JOptionPane.INFORMATION_MESSAGE);
@@ -2691,6 +2690,7 @@ JTextPopupMenu.addTo(CourtResult);
          pst.executeUpdate(); 
          pst.close();
          System.out.println("SQL : "+sql);
+         insertChargeReport();
          jButtonSaveCase.setEnabled(false);
          jButtonEditCase.setEnabled(true);
          CloseTextBox();
@@ -2842,6 +2842,7 @@ JTextPopupMenu.addTo(CourtResult);
   if (response == JOptionPane.YES_OPTION) {
          pst.executeUpdate(); 
          pst.close();
+         insertChargeReport();
          jButtonSaveCase.setEnabled(false);
          jButtonEditCase.setEnabled(true);
          CloseTextBox();
@@ -4755,6 +4756,7 @@ jTableWitness.getColumnModel().getColumn(7).setMaxWidth(0);
           datereport=newdate.format(d);
           Connection c=ConnectDatabase.connect();
           String sqlinsert="insert into DataForm(TypeCaseReport,NameReport,DateToday) VALUES (?,?,?)";
+          System.out.println("Dead:"+sqlinsert);
           PreparedStatement ps=c.prepareStatement(sqlinsert);
              ps.setString(1, "คดีชันสูตร");
            ps.setString(2, nameReport);

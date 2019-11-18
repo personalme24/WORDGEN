@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package com.songkhla.wordgen;
+import java.awt.Desktop;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Cell;
 
@@ -39,7 +40,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  */
 public class WriteExcelDemo
 {
-    public static void main(String[] args)
+    public static  void crimebook()
     {   Connection conn=null;
             conn=ConnectDatabase.connect();
             PreparedStatement pst=null;
@@ -168,11 +169,17 @@ public class WriteExcelDemo
 
         }
 
-    
-        FileOutputStream out =  new FileOutputStream(new File("สมุดคุมคดีอาญา.xlsx"));
-        workbook.write(out);
-        out.close();
-        System.out.println("Excel with foumula cells written successfully");
+            System.out.println("Excel with foumula cells written successfully");
+             File f3=new File("./สมุดคุมคดี");
+        f3.mkdirs();
+        FileOutputStream fileOut = new FileOutputStream("./สมุดคุมคดี/สมุดคุมคดีอาญา.xlsx");
+        workbook.write(fileOut);
+        fileOut.close();
+       Desktop desktop = Desktop.getDesktop();
+        File dirToOpen = null;
+         dirToOpen = new File("./สมุดคุมคดี");
+            desktop.open(dirToOpen);
+
           
     } catch (FileNotFoundException e) {
         e.printStackTrace();
@@ -213,4 +220,5 @@ public class WriteExcelDemo
     sheet.getRow(2).createCell(1).setCellValue("<== Duplicates numbers in the column are highlighted.  " +
             "Condition: Formula Is =COUNTIF($A$2:$A$11,A2)>1   (Blue Font)");
 }
+    
 }

@@ -161,7 +161,7 @@ public class W8 {
                 ///ผู้กล่าวหา
                 if (TypePerson.equals("ผู้กล่าวหา")){
                 bookmarkvalue.put("PA2",  Checknull(s.getString("PeopleRegistrationID")));
-                bookmarkvalue.put("PA3",  Checknull(ToDate(s.getString("IssueDate"))));
+                bookmarkvalue.put("PA3",  ToDate(s.getString("IssueDate")));
                 bookmarkvalue.put("PA5",  Checknull(s.getString("IssuedBy")));
                 bookmarkvalue.put("PA7",  Checknull(s.getString("FullNamePerson")));
                 bookmarkvalue.put("PA13", Checknull(s.getString("Age")));
@@ -189,7 +189,7 @@ public class W8 {
                 }
                 else if (TypePerson.equals("พยานและบุคคลอื่นๆ")){
                 bookmarkvalue.put("PW2",  Checknull(s.getString("PeopleRegistrationID")));
-                bookmarkvalue.put("PW3",  Checknull(ToDate(s.getString("IssueDate"))));
+                bookmarkvalue.put("PW3",  ToDate(s.getString("IssueDate")));
                 bookmarkvalue.put("PW5",  Checknull(s.getString("IssuedBy")));
                 bookmarkvalue.put("PW7",  Checknull(s.getString("FullNamePerson")));
                 bookmarkvalue.put("PW13", Checknull(s.getString("Age")));

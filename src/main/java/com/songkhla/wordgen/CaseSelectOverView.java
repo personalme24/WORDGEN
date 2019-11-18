@@ -2739,8 +2739,8 @@ jlabeltoken.setVisible(true);
             Element err = (Element)errNodes2.item(0);
          String insertCrime="insert into CrimeCase(CaseId,CaseType,crimecaseno,crimecaseyears,crimecasenoyear,CaseAcceptDate,CaseAccepTime,"
                        + "CaseRequestDate,CaseRequestTime,OccuredDate,OccuredTime,OccuredDateEnd,OccuredTimeEnd,ActionCodeCase,ChargeCodeCase,"
-                      + "DailyNumber,Investigator_Result,SuspectandOther,AccureandOther,PoliceNameCase,AssetCode)\n"
-                       + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; 
+                      + "DailyNumber,Investigator_Result,SuspectandOther,AccureandOther,PoliceNameCase,AssetCode,TypeCourt)\n"
+                       + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; 
          String insertCharge="insert into Charge(ChargeCode,ChargeName,Law,RateOfPenalty,Note)\n"
                        + "VALUES (?,?,?,?,?)";
           String insertChargeCase="insert into ChargeCase(ChargeCodeCase,ChargeNameCase,LawCase,RateOfPenaltyCase,NoteCase,ChargeCaseId)\n"
@@ -2790,7 +2790,8 @@ jlabeltoken.setVisible(true);
                              pst.setString(19, err.getElementsByTagName("DisplayVictimsname").item(0).getTextContent().replace("1) ", ""));   
                             pst.setString(20,"1");   
                              pst.setString(21,CheckNull(err, "EvidenceRecordNumber")); 
-                            
+                                                         pst.setString(22,"ศาลอาญา/ศาลจังหวัด"); 
+
 //                      pst.setString(13,  NewTime(err.getElementsByTagName("OccuredDateTimeTo").item(0).getTextContent())); 
                      pst.execute();
                      pst.close(); 
@@ -3030,8 +3031,8 @@ jlabeltoken.setVisible(true);
             Element err = (Element)errNodes2.item(0);
          String insertCrime="insert into CrimeCase(CaseId,CaseType,crimecaseno,crimecaseyears,crimecasenoyear,CaseAcceptDate,CaseAccepTime,"
                        + "CaseRequestDate,CaseRequestTime,OccuredDate,OccuredTime,OccuredDateEnd,OccuredTimeEnd,ActionCodeCase,ChargeCodeCase,"
-                      + "DailyNumber,Investigator_Result,SuspectandOther,AccureandOther,PoliceNameCase,CrimeLocation)\n"
-                       + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; 
+                      + "DailyNumber,Investigator_Result,SuspectandOther,AccureandOther,PoliceNameCase,CrimeLocation,TypeCourt)\n"
+                       + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; 
          String insertCharge="insert into Charge(ChargeCode,ChargeName,Law,RateOfPenalty,Note)\n"
                        + "VALUES (?,?,?,?,?)";
           String insertChargeCase="insert into ChargeCase(ChargeCodeCase,ChargeNameCase,LawCase,RateOfPenaltyCase,NoteCase,ChargeCaseId)\n"
@@ -3077,7 +3078,7 @@ jlabeltoken.setVisible(true);
                              pst.setString(19, CheckNull(err, "DisplayVictimsName").replace("1) ", ""));   
                             pst.setString(20,"1");
                            pst.setString(21,CheckNull(err, "Road"));   
-
+pst.setString(22,"ศาลอาญา/ศาลจังหวัด"); 
 
                             
 //                      pst.setString(13,  NewTime(err.getElementsByTagName("OccuredDateTimeTo").item(0).getTextContent())); 
@@ -3322,8 +3323,8 @@ jlabeltoken.setVisible(true);
             Element err = (Element)errNodes2.item(0);
           String insertCrime="insert into CrimeCase(CaseId,CaseType,crimecaseno,crimecaseyears,crimecasenoyear,CaseAcceptDate,CaseAccepTime,"
                        + "CaseRequestDate,CaseRequestTime,OccuredDate,OccuredTime,OccuredDateEnd,OccuredTimeEnd,ActionCodeCase,ChargeCodeCase,"
-                      + "DailyNumber,Investigator_Result,SuspectandOther,AccureandOther,PoliceNameCase)\n"
-                       + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; 
+                      + "DailyNumber,Investigator_Result,SuspectandOther,AccureandOther,PoliceNameCase,TypeCourt)\n"
+                       + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; 
          String insertCharge="insert into Charge(ChargeCode,ChargeName,Law,RateOfPenalty,Note)\n"
                        + "VALUES (?,?,?,?,?)";
           String insertChargeCase="insert into ChargeCase(ChargeCodeCase,ChargeNameCase,LawCase,RateOfPenaltyCase,NoteCase,ChargeCaseId)\n"
@@ -3372,6 +3373,7 @@ jlabeltoken.setVisible(true);
                             pst.setString(18, err.getElementsByTagName("DisplaySuspectName").item(0).getTextContent().replace("1) ", ""));
                              pst.setString(19, err.getElementsByTagName("DisplayVictimsname").item(0).getTextContent().replace("1) ", ""));
                           pst.setString(20,"1"); 
+                          pst.setString(21,"ศาลอาญา/ศาลจังหวัด"); 
 
 //                      pst.setString(13,  NewTime(err.getElementsByTagName("OccuredDateTimeTo").item(0).getTextContent())); 
                      pst.execute();
@@ -3616,8 +3618,8 @@ jlabeltoken.setVisible(true);
             Element err = (Element)errNodes2.item(0);
          String insertCrime="insert into CrimeCase(CaseId,CaseType,crimecaseno,crimecaseyears,crimecasenoyear,CaseAcceptDate,CaseAccepTime,"
                        + "CaseRequestDate,CaseRequestTime,OccuredDate,OccuredTime,OccuredDateEnd,OccuredTimeEnd,ActionCodeCase,ChargeCodeCase,"
-                      + "DailyNumber,Investigator_Result,SuspectandOther,AccureandOther,PoliceNameCase,CrimeLocation)\n"
-                       + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; 
+                      + "DailyNumber,Investigator_Result,SuspectandOther,AccureandOther,PoliceNameCase,CrimeLocation,TypeCourt)\n"
+                       + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; 
          String insertCharge="insert into Charge(ChargeCode,ChargeName,Law,RateOfPenalty,Note)\n"
                        + "VALUES (?,?,?,?,?)";
           String insertChargeCase="insert into ChargeCase(ChargeCodeCase,ChargeNameCase,LawCase,RateOfPenaltyCase,NoteCase,ChargeCaseId)\n"
@@ -3659,11 +3661,12 @@ jlabeltoken.setVisible(true);
                             pst.setString(16, "");  
                         
                             pst.setString(17, "อยู่ระหว่างสอบสวน");  
-                            pst.setString(18, "");
-                             pst.setString(19, "");   
+                             pst.setString(18, CheckNull(err, "DisplaySuspectsName").replace("1) ", ""));
+                             pst.setString(19, CheckNull(err, "DisplayVictimsName").replace("1) ", ""));      
                             pst.setString(20,"1");
                            pst.setString(21,CheckNull(err, "Locations"));   
-
+                          pst.setString(22,"ศาลอาญา/ศาลจังหวัด"); 
+                          
 
                             
 //                      pst.setString(13,  NewTime(err.getElementsByTagName("OccuredDateTimeTo").item(0).getTextContent())); 
@@ -4496,6 +4499,7 @@ System.out.println("sasa:"+a);
             Boolean chked = Boolean.valueOf(jTableCrime.getValueAt(i, 0).toString());
             String casno = jTableCrime.getValueAt(i, 2).toString();
             String casyear = jTableCrime.getValueAt(i, 3).toString();
+            String charge = jTableCrime.getValueAt(i, 5).toString();
             String orgcode=jLabelorgcode.getText();
             String user=usernamelabel.getText();
             String idcard=idcardlabel.getText();
@@ -4536,6 +4540,8 @@ System.out.println("sasa:"+a);
                         jsonInput.addProperty("PasswordWordgen",aa);
                         jsonInput.addProperty("OrgName",orgnamelabel.getText());
                         jsonInput.addProperty("Serial",getMotherboardSerial());
+                        jsonInput.addProperty("DisplayChargeMain",charge);
+
                         String j=jsonInput.toString();
                         //         String replaced = j.replace("\"", "\\\"");
                         //String n="{\"CrimeCaseNo\":\""+casno+"\",\"CrimeCaseYear\":\""+casyear+"\",\"ORG_CODE\":\""+orgcode+"\",\"Usename\":\""+user+"\",\"Idcard\":\""+idcard+"\",\"OrgName\":\""+nameor+"\"}";
@@ -4573,6 +4579,7 @@ System.out.println("sasa:"+a);
                             jsonInput.addProperty("PasswordWordgen",aa);
                             jsonInput.addProperty("OrgName",orgnamelabel.getText());
                             jsonInput.addProperty("Serial",getMotherboardSerial());
+                            jsonInput.addProperty("DisplayChargeMain","");
                             String j=jsonInput.toString();
                             update_crime(jsonInput,caseidList.get(i));
                             System.out.println(j);
@@ -4620,14 +4627,14 @@ System.out.println("sasa:"+a);
 				public void propertyChange(PropertyChangeEvent evt) {
 					if ("progress".equalsIgnoreCase(evt.getPropertyName())) {
 						 if (dialog == null) {
-								dialog = new JDialog();
+									dialog = new JDialog();
                                                         ImageIcon img = new ImageIcon("./Master/WD.png");
                                                            dialog.setIconImage(img.getImage());
 							dialog.setTitle("Processing");
 							dialog.setLayout(new GridBagLayout());
 							dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
 							GridBagConstraints gbc = new GridBagConstraints();
-                                                         gbc.gridheight=20;
+							 gbc.gridheight=20;
                                                         gbc.gridwidth = 10;
                                                          gbc.gridx = 10;
                                                             gbc.gridy = 20;
@@ -4638,7 +4645,16 @@ System.out.println("sasa:"+a);
                                                         ab=new JLabel("กำลังทำการดึงข้อมูลคดีจากระบบ CRIMES.....");
                                                         ab.setFont(new java.awt.Font("TH SarabunPSK", 1, 20));
 							dialog.add(ab, gbc);
-							
+							pb = new JProgressBar();
+                                                      
+//							pb.setStringPainted(true);
+//                                                        pb.setForeground(Color.blue);]
+                                               
+//                                                        pb.setMaximum(100);
+//                                                        pb.setMinimum(0);
+                                                        
+							gbc.gridy = 1;
+							dialog.add(ab, gbc);
 							dialog.pack();
 							dialog.setLocationRelativeTo(null);
 							dialog.setModal(true);
@@ -4675,9 +4691,7 @@ System.out.println("sasa:"+a);
             Boolean chked = Boolean.valueOf(jTableTraffic.getValueAt(i, 0).toString());
             String casno = jTableTraffic.getValueAt(i, 2).toString();
             String casyear = jTableTraffic.getValueAt(i, 3).toString();
-       
-
-
+           String charge = jTableTraffic.getValueAt(i, 5).toString();
             if (chked) {
                 try{
                     Connection c=null;
@@ -4722,6 +4736,8 @@ System.out.println("sasa:"+a);
                         jsonInput.addProperty("PasswordWordgen",aa);
                         jsonInput.addProperty("OrgName",orgnamelabel1.getText());
                         jsonInput.addProperty("Serial",getMotherboardSerial());
+                         jsonInput.addProperty("DisplayChargeMain",charge);
+                       
                         String j=jsonInput.toString();
                         //         String replaced = j.replace("\"", "\\\"");
                         //String n="{\"CrimeCaseNo\":\""+casno+"\",\"CrimeCaseYear\":\""+casyear+"\",\"ORG_CODE\":\""+orgcode+"\",\"Usename\":\""+user+"\",\"Idcard\":\""+idcard+"\",\"OrgName\":\""+nameor+"\"}";
@@ -4759,6 +4775,7 @@ System.out.println("sasa:"+a);
                             jsonInput.addProperty("PasswordWordgen",aa);
                             jsonInput.addProperty("OrgName",orgnamelabel1.getText());
                             jsonInput.addProperty("Serial",getMotherboardSerial());
+                            jsonInput.addProperty("DisplayChargeMain","");
                             String j=jsonInput.toString();
                             update_traffic(jsonInput,caseidList.get(i));
                             System.out.println(j);

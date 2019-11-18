@@ -2048,7 +2048,7 @@ JTextPopupMenu.addTo(CourtResult);
 
         jCheckW293.setBackground(new java.awt.Color(255, 255, 255));
         jCheckW293.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jCheckW293.setText("หมายจับ");
+        jCheckW293.setText("คำร้องขอหมายจับ");
         jPanel14.add(jCheckW293, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 314, -1));
 
         jCheckW227.setBackground(new java.awt.Color(255, 255, 255));
@@ -2867,6 +2867,7 @@ ComboItem item = (ComboItem) jComboPoliceName.getSelectedItem();
   if (response == JOptionPane.YES_OPTION) {
          pst.executeUpdate(); 
          pst.close();
+          insertChargeReport();
          jButtonSaveCase.setEnabled(false);
          jButtonEditCase.setEnabled(true);
          CloseTextBox();
