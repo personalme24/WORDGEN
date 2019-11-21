@@ -553,17 +553,17 @@ public static void nw68() {
         private static String ToDate(String strDate){
                String ResultDate="";
          try {
-//    	        if(strDate.equals(null)||strDate.equals("")||strDate.equals("null")) {
-//                    return ""; 
-//                }
-//                else{
+    	        if(strDate==null||strDate.equals("")||strDate.equals("null")) {
+                    return ""; 
+                }
+                else{
     	       SimpleDateFormat df = new SimpleDateFormat("d/MM/yyyy", new Locale("th", "TH"));  
                SimpleDateFormat dateto  = new SimpleDateFormat("d MMMM yyyy", new Locale("th", "TH"));  
                Date date=null;
                
                date = df.parse(strDate);               
                ResultDate=dateto.format(date.getTime());
-//         }
+         }
          } catch (ParseException ex) {
              Logger.getLogger(W68.class.getName()).log(Level.SEVERE, null, ex);
          }

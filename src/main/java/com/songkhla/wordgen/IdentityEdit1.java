@@ -159,7 +159,7 @@ import java.awt.Font;
  *
  * @author Petpilin
  */
-public class IdentityEdit extends javax.swing.JDialog {
+public class IdentityEdit1 extends javax.swing.JDialog {
     Connection con=null;
     PreparedStatement pst=null;;
     boolean isInsert;
@@ -171,7 +171,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
     /**
      * Creates new form CrimesCaseEdit
      */
-    public IdentityEdit(JFrame parrent,JSONObject datain){
+    public IdentityEdit1(JFrame parrent,JSONObject datain){
         super(parrent,true);
 
            initComponents(); 
@@ -191,14 +191,14 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
         g.add(jCheckNoInvest);
         g.add(jCheckOtherInvest);
         
-//      ButtonGroup ca=new ButtonGroup();
-//        ca.add(jCheckControl);
-//        ca.add(jCheckAnimal);
-//        ca.add(jCheckKill);
-//        ca.add(jCheckSuicide);
-//       ca.add(jCheckExtraordinary);
-//        ca.add(jCheckAccident);
-//        ca.add(jCheckUnknow);
+      ButtonGroup ca=new ButtonGroup();
+        ca.add(jCheckControl);
+        ca.add(jCheckAnimal);
+        ca.add(jCheckKill);
+        ca.add(jCheckSuicide);
+       ca.add(jCheckExtraordinary);
+        ca.add(jCheckAccident);
+        ca.add(jCheckUnknow);
        jCheckSue.setEnabled(false);
        jCheckNotSue.setEnabled(false);
        jLabel35.setVisible(false);
@@ -360,34 +360,34 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             CourtResult.setText(datain.get("CourtResult")+"");
               OccuredDateEnd.getJFormattedTextField().setText(datain.get("OccuredDateEnd")+"");
              OccuredDateTimeEnd.setValue(timeOccuEnd);
-//            if(CauseDead.equals("ระหว่างควบคุม")){
-//            jCheckControl.setSelected(true);
-//            
-//            }
-//            else if(CauseDead.equals("สัตว์ทำร้ายตาย")){
-//            jCheckAnimal.setSelected(true);
-//            
-//            }
-//            else if(CauseDead.equals("ผู้อื่นทำให้ตาย")){
-//            jCheckKill.setSelected(true);
-//            
-//            }
-//            else if(CauseDead.equals("ฆ่าตัวตาย")){
-//            jCheckSuicide.setSelected(true);
-//            
-//            }
-//            else if(CauseDead.equals("ถูกเจ้าพนักงานทำให้ตาย(วิสามัญ)")){
-//            jCheckExtraordinary.setSelected(true);
-//            
-//            }
-//            else if(CauseDead.equals("อุบัติเหตุ")){
-//            jCheckAccident.setSelected(true);
-//            
-//            }
-//             else if(CauseDead.equals("มิปรากฎเหตุ")){
-//            jCheckUnknow.setSelected(true);
-//            
-//            }
+            if(CauseDead.equals("ระหว่างควบคุม")){
+            jCheckControl.setSelected(true);
+            
+            }
+            else if(CauseDead.equals("สัตว์ทำร้ายตาย")){
+            jCheckAnimal.setSelected(true);
+            
+            }
+            else if(CauseDead.equals("ผู้อื่นทำให้ตาย")){
+            jCheckKill.setSelected(true);
+            
+            }
+            else if(CauseDead.equals("ฆ่าตัวตาย")){
+            jCheckSuicide.setSelected(true);
+            
+            }
+            else if(CauseDead.equals("ถูกเจ้าพนักงานทำให้ตาย(วิสามัญ)")){
+            jCheckExtraordinary.setSelected(true);
+            
+            }
+            else if(CauseDead.equals("อุบัติเหตุ")){
+            jCheckAccident.setSelected(true);
+            
+            }
+             else if(CauseDead.equals("มิปรากฎเหตุ")){
+            jCheckUnknow.setSelected(true);
+            
+            }
             CircumstancesOfDeath.setText(datain.get("CircumstancesOfDeath")+"");
             if(investSta.equals("อยู่ระหว่างสอบสวน")){
                 jCheckDuringInvest.setSelected(true);
@@ -421,7 +421,7 @@ JDatePickerImpl CaseRequestDateTime,CaseAcceptDate,OccuredDate,Invest_SendCaseDa
             
 
             } catch (ParseException ex) {
-                Logger.getLogger(IdentityEdit.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(IdentityEdit1.class.getName()).log(Level.SEVERE, null, ex);
             }
          
         }
@@ -534,6 +534,14 @@ JTextPopupMenu.addTo(CourtResult);
         jPanel2 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
+        jLabel33 = new javax.swing.JLabel();
+        jCheckSuicide = new javax.swing.JRadioButton();
+        jCheckAnimal = new javax.swing.JRadioButton();
+        jCheckKill = new javax.swing.JRadioButton();
+        jCheckAccident = new javax.swing.JRadioButton();
+        jCheckUnknow = new javax.swing.JRadioButton();
+        jCheckExtraordinary = new javax.swing.JRadioButton();
+        jCheckControl = new javax.swing.JRadioButton();
         CircumstancesOfDeath = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
@@ -799,7 +807,7 @@ JTextPopupMenu.addTo(CourtResult);
 
         jLabel10.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel10.setText("ปจว.ข้อ");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, 30));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, -1, 30));
 
         jLabel4.setFont(new java.awt.Font("TH SarabunPSK", 1, 20)); // NOI18N
         jLabel4.setText("/");
@@ -808,11 +816,11 @@ JTextPopupMenu.addTo(CourtResult);
         JSpinner.DateEditor timeEditor3 = new JSpinner.DateEditor(OccuredDateTime, "HH:mm");
         OccuredDateTime.setEditor(timeEditor3);
         //jSpinner1.setValue(new Date());
-        jPanel1.add(OccuredDateTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 210, 100, 30));
+        jPanel1.add(OccuredDateTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, 100, 30));
 
         jLabel14.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel14.setText("เวลาที่เกิดเหตุ");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, -1, 30));
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 330, -1, 30));
 
         ChargeNameCase.setEditable(false);
         ChargeNameCase.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -820,13 +828,13 @@ JTextPopupMenu.addTo(CourtResult);
 
         jLabel8.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel8.setText("วันที่รับแจ้ง");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, 30));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, -1, 30));
 
         JSpinner.DateEditor te = new JSpinner.DateEditor(CaseAcceptTimee, "HH:mm");
         CaseAcceptTimee.setEditor(te);
         //jSpinner1.setValue(new Date());
         CaseAcceptTimee.setPreferredSize(new java.awt.Dimension(29, 25));
-        jPanel1.add(CaseAcceptTimee, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, 100, 32));
+        jPanel1.add(CaseAcceptTimee, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 450, 100, 32));
 
         jLabel6.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel6.setText("ข้อหา");
@@ -834,11 +842,11 @@ JTextPopupMenu.addTo(CourtResult);
 
         jLabel12.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel12.setText("เวลารับคำร้องทุกข์");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 330, -1, 30));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 450, -1, 30));
 
         jLabel13.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel13.setText("วันที่เกิดเหตุ");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, 30));
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, -1, 30));
 
         ActionCrimes.setEditable(false);
         ActionCrimes.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
@@ -846,12 +854,12 @@ JTextPopupMenu.addTo(CourtResult);
 
         jLabel9.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel9.setText("เวลารับแจ้ง");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 290, -1, 30));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 410, -1, 30));
 
         JSpinner.DateEditor timeEditor = new JSpinner.DateEditor(CaseRequestTimee, "HH:mm");
         CaseRequestTimee.setEditor(timeEditor);
         //jSpinner1.setValue(new Date());
-        jPanel1.add(CaseRequestTimee, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 290, 100, 30));
+        jPanel1.add(CaseRequestTimee, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 410, 100, 30));
 
         jLabel7.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel7.setText("พฤติการณ์คดี");
@@ -859,10 +867,10 @@ JTextPopupMenu.addTo(CourtResult);
 
         jLabel11.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel11.setText("วันที่รับคำร้องทุกข์");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, -1, 30));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, -1, 30));
 
         DailyNumber.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jPanel1.add(DailyNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 370, 110, 32));
+        jPanel1.add(DailyNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 490, 110, 32));
 
         jLabel3.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel3.setText("อำนาจศาล");
@@ -906,7 +914,7 @@ JTextPopupMenu.addTo(CourtResult);
             .addGap(0, 32, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 220, -1));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 220, -1));
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -921,7 +929,7 @@ JTextPopupMenu.addTo(CourtResult);
             .addGap(0, 32, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 220, -1));
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, 220, -1));
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -936,14 +944,51 @@ JTextPopupMenu.addTo(CourtResult);
             .addGap(0, 32, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 220, -1));
+        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 450, 220, -1));
+
+        jLabel33.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jLabel33.setText("เหตุที่ตาย");
+        jPanel1.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
+
+        jCheckSuicide.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jCheckSuicide.setText("ฆ่าตัวตาย");
+        jPanel1.add(jCheckSuicide, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, -1, -1));
+
+        jCheckAnimal.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jCheckAnimal.setText("สัตว์ทำร้ายตาย");
+        jPanel1.add(jCheckAnimal, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, -1, -1));
+
+        jCheckKill.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jCheckKill.setText("ผู้อื่นทำให้ตาย");
+        jPanel1.add(jCheckKill, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, -1, -1));
+
+        jCheckAccident.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jCheckAccident.setText("อุบัติเหตุ");
+        jPanel1.add(jCheckAccident, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, -1, -1));
+
+        jCheckUnknow.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jCheckUnknow.setText("มิปรากฎเหตุ");
+        jCheckUnknow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckUnknowActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jCheckUnknow, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, -1, -1));
+
+        jCheckExtraordinary.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jCheckExtraordinary.setText("ถูกเจ้าพนักงานทำให้ตาย(วิสามัญ)");
+        jPanel1.add(jCheckExtraordinary, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, -1, -1));
+
+        jCheckControl.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
+        jCheckControl.setText("ระหว่างควบคุม");
+        jPanel1.add(jCheckControl, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, -1, -1));
 
         CircumstancesOfDeath.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
-        jPanel1.add(CircumstancesOfDeath, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 450, 32));
+        jPanel1.add(CircumstancesOfDeath, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 450, 32));
 
         jLabel34.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel34.setText("ตายโดย");
-        jPanel1.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 90, 30));
+        jPanel1.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 90, 30));
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1162,15 +1207,15 @@ JTextPopupMenu.addTo(CourtResult);
         JSpinner.DateEditor timeEditor4 = new JSpinner.DateEditor(OccuredDateTimeEnd, "HH:mm");
         OccuredDateTimeEnd.setEditor(timeEditor4);
         //jSpinner1.setValue(new Date());
-        jPanel1.add(OccuredDateTimeEnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, 100, 30));
+        jPanel1.add(OccuredDateTimeEnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 370, 100, 30));
 
         jLabel32.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel32.setText("เวลา");
-        jPanel1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, 80, 30));
+        jPanel1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 370, 80, 30));
 
         jLabel36.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel36.setText("ถึงวันที่");
-        jPanel1.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, 30));
+        jPanel1.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, 30));
 
         jPanelOccuredDateEnd.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1185,7 +1230,7 @@ JTextPopupMenu.addTo(CourtResult);
             .addGap(0, 32, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanelOccuredDateEnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 220, -1));
+        jPanel1.add(jPanelOccuredDateEnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 370, 220, -1));
 
         jTabbedPane2.addTab("ข้อมูลคดี", jPanel1);
 
@@ -2610,28 +2655,27 @@ JTextPopupMenu.addTo(CourtResult);
                 pst.setString(36,jLabelNumberAcc.getText());
                 pst.setString(37,jLabelNumberSus.getText());
                 pst.setString(38,jLabelNumberWitness.getText());                
-//                if(jCheckControl.isSelected()){
-//                    pst.setString(39,jCheckControl.getText());
-//                }
-//                if(jCheckAnimal.isSelected()){
-//                    pst.setString(39,jCheckAnimal.getText());
-//                }
-//                if(jCheckKill.isSelected()){
-//                    pst.setString(39,jCheckKill.getText());
-//                }
-//                if(jCheckSuicide.isSelected()){
-//                    pst.setString(39,jCheckSuicide.getText());
-//                }
-//                if(jCheckExtraordinary.isSelected()){
-//                    pst.setString(39,jCheckExtraordinary.getText());
-//                }
-//                if(jCheckAccident.isSelected()){
-//                    pst.setString(39,jCheckAccident.getText());
-//                }
-//                if(jCheckUnknow.isSelected()){
-//                    pst.setString(39,jCheckUnknow.getText());
-//                }    
-                    pst.setString(39,"");
+                if(jCheckControl.isSelected()){
+                    pst.setString(39,jCheckControl.getText());
+                }
+                if(jCheckAnimal.isSelected()){
+                    pst.setString(39,jCheckAnimal.getText());
+                }
+                if(jCheckKill.isSelected()){
+                    pst.setString(39,jCheckKill.getText());
+                }
+                if(jCheckSuicide.isSelected()){
+                    pst.setString(39,jCheckSuicide.getText());
+                }
+                if(jCheckExtraordinary.isSelected()){
+                    pst.setString(39,jCheckExtraordinary.getText());
+                }
+                if(jCheckAccident.isSelected()){
+                    pst.setString(39,jCheckAccident.getText());
+                }
+                if(jCheckUnknow.isSelected()){
+                    pst.setString(39,jCheckUnknow.getText());
+                }     
                     pst.setString(40,CircumstancesOfDeath.getText());
                     pst.setString(41,occuredTimeEnd);                
                 pst.setString(42,OccuredDateEnd.getJFormattedTextField().getText());
@@ -2766,28 +2810,27 @@ JTextPopupMenu.addTo(CourtResult);
                 pst.setString(35,jLabelNumberAcc.getText());
                 pst.setString(36,jLabelNumberSus.getText());
                 pst.setString(37,jLabelNumberWitness.getText());   
-//                     if(jCheckControl.isSelected()){
-//                    pst.setString(38,jCheckControl.getText());
-//                }
-//                if(jCheckAnimal.isSelected()){
-//                    pst.setString(38,jCheckAnimal.getText());
-//                }
-//                if(jCheckKill.isSelected()){
-//                    pst.setString(38,jCheckKill.getText());
-//                }
-//                if(jCheckSuicide.isSelected()){
-//                    pst.setString(38,jCheckSuicide.getText());
-//                }
-//                if(jCheckExtraordinary.isSelected()){
-//                    pst.setString(38,jCheckExtraordinary.getText());
-//                }
-//                if(jCheckAccident.isSelected()){
-//                    pst.setString(38,jCheckAccident.getText());
-//                }
-//                if(jCheckUnknow.isSelected()){
-//                    pst.setString(38,jCheckUnknow.getText());
-//                } 
-                pst.setString(38,"");
+                     if(jCheckControl.isSelected()){
+                    pst.setString(38,jCheckControl.getText());
+                }
+                if(jCheckAnimal.isSelected()){
+                    pst.setString(38,jCheckAnimal.getText());
+                }
+                if(jCheckKill.isSelected()){
+                    pst.setString(38,jCheckKill.getText());
+                }
+                if(jCheckSuicide.isSelected()){
+                    pst.setString(38,jCheckSuicide.getText());
+                }
+                if(jCheckExtraordinary.isSelected()){
+                    pst.setString(38,jCheckExtraordinary.getText());
+                }
+                if(jCheckAccident.isSelected()){
+                    pst.setString(38,jCheckAccident.getText());
+                }
+                if(jCheckUnknow.isSelected()){
+                    pst.setString(38,jCheckUnknow.getText());
+                }     
                 pst.setString(39,CircumstancesOfDeath.getText());
                  pst.setString(40,OccuredDateEnd.getJFormattedTextField().getText());                
                 pst.setString(41,occuredTimeEnd);      
@@ -3015,6 +3058,10 @@ JTextPopupMenu.addTo(CourtResult);
         jButtonSaveCase.setEnabled(true);
         openTextBox();
     }//GEN-LAST:event_jButtonEditCaseActionPerformed
+
+    private void jCheckUnknowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckUnknowActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckUnknowActionPerformed
 
     private void jCheckW202ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckW202ActionPerformed
         // TODO add your handling code here:
@@ -4088,14 +4135,30 @@ catch (Exception d) {  //System.out.println(d);
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(IdentityEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IdentityEdit1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(IdentityEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IdentityEdit1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(IdentityEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IdentityEdit1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(IdentityEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IdentityEdit1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -4191,13 +4254,13 @@ catch (Exception d) {  //System.out.println(d);
        OccuredDateEnd.getJFormattedTextField().setEnabled(true);
        OccuredDateTimeEnd.setEnabled(true);
        CircumstancesOfDeath.setEnabled(true);
-//          jCheckControl.setEnabled(true);
-//       jCheckAnimal.setEnabled(true);
-//       jCheckKill.setEnabled(true);
-//       jCheckSuicide.setEnabled(true);
-//       jCheckExtraordinary.setEnabled(true);
-//       jCheckAccident.setEnabled(true);
-//       jCheckUnknow.setEnabled(true);
+          jCheckControl.setEnabled(true);
+       jCheckAnimal.setEnabled(true);
+       jCheckKill.setEnabled(true);
+       jCheckSuicide.setEnabled(true);
+       jCheckExtraordinary.setEnabled(true);
+       jCheckAccident.setEnabled(true);
+       jCheckUnknow.setEnabled(true);
         jButtonAddAccused.setEnabled(true);
        jButtonEditAccured.setEnabled(true);
        jButtonDeleteAccured.setEnabled(true);
@@ -4263,13 +4326,13 @@ catch (Exception d) {  //System.out.println(d);
            OccuredDateEnd.getComponent(1).setEnabled(false);
        OccuredDateEnd.getJFormattedTextField().setEnabled(false);
        OccuredDateTimeEnd.setEnabled(false);
-//       jCheckControl.setEnabled(false);
-//       jCheckAnimal.setEnabled(false);
-//       jCheckKill.setEnabled(false);
-//       jCheckSuicide.setEnabled(false);
-//       jCheckExtraordinary.setEnabled(false);
-//       jCheckAccident.setEnabled(false);
-//       jCheckUnknow.setEnabled(false);
+       jCheckControl.setEnabled(false);
+       jCheckAnimal.setEnabled(false);
+       jCheckKill.setEnabled(false);
+       jCheckSuicide.setEnabled(false);
+       jCheckExtraordinary.setEnabled(false);
+       jCheckAccident.setEnabled(false);
+       jCheckUnknow.setEnabled(false);
         CircumstancesOfDeath.setEnabled(false);
          jButtonAddAccused.setEnabled(false);
        jButtonEditAccured.setEnabled(false);
@@ -4481,24 +4544,24 @@ catch (Exception d) {  //System.out.println(d);
 //             int rows = jTableAccure.getRowCount();
            
                  int rows = jTableSuspect.getRowCount();
-             IdentityEdit.jLabelNumberSus.setText(rows+"");
-            IdentityEdit.jTextSuspect.setText(jTableSuspect.getValueAt(0, 2).toString()); 
+             IdentityEdit1.jLabelNumberSus.setText(rows+"");
+            IdentityEdit1.jTextSuspect.setText(jTableSuspect.getValueAt(0, 2).toString()); 
            
             }
      int rows = jTableSuspect.getRowCount();
         rows = jTableSuspect.getRowCount();
       if(jTableSuspect.getRowCount()<=0){
 //             int rows = jTableAccure.getRowCount();
-            IdentityEdit.jLabelNumberSus.setText(rows+"");
-            IdentityEdit.jTextSuspect.setText(""); 
+            IdentityEdit1.jLabelNumberSus.setText(rows+"");
+            IdentityEdit1.jTextSuspect.setText(""); 
   
             }
             if(jTableSuspect.getRowCount()>1){
             
             
             
-             IdentityEdit.jLabelNumberSus.setText(rows+"");
-            IdentityEdit.jTextSuspect.setText(jTableSuspect.getValueAt(0, 2).toString()+"และพวก"); 
+             IdentityEdit1.jLabelNumberSus.setText(rows+"");
+            IdentityEdit1.jTextSuspect.setText(jTableSuspect.getValueAt(0, 2).toString()+"และพวก"); 
             
             }
     
@@ -4566,21 +4629,21 @@ jTableAccure.getColumnModel().getColumn(8).setMinWidth(0);
 jTableAccure.getColumnModel().getColumn(8).setMaxWidth(0); 
          if(jTableAccure.getRowCount()<=0){
 //             int rows = jTableAccure.getRowCount();        
-            IdentityEdit.jTextAccused.setText("");           
+            IdentityEdit1.jTextAccused.setText("");           
             }
         else if(jTableAccure.getRowCount()==1){
 //             int rows = jTableAccure.getRowCount();
                        
-            IdentityEdit.jTextAccused.setText(jTableAccure.getValueAt(0, 2).toString());           
+            IdentityEdit1.jTextAccused.setText(jTableAccure.getValueAt(0, 2).toString());           
             }
          else if(jTableAccure.getRowCount()>1){
                         
-            IdentityEdit.jTextAccused.setText(jTableAccure.getValueAt(0, 2).toString()+"และคนอื่นๆ"); 
+            IdentityEdit1.jTextAccused.setText(jTableAccure.getValueAt(0, 2).toString()+"และคนอื่นๆ"); 
         
             }
                     
              int rows = jTableAccure.getRowCount();
-             IdentityEdit.jLabelNumberAcc.setText(rows+"");  
+             IdentityEdit1.jLabelNumberAcc.setText(rows+"");  
    
         }catch(Exception ex){
             ex.printStackTrace();
@@ -4650,7 +4713,7 @@ jTableWitness.getColumnModel().getColumn(7).setMaxWidth(0);
 //             int rows = jTableAccure.getRowCount();
             
          
-            IdentityEdit.jTextWitness.setText(""); 
+            IdentityEdit1.jTextWitness.setText(""); 
             
             }
     
@@ -4658,19 +4721,19 @@ jTableWitness.getColumnModel().getColumn(7).setMaxWidth(0);
 //             int rows = jTableAccure.getRowCount();
            
         
-            IdentityEdit.jTextWitness.setText(jTableWitness.getValueAt(0, 2).toString()); 
+            IdentityEdit1.jTextWitness.setText(jTableWitness.getValueAt(0, 2).toString()); 
             
             }
         if(jTableWitness.getRowCount()>1){
             
             
              
-            IdentityEdit.jTextWitness.setText(jTableWitness.getValueAt(0, 2).toString()+"และพวก"); 
+            IdentityEdit1.jTextWitness.setText(jTableWitness.getValueAt(0, 2).toString()+"และพวก"); 
             
             }
    
             int rows = jTableWitness.getRowCount();
-                       IdentityEdit.jLabelNumberWitness.setText(rows+"");
+                       IdentityEdit1.jLabelNumberWitness.setText(rows+"");
             
           
         }catch(Exception ex){
@@ -5007,11 +5070,18 @@ jTableWitness.getColumnModel().getColumn(7).setMaxWidth(0);
     private javax.swing.JButton jButtonOpenFolder;
     private javax.swing.JButton jButtonPrintDoc2;
     private javax.swing.JButton jButtonSaveCase;
+    private javax.swing.JRadioButton jCheckAccident;
+    private javax.swing.JRadioButton jCheckAnimal;
+    private javax.swing.JRadioButton jCheckControl;
     private javax.swing.JRadioButton jCheckDuringInvest;
+    private javax.swing.JRadioButton jCheckExtraordinary;
+    private javax.swing.JRadioButton jCheckKill;
     private javax.swing.JRadioButton jCheckNoInvest;
     private javax.swing.JRadioButton jCheckNotSue;
     private javax.swing.JRadioButton jCheckOtherInvest;
     private javax.swing.JRadioButton jCheckSue;
+    private javax.swing.JRadioButton jCheckSuicide;
+    private javax.swing.JRadioButton jCheckUnknow;
     private javax.swing.JCheckBox jCheckW201;
     private javax.swing.JCheckBox jCheckW202;
     private javax.swing.JCheckBox jCheckW204;
@@ -5105,6 +5175,7 @@ jTableWitness.getColumnModel().getColumn(7).setMaxWidth(0);
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;

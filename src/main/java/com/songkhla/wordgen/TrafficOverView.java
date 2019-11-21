@@ -52,7 +52,7 @@ public class TrafficOverView extends javax.swing.JDialog {
         initComponents();
         ImageIcon img = new ImageIcon("./Master/WD.png");
         setIconImage(img.getImage());
-        setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
+        setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES) BETA");
     
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         jPanelSearch.setVisible(false);

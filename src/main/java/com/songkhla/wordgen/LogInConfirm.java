@@ -42,7 +42,7 @@ public class LogInConfirm extends javax.swing.JDialog{
         initComponents();
       ImageIcon img = new ImageIcon("./Master/WD.png");
             setIconImage(img.getImage());
-            setTitle("ระบบสำนวนอิเล็กทรอนิกส์ (CRIMES)");
+            setTitle("ระบบสำนวนอิเล็กทรอนิกส์ (CRIMES) BETA");
             Username.setEnabled(false);
              Connection con=null;
              con = ConnectDatabase.connect();
@@ -200,7 +200,12 @@ public class LogInConfirm extends javax.swing.JDialog{
          String url=  "http://172.31.191.163:8383/wordgenauthen/?USER="+username+"&PASS="+password+"&Serial="+getMotherboardSerial();
              System.out.println("url:"+url);
                   String fff =sendGET(url);
-                   JSONObject myResponse = new JSONObject(fff);
+                  if(fff.equals("0")){
+                     JOptionPane.showMessageDialog(jPanel1, "ไม่พบการเชื่อมต่อ", "แจ้งเตือน",
+                 JOptionPane.OK_OPTION); 
+                  }
+                  else{
+                  JSONObject myResponse = new JSONObject(fff);
                    String statusconnect=myResponse.getString("statusconnect");
                   if(statusconnect.equals("0")){
                     JOptionPane.showConfirmDialog(jPanel1, "รหัสผ่านไม่ถูกต้อง", "แจ้งเตือน",
@@ -214,6 +219,7 @@ public class LogInConfirm extends javax.swing.JDialog{
                         JOptionPane.showMessageDialog(null, "เข้าสู่ระบบเรียบร้อยแล้วกรุณากดปุ่ม 'เชื่อมต่อข้อมูล' อีกครั้ง"); 
                       setVisible(false);
                   }
+                  }
                  
         } catch (Exception e) {
         }
@@ -222,13 +228,16 @@ public class LogInConfirm extends javax.swing.JDialog{
    
        } 
     }//GEN-LAST:event_jButton1ActionPerformed
-private static String sendGET(String GET_URL) throws IOException {
-                String a="";
+private static String sendGET(String GET_URL) {
+    String a="";
+                try{
 		URL serverUrl = new URL(GET_URL);
-		HttpURLConnection con = (HttpURLConnection) serverUrl.openConnection();
+		HttpURLConnection con = (HttpURLConnection) serverUrl.openConnection();      
+                con.setConnectTimeout(1000);
 		con.setRequestMethod("GET");
 		con.setRequestProperty("User-Agent", "Mozilla/5.0");
                 con.setRequestProperty("Accept-Charset", "UTF-8");
+                System.out.println("ssss"+con.getResponseCode());
 		int responseCode = con.getResponseCode();
 		System.out.println("GET Response Code :: " + responseCode);
 		if (responseCode == HttpURLConnection.HTTP_OK) { // success
@@ -249,7 +258,11 @@ private static String sendGET(String GET_URL) throws IOException {
 			System.out.println("GET request not worked");
                         return null;
 		}
-                
+                }
+                catch(IOException ie){
+                System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAA"+ie);
+                return "0";
+                }
 	}
     /**
      * @param args the command line arguments

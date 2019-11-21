@@ -46,7 +46,7 @@ public class InjuryOrDie extends javax.swing.JDialog {
         initComponents();
             ImageIcon img = new ImageIcon("./Master/WD.png");
             setIconImage(img.getImage());
-            setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
+            setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES) BETA");
          AnswerTypeCase.setVisible(false);
           AnswerTypePerson.setVisible(false);
         typePerson=datacase.get("TypePerson")+"";

@@ -56,7 +56,7 @@ public class SueCrimesOverview extends javax.swing.JDialog {
         initComponents();
         ImageIcon img = new ImageIcon("./Master/WD.png");
         setIconImage(img.getImage());
-         setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
+         setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES) BETA");
            jTableSue.setOpaque(false);
         jTableSue.getTableHeader().setFont(new Font("TH SarabunPSK",Font.BOLD,20));
         jTableSue.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);

@@ -55,7 +55,7 @@ public class CrimesCaseOverView extends javax.swing.JDialog {
         initComponents();
         ImageIcon img = new ImageIcon("./Master/WD.png");
         setIconImage(img.getImage());
-        setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
+        setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES) BETA");
         setMaximumSize(new Dimension(1280, 755));
         setMinimumSize(new Dimension(1280, 755));
     

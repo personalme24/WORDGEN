@@ -230,7 +230,7 @@ public class W5 {
                     bookmarkvalue.put("PS13",  Checknull(s.getString("suspectAge")));
                     bookmarkvalue.put("PS14", Checknull(s.getString("suspectRace")));
                     bookmarkvalue.put("PS15",  Checknull(s.getString("suspectNati")));
-                    bookmarkvalue.put("P54",Checknull(ToDate(s.getString("ArrestDateTime"))));
+                    bookmarkvalue.put("P54",ToDate(s.getString("ArrestDateTime")));
                   bookmarkvalue.put("P54","");
 
                     bookmarkvalue.put("PS91",  "");
@@ -245,9 +245,9 @@ public class W5 {
                         bookmarkvalue.put("B2", Checknull(s.getString("ChargeNameCase")));
                         bookmarkvalue.put("B3", Checknull(s.getString("LawCase")));
                   
-                            bookmarkvalue.put("C4",Checknull(ToDate(s.getString("OccuredDate"))));
+                            bookmarkvalue.put("C4",ToDate(s.getString("OccuredDate")));
                             bookmarkvalue.put("C441", ReplaceCollon(s.getString("OccuredTime")));
-                            bookmarkvalue.put("C5", Checknull(ToDate(s.getString("CaseAcceptDate"))));
+                            bookmarkvalue.put("C5", ToDate(s.getString("CaseAcceptDate")));
                             bookmarkvalue.put("C551",Checknull(ReplaceCollon(s.getString("CaseAccepTime"))));
                             bookmarkvalue.put("C8", Checknull(s.getString("CrimeLocation")));
                             bookmarkvalue.put("C9", Checknull(s.getString("CrimeLocationMoo")));
@@ -256,7 +256,7 @@ public class W5 {
                             bookmarkvalue.put("C12", Checknull(s.getString("CrimeLocationDistrict")));
                             bookmarkvalue.put("C13", Checknull(s.getString("CrimeLocationAmphur")));
                             bookmarkvalue.put("C14", Checknull(s.getString("CrimeLocationProvince")));
-                            bookmarkvalue.put("C131", Checknull(ToDate(s.getString("OccuredDateEnd"))));
+                            bookmarkvalue.put("C131", ToDate(s.getString("OccuredDateEnd")));
                             bookmarkvalue.put("C132", ReplaceCollon(s.getString("OccuredTimeEnd")));
                             
                            
@@ -320,7 +320,7 @@ public class W5 {
                         
 		}catch( Exception ex) {
 			ex.printStackTrace();
-                         JOptionPane.showMessageDialog(null, "ไม่สามารถสร้างไฟล์ได้เนื่องจากไฟล์ถูกเปิดอยู่");
+//                         JOptionPane.showMessageDialog(null, "ไม่สามารถสร้างไฟล์ได้เนื่องจากไฟล์ถูกเปิดอยู่");
 		}
                 
             }
@@ -540,7 +540,7 @@ public static void nw5() {
          private static String ToDate(String strDate){
                String ResultDate="";
          try {
-    	        if(strDate.equals(null)||strDate.equals("")||strDate.equals("null")) { return "";
+    	        if(strDate==null||strDate.equals("")||strDate.equals("null")) { return "";
                 }else{
     	       SimpleDateFormat df = new SimpleDateFormat("d/MM/yyyy", new Locale("th", "TH"));  
                SimpleDateFormat dateto  = new SimpleDateFormat("d MMMM yyyy", new Locale("th", "TH"));  

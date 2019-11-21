@@ -44,7 +44,7 @@ public class InvesInformationFrom extends javax.swing.JDialog {
         initComponents();
             ImageIcon img = new ImageIcon("./Master/WD.png");
             setIconImage(img.getImage());
-            setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
+            setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES) BETA");
             
             UtilDateModel model = new UtilDateModel();
             model.setValue(Calendar.getInstance().getTime());

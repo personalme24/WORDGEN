@@ -36,7 +36,7 @@ public class BailCrimesAdd extends javax.swing.JDialog {
         initComponents();
         ImageIcon img = new ImageIcon("./Master/WD.png");
         setIconImage(img.getImage());
-         setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
+         setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES) BETA");
          ChargeName.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
         refreshAssetData();
         refreshBailSendData();

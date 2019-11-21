@@ -58,7 +58,7 @@ public class MainMenuWord extends javax.swing.JFrame {
 //        checkdata();
         ImageIcon img = new ImageIcon("./Master/WD.png");
         setIconImage(img.getImage());
-        setTitle("ระบบสำนวนอิเล็กทรอนิกส์ (CRIMES)");
+        setTitle("ระบบสำนวนอิเล็กทรอนิกส์ (CRIMES) BETA");
       jLabel13.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
        jPanel9.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
        jPanel12.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -430,7 +430,7 @@ public class MainMenuWord extends javax.swing.JFrame {
 
         jLabel27.setFont(new java.awt.Font("TH SarabunPSK", 1, 28)); // NOI18N
         jLabel27.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel27.setIcon(new javax.swing.ImageIcon("./Master/information.png"));
+        jLabel27.setIcon(new javax.swing.ImageIcon("./Master/transfer.png"));
         jLabel27.setText("เชื่อมต่อระบบ CRIMES");
 
         javax.swing.GroupLayout howtomenu2Layout = new javax.swing.GroupLayout(howtomenu2);

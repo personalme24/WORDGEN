@@ -40,7 +40,7 @@ public class StationForm extends javax.swing.JDialog {
        initComponents();
         ImageIcon img = new ImageIcon("./Master/WD.png");
         setIconImage(img.getImage());
-        setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
+        setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES) BETA");
         PoliceStartionId.setVisible(false);
        if(datain != null)
        {

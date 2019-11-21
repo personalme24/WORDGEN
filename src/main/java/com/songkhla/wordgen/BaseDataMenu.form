@@ -248,7 +248,7 @@
                   <Font name="TH SarabunPSK" size="22" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="&#xe02;&#xe49;&#xe2d;&#xe2b;&#xe32;"/>
+                <Property name="text" type="java.lang.String" value="&#xe04;&#xe25;&#xe31;&#xe07;&#xe02;&#xe49;&#xe2d;&#xe2b;&#xe32;"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -305,7 +305,7 @@
                   <Font name="TH SarabunPSK" size="22" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="&#xe1e;&#xe24;&#xe15;&#xe34;&#xe01;&#xe32;&#xe23;&#xe13;&#xe4c;"/>
+                <Property name="text" type="java.lang.String" value="&#xe04;&#xe25;&#xe31;&#xe07;&#xe1e;&#xe24;&#xe15;&#xe34;&#xe01;&#xe32;&#xe23;&#xe13;&#xe4c;"/>
               </Properties>
             </Component>
           </SubComponents>

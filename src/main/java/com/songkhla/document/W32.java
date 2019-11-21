@@ -359,7 +359,7 @@ public class W32 {
     private static String ToDate(String strDate){
                String ResultDate="";
          try {
-    	        if(strDate.equals(null)||strDate.equals("")||strDate.equals("null")) { return ""; }else{
+    	        if(strDate==null||strDate.equals("")||strDate.equals("null")) { return ""; }else{
     	       SimpleDateFormat df = new SimpleDateFormat("d/MM/yyyy", new Locale("th", "TH"));  
                SimpleDateFormat dateto  = new SimpleDateFormat("d MMMM yyyy", new Locale("th", "TH"));  
                Date date=null;
@@ -374,11 +374,13 @@ public class W32 {
      private static String ToTime(String strTime){
                String ResultTime="";
          try {
+              if(strTime==null||strTime.equals("")||strTime.equals("null")) { return ""; }
+              else{
     	       SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm", new Locale("th", "TH"));  
                SimpleDateFormat dateto  = new SimpleDateFormat("HH:mm", new Locale("th", "TH"));  
                Date date=null;
                date = df.parse(strTime);               
-               ResultTime=dateto.format(date.getTime());
+               ResultTime=dateto.format(date.getTime());}
          } catch (ParseException ex) {
              Logger.getLogger(W62.class.getName()).log(Level.SEVERE, null, ex);
          }

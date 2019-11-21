@@ -25,7 +25,7 @@ public class BaseDataMenu extends javax.swing.JDialog {
         initComponents();
         ImageIcon img = new ImageIcon("./Master/WD.png");
         setIconImage(img.getImage());
-        setTitle("ระบบสำนวนอิเล็กทรอนิกส์ (CRIMES)");
+        setTitle("ระบบสำนวนอิเล็กทรอนิกส์ (CRIMES) BETA");
     }
 
     /**
@@ -153,7 +153,7 @@ public class BaseDataMenu extends javax.swing.JDialog {
 
         jLabel15.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setText("ข้อหา");
+        jLabel15.setText("คลังข้อหา");
 
         javax.swing.GroupLayout jPanelChargeLayout = new javax.swing.GroupLayout(jPanelCharge);
         jPanelCharge.setLayout(jPanelChargeLayout);
@@ -196,7 +196,7 @@ public class BaseDataMenu extends javax.swing.JDialog {
 
         jLabel17.setFont(new java.awt.Font("TH SarabunPSK", 1, 22)); // NOI18N
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel17.setText("พฤติการณ์");
+        jLabel17.setText("คลังพฤติการณ์");
 
         javax.swing.GroupLayout jPanelActionsLayout = new javax.swing.GroupLayout(jPanelActions);
         jPanelActions.setLayout(jPanelActionsLayout);

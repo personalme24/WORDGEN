@@ -47,7 +47,7 @@ public class ChargePageInsert extends javax.swing.JDialog {
         initComponents();
          ImageIcon img = new ImageIcon("./Master/WD.png");
             setIconImage(img.getImage());
-            setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
+            setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES) BETA");
          ChargeCode.setText(IdCharge());
          con=ConnectDatabase.connect();
             if(datain!=null){

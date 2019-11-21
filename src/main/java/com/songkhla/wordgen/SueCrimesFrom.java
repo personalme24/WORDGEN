@@ -155,7 +155,7 @@ public class SueCrimesFrom extends javax.swing.JDialog {
 //        DataLastSue();
         ImageIcon img = new ImageIcon("./Master/WD.png");
         setIconImage(img.getImage());
-        setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
+        setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES) BETA");
         ChargeName.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 //        jLabel2.setVisible(false);
     closePrint();

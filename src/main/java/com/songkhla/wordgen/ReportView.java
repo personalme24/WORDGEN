@@ -40,7 +40,7 @@ public class ReportView extends javax.swing.JDialog {
         initComponents();
         ImageIcon img = new ImageIcon("./Master/WD.png");
             setIconImage(img.getImage());
-            setTitle("ระบบสำนวนอิเล็กทรอนิกส์ (CRIMES)");
+            setTitle("ระบบสำนวนอิเล็กทรอนิกส์ (CRIMES) BETA");
          CategoryDataset dataset = createDataset();
 
         JFreeChart chart = createChart(dataset);

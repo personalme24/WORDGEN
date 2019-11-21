@@ -59,7 +59,7 @@ public class BailCrimesForm extends javax.swing.JDialog {
         ChargeName.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
             ImageIcon img = new ImageIcon("./Master/WD.png");
             setIconImage(img.getImage());
-            setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
+            setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES) BETA");
         eventJStatusManage();
         RefreshData();
 //        ShowData();

@@ -44,7 +44,7 @@ public class ActionPageInsert extends javax.swing.JDialog {
         initComponents();       
          ImageIcon img = new ImageIcon("./Master/WD.png");
             setIconImage(img.getImage());
-            setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
+            setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES) BETA");
         con=ConnectDatabase.connect();
         jScrollPane5.setVisible(false);
                 jScrollPane6.setVisible(false);

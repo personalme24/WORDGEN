@@ -28,7 +28,7 @@ public class DeadBookOverview extends javax.swing.JDialog {
         initComponents();
            ImageIcon img = new ImageIcon("D://Master//WD.png");
             setIconImage(img.getImage());
-            setTitle("ระบบสำนวนอิเล็กทรอนิกส์ (CRIMES)");
+            setTitle("ระบบสำนวนอิเล็กทรอนิกส์ (CRIMES) BETA");
             pack();
             setLocationRelativeTo(null);
         jTable1.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);

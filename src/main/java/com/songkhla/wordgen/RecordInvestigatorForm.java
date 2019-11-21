@@ -49,7 +49,7 @@ public class RecordInvestigatorForm extends javax.swing.JDialog {
         initComponents();
          ImageIcon img = new ImageIcon("./Master/WD.png");
             setIconImage(img.getImage());
-            setTitle("ระบบสำนวนอิเล็กทรอนิกส์ (CRIMES)");
+            setTitle("ระบบสำนวนอิเล็กทรอนิกส์ (CRIMES) BETA");
             caseId.setVisible(false);
          UtilDateModel model2 = new UtilDateModel();
             model2.setValue(Calendar.getInstance().getTime());

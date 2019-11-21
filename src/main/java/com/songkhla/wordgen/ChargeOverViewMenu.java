@@ -41,7 +41,7 @@ public class ChargeOverViewMenu extends javax.swing.JDialog {
         initComponents();
          ImageIcon img = new ImageIcon("./Master/WD.png");
             setIconImage(img.getImage());
-            setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
+            setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES) BETA");
                  jTableCharge.getTableHeader().setFont(new Font("TH SarabunPSK", Font.BOLD, 20));
             jTableCharge.getTableHeader().setOpaque(false);
         RefreshData();

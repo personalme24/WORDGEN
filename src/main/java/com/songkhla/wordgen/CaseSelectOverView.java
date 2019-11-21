@@ -105,7 +105,7 @@ public class CaseSelectOverView extends javax.swing.JDialog {
         initComponents();
         ImageIcon img = new ImageIcon("./Master/WD.png");
         setIconImage(img.getImage());
-        setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES)");
+        setTitle("ระบบสำนวนอิเล็คทรอนิกส์ (CRIMES) BETA");
         jLabel2.setVisible(false);
         jPanel7.setVisible(true);
         jTableCrime.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
@@ -1343,7 +1343,26 @@ jlabeltoken.setVisible(true);
    }
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-       new BackgroundWorkerInsert().execute();
+                ArrayList<String> casenoList = new ArrayList<String>();
+
+            Boolean ch=false;
+              for (int i = 0; i < jTableCrime.getRowCount(); i++) {
+            Boolean chked = Boolean.valueOf(jTableCrime.getValueAt(i, 0).toString()); 
+            if(chked){
+            casenoList.add(i+"");
+            }
+//            else{
+//                ch=false;
+//            }
+          } 
+              System.out.println("boo:"+ch);
+            if (casenoList.size()>0) {
+            new BackgroundWorkerInsert().execute();
+                    }
+            else{
+              JOptionPane.showMessageDialog(null, "กรุณาทำการเลือกคดีที่ต้องการ");
+            }
+//       new BackgroundWorkerInsert().execute();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButtonConCrimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConCrimeActionPerformed
@@ -2212,7 +2231,25 @@ jlabeltoken.setVisible(true);
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-        new BackgroundWorkerInsertTraff().execute();
+              ArrayList<String> casenoList = new ArrayList<String>();
+            Boolean ch=false;
+              for (int i = 0; i < jTableTraffic.getRowCount(); i++) {
+            Boolean chked = Boolean.valueOf(jTableTraffic.getValueAt(i, 0).toString()); 
+            if(chked){
+            casenoList.add(i+"");
+            }
+//            else{
+//                ch=false;
+//            }
+          } 
+              System.out.println("boo:"+ch);
+            if (casenoList.size()>0) {
+            new BackgroundWorkerInsertTraff().execute();
+                    }
+            else{
+              JOptionPane.showMessageDialog(null, "กรุณาทำการเลือกคดีที่ต้องการ");
+            }
+        
     }//GEN-LAST:event_jButton7ActionPerformed
  
     /**
@@ -4560,7 +4597,8 @@ System.out.println("sasa:"+a);
                 //       		JOptionPane.showMessageDialog(null, "ดึงข้อมูลเรียบร้อยแล้ว");
 
                 //		JOptionPane.showMessageDialog(null, dataCol1);
-            }
+            } 
+        
         }
         if(caseList.size()>0){
             String ar=caseList.toString().replace("[", "");
